@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
       ]
     })
 
-    console.log(`Found ${questions.length} total questions for ${moduleType}`)
+    console.log(`Found ${questions.length} total questions for ${moduleType}`, questions)
 
     // Distribute questions across difficulties for better test balance
     const easyQuestions = questions.filter(q => q.difficulty === 'easy')

@@ -35,8 +35,12 @@ export default function PracticeTest() {
     questionsAnswered,
     timeRemaining,
     currentQuestionIndex,
-    currentModuleQuestions
+    currentModuleQuestions,
+    completeModule
   } = useTestState(session?.user?.email || '')
+
+  const submitModule = completeModule
+  const currentSelectedAnswer = selectedAnswer
 
   useEffect(() => {
     if (!session) {
@@ -48,14 +52,14 @@ export default function PracticeTest() {
   useEffect(() => {
     console.log('Test State Debug:', {
       hasStarted,
-      moduleStarted: testState.moduleStarted,
+      moduleStarted,
       currentModule: currentModule?.id,
       currentQuestion: currentQuestion?.id,
       currentQuestionPassage: currentQuestion?.passage,
       isTransitioning,
       isComplete
     })
-  }, [hasStarted, testState.moduleStarted, currentModule, currentQuestion, isTransitioning, isComplete])
+  }, [hasStarted, moduleStarted, currentModule, currentQuestion, isTransitioning, isComplete])
 
   if (!session) {
     return (
@@ -135,7 +139,7 @@ export default function PracticeTest() {
   }
 
   // Main test interface
-  if (currentModule && currentQuestion && hasStarted && testState.moduleStarted && !isTransitioning && !isComplete) {
+  if (currentModule && currentQuestion && hasStarted && moduleStarted && !isTransitioning && !isComplete) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
         {/* Header */}
@@ -147,31 +151,31 @@ export default function PracticeTest() {
                   {currentModule.title}
                 </h1>
                 <p className="text-gray-600">
-                  Question {testState.currentQuestionIndex + 1} of {currentModule.questionCount}
+                  Question {currentQuestionIndex + 1} of {currentModule.questionCount}
                 </p>
               </div>
               <div className="text-right">
                 <div className={`text-2xl font-bold transition-colors ${
-                  testState.timeRemaining <= 300 // 5 minutes
+                  timeRemaining <= 300 // 5 minutes
                     ? 'text-red-500 animate-pulse'
-                    : testState.timeRemaining <= 600 // 10 minutes
+                    : timeRemaining <= 600 // 10 minutes
                     ? 'text-orange-500'
                     : 'text-purple-600'
                 }`}>
-                  {Math.floor(testState.timeRemaining / 60)}:{(testState.timeRemaining % 60).toString().padStart(2, '0')}
+                  {Math.floor(timeRemaining / 60)}:{(timeRemaining % 60).toString().padStart(2, '0')}
                 </div>
                 <div className="text-sm text-gray-500">
-                  {testState.timeRemaining <= 300 ? '⚠️ Time Running Out!' : 'Time Remaining'}
+                  {timeRemaining <= 300 ? '⚠️ Time Running Out!' : 'Time Remaining'}
                 </div>
               </div>
             </div>
-            
+
             {/* Progress Bar */}
             <div className="mt-4">
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
+                <div
                   className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300"
-                  style={{ width: `${testState.progress}%` }}
+                  style={{ width: `${progress}%` }}
                 ></div>
               </div>
             </div>
@@ -210,7 +214,7 @@ export default function PracticeTest() {
               <h3 className="text-xl font-semibold mb-6 text-gray-900">
                 <MathRenderer>{currentQuestion.question}</MathRenderer>
               </h3>
-              
+
               <div className="space-y-3">
                 {currentQuestion.options.map((option, index) => {
                   const isSelected = currentSelectedAnswer === index
@@ -241,24 +245,24 @@ export default function PracticeTest() {
                 })}
               </div>
             </div>
-            
+
             <div className="flex justify-between items-center">
               <button
                 onClick={previousQuestion}
-                disabled={testState.currentQuestionIndex === 0}
+                disabled={currentQuestionIndex === 0}
                 className="px-6 py-3 bg-gray-200 text-gray-700 rounded-2xl disabled:opacity-50 hover:bg-gray-300 transition-colors font-medium"
               >
                 ← Previous
               </button>
-              
+
               <div className="text-sm text-gray-500 text-center">
-                <div>{testState.currentQuestionIndex + 1} / {currentModule.questionCount}</div>
+                <div>{currentQuestionIndex + 1} / {currentModule.questionCount}</div>
                 <div className="text-xs mt-1">
-                  {testState.questionsAnswered} answered
+                  {questionsAnswered} answered
                 </div>
               </div>
-              
-              {testState.currentQuestionIndex === currentModule.questionCount - 1 ? (
+
+              {currentQuestionIndex === currentModule.questionCount - 1 ? (
                 <button
                   onClick={submitModule}
                   className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-2xl hover:shadow-lg transition-all font-medium"
