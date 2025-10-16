@@ -25,6 +25,7 @@ export interface EvaluatedQuestion extends GeneratedQuestion {
   qualityScore: number
   isAccepted: boolean
   evaluationFeedback: string
+  imageAlt?: string
 }
 
 export class AIQuestionService {
@@ -158,6 +159,289 @@ export class AIQuestionService {
     )
     
     return questionsWithImages
+  }
+
+  /**
+   * Generate questions with custom settings
+   */
+  async generateQuestionsWithSettings(settings: {
+    llmModel: string
+    questionCount: number
+    mathCount: number
+    readingCount: number
+    temperature: number
+    maxTokens: number
+    includeCharts: boolean
+    includePassages: boolean
+  }): Promise<GeneratedQuestion[]> {
+    console.log('🤖 Generating questions with custom settings...')
+
+    try {
+      const mathQuestions = await this.generateMathQuestionsWithSettings(settings)
+      const readingQuestions = await this.generateReadingQuestionsWithSettings(settings)
+
+      const allQuestions = [...mathQuestions, ...readingQuestions]
+
+      // Generate images for math questions with charts if enabled
+      if (settings.includeCharts) {
+        const questionsWithImages = await this.generateImagesForQuestions(allQuestions as EvaluatedQuestion[])
+        return questionsWithImages
+      }
+
+      return allQuestions
+    } catch (error) {
+      console.error('Failed to generate questions with settings:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Generate math questions with custom settings
+   */
+  private async generateMathQuestionsWithSettings(settings: {
+    llmModel: string
+    questionCount: number
+    mathCount: number
+    readingCount: number
+    temperature: number
+    maxTokens: number
+    includeCharts: boolean
+    includePassages: boolean
+  }): Promise<GeneratedQuestion[]> {
+    const mathSubtopics = getAllSubtopics().filter(s => s.moduleType === 'math')
+    const selectedSubtopics = this.selectRandomSubtopics(mathSubtopics, settings.mathCount)
+
+    const prompt = this.buildMathPromptWithSettings(selectedSubtopics, settings)
+    const response = await this.callGPT5WithSettings(prompt, settings)
+
+    return this.parseMathQuestions(response, selectedSubtopics)
+  }
+
+  /**
+   * Generate reading questions with custom settings
+   */
+  private async generateReadingQuestionsWithSettings(settings: {
+    llmModel: string
+    questionCount: number
+    mathCount: number
+    readingCount: number
+    temperature: number
+    maxTokens: number
+    includeCharts: boolean
+    includePassages: boolean
+  }): Promise<GeneratedQuestion[]> {
+    const readingSubtopics = getAllSubtopics().filter(s => s.moduleType === 'reading-writing')
+    const selectedSubtopics = this.selectRandomSubtopics(readingSubtopics, settings.readingCount)
+
+    const prompt = this.buildReadingPromptWithSettings(selectedSubtopics, settings)
+    const response = await this.callGPT5WithSettings(prompt, settings)
+
+    return this.parseReadingQuestions(response, selectedSubtopics)
+  }
+
+  /**
+   * Call GPT-5 with custom settings
+   */
+  private async callGPT5WithSettings(prompt: string, settings: {
+    llmModel: string
+    questionCount: number
+    mathCount: number
+    readingCount: number
+    temperature: number
+    maxTokens: number
+    includeCharts: boolean
+    includePassages: boolean
+  }): Promise<string> {
+    console.log(`Calling ${settings.llmModel} API with custom settings...`)
+
+    try {
+      const response = await fetch(this.GPT5_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${this.GPT5_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          messages: [
+            {
+              role: 'system',
+              content: 'You are an expert SAT question writer. Generate high-quality, accurate SAT questions that match official SAT standards and difficulty levels. Always return valid JSON without any markdown formatting or code blocks.'
+            },
+            {
+              role: 'user',
+              content: prompt
+            }
+          ],
+          temperature: settings.temperature,
+          max_tokens: settings.maxTokens
+        })
+      })
+
+      console.log(`${settings.llmModel} Response Status:`, response.status, response.statusText)
+
+      if (!response.ok) {
+        const errorText = await response.text()
+        console.error(`${settings.llmModel} API Error Response:`, errorText)
+        throw new Error(`${settings.llmModel} API error: ${response.status} ${response.statusText} - ${errorText}`)
+      }
+
+      const data = await response.json()
+      console.log(`${settings.llmModel} Response Data:`, JSON.stringify(data, null, 2))
+
+      if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+        throw new Error(`Invalid ${settings.llmModel} response structure`)
+      }
+
+      const content = data.choices[0].message.content
+      console.log(`${settings.llmModel} Content Length:`, content.length)
+
+      return content
+    } catch (error) {
+      console.error(`${settings.llmModel} API call failed:`, error)
+      throw error
+    }
+  }
+
+  /**
+   * Build math questions prompt with settings
+   */
+  private buildMathPromptWithSettings(subtopics: any[], settings: {
+    llmModel: string
+    questionCount: number
+    mathCount: number
+    readingCount: number
+    temperature: number
+    maxTokens: number
+    includeCharts: boolean
+    includePassages: boolean
+  }): string {
+    const includeChartsText = settings.includeCharts ?
+      'MUST include detailed visual elements: graphs, charts, tables, diagrams, or coordinate planes' :
+      'May optionally include visual elements if they enhance understanding'
+
+    return `
+Generate exactly ${settings.mathCount} high-quality SAT Math questions, one for each of these subtopics:
+${subtopics.map((s, i) => `${i + 1}. ${s.name} (${s.topicName})`).join('\n')}
+
+Requirements for each question:
+- ${includeChartsText}
+- For coordinate geometry: specify exact points, lines, curves, and grid details
+- For functions: include function graphs with labeled axes, intercepts, and key points
+- For geometry: provide detailed diagrams with measurements, angles, and labeled vertices
+- For statistics: include data tables, bar charts, histograms, or scatter plots with specific values
+- For algebra: show coordinate planes, number lines, or visual representations of equations
+- 4 multiple choice options (A, B, C, D)
+- Clear correct answer with step-by-step explanation
+- Points value (1-4 points based on complexity)
+- Appropriate for SAT Math section
+- Vary complexity across the questions
+- Make graphs interactive when possible (e.g., "Click to identify the vertex", "Select the correct point")
+
+VISUAL REQUIREMENTS - Every question MUST have one of these (if charts enabled):
+- Coordinate plane with plotted points/lines/curves
+- Data table with numerical values
+- Bar chart, histogram, or pie chart
+- Geometric diagram with labeled measurements
+- Function graph with domain/range marked
+- Number line with inequalities or intervals
+- Scatter plot with trend lines
+- Box plot or other statistical visualization
+
+IMPORTANT MATH NOTATION REQUIREMENTS:
+- Use proper mathematical notation in questions, options, and explanations
+- For equations: Use format like "y = 2x + 3", "f(x) = x^2 - 4x + 1", "2x^2 + 3x - 5 = 0"
+- For fractions: Use "1/2", "3/4", "-2/3" format
+- For exponents: Use "x^2", "2^n", "(x+1)^3" format
+- For square roots: Use "sqrt(x)", "sqrt(25)", "sqrt(x^2 + 1)" format
+- For coordinates: Use "(2, 3)", "(-1, 4)", "(0, -2)" format
+- For inequalities: Use "x > 5", "y <= 3", "2x + 1 >= 7" format
+- For functions: Use "f(x) = ", "g(t) = ", "h(n) = " format
+- Include mathematical expressions in both questions and answer choices
+- Make explanations step-by-step with clear mathematical reasoning
+
+IMPORTANT: For the chartDescription field, be very specific about:
+- Coordinate points to plot: (x, y) coordinates with exact values
+- Function equations: y = mx + b, y = ax^2 + bx + c, etc.
+- Table data: specific numbers, headers, and formatting
+- Chart details: axis labels, scales, data points, colors
+- Geometric shapes: triangles with vertices at specific points, angles, side lengths
+- Interactive elements: what the student should click, drag, or manipulate
+- Axes ranges and labels with specific numerical values
+- Grid settings and scale increments
+
+EXAMPLES of good chartDescription content:
+- "Data table showing x values: -2, -1, 0, 1, 2 and corresponding y values: 4, 1, 0, 1, 4 for function f(x) = x^2"
+- "Coordinate plane from -10 to 10 on both axes. Plot parabola y = (x-3)^2 - 4 with vertex at (3, -4) and y-intercept at (0, 5). Grid lines every 1 unit."
+- "Bar chart showing test scores: 70-79 (5 students), 80-89 (12 students), 90-99 (8 students). Y-axis shows frequency, X-axis shows score ranges."
+
+IMPORTANT: Return ONLY a valid JSON array with no additional text, markdown, or code blocks. Use this exact format:
+
+[
+  {
+    "question": "The coordinate plane shows the graph of f(x) = x^2 - 4x + 3. What are the coordinates of the vertex?",
+    "options": ["A) (2, -1)", "B) (2, 1)", "C) (-2, -1)", "D) (4, 3)"],
+    "correctAnswer": 0,
+    "points": 3,
+    "explanation": "For f(x) = x^2 - 4x + 3, vertex x-coordinate = -b/(2a) = -(-4)/(2(1)) = 2. f(2) = (2)^2 - 4(2) + 3 = 4 - 8 + 3 = -1. Vertex is (2, -1)",
+    "subtopic": "${subtopics[0]?.name || 'Math'}",
+    "category": "${subtopics[0]?.topicName || 'Math'}",
+    "hasChart": ${settings.includeCharts},
+    "chartDescription": "Coordinate plane from -1 to 5 on x-axis and -3 to 7 on y-axis. Shows parabola f(x) = x^2 - 4x + 3 with vertex at (2, -1), y-intercept at (0, 3), and x-intercepts at (1, 0) and (3, 0). Grid lines every 1 unit.",
+    "interactionType": "point-selection",
+    "graphType": "coordinate-plane"
+  }
+]
+
+Generate all ${settings.mathCount} questions following this pattern. Ensure each question uses proper mathematical notation and includes step-by-step explanations with clear mathematical reasoning. Return only the JSON array.
+`
+  }
+
+  /**
+   * Build reading questions prompt with settings
+   */
+  private buildReadingPromptWithSettings(subtopics: any[], settings: {
+    llmModel: string
+    questionCount: number
+    mathCount: number
+    readingCount: number
+    temperature: number
+    maxTokens: number
+    includeCharts: boolean
+    includePassages: boolean
+  }): string {
+    const includePassagesText = settings.includePassages ?
+      'Include a reading passage (150-300 words)' :
+      'May optionally include shorter passages if they enhance understanding'
+
+    return `
+Generate exactly ${settings.readingCount} high-quality SAT Reading questions, one for each of these subtopics:
+${subtopics.map((s, i) => `${i + 1}. ${s.name} (${s.topicName})`).join('\n')}
+
+Requirements for each question:
+- ${includePassagesText}
+- 4 multiple choice options (A, B, C, D)
+- Clear correct answer with explanation
+- Points value (1-3 points based on complexity)
+- Appropriate for SAT Reading section
+- Vary passage types and complexity
+
+IMPORTANT: Return ONLY a valid JSON array with no additional text, markdown, or code blocks. Use this exact format:
+
+[
+  {
+    "question": "Question text here",
+    "passage": "Reading passage text here (150-300 words)...",
+    "options": ["A) Option 1", "B) Option 2", "C) Option 3", "D) Option 4"],
+    "correctAnswer": 0,
+    "points": 2,
+    "explanation": "Detailed explanation of the correct answer",
+    "subtopic": "${subtopics[0]?.name || 'Reading'}",
+    "category": "${subtopics[0]?.topicName || 'Reading'}"
+  }
+]
+
+Generate all ${settings.readingCount} questions following this pattern. Return only the JSON array.
+`
   }
   private async callGPT5(prompt: string): Promise<string> {
     console.log('Calling GPT-5 API...')
@@ -876,12 +1160,12 @@ Return ONLY a valid JSON array with this exact format:
     return shuffled.slice(0, count)
   }
 
-  async storeQuestion(question: any): Promise<void> {
+  async storeQuestion(question: GeneratedQuestion): Promise<void> {
     try {
-      await this.prisma.question.create({
+      await prisma.question.create({
         data: {
           moduleType: question.moduleType,
-          difficulty: question.difficulty,
+          difficulty: 'medium',
           category: question.category,
           subtopic: question.subtopic || question.category,
           question: question.question,
@@ -889,13 +1173,18 @@ Return ONLY a valid JSON array with this exact format:
           options: question.options,
           correctAnswer: question.correctAnswer,
           explanation: question.explanation,
-          wrongAnswerExplanations: question.wrongAnswerExplanations || null,
+          wrongAnswerExplanations: null,
           imageUrl: question.imageUrl || null,
           imageAlt: question.imageAlt || null,
-          chartData: question.chartData || null,
-          timeEstimate: question.timeEstimate || 90,
-          source: question.source || 'ai-generated',
-          tags: question.tags || [],
+          chartData: question.hasChart ? {
+            description: question.chartDescription,
+            interactionType: question.interactionType,
+            graphType: question.graphType,
+            hasGeneratedImage: !!question.imageUrl
+          } : null,
+          timeEstimate: question.points * 30,
+          source: 'ai-generated',
+          tags: [question.category, question.subtopic],
           isActive: true
         }
       })
