@@ -124,8 +124,13 @@ model Question {
   source       String?  // Source of the question (e.g., 'Official SAT', 'Khan Academy')
   tags         String[] // Additional tags for categorization
   isActive     Boolean  @default(true)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  // Review fields for question quality control
+  reviewStatus   String?  // 'pending' | 'approved' | 'rejected'
+  reviewComments String?  @db.Text // Reviewer's feedback
+  reviewedBy     String?  // Reviewer's identifier (could be user ID or name)
+  reviewedAt     DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 
   // Relations
   subtopicRef     Subtopic? @relation(fields: [subtopicId], references: [id])

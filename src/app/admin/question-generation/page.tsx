@@ -6,12 +6,13 @@ import { useRouter } from 'next/navigation'
 import { ADMIN_EMAILS } from '@/middleware/adminAuth'
 
 interface GenerationSettings {
-  llmModel: string
-  questionCount: number
-  mathCount: number
-  readingCount: number
+  model1: string
+  model2: string
+  model3: string
+  numQuestionsPerSubtopic: number
   temperature: number
   maxTokens: number
+  delayMinutes: number
   includeCharts: boolean
   includePassages: boolean
 }
@@ -60,12 +61,13 @@ interface GenerationResult {
 }
 
 const DEFAULT_SETTINGS: GenerationSettings = {
-  llmModel: 'gpt-5',
-  questionCount: 50,
-  mathCount: 25,
-  readingCount: 25,
+  model1: 'gpt-5',
+  model2: 'grok-3',
+  model3: 'llama-maverick',
+  numQuestionsPerSubtopic: 1,
   temperature: 0.7,
   maxTokens: 8000,
+  delayMinutes: 1,
   includeCharts: true,
   includePassages: true
 }
@@ -112,7 +114,7 @@ export default function EnhancedQuestionGeneration() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-red-600 mb-4">Access Denied</h1>
-          <p className="text-gray-600">You don't have permission to access this page.</p>
+          <p className="text-gray-600">You don&apos;t have permission to access this page.</p>
         </div>
       </div>
     )
@@ -150,7 +152,7 @@ export default function EnhancedQuestionGeneration() {
       updateStep('init', { status: 'completed', message: 'AI services ready' })
 
       // Step 2: Generate questions
-      updateStep('generate', { status: 'running', message: `Generating ${settings.questionCount} questions with ${settings.llmModel}...` })
+      updateStep('generate', { status: 'running', message: `Generating questions using ${settings.model1}, ${settings.model2}, and ${settings.model3}...` })
 
       const response = await fetch('/api/admin/enhanced-generate-questions', {
         method: 'POST',
@@ -226,66 +228,82 @@ export default function EnhancedQuestionGeneration() {
               <h2 className="text-2xl font-bold text-gray-900 mb-6">⚙️ Generation Settings</h2>
 
               <div className="space-y-6">
-                {/* LLM Model Selection */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">AI Model</label>
-                  <select
-                    value={settings.llmModel}
-                    onChange={(e) => setSettings(prev => ({ ...prev, llmModel: e.target.value }))}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    disabled={generating}
-                  >
-                    {AVAILABLE_MODELS.map(model => (
-                      <option key={model.id} value={model.id}>
-                        {model.name}
-                      </option>
-                    ))}
-                  </select>
-                  <p className="text-xs text-gray-500 mt-1">
-                    {AVAILABLE_MODELS.find(m => m.id === settings.llmModel)?.description}
-                  </p>
+                {/* LLM Model Selection - 3 Models */}
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-gray-900">AI Models (Interactive Mode)</h3>
+                  <div className="grid grid-cols-1 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Model 1</label>
+                      <select
+                        value={settings.model1}
+                        onChange={(e) => setSettings(prev => ({ ...prev, model1: e.target.value }))}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        disabled={generating}
+                      >
+                        {AVAILABLE_MODELS.map(model => (
+                          <option key={model.id} value={model.id}>
+                            {model.name}
+                          </option>
+                        ))}
+                      </select>
+                      <p className="text-xs text-gray-500 mt-1">
+                        {AVAILABLE_MODELS.find(m => m.id === settings.model1)?.description}
+                      </p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Model 2</label>
+                      <select
+                        value={settings.model2}
+                        onChange={(e) => setSettings(prev => ({ ...prev, model2: e.target.value }))}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        disabled={generating}
+                      >
+                        {AVAILABLE_MODELS.map(model => (
+                          <option key={model.id} value={model.id}>
+                            {model.name}
+                          </option>
+                        ))}
+                      </select>
+                      <p className="text-xs text-gray-500 mt-1">
+                        {AVAILABLE_MODELS.find(m => m.id === settings.model2)?.description}
+                      </p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Model 3</label>
+                      <select
+                        value={settings.model3}
+                        onChange={(e) => setSettings(prev => ({ ...prev, model3: e.target.value }))}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        disabled={generating}
+                      >
+                        {AVAILABLE_MODELS.map(model => (
+                          <option key={model.id} value={model.id}>
+                            {model.name}
+                          </option>
+                        ))}
+                      </select>
+                      <p className="text-xs text-gray-500 mt-1">
+                        {AVAILABLE_MODELS.find(m => m.id === settings.model3)?.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Question Counts */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Math Questions</label>
-                    <input
-                      type="number"
-                      min="0"
-                      max="20"
-                      value={settings.mathCount}
-                      onChange={(e) => {
-                        const mathCount = parseInt(e.target.value) || 0
-                        setSettings(prev => ({
-                          ...prev,
-                          mathCount,
-                          questionCount: mathCount + prev.readingCount
-                        }))
-                      }}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      disabled={generating}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Reading Questions</label>
-                    <input
-                      type="number"
-                      min="0"
-                      max="20"
-                      value={settings.readingCount}
-                      onChange={(e) => {
-                        const readingCount = parseInt(e.target.value) || 0
-                        setSettings(prev => ({
-                          ...prev,
-                          readingCount,
-                          questionCount: prev.mathCount + readingCount
-                        }))
-                      }}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      disabled={generating}
-                    />
-                  </div>
+                {/* Questions Per Subtopic */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Questions Per Subtopic</label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="10"
+                    value={settings.numQuestionsPerSubtopic}
+                    onChange={(e) => setSettings(prev => ({ ...prev, numQuestionsPerSubtopic: parseInt(e.target.value) || 1 }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    disabled={generating}
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Number of questions to generate for each SAT subtopic
+                  </p>
                 </div>
 
                 {/* Advanced Settings */}
@@ -322,6 +340,22 @@ export default function EnhancedQuestionGeneration() {
                       />
                     </div>
 
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Delay Between Questions (minutes)</label>
+                      <input
+                        type="number"
+                        min="0"
+                        max="60"
+                        value={settings.delayMinutes}
+                        onChange={(e) => setSettings(prev => ({ ...prev, delayMinutes: parseInt(e.target.value) || 1 }))}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        disabled={generating}
+                      />
+                      <p className="text-xs text-gray-500 mt-1">
+                        Delay between generating questions to avoid rate limits
+                      </p>
+                    </div>
+
                     <div className="flex items-center">
                       <input
                         type="checkbox"
@@ -355,10 +389,10 @@ export default function EnhancedQuestionGeneration() {
                 {/* Generate Button */}
                 <button
                   onClick={handleGenerate}
-                  disabled={generating || settings.questionCount === 0}
+                  disabled={generating}
                   className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 rounded-xl font-bold text-lg hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105"
                 >
-                  {generating ? '🚀 Generating Questions...' : `🎯 Generate ${settings.questionCount} Questions`}
+                  {generating ? '🚀 Generating Questions...' : `🎯 Generate Questions`}
                 </button>
               </div>
             </div>
