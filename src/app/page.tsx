@@ -45,6 +45,9 @@ export default function Home() {
                         <Link href="/admin/questions" className="relative text-orange-600 hover:text-orange-800 dark:text-orange-400 dark:hover:text-orange-300 font-medium transition-all duration-300 hover:scale-105">
                           Admin: Questions
                         </Link>
+                        <Link href="/question-review" className="relative text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 font-medium transition-all duration-300 hover:scale-105">
+                          Question Review
+                        </Link>
                         <Link href="/demo-interactive-math" className="relative text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-all duration-300 hover:scale-105">
                           Demo: Interactive
                         </Link>

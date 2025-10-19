@@ -1,88 +1,95 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { NextRequest, NextResponse } from 'next/server';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url)
-    const moduleType = searchParams.get('moduleType') || 'reading-writing'
-    const limit = parseInt(searchParams.get('limit') || '27')
+    const { searchParams } = new URL(request.url);
+    const category = searchParams.get('category');
+    const subtopic = searchParams.get('subtopic');
+    const source = searchParams.get('source');
+    const limit = parseInt(searchParams.get('limit') || '50');
+    const offset = parseInt(searchParams.get('offset') || '0');
 
-    console.log(`Fetching ${limit} questions for moduleType: ${moduleType}`)
+    // Build where clause
+    const where: any = {
+      isActive: true
+    };
 
-    // Get questions with better distribution across difficulties and categories
-    const questions = await prisma.question.findMany({
-      where: {
-        isActive: true,
-        moduleType
-      },
-      take: limit * 2, // Get more questions to allow for better selection
-      orderBy: [
-        { difficulty: 'asc' },
-        { category: 'asc' },
-        { createdAt: 'desc' }
-      ]
-    })
-
-    console.log(`Found ${questions.length} total questions for ${moduleType}`, questions)
-
-    // Distribute questions across difficulties for better test balance
-    const easyQuestions = questions.filter(q => q.difficulty === 'easy')
-    const mediumQuestions = questions.filter(q => q.difficulty === 'medium')
-    const hardQuestions = questions.filter(q => q.difficulty === 'hard')
-
-    // SAT-like distribution: ~40% easy, 40% medium, 20% hard
-    const easyCount = Math.floor(limit * 0.4)
-    const mediumCount = Math.floor(limit * 0.4)
-    const hardCount = limit - easyCount - mediumCount
-
-    const selectedQuestions = [
-      ...easyQuestions.slice(0, easyCount),
-      ...mediumQuestions.slice(0, mediumCount),
-      ...hardQuestions.slice(0, hardCount)
-    ]
-
-    // If we don't have enough questions in specific difficulties, fill with available ones
-    while (selectedQuestions.length < limit && questions.length > selectedQuestions.length) {
-      const remaining = questions.filter(q => !selectedQuestions.includes(q))
-      if (remaining.length > 0) {
-        selectedQuestions.push(remaining[0])
-      } else {
-        break
-      }
+    if (category) {
+      where.category = category;
     }
 
-    // Shuffle the selected questions for variety
-    const shuffledQuestions = selectedQuestions
-      .sort(() => Math.random() - 0.5)
-      .slice(0, limit)
+    if (subtopic) {
+      where.subtopic = subtopic;
+    }
 
-    console.log(`Returning ${shuffledQuestions.length} questions with distribution:`, {
-      easy: shuffledQuestions.filter(q => q.difficulty === 'easy').length,
-      medium: shuffledQuestions.filter(q => q.difficulty === 'medium').length,
-      hard: shuffledQuestions.filter(q => q.difficulty === 'hard').length
-    })
+    if (source) {
+      where.source = source;
+    }
 
-    return NextResponse.json(shuffledQuestions.map(q => ({
-      id: q.id,
-      moduleType: q.moduleType,
-      difficulty: q.difficulty,
-      category: q.category,
-      subtopic: q.subtopic,
-      question: q.question,
-      passage: q.passage,
-      options: q.options,
-      correctAnswer: q.correctAnswer,
-      explanation: q.explanation,
-      wrongAnswerExplanations: q.wrongAnswerExplanations || {},
-      imageUrl: q.imageUrl,
-      imageAlt: q.imageAlt,
-      chartData: q.chartData,
-      timeEstimate: q.timeEstimate || 90,
-      source: q.source,
-      tags: q.tags || []
-    })))
+    // Fetch questions with related data
+    const questions = await prisma.question.findMany({
+      where,
+      include: {
+        subtopicRef: {
+          include: {
+            topic: true
+          }
+        }
+      },
+      orderBy: {
+        createdAt: 'desc'
+      },
+      take: limit,
+      skip: offset
+    });
+
+    // Get total count for pagination
+    const totalCount = await prisma.question.count({ where });
+
+    // Get unique categories and subtopics for filtering
+    const categories = await prisma.question.findMany({
+      where: { isActive: true },
+      select: { category: true },
+      distinct: ['category']
+    });
+
+    const subtopics = await prisma.question.findMany({
+      where: { isActive: true },
+      select: { subtopic: true },
+      distinct: ['subtopic']
+    });
+
+    const sources = await prisma.question.findMany({
+      where: { isActive: true },
+      select: { source: true },
+      distinct: ['source']
+    });
+
+    return NextResponse.json({
+      questions,
+      pagination: {
+        total: totalCount,
+        limit,
+        offset,
+        hasMore: offset + limit < totalCount
+      },
+      filters: {
+        categories: categories.map(c => c.category).filter(Boolean),
+        subtopics: subtopics.map(s => s.subtopic).filter(Boolean),
+        sources: sources.map(s => s.source).filter(Boolean)
+      }
+    });
+
   } catch (error) {
-    console.error('Error fetching questions:', error)
-    return NextResponse.json({ error: 'Failed to fetch questions' }, { status: 500 })
+    console.error('Error fetching questions:', error);
+    return NextResponse.json(
+      { error: 'Failed to fetch questions' },
+      { status: 500 }
+    );
+  } finally {
+    await prisma.$disconnect();
   }
 }
