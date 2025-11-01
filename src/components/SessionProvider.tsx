@@ -11,8 +11,9 @@ export default function AuthSessionProvider({
     <SessionProvider 
       refetchInterval={5 * 60} // Refetch session every 5 minutes
       refetchOnWindowFocus={true}
-      // Suppress errors when auth is not fully configured
-      // This prevents CLIENT_FETCH_ERROR from breaking the UI
+      // Prevent refetch attempts when offline to avoid CLIENT_FETCH_ERROR
+      // This is particularly helpful during development when auth may not be fully configured
+      // Without this, SessionProvider would continuously retry failed fetches, flooding console with errors
       refetchWhenOffline={false}
     >
       {children}
