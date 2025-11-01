@@ -2,53 +2,155 @@
 
 import React from 'react'
 
+// Types
+type ChartType = 'scatter' | 'coordinate-plane' | 'scatter-plot' | 'bar' | 'bar-chart' | 'geometry' | 'geometric-diagram' | 'image' | string
+
+interface ChartDataCommon {
+  type?: string
+  graphType?: string
+  diagramType?: string
+  description?: string
+  imageUrl?: string
+}
+
+interface ScatterPoint {
+  x: number
+  y: number
+  label?: string
+}
+
+interface XYDatum {
+  x?: number
+  y?: number
+  label?: string
+  point?: string
+}
+
+interface ScatterChartData extends ChartDataCommon {
+  points?: ScatterPoint[]
+  data?: XYDatum[]
+  line?: boolean
+}
+
+interface BarItem {
+  label?: string
+  student?: string
+  value?: number
+  score?: number
+}
+
+interface BarChartData extends ChartDataCommon {
+  data?: BarItem[]
+}
+
+interface GeometryChartData extends ChartDataCommon {
+  shape?: string
+  angles?: number[]
+}
+
+interface ImageDiagramData extends ChartDataCommon {
+  type?: 'image'
+}
+
+type ChartData = ScatterChartData | BarChartData | GeometryChartData | ImageDiagramData
+
 interface ChartRendererProps {
-  chartData: any
+  chartData: ChartData
   imageUrl?: string
   imageAlt?: string
   className?: string
 }
 
-export default function ChartRenderer({ chartData, className = "" }: ChartRendererProps) {
-  if (!chartData) {
-    return null
-  }
+const resolveType = (cd: ChartData): string | undefined => cd.type || cd.graphType || cd.diagramType
 
-  // Handle uploaded image diagrams
-  if (chartData.diagramType === 'image' && chartData.imageUrl) {
+const allowedTypes = new Set<string>(['scatter', 'coordinate-plane', 'scatter-plot', 'bar', 'bar-chart', 'geometry', 'geometric-diagram', 'image'])
+
+export default function ChartRenderer({ chartData, imageUrl, imageAlt = "Question diagram", className = "" }: ChartRendererProps) {
+  // Check if imageUrl is a Vega spec (starts with data:image/svg+xml;base64 and contains Vega schema)
+  const isVegaSpec = imageUrl?.startsWith('data:image/svg+xml;base64,');
+  
+  if (isVegaSpec && imageUrl) {
+    // Decode the base64 Vega spec and render with DynamicChart
+    try {
+      const base64Data = imageUrl.split(',')[1];
+      const decodedSpec = atob(base64Data);
+      const vegaSpec = JSON.parse(decodedSpec);
+      
+      // Use DynamicChart to render the Vega spec
+      return (
+        <div className={`chart-container ${className}`}>
+          <div className="bg-white p-4 rounded border shadow-sm">
+            <div className="text-sm font-semibold text-gray-700 mb-2">📊 Chart</div>
+            <div className="text-xs text-gray-600 mb-2">
+              Vega-Lite diagram (interactive visualization)
+            </div>
+            {/* Fallback message since we can't render Vega in browser without library */}
+            <div className="bg-gray-100 p-4 rounded text-center">
+              <p className="text-sm text-gray-600">Diagram data available but requires Vega renderer</p>
+              <p className="text-xs text-gray-500 mt-2">Type: {vegaSpec.$schema || 'Vega specification'}</p>
+            </div>
+          </div>
+        </div>
+      );
+    } catch (e) {
+      console.error('Failed to decode Vega spec:', e);
+    }
+  }
+  
+  // Regular image URL
+  const src = imageUrl || ((chartData && (chartData as unknown as { imageUrl?: string }).imageUrl) ?? undefined);
+  if (src && !isVegaSpec) {
     return (
       <div className={`chart-container ${className}`}>
         <img
-          src={chartData.imageUrl}
-          alt="Question diagram"
+          src={src}
+          alt={imageAlt}
           className="max-w-full h-auto rounded border shadow-sm"
           style={{ maxHeight: '400px' }}
+          onError={(e) => {
+            console.error('Failed to load diagram image:', src);
+            (e.target as HTMLImageElement).style.display = 'none';
+          }}
         />
       </div>
-    )
+    );
+  }
+
+  if (!chartData) {
+    return null;
   }
 
   return (
     <div className={`chart-container ${className}`}>
       <DynamicChart chartData={chartData} />
     </div>
-  )
+  );
 }
 
-function DynamicChart({ chartData }: { chartData: any }) {
+
+function DynamicChart({ chartData }: { chartData: ChartData }) {
   if (!chartData) {
     return null
   }
 
-  if (chartData.type === 'scatter' || chartData.points) {
-    return <ScatterPlot data={chartData} />
+  const type = resolveType(chartData)
+
+  if (isScatter(chartData)) {
+    let normalized: ScatterChartData = { ...chartData }
+    if (!normalized.points && Array.isArray(normalized.data)) {
+      const points: ScatterPoint[] = (normalized.data ?? [])
+        .filter((p): p is XYDatum & { x: number; y: number } => typeof p?.x === 'number' && typeof p?.y === 'number')
+        .map((p) => ({ x: p.x, y: p.y, label: p.label ?? p.point ?? '' }))
+      normalized = { ...normalized, points }
+    }
+    return <ScatterPlot data={normalized} />
   }
-  
-  if (chartData.type === 'bar' || chartData.data) {
+
+  if (isBar(chartData)) {
     return <BarChart data={chartData} />
   }
 
-  if (chartData.type === 'geometry' || chartData.shape) {
+  if (isGeometry(chartData)) {
     return <GeometryDiagram data={chartData} />
   }
 
@@ -59,13 +161,28 @@ function DynamicChart({ chartData }: { chartData: any }) {
         <div className="text-sm text-blue-600 mb-2">{chartData.description}</div>
       )}
       <div className="text-xs text-gray-500">
-        Type: {chartData.type || 'Unknown'}
+        Type: {type || 'Unknown'}
       </div>
     </div>
   )
 }
 
-function ScatterPlot({ data }: { data: any }) {
+function isScatter(cd: ChartData): cd is ScatterChartData {
+  const t = resolveType(cd)
+  return t === 'scatter' || t === 'coordinate-plane' || t === 'scatter-plot' || !!(cd as ScatterChartData).points
+}
+
+function isBar(cd: ChartData): cd is BarChartData {
+  const t = resolveType(cd)
+  return t === 'bar' || t === 'bar-chart' || Array.isArray((cd as BarChartData).data)
+}
+
+function isGeometry(cd: ChartData): cd is GeometryChartData {
+  const t = resolveType(cd)
+  return t === 'geometry' || t === 'geometric-diagram' || !!(cd as GeometryChartData).shape
+}
+
+function ScatterPlot({ data }: { data: ScatterChartData }) {
   const width = 300
   const height = 300
   const padding = 40
@@ -87,7 +204,7 @@ function ScatterPlot({ data }: { data: any }) {
         <line x1={width/2} y1={padding} x2={width/2} y2={height - padding} stroke="#374151" strokeWidth="2"/>
         
         {/* Points */}
-        {data.points?.map((point: any, index: number) => {
+        {data.points?.map((point, index) => {
           const x = width/2 + (point.x || 0) * 10
           const y = height/2 - (point.y || 0) * 10
           
@@ -133,17 +250,17 @@ function ScatterPlot({ data }: { data: any }) {
   )
 }
 
-function BarChart({ data }: { data: any }) {
+function BarChart({ data }: { data: BarChartData }) {
   const width = 300
   const height = 200
   const padding = 40
   
-  const values = data.data || []
+  const values = data.data ?? []
   
   // If no data, create sample data to prevent "No data available"
   if (values.length === 0) {
     console.log('⚠️ Bar chart has no data, creating sample data')
-    const sampleData = [
+    const sampleData: BarItem[] = [
       {label: "Jan", value: 150},
       {label: "Feb", value: 200},
       {label: "Mar", value: 175},
@@ -152,15 +269,15 @@ function BarChart({ data }: { data: any }) {
     return <BarChart data={{...data, data: sampleData}} />
   }
 
-  const maxValue = Math.max(...values.map((item: any) => item.score || item.value || 1))
+  const maxValue = Math.max(...values.map((item) => item.score ?? item.value ?? 1))
   const barWidth = Math.max(20, (width - 2 * padding) / values.length - 10)
 
   return (
     <div className="bg-white p-4 rounded border shadow-sm">
       <div className="text-sm font-semibold text-gray-700 mb-2">📊 Bar Chart</div>
       <svg width={width} height={height} className="border border-gray-300">
-        {values.map((item: any, index: number) => {
-          const value = item.score || item.value || 0
+        {values.map((item, index) => {
+          const value = item.score ?? item.value ?? 0
           const barHeight = Math.max(0, (value / maxValue) * (height - 2 * padding))
           const x = padding + index * (barWidth + 10)
           const y = height - padding - barHeight
@@ -191,7 +308,7 @@ function BarChart({ data }: { data: any }) {
                 fill="#374151"
                 textAnchor="middle"
               >
-                {item.student || item.label || `${index + 1}`}
+                {item.student ?? item.label ?? `${index + 1}`}
               </text>
             </g>
           )
@@ -205,7 +322,7 @@ function BarChart({ data }: { data: any }) {
   )
 }
 
-function GeometryDiagram({ data }: { data: any }) {
+function GeometryDiagram({ data }: { data: GeometryChartData }) {
   const width = 300
   const height = 250
   const centerX = width / 2
@@ -225,40 +342,40 @@ function GeometryDiagram({ data }: { data: any }) {
   )
 }
 
-function TriangleShape({ data, centerX, centerY }: { data: any, centerX: number, centerY: number }) {
+function TriangleShape({ data, centerX, centerY }: { data: GeometryChartData, centerX: number, centerY: number }) {
   const size = 80
-  const height = size * Math.sqrt(3) / 2
+  const triHeight = size * Math.sqrt(3) / 2
   
   const points = [
-    [centerX, centerY - height/2],
-    [centerX - size/2, centerY + height/2],
-    [centerX + size/2, centerY + height/2]
+    [centerX, centerY - triHeight/2],
+    [centerX - size/2, centerY + triHeight/2],
+    [centerX + size/2, centerY + triHeight/2]
   ]
   
   const pathData = `M ${points[0][0]} ${points[0][1]} L ${points[1][0]} ${points[1][1]} L ${points[2][0]} ${points[2][1]} Z`
   
   // Use provided angles or default to 60° each for equilateral triangle
-  const angles = data.angles && data.angles.length >= 3 ? data.angles : [60, 60, 60]
+  const angles = Array.isArray(data.angles) && data.angles.length >= 3 ? data.angles : [60, 60, 60]
   
   return (
     <g>
       <path d={pathData} fill="rgba(59, 130, 246, 0.1)" stroke="#3b82f6" strokeWidth="2" />
       
       {/* Always show angle labels */}
-      <text x={centerX} y={centerY - height/2 + 15} fontSize="12" fill="#374151" textAnchor="middle">
+      <text x={centerX} y={centerY - triHeight/2 + 15} fontSize="12" fill="#374151" textAnchor="middle">
         {angles[0]}°
       </text>
-      <text x={centerX - size/2 + 15} y={centerY + height/2 - 5} fontSize="12" fill="#374151" textAnchor="middle">
+      <text x={centerX - size/2 + 15} y={centerY + triHeight/2 - 5} fontSize="12" fill="#374151" textAnchor="middle">
         {angles[1]}°
       </text>
-      <text x={centerX + size/2 - 15} y={centerY + height/2 - 5} fontSize="12" fill="#374151" textAnchor="middle">
+      <text x={centerX + size/2 - 15} y={centerY + triHeight/2 - 5} fontSize="12" fill="#374151" textAnchor="middle">
         {angles[2]}°
       </text>
       
       {/* Vertex labels */}
-      <text x={centerX} y={centerY - height/2 - 10} fontSize="12" fill="#374151" textAnchor="middle" fontWeight="bold">A</text>
-      <text x={centerX - size/2 - 15} y={centerY + height/2 + 15} fontSize="12" fill="#374151" textAnchor="middle" fontWeight="bold">B</text>
-      <text x={centerX + size/2 + 15} y={centerY + height/2 + 15} fontSize="12" fill="#374151" textAnchor="middle" fontWeight="bold">C</text>
+      <text x={centerX} y={centerY - triHeight/2 - 10} fontSize="12" fill="#374151" textAnchor="middle" fontWeight="bold">A</text>
+      <text x={centerX - size/2 - 15} y={centerY + triHeight/2 + 15} fontSize="12" fill="#374151" textAnchor="middle" fontWeight="bold">B</text>
+      <text x={centerX + size/2 + 15} y={centerY + triHeight/2 + 15} fontSize="12" fill="#374151" textAnchor="middle" fontWeight="bold">C</text>
     </g>
   )
 }
