@@ -28,9 +28,12 @@ function getSecret() {
     return 'development-secret-please-change-in-production';
   }
   
-  // In production, we require NEXTAUTH_SECRET to be set
-  console.warn('NEXTAUTH_SECRET is not set in production. Using a random secret.');
-  return crypto.randomUUID();
+  // In production, NEXTAUTH_SECRET must be set
+  // Using a random secret would invalidate all sessions on restart
+  throw new Error(
+    'NEXTAUTH_SECRET environment variable must be set in production. ' +
+    'Generate a secure secret with: openssl rand -base64 32'
+  );
 }
 
 export const authOptions = {
