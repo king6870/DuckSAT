@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
+import { useSession, signIn } from 'next-auth/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -855,7 +855,7 @@ export default function QuestionReviewPage() {
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => window.location.href = '/auth/signin'}
+                          onClick={() => signIn()}
                         >
                           Sign In
                         </Button>

@@ -7,16 +7,20 @@ export interface CheckboxProps
 }
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ className, label, ...props }, ref) => {
+  ({ className, label, id, ...props }, ref) => {
+    const checkboxId = id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
+    
     return (
-      <label className="flex items-center gap-2 cursor-pointer">
+      <label htmlFor={checkboxId} className="flex items-center gap-2 cursor-pointer">
         <input
+          id={checkboxId}
           type="checkbox"
           className={cn(
             "h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500 cursor-pointer",
             className
           )}
           ref={ref}
+          aria-label={!label ? props['aria-label'] : undefined}
           {...props}
         />
         {label && <span className="text-sm">{label}</span>}
