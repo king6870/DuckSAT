@@ -55,6 +55,7 @@ model User {
   accounts    Account[]
   sessions    Session[]
   testResults TestResult[]
+  questionReviews QuestionReview[]
   
   @@map("users")
 }
@@ -135,11 +136,33 @@ model Question {
   // Relations
   subtopicRef     Subtopic? @relation(fields: [subtopicId], references: [id])
   questionResults QuestionResult[]
+  questionReviews QuestionReview[]
 
   @@index([moduleType, difficulty, category])
   @@index([category, subtopic])
   @@index([subtopicId])
   @@map("questions")
+}
+
+// Question Review Model - User reviews for questions
+model QuestionReview {
+  id          String   @id @default(cuid())
+  questionId  String
+  userId      String
+  rating      Int      // Star rating (1-5)
+  description String?  @db.Text // Optional review description
+  hasDiagram  Boolean  @default(false) // Diagram checkbox
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, questionId]) // One review per user per question
+  @@index([questionId])
+  @@index([userId])
+  @@map("question_reviews")
 }
 
 // Test Results Model
