@@ -42,6 +42,9 @@ export async function POST(
       );
     }
 
+    // Normalize description (trim and convert empty strings to null)
+    const normalizedDescription = description?.trim() || null;
+
     // Check if question exists
     const question = await prisma.question.findUnique({
       where: { id: params.id },
@@ -66,12 +69,12 @@ export async function POST(
         questionId: params.id,
         userId: user.id,
         rating,
-        description: description || null,
+        description: normalizedDescription,
         hasDiagram: hasDiagram || false,
       },
       update: {
         rating,
-        description: description || null,
+        description: normalizedDescription,
         hasDiagram: hasDiagram || false,
       },
     });

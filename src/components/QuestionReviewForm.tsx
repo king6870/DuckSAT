@@ -7,8 +7,13 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Star } from 'lucide-react';
 
+/**
+ * Props for the QuestionReviewForm component
+ */
 interface QuestionReviewFormProps {
+  /** The unique identifier of the question being reviewed */
   questionId: string;
+  /** Optional callback function called after successful review submission */
   onSubmitSuccess?: () => void;
 }
 
