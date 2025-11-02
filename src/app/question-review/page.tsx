@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -9,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { ChevronLeft, ChevronRight, Search, Filter, Eye, EyeOff } from 'lucide-react';
 import MathRenderer from '@/components/MathRenderer';
 import ChartRenderer from '@/components/ChartRenderer';
+import QuestionReviewForm from '@/components/QuestionReviewForm';
 
 type ScatterPoint = { x: number; y: number; label?: string };
 type ScatterChartData = { type?: 'scatter'; points?: ScatterPoint[]; line?: boolean; description?: string };
@@ -73,6 +75,7 @@ interface QuestionResponse {
 }
 
 export default function QuestionReviewPage() {
+  const { data: session, status } = useSession();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -83,6 +86,7 @@ export default function QuestionReviewPage() {
   const [currentPage, setCurrentPage] = useState(0);
   const [showAnswers, setShowAnswers] = useState<{ [key: string]: boolean }>({});
   const [showDetails, setShowDetails] = useState<{ [key: string]: boolean }>({});
+  const [showReviewForm, setShowReviewForm] = useState<{ [key: string]: boolean }>({});
   const [filters, setFilters] = useState<QuestionResponse['filters'] | null>(null);
   const [pagination, setPagination] = useState<{ total: number; limit: number; offset: number; hasMore: boolean } | null>(null);
   const [readableMode, setReadableMode] = useState(false);
@@ -194,6 +198,13 @@ export default function QuestionReviewPage() {
 
   const toggleDetails = (questionId: string) => {
     setShowDetails(prev => ({
+      ...prev,
+      [questionId]: !prev[questionId]
+    }));
+  };
+
+  const toggleReviewForm = (questionId: string) => {
+    setShowReviewForm(prev => ({
       ...prev,
       [questionId]: !prev[questionId]
     }));
@@ -644,6 +655,14 @@ export default function QuestionReviewPage() {
                     >
                       {showDetails[question.id] ? 'Hide Details' : 'Show Details'}
                     </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => toggleReviewForm(question.id)}
+                      className="flex items-center gap-2"
+                    >
+                      {showReviewForm[question.id] ? 'Hide Review' : 'Add Review'}
+                    </Button>
                   </div>
                 </div>
               </CardHeader>
@@ -819,6 +838,37 @@ export default function QuestionReviewPage() {
                       <div><span className="text-gray-500">Updated:</span> <span className="font-medium">{question.updatedAt ? formatDate(question.updatedAt) : '—'}</span></div>
                       <div><span className="text-gray-500">Time Estimate:</span> <span className="font-medium">{formatTime(question.timeEstimate)}</span></div>
                     </div>
+                  </div>
+                )}
+                
+                {/* Review Form */}
+                {showReviewForm[question.id] && (
+                  <div>
+                    {status === 'loading' ? (
+                      <div className="text-center p-4 text-gray-500">
+                        Loading authentication status...
+                      </div>
+                    ) : !session ? (
+                      <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-300 text-black">
+                        <p className="font-semibold mb-2">Sign in required</p>
+                        <p className="text-sm mb-3">You must be signed in to submit a review.</p>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => window.location.href = '/auth/signin'}
+                        >
+                          Sign In
+                        </Button>
+                      </div>
+                    ) : (
+                      <QuestionReviewForm 
+                        questionId={question.id}
+                        onSubmitSuccess={() => {
+                          // Optionally refresh or show success message
+                          console.log('Review submitted for question:', question.id);
+                        }}
+                      />
+                    )}
                   </div>
                 )}
               </CardContent>
