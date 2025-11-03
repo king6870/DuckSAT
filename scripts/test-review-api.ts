@@ -6,6 +6,7 @@
  * - GET /api/questions/[id]/review - Fetch reviews
  * 
  * Run with: npx tsx scripts/test-review-api.ts
+ * Run with cleanup: npx tsx scripts/test-review-api.ts --cleanup
  */
 
 import { PrismaClient } from '@prisma/client';
@@ -13,6 +14,9 @@ import { POST, GET } from '@/app/api/questions/[id]/review/route';
 import { NextRequest } from 'next/server';
 
 const prisma = new PrismaClient();
+
+// Check for cleanup flag
+const shouldCleanup = process.argv.includes('--cleanup');
 
 // Helper function to create a mock NextRequest
 function createMockRequest(method: string, url: string, body?: any): NextRequest {
@@ -216,18 +220,30 @@ async function main() {
 
     // Step 7: Optional cleanup
     console.log('\n🧹 Step 6 (Optional): Cleanup...');
-    console.log('   Would you like to delete the test review? (Skipping for now)');
-    console.log('   To clean up manually, run:');
-    console.log(`   DELETE FROM question_reviews WHERE id = '${createdReview.id}';`);
     
-    // Optionally delete the test review
-    // Uncomment the following lines to enable cleanup:
-    /*
-    await prisma.questionReview.delete({
-      where: { id: createdReview.id },
-    });
-    console.log('✅ Test review deleted successfully');
-    */
+    if (shouldCleanup) {
+      console.log('   Cleanup flag enabled. Deleting test review...');
+      await prisma.questionReview.delete({
+        where: { id: createdReview.id },
+      });
+      console.log('✅ Test review deleted successfully');
+      
+      // Verify deletion
+      const deletedReviewCheck = await prisma.questionReview.findUnique({
+        where: { id: createdReview.id },
+      });
+      
+      if (!deletedReviewCheck) {
+        console.log('✅ Verified: Review has been removed from database');
+      } else {
+        console.log('⚠️  Warning: Review still exists in database');
+      }
+    } else {
+      console.log('   Cleanup not enabled. Test review will remain in database.');
+      console.log('   To enable cleanup, run: npm run test:review-api -- --cleanup');
+      console.log('   Or clean up manually with:');
+      console.log(`   DELETE FROM question_reviews WHERE id = '${createdReview.id}';`);
+    }
 
     console.log('\n' + '='.repeat(60));
     console.log('✨ ALL TESTS PASSED SUCCESSFULLY! ✨');
