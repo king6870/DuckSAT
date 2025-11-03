@@ -64,10 +64,6 @@ export async function GET(request: NextRequest) {
       skip: offset
     });
 
-    // Note: diagram_png_base64 and diagram_mime columns don't exist in the current schema
-    // Skipping embedded diagram query to avoid database errors
-    const diagramMap = new Map<string, { base64: string | null; mime: string | null }>();
-
     // Get total count for pagination
     const totalCount = await prisma.question.count({ where });
 
@@ -154,10 +150,6 @@ export async function GET(request: NextRequest) {
     };
 
     const normalizedQuestions = questions.map((q) => {
-      // Prefer DB-embedded diagram if available
-      const d = diagramMap.get(q.id);
-      const embeddedImage = d?.base64 ? `data:${d.mime || 'image/png'};base64,${d.base64}` : undefined;
-
       const result = {
         ...q,
         question: cleanText(q.question),
@@ -165,14 +157,14 @@ export async function GET(request: NextRequest) {
         passage: typeof q.passage === 'string' ? cleanText(q.passage) : q.passage,
         options: normalizeOptions(q.options),
         tags: Array.isArray(q.tags) ? q.tags : [],
-        imageUrl: embeddedImage || q.imageUrl,
+        imageUrl: q.imageUrl,
         imageAlt: cleanOptionalText(q.imageAlt),
         source: cleanOptionalText(q.source)
       };
 
       // Log diagram info for debugging
-      if (q.chartData || q.imageUrl || embeddedImage) {
-        console.log(`Question ${q.id.substring(0, 8)}: chartData=${!!q.chartData}, imageUrl=${!!q.imageUrl}, embedded=${!!embeddedImage}`);
+      if (q.chartData || q.imageUrl) {
+        console.log(`Question ${q.id.substring(0, 8)}: chartData=${!!q.chartData}, imageUrl=${!!q.imageUrl}`);
       }
 
       return result;
