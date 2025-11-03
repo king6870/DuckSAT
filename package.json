@@ -32,7 +32,8 @@
         "seed:graph-math": "tsx scripts/seed-graph-math-questions.ts",
         "seed:comprehensive": "tsx scripts/seed-comprehensive-questions.ts",
         "fix:graphs": "tsx scripts/fix-graph-questions.ts",
-        "create:text-math": "tsx scripts/create-text-only-math.ts"
+        "create:text-math": "tsx scripts/create-text-only-math.ts",
+        "test:review-api": "tsx scripts/test-review-api.ts"
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.10.0",
