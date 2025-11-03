@@ -10,33 +10,13 @@
  */
 
 import { PrismaClient } from '@prisma/client';
-import { POST, GET } from '@/app/api/questions/[id]/review/route';
-import { NextRequest } from 'next/server';
 
 const prisma = new PrismaClient();
 
 // Check for cleanup flag
 const shouldCleanup = process.argv.includes('--cleanup');
 
-// Helper function to create a mock NextRequest
-function createMockRequest(method: string, url: string, body?: any): NextRequest {
-  const requestInit: RequestInit = {
-    method,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-
-  if (body) {
-    requestInit.body = JSON.stringify(body);
-  }
-
-  return new NextRequest(url, requestInit);
-}
-
-// Helper function to create a mock session for testing
-// Since we can't easily mock NextAuth session in this context,
-// we'll test the API routes by ensuring a user exists in the database
+// Helper function to create a test user
 async function setupTestUser() {
   const testUser = await prisma.user.upsert({
     where: { email: 'test-reviewer@ducksat.com' },
