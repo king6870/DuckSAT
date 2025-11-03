@@ -8,6 +8,12 @@
 import { Prisma } from '@prisma/client';
 
 /**
+ * Example column selection for question queries
+ * In production, consider extracting this to a shared constant
+ */
+const QUESTION_COLUMNS = 'id, question, options, correctAnswer, explanation';
+
+/**
  * Example of UNSAFE raw query pattern (DO NOT USE):
  * 
  * // ❌ UNSAFE - Using Prisma.join in template string can be risky
@@ -46,7 +52,7 @@ export async function safeQueryQuestionsByIds<T = unknown>(
   // This creates placeholders like $1, $2, $3 for PostgreSQL
   const placeholders = ids.map((_, index) => `$${index + 1}`).join(', ');
   
-  const query = `SELECT id, question, options, correctAnswer, explanation 
+  const query = `SELECT ${QUESTION_COLUMNS} 
                  FROM questions 
                  WHERE id IN (${placeholders})`;
 
@@ -56,6 +62,9 @@ export async function safeQueryQuestionsByIds<T = unknown>(
 
 /**
  * Alternative safe pattern using Prisma.sql for even better type safety
+ * 
+ * Note: This uses PostgreSQL-specific syntax (ANY with array cast).
+ * For database-agnostic queries, use safeQueryQuestionsByIds instead.
  * 
  * @example
  * const ids = ['id1', 'id2', 'id3'];
@@ -71,8 +80,9 @@ export async function safeQueryWithPrismaSQL<T = unknown>(
 
   // ✅ SAFE - Using Prisma.sql for compile-time safety
   // This properly escapes all values
+  // Note: Uses PostgreSQL-specific syntax
   return await prisma.$queryRaw(
-    Prisma.sql`SELECT id, question, options, correctAnswer, explanation 
+    Prisma.sql`SELECT ${Prisma.raw(QUESTION_COLUMNS)} 
                FROM questions 
                WHERE id = ANY(${ids}::text[])`
   );
