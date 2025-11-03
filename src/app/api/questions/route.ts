@@ -64,23 +64,9 @@ export async function GET(request: NextRequest) {
       skip: offset
     });
 
-    // Fetch embedded diagram columns via raw SQL to avoid relying on generated Prisma types
-    const ids = questions.map(q => q.id);
-    let diagramMap = new Map<string, { base64: string | null; mime: string | null }>();
-    if (ids.length > 0) {
-      const rows = await prisma.$queryRaw<Array<{ id: string; diagram_png_base64: string | null; diagram_mime: string | null }>>`
-        SELECT id, diagram_png_base64, diagram_mime FROM questions WHERE id IN (${Prisma.join(ids)})
-      `;
-      // Filter out Vega JSON specs that were incorrectly stored as images
-      diagramMap = new Map(rows.map(r => {
-        // Check if this is a Vega spec (starts with {"$schema" or similar JSON)
-        if (r.diagram_png_base64 && r.diagram_png_base64.trim().startsWith('{')) {
-          console.log(`Skipping Vega spec for question ${r.id.substring(0, 8)} - not a valid image`);
-          return [r.id, { base64: null, mime: null }];
-        }
-        return [r.id, { base64: r.diagram_png_base64, mime: r.diagram_mime }];
-      }));
-    }
+    // Note: diagram_png_base64 and diagram_mime columns don't exist in the current schema
+    // Skipping embedded diagram query to avoid database errors
+    const diagramMap = new Map<string, { base64: string | null; mime: string | null }>();
 
     // Get total count for pagination
     const totalCount = await prisma.question.count({ where });
@@ -109,16 +95,17 @@ export async function GET(request: NextRequest) {
     const decodeHTMLEntities = (text: string): string => {
       if (typeof text !== 'string') return '';
       return text
-        // Decode ampersand first to allow double-encoded sequences like &lt; -> < -> <
-        .replace(/&/g, '&')
+        // Decode common HTML entities
         .replace(/&nbsp;/g, ' ')
-        .replace(/</g, '<')
-        .replace(/>/g, '>')
-        .replace(/"/g, '"')
-        .replace(/'/g, "'")
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&apos;/g, "'")
         // Numeric entities (decimal and hex)
         .replace(/&#(\d+);/g, (_m, code) => String.fromCharCode(Number(code)))
-        .replace(/&#x([0-9a-fA-F]+);/g, (_m, hex) => String.fromCharCode(parseInt(hex, 16)));
+        .replace(/&#x([0-9a-fA-F]+);/g, (_m, hex) => String.fromCharCode(parseInt(hex, 16)))
+        // Decode ampersand last to avoid double-decoding
+        .replace(/&amp;/g, '&');
     };
 
     const cleanText = (text: unknown): string => {
