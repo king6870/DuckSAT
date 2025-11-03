@@ -52,7 +52,7 @@ async function setupTestQuestion() {
 
 async function main() {
   console.log('🧪 Testing Question Review API Feature (End-to-End)\n');
-  console.log('=' .repeat(60));
+  console.log('='.repeat(60));
 
   try {
     // Step 1: Set up test data
@@ -182,7 +182,7 @@ async function main() {
       throw new Error('Some verification checks failed!');
     }
 
-    // Step 6: Output detailed verification
+    // Step 6: Output detailed verification and optional cleanup
     console.log('\n' + '='.repeat(60));
     console.log('📊 VERIFICATION OUTPUT');
     console.log('='.repeat(60));
@@ -198,7 +198,7 @@ async function main() {
     console.log(`  Updated At:    ${testReview.updatedAt.toISOString()}`);
     console.log('='.repeat(60));
 
-    // Step 7: Optional cleanup
+    // Step 6: Optional cleanup
     console.log('\n🧹 Step 6 (Optional): Cleanup...');
     
     if (shouldCleanup) {
