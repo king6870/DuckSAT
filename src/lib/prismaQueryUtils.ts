@@ -34,8 +34,8 @@ import { Prisma } from '@prisma/client';
  * @param ids - Array of question IDs to fetch
  * @returns Promise resolving to array of question records
  */
-export async function safeQueryQuestionsByIds<T = any>(
-  prisma: any,
+export async function safeQueryQuestionsByIds<T = unknown>(
+  prisma: { $queryRawUnsafe: (query: string, ...values: unknown[]) => Promise<T[]> },
   ids: string[]
 ): Promise<T[]> {
   if (!ids || ids.length === 0) {
@@ -61,8 +61,8 @@ export async function safeQueryQuestionsByIds<T = any>(
  * const ids = ['id1', 'id2', 'id3'];
  * const results = await safeQueryWithPrismaSQL(prisma, ids);
  */
-export async function safeQueryWithPrismaSQL<T = any>(
-  prisma: any,
+export async function safeQueryWithPrismaSQL<T = unknown>(
+  prisma: { $queryRaw: (query: Prisma.Sql) => Promise<T[]> },
   ids: string[]
 ): Promise<T[]> {
   if (!ids || ids.length === 0) {
