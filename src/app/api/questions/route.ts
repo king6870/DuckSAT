@@ -2,7 +2,15 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { Prisma } from '@prisma/client';
 
-
+/**
+ * GET /api/questions
+ * 
+ * Fetches questions with filtering, pagination, and related data.
+ * 
+ * Note: This implementation uses Prisma's ORM methods (findMany, count) which are
+ * safe and preferred over raw SQL queries. If raw SQL queries are needed in the future,
+ * refer to @/lib/prismaQueryUtils for safe parameterized query patterns.
+ */
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
