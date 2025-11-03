@@ -1,7 +1,7 @@
 /**
  * Utility functions for safe Prisma raw SQL queries
  * 
- * @fileoverview This module provides utilities for executing raw SQL queries safely
+ * This module provides utilities for executing raw SQL queries safely
  * using Prisma's $queryRaw with proper parameterization to prevent SQL injection.
  */
 
@@ -40,8 +40,9 @@ const QUESTION_COLUMNS = 'id, question, options, correctAnswer, explanation' as 
  * 
  * @example
  * const ids = ['id1', 'id2', 'id3'];
- * const results = await safeQueryQuestionsByIds(prisma, ids);
+ * const results = await safeQueryQuestionsByIds<{id: string, question: string}>(prisma, ids);
  * 
+ * @typeParam T - The expected return type for each row. Defaults to unknown for flexibility.
  * @param prisma - Prisma client instance
  * @param ids - Array of question IDs to fetch
  * @returns Promise resolving to array of question records
@@ -76,7 +77,12 @@ export async function safeQueryQuestionsByIds<T = unknown>(
  * 
  * @example
  * const ids = ['id1', 'id2', 'id3'];
- * const results = await safeQueryWithPrismaSQL(prisma, ids);
+ * const results = await safeQueryWithPrismaSQL<{id: string, question: string}>(prisma, ids);
+ * 
+ * @typeParam T - The expected return type for each row. Defaults to unknown for flexibility.
+ * @param prisma - Prisma client instance
+ * @param ids - Array of question IDs to fetch
+ * @returns Promise resolving to array of question records
  */
 export async function safeQueryWithPrismaSQL<T = unknown>(
   prisma: { $queryRaw: (query: Prisma.Sql) => Promise<T[]> },
