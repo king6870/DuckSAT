@@ -52,9 +52,7 @@ export async function safeQueryQuestionsByIds<T = unknown>(
   // This creates placeholders like $1, $2, $3 for PostgreSQL
   const placeholders = ids.map((_, index) => `$${index + 1}`).join(', ');
   
-  const query = `SELECT ${QUESTION_COLUMNS} 
-                 FROM questions 
-                 WHERE id IN (${placeholders})`;
+  const query = `SELECT ${QUESTION_COLUMNS} FROM questions WHERE id IN (${placeholders})`;
 
   // Pass parameters separately from the query string
   return await prisma.$queryRawUnsafe(query, ...ids);
@@ -81,11 +79,8 @@ export async function safeQueryWithPrismaSQL<T = unknown>(
   // ✅ SAFE - Using Prisma.sql for compile-time safety
   // This properly escapes all values
   // Note: Uses PostgreSQL-specific syntax
-  return await prisma.$queryRaw(
-    Prisma.sql`SELECT ${Prisma.raw(QUESTION_COLUMNS)} 
-               FROM questions 
-               WHERE id = ANY(${ids}::text[])`
-  );
+  const query = Prisma.sql`SELECT ${Prisma.raw(QUESTION_COLUMNS)} FROM questions WHERE id = ANY(${ids}::text[])`;
+  return await prisma.$queryRaw(query);
 }
 
 /**
