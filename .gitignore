@@ -40,7 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# test files
-test-api-issue.ts
+# temporary test files
+test-*.ts
 
 # /src/generated/prisma
