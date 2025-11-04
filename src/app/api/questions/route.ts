@@ -44,9 +44,19 @@ export async function GET(request: NextRequest) {
       const s = search;
       where.OR = [
         { question: { contains: s, mode: 'insensitive' } },
-        { passage: { not: null, contains: s, mode: 'insensitive' } },
         { category: { contains: s, mode: 'insensitive' } },
-        { subtopic: { not: null, contains: s, mode: 'insensitive' } }
+        { 
+          AND: [
+            { passage: { not: null } },
+            { passage: { contains: s, mode: 'insensitive' } }
+          ]
+        },
+        { 
+          AND: [
+            { subtopic: { not: null } },
+            { subtopic: { contains: s, mode: 'insensitive' } }
+          ]
+        }
       ];
     }
  
