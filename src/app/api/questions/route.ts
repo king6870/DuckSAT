@@ -270,6 +270,8 @@ export async function GET(request: NextRequest) {
 
     const normalizedQuestions = questions.map((q) => {
       try {
+        // Extract ID prefix once for consistent logging
+        const questionIdShort = q.id.substring(0, 8);
 
         const result = {
           id: q.id,
@@ -312,7 +314,7 @@ export async function GET(request: NextRequest) {
         try {
           JSON.stringify(result);
         } catch (itemError) {
-          console.error(`[/api/questions] Question ${q.id.substring(0, 8)} failed serialization:`, itemError);
+          console.error(`[/api/questions] Question ${questionIdShort} failed serialization:`, itemError);
           console.error('[/api/questions] Problematic fields:', {
             hasChartData: !!q.chartData,
             hasWrongAnswerExplanations: !!q.wrongAnswerExplanations,
@@ -324,7 +326,7 @@ export async function GET(request: NextRequest) {
 
         // Log diagram info for debugging
         if (q.chartData || q.imageUrl) {
-          console.log(`[/api/questions] Question ${q.id.substring(0, 8)}: chartData=${!!q.chartData}, imageUrl=${!!q.imageUrl}`);
+          console.log(`[/api/questions] Question ${questionIdShort}: chartData=${!!q.chartData}, imageUrl=${!!q.imageUrl}`);
         }
 
         return result;
