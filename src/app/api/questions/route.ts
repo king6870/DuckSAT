@@ -184,22 +184,38 @@ export async function GET(request: NextRequest) {
     const normalizedQuestions = questions.map((q) => {
       try {
         const result = {
-          ...q,
+          id: q.id,
           question: cleanText(q.question),
           explanation: cleanText(q.explanation),
           passage: typeof q.passage === 'string' ? cleanText(q.passage) : q.passage,
           options: normalizeOptions(q.options),
+          correctAnswer: q.correctAnswer,
           tags: Array.isArray(q.tags) ? q.tags : [],
           imageUrl: q.imageUrl,
           imageAlt: cleanOptionalText(q.imageAlt),
           source: cleanOptionalText(q.source),
+          difficulty: q.difficulty,
+          category: q.category,
+          subtopic: q.subtopic,
+          moduleType: q.moduleType,
+          timeEstimate: q.timeEstimate,
+          chartData: q.chartData,
+          wrongAnswerExplanations: q.wrongAnswerExplanations,
+          reviewStatus: q.reviewStatus,
+          reviewComments: q.reviewComments,
+          reviewedBy: q.reviewedBy,
+          reviewedAt: q.reviewedAt ? new Date(q.reviewedAt).toISOString() : undefined,
+          createdAt: new Date(q.createdAt).toISOString(),
+          updatedAt: q.updatedAt ? new Date(q.updatedAt).toISOString() : undefined,
           // Explicitly include subtopicRef to ensure proper serialization
           subtopicRef: q.subtopicRef ? {
             id: q.subtopicRef.id,
             name: q.subtopicRef.name,
+            description: q.subtopicRef.description,
             topic: q.subtopicRef.topic ? {
               id: q.subtopicRef.topic.id,
-              name: q.subtopicRef.topic.name
+              name: q.subtopicRef.topic.name,
+              moduleType: q.subtopicRef.topic.moduleType
             } : null
           } : null
         };
