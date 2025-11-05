@@ -8,7 +8,9 @@ const isProduction = process.env.NODE_ENV === 'production';
 const secret = process.env.NEXTAUTH_SECRET;
 
 // Debug logging to help diagnose environment variable loading issues
-// Only logs in development or when there's an issue (missing secret)
+// Logs in two scenarios:
+// 1. Development mode (always logs to help developers)
+// 2. Production mode when secret is missing (to help diagnose deployment issues)
 // The actual secret value is never logged for security
 if (!isProduction || !secret) {
   console.log('[NextAuth Config] Environment check:', {
@@ -21,11 +23,9 @@ if (!isProduction || !secret) {
 
 // Fail-fast in production if NEXTAUTH_SECRET is not set
 if (isProduction && !secret) {
-  const errorMessage = 
-    'NEXTAUTH_SECRET environment variable must be set in production. ' +
-    'Generate a secure secret with: openssl rand -base64 32\n' +
-    'For Vercel deployments, ensure the variable is set in the Vercel dashboard under ' +
-    'Project Settings > Environment Variables.';
+  const errorMessage = `NEXTAUTH_SECRET environment variable must be set in production.
+Generate a secure secret with: openssl rand -base64 32
+For Vercel deployments, ensure the variable is set in the Vercel dashboard under Project Settings > Environment Variables.`;
   
   console.error('[NextAuth Config] FATAL:', errorMessage);
   throw new Error(errorMessage);
@@ -60,10 +60,8 @@ function getSecret() {
   
   // This should never be reached due to module-load validation above,
   // but included as a safety measure
-  throw new Error(
-    'NEXTAUTH_SECRET environment variable must be set in production. ' +
-    'Generate a secure secret with: openssl rand -base64 32'
-  );
+  throw new Error(`NEXTAUTH_SECRET environment variable must be set in production.
+Generate a secure secret with: openssl rand -base64 32`);
 }
 
 export const authOptions = {
