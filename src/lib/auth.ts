@@ -8,13 +8,13 @@ const isProduction = process.env.NODE_ENV === 'production';
 const secret = process.env.NEXTAUTH_SECRET;
 
 // Debug logging to help diagnose environment variable loading issues
-// Log only in development or when NEXTAUTH_SECRET is missing
+// Only logs in development or when there's an issue (missing secret)
+// The actual secret value is never logged for security
 if (!isProduction || !secret) {
   console.log('[NextAuth Config] Environment check:', {
     NODE_ENV: process.env.NODE_ENV,
     NEXTAUTH_SECRET_present: !!secret,
     NEXTAUTH_SECRET_length: secret?.length || 0,
-    // For production debugging only - shows if env var exists without exposing value
     NEXTAUTH_URL_present: !!process.env.NEXTAUTH_URL,
   });
 }
