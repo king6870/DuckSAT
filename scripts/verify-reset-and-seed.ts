@@ -78,14 +78,14 @@ async function verifySeededQuestions() {
     // Test 5: Verify optional fields are null or empty object
     console.log('\n📊 Test 5: Optional fields (null or {})');
     for (const question of parsed) {
-      // Check that optional fields are either null or {} for wrongAnswerExplanations
-      if (question.imageUrl !== null && question.imageUrl !== undefined) {
+      // Check that optional fields are null
+      if (question.imageUrl !== null) {
         console.log(`⚠️  WARNING - Question ${question.id} has imageUrl: ${question.imageUrl}`);
       }
-      if (question.imageAlt !== null && question.imageAlt !== undefined) {
+      if (question.imageAlt !== null) {
         console.log(`⚠️  WARNING - Question ${question.id} has imageAlt`);
       }
-      if (question.chartData !== null && question.chartData !== undefined) {
+      if (question.chartData !== null) {
         console.log(`⚠️  WARNING - Question ${question.id} has chartData`);
       }
       
