@@ -12,6 +12,8 @@ import { Prisma } from '@prisma/client';
  * refer to @/lib/prismaQueryUtils for safe parameterized query patterns.
  */
 export async function GET(request: NextRequest) {
+  const startTime = Date.now();
+  
   try {
     const { searchParams } = new URL(request.url);
     const category = searchParams.get('category');
@@ -20,8 +22,20 @@ export async function GET(request: NextRequest) {
     const search = searchParams.get('search');
     const sortOrderParam = searchParams.get('sortOrder');
     const sortOrder: 'asc' | 'desc' = sortOrderParam === 'asc' ? 'asc' : 'desc';
-    const limit = parseInt(searchParams.get('limit') || '50');
-    const offset = parseInt(searchParams.get('offset') || '0');
+    
+    // Validate and sanitize pagination parameters
+    const limitParam = searchParams.get('limit');
+    const offsetParam = searchParams.get('offset');
+    const limit = Math.min(Math.max(parseInt(limitParam || '50', 10), 1), 100);
+    const offset = Math.max(parseInt(offsetParam || '0', 10), 0);
+    
+    if (isNaN(limit) || isNaN(offset)) {
+      console.error('[/api/questions] Invalid pagination parameters', { limit: limitParam, offset: offsetParam });
+      return NextResponse.json({
+        error: 'Invalid pagination parameters',
+        details: 'Limit and offset must be valid numbers'
+      }, { status: 400 });
+    }
 
     // Build where clause
     const where: Prisma.QuestionWhereInput = {
@@ -60,44 +74,82 @@ export async function GET(request: NextRequest) {
       ];
     }
  
-    // Fetch questions with related data
-    const questions = await prisma.question.findMany({
-      where,
-      include: {
-        subtopicRef: {
-          include: {
-            topic: true
-          }
-        }
-      },
-      orderBy: {
-        createdAt: sortOrder
-      },
-      take: limit,
-      skip: offset
+    console.log('[/api/questions] Fetching questions with filters:', { 
+      category, 
+      subtopic, 
+      source, 
+      search: search ? `${search.substring(0, 20)}...` : null,
+      sortOrder,
+      limit,
+      offset
     });
+    
+    // Fetch questions with related data
+    let questions;
+    try {
+      questions = await prisma.question.findMany({
+        where,
+        include: {
+          subtopicRef: {
+            include: {
+              topic: true
+            }
+          }
+        },
+        orderBy: {
+          createdAt: sortOrder
+        },
+        take: limit,
+        skip: offset
+      });
+      console.log(`[/api/questions] Found ${questions.length} questions`);
+    } catch (dbError) {
+      console.error('[/api/questions] Database error fetching questions:', dbError);
+      return NextResponse.json({
+        error: 'Database error while fetching questions',
+        details: dbError instanceof Error ? dbError.message : 'Unknown database error'
+      }, { status: 500 });
+    }
 
     // Get total count for pagination
-    const totalCount = await prisma.question.count({ where });
+    let totalCount;
+    try {
+      totalCount = await prisma.question.count({ where });
+      console.log(`[/api/questions] Total count: ${totalCount}`);
+    } catch (countError) {
+      console.error('[/api/questions] Error counting questions:', countError);
+      // Continue with questions but set count to unknown
+      totalCount = questions.length;
+    }
 
     // Get unique categories and subtopics for filtering
-    const categories = await prisma.question.findMany({
-      where: { isActive: true },
-      select: { category: true },
-      distinct: ['category']
-    });
-
-    const subtopics = await prisma.question.findMany({
-      where: { isActive: true, subtopic: { not: null } },
-      select: { subtopic: true },
-      distinct: ['subtopic']
-    });
-
-    const sources = await prisma.question.findMany({
-      where: { isActive: true, source: { not: null } },
-      select: { source: true },
-      distinct: ['source']
-    });
+    let categories, subtopics, sources;
+    try {
+      [categories, subtopics, sources] = await Promise.all([
+        prisma.question.findMany({
+          where: { isActive: true },
+          select: { category: true },
+          distinct: ['category']
+        }),
+        prisma.question.findMany({
+          where: { isActive: true, subtopic: { not: null } },
+          select: { subtopic: true },
+          distinct: ['subtopic']
+        }),
+        prisma.question.findMany({
+          where: { isActive: true, source: { not: null } },
+          select: { source: true },
+          distinct: ['source']
+        })
+      ]);
+      console.log(`[/api/questions] Filters loaded: ${categories.length} categories, ${subtopics.length} subtopics, ${sources.length} sources`);
+    } catch (filterError) {
+      console.error('[/api/questions] Error fetching filter options:', filterError);
+      // Return empty arrays as fallback
+      categories = [];
+      subtopics = [];
+      sources = [];
+    }
 
     // Normalize result to ensure consistent types and clearer text
     const decodeHTMLEntities = (text: string): string => {
@@ -183,6 +235,22 @@ export async function GET(request: NextRequest) {
 
     const normalizedQuestions = questions.map((q) => {
       try {
+        // Safely handle JSON fields that might not be properly serializable
+        const safeJsonParse = (value: unknown): unknown => {
+          if (value === null || value === undefined) return null;
+          // If already an object/array, return as-is (Prisma handles JSON fields properly)
+          if (typeof value === 'object') return value;
+          // If it's a string, try to parse it
+          if (typeof value === 'string') {
+            try {
+              return JSON.parse(value);
+            } catch {
+              return value;
+            }
+          }
+          return value;
+        };
+
         const result = {
           id: q.id,
           question: cleanText(q.question),
@@ -199,19 +267,19 @@ export async function GET(request: NextRequest) {
           subtopic: q.subtopic,
           moduleType: q.moduleType,
           timeEstimate: q.timeEstimate,
-          chartData: q.chartData,
-          wrongAnswerExplanations: q.wrongAnswerExplanations,
+          chartData: safeJsonParse(q.chartData),
+          wrongAnswerExplanations: safeJsonParse(q.wrongAnswerExplanations),
           reviewStatus: q.reviewStatus,
           reviewComments: q.reviewComments,
           reviewedBy: q.reviewedBy,
-          reviewedAt: q.reviewedAt ? q.reviewedAt.toISOString() : undefined,
+          reviewedAt: q.reviewedAt ? q.reviewedAt.toISOString() : null,
           createdAt: q.createdAt.toISOString(),
-          updatedAt: q.updatedAt ? q.updatedAt.toISOString() : undefined,
+          updatedAt: q.updatedAt ? q.updatedAt.toISOString() : null,
           // Explicitly include subtopicRef to ensure proper serialization
           subtopicRef: q.subtopicRef ? {
             id: q.subtopicRef.id,
             name: q.subtopicRef.name,
-            description: q.subtopicRef.description,
+            description: q.subtopicRef.description || null,
             topic: q.subtopicRef.topic ? {
               id: q.subtopicRef.topic.id,
               name: q.subtopicRef.topic.name,
@@ -222,15 +290,18 @@ export async function GET(request: NextRequest) {
 
         // Log diagram info for debugging
         if (q.chartData || q.imageUrl) {
-          console.log(`Question ${q.id.substring(0, 8)}: chartData=${!!q.chartData}, imageUrl=${!!q.imageUrl}`);
+          console.log(`[/api/questions] Question ${q.id.substring(0, 8)}: chartData=${!!q.chartData}, imageUrl=${!!q.imageUrl}`);
         }
 
         return result;
       } catch (err) {
-        console.error(`Error normalizing question ${q.id}:`, err);
+        console.error(`[/api/questions] Error normalizing question ${q.id}:`, err);
         throw err;
       }
     });
+
+    const duration = Date.now() - startTime;
+    console.log(`[/api/questions] Request completed in ${duration}ms, returning ${normalizedQuestions.length} questions`);
 
     return NextResponse.json({
       questions: normalizedQuestions,
@@ -248,13 +319,35 @@ export async function GET(request: NextRequest) {
     });
     
   } catch (error) {
-    console.error('Error fetching questions:', error);
+    const duration = Date.now() - startTime;
+    console.error(`[/api/questions] Error after ${duration}ms:`, error);
     if (error instanceof Error) {
-      console.error('Error stack:', error.stack);
+      console.error('[/api/questions] Error name:', error.name);
+      console.error('[/api/questions] Error message:', error.message);
+      console.error('[/api/questions] Error stack:', error.stack);
     }
+    
+    // Check if it's a Prisma error
+    let errorMessage = 'Failed to fetch questions';
+    const errorDetails = error instanceof Error ? error.message : String(error);
+    
+    if (error && typeof error === 'object' && 'code' in error) {
+      const prismaError = error as { code: string; meta?: unknown };
+      console.error('[/api/questions] Prisma error code:', prismaError.code);
+      
+      if (prismaError.code === 'P2002') {
+        errorMessage = 'Database constraint violation';
+      } else if (prismaError.code === 'P2025') {
+        errorMessage = 'Record not found';
+      } else if (prismaError.code.startsWith('P')) {
+        errorMessage = 'Database error';
+      }
+    }
+    
     return NextResponse.json({
-      error: 'Failed to fetch questions',
-      details: error instanceof Error ? error.message : String(error),
+      error: errorMessage,
+      details: errorDetails,
+      timestamp: new Date().toISOString(),
       stack: process.env.NODE_ENV === 'development' && error instanceof Error ? error.stack : undefined
     }, { status: 500 });
 }
