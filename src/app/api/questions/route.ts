@@ -44,9 +44,19 @@ export async function GET(request: NextRequest) {
       const s = search;
       where.OR = [
         { question: { contains: s, mode: 'insensitive' } },
-        { passage: { contains: s, mode: 'insensitive' } },
         { category: { contains: s, mode: 'insensitive' } },
-        { subtopic: { contains: s, mode: 'insensitive' } }
+        { 
+          AND: [
+            { passage: { not: null } },
+            { passage: { contains: s, mode: 'insensitive' } }
+          ]
+        },
+        { 
+          AND: [
+            { subtopic: { not: null } },
+            { subtopic: { contains: s, mode: 'insensitive' } }
+          ]
+        }
       ];
     }
  
@@ -57,11 +67,6 @@ export async function GET(request: NextRequest) {
         subtopicRef: {
           include: {
             topic: true
-          }
-        },
-        _count: {
-          select: {
-            questionResults: true
           }
         }
       },
@@ -83,13 +88,13 @@ export async function GET(request: NextRequest) {
     });
 
     const subtopics = await prisma.question.findMany({
-      where: { isActive: true },
+      where: { isActive: true, subtopic: { not: null } },
       select: { subtopic: true },
       distinct: ['subtopic']
     });
 
     const sources = await prisma.question.findMany({
-      where: { isActive: true },
+      where: { isActive: true, source: { not: null } },
       select: { source: true },
       distinct: ['source']
     });
