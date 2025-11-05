@@ -26,16 +26,19 @@ export async function GET(request: NextRequest) {
     // Validate and sanitize pagination parameters
     const limitParam = searchParams.get('limit');
     const offsetParam = searchParams.get('offset');
-    const limit = Math.min(Math.max(parseInt(limitParam || '50', 10), 1), 100);
-    const offset = Math.max(parseInt(offsetParam || '0', 10), 0);
+    const parsedLimit = parseInt(limitParam || '50', 10);
+    const parsedOffset = parseInt(offsetParam || '0', 10);
     
-    if (isNaN(limit) || isNaN(offset)) {
+    if (isNaN(parsedLimit) || isNaN(parsedOffset)) {
       console.error('[/api/questions] Invalid pagination parameters', { limit: limitParam, offset: offsetParam });
       return NextResponse.json({
         error: 'Invalid pagination parameters',
         details: 'Limit and offset must be valid numbers'
       }, { status: 400 });
     }
+    
+    const limit = Math.min(Math.max(parsedLimit, 1), 100);
+    const offset = Math.max(parsedOffset, 0);
 
     // Build where clause
     const where: Prisma.QuestionWhereInput = {
@@ -195,6 +198,10 @@ export async function GET(request: NextRequest) {
       return cleanText(text);
     };
 
+    const toISOStringOrNull = (date: Date | null | undefined): string | null => {
+      return date ? date.toISOString() : null;
+    };
+
     const parseArrayString = (input: unknown): string[] | null => {
       if (typeof input === 'string') {
         try {
@@ -237,7 +244,7 @@ export async function GET(request: NextRequest) {
       try {
         // Safely handle JSON fields that might not be properly serializable
         const safeJsonParse = (value: unknown): unknown => {
-          if (value === null || value === undefined) return null;
+          if (value == null) return null;
           // If already an object/array, return as-is (Prisma handles JSON fields properly)
           if (typeof value === 'object') return value;
           // If it's a string, try to parse it
@@ -272,9 +279,9 @@ export async function GET(request: NextRequest) {
           reviewStatus: q.reviewStatus,
           reviewComments: q.reviewComments,
           reviewedBy: q.reviewedBy,
-          reviewedAt: q.reviewedAt ? q.reviewedAt.toISOString() : null,
+          reviewedAt: toISOStringOrNull(q.reviewedAt),
           createdAt: q.createdAt.toISOString(),
-          updatedAt: q.updatedAt ? q.updatedAt.toISOString() : null,
+          updatedAt: toISOStringOrNull(q.updatedAt),
           // Explicitly include subtopicRef to ensure proper serialization
           subtopicRef: q.subtopicRef ? {
             id: q.subtopicRef.id,
