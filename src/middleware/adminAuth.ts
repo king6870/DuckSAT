@@ -2,11 +2,7 @@
 import { NextRequest } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
-
-const ADMIN_EMAILS = [
-  'lionvihaan@gmail.com',
-  'kingjacobisthegoat@gmail.com'
-]
+import { ADMIN_EMAILS } from '@/lib/admin-constants'
 
 export async function isAdmin(request: NextRequest): Promise<boolean> {
   try {
@@ -32,5 +28,3 @@ export async function requireAdmin(request: NextRequest) {
   
   return true
 }
-
-export { ADMIN_EMAILS }

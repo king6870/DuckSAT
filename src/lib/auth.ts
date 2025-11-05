@@ -1,35 +1,8 @@
+import 'server-only'
 import GoogleProvider from 'next-auth/providers/google'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { prisma } from './prisma'
-
-// Validate NEXTAUTH_SECRET at module load time (build time in production)
-// This ensures fail-fast feedback rather than runtime errors
-const isProduction = process.env.NODE_ENV === 'production';
-const secret = process.env.NEXTAUTH_SECRET;
-
-// Debug logging to help diagnose environment variable loading issues
-// Logs in two scenarios:
-// 1. Development mode (always logs to help developers)
-// 2. Production mode when secret is missing (to help diagnose deployment issues)
-// The actual secret value is never logged for security
-if (!isProduction || !secret) {
-  console.log('[NextAuth Config] Environment check:', {
-    NODE_ENV: process.env.NODE_ENV,
-    NEXTAUTH_SECRET_present: !!secret,
-    NEXTAUTH_SECRET_length: secret?.length || 0,
-    NEXTAUTH_URL_present: !!process.env.NEXTAUTH_URL,
-  });
-}
-
-// Fail-fast in production if NEXTAUTH_SECRET is not set
-if (isProduction && !secret) {
-  const errorMessage = `NEXTAUTH_SECRET environment variable must be set in production.
-Generate a secure secret with: openssl rand -base64 32
-For Vercel deployments, ensure the variable is set in the Vercel dashboard under Project Settings > Environment Variables.`;
-  
-  console.error('[NextAuth Config] FATAL:', errorMessage);
-  throw new Error(errorMessage);
-}
+import type { NextAuthOptions } from 'next-auth'
 
 // Helper to build providers list
 function getProviders() {
@@ -46,25 +19,33 @@ function getProviders() {
   return providers;
 }
 
-// Helper to get NextAuth secret - no fallback in production
+// Helper to get NextAuth secret
+// This function will only be called on the server side due to 'server-only' import
 function getSecret() {
-  // In production, we've already validated at module load time
-  if (secret) {
-    return secret;
-  }
+  const isProduction = process.env.NODE_ENV === 'production';
+  const secret = process.env.NEXTAUTH_SECRET;
   
-  // Only use fallback in development
+  // In development, use fallback
   if (!isProduction) {
-    return 'development-secret-please-change-in-production';
+    return secret || 'development-secret-please-change-in-production';
   }
   
-  // This should never be reached due to module-load validation above,
-  // but included as a safety measure
-  throw new Error(`NEXTAUTH_SECRET environment variable must be set in production.
-Generate a secure secret with: openssl rand -base64 32`);
+  // In production, secret is required
+  if (!secret) {
+    const errorMessage = `NEXTAUTH_SECRET environment variable must be set in production.
+Generate a secure secret with: openssl rand -base64 32
+For Vercel deployments, ensure the variable is set in the Vercel dashboard under Project Settings > Environment Variables.`;
+    
+    console.error('[NextAuth Config] FATAL:', errorMessage);
+    throw new Error(errorMessage);
+  }
+  
+  return secret;
 }
 
-export const authOptions = {
+// Auth configuration for NextAuth
+// This is only used server-side due to 'server-only' import at the top
+export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: getProviders(),
   session: {
