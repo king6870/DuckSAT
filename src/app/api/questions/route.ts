@@ -204,9 +204,9 @@ export async function GET(request: NextRequest) {
           reviewStatus: q.reviewStatus,
           reviewComments: q.reviewComments,
           reviewedBy: q.reviewedBy,
-          reviewedAt: q.reviewedAt ? new Date(q.reviewedAt).toISOString() : undefined,
-          createdAt: new Date(q.createdAt).toISOString(),
-          updatedAt: q.updatedAt ? new Date(q.updatedAt).toISOString() : undefined,
+          reviewedAt: q.reviewedAt ? q.reviewedAt.toISOString() : undefined,
+          createdAt: q.createdAt.toISOString(),
+          updatedAt: q.updatedAt ? q.updatedAt.toISOString() : undefined,
           // Explicitly include subtopicRef to ensure proper serialization
           subtopicRef: q.subtopicRef ? {
             id: q.subtopicRef.id,
