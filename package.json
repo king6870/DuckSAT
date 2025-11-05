@@ -34,7 +34,7 @@
         "fix:graphs": "tsx scripts/fix-graph-questions.ts",
         "create:text-math": "tsx scripts/create-text-only-math.ts",
         "test:review-api": "tsx scripts/test-review-api.ts",
-        "test:questions-api": "tsx scripts/test-questions-api.ts",
+        "test:api-questions": "tsx scripts/test-api-questions.ts",
         "seed:questions-test": "tsx scripts/seed-questions-test.ts"
     },
     "dependencies": {
