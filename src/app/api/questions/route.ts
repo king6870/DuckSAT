@@ -240,23 +240,36 @@ export async function GET(request: NextRequest) {
       }
     };
 
+    // Helper function to ensure JSON fields are properly serializable
+    // Moved outside the map to avoid recreation on every iteration
+    const safeJsonParse = (value: unknown): unknown => {
+      if (value == null) return null;
+      
+      try {
+        // If it's already an object/array, ensure it's serializable by round-tripping
+        // This removes undefined values and ensures no circular references
+        if (typeof value === 'object') {
+          return JSON.parse(JSON.stringify(value));
+        }
+        
+        // If it's a string, try to parse it
+        if (typeof value === 'string') {
+          try {
+            return JSON.parse(value);
+          } catch {
+            return value;
+          }
+        }
+        
+        return value;
+      } catch (err) {
+        console.error('[/api/questions] Error in safeJsonParse:', err, 'Input:', typeof value);
+        return null;
+      }
+    };
+
     const normalizedQuestions = questions.map((q) => {
       try {
-        // Safely handle JSON fields that might not be properly serializable
-        const safeJsonParse = (value: unknown): unknown => {
-          if (value == null) return null;
-          // If already an object/array, return as-is (Prisma handles JSON fields properly)
-          if (typeof value === 'object') return value;
-          // If it's a string, try to parse it
-          if (typeof value === 'string') {
-            try {
-              return JSON.parse(value);
-            } catch {
-              return value;
-            }
-          }
-          return value;
-        };
 
         const result = {
           id: q.id,
@@ -295,6 +308,20 @@ export async function GET(request: NextRequest) {
           } : null
         };
 
+        // Verify this individual question is JSON-serializable
+        try {
+          JSON.stringify(result);
+        } catch (itemError) {
+          console.error(`[/api/questions] Question ${q.id.substring(0, 8)} failed serialization:`, itemError);
+          console.error('[/api/questions] Problematic fields:', {
+            hasChartData: !!q.chartData,
+            hasWrongAnswerExplanations: !!q.wrongAnswerExplanations,
+            hasOptions: !!q.options,
+            hasSubtopicRef: !!q.subtopicRef
+          });
+          throw itemError;
+        }
+
         // Log diagram info for debugging
         if (q.chartData || q.imageUrl) {
           console.log(`[/api/questions] Question ${q.id.substring(0, 8)}: chartData=${!!q.chartData}, imageUrl=${!!q.imageUrl}`);
@@ -310,7 +337,8 @@ export async function GET(request: NextRequest) {
     const duration = Date.now() - startTime;
     console.log(`[/api/questions] Request completed in ${duration}ms, returning ${normalizedQuestions.length} questions`);
 
-    return NextResponse.json({
+    // Build response object
+    const responseData = {
       questions: normalizedQuestions,
       pagination: {
         total: totalCount,
@@ -323,7 +351,21 @@ export async function GET(request: NextRequest) {
         subtopics: subtopics.map(s => s.subtopic).filter(Boolean),
         sources: sources.map(s => s.source).filter(Boolean)
       }
-    });
+    };
+
+    // Final safety check: ensure the response is JSON-serializable
+    try {
+      JSON.stringify(responseData);
+    } catch (serializationError) {
+      console.error('[/api/questions] Response serialization failed:', serializationError);
+      return NextResponse.json({
+        error: 'Failed to serialize response',
+        details: serializationError instanceof Error ? serializationError.message : 'Unknown serialization error',
+        timestamp: new Date().toISOString()
+      }, { status: 500 });
+    }
+
+    return NextResponse.json(responseData);
     
   } catch (error) {
     const duration = Date.now() - startTime;
