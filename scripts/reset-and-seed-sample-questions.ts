@@ -136,7 +136,7 @@ async function resetAndSeedQuestions() {
         data: question,
       });
       insertedQuestions.push(inserted);
-      console.log(`  ✅ ${inserted.moduleType} - ${inserted.category}: ${inserted.question.substring(0, 50)}...`);
+      console.log(`  ✅ ${inserted.moduleType} - ${inserted.category}: ${(inserted.question || '').substring(0, 50)}...`);
     }
 
     console.log(`\n✅ Successfully inserted ${insertedQuestions.length} questions`);

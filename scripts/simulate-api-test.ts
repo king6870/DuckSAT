@@ -86,8 +86,9 @@ async function simulateApiRequest() {
     // Display question details
     console.log('\n📚 Question Details:\n');
     for (const q of questions) {
+      const questionText = q.question || '';
       console.log(`  ${q.moduleType.toUpperCase()} - ${q.category}`);
-      console.log(`  Q: ${q.question.substring(0, 70)}${q.question.length > 70 ? '...' : ''}`);
+      console.log(`  Q: ${questionText.substring(0, 70)}${questionText.length > 70 ? '...' : ''}`);
       console.log(`  Options: ${Array.isArray(q.options) ? q.options.length : 'N/A'}`);
       console.log(`  Correct: ${q.correctAnswer} (${Array.isArray(q.options) ? q.options[q.correctAnswer] : 'N/A'})`);
       console.log(`  Difficulty: ${q.difficulty}`);

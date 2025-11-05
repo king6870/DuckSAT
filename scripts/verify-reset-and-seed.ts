@@ -116,7 +116,7 @@ async function verifySeededQuestions() {
     console.log('='.repeat(60));
     console.log('\nSample questions:');
     for (const question of parsed) {
-      console.log(`  - [${question.moduleType}] ${question.category}: ${question.question.substring(0, 60)}...`);
+      console.log(`  - [${question.moduleType}] ${question.category}: ${(question.question || '').substring(0, 60)}...`);
     }
     
     console.log('\n✅ The script worked correctly and questions are ready for API testing');
