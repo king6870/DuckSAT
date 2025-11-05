@@ -100,32 +100,41 @@ export async function GET(request: NextRequest) {
     });
 
     // Normalize result to ensure consistent types and clearer text
-    // Preserve line breaks and decode common HTML entities
     const decodeHTMLEntities = (text: string): string => {
       if (typeof text !== 'string') return '';
-      return text
-        // Decode common HTML entities
-        .replace(/&nbsp;/g, ' ')
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>')
-        .replace(/&quot;/g, '"')
-        .replace(/&apos;/g, "'")
-        // Numeric entities (decimal and hex)
-        .replace(/&#(\d+);/g, (_m, code) => String.fromCharCode(Number(code)))
-        .replace(/&#x([0-9a-fA-F]+);/g, (_m, hex) => String.fromCharCode(parseInt(hex, 16)))
-        // Decode ampersand last to avoid double-decoding
-        .replace(/&amp;/g, '&');
+      try {
+        return text
+          // Decode common HTML entities
+          .replace(/&nbsp;/g, ' ')
+          .replace(/&lt;/g, '<')
+          .replace(/&gt;/g, '>')
+          .replace(/&quot;/g, '"')
+          .replace(/&apos;/g, "'")
+          // Numeric entities (decimal and hex)
+          .replace(/&#(\d+);/g, (_m, code) => String.fromCharCode(Number(code)))
+          .replace(/&#x([0-9a-fA-F]+);/g, (_m, hex) => String.fromCharCode(parseInt(hex, 16)))
+          // Decode ampersand last to avoid double-decoding
+          .replace(/&amp;/g, '&');
+      } catch (err) {
+        console.error('Error in decodeHTMLEntities:', err, 'Input:', text);
+        return text;
+      }
     };
 
     const cleanText = (text: unknown): string => {
       if (typeof text !== 'string') return '';
-      const stripped = text.replace(/^\s*["']|["']\s*$/g, '');
-      const decoded = decodeHTMLEntities(stripped);
-      return decoded
-        .split(/\r?\n/)
-        .map((line) => line.replace(/[ \t]+/g, ' ').trim())
-        .join('\n')
-        .trim();
+      try {
+        const stripped = text.replace(/^\s*["']|["']\s*$/g, '');
+        const decoded = decodeHTMLEntities(stripped);
+        return decoded
+          .split(/\r?\n/)
+          .map((line) => line.replace(/[ \t]+/g, ' ').trim())
+          .join('\n')
+          .trim();
+      } catch (err) {
+        console.error('Error in cleanText:', err, 'Input:', text);
+        return String(text);
+      }
     };
     
     const cleanOptionalText = (text: unknown): string | undefined => {
@@ -146,41 +155,65 @@ export async function GET(request: NextRequest) {
 
     const normalizeOptions = (options: unknown): string[] => {
       const normalizeOne = (o: unknown) => {
-        const s = typeof o === 'string' ? o : String(o);
-        const stripped = s.replace(/^\s*["']|["']\s*$/g, '');
-        const decoded = decodeHTMLEntities(stripped);
-        return decoded;
+        try {
+          const s = typeof o === 'string' ? o : String(o);
+          const stripped = s.replace(/^\s*["']|["']\s*$/g, '');
+          const decoded = decodeHTMLEntities(stripped);
+          return decoded;
+        } catch (err) {
+          console.error('Error in normalizeOne:', err, 'Input:', o);
+          return String(o);
+        }
       };
 
-      if (Array.isArray(options)) {
-        return (options as unknown[]).map(normalizeOne);
+      try {
+        if (Array.isArray(options)) {
+          return (options as unknown[]).map(normalizeOne);
+        }
+        const parsed = parseArrayString(options);
+        if (parsed) {
+          return parsed.map(normalizeOne);
+        }
+        return [];
+      } catch (err) {
+        console.error('Error in normalizeOptions:', err, 'Input:', options);
+        return [];
       }
-      const parsed = parseArrayString(options);
-      if (parsed) {
-        return parsed.map(normalizeOne);
-      }
-      return [];
     };
 
     const normalizedQuestions = questions.map((q) => {
-      const result = {
-        ...q,
-        question: cleanText(q.question),
-        explanation: cleanText(q.explanation),
-        passage: typeof q.passage === 'string' ? cleanText(q.passage) : q.passage,
-        options: normalizeOptions(q.options),
-        tags: Array.isArray(q.tags) ? q.tags : [],
-        imageUrl: q.imageUrl,
-        imageAlt: cleanOptionalText(q.imageAlt),
-        source: cleanOptionalText(q.source)
-      };
+      try {
+        const result = {
+          ...q,
+          question: cleanText(q.question),
+          explanation: cleanText(q.explanation),
+          passage: typeof q.passage === 'string' ? cleanText(q.passage) : q.passage,
+          options: normalizeOptions(q.options),
+          tags: Array.isArray(q.tags) ? q.tags : [],
+          imageUrl: q.imageUrl,
+          imageAlt: cleanOptionalText(q.imageAlt),
+          source: cleanOptionalText(q.source),
+          // Explicitly include subtopicRef to ensure proper serialization
+          subtopicRef: q.subtopicRef ? {
+            id: q.subtopicRef.id,
+            name: q.subtopicRef.name,
+            topic: q.subtopicRef.topic ? {
+              id: q.subtopicRef.topic.id,
+              name: q.subtopicRef.topic.name
+            } : null
+          } : null
+        };
 
-      // Log diagram info for debugging
-      if (q.chartData || q.imageUrl) {
-        console.log(`Question ${q.id.substring(0, 8)}: chartData=${!!q.chartData}, imageUrl=${!!q.imageUrl}`);
+        // Log diagram info for debugging
+        if (q.chartData || q.imageUrl) {
+          console.log(`Question ${q.id.substring(0, 8)}: chartData=${!!q.chartData}, imageUrl=${!!q.imageUrl}`);
+        }
+
+        return result;
+      } catch (err) {
+        console.error(`Error normalizing question ${q.id}:`, err);
+        throw err;
       }
-
-      return result;
     });
 
     return NextResponse.json({
@@ -200,9 +233,13 @@ export async function GET(request: NextRequest) {
     
   } catch (error) {
     console.error('Error fetching questions:', error);
+    if (error instanceof Error) {
+      console.error('Error stack:', error.stack);
+    }
     return NextResponse.json({
       error: 'Failed to fetch questions',
-      details: error instanceof Error ? error.message : String(error)
+      details: error instanceof Error ? error.message : String(error),
+      stack: process.env.NODE_ENV === 'development' && error instanceof Error ? error.stack : undefined
     }, { status: 500 });
 }
 }
