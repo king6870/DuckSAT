@@ -79,7 +79,7 @@ function runCommand(command, description) {
 /**
  * Main deployment function
  */
-async function deploy() {
+function deploy() {
   logSection('🚀 Starting Automated Deployment');
   
   const startTime = Date.now();
@@ -132,8 +132,10 @@ process.on('unhandledRejection', (error) => {
 });
 
 // Run the deployment
-deploy().catch((error) => {
+try {
+  deploy();
+} catch (error) {
   log('\n❌ Deployment failed:', colors.red);
   console.error(error);
   process.exit(1);
-});
+}
