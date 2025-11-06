@@ -35,7 +35,8 @@
         "create:text-math": "tsx scripts/create-text-only-math.ts",
         "test:review-api": "tsx scripts/test-review-api.ts",
         "test:api-questions": "tsx scripts/test-api-questions.ts",
-        "seed:questions-test": "tsx scripts/seed-questions-test.ts"
+        "seed:questions-test": "tsx scripts/seed-questions-test.ts",
+        "deploy:migrate-seed": "node scripts/deploy-migrate-seed.js"
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.10.0",
