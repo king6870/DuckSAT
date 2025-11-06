@@ -84,8 +84,6 @@ function deploy() {
   
   const startTime = Date.now();
 
-  log('\n📊 Checking database connection...', colors.cyan);
-
   // Step 1: Run Prisma migrations
   logSection('📦 Step 1: Running Prisma Migrations');
   const migrationsSuccess = runCommand(
