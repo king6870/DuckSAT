@@ -1,5 +1,5 @@
-// Admin AI Question Generation API
-import { NextRequest, NextResponse } from 'next/server'
+// Admin AI Question Generation API (Simple version)
+import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 import { aiQuestionService } from '@/services/aiQuestionService'
@@ -18,12 +18,12 @@ async function checkAdminAuth() {
   return null
 }
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   const authError = await checkAdminAuth()
   if (authError) return authError
 
   try {
-    console.log('🚀 Admin initiated question generation')
+    console.log('🚀 Admin initiated question generation (simple mode)')
     
     // Generate and store questions using the AI service
     const result = await aiQuestionService.generateAndStoreQuestions()

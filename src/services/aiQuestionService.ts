@@ -905,6 +905,15 @@ Respond in this JSON format:
             }
           })
 
+          // Check if this is a fallback evaluation
+          const isFallbackEvaluation = question.evaluationFeedback?.includes('Fallback evaluation') || 
+                                        question.evaluationFeedback?.includes('fallback logic')
+          
+          const reviewStatus = isFallbackEvaluation ? 'pending' : null
+          const reviewComments = isFallbackEvaluation 
+            ? '⚠️ Auto-generated question - Review needed. ' + question.evaluationFeedback
+            : null
+
           const storedQuestion = await prisma.question.create({
             data: {
               subtopicId: subtopic?.id || null,
@@ -929,7 +938,9 @@ Respond in this JSON format:
               timeEstimate: question.points * 30, // 30 seconds per point
               source: 'AI Generated (GPT-5)',
               tags: [question.difficulty, question.category, question.subtopic],
-              isActive: true
+              isActive: true,
+              reviewStatus: reviewStatus,
+              reviewComments: reviewComments
             }
           })
 

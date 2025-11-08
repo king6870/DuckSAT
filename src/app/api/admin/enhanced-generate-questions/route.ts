@@ -14,6 +14,11 @@ interface GenerationSettings {
   maxTokens: number
   includeCharts: boolean
   includePassages: boolean
+  // New parameters for topic/subtopic filtering
+  topicId?: string
+  subtopicId?: string
+  moduleType?: 'math' | 'reading-writing'
+  difficulty?: 'easy' | 'medium' | 'hard'
 }
 
 export async function POST(request: NextRequest) {
@@ -37,6 +42,27 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Validate topic/subtopic if provided
+    if (settings.topicId) {
+      const topic = await prisma.topic.findUnique({ where: { id: settings.topicId } })
+      if (!topic) {
+        return NextResponse.json(
+          { error: 'Invalid topic ID' },
+          { status: 400 }
+        )
+      }
+    }
+
+    if (settings.subtopicId) {
+      const subtopic = await prisma.subtopic.findUnique({ where: { id: settings.subtopicId } })
+      if (!subtopic) {
+        return NextResponse.json(
+          { error: 'Invalid subtopic ID' },
+          { status: 400 }
+        )
+      }
+    }
+
     console.log('🚀 Starting enhanced AI question generation...')
     console.log('Settings:', settings)
 
@@ -56,17 +82,33 @@ export async function POST(request: NextRequest) {
 
     // Store accepted questions in database
     const storedQuestions = []
+    const questionResults = []
+    
     for (const question of acceptedQuestions) {
       try {
-        // Find the subtopic in database
-        const subtopic = await prisma.subtopic.findFirst({
-          where: {
-            name: {
-              contains: question.subtopic,
-              mode: 'insensitive'
+        // Find the subtopic in database, prefer provided subtopicId
+        let subtopic = null
+        if (settings.subtopicId) {
+          subtopic = await prisma.subtopic.findUnique({ where: { id: settings.subtopicId } })
+        } else {
+          subtopic = await prisma.subtopic.findFirst({
+            where: {
+              name: {
+                contains: question.subtopic,
+                mode: 'insensitive'
+              }
             }
-          }
-        })
+          })
+        }
+
+        // Check if this is a fallback evaluation
+        const isFallbackEvaluation = question.evaluationFeedback?.includes('Fallback evaluation') || 
+                                      question.evaluationFeedback?.includes('fallback logic')
+        
+        const reviewStatus = isFallbackEvaluation ? 'pending' : null
+        const reviewComments = isFallbackEvaluation 
+          ? '⚠️ Auto-generated question - Review needed. ' + question.evaluationFeedback
+          : null
 
         const storedQuestion = await prisma.question.create({
           data: {
@@ -87,11 +129,19 @@ export async function POST(request: NextRequest) {
             timeEstimate: question.points * 30, // 30 seconds per point
             source: `AI Generated (${settings.llmModel})`,
             tags: [question.difficulty, question.category, question.subtopic],
-            isActive: true
+            isActive: true,
+            reviewStatus: reviewStatus,
+            reviewComments: reviewComments
           }
         })
 
         storedQuestions.push(storedQuestion)
+        questionResults.push({
+          id: storedQuestion.id,
+          status: 'stored',
+          needsReview: isFallbackEvaluation,
+          evaluationFeedback: question.evaluationFeedback
+        })
 
         // Update subtopic count if linked
         if (subtopic) {
@@ -106,6 +156,12 @@ export async function POST(request: NextRequest) {
         }
       } catch (error) {
         console.error('Failed to store question:', error)
+        questionResults.push({
+          id: null,
+          status: 'error',
+          needsReview: false,
+          evaluationFeedback: error instanceof Error ? error.message : 'Unknown error storing question'
+        })
       }
     }
 
@@ -116,10 +172,12 @@ export async function POST(request: NextRequest) {
         evaluated: evaluatedQuestions.length,
         accepted: acceptedQuestions.length,
         rejected: rejectedQuestions.length,
-        stored: storedQuestions.length
+        stored: storedQuestions.length,
+        needsReview: questionResults.filter(r => r.needsReview).length
       },
+      questionResults,
       questions: {
-        accepted: acceptedQuestions.map(q => ({
+        accepted: acceptedQuestions.map((q, index) => ({
           question: q.question,
           moduleType: q.moduleType,
           difficulty: q.difficulty,
@@ -132,7 +190,9 @@ export async function POST(request: NextRequest) {
           points: q.points,
           passage: q.passage,
           chartDescription: q.chartDescription,
-          evaluationFeedback: q.evaluationFeedback || ''
+          evaluationFeedback: q.evaluationFeedback || '',
+          needsReview: questionResults[index]?.needsReview || false,
+          storedId: questionResults[index]?.id || null
         })),
         rejected: rejectedQuestions.map(q => ({
           question: q.question,
@@ -144,10 +204,18 @@ export async function POST(request: NextRequest) {
     })
   } catch (error) {
     console.error('Enhanced AI question generation failed:', error)
+    
+    // Provide detailed error information
+    const errorDetails = error instanceof Error ? {
+      message: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    } : { message: 'Unknown error' }
+    
     return NextResponse.json(
       {
         error: 'Failed to generate questions',
-        details: error instanceof Error ? error.message : 'Unknown error'
+        details: errorDetails.message,
+        stack: errorDetails.stack
       },
       { status: 500 }
     )
