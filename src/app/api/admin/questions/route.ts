@@ -35,8 +35,45 @@ export async function GET(request: NextRequest) {
     const [questions, total] = await Promise.all([
       prisma.question.findMany({
         where,
-        include: {
-          subtopicRef: true
+        select: {
+          id: true,
+          subtopicId: true,
+          moduleType: true,
+          difficulty: true,
+          category: true,
+          subtopic: true,
+          question: true,
+          passage: true,
+          options: true,
+          correctAnswer: true,
+          explanation: true,
+          wrongAnswerExplanations: true,
+          imageUrl: true,
+          imageAlt: true,
+          chartData: true,
+          timeEstimate: true,
+          source: true,
+          tags: true,
+          isActive: true,
+          reviewStatus: true,
+          reviewComments: true,
+          reviewedBy: true,
+          reviewedAt: true,
+          createdAt: true,
+          updatedAt: true,
+          subtopicRef: {
+            select: {
+              id: true,
+              name: true,
+              description: true,
+              topicId: true,
+              targetQuestions: true,
+              currentCount: true,
+              isActive: true,
+              createdAt: true,
+              updatedAt: true
+            }
+          }
         },
         orderBy: {
           createdAt: 'desc'

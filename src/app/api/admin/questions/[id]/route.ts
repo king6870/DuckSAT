@@ -16,7 +16,34 @@ export async function GET(
     }
 
     const question = await prisma.question.findUnique({
-      where: { id }
+      where: { id },
+      select: {
+        id: true,
+        question: true,
+        passage: true,
+        options: true,
+        correctAnswer: true,
+        explanation: true,
+        wrongAnswerExplanations: true,
+        moduleType: true,
+        difficulty: true,
+        category: true,
+        subtopic: true,
+        subtopicId: true,
+        imageUrl: true,
+        imageAlt: true,
+        chartData: true,
+        timeEstimate: true,
+        source: true,
+        tags: true,
+        isActive: true,
+        reviewStatus: true,
+        reviewComments: true,
+        reviewedBy: true,
+        reviewedAt: true,
+        createdAt: true,
+        updatedAt: true
+      }
     })
 
     if (!question) {
@@ -25,26 +52,7 @@ export async function GET(
 
     return NextResponse.json({
       success: true,
-      question: {
-        id: question.id,
-        question: question.question,
-        passage: question.passage,
-        options: question.options,
-        correctAnswer: question.correctAnswer,
-        explanation: question.explanation,
-        wrongAnswerExplanations: question.wrongAnswerExplanations,
-        moduleType: question.moduleType,
-        difficulty: question.difficulty,
-        category: question.category,
-        subtopic: question.subtopic,
-        chartData: question.chartData,
-        timeEstimate: question.timeEstimate,
-        source: question.source,
-        tags: question.tags,
-        isActive: question.isActive,
-        createdAt: question.createdAt,
-        updatedAt: question.updatedAt
-      }
+      question: question
     })
 
   } catch (error) {

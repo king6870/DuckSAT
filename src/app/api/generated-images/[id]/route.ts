@@ -16,6 +16,20 @@ export async function GET(
   try {
     const questionId = params.id
 
+    // Note: imageData and imageMimeType fields don't exist in the database yet
+    // The migration to add these fields exists but hasn't been applied
+    // For now, return a 404 SVG indicating that blob storage is not available
+    console.warn(`Image blob storage not available for question ${questionId} - migration not applied`)
+    
+    return new NextResponse(get404SVG(), {
+      status: 404,
+      headers: {
+        'Content-Type': 'image/svg+xml',
+        'Cache-Control': 'public, max-age=3600',
+      },
+    })
+
+    /* Original code - will be restored once migration is applied:
     // Fetch question with image data from database
     const question = await prisma.question.findUnique({
       where: { id: questionId },
@@ -46,6 +60,7 @@ export async function GET(
         'X-Image-Alt': question.imageAlt || 'Math diagram',
       },
     })
+    */
   } catch (error) {
     console.error('Error serving image:', error)
     

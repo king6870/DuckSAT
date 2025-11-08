@@ -88,14 +88,50 @@ export async function GET(request: NextRequest) {
     });
     
     // Fetch questions with related data
+    // Note: Explicitly selecting only fields that exist in the database
+    // imageData and imageMimeType fields are defined in schema but the migration hasn't been applied yet
     let questions;
     try {
       questions = await prisma.question.findMany({
         where,
-        include: {
+        select: {
+          id: true,
+          subtopicId: true,
+          moduleType: true,
+          difficulty: true,
+          category: true,
+          subtopic: true,
+          question: true,
+          passage: true,
+          options: true,
+          correctAnswer: true,
+          explanation: true,
+          wrongAnswerExplanations: true,
+          imageUrl: true,
+          imageAlt: true,
+          chartData: true,
+          timeEstimate: true,
+          source: true,
+          tags: true,
+          isActive: true,
+          reviewStatus: true,
+          reviewComments: true,
+          reviewedBy: true,
+          reviewedAt: true,
+          createdAt: true,
+          updatedAt: true,
           subtopicRef: {
-            include: {
-              topic: true
+            select: {
+              id: true,
+              name: true,
+              description: true,
+              topic: {
+                select: {
+                  id: true,
+                  name: true,
+                  moduleType: true
+                }
+              }
             }
           }
         },

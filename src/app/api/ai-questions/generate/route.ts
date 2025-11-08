@@ -109,10 +109,44 @@ export async function GET() {
       where: {
         source: 'AI Generated (GPT-5)'
       },
-      include: {
+      select: {
+        id: true,
+        question: true,
+        moduleType: true,
+        difficulty: true,
+        category: true,
+        subtopic: true,
+        subtopicId: true,
+        passage: true,
+        options: true,
+        correctAnswer: true,
+        explanation: true,
+        wrongAnswerExplanations: true,
+        imageUrl: true,
+        imageAlt: true,
+        chartData: true,
+        timeEstimate: true,
+        source: true,
+        tags: true,
+        isActive: true,
+        reviewStatus: true,
+        reviewComments: true,
+        reviewedBy: true,
+        reviewedAt: true,
+        createdAt: true,
+        updatedAt: true,
         subtopicRef: {
-          include: {
-            topic: true
+          select: {
+            id: true,
+            name: true,
+            description: true,
+            topic: {
+              select: {
+                id: true,
+                name: true,
+                moduleType: true
+              }
+            }
           }
         }
       },
