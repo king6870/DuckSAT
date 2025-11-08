@@ -6,6 +6,24 @@ This guide explains how to properly configure environment variables for the Duck
 
 **Important:** This project includes **automatic build-time validation** of all required environment variables. If any required variable is missing during deployment, the build will fail early with a clear error message, preventing deployment with misconfiguration.
 
+## ⚠️ CRITICAL: Vercel UI is the ONLY Way to Set Runtime Variables
+
+**Environment variables MUST be set in the Vercel Dashboard UI to be accessible at runtime.**
+
+### Why This Matters
+
+- **`.env` files are NOT deployed** to Vercel (they're in `.gitignore`)
+- **Build scripts only affect build time**, not runtime
+- **Only variables set in Vercel Dashboard UI** are available when your application runs on Vercel servers
+- **Runtime failures WILL occur** if you forget to set variables in the UI, even if build succeeds
+
+### Where to Set Variables
+
+✅ **Correct:** Vercel Dashboard → Settings → Environment Variables  
+❌ **Wrong:** `.env`, `.env.local`, `.env.production` files  
+❌ **Wrong:** Build scripts or package.json scripts  
+❌ **Wrong:** GitHub repository secrets (those are for CI/CD, not Vercel runtime)
+
 ## Critical Environment Variables
 
 ### NEXTAUTH_SECRET (Required)
@@ -86,6 +104,8 @@ Or push a new commit to trigger automatic deployment.
 
 ### 4. Verify Environment Variables Are Loaded
 
+#### Build-Time Validation
+
 The application includes **comprehensive build-time validation** via `scripts/check-env.js`:
 
 - **Automatic Validation:** Runs before every build (via the `prebuild` npm script)
@@ -111,6 +131,47 @@ If any variables are missing, you'll see:
 ❌ NEXTAUTH_SECRET: MISSING
 🚨 Build cannot proceed with missing environment variables!
 ```
+
+#### Runtime Verification (Diagnostic API)
+
+To verify that environment variables are accessible at runtime on Vercel (not just at build time), use the **Runtime Diagnostic API**:
+
+**Endpoint:** `GET /api/env-check`
+
+**Usage:**
+```bash
+# Check your deployed app
+curl https://yourdomain.vercel.app/api/env-check
+```
+
+**Response (Non-Production):**
+```json
+{
+  "NODE_ENV": "development",
+  "timestamp": "2025-11-08T14:30:00.000Z",
+  "diagnosticsEnabled": true,
+  "variables": {
+    "NEXTAUTH_SECRET": { "present": true, "length": 44 },
+    "NEXTAUTH_URL": { "present": true, "length": 30 },
+    "GOOGLE_CLIENT_ID": { "present": true, "length": 72 },
+    "GOOGLE_CLIENT_SECRET": { "present": true, "length": 35 },
+    "DATABASE_URL": { "present": true, "length": 122 },
+    "DATABASE_URL_UNPOOLED": { "present": true, "length": 117 }
+  }
+}
+```
+
+**Security Features:**
+- ✅ Shows presence (`true`/`false`) and length for each variable
+- ✅ Never exposes actual secret values
+- ✅ Includes NODE_ENV and timestamp for context
+- ✅ In production: Only returns data by default (no special access needed)
+- ✅ For enhanced diagnostics in production: Set `ALLOW_ENV_DIAGNOSTICS=true` env var
+
+**Important:** This API is designed for debugging environment variable issues. While it never exposes actual values, it's recommended to:
+- Monitor access to this endpoint
+- Remove `ALLOW_ENV_DIAGNOSTICS` after debugging is complete
+- Use this endpoint during initial deployment verification
 
 ## Troubleshooting
 

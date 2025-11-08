@@ -15,6 +15,39 @@ Before running the application, ensure all required environment variables are se
 
 **Note:** The build will fail with a clear error message if any required variable is missing. See `docs/VERCEL_ENV_SETUP.md` for detailed setup instructions.
 
+### ⚠️ CRITICAL: Vercel Runtime Environment Variables
+
+**For Vercel deployments, environment variables MUST be set in the Vercel Dashboard UI to be available at runtime.**
+
+Setting variables only in `.env` files or build scripts will NOT make them available at runtime on Vercel. Follow these steps:
+
+1. Go to your Vercel project dashboard
+2. Navigate to **Settings** → **Environment Variables**
+3. Add each required variable:
+   - `NEXTAUTH_SECRET` (generate with: `openssl rand -base64 32`)
+   - `NEXTAUTH_URL` (your production URL, e.g., `https://yourdomain.vercel.app`)
+   - `GOOGLE_CLIENT_ID`
+   - `GOOGLE_CLIENT_SECRET`
+   - `DATABASE_URL`
+   - `DATABASE_URL_UNPOOLED`
+4. Select the appropriate environments (Production, Preview, Development)
+5. **Redeploy** your application after adding/updating variables
+
+**Important:** Variables set in the Vercel UI are the ONLY way to make them accessible at runtime. Build-time validation will catch missing variables, but runtime failures will occur if variables aren't set in the Vercel Dashboard.
+
+For detailed setup instructions and troubleshooting, see `docs/VERCEL_ENV_SETUP.md`.
+
+### Runtime Environment Diagnostics
+
+To verify environment variables are properly loaded at runtime, you can use the diagnostic API:
+
+```bash
+# Check environment variable presence and length
+curl https://yourdomain.vercel.app/api/env-check
+```
+
+This endpoint returns presence (true/false) and length for all required variables, plus NODE_ENV. It never exposes actual secret values.
+
 ### Running the Development Server
 
 First, run the development server:
