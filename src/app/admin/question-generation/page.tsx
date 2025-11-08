@@ -4,78 +4,12 @@ import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { ADMIN_EMAILS } from '@/middleware/adminAuth'
-
-interface Topic {
-  id: string
-  name: string
-  moduleType: string
-  description: string | null
-  subtopics: Subtopic[]
-}
-
-interface Subtopic {
-  id: string
-  name: string
-  description: string | null
-  targetQuestions: number
-  currentCount: number
-}
-
-interface GenerationSettings {
-  llmModel: string
-  questionCount: number
-  mathCount: number
-  readingCount: number
-  temperature: number
-  maxTokens: number
-  includeCharts: boolean
-  includePassages: boolean
-  topicId?: string
-  subtopicId?: string
-  moduleType?: 'math' | 'reading-writing'
-  difficulty?: 'easy' | 'medium' | 'hard'
-}
-
-interface QuestionResult {
-  question: string
-  moduleType: string
-  difficulty: string
-  category: string
-  subtopic: string
-  qualityScore: number
-  evaluationFeedback: string
-  needsReview: boolean
-  storedId: string | null
-}
-
-interface GenerationResult {
-  success: boolean
-  summary?: {
-    generated: number
-    evaluated: number
-    accepted: number
-    rejected: number
-    stored: number
-    needsReview: number
-  }
-  questionResults?: Array<{
-    id: string | null
-    status: string
-    needsReview: boolean
-    evaluationFeedback: string
-  }>
-  questions?: {
-    accepted: QuestionResult[]
-    rejected: Array<{
-      question: string
-      moduleType: string
-      subtopic: string
-      evaluationFeedback: string
-    }>
-  }
-  error?: string
-  details?: string
-}
+import type { 
+  Topic, 
+  GenerationSettings, 
+  GenerationResult,
+  TopicsResponse
+} from '@/types/admin'
 
 const DEFAULT_SETTINGS: GenerationSettings = {
   llmModel: 'gpt-5',
@@ -114,7 +48,7 @@ export default function EnhancedQuestionGeneration() {
       try {
         const response = await fetch('/api/admin/topics')
         if (response.ok) {
-          const data = await response.json()
+          const data = await response.json() as TopicsResponse
           setTopics(data.topics || [])
         }
       } catch (err) {
@@ -229,12 +163,17 @@ export default function EnhancedQuestionGeneration() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Topic (Optional)</label>
                   <select
                     value={settings.topicId || ''}
-                    onChange={(e) => setSettings(prev => ({ 
-                      ...prev, 
-                      topicId: e.target.value || undefined,
-                      subtopicId: undefined,
-                      moduleType: e.target.value ? topics.find(t => t.id === e.target.value)?.moduleType as any : undefined
-                    }))}
+                    onChange={(e) => {
+                      const topicId = e.target.value || undefined
+                      const topic = topicId ? topics.find(t => t.id === topicId) : null
+                      const moduleType = topic?.moduleType as 'math' | 'reading-writing' | undefined
+                      setSettings(prev => ({ 
+                        ...prev, 
+                        topicId,
+                        subtopicId: undefined,
+                        moduleType
+                      }))
+                    }}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     disabled={generating}
                   >
@@ -272,7 +211,11 @@ export default function EnhancedQuestionGeneration() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Module Type</label>
                   <select
                     value={settings.moduleType || ''}
-                    onChange={(e) => setSettings(prev => ({ ...prev, moduleType: e.target.value as any || undefined }))}
+                    onChange={(e) => {
+                      const value = e.target.value
+                      const moduleType = value ? (value as 'math' | 'reading-writing') : undefined
+                      setSettings(prev => ({ ...prev, moduleType }))
+                    }}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     disabled={generating || !!settings.topicId}
                   >
@@ -287,7 +230,11 @@ export default function EnhancedQuestionGeneration() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Difficulty (Optional)</label>
                   <select
                     value={settings.difficulty || ''}
-                    onChange={(e) => setSettings(prev => ({ ...prev, difficulty: e.target.value as any || undefined }))}
+                    onChange={(e) => {
+                      const value = e.target.value
+                      const difficulty = value ? (value as 'easy' | 'medium' | 'hard') : undefined
+                      setSettings(prev => ({ ...prev, difficulty }))
+                    }}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     disabled={generating}
                   >
