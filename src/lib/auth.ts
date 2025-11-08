@@ -56,6 +56,7 @@ function getProviders() {
   // If running in the browser, return empty array (should never be used)
   // This prevents errors if the module is accidentally bundled into client code
   if (!isServer) {
+    console.warn('[NextAuth Config] getProviders() called in browser context. This should not happen in normal operation.');
     return [];
   }
   
@@ -77,6 +78,7 @@ function getSecret() {
   // If running in the browser, return a placeholder (should never be used)
   // This prevents errors if the module is accidentally bundled into client code
   if (!isServer) {
+    console.warn('[NextAuth Config] getSecret() called in browser context. This should not happen in normal operation.');
     return 'client-side-placeholder-not-for-use';
   }
   
