@@ -39,14 +39,63 @@ For detailed setup instructions and troubleshooting, see `docs/VERCEL_ENV_SETUP.
 
 ### Runtime Environment Diagnostics
 
-To verify environment variables are properly loaded at runtime, you can use the diagnostic API:
+**⚠️ CRITICAL: Always test environment variables after deploying to Vercel!**
+
+To verify environment variables are properly loaded at runtime (not just at build time), use the diagnostic API:
 
 ```bash
-# Check environment variable presence and length
+# Primary diagnostic endpoint (recommended)
+curl https://yourdomain.vercel.app/api/env
+
+# Alternative endpoint (same functionality)
 curl https://yourdomain.vercel.app/api/env-check
 ```
 
-This endpoint returns presence (true/false) and length for all required variables, plus NODE_ENV. It never exposes actual secret values.
+#### What the Diagnostic API Returns:
+
+```json
+{
+  "NODE_ENV": "production",
+  "timestamp": "2025-11-08T20:49:31.041Z",
+  "summary": {
+    "total": 6,
+    "present": 6,
+    "missing": 0
+  },
+  "variables": {
+    "NEXTAUTH_SECRET": { "present": true, "length": 44 },
+    "NEXTAUTH_URL": { "present": true, "length": 35 },
+    "GOOGLE_CLIENT_ID": { "present": true, "length": 72 },
+    "GOOGLE_CLIENT_SECRET": { "present": true, "length": 35 },
+    "DATABASE_URL": { "present": true, "length": 122 },
+    "DATABASE_URL_UNPOOLED": { "present": true, "length": 117 },
+    "NODE_ENV": { "present": true, "length": 10 }
+  }
+}
+```
+
+#### How to Use After Deployment:
+
+1. **Deploy to Vercel** with environment variables set in Dashboard
+2. **Test immediately** using the diagnostic endpoint:
+   ```bash
+   curl https://your-deployment-url.vercel.app/api/env
+   ```
+3. **Verify each variable** shows `"present": true`
+4. **Check the summary** - `"missing"` should be `0`
+5. **Look for warnings** - The API will warn about weak secrets or misconfigurations
+
+#### Common Issues and Solutions:
+
+| Issue | What It Means | Solution |
+|-------|---------------|----------|
+| `"present": false` | Variable not set in Vercel | Add in Vercel Dashboard → Settings → Environment Variables |
+| `"length": 0` | Variable set but empty | Update the variable value in Vercel Dashboard |
+| All variables missing | Wrong environment selected | Check if variables are enabled for Production/Preview in Vercel |
+| NEXTAUTH_SECRET length < 32 | Weak secret (warning shown) | Generate new secret: `openssl rand -base64 32` |
+| NEXTAUTH_URL contains "localhost" | Wrong URL in production | Update to production domain (e.g., https://yourdomain.vercel.app) |
+
+**Security Note:** These endpoints never expose actual secret values - only presence (true/false) and length. Safe to use in production for debugging.
 
 ### Running the Development Server
 
