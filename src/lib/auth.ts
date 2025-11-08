@@ -2,22 +2,24 @@ import GoogleProvider from 'next-auth/providers/google'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { prisma } from './prisma'
 
-// Validate NEXTAUTH_SECRET at module load time (build time in production)
+// Validate NEXTAUTH_SECRET and NEXTAUTH_URL at module load time (build time in production)
 // This ensures fail-fast feedback rather than runtime errors
 const isProduction = process.env.NODE_ENV === 'production';
 const secret = process.env.NEXTAUTH_SECRET;
+const nextAuthUrl = process.env.NEXTAUTH_URL;
 
 // Debug logging to help diagnose environment variable loading issues
 // Logs in two scenarios:
 // 1. Development mode (always logs to help developers)
-// 2. Production mode when secret is missing (to help diagnose deployment issues)
+// 2. Production mode when secret or URL is missing (to help diagnose deployment issues)
 // The actual secret value is never logged for security
-if (!isProduction || !secret) {
+if (!isProduction || !secret || !nextAuthUrl) {
   console.log('[NextAuth Config] Environment check:', {
     NODE_ENV: process.env.NODE_ENV,
     NEXTAUTH_SECRET_present: !!secret,
     NEXTAUTH_SECRET_length: secret?.length || 0,
-    NEXTAUTH_URL_present: !!process.env.NEXTAUTH_URL,
+    NEXTAUTH_URL_present: !!nextAuthUrl,
+    NEXTAUTH_URL_length: nextAuthUrl?.length || 0,
   });
 }
 
@@ -25,7 +27,19 @@ if (!isProduction || !secret) {
 if (isProduction && !secret) {
   const errorMessage = `NEXTAUTH_SECRET environment variable must be set in production.
 Generate a secure secret with: openssl rand -base64 32
-For Vercel deployments, ensure the variable is set in the Vercel dashboard under Project Settings > Environment Variables.`;
+For Vercel deployments, ensure the variable is set in the Vercel dashboard under Project Settings > Environment Variables.
+⚠️ IMPORTANT: Variables must be set in the Vercel UI (Dashboard → Settings → Environment Variables), not just in .env files or build scripts.`;
+  
+  console.error('[NextAuth Config] FATAL:', errorMessage);
+  throw new Error(errorMessage);
+}
+
+// Fail-fast in production if NEXTAUTH_URL is not set
+if (isProduction && !nextAuthUrl) {
+  const errorMessage = `NEXTAUTH_URL environment variable must be set in production.
+Set this to your application's canonical URL (e.g., https://yourdomain.vercel.app).
+For Vercel deployments, ensure the variable is set in the Vercel dashboard under Project Settings > Environment Variables.
+⚠️ IMPORTANT: Variables must be set in the Vercel UI (Dashboard → Settings → Environment Variables), not just in .env files or build scripts.`;
   
   console.error('[NextAuth Config] FATAL:', errorMessage);
   throw new Error(errorMessage);
