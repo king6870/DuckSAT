@@ -4,6 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev --turbopack",
+        "prebuild": "node scripts/check-env.js",
         "build": "prisma generate && next build",
         "start": "next start",
         "lint": "next lint",

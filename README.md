@@ -2,6 +2,21 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### Prerequisites
+
+Before running the application, ensure all required environment variables are set. The build process includes automatic validation that checks for:
+
+- `NEXTAUTH_SECRET` - Authentication secret (generate with `openssl rand -base64 32`)
+- `NEXTAUTH_URL` - Application URL
+- `GOOGLE_CLIENT_ID` - Google OAuth client ID
+- `GOOGLE_CLIENT_SECRET` - Google OAuth client secret
+- `DATABASE_URL` - Database connection string (pooled)
+- `DATABASE_URL_UNPOOLED` - Database connection string (direct)
+
+**Note:** The build will fail with a clear error message if any required variable is missing. See `docs/VERCEL_ENV_SETUP.md` for detailed setup instructions.
+
+### Running the Development Server
+
 First, run the development server:
 
 ```bash
@@ -29,8 +44,26 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Environment Variable Validation
+
+This project includes **build-time environment variable validation** to prevent deployment with missing configuration. 
+
+- **Automatic Check:** Before each build, `scripts/check-env.js` validates all required environment variables
+- **Fail-Fast:** If any required variable is missing, the build fails immediately with a clear error message
+- **Security:** Variable presence and length are logged, but actual values are never exposed
+- **Local Development:** The validation runs in local builds too, showing you immediately if any configuration is missing
+
+To see the validation in action, run:
+```bash
+npm run build
+```
+
+The prebuild script will display the status of all required environment variables before the Next.js build begins.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Important:** Before deploying, ensure all required environment variables are configured in Vercel Dashboard → Settings → Environment Variables. The build will fail if any are missing.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details, and see `docs/VERCEL_ENV_SETUP.md` for environment variable setup instructions.
