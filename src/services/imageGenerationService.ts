@@ -2,6 +2,7 @@
 import { writeFile, mkdir } from 'fs/promises'
 import { join } from 'path'
 import { existsSync } from 'fs'
+import { prisma } from '@/lib/prisma'
 
 export interface ChartConfig {
   type: 'coordinate-plane' | 'bar-chart' | 'scatter-plot' | 'box-plot' | 'geometric-diagram' | 'function-graph'
@@ -9,6 +10,12 @@ export interface ChartConfig {
   data?: any
   width?: number
   height?: number
+  questionId?: string // Optional: Question ID to store image directly in question record
+}
+
+export interface ImageData {
+  data: Buffer
+  mimeType: string
 }
 
 export class ImageGenerationService {
@@ -67,7 +74,8 @@ export class ImageGenerationService {
   }
 
   /**
-   * Generate SVG chart programmatically (fallback when DALL-E fails)
+   * Generate SVG chart programmatically and store in database
+   * Returns the question ID that can be used to reference the image
    */
   async generateSVGChart(chartConfig: ChartConfig): Promise<string | null> {
     try {
@@ -93,15 +101,82 @@ export class ImageGenerationService {
       }
       
       if (svg) {
-        const filename = `chart-${Date.now()}-${chartConfig.type}.svg`
-        const filepath = join(this.IMAGES_DIR, filename)
-        await writeFile(filepath, svg)
-        return `/generated-images/${filename}`
+        // Store image in database if questionId is provided
+        if (chartConfig.questionId) {
+          const imageBuffer = Buffer.from(svg, 'utf-8')
+          await this.storeImageInDatabase(chartConfig.questionId, imageBuffer, 'image/svg+xml')
+          console.log(`✅ SVG stored in database for question ${chartConfig.questionId}`)
+          return `/api/generated-images/${chartConfig.questionId}`
+        } else {
+          // Fallback: save to filesystem for backwards compatibility
+          const filename = `chart-${Date.now()}-${chartConfig.type}.svg`
+          const filepath = join(this.IMAGES_DIR, filename)
+          await writeFile(filepath, svg)
+          return `/generated-images/${filename}`
+        }
       }
       
       return null
     } catch (error) {
       console.error('SVG chart generation failed:', error)
+      return null
+    }
+  }
+
+  /**
+   * Store image data directly in the database for a specific question
+   */
+  async storeImageInDatabase(questionId: string, imageData: Buffer, mimeType: string): Promise<void> {
+    try {
+      await prisma.question.update({
+        where: { id: questionId },
+        data: {
+          imageData: imageData,
+          imageMimeType: mimeType,
+          imageUrl: `/api/generated-images/${questionId}`, // Update URL to point to API route
+        },
+      })
+      console.log(`✅ Image stored in database for question ${questionId}`)
+    } catch (error) {
+      console.error('Failed to store image in database:', error)
+      throw error
+    }
+  }
+
+  /**
+   * Generate SVG and return as ImageData object (without saving)
+   */
+  async generateSVGImageData(chartConfig: ChartConfig): Promise<ImageData | null> {
+    try {
+      let svg = ''
+      
+      switch (chartConfig.type) {
+        case 'coordinate-plane':
+          svg = this.generateCoordinatePlane(chartConfig)
+          break
+        case 'bar-chart':
+          svg = this.generateBarChart(chartConfig)
+          break
+        case 'scatter-plot':
+          svg = this.generateScatterPlot(chartConfig)
+          break
+        case 'function-graph':
+          svg = this.generateFunctionGraph(chartConfig)
+          break
+        default:
+          return null
+      }
+      
+      if (svg) {
+        return {
+          data: Buffer.from(svg, 'utf-8'),
+          mimeType: 'image/svg+xml'
+        }
+      }
+      
+      return null
+    } catch (error) {
+      console.error('SVG generation failed:', error)
       return null
     }
   }

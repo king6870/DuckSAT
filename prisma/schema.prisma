@@ -118,7 +118,9 @@ model Question {
   correctAnswer Int     // Index of correct answer (0-3)
   explanation  String   @db.Text // Detailed explanation for correct answer
   wrongAnswerExplanations Json? // Explanations for why each wrong answer is incorrect
-  imageUrl     String?  // URL for math charts, graphs, diagrams
+  imageUrl     String?  // URL for math charts, graphs, diagrams (legacy filesystem path or new DB reference)
+  imageData    Bytes?   // Stored SVG/image data as blob
+  imageMimeType String? // MIME type of stored image (e.g., 'image/svg+xml', 'image/png')
   imageAlt     String?  // Alt text for accessibility
   chartData    Json?    // Data for generating charts/graphs dynamically
   timeEstimate Int      // Estimated time in seconds
