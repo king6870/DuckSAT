@@ -42,7 +42,7 @@
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.10.0",
-        "@prisma/client": "^6.14.0",
+        "@prisma/client": "^6.19.0",
         "@radix-ui/react-select": "^2.0.0",
         "@radix-ui/react-slot": "^1.0.2",
         "@types/pg": "^8.15.5",
@@ -54,7 +54,6 @@
         "next-auth": "^4.24.11",
         "openssl": "^2.0.0",
         "pg": "^8.16.3",
-        "prisma": "^6.14.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-katex": "^3.1.0",
@@ -70,6 +69,7 @@
         "dotenv-cli": "^11.0.0",
         "eslint": "^9",
         "eslint-config-next": "15.4.7",
+        "prisma": "^6.19.0",
         "tailwindcss": "^4",
         "tsx": "^4.19.2",
         "typescript": "^5"
