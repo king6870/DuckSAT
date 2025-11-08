@@ -13,7 +13,12 @@ Before running the application, ensure all required environment variables are se
 - `DATABASE_URL` - Database connection string (pooled)
 - `DATABASE_URL_UNPOOLED` - Database connection string (direct)
 
-**Note:** The build will fail with a clear error message if any required variable is missing. See `docs/VERCEL_ENV_SETUP.md` for detailed setup instructions.
+**Note:** The build will fail with a clear error message if any required variable is missing. 
+
+**Quick Start:**
+1. Copy `.env.example` to `.env.local` and fill in values
+2. See `docs/VERCEL_ENV_SETUP.md` for detailed setup instructions
+3. See `docs/DEPLOYMENT_GUIDE.md` for full deployment guide
 
 ### ⚠️ CRITICAL: Vercel Runtime Environment Variables
 
@@ -99,4 +104,28 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 **Important:** Before deploying, ensure all required environment variables are configured in Vercel Dashboard → Settings → Environment Variables. The build will fail if any are missing.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details, and see `docs/VERCEL_ENV_SETUP.md` for environment variable setup instructions.
+### Deployment Resources
+
+- **Step-by-step deployment guide**: See `docs/DEPLOYMENT_GUIDE.md`
+- **Environment setup**: See `docs/VERCEL_ENV_SETUP.md`
+- **Image storage system**: See `docs/IMAGE_STORAGE.md`
+- **Next.js deployment docs**: [Official Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying)
+
+### Post-Deployment Setup
+
+After your first deployment:
+
+1. **Run database migrations**:
+   ```bash
+   npx prisma migrate deploy
+   ```
+
+2. **Migrate existing images** (if applicable):
+   ```bash
+   npm run db:migrate-images
+   ```
+
+3. **Verify deployment**:
+   - Visit `/api/env-check` to confirm environment variables
+   - Test authentication at `/admin`
+   - Check image loading on question pages
