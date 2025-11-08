@@ -53,6 +53,12 @@ For Vercel deployments, ensure the variable is set in the Vercel dashboard under
 
 // Helper to build providers list
 function getProviders() {
+  // If running in the browser, return empty array (should never be used)
+  // This prevents errors if the module is accidentally bundled into client code
+  if (!isServer) {
+    return [];
+  }
+  
   const providers = [];
   // Only configure Google provider if credentials are available
   if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
@@ -68,6 +74,12 @@ function getProviders() {
 
 // Helper to get NextAuth secret - no fallback in production
 function getSecret() {
+  // If running in the browser, return a placeholder (should never be used)
+  // This prevents errors if the module is accidentally bundled into client code
+  if (!isServer) {
+    return 'client-side-placeholder-not-for-use';
+  }
+  
   const secret = process.env.NEXTAUTH_SECRET;
   const isProduction = process.env.NODE_ENV === 'production';
   
