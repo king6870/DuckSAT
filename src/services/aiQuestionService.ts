@@ -927,13 +927,13 @@ Respond in this JSON format:
               correctAnswer: question.correctAnswer,
               explanation: question.explanation,
               wrongAnswerExplanations: undefined,
-              imageUrl: question.imageUrl || undefined,
+              imageUrl: undefined, // Will be set after image generation
               imageAlt: question.imageAlt || question.chartDescription || undefined,
               chartData: question.hasChart ? { 
                 description: question.chartDescription,
                 interactionType: question.interactionType,
                 graphType: question.graphType,
-                hasGeneratedImage: !!question.imageUrl
+                hasGeneratedImage: false // Will be updated after generation
               } : undefined,
               timeEstimate: question.points * 30, // 30 seconds per point
               source: 'AI Generated (GPT-5)',
@@ -945,6 +945,37 @@ Respond in this JSON format:
           })
 
           storedQuestionIds.push(storedQuestion.id)
+
+          // Generate and store image after question is created (for DB storage)
+          if (question.hasChart && question.chartDescription && question.moduleType === 'math') {
+            try {
+              const { questionImageService } = await import('./questionImageService')
+              const imageUrl = await questionImageService.generateAndStoreImage(
+                storedQuestion.id,
+                {
+                  chartDescription: question.chartDescription,
+                  graphType: question.graphType,
+                  width: 600,
+                  height: 400
+                }
+              )
+              
+              if (imageUrl) {
+                // Update chartData to reflect successful image generation
+                await prisma.question.update({
+                  where: { id: storedQuestion.id },
+                  data: {
+                    chartData: {
+                      ...question.chartData,
+                      hasGeneratedImage: true
+                    }
+                  }
+                })
+              }
+            } catch (error) {
+              console.error(`Failed to generate image for question ${storedQuestion.id}:`, error)
+            }
+          }
 
           // Update subtopic count if linked
           if (subtopic) {
