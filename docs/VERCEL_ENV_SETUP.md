@@ -4,6 +4,8 @@
 
 This guide explains how to properly configure environment variables for the DuckSAT application on Vercel, particularly focusing on NextAuth secrets and database credentials.
 
+**Important:** This project includes **automatic build-time validation** of all required environment variables. If any required variable is missing during deployment, the build will fail early with a clear error message, preventing deployment with misconfiguration.
+
 ## Critical Environment Variables
 
 ### NEXTAUTH_SECRET (Required)
@@ -84,11 +86,31 @@ Or push a new commit to trigger automatic deployment.
 
 ### 4. Verify Environment Variables Are Loaded
 
-The application now includes build-time validation:
+The application includes **comprehensive build-time validation** via `scripts/check-env.js`:
 
-- If `NEXTAUTH_SECRET` is missing in production, the build will **fail immediately** with a clear error message
-- Debug logs will show environment variable status during startup
-- Check build logs in Vercel for any environment-related warnings
+- **Automatic Validation:** Runs before every build (via the `prebuild` npm script)
+- **All Required Variables Checked:** Validates presence of all 6 critical environment variables
+- **Clear Logging:** Shows the presence and length of each variable (never the actual values)
+- **Fail-Fast:** If any required variable is missing, the build fails immediately before Next.js build starts
+- **Build Logs:** Check Vercel build logs to see the validation output and verify all variables are present
+
+The validation output will appear in your build logs like this:
+```
+🔍 Environment Variable Validation
+✅ NEXTAUTH_SECRET: present (length: 44)
+✅ NEXTAUTH_URL: present (length: 30)
+✅ GOOGLE_CLIENT_ID: present (length: 72)
+✅ GOOGLE_CLIENT_SECRET: present (length: 35)
+✅ DATABASE_URL: present (length: 122)
+✅ DATABASE_URL_UNPOOLED: present (length: 117)
+✅ All required environment variables are present!
+```
+
+If any variables are missing, you'll see:
+```
+❌ NEXTAUTH_SECRET: MISSING
+🚨 Build cannot proceed with missing environment variables!
+```
 
 ## Troubleshooting
 
@@ -135,6 +157,8 @@ Before deploying to production, ensure these are set in Vercel:
 - [ ] `GOOGLE_CLIENT_SECRET` - From Google Cloud Console
 - [ ] `DATABASE_URL` - Your database connection string
 - [ ] `DATABASE_URL_UNPOOLED` - For migrations (if using connection pooling)
+
+**Note:** The build process will automatically validate all these variables and fail if any are missing, so you'll know immediately if configuration is incomplete.
 
 ## Additional Resources
 
