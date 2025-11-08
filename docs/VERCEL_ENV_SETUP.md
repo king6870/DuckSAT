@@ -134,44 +134,92 @@ If any variables are missing, you'll see:
 
 #### Runtime Verification (Diagnostic API)
 
+**⚠️ CRITICAL: This is the PRIMARY way to verify environment variables after deployment!**
+
 To verify that environment variables are accessible at runtime on Vercel (not just at build time), use the **Runtime Diagnostic API**:
 
-**Endpoint:** `GET /api/env-check`
+**Primary Endpoint:** `GET /api/env` (recommended)  
+**Alternative Endpoint:** `GET /api/env-check` (same functionality)
 
 **Usage:**
 ```bash
-# Check your deployed app
+# Check your deployed app (recommended endpoint)
+curl https://yourdomain.vercel.app/api/env
+
+# Or use the alternative endpoint
 curl https://yourdomain.vercel.app/api/env-check
 ```
 
-**Response (Non-Production):**
+**Response Example:**
 ```json
 {
-  "NODE_ENV": "development",
-  "timestamp": "2025-11-08T14:30:00.000Z",
-  "diagnosticsEnabled": true,
+  "NODE_ENV": "production",
+  "timestamp": "2025-11-08T20:49:31.041Z",
+  "summary": {
+    "total": 6,
+    "present": 6,
+    "missing": 0
+  },
   "variables": {
     "NEXTAUTH_SECRET": { "present": true, "length": 44 },
-    "NEXTAUTH_URL": { "present": true, "length": 30 },
+    "NEXTAUTH_URL": { "present": true, "length": 35 },
     "GOOGLE_CLIENT_ID": { "present": true, "length": 72 },
     "GOOGLE_CLIENT_SECRET": { "present": true, "length": 35 },
     "DATABASE_URL": { "present": true, "length": 122 },
-    "DATABASE_URL_UNPOOLED": { "present": true, "length": 117 }
-  }
+    "DATABASE_URL_UNPOOLED": { "present": true, "length": 117 },
+    "NODE_ENV": { "present": true, "length": 10 }
+  },
+  "warnings": [
+    "NEXTAUTH_SECRET appears short (< 32 chars). Generate a secure secret with: openssl rand -base64 32"
+  ]
 }
 ```
 
 **Security Features:**
 - ✅ Shows presence (`true`/`false`) and length for each variable
 - ✅ Never exposes actual secret values
-- ✅ Includes NODE_ENV and timestamp for context
-- ✅ In production: Only returns data by default (no special access needed)
-- ✅ For enhanced diagnostics in production: Set `ALLOW_ENV_DIAGNOSTICS=true` env var
+- ✅ Includes helpful summary (total, present, missing counts)
+- ✅ Provides warnings for common misconfigurations
+- ✅ Shows NODE_ENV and timestamp for context
+- ✅ Safe to use in production for diagnostics
 
-**Important:** This API is designed for debugging environment variable issues. While it never exposes actual values, it's recommended to:
-- Monitor access to this endpoint
-- Remove `ALLOW_ENV_DIAGNOSTICS` after debugging is complete
-- Use this endpoint during initial deployment verification
+**Post-Deployment Testing Workflow:**
+
+1. **Deploy to Vercel** after setting environment variables in the Dashboard
+2. **Wait for deployment to complete** (check Vercel Deployments page)
+3. **Run diagnostic check immediately:**
+   ```bash
+   curl https://your-deployment-url.vercel.app/api/env | jq
+   ```
+4. **Verify the response:**
+   - ✅ `summary.missing` should be `0`
+   - ✅ All variables should show `"present": true`
+   - ✅ Check lengths match expected values (NEXTAUTH_SECRET ≥ 32, etc.)
+   - ⚠️ Review any warnings shown in the response
+5. **If any variables are missing:**
+   - Go back to Vercel Dashboard → Settings → Environment Variables
+   - Add the missing variables
+   - Ensure they're enabled for the correct environment (Production/Preview)
+   - **Redeploy** the application (required for new variables to take effect)
+   - Re-run diagnostic check
+
+**Common Issues Detected by the API:**
+
+| Warning Message | Cause | Solution |
+|----------------|-------|----------|
+| "NEXTAUTH_SECRET is not set or is empty" | Variable missing in Vercel Dashboard | Add in Vercel Dashboard → Redeploy |
+| "NEXTAUTH_SECRET appears short (< 32 chars)" | Weak or development secret in production | Generate new: `openssl rand -base64 32` |
+| "NEXTAUTH_URL contains 'localhost' in production" | Wrong URL in production environment | Update to production domain |
+| "CRITICAL: Missing environment variables in production!" | Multiple variables missing | Review all variables in Vercel Dashboard |
+
+**Important Notes:**
+- This API is designed specifically for debugging environment variable loading issues
+- It distinguishes between build-time and runtime variable availability
+- While it never exposes actual values, it's recommended to:
+  - Use this endpoint during initial deployment verification
+  - Monitor access to this endpoint if needed
+  - Consider removing public access after initial setup (if security policy requires)
+- The `/api/env` endpoint provides enhanced diagnostics with warnings compared to `/api/env-check`
 
 ## Troubleshooting
 

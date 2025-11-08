@@ -2,6 +2,27 @@ import GoogleProvider from 'next-auth/providers/google'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { prisma } from './prisma'
 
+/**
+ * NextAuth Configuration Module
+ * 
+ * SECURITY BEST PRACTICES IMPLEMENTED:
+ * ✅ Fail-fast validation of critical environment variables
+ * ✅ No hardcoded secrets or fallbacks in production
+ * ✅ Debug logging that never exposes actual secret values
+ * ✅ Clear error messages for missing configuration
+ * ✅ Environment-specific behavior (dev vs production)
+ * 
+ * IMPORTANT NOTES FOR VERCEL DEPLOYMENTS:
+ * - Environment variables MUST be set in Vercel Dashboard UI
+ * - .env files are NOT deployed to Vercel (in .gitignore)
+ * - This module loads at build time, catching missing variables early
+ * - Runtime errors will still occur if variables aren't in Vercel UI
+ * 
+ * For setup instructions, see:
+ * - docs/VERCEL_ENV_SETUP.md
+ * - README.md
+ */
+
 // Validate NEXTAUTH_SECRET and NEXTAUTH_URL at module load time (build time in production)
 // This ensures fail-fast feedback rather than runtime errors
 const isProduction = process.env.NODE_ENV === 'production';
