@@ -4,8 +4,8 @@ const prisma = new PrismaClient()
 
 class GrokValidator {
   constructor() {
-    this.AZURE_ENDPOINT = 'https://ai-manojwin82958ai594424696620.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview'
-    this.API_KEY = 'FhyeuwcfKGaNEhoq3U7VOKg4s0sfobVW7fNIdDA7EaI05dyIXQqMJQQJ99BBACHYHv6XJ3w3AAAAACOGsrpa'
+    this.AZURE_ENDPOINT = 'https://ai-manojwin82958ai594424696620.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-02-15-preview';
+    this.API_KEY = process.env.AZURE_OPENAI_API_KEY || '';
   }
 
   async validateQuestion(question) {
@@ -46,14 +46,14 @@ Correct Answer: ${question.options[question.correctAnswer]}`
 
       const data = await response.json()
       const content = data.choices[0].message.content
-      
+
       // Try to extract JSON from response
       const jsonMatch = content.match(/\{[^}]*\}/)
       if (jsonMatch) {
         const result = JSON.parse(jsonMatch[0])
         return result
       }
-      
+
       return { isValid: true, confidence: 0.5 }
     } catch (error) {
       console.error('Validation error:', error.message)
@@ -91,12 +91,12 @@ Correct Answer: ${question.options[question.correctAnswer]}`
 
       const data = await response.json()
       const content = data.choices[0].message.content
-      
+
       // Try to extract JSON from response
-      const jsonMatch = content.match(/\{[\s\S]*\}/)
+      const jsonMatch = content.match(/\{([\s\S]*?)\}/)
       if (jsonMatch) {
         const result = JSON.parse(jsonMatch[0])
-        
+
         return {
           moduleType,
           difficulty,
@@ -109,7 +109,7 @@ Correct Answer: ${question.options[question.correctAnswer]}`
           isActive: true
         }
       }
-      
+
       return null
     } catch (error) {
       console.error('Generation error:', error.message)
@@ -159,7 +159,7 @@ async function main() {
   console.log(`✅ Validation complete: ${deletedCount} deleted, ${validatedCount - deletedCount} kept`)
   
   // Step 2: Generate 300 new questions
-  console.log('🎯 Generating 300 new questions...')
+  console.log('🚀 Generating 300 new questions...')
   
   const categories = {
     'reading-writing': ['Reading Comprehension', 'Grammar', 'Vocabulary', 'Writing Skills'],
@@ -192,10 +192,7 @@ async function main() {
     await new Promise(resolve => setTimeout(resolve, 1500))
   }
   
-  console.log(`🎉 Complete: ${generatedCount} new questions created`)
-  
-  const finalCount = await prisma.question.count({ where: { isActive: true } })
-  console.log(`📊 Final total: ${finalCount} questions`)
+  console.log(`🥇 Final total: ${generatedCount} questions`)
   
   await prisma.$disconnect()
 }
