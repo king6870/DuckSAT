@@ -128,10 +128,12 @@ model Question {
   tags         String[] // Additional tags for categorization
   isActive     Boolean  @default(true)
   // Review fields for question quality control
-  reviewStatus   String?  // 'pending' | 'approved' | 'rejected'
-  reviewComments String?  @db.Text // Reviewer's feedback
-  reviewedBy     String?  // Reviewer's identifier (could be user ID or name)
-  reviewedAt     DateTime?
+  reviewStatus      String?  // 'pending' | 'approved' | 'rejected'
+  reviewRating      Int?     // Rating 1-5 from admin review
+  diagramAccurate   Boolean? // Whether diagram/chart is accurate (admin review)
+  reviewComments    String?  @db.Text // Reviewer's feedback
+  reviewedBy        String?  // Reviewer's identifier (could be user ID or name)
+  reviewedAt        DateTime?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 

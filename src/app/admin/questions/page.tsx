@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import { Star } from 'lucide-react'
 import { ADMIN_EMAILS } from '@/middleware/adminAuth'
 
 interface Question {
@@ -16,7 +17,11 @@ interface Question {
   options: string[]
   correctAnswer: number
   explanation: string
+  imageUrl?: string | null
+  chartData?: any
   reviewStatus: string | null
+  reviewRating?: number | null
+  diagramAccurate?: boolean | null
   reviewComments: string | null
   reviewedBy: string | null
   reviewedAt: string | null
@@ -48,6 +53,10 @@ export default function QuestionsReviewPage() {
   const [subtopicFilter, setSubtopicFilter] = useState<string>('')
   const [reviewingQuestion, setReviewingQuestion] = useState<string | null>(null)
   const [reviewComments, setReviewComments] = useState<string>('')
+  const [reviewRating, setReviewRating] = useState<number>(0)
+  const [hoverRating, setHoverRating] = useState<number>(0)
+  const [diagramAccurate, setDiagramAccurate] = useState<boolean>(false)
+  const [submitting, setSubmitting] = useState<boolean>(false)
 
   // Check admin access
   useEffect(() => {
@@ -95,6 +104,15 @@ export default function QuestionsReviewPage() {
   }, [session, statusFilter, categoryFilter, subtopicFilter])
 
   const handleReview = async (questionId: string, status: 'approved' | 'rejected') => {
+    // Validate required rating field
+    if (reviewRating === 0) {
+      setError('Please select a star rating (1-5) before submitting')
+      return
+    }
+
+    setSubmitting(true)
+    setError(null)
+
     try {
       const response = await fetch('/api/admin/questions', {
         method: 'PATCH',
@@ -104,25 +122,43 @@ export default function QuestionsReviewPage() {
         body: JSON.stringify({
           questionId,
           reviewStatus: status,
+          reviewRating,
+          diagramAccurate,
           reviewComments: reviewComments.trim() || null
         })
       })
 
+      const data = await response.json()
+
       if (!response.ok) {
-        throw new Error('Failed to update question')
+        throw new Error(data.error || 'Failed to update question')
       }
 
       // Update local state
       setQuestions(prev => prev.map(q =>
         q.id === questionId
-          ? { ...q, reviewStatus: status, reviewComments: reviewComments.trim() || null, reviewedBy: session?.user?.email || null, reviewedAt: new Date().toISOString() }
+          ? { 
+              ...q, 
+              reviewStatus: status, 
+              reviewRating,
+              diagramAccurate,
+              reviewComments: reviewComments.trim() || null, 
+              reviewedBy: session?.user?.email || null, 
+              reviewedAt: new Date().toISOString() 
+            }
           : q
       ))
 
+      // Reset form
       setReviewingQuestion(null)
       setReviewComments('')
+      setReviewRating(0)
+      setHoverRating(0)
+      setDiagramAccurate(false)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to update question')
+    } finally {
+      setSubmitting(false)
     }
   }
 
@@ -315,11 +351,39 @@ export default function QuestionsReviewPage() {
                   <p className="text-gray-700">{question.explanation}</p>
                 </div>
 
-                {/* Review Comments */}
-                {question.reviewComments && (
+                {/* Review Information */}
+                {(question.reviewComments || question.reviewRating || question.reviewedBy) && (
                   <div className="mb-4 p-4 bg-blue-50 rounded-lg">
-                    <h4 className="font-semibold text-blue-900 mb-2">Review Comments:</h4>
-                    <p className="text-blue-700">{question.reviewComments}</p>
+                    <h4 className="font-semibold text-blue-900 mb-2">Review Information:</h4>
+                    {question.reviewRating && (
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-sm text-blue-700 font-medium">Rating:</span>
+                        <div className="flex gap-1">
+                          {[1, 2, 3, 4, 5].map((star) => (
+                            <Star
+                              key={star}
+                              className={`h-4 w-4 ${
+                                star <= question.reviewRating!
+                                  ? 'fill-yellow-400 text-yellow-400'
+                                  : 'text-gray-300'
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        <span className="text-sm text-blue-700">({question.reviewRating}/5)</span>
+                      </div>
+                    )}
+                    {question.diagramAccurate !== null && question.diagramAccurate !== undefined && (
+                      <div className="mb-2">
+                        <span className="text-sm text-blue-700 font-medium">Diagram: </span>
+                        <span className="text-sm text-blue-700">
+                          {question.diagramAccurate ? '✓ Accurate' : '✗ Not accurate'}
+                        </span>
+                      </div>
+                    )}
+                    {question.reviewComments && (
+                      <p className="text-blue-700 mb-2">{question.reviewComments}</p>
+                    )}
                     {question.reviewedBy && (
                       <p className="text-sm text-blue-600 mt-1">Reviewed by: {question.reviewedBy}</p>
                     )}
@@ -331,29 +395,95 @@ export default function QuestionsReviewPage() {
                   <div className="border-t pt-4">
                     {reviewingQuestion === question.id ? (
                       <div className="space-y-4">
-                        <textarea
-                          value={reviewComments}
-                          onChange={(e) => setReviewComments(e.target.value)}
-                          placeholder="Add review comments (optional)..."
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          rows={3}
-                        />
+                        {/* Star Rating - Required */}
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Rating <span className="text-red-500">*</span>
+                          </label>
+                          <div className="flex gap-1">
+                            {[1, 2, 3, 4, 5].map((star) => (
+                              <button
+                                key={star}
+                                type="button"
+                                onClick={() => setReviewRating(star)}
+                                onMouseEnter={() => setHoverRating(star)}
+                                onMouseLeave={() => setHoverRating(0)}
+                                className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+                                aria-label={`Rate ${star} star${star > 1 ? 's' : ''}`}
+                              >
+                                <Star
+                                  className={`h-8 w-8 transition-colors ${
+                                    (hoverRating || reviewRating) >= star
+                                      ? 'fill-yellow-400 text-yellow-400'
+                                      : 'text-gray-300'
+                                  }`}
+                                />
+                              </button>
+                            ))}
+                          </div>
+                          {reviewRating > 0 && (
+                            <p className="text-sm text-gray-600 mt-1">
+                              You rated: {reviewRating} star{reviewRating > 1 ? 's' : ''}
+                            </p>
+                          )}
+                        </div>
+
+                        {/* Diagram Accuracy Checkbox - Only shown if question has diagram */}
+                        {(question.imageUrl || question.chartData) && (
+                          <div className="flex items-center gap-2">
+                            <input
+                              type="checkbox"
+                              id={`diagram-${question.id}`}
+                              checked={diagramAccurate}
+                              onChange={(e) => setDiagramAccurate(e.target.checked)}
+                              className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                            />
+                            <label htmlFor={`diagram-${question.id}`} className="text-sm font-medium text-gray-700">
+                              Diagram is accurate
+                            </label>
+                          </div>
+                        )}
+
+                        {/* Review Comments - Optional */}
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Comments (Optional)
+                          </label>
+                          <textarea
+                            value={reviewComments}
+                            onChange={(e) => setReviewComments(e.target.value)}
+                            placeholder="Add review comments..."
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            rows={3}
+                          />
+                        </div>
+
                         <div className="flex space-x-2">
                           <button
                             onClick={() => handleReview(question.id, 'approved')}
-                            className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700"
+                            disabled={submitting}
+                            className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
                           >
-                            ✅ Approve
+                            {submitting ? 'Processing...' : '✅ Approve'}
                           </button>
                           <button
                             onClick={() => handleReview(question.id, 'rejected')}
-                            className="bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700"
+                            disabled={submitting}
+                            className="bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
                           >
-                            ❌ Reject
+                            {submitting ? 'Processing...' : '❌ Reject'}
                           </button>
                           <button
-                            onClick={() => setReviewingQuestion(null)}
-                            className="bg-gray-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700"
+                            onClick={() => {
+                              setReviewingQuestion(null)
+                              setReviewComments('')
+                              setReviewRating(0)
+                              setHoverRating(0)
+                              setDiagramAccurate(false)
+                              setError(null)
+                            }}
+                            disabled={submitting}
+                            className="bg-gray-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
                           >
                             Cancel
                           </button>
@@ -361,7 +491,14 @@ export default function QuestionsReviewPage() {
                       </div>
                     ) : (
                       <button
-                        onClick={() => setReviewingQuestion(question.id)}
+                        onClick={() => {
+                          setReviewingQuestion(question.id)
+                          setReviewComments('')
+                          setReviewRating(0)
+                          setHoverRating(0)
+                          setDiagramAccurate(false)
+                          setError(null)
+                        }}
                         className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700"
                       >
                         📝 Review Question
