@@ -1,5 +1,5 @@
 // AI Question Generation Service using GPT-5 and Grok
-import { getAllSubtopics } from '@/data/sat-topics'
+import { getAllSubtopics, SATSubtopic } from '@/data/sat-topics'
 import { prisma } from '@/lib/prisma'
 import {
   buildMathQuestionsPrompt,
@@ -14,6 +14,9 @@ import {
   QUALITY_THRESHOLDS,
   EVALUATION_CRITERIA,
 } from './promptConfig'
+
+// Type alias for enriched subtopics from getAllSubtopics
+type EnrichedSubtopic = SATSubtopic & { topicId: string; topicName: string; moduleType: string }
 
 export interface GeneratedQuestion {
   question: string
@@ -318,7 +321,7 @@ export class AIQuestionService {
   /**
    * Build math questions prompt with settings
    */
-  private buildMathPromptWithSettings(subtopics: any[], settings: {
+  private buildMathPromptWithSettings(subtopics: EnrichedSubtopic[], settings: {
     llmModel: string
     questionCount: number
     mathCount: number
@@ -337,7 +340,7 @@ export class AIQuestionService {
   /**
    * Build reading questions prompt with settings
    */
-  private buildReadingPromptWithSettings(subtopics: any[], settings: {
+  private buildReadingPromptWithSettings(subtopics: EnrichedSubtopic[], settings: {
     llmModel: string
     questionCount: number
     mathCount: number
@@ -452,14 +455,14 @@ export class AIQuestionService {
   /**
    * Build math questions prompt
    */
-  private buildMathPrompt(subtopics: any[]): string {
+  private buildMathPrompt(subtopics: EnrichedSubtopic[]): string {
     return buildMathQuestionsPrompt(subtopics, { includeCharts: true })
   }
 
   /**
    * Build reading questions prompt
    */
-  private buildReadingPrompt(subtopics: any[]): string {
+  private buildReadingPrompt(subtopics: EnrichedSubtopic[]): string {
     return buildReadingQuestionsPrompt(subtopics, { includePassages: true })
   }
 
@@ -473,7 +476,7 @@ export class AIQuestionService {
   /**
    * Parse math questions from GPT-5 response
    */
-  private parseMathQuestions(response: string, subtopics: any[]): GeneratedQuestion[] {
+  private parseMathQuestions(response: string, subtopics: EnrichedSubtopic[]): GeneratedQuestion[] {
     try {
       console.log('Raw GPT-5 math response:', response.substring(0, 200) + '...')
       
@@ -502,7 +505,7 @@ export class AIQuestionService {
   /**
    * Parse reading questions from GPT-5 response
    */
-  private parseReadingQuestions(response: string, subtopics: any[]): GeneratedQuestion[] {
+  private parseReadingQuestions(response: string, subtopics: EnrichedSubtopic[]): GeneratedQuestion[] {
     try {
       console.log('Raw GPT-5 reading response:', response.substring(0, 200) + '...')
       
@@ -772,7 +775,7 @@ export class AIQuestionService {
    * Generate questions for a specific subtopic
    */
   async generateQuestionsForSubtopic(
-    subtopic: any, 
+    subtopic: EnrichedSubtopic, 
     count: number
   ): Promise<{
     generated: number
@@ -854,21 +857,21 @@ export class AIQuestionService {
   /**
    * Build math prompt for specific subtopic
    */
-  private buildMathPromptForSubtopic(subtopic: any, count: number): string {
+  private buildMathPromptForSubtopic(subtopic: EnrichedSubtopic, count: number): string {
     return buildMathSubtopicPrompt(subtopic, count)
   }
 
   /**
    * Build reading prompt for specific subtopic
    */
-  private buildReadingPromptForSubtopic(subtopic: any, count: number): string {
+  private buildReadingPromptForSubtopic(subtopic: EnrichedSubtopic, count: number): string {
     return buildReadingSubtopicPrompt(subtopic, count)
   }
 
   /**
    * Parse questions for specific subtopic
    */
-  private parseQuestionsForSubtopic(response: string, subtopic: any): GeneratedQuestion[] {
+  private parseQuestionsForSubtopic(response: string, subtopic: EnrichedSubtopic): GeneratedQuestion[] {
     try {
       let cleanedResponse = response.trim()
       if (cleanedResponse.startsWith('```json')) {
@@ -893,7 +896,7 @@ export class AIQuestionService {
   /**
    * Select random subtopics
    */
-  private selectRandomSubtopics(subtopics: any[], count: number): any[] {
+  private selectRandomSubtopics(subtopics: EnrichedSubtopic[], count: number): EnrichedSubtopic[] {
     const shuffled = [...subtopics].sort(() => 0.5 - Math.random())
     return shuffled.slice(0, count)
   }
