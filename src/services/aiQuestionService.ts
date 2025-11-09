@@ -1,6 +1,19 @@
 // AI Question Generation Service using GPT-5 and Grok
 import { getAllSubtopics } from '@/data/sat-topics'
 import { prisma } from '@/lib/prisma'
+import {
+  buildMathQuestionsPrompt,
+  buildReadingQuestionsPrompt,
+  buildMathSubtopicPrompt,
+  buildReadingSubtopicPrompt,
+  buildEvaluationPrompt,
+} from './questionPromptTemplates'
+import {
+  LLM_SETTINGS,
+  SYSTEM_ROLES,
+  QUALITY_THRESHOLDS,
+  EVALUATION_CRITERIA,
+} from './promptConfig'
 
 export interface GeneratedQuestion {
   question: string
@@ -265,7 +278,7 @@ export class AIQuestionService {
           messages: [
             {
               role: 'system',
-              content: 'You are an expert SAT question writer. Generate high-quality, accurate SAT questions that match official SAT standards and difficulty levels. Always return valid JSON without any markdown formatting or code blocks.'
+              content: SYSTEM_ROLES.QUESTION_GENERATOR
             },
             {
               role: 'user',
@@ -315,85 +328,10 @@ export class AIQuestionService {
     includeCharts: boolean
     includePassages: boolean
   }): string {
-    const includeChartsText = settings.includeCharts ?
-      'MUST include detailed visual elements: graphs, charts, tables, diagrams, or coordinate planes' :
-      'May optionally include visual elements if they enhance understanding'
-
-    return `
-Generate exactly ${settings.mathCount} high-quality SAT Math questions, one for each of these subtopics:
-${subtopics.map((s, i) => `${i + 1}. ${s.name} (${s.topicName})`).join('\n')}
-
-Requirements for each question:
-- ${includeChartsText}
-- For coordinate geometry: specify exact points, lines, curves, and grid details
-- For functions: include function graphs with labeled axes, intercepts, and key points
-- For geometry: provide detailed diagrams with measurements, angles, and labeled vertices
-- For statistics: include data tables, bar charts, histograms, or scatter plots with specific values
-- For algebra: show coordinate planes, number lines, or visual representations of equations
-- 4 multiple choice options (A, B, C, D)
-- Clear correct answer with step-by-step explanation
-- Points value (1-4 points based on complexity)
-- Appropriate for SAT Math section
-- Vary complexity across the questions
-- Make graphs interactive when possible (e.g., "Click to identify the vertex", "Select the correct point")
-
-VISUAL REQUIREMENTS - Every question MUST have one of these (if charts enabled):
-- Coordinate plane with plotted points/lines/curves
-- Data table with numerical values
-- Bar chart, histogram, or pie chart
-- Geometric diagram with labeled measurements
-- Function graph with domain/range marked
-- Number line with inequalities or intervals
-- Scatter plot with trend lines
-- Box plot or other statistical visualization
-
-IMPORTANT MATH NOTATION REQUIREMENTS:
-- Use proper mathematical notation in questions, options, and explanations
-- For equations: Use format like "y = 2x + 3", "f(x) = x^2 - 4x + 1", "2x^2 + 3x - 5 = 0"
-- For fractions: Use "1/2", "3/4", "-2/3" format
-- For exponents: Use "x^2", "2^n", "(x+1)^3" format
-- For square roots: Use "sqrt(x)", "sqrt(25)", "sqrt(x^2 + 1)" format
-- For coordinates: Use "(2, 3)", "(-1, 4)", "(0, -2)" format
-- For inequalities: Use "x > 5", "y <= 3", "2x + 1 >= 7" format
-- For functions: Use "f(x) = ", "g(t) = ", "h(n) = " format
-- Include mathematical expressions in both questions and answer choices
-- Make explanations step-by-step with clear mathematical reasoning
-
-IMPORTANT: For the chartDescription field, be very specific about:
-- Coordinate points to plot: (x, y) coordinates with exact values
-- Function equations: y = mx + b, y = ax^2 + bx + c, etc.
-- Table data: specific numbers, headers, and formatting
-- Chart details: axis labels, scales, data points, colors
-- Geometric shapes: triangles with vertices at specific points, angles, side lengths
-- Interactive elements: what the student should click, drag, or manipulate
-- Axes ranges and labels with specific numerical values
-- Grid settings and scale increments
-
-EXAMPLES of good chartDescription content:
-- "Data table showing x values: -2, -1, 0, 1, 2 and corresponding y values: 4, 1, 0, 1, 4 for function f(x) = x^2"
-- "Coordinate plane from -10 to 10 on both axes. Plot parabola y = (x-3)^2 - 4 with vertex at (3, -4) and y-intercept at (0, 5). Grid lines every 1 unit."
-- "Bar chart showing test scores: 70-79 (5 students), 80-89 (12 students), 90-99 (8 students). Y-axis shows frequency, X-axis shows score ranges."
-
-IMPORTANT: Return ONLY a valid JSON array with no additional text, markdown, or code blocks. Use this exact format:
-
-[
-  {
-    "question": "The coordinate plane shows the graph of f(x) = x^2 - 4x + 3. What are the coordinates of the vertex?",
-    "options": ["A) (2, -1)", "B) (2, 1)", "C) (-2, -1)", "D) (4, 3)"],
-    "correctAnswer": 0,
-    "points": 3,
-    "explanation": "For f(x) = x^2 - 4x + 3, vertex x-coordinate = -b/(2a) = -(-4)/(2(1)) = 2. f(2) = (2)^2 - 4(2) + 3 = 4 - 8 + 3 = -1. Vertex is (2, -1)",
-    "subtopic": "${subtopics[0]?.name || 'Math'}",
-    "category": "${subtopics[0]?.topicName || 'Math'}",
-    "hasChart": ${settings.includeCharts},
-    "chartDescription": "Coordinate plane from -1 to 5 on x-axis and -3 to 7 on y-axis. Shows parabola f(x) = x^2 - 4x + 3 with vertex at (2, -1), y-intercept at (0, 3), and x-intercepts at (1, 0) and (3, 0). Grid lines every 1 unit.",
-    "interactionType": "point-selection",
-    "graphType": "coordinate-plane"
-  }
-]
-
-Generate all ${settings.mathCount} questions following this pattern. Ensure each question uses proper mathematical notation and includes step-by-step explanations with clear mathematical reasoning. Return only the JSON array.
-`
+    return buildMathQuestionsPrompt(subtopics, {
+      includeCharts: settings.includeCharts,
+      mathCount: settings.mathCount,
+    })
   }
 
   /**
@@ -409,39 +347,10 @@ Generate all ${settings.mathCount} questions following this pattern. Ensure each
     includeCharts: boolean
     includePassages: boolean
   }): string {
-    const includePassagesText = settings.includePassages ?
-      'Include a reading passage (150-300 words)' :
-      'May optionally include shorter passages if they enhance understanding'
-
-    return `
-Generate exactly ${settings.readingCount} high-quality SAT Reading questions, one for each of these subtopics:
-${subtopics.map((s, i) => `${i + 1}. ${s.name} (${s.topicName})`).join('\n')}
-
-Requirements for each question:
-- ${includePassagesText}
-- 4 multiple choice options (A, B, C, D)
-- Clear correct answer with explanation
-- Points value (1-3 points based on complexity)
-- Appropriate for SAT Reading section
-- Vary passage types and complexity
-
-IMPORTANT: Return ONLY a valid JSON array with no additional text, markdown, or code blocks. Use this exact format:
-
-[
-  {
-    "question": "Question text here",
-    "passage": "Reading passage text here (150-300 words)...",
-    "options": ["A) Option 1", "B) Option 2", "C) Option 3", "D) Option 4"],
-    "correctAnswer": 0,
-    "points": 2,
-    "explanation": "Detailed explanation of the correct answer",
-    "subtopic": "${subtopics[0]?.name || 'Reading'}",
-    "category": "${subtopics[0]?.topicName || 'Reading'}"
-  }
-]
-
-Generate all ${settings.readingCount} questions following this pattern. Return only the JSON array.
-`
+    return buildReadingQuestionsPrompt(subtopics, {
+      includePassages: settings.includePassages,
+      readingCount: settings.readingCount,
+    })
   }
   private async callGPT5(prompt: string): Promise<string> {
     console.log('Calling GPT-5 API...')
@@ -457,15 +366,15 @@ Generate all ${settings.readingCount} questions following this pattern. Return o
           messages: [
             {
               role: 'system',
-              content: 'You are an expert SAT question writer. Generate high-quality, accurate SAT questions that match official SAT standards and difficulty levels. Always return valid JSON without any markdown formatting or code blocks.'
+              content: SYSTEM_ROLES.QUESTION_GENERATOR
             },
             {
               role: 'user',
               content: prompt
             }
           ],
-          temperature: 0.7,
-          max_tokens: 4000
+          temperature: LLM_SETTINGS.DEFAULT_TEMPERATURE,
+          max_tokens: LLM_SETTINGS.DEFAULT_MAX_TOKENS
         })
       })
 
@@ -504,7 +413,7 @@ Generate all ${settings.readingCount} questions following this pattern. Return o
     evaluationFeedback: string
   }> {
     try {
-      const prompt = this.buildEvaluationPrompt(question)
+      const prompt = this.buildEvaluationPromptForQuestion(question)
       
       const response = await fetch(this.GROK_ENDPOINT, {
         method: 'POST',
@@ -516,15 +425,15 @@ Generate all ${settings.readingCount} questions following this pattern. Return o
           messages: [
             {
               role: 'system',
-              content: 'You are an expert SAT evaluator. Return only valid JSON.'
+              content: SYSTEM_ROLES.EVALUATOR
             },
             {
               role: 'user',
               content: prompt
             }
           ],
-          temperature: 0.1,
-          max_tokens: 200
+          temperature: LLM_SETTINGS.EVALUATION_TEMPERATURE,
+          max_tokens: LLM_SETTINGS.EVALUATION_MAX_TOKENS
         })
       })
 
@@ -544,171 +453,21 @@ Generate all ${settings.readingCount} questions following this pattern. Return o
    * Build math questions prompt
    */
   private buildMathPrompt(subtopics: any[]): string {
-    return `
-Generate exactly 5 high-quality SAT Math questions, one for each of these subtopics:
-${subtopics.map((s, i) => `${i + 1}. ${s.name} (${s.topicName})`).join('\n')}
-
-Requirements for each question:
-- MUST include detailed visual elements: graphs, charts, tables, diagrams, or coordinate planes
-- For coordinate geometry: specify exact points, lines, curves, and grid details
-- For functions: include function graphs with labeled axes, intercepts, and key points
-- For geometry: provide detailed diagrams with measurements, angles, and labeled vertices
-- For statistics: include data tables, bar charts, histograms, or scatter plots with specific values
-- For algebra: show coordinate planes, number lines, or visual representations of equations
-- 4 multiple choice options (A, B, C, D)
-- Clear correct answer with step-by-step explanation
-- Points value (1-4 points based on complexity)
-- Appropriate for SAT Math section
-- Vary complexity across the 5 questions
-- Make graphs interactive when possible (e.g., "Click to identify the vertex", "Select the correct point")
-
-VISUAL REQUIREMENTS - Every question MUST have one of these:
-- Coordinate plane with plotted points/lines/curves
-- Data table with numerical values
-- Bar chart, histogram, or pie chart
-- Geometric diagram with labeled measurements
-- Function graph with domain/range marked
-- Number line with inequalities or intervals
-- Scatter plot with trend lines
-- Box plot or other statistical visualization
-
-IMPORTANT MATH NOTATION REQUIREMENTS:
-- Use proper mathematical notation in questions, options, and explanations
-- For equations: Use format like "y = 2x + 3", "f(x) = x^2 - 4x + 1", "2x^2 + 3x - 5 = 0"
-- For fractions: Use "1/2", "3/4", "-2/3" format
-- For exponents: Use "x^2", "2^n", "(x+1)^3" format
-- For square roots: Use "sqrt(x)", "sqrt(25)", "sqrt(x^2 + 1)" format
-- For coordinates: Use "(2, 3)", "(-1, 4)", "(0, -2)" format
-- For inequalities: Use "x > 5", "y <= 3", "2x + 1 >= 7" format
-- For functions: Use "f(x) = ", "g(t) = ", "h(n) = " format
-- Include mathematical expressions in both questions and answer choices
-- Make explanations step-by-step with clear mathematical reasoning
-
-IMPORTANT: For the chartDescription field, be very specific about:
-- Coordinate points to plot: (x, y) coordinates with exact values
-- Function equations: y = mx + b, y = ax^2 + bx + c, etc.
-- Table data: specific numbers, headers, and formatting
-- Chart details: axis labels, scales, data points, colors
-- Geometric shapes: triangles with vertices at specific points, angles, side lengths
-- Interactive elements: what the student should click, drag, or manipulate
-- Axes ranges and labels with specific numerical values
-- Grid settings and scale increments
-
-EXAMPLES of good chartDescription content:
-- "Data table showing x values: -2, -1, 0, 1, 2 and corresponding y values: 4, 1, 0, 1, 4 for function f(x) = x^2"
-- "Coordinate plane from -10 to 10 on both axes. Plot parabola y = (x-3)^2 - 4 with vertex at (3, -4) and y-intercept at (0, 5). Grid lines every 1 unit."
-- "Bar chart showing test scores: 70-79 (5 students), 80-89 (12 students), 90-99 (8 students). Y-axis shows frequency, X-axis shows score ranges."
-
-IMPORTANT: Return ONLY a valid JSON array with no additional text, markdown, or code blocks. Use this exact format:
-
-[
-  {
-    "question": "The coordinate plane shows the graph of f(x) = x^2 - 4x + 3. What are the coordinates of the vertex?",
-    "options": ["A) (2, -1)", "B) (2, 1)", "C) (-2, -1)", "D) (4, 3)"],
-    "correctAnswer": 0,
-    "points": 3,
-    "explanation": "For f(x) = x^2 - 4x + 3, vertex x-coordinate = -b/(2a) = -(-4)/(2(1)) = 2. f(2) = (2)^2 - 4(2) + 3 = 4 - 8 + 3 = -1. Vertex is (2, -1)",
-    "subtopic": "${subtopics[0]?.name || 'Math'}",
-    "category": "${subtopics[0]?.topicName || 'Math'}",
-    "hasChart": true,
-    "chartDescription": "Coordinate plane from -1 to 5 on x-axis and -3 to 7 on y-axis. Shows parabola f(x) = x^2 - 4x + 3 with vertex at (2, -1), y-intercept at (0, 3), and x-intercepts at (1, 0) and (3, 0). Grid lines every 1 unit.",
-    "interactionType": "point-selection",
-    "graphType": "coordinate-plane"
-  },
-  {
-    "question": "The bar chart shows test scores for a math class. What is the median score?",
-    "options": ["A) 75", "B) 80", "C) 85", "D) 90"],
-    "correctAnswer": 1,
-    "points": 2,
-    "explanation": "From the chart: 70-79 (3 students), 80-89 (7 students), 90-99 (5 students). Total 15 students. Median is 8th value, which falls in 80-89 range, so median ≈ 80",
-    "subtopic": "${subtopics[1]?.name || 'Math'}",
-    "category": "${subtopics[1]?.topicName || 'Math'}",
-    "hasChart": true,
-    "chartDescription": "Bar chart with x-axis showing score ranges (70-79, 80-89, 90-99) and y-axis showing number of students. Bars: 70-79 (3), 80-89 (7), 90-99 (5). Blue bars with clear labels.",
-    "interactionType": "data-analysis",
-    "graphType": "bar-chart"
-  }
-]
-
-Generate all 5 questions following this pattern. Ensure each question uses proper mathematical notation and includes step-by-step explanations with clear mathematical reasoning. Return only the JSON array.
-`
+    return buildMathQuestionsPrompt(subtopics, { includeCharts: true })
   }
 
   /**
    * Build reading questions prompt
    */
   private buildReadingPrompt(subtopics: any[]): string {
-    return `
-Generate exactly 5 high-quality SAT Reading questions, one for each of these subtopics:
-${subtopics.map((s, i) => `${i + 1}. ${s.name} (${s.topicName})`).join('\n')}
-
-Requirements for each question:
-- Include a reading passage (150-300 words)
-- 4 multiple choice options (A, B, C, D)
-- Clear correct answer with explanation
-- Points value (1-3 points based on complexity)
-- Appropriate for SAT Reading section
-- Vary passage types and complexity
-
-IMPORTANT: Return ONLY a valid JSON array with no additional text, markdown, or code blocks. Use this exact format:
-
-[
-  {
-    "question": "Question text here",
-    "passage": "Reading passage text here (150-300 words)...",
-    "options": ["A) Option 1", "B) Option 2", "C) Option 3", "D) Option 4"],
-    "correctAnswer": 0,
-    "points": 2,
-    "explanation": "Detailed explanation of the correct answer",
-    "subtopic": "${subtopics[0]?.name || 'Reading'}",
-    "category": "${subtopics[0]?.topicName || 'Reading'}"
-  },
-  {
-    "question": "Second question text here",
-    "passage": "Second reading passage text here (150-300 words)...",
-    "options": ["A) Option 1", "B) Option 2", "C) Option 3", "D) Option 4"],
-    "correctAnswer": 1,
-    "points": 2,
-    "explanation": "Detailed explanation of the correct answer",
-    "subtopic": "${subtopics[1]?.name || 'Reading'}",
-    "category": "${subtopics[1]?.topicName || 'Reading'}"
-  }
-]
-
-Generate all 5 questions following this pattern. Return only the JSON array.
-`
+    return buildReadingQuestionsPrompt(subtopics, { includePassages: true })
   }
 
   /**
    * Build evaluation prompt for Grok
    */
-  private buildEvaluationPrompt(question: GeneratedQuestion): string {
-    return `
-Evaluate this SAT question for difficulty and quality:
-
-Question: ${question.question}
-${question.passage ? `Passage: ${question.passage}` : ''}
-${question.chartDescription ? `Chart: ${question.chartDescription}` : ''}
-Options: ${question.options.join(', ')}
-Correct Answer: ${question.options[question.correctAnswer]}
-Explanation: ${question.explanation}
-Subtopic: ${question.subtopic}
-Points: ${question.points}
-
-Please evaluate:
-1. Difficulty level (easy/medium/hard) based on SAT standards
-2. Quality score (0-1) for accuracy, clarity, and appropriateness
-3. Whether to accept this question (true/false) - reject if too easy or too hard for SAT
-4. Brief feedback on the question
-
-Respond in this JSON format:
-{
-  "difficulty": "medium",
-  "qualityScore": 0.85,
-  "isAccepted": true,
-  "evaluationFeedback": "Well-constructed question with appropriate difficulty for SAT standards."
-}
-`
+  private buildEvaluationPromptForQuestion(question: GeneratedQuestion): string {
+    return buildEvaluationPrompt(question)
   }
 
   /**
@@ -807,14 +566,14 @@ Respond in this JSON format:
     evaluationFeedback: string
   } {
     let difficulty: 'easy' | 'medium' | 'hard' = 'medium'
-    let qualityScore = 0.7
+    let qualityScore: number = QUALITY_THRESHOLDS.BASE_QUALITY_SCORE
     let feedback = 'Evaluated using enhanced fallback logic: '
 
     // Difficulty assessment based on points and content
-    if (question.points <= 1) {
+    if (question.points <= EVALUATION_CRITERIA.EASY_MAX_POINTS) {
       difficulty = 'easy'
       feedback += 'Low point value suggests easy difficulty. '
-    } else if (question.points >= 3) {
+    } else if (question.points >= EVALUATION_CRITERIA.HARD_MIN_POINTS) {
       difficulty = 'hard'
       feedback += 'High point value suggests hard difficulty. '
     } else {
@@ -823,41 +582,41 @@ Respond in this JSON format:
     }
 
     // Quality assessment based on content
-    const hasGoodExplanation = question.explanation.length > 50
-    const hasProperOptions = question.options.length === 4
-    const hasReasonableQuestion = question.question.length > 20
+    const hasGoodExplanation = question.explanation.length > QUALITY_THRESHOLDS.MIN_EXPLANATION_LENGTH
+    const hasProperOptions = question.options.length === QUALITY_THRESHOLDS.REQUIRED_OPTIONS_COUNT
+    const hasReasonableQuestion = question.question.length > QUALITY_THRESHOLDS.MIN_QUESTION_LENGTH
 
     if (hasGoodExplanation && hasProperOptions && hasReasonableQuestion) {
-      qualityScore = 0.8
+      qualityScore = QUALITY_THRESHOLDS.GOOD_QUALITY_SCORE
       feedback += 'Good structure and explanations. '
     } else {
-      qualityScore = 0.6
+      qualityScore = QUALITY_THRESHOLDS.ACCEPTANCE_THRESHOLD
       feedback += 'Basic structure but could be improved. '
     }
 
     // Math-specific checks
     if (question.moduleType === 'math') {
       if (question.hasChart && question.chartDescription) {
-        qualityScore += 0.1
+        qualityScore += EVALUATION_CRITERIA.QUALITY_BOOST_CHART
         feedback += 'Includes helpful chart description. '
       }
     }
 
     // Reading-specific checks
     if (question.moduleType === 'reading-writing') {
-      if (question.passage && question.passage.length > 100) {
-        qualityScore += 0.1
+      if (question.passage && question.passage.length > QUALITY_THRESHOLDS.MIN_PASSAGE_LENGTH) {
+        qualityScore += EVALUATION_CRITERIA.QUALITY_BOOST_PASSAGE
         feedback += 'Includes substantial passage. '
       }
     }
 
-    // Cap quality score at 1.0
-    qualityScore = Math.min(qualityScore, 1.0)
+    // Cap quality score at max
+    qualityScore = Math.min(qualityScore, EVALUATION_CRITERIA.MAX_QUALITY_SCORE)
 
     return {
       difficulty,
       qualityScore,
-      isAccepted: qualityScore >= 0.6, // Accept if quality is decent
+      isAccepted: qualityScore >= QUALITY_THRESHOLDS.ACCEPTANCE_THRESHOLD,
       evaluationFeedback: feedback + `Final quality score: ${(qualityScore * 100).toFixed(0)}%`
     }
   }
@@ -966,7 +725,9 @@ Respond in this JSON format:
                   where: { id: storedQuestion.id },
                   data: {
                     chartData: {
-                      ...question.chartData,
+                      description: question.chartDescription,
+                      interactionType: question.interactionType,
+                      graphType: question.graphType,
                       hasGeneratedImage: true
                     }
                   }
@@ -1094,79 +855,14 @@ Respond in this JSON format:
    * Build math prompt for specific subtopic
    */
   private buildMathPromptForSubtopic(subtopic: any, count: number): string {
-    const difficultyDistribution = subtopic.difficultyDistribution
-    const easyCount = Math.round(count * difficultyDistribution.easy / 100)
-    const mediumCount = Math.round(count * difficultyDistribution.medium / 100)
-    const hardCount = count - easyCount - mediumCount
-
-    return `Generate ${count} high-quality SAT Math questions for the subtopic "${subtopic.name}".
-
-Description: ${subtopic.description}
-
-Difficulty Distribution:
-- Easy: ${easyCount} questions (${difficultyDistribution.easy}%)
-- Medium: ${mediumCount} questions (${difficultyDistribution.medium}%)  
-- Hard: ${hardCount} questions (${difficultyDistribution.hard}%)
-
-Requirements:
-1. All questions must be authentic SAT-style math problems
-2. Include charts/graphs where appropriate for visual learning
-3. Provide detailed explanations for correct answers
-4. Use realistic SAT point values (1-4 points based on difficulty)
-5. Follow official SAT math question formats
-
-Return ONLY a valid JSON array with this exact format:
-[
-  {
-    "question": "Question text here",
-    "options": ["A) Option 1", "B) Option 2", "C) Option 3", "D) Option 4"],
-    "correctAnswer": 0,
-    "points": 2,
-    "explanation": "Detailed step-by-step explanation",
-    "hasChart": true,
-    "chartDescription": "Description of chart/graph if applicable",
-    "graphType": "coordinate-plane",
-    "interactionType": "point-placement"
-  }
-]`
+    return buildMathSubtopicPrompt(subtopic, count)
   }
 
   /**
    * Build reading prompt for specific subtopic
    */
   private buildReadingPromptForSubtopic(subtopic: any, count: number): string {
-    const difficultyDistribution = subtopic.difficultyDistribution
-    const easyCount = Math.round(count * difficultyDistribution.easy / 100)
-    const mediumCount = Math.round(count * difficultyDistribution.medium / 100)
-    const hardCount = count - easyCount - mediumCount
-
-    return `Generate ${count} high-quality SAT Reading & Writing questions for the subtopic "${subtopic.name}".
-
-Description: ${subtopic.description}
-
-Difficulty Distribution:
-- Easy: ${easyCount} questions (${difficultyDistribution.easy}%)
-- Medium: ${mediumCount} questions (${difficultyDistribution.medium}%)
-- Hard: ${hardCount} questions (${difficultyDistribution.hard}%)
-
-Requirements:
-1. All questions must be authentic SAT-style reading/writing problems
-2. Include appropriate passages (150-400 words) when needed
-3. Cover diverse topics: literature, science, history, social studies
-4. Provide detailed explanations for correct answers
-5. Use realistic SAT point values (1-3 points based on difficulty)
-
-Return ONLY a valid JSON array with this exact format:
-[
-  {
-    "question": "Question text here",
-    "passage": "Reading passage text (if applicable)",
-    "options": ["A) Option 1", "B) Option 2", "C) Option 3", "D) Option 4"],
-    "correctAnswer": 1,
-    "points": 2,
-    "explanation": "Detailed explanation of correct answer"
-  }
-]`
+    return buildReadingSubtopicPrompt(subtopic, count)
   }
 
   /**
@@ -1217,7 +913,7 @@ Return ONLY a valid JSON array with this exact format:
           explanation: question.explanation,
           wrongAnswerExplanations: null,
           imageUrl: question.imageUrl || null,
-          imageAlt: question.imageAlt || null,
+          imageAlt: question.chartDescription || null,
           chartData: question.hasChart ? {
             description: question.chartDescription,
             interactionType: question.interactionType,
