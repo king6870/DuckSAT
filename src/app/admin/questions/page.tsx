@@ -18,7 +18,7 @@ interface Question {
   correctAnswer: number
   explanation: string
   imageUrl?: string | null
-  chartData?: any
+  chartData?: Record<string, unknown> | null
   reviewStatus: string | null
   reviewRating?: number | null
   diagramAccurate?: boolean | null
