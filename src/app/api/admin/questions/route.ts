@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
 
     const skip = (page - 1) * limit
 
-    const where: Record<string, any> = {}
+    const where: Record<string, string> = {}
     if (status) {
       where.reviewStatus = status
     }
@@ -56,6 +56,8 @@ export async function GET(request: NextRequest) {
           tags: true,
           isActive: true,
           reviewStatus: true,
+          reviewRating: true,
+          diagramAccurate: true,
           reviewComments: true,
           reviewedBy: true,
           reviewedAt: true,
@@ -109,20 +111,29 @@ export async function PATCH(request: NextRequest) {
     }
 
     const body = await request.json()
-    const { questionId, reviewStatus, reviewComments } = body
+    const { questionId, reviewStatus, reviewComments, reviewRating, diagramAccurate } = body
 
     if (!questionId || !reviewStatus) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    if (!['approved', 'rejected'].includes(reviewStatus)) {
+    if (!['approved', 'rejected', 'pending'].includes(reviewStatus)) {
       return NextResponse.json({ error: 'Invalid review status' }, { status: 400 })
+    }
+
+    // Validate rating is required for approval/rejection and is 1-5
+    if ((reviewStatus === 'approved' || reviewStatus === 'rejected')) {
+      if (!reviewRating || typeof reviewRating !== 'number' || reviewRating < 1 || reviewRating > 5) {
+        return NextResponse.json({ error: 'Rating (1-5) is required for approval or rejection' }, { status: 400 })
+      }
     }
 
     const updatedQuestion = await prisma.question.update({
       where: { id: questionId },
       data: {
         reviewStatus,
+        reviewRating: reviewRating || null,
+        diagramAccurate: diagramAccurate !== undefined ? diagramAccurate : null,
         reviewComments: reviewComments || null,
         reviewedBy: session.user.email,
         reviewedAt: new Date()
