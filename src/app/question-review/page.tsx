@@ -86,7 +86,6 @@ export default function QuestionReviewPage() {
   const [currentPage, setCurrentPage] = useState(0);
   const [showAnswers, setShowAnswers] = useState<{ [key: string]: boolean }>({});
   const [showDetails, setShowDetails] = useState<{ [key: string]: boolean }>({});
-  const [showReviewForm, setShowReviewForm] = useState<{ [key: string]: boolean }>({});
   const [filters, setFilters] = useState<QuestionResponse['filters'] | null>(null);
   const [pagination, setPagination] = useState<{ total: number; limit: number; offset: number; hasMore: boolean } | null>(null);
   const [readableMode, setReadableMode] = useState(false);
@@ -198,13 +197,6 @@ export default function QuestionReviewPage() {
 
   const toggleDetails = (questionId: string) => {
     setShowDetails(prev => ({
-      ...prev,
-      [questionId]: !prev[questionId]
-    }));
-  };
-
-  const toggleReviewForm = (questionId: string) => {
-    setShowReviewForm(prev => ({
       ...prev,
       [questionId]: !prev[questionId]
     }));
@@ -655,14 +647,6 @@ export default function QuestionReviewPage() {
                     >
                       {showDetails[question.id] ? 'Hide Details' : 'Show Details'}
                     </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => toggleReviewForm(question.id)}
-                      className="flex items-center gap-2"
-                    >
-                      {showReviewForm[question.id] ? 'Hide Review' : 'Add Review'}
-                    </Button>
                   </div>
                 </div>
               </CardHeader>
@@ -841,36 +825,35 @@ export default function QuestionReviewPage() {
                   </div>
                 )}
                 
-                {/* Review Form */}
-                {showReviewForm[question.id] && (
-                  <div>
-                    {status === 'loading' ? (
-                      <div className="text-center p-4 text-gray-500">
-                        Loading authentication status...
-                      </div>
-                    ) : !session ? (
-                      <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-300 text-black">
-                        <p className="font-semibold mb-2">Sign in required</p>
-                        <p className="text-sm mb-3">You must be signed in to submit a review.</p>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => signIn()}
-                        >
-                          Sign In
-                        </Button>
-                      </div>
-                    ) : (
-                      <QuestionReviewForm 
-                        questionId={question.id}
-                        onSubmitSuccess={() => {
-                          // Optionally refresh or show success message
-                          console.log('Review submitted for question:', question.id);
-                        }}
-                      />
-                    )}
-                  </div>
-                )}
+                {/* Review Form - Always Visible */}
+                <div>
+                  {status === 'loading' ? (
+                    <div className="text-center p-4 text-gray-500">
+                      Loading authentication status...
+                    </div>
+                  ) : !session ? (
+                    <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-300 text-black">
+                      <p className="font-semibold mb-2">Sign in required</p>
+                      <p className="text-sm mb-3">You must be signed in to submit a review.</p>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => signIn()}
+                      >
+                        Sign In
+                      </Button>
+                    </div>
+                  ) : (
+                    <QuestionReviewForm 
+                      questionId={question.id}
+                      hasDiagramInQuestion={!!(question.imageUrl || question.chartData)}
+                      onSubmitSuccess={() => {
+                        // Optionally refresh or show success message
+                        console.log('Review submitted for question:', question.id);
+                      }}
+                    />
+                  )}
+                </div>
               </CardContent>
             </Card>
           ))

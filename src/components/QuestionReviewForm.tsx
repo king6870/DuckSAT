@@ -15,13 +15,15 @@ interface QuestionReviewFormProps {
   questionId: string;
   /** Optional callback function called after successful review submission */
   onSubmitSuccess?: () => void;
+  /** Whether the question has a diagram (imageUrl or chartData) */
+  hasDiagramInQuestion?: boolean;
 }
 
-export default function QuestionReviewForm({ questionId, onSubmitSuccess }: QuestionReviewFormProps) {
+export default function QuestionReviewForm({ questionId, onSubmitSuccess, hasDiagramInQuestion = false }: QuestionReviewFormProps) {
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [description, setDescription] = useState('');
-  const [hasDiagram, setHasDiagram] = useState(false);
+  const [diagramIsAccurate, setDiagramIsAccurate] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
@@ -57,7 +59,7 @@ export default function QuestionReviewForm({ questionId, onSubmitSuccess }: Ques
         body: JSON.stringify({
           rating,
           description: description.trim() || null,
-          hasDiagram,
+          hasDiagram: diagramIsAccurate,
         }),
       });
 
@@ -70,7 +72,7 @@ export default function QuestionReviewForm({ questionId, onSubmitSuccess }: Ques
       setSuccess(true);
       setRating(0);
       setDescription('');
-      setHasDiagram(false);
+      setDiagramIsAccurate(false);
       
       if (onSubmitSuccess) {
         onSubmitSuccess();
@@ -144,15 +146,18 @@ export default function QuestionReviewForm({ questionId, onSubmitSuccess }: Ques
             />
           </div>
 
-          {/* Diagram Checkbox */}
-          <div>
-            <Checkbox
-              id="hasDiagram"
-              label="This question has a diagram"
-              checked={hasDiagram}
-              onChange={(e) => setHasDiagram(e.target.checked)}
-            />
-          </div>
+          {/* Diagram Accuracy Checkbox - Only show if question has a diagram */}
+          {hasDiagramInQuestion && (
+            <div>
+              <Checkbox
+                id="diagramIsAccurate"
+                label="Diagram is accurate"
+                checked={diagramIsAccurate}
+                onChange={(e) => setDiagramIsAccurate(e.target.checked)}
+                aria-label="Mark if the diagram is accurate"
+              />
+            </div>
+          )}
 
           {/* Error Message */}
           {error && (
