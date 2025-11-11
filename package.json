@@ -37,6 +37,7 @@
         "test:review-api": "tsx scripts/test-review-api.ts",
         "test:api-questions": "tsx scripts/test-api-questions.ts",
         "seed:questions-test": "tsx scripts/seed-questions-test.ts",
+        "seed:samples": "tsx scripts/seed-from-samples.ts",
         "deploy:migrate-seed": "node scripts/deploy-migrate-seed.js",
         "db:migrate-images": "tsx scripts/migrate-images-to-db.ts"
     },
