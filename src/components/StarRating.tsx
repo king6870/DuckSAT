@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 

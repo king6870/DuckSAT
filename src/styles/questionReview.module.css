@@ -382,12 +382,6 @@
   }
 }
 
-/* Accessibility - Focus Outlines */
-*:focus-visible {
-  outline: 2px solid rgb(59, 130, 246);
-  outline-offset: 2px;
-}
-
 /* Ensure WCAG AA contrast ratios */
 .textPrimary {
   color: rgb(17, 24, 39); /* Contrast ratio: 16.16:1 */
