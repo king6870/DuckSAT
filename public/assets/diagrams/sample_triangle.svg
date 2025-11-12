@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="220" viewBox="0 0 420 220" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Triangle ABC</title>
+  <desc id="d1">Isosceles triangle ABC (AB = AC). Angle at A = 20°. D is foot of altitude from A to BC.</desc>
+  <style>
+    .side { stroke: #222; stroke-width: 2; fill: none; }
+    .label { font-family: Arial, sans-serif; font-size: 14px; fill: #111; }
+    .mark { stroke: #c33; stroke-width: 2; fill:none; }
+    .dash { stroke: #222; stroke-dasharray: 4 4; }
+  </style>
+  <polygon class="side" points="70,180 210,40 350,180" />
+  <text class="label" x="60" y="195">B</text>
+  <text class="label" x="200" y="30">A</text>
+  <text class="label" x="360" y="195">C</text>
+  <path d="M195,52 A30,30 0 0,1 230,80" class="mark"/>
+  <text class="label" x="215" y="75">20°</text>
+  <line x1="210" y1="40" x2="210" y2="180" class="dash"/>
+  <text class="label" x="220" y="185">D</text>
+</svg>
