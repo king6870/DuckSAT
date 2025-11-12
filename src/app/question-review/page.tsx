@@ -674,25 +674,19 @@ export default function QuestionReviewPage() {
                 {(question.chartData || question.imageUrl) && (
                   <div className="bg-gray-50 p-4 rounded-lg text-blue-400">
                     <h4 className="font-semibold text-blue-400 mb-2">{question.chartData ? 'Diagram' : 'Image'}</h4>
-                    {question.imageUrl ? (
-                      question.imageUrl.startsWith('data:image/svg+xml;base64,') ? (
-                        <div className="p-4 bg-yellow-50 border border-yellow-300 rounded text-sm text-black">
-                          ⚠️ This diagram contains Vega specification data that cannot be displayed as an image.
-                          <br />
-                          <span className="text-xs">The diagram generation system needs to be updated to render actual images.</span>
-                        </div>
-                      ) : (
-                        <ChartRenderer
-                          chartData={(question.chartData ?? { type: 'image' }) as ChartData}
-                          imageUrl={question.imageUrl}
-                          imageAlt={question.imageAlt || 'Question diagram'}
-                          className="max-w-full"
-                        />
-                      )
-                    ) : (
+                    {question.imageUrl && question.imageUrl.startsWith('data:image/svg+xml;base64,') ? (
                       <div className="p-4 bg-yellow-50 border border-yellow-300 rounded text-sm text-black">
-                        ⚠️ Diagram data exists but no image URL found. This question may have a rendering issue.
+                        ⚠️ This diagram contains Vega specification data that cannot be displayed as an image.
+                        <br />
+                        <span className="text-xs">The diagram generation system needs to be updated to render actual images.</span>
                       </div>
+                    ) : (
+                      <ChartRenderer
+                        chartData={(question.chartData ?? { type: 'image' }) as ChartData}
+                        imageUrl={question.imageUrl || undefined}
+                        imageAlt={question.imageAlt || 'Question diagram'}
+                        className="max-w-full"
+                      />
                     )}
                     {!question.chartData && question.imageAlt && (
                       <p className="text-xs text-gray-600 mt-1">Alt text: {question.imageAlt}</p>
