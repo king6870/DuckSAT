@@ -295,8 +295,8 @@ export default function EditQuestion() {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Chart/Diagram (Optional)</label>
               <ChartBuilder
-                chartData={form.chartData}
-                onChange={(chartData) => setForm({ ...form, chartData })}
+                chartData={form.chartData as any}
+                onChange={(chartData) => setForm({ ...form, chartData: chartData as Record<string, unknown> | null })}
               />
             </div>
 

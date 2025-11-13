@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getServerSession } from 'next-auth'
+import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 import { ADMIN_EMAILS } from '@/middleware/adminAuth'
 import { aiQuestionService } from '@/services/aiQuestionService'
@@ -81,8 +81,8 @@ export async function POST(request: NextRequest) {
     console.log(`✅ Accepted: ${acceptedQuestions.length}, ❌ Rejected: ${rejectedQuestions.length}`)
 
     // Store accepted questions in database
-    const storedQuestions = []
-    const questionResults = []
+    const storedQuestions: any[] = []
+    const questionResults: Array<{ question: string; status: 'stored' | 'error'; error?: string }> = []
     
     for (const question of acceptedQuestions) {
       try {

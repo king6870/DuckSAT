@@ -55,15 +55,14 @@ async function seedTestData() {
         data: {
           userId: testUser.id,
           startTime: new Date(Date.now() - (index + 1) * 24 * 60 * 60 * 1000), // Days ago
-          completedAt: new Date(Date.now() - (index + 1) * 24 * 60 * 60 * 1000 + result.timeSpent * 1000),
-          timeSpent: result.timeSpent,
+          endTime: new Date(Date.now() - (index + 1) * 24 * 60 * 60 * 1000 + result.timeSpent * 1000),
+          totalTimeSpent: result.timeSpent,
           totalQuestions: result.totalQuestions,
           correctAnswers: result.correctAnswers,
-          totalScore: result.totalScore,
-          moduleType: result.moduleType as any,
-          rwScore: result.rwScore,
-          mathScore: result.mathScore,
-          totalSATScore: result.totalSATScore,
+          score: result.totalScore,
+          satReadingScore: result.rwScore,
+          satMathScore: result.mathScore,
+          satTotalScore: result.totalSATScore,
           categoryPerformance: {},
           subtopicPerformance: {},
           difficultyPerformance: {}
@@ -72,7 +71,6 @@ async function seedTestData() {
 
       // Create sample question results
       const categories = ['Algebra', 'Geometry', 'Reading Comprehension', 'Writing']
-      const difficulties = ['easy', 'medium', 'hard']
       
       for (let i = 0; i < result.totalQuestions; i++) {
         const isCorrect = i < result.correctAnswers
@@ -80,13 +78,9 @@ async function seedTestData() {
           data: {
             testResultId: testResult.id,
             questionId: `sample-${i}`,
-            selectedAnswer: isCorrect ? 0 : 1,
+            userAnswer: isCorrect ? 0 : 1,
             isCorrect,
-            timeSpent: Math.floor(Math.random() * 120) + 30, // 30-150 seconds
-            moduleType: result.moduleType as any,
-            difficulty: difficulties[Math.floor(Math.random() * difficulties.length)] as any,
-            category: categories[Math.floor(Math.random() * categories.length)],
-            subtopic: categories[Math.floor(Math.random() * categories.length)]
+            timeSpent: Math.floor(Math.random() * 120) + 30 // 30-150 seconds
           }
         })
       }
