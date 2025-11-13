@@ -63,9 +63,9 @@ export default function TestVisuals() {
                   <p className="text-sm">Has Chart: {question.chartData ? 'YES' : 'NO'}</p>
                   {question.chartData && (
                     <div className="mt-2 text-xs">
-                      <p><strong>Type:</strong> {question.chartData.graphType}</p>
-                      <p><strong>Interaction:</strong> {question.chartData.interactionType}</p>
-                      <p><strong>Description:</strong> {question.chartData.description?.substring(0, 100)}...</p>
+                      <p><strong>Type:</strong> {(question.chartData as any).graphType}</p>
+                      <p><strong>Interaction:</strong> {(question.chartData as any).interactionType}</p>
+                      <p><strong>Description:</strong> {(question.chartData as any).description?.substring(0, 100)}...</p>
                     </div>
                   )}
                 </div>

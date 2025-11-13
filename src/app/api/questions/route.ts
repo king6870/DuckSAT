@@ -162,7 +162,9 @@ export async function GET(request: NextRequest) {
     }
 
     // Get unique categories and subtopics for filtering
-    let categories, subtopics, sources;
+    let categories: Array<{ category: string }> = [];
+    let subtopics: Array<{ subtopic: string | null }> = [];
+    let sources: Array<{ source: string | null }> = [];
     try {
       [categories, subtopics, sources] = await Promise.all([
         prisma.question.findMany({

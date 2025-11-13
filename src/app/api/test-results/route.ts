@@ -51,15 +51,14 @@ export async function POST(request: NextRequest) {
       data: {
         userId: user.id,
         startTime: new Date(testResults.startTime),
-        completedAt: new Date(testResults.endTime),
-        timeSpent: testResults.totalTimeSpent,
+        endTime: new Date(testResults.endTime),
+        totalTimeSpent: testResults.totalTimeSpent,
         totalQuestions: testResults.totalQuestions,
         correctAnswers: testResults.correctAnswers,
-        totalScore: Math.round((testResults.correctAnswers / testResults.totalQuestions) * 100),
-        moduleType,
-        rwScore: satScore.readingWriting,
-        mathScore: satScore.math,
-        totalSATScore: satScore.total,
+        score: Math.round((testResults.correctAnswers / testResults.totalQuestions) * 100),
+        satReadingScore: satScore.readingWritingScore,
+        satMathScore: satScore.mathScore,
+        satTotalScore: satScore.totalScore,
         categoryPerformance: testResults.categoryPerformance || {},
         subtopicPerformance: testResults.subtopicPerformance || {},
         difficultyPerformance: testResults.difficultyPerformance || {}
@@ -72,13 +71,9 @@ export async function POST(request: NextRequest) {
         data: {
           testResultId: testResult.id,
           questionId: result.questionId,
-          selectedAnswer: result.selectedAnswer,
+          userAnswer: result.selectedAnswer,
           isCorrect: result.isCorrect,
-          timeSpent: result.timeSpent || 0,
-          moduleType: result.moduleType,
-          difficulty: result.difficulty,
-          category: result.category,
-          subtopic: result.subtopic
+          timeSpent: result.timeSpent || 0
         }
       })
     }

@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
 
     // Store accepted questions in database
     const storedQuestions: any[] = []
-    const questionResults: Array<{ question: string; status: 'stored' | 'error'; error?: string }> = []
+    const questionResults: Array<{ question: string; status: 'stored' | 'error'; error?: string; id?: string; needsReview?: boolean }> = []
     
     for (const question of acceptedQuestions) {
       try {

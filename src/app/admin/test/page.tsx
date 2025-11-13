@@ -76,9 +76,7 @@ export default function AdminTest() {
             <div className="flex justify-center space-x-4">
               <button
                 onClick={() => {
-                  if (selectedModuleId !== null) {
-                    startModule(selectedModuleId)
-                  }
+                  startModule()
                 }}
                 disabled={selectedModuleId === null}
                 className="px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-2xl font-bold text-lg hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"

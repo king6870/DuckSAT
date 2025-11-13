@@ -12,6 +12,11 @@ interface QuestionData {
   difficulty: string
   qualityScore?: number
   feedback?: string
+  points?: number
+  passage?: string
+  chartDescription?: string
+  hasChart?: boolean
+  wrongAnswerExplanations?: Record<string, string>
   [key: string]: unknown
 }
 
@@ -146,7 +151,7 @@ export default function TestAIQuestions() {
                             {question.points} point{question.points !== 1 ? 's' : ''}
                           </span>
                           <span className="text-sm text-gray-600">
-                            Quality: {(question.qualityScore * 100).toFixed(0)}%
+                            Quality: {((question.qualityScore ?? 0) * 100).toFixed(0)}%
                           </span>
                         </div>
                       </div>

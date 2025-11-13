@@ -317,7 +317,7 @@ async function createTextOnlyMath() {
           { moduleType: 'math' },
           {
             OR: [
-              { chartData: { not: null } },
+              { chartData: { not: undefined } },
               { imageUrl: { not: null } },
               { category: { contains: 'Graph', mode: 'insensitive' } },
               { category: { contains: 'Chart', mode: 'insensitive' } },
@@ -449,7 +449,7 @@ async function createTextOnlyMath() {
           { moduleType: 'math' },
           {
             OR: [
-              { chartData: { not: null } },
+              { chartData: { not: undefined } },
               { imageUrl: { not: null } },
               { question: { contains: 'graph', mode: 'insensitive' } },
               { question: { contains: 'chart', mode: 'insensitive' } }

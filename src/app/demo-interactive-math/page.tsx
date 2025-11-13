@@ -85,7 +85,7 @@ export default function DemoInteractiveMath() {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [showAnswer, setShowAnswer] = useState(false)
   const [userAnswers, setUserAnswers] = useState<number[]>([])
-  const [graphInteractions, setGraphInteractions] = useState<Array<{ x: number; y: number } | null>>([])
+  const [graphInteractions, setGraphInteractions] = useState<Array<{ x: number; y: number; userPoints?: Array<{ x: number; y: number }> } | null>>([])
 
   const handleAnswerSelect = (answerIndex: number) => {
     const newAnswers = [...userAnswers]

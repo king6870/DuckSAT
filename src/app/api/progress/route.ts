@@ -43,12 +43,12 @@ export async function GET(_request: NextRequest) {
 
     // Calculate analytics
     const testsCompleted = testResults.length
-    const scores = testResults.map(result => result.totalScore)
+    const scores = testResults.map(result => result.score)
     const averageScore = scores.length > 0 ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0
     
     // Calculate time spent (in minutes)
     const totalTimeSpent = testResults.reduce((total, result) => {
-      return total + (result.timeSpent || 0)
+      return total + (result.totalTimeSpent || 0)
     }, 0)
 
     // Get category performance
@@ -125,10 +125,9 @@ export async function GET(_request: NextRequest) {
         modulePerformance,
         testHistory: testResults.map(result => ({
           id: result.id,
-          score: result.totalScore,
+          score: result.score,
           completedAt: result.completedAt,
-          timeSpent: result.timeSpent,
-          moduleType: result.moduleType
+          timeSpent: result.totalTimeSpent
         }))
       }
     })
