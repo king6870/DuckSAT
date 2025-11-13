@@ -5,6 +5,9 @@ interface QuestionResultData {
   userAnswer: number
   isCorrect: boolean
   timeSpent: number
+  moduleType?: string
+  difficulty?: string
+  category?: string
   question: {
     moduleType: string
     difficulty: string
@@ -165,11 +168,12 @@ export function generateDetailedAnalytics(
   const categoryStats: Record<string, { correct: number; total: number; percentage: number; strength: 'strong' | 'average' | 'weak' }> = {}
   
   questionResults.forEach(q => {
-    if (!categoryStats[q.category]) {
-      categoryStats[q.category] = { correct: 0, total: 0, percentage: 0, strength: 'average' }
+    const category = q.category || q.question?.category || 'Unknown'
+    if (!categoryStats[category]) {
+      categoryStats[category] = { correct: 0, total: 0, percentage: 0, strength: 'average' }
     }
-    categoryStats[q.category].total++
-    if (q.isCorrect) categoryStats[q.category].correct++
+    categoryStats[category].total++
+    if (q.isCorrect) categoryStats[category].correct++
   })
   
   // Calculate percentages and strengths

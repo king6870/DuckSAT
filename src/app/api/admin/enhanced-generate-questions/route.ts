@@ -144,6 +144,7 @@ export async function POST(request: NextRequest) {
 
         storedQuestions.push(storedQuestion)
         questionResults.push({
+          question: String(question.question || ''),
           id: storedQuestion.id,
           status: 'stored',
           needsReview: isFallbackEvaluation,
@@ -164,6 +165,7 @@ export async function POST(request: NextRequest) {
       } catch (error) {
         console.error('Failed to store question:', error)
         questionResults.push({
+          question: String(question.question || ''),
           id: undefined,
           status: 'error',
           needsReview: false,
