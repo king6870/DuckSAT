@@ -16,7 +16,7 @@ interface QuestionData {
   difficulty: string
   category: string
   subtopic: string
-  chartData?: any
+  chartData?: Record<string, unknown> | null
   imageUrl?: string
   imageAlt?: string
   timeEstimate: number

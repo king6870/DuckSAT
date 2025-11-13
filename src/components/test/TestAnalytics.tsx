@@ -150,7 +150,7 @@ export default function TestAnalytics({ testResults }: TestAnalyticsProps) {
             <div className="text-6xl mb-4">⚠️</div>
             <h1 className="text-3xl font-bold text-gray-900 mb-4">Analytics Error</h1>
             <p className="text-gray-600 mb-6">
-              There was an issue calculating your test results. Here's your basic score:
+              There was an issue calculating your test results. Here&apos;s your basic score:
             </p>
             
             <div className="bg-blue-50 rounded-2xl p-6 mb-6">

@@ -24,7 +24,7 @@ interface InteractiveMathQuestionProps {
     requiresPointSelection?: boolean // New: indicates if question requires selecting a point
   }
   onAnswerSelect?: (answerIndex: number) => void
-  onGraphInteraction?: (data: any) => void
+  onGraphInteraction?: (data: { x: number; y: number } | null) => void
   showAnswer?: boolean
 }
 
@@ -221,7 +221,7 @@ export default function InteractiveMathQuestion({
                     </span>
                   ) : (
                     <span>
-                      Selected: <InlineMathRenderer>{`(${selectedPoint.x}, ${selectedPoint.y})`}</InlineMathRenderer> - Click "Done" to confirm
+                      Selected: <InlineMathRenderer>{`(${selectedPoint.x}, ${selectedPoint.y})`}</InlineMathRenderer> - Click &ldquo;Done&rdquo; to confirm
                     </span>
                   )}
                 </p>

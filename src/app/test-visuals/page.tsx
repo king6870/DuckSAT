@@ -3,9 +3,19 @@
 import React, { useState, useEffect } from 'react'
 import ComprehensiveQuestionDisplay from '@/components/ComprehensiveQuestionDisplay'
 
+interface Question {
+  id: string
+  question: string
+  options: string[]
+  correctAnswer: number
+  passage?: string
+  chartData?: Record<string, unknown> | null
+  [key: string]: unknown
+}
+
 export default function TestVisuals() {
-  const [mathQuestions, setMathQuestions] = useState<any[]>([])
-  const [readingQuestions, setReadingQuestions] = useState<any[]>([])
+  const [mathQuestions, setMathQuestions] = useState<Question[]>([])
+  const [readingQuestions, setReadingQuestions] = useState<Question[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
