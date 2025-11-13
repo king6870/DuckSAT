@@ -266,9 +266,9 @@ export default function DemoInteractiveMath() {
                     )}
                   </div>
                   <p className="text-sm text-gray-600">{question.subtopic}</p>
-                  {graphInteractions[index]?.userPoints?.length > 0 && (
+                  {graphInteractions[index]?.userPoints && graphInteractions[index]!.userPoints!.length > 0 && (
                     <p className="text-xs text-blue-600 mt-1">
-                      Graph interactions: {graphInteractions[index].userPoints.length} points
+                      Graph interactions: {graphInteractions[index]!.userPoints!.length} points
                     </p>
                   )}
                 </div>

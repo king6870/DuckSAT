@@ -265,7 +265,7 @@ export default function ReviewCard({
               {question.chartData ? 'Diagram' : 'Image'}
             </h4>
             <ChartRenderer
-              chartData={question.chartData as Record<string, unknown> | undefined}
+              chartData={question.chartData as any}
               imageUrl={question.imageUrl || undefined}
               imageAlt={question.imageAlt || 'Question diagram'}
               className="max-w-full"

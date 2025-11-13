@@ -82,7 +82,14 @@ export async function POST(request: NextRequest) {
 
     // Store accepted questions in database
     const storedQuestions: any[] = []
-    const questionResults: Array<{ question: string; status: 'stored' | 'error'; error?: string; id?: string; needsReview?: boolean }> = []
+    const questionResults: Array<{ 
+      question: string; 
+      status: 'stored' | 'error'; 
+      error?: string; 
+      id?: string; 
+      needsReview?: boolean;
+      evaluationFeedback?: string;
+    }> = []
     
     for (const question of acceptedQuestions) {
       try {
@@ -157,7 +164,7 @@ export async function POST(request: NextRequest) {
       } catch (error) {
         console.error('Failed to store question:', error)
         questionResults.push({
-          id: null,
+          id: undefined,
           status: 'error',
           needsReview: false,
           evaluationFeedback: error instanceof Error ? error.message : 'Unknown error storing question'

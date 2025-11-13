@@ -51,7 +51,12 @@ export default function ChartBuilder({ chartData, onChange }: ChartBuilderProps)
 
   const handleTypeChange = (type: string) => {
     setChartType(type)
-    const newChartData = { diagramType, type, points: [], data: [] }
+    const newChartData: { diagramType: string; type: string; points: ChartPoint[]; data: ChartDataItem[] } = { 
+      diagramType, 
+      type, 
+      points: [] as ChartPoint[], 
+      data: [] as ChartDataItem[] 
+    }
     
     // Set default data based on type
     switch (type) {

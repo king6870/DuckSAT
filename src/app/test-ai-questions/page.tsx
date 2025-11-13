@@ -205,7 +205,7 @@ export default function TestAIQuestions() {
                       </div>
 
                       <div className="text-sm text-green-700 bg-green-100 p-2 rounded">
-                        <strong>Grok Evaluation:</strong> {question.evaluationFeedback}
+                        <strong>Grok Evaluation:</strong> {String(question.evaluationFeedback || '')}
                       </div>
                     </div>
                   ))}
@@ -234,9 +234,9 @@ export default function TestAIQuestions() {
                           <span className="text-sm text-gray-600">{question.subtopic}</span>
                         </div>
                       </div>
-                      <p className="text-gray-800 mb-2">{question.question.substring(0, 150)}...</p>
+                      <p className="text-gray-800 mb-2">{String(question.question).substring(0, 150)}...</p>
                       <div className="text-sm text-red-700 bg-red-100 p-2 rounded">
-                        <strong>Rejection Reason:</strong> {question.evaluationFeedback}
+                        <strong>Rejection Reason:</strong> {String(question.evaluationFeedback || '')}
                       </div>
                     </div>
                   ))}

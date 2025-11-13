@@ -24,7 +24,7 @@ interface InteractiveMathQuestionProps {
     requiresPointSelection?: boolean // New: indicates if question requires selecting a point
   }
   onAnswerSelect?: (answerIndex: number) => void
-  onGraphInteraction?: (data: { x: number; y: number } | null) => void
+  onGraphInteraction?: (data: any) => void
   showAnswer?: boolean
 }
 

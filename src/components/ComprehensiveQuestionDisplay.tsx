@@ -78,7 +78,7 @@ export default function ComprehensiveQuestionDisplay({
       {(question.chartData || question.imageUrl) && (
         <div className="mb-6">
           <ChartRenderer 
-            chartData={question.chartData}
+            chartData={question.chartData as any}
             imageUrl={question.imageUrl}
             imageAlt={question.imageAlt}
             className="mb-4"

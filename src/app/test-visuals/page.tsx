@@ -70,7 +70,7 @@ export default function TestVisuals() {
                   )}
                 </div>
                 <ComprehensiveQuestionDisplay
-                  question={question}
+                  question={question as any}
                   showAnswer={false}
                   showMetadata={true}
                 />
@@ -91,7 +91,7 @@ export default function TestVisuals() {
                   <p className="text-sm">Passage Length: {question.passage?.length || 0} characters</p>
                 </div>
                 <ComprehensiveQuestionDisplay
-                  question={question}
+                  question={question as any}
                   showAnswer={false}
                   showMetadata={true}
                 />
