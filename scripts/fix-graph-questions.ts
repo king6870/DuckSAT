@@ -175,46 +175,93 @@ const CORRECTED_GRAPH_QUESTIONS = [
   }
 ]
 
+/**
+ * Checks if a category string contains a keyword (case-insensitive)
+ * @param category - Category string to check
+ * @param keyword - Keyword to search for
+ * @returns true if category contains the keyword
+ */
+function categoryContains(category: string, keyword: string): boolean {
+  return category.toLowerCase().includes(keyword.toLowerCase())
+}
+
+/**
+ * Validates chartData structure and guards against missing or invalid data
+ * @param chartData - Chart data to validate
+ * @returns true if chartData is valid
+ */
+function validateChartData(chartData: any): boolean {
+  if (!chartData || typeof chartData !== 'object') {
+    return false
+  }
+  // Check for required fields based on chart type
+  if (!chartData.type) {
+    return false
+  }
+  // Validate data array exists and is not empty
+  if (!chartData.data || !Array.isArray(chartData.data) || chartData.data.length === 0) {
+    return false
+  }
+  return true
+}
+
 async function fixGraphQuestions() {
   try {
     console.log('🔧 Fixing graph and chart questions...')
     
-    // Delete existing graph questions that might be wrong
+    // Delete existing graph questions using case-insensitive contains checks
     const deleteResult = await prisma.question.deleteMany({
       where: {
         OR: [
-          { category: 'Linear Functions and Graphs' },
-          { category: 'Quadratic Functions and Parabolas' },
-          { category: 'Statistics and Data Analysis' },
-          { category: 'Exponential and Logarithmic Functions' },
-          { category: 'Systems of Equations (Graphical)' }
+          { category: { contains: 'Linear', mode: 'insensitive' } },
+          { category: { contains: 'Quadratic', mode: 'insensitive' } },
+          { category: { contains: 'Statistics', mode: 'insensitive' } },
+          { category: { contains: 'Exponential', mode: 'insensitive' } },
+          { category: { contains: 'Systems', mode: 'insensitive' } },
+          { category: { contains: 'Graph', mode: 'insensitive' } }
         ]
       }
     })
     
     console.log(`🗑️ Deleted ${deleteResult.count} potentially incorrect graph questions`)
     
-    // Add corrected questions
+    // Add corrected questions with validation
     console.log('✅ Adding mathematically correct graph questions...')
     
+    let successCount = 0
+    let errorCount = 0
+    
     for (const questionData of CORRECTED_GRAPH_QUESTIONS) {
-      await prisma.question.create({
-        data: {
-          moduleType: 'math',
-          difficulty: questionData.difficulty as any,
-          category: questionData.category,
-          subtopic: questionData.category,
-          question: questionData.question,
-          options: questionData.options,
-          correctAnswer: questionData.correctAnswer,
-          explanation: questionData.explanation,
-          chartData: questionData.chartData,
-          timeEstimate: 120,
-          source: 'Corrected Graph Questions',
-          tags: ['graphs', 'charts', 'verified-correct'],
-          isActive: true
-        }
-      })
+      // Validate chartData before inserting
+      if (!validateChartData(questionData.chartData)) {
+        console.warn(`⚠️  Skipping question due to invalid chartData: ${questionData.question.substring(0, 50)}...`)
+        errorCount++
+        continue
+      }
+      
+      try {
+        await prisma.question.create({
+          data: {
+            moduleType: 'math',
+            difficulty: questionData.difficulty,
+            category: questionData.category,
+            subtopic: questionData.category,
+            question: questionData.question,
+            options: questionData.options,
+            correctAnswer: questionData.correctAnswer,
+            explanation: questionData.explanation,
+            chartData: questionData.chartData,
+            timeEstimate: 120,
+            source: 'Corrected Graph Questions',
+            tags: ['graphs', 'charts', 'verified-correct'],
+            isActive: true
+          }
+        })
+        successCount++
+      } catch (error) {
+        console.error(`❌ Error creating question: ${error}`)
+        errorCount++
+      }
     }
     
     // Create variations with different numbers but same mathematical principles
@@ -226,49 +273,65 @@ async function fixGraphQuestions() {
       // Create variation with adjusted numbers but same mathematical relationship
       let variationData = { ...baseQuestion.chartData }
       
-      if (baseQuestion.category === 'Linear Functions and Graphs') {
-        // Adjust slope and intercept but keep mathematical consistency
-        const newSlope = [1, 2, 3, -1, -2][i % 5]
-        const newIntercept = [0, 1, -1, 2, -2][i % 5]
-        variationData.data = [
-          {"x": 0, "y": newIntercept},
-          {"x": 1, "y": newIntercept + newSlope},
-          {"x": 2, "y": newIntercept + 2 * newSlope}
-        ]
+      // Only create variations if base chartData is valid
+      if (!validateChartData(variationData)) {
+        console.warn(`⚠️  Skipping variation ${i + 1} due to invalid base chartData`)
+        errorCount++
+        continue
       }
       
-      await prisma.question.create({
-        data: {
-          moduleType: 'math',
-          difficulty: baseQuestion.difficulty as any,
-          category: baseQuestion.category,
-          subtopic: baseQuestion.category,
-          question: `${baseQuestion.question} (Variation ${i + 1})`,
-          options: baseQuestion.options,
-          correctAnswer: baseQuestion.correctAnswer,
-          explanation: baseQuestion.explanation,
-          chartData: variationData,
-          timeEstimate: 120,
-          source: 'Corrected Graph Questions (Variation)',
-          tags: ['graphs', 'charts', 'verified-correct'],
-          isActive: true
+      try {
+        if (categoryContains(baseQuestion.category, 'linear')) {
+          // Adjust slope and intercept but keep mathematical consistency
+          const newSlope = [1, 2, 3, -1, -2][i % 5]
+          const newIntercept = [0, 1, -1, 2, -2][i % 5]
+          variationData.data = [
+            {"x": 0, "y": newIntercept},
+            {"x": 1, "y": newIntercept + newSlope},
+            {"x": 2, "y": newIntercept + 2 * newSlope}
+          ]
         }
-      })
+        
+        await prisma.question.create({
+          data: {
+            moduleType: 'math',
+            difficulty: baseQuestion.difficulty,
+            category: baseQuestion.category,
+            subtopic: baseQuestion.category,
+            question: `${baseQuestion.question} (Variation ${i + 1})`,
+            options: baseQuestion.options,
+            correctAnswer: baseQuestion.correctAnswer,
+            explanation: baseQuestion.explanation,
+            chartData: variationData,
+            timeEstimate: 120,
+            source: 'Corrected Graph Questions (Variation)',
+            tags: ['graphs', 'charts', 'verified-correct'],
+            isActive: true
+          }
+        })
+        successCount++
+      } catch (error) {
+        console.error(`❌ Error creating variation ${i + 1}: ${error}`)
+        errorCount++
+      }
     }
     
     const totalGraphQuestions = await prisma.question.count({
       where: {
         OR: [
-          { category: 'Linear Functions and Graphs' },
-          { category: 'Quadratic Functions and Parabolas' },
-          { category: 'Statistics and Data Analysis' },
-          { category: 'Exponential and Logarithmic Functions' },
-          { category: 'Systems of Equations (Graphical)' }
+          { category: { contains: 'Linear', mode: 'insensitive' } },
+          { category: { contains: 'Quadratic', mode: 'insensitive' } },
+          { category: { contains: 'Statistics', mode: 'insensitive' } },
+          { category: { contains: 'Exponential', mode: 'insensitive' } },
+          { category: { contains: 'Systems', mode: 'insensitive' } }
         ]
       }
     })
     
-    console.log(`✅ Successfully created ${totalGraphQuestions} mathematically correct graph questions!`)
+    console.log(`✅ Successfully created ${successCount} mathematically correct graph questions!`)
+    if (errorCount > 0) {
+      console.log(`⚠️  ${errorCount} questions failed validation and were skipped`)
+    }
     console.log('🎯 All questions have been verified for mathematical accuracy')
     console.log('📊 Charts and graphs now match their corresponding questions perfectly')
     

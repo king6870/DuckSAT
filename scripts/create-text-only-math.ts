@@ -273,6 +273,39 @@ const TEXT_ONLY_MATH_QUESTIONS = [
   }
 ]
 
+/**
+ * Normalizes option strings by removing letter prefixes like "A) ", "B) ", etc.
+ * @param options - Array of option strings
+ * @returns Normalized array of options
+ */
+function normalizeOptions(options: string[]): string[] {
+  return options.map(option => option.replace(/^[A-D]\)\s*/, '').trim())
+}
+
+/**
+ * Validates that correctAnswer is a valid index for the options array
+ * @param correctAnswer - The correct answer index
+ * @param optionsLength - Length of the options array
+ * @returns true if valid, false otherwise
+ */
+function validateCorrectAnswer(correctAnswer: number, optionsLength: number): boolean {
+  return correctAnswer >= 0 && correctAnswer < optionsLength
+}
+
+/**
+ * Determines the appropriate subtopic based on category or explicit subtopic field
+ * @param category - Question category
+ * @param subtopic - Explicit subtopic if provided
+ * @returns The determined subtopic string
+ */
+function determineSubtopic(category: string, subtopic?: string): string {
+  if (subtopic) {
+    return subtopic
+  }
+  // Fallback to category as subtopic
+  return category
+}
+
 async function createTextOnlyMath() {
   try {
     console.log('🔢 Replacing graph questions with text-only math questions...')
@@ -302,15 +335,25 @@ async function createTextOnlyMath() {
     console.log('📝 Creating 100 text-only math questions...')
     
     let questionCount = 0
+    let validationErrors = 0
     
     // Add base questions multiple times with variations
     for (let round = 0; round < 4; round++) {
       for (const questionData of TEXT_ONLY_MATH_QUESTIONS) {
         if (questionCount >= 100) break
         
+        // Normalize options by stripping letter prefixes
+        const normalizedOptions = normalizeOptions(questionData.options)
+        
+        // Validate correctAnswer index
+        if (!validateCorrectAnswer(questionData.correctAnswer, normalizedOptions.length)) {
+          console.error(`⚠️  Invalid correctAnswer (${questionData.correctAnswer}) for question: ${questionData.question.substring(0, 50)}...`)
+          validationErrors++
+          continue
+        }
+        
         // Create variations by changing numbers slightly
         let modifiedQuestion = questionData.question
-        let modifiedOptions = [...questionData.options]
         let modifiedExplanation = questionData.explanation
         
         if (round > 0) {
@@ -318,24 +361,31 @@ async function createTextOnlyMath() {
           modifiedQuestion = `${questionData.question} (Variation ${round})`
         }
         
-        await prisma.question.create({
-          data: {
-            moduleType: 'math',
-            difficulty: questionData.difficulty as any,
-            category: questionData.category,
-            subtopic: questionData.category,
-            question: modifiedQuestion,
-            options: modifiedOptions,
-            correctAnswer: questionData.correctAnswer,
-            explanation: modifiedExplanation,
-            timeEstimate: 90,
-            source: 'Text-Only Math Questions',
-            tags: ['algebra', 'text-only', 'no-graphs'],
-            isActive: true
-          }
-        })
+        // Determine subtopic - use explicit subtopic if available, otherwise fallback to category
+        const subtopic = determineSubtopic(questionData.category, (questionData as any).subtopic)
         
-        questionCount++
+        try {
+          await prisma.question.create({
+            data: {
+              moduleType: 'math',
+              difficulty: questionData.difficulty,
+              category: questionData.category,
+              subtopic,
+              question: modifiedQuestion,
+              options: normalizedOptions,
+              correctAnswer: questionData.correctAnswer,
+              explanation: modifiedExplanation,
+              timeEstimate: 90,
+              source: 'Text-Only Math Questions',
+              tags: ['algebra', 'text-only', 'no-graphs'],
+              isActive: true
+            }
+          })
+          questionCount++
+        } catch (error) {
+          console.error(`❌ Error creating question: ${error}`)
+          validationErrors++
+        }
       }
     }
     
@@ -343,31 +393,53 @@ async function createTextOnlyMath() {
     while (questionCount < 100) {
       const baseQuestion = TEXT_ONLY_MATH_QUESTIONS[questionCount % TEXT_ONLY_MATH_QUESTIONS.length]
       
-      await prisma.question.create({
-        data: {
-          moduleType: 'math',
-          difficulty: baseQuestion.difficulty as any,
-          category: baseQuestion.category,
-          subtopic: baseQuestion.category,
-          question: `${baseQuestion.question} (Extra ${questionCount})`,
-          options: baseQuestion.options,
-          correctAnswer: baseQuestion.correctAnswer,
-          explanation: baseQuestion.explanation,
-          timeEstimate: 90,
-          source: 'Text-Only Math Questions (Extra)',
-          tags: ['algebra', 'text-only', 'no-graphs'],
-          isActive: true
-        }
-      })
+      // Normalize options by stripping letter prefixes
+      const normalizedOptions = normalizeOptions(baseQuestion.options)
       
-      questionCount++
+      // Validate correctAnswer index
+      if (!validateCorrectAnswer(baseQuestion.correctAnswer, normalizedOptions.length)) {
+        console.error(`⚠️  Skipping invalid question due to correctAnswer validation failure`)
+        questionCount++
+        validationErrors++
+        continue
+      }
+      
+      // Determine subtopic
+      const subtopic = determineSubtopic(baseQuestion.category, (baseQuestion as any).subtopic)
+      
+      try {
+        await prisma.question.create({
+          data: {
+            moduleType: 'math',
+            difficulty: baseQuestion.difficulty,
+            category: baseQuestion.category,
+            subtopic,
+            question: `${baseQuestion.question} (Extra ${questionCount})`,
+            options: normalizedOptions,
+            correctAnswer: baseQuestion.correctAnswer,
+            explanation: baseQuestion.explanation,
+            timeEstimate: 90,
+            source: 'Text-Only Math Questions (Extra)',
+            tags: ['algebra', 'text-only', 'no-graphs'],
+            isActive: true
+          }
+        })
+        questionCount++
+      } catch (error) {
+        console.error(`❌ Error creating extra question: ${error}`)
+        questionCount++
+        validationErrors++
+      }
     }
     
     const totalMathQuestions = await prisma.question.count({
       where: { moduleType: 'math' }
     })
     
-    console.log(`✅ Successfully created ${totalMathQuestions} text-only math questions!`)
+    console.log(`✅ Successfully created ${questionCount - validationErrors} text-only math questions!`)
+    if (validationErrors > 0) {
+      console.log(`⚠️  ${validationErrors} questions failed validation and were skipped`)
+    }
     console.log('📊 All math questions are now text-based with NO graphs or charts')
     
     // Verify no graphs remain

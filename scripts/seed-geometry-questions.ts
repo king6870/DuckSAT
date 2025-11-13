@@ -134,8 +134,8 @@ const GEOMETRY_QUESTIONS = [
       "marks": [
         {"type": "rule", "from": {"data": "segments"}, "encode": {"enter": {"x": {"field": "x"}, "y": {"field": "y"}, "x2": {"field": "x2"}, "y2": {"field": "y2"}, "stroke": {"value": "#000"}, "strokeWidth": {"value": 2}}}},
         {"type": "rule", "from": {"data": "altitude"}, "encode": {"enter": {"x": {"field": "x"}, "y": {"field": "y"}, "x2": {"field": "x2"}, "y2": {"field": "y2"}, "stroke": {"value": "#000"}, "strokeWidth": {"value": 1.5}}}},
-        {"type": "path", "from": {"data": "cSquare"}, "encode": {"enter": {"path": {"value": "M60,300 L76,300 L76,284 L60,284 Z"}, "fill": {"value": "white"}, "stroke": {"value": "#000"}, "strokeWidth": {"value": 1.5}}}}},
-        {"type": "path", "from": {"data": "dSquare"}, "encode": {"enter": {"path": {"value": "M146.4,184.8 L133.6,175.2 L124,188 L136.8,197.6 Z"}, "fill": {"value": "white"}, "stroke": {"value": "#000"}, "strokeWidth": {"value": 1.5}}}}},
+        {"type": "path", "from": {"data": "cSquare"}, "encode": {"enter": {"path": {"value": "M60,300 L76,300 L76,284 L60,284 Z"}, "fill": {"value": "white"}, "stroke": {"value": "#000"}, "strokeWidth": {"value": 1.5}}}},
+        {"type": "path", "from": {"data": "dSquare"}, "encode": {"enter": {"path": {"value": "M146.4,184.8 L133.6,175.2 L124,188 L136.8,197.6 Z"}, "fill": {"value": "white"}, "stroke": {"value": "#000"}, "strokeWidth": {"value": 1.5}}}},
         {"type": "text", "from": {"data": "pointLabels"}, "encode": {"enter": {"x": {"field": "x"}, "y": {"field": "y"}, "dx": {"field": "dx"}, "dy": {"field": "dy"}, "text": {"field": "label"}, "fontSize": {"value": 14}, "fill": {"value": "black"}}}},
         {"type": "text", "from": {"data": "lengthLabels"}, "encode": {"enter": {"x": {"field": "x"}, "y": {"field": "y"}, "dx": {"field": "dx"}, "dy": {"field": "dy"}, "text": {"field": "text"}, "fontSize": {"value": 13}, "fill": {"value": "black"}, "fontStyle": {"value": "italic"}}}}
       ]
@@ -284,7 +284,7 @@ const GEOMETRY_QUESTIONS = [
         {"type": "symbol", "name": "points", "from": {"data": "vertices"}, "encode": {"enter": {"fill": {"value": "black"}, "size": {"value": 30}}, "update": {"x": {"field": "x"}, "y": {"field": "y"}}}},
         {"type": "text", "name": "vertexLabels", "from": {"data": "vertices"}, "encode": {"enter": {"fontSize": {"value": 14}, "fontWeight": {"value": "bold"}, "fill": {"value": "black"}}, "update": {"x": {"field": "x"}, "y": {"field": "y"}, "text": {"field": "name"}, "dx": {"expr": "datum.name==='B' ? -10 : datum.name==='C' ? 10 : datum.name==='D' ? -10 : datum.name==='E' ? 10 : 0"}, "dy": {"expr": "datum.name==='A' ? -10 : datum.name==='B' ? 15 : datum.name==='C' ? 15 : datum.name==='D' ? -10 : datum.name==='E' ? -10 : 0"}}}},
         {"type": "text", "name": "areaLabel", "encode": {"enter": {"fontSize": {"value": 14}, "fill": {"value": "black"}}, "update": {"x": {"value": 250}, "y": {"value": 180}, "text": {"value": "Area = 108"}}}},
-        {"type": "text", "name": "notToScale", "encode": {"enter": {"fontSize": {"value": 12}, "fill": {"value": "gray"}}, "update": {"x": {"value": 250}, "y": {"value": 335}, "align": {"value": "center"}, "text": {"value": "Note: Diagram is not drawn to scale."}}}}},
+        {"type": "text", "name": "notToScale", "encode": {"enter": {"fontSize": {"value": 12}, "fill": {"value": "gray"}}, "update": {"x": {"value": 250}, "y": {"value": 335}, "align": {"value": "center"}, "text": {"value": "Note: Diagram is not drawn to scale."}}}},
         {"type": "text", "name": "segmentLabels", "from": {"data": "segLabels"}, "encode": {"enter": {"fontSize": {"value": 12}, "fill": {"value": "black"}, "align": {"value": "center"}, "baseline": {"value": "middle"}}, "update": {"x": {"field": "x"}, "y": {"field": "y"}, "text": {"field": "text"}}}}
       ]
     },
@@ -375,4 +375,34 @@ const GEOMETRY_QUESTIONS = [
         {"type": "rule", "from": {"data": "rightAngle"}, "encode": {"enter": {"x": {"scale": "x", "field": "x"}, "y": {"scale": "y", "field": "y"}, "x2": {"scale": "x", "field": "x2"}, "y2": {"scale": "y", "field": "y2"}, "stroke": {"value": "#000"}, "strokeWidth": {"value": 1.5}}}},
         {"type": "symbol", "from": {"data": "points"}, "encode": {"enter": {"x": {"scale": "x", "field": "x"}, "y": {"scale": "y", "field": "y"}, "size": {"value": 80}, "fill": {"value": "white"}, "stroke": {"value": "black"}, "strokeWidth": {"value": 1.5}}}},
         {"type": "text", "from": {"data": "points"}, "encode": {"enter": {"x": {"scale": "x", "field": "x"}, "y": {"scale": "y", "field": "y"}, "text": {"field": "id"}, "dx": {"value": 0}, "dy": {"value": -10}, "fontSize": {"value": 14}, "fontWeight": {"value": "bold"}, "fill": {"value": "black"}, "align": {"value": "center"}, "baseline": {"value": "bottom"}}}},
-        {"type": "text", "from": {"data": "lengthLabels"}, "encode": {"enter": {"x": {"scale": "x", "field": "x"}, "y": {"scale": "y", "field": "y"}, "text": {"field": "text"}, "dx": {"field": "dx"}, "dy": {"field": "dy"}, "fontSize": {"value": 12}, "fill": {"value": "black"}, "align": {"value": "center"}}}},
+        {"type": "text", "from": {"data": "lengthLabels"}, "encode": {"enter": {"x": {"scale": "x", "field": "x"}, "y": {"scale": "y", "field": "y"}, "text": {"field": "text"}, "dx": {"field": "dx"}, "dy": {"field": "dy"}, "fontSize": {"value": 12}, "fill": {"value": "black"}, "align": {"value": "center"}}}}
+      ]
+    },
+    timeEstimate: 120
+  }
+]
+
+async function seedGeometryQuestions() {
+  try {
+    console.log('🔢 Seeding geometry questions...')
+    
+    for (const questionData of GEOMETRY_QUESTIONS) {
+      await prisma.question.create({
+        data: {
+          ...questionData,
+          isActive: true,
+          source: 'Geometry Question Bank',
+          tags: ['geometry', 'visual']
+        }
+      })
+    }
+    
+    console.log(`✅ Successfully seeded ${GEOMETRY_QUESTIONS.length} geometry questions`)
+  } catch (error) {
+    console.error('❌ Error seeding geometry questions:', error)
+  } finally {
+    await prisma.$disconnect()
+  }
+}
+
+seedGeometryQuestions()
