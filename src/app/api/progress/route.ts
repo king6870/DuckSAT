@@ -3,7 +3,19 @@ import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 
-export async function GET(request: NextRequest) {
+interface QuestionResult {
+  category?: string
+  moduleType?: string
+  isCorrect: boolean
+}
+
+interface TestResult {
+  questionResults: QuestionResult[]
+  score: number
+  createdAt: Date
+}
+
+export async function GET(_request: NextRequest) {
   try {
     const session = await getServerSession(authOptions)
     
@@ -43,7 +55,7 @@ export async function GET(request: NextRequest) {
     const categoryStats: Record<string, { correct: number, total: number }> = {}
     
     testResults.forEach(result => {
-      result.questionResults.forEach((qr: any) => {
+      result.questionResults.forEach((qr: QuestionResult) => {
         const category = qr.category || 'Unknown'
         if (!categoryStats[category]) {
           categoryStats[category] = { correct: 0, total: 0 }
@@ -81,20 +93,20 @@ export async function GET(request: NextRequest) {
     // Module performance
     const moduleStats: Record<string, { correct: number, total: number }> = {}
     testResults.forEach(result => {
-      result.questionResults.forEach((qr: any) => {
-        const module = qr.moduleType || 'Unknown'
-        if (!moduleStats[module]) {
-          moduleStats[module] = { correct: 0, total: 0 }
+      result.questionResults.forEach((qr: QuestionResult) => {
+        const moduleType = qr.moduleType || 'Unknown'
+        if (!moduleStats[moduleType]) {
+          moduleStats[moduleType] = { correct: 0, total: 0 }
         }
-        moduleStats[module].total++
+        moduleStats[moduleType].total++
         if (qr.isCorrect) {
-          moduleStats[module].correct++
+          moduleStats[moduleType].correct++
         }
       })
     })
 
-    const modulePerformance = Object.entries(moduleStats).map(([module, stats]) => ({
-      module,
+    const modulePerformance = Object.entries(moduleStats).map(([moduleType, stats]) => ({
+      module: moduleType,
       percentage: stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0,
       correct: stats.correct,
       total: stats.total

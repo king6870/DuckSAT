@@ -26,7 +26,7 @@ interface QuestionForm {
   timeEstimate: number
   tags: string[]
   isActive: boolean
-  chartData: any
+  chartData: Record<string, unknown> | null
 }
 
 export default function EditQuestion() {

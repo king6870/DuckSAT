@@ -98,7 +98,7 @@ export default function ChartBuilder({ chartData, onChange }: ChartBuilderProps)
   }
 
   const removePoint = (index: number) => {
-    const newPoints = points.filter((_: any, i: number) => i !== index)
+    const newPoints = points.filter((_point: ChartPoint, i: number) => i !== index)
     setPoints(newPoints)
     onChange({ diagramType, type: chartType, points: newPoints, data })
   }
@@ -190,7 +190,7 @@ export default function ChartBuilder({ chartData, onChange }: ChartBuilderProps)
                 </button>
               </div>
               
-              {points.map((point: any, index: number) => (
+              {points.map((point: ChartPoint, index: number) => (
                 <div key={index} className="flex gap-2 mb-2 items-center">
                   <input
                     type="number"
@@ -239,7 +239,7 @@ export default function ChartBuilder({ chartData, onChange }: ChartBuilderProps)
                 </button>
               </div>
               
-              {data.map((item: any, index: number) => (
+              {data.map((item: ChartDataItem, index: number) => (
                 <div key={index} className="flex gap-2 mb-2 items-center">
                   <input
                     type="text"

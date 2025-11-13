@@ -10,7 +10,7 @@ export default function AdminGenerate() {
   const { data: session, status } = useSession()
   const router = useRouter()
   const [generating, setGenerating] = useState(false)
-  const [result, setResult] = useState<any>(null)
+  const [result, setResult] = useState<{ success?: boolean; message?: string; count?: number } | null>(null)
 
   // Check admin access
   if (status === 'loading') {

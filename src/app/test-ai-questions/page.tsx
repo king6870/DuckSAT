@@ -12,8 +12,8 @@ interface GenerationResult {
     stored: number
   }
   questions: {
-    accepted: any[]
-    rejected: any[]
+    accepted: Array<Record<string, unknown>>
+    rejected: Array<Record<string, unknown>>
   }
 }
 

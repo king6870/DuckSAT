@@ -10,7 +10,7 @@ export interface Question {
   correctAnswer: number
   explanation: string
   timeEstimate: number // seconds
-  chartData?: any // Chart/diagram data
+  chartData?: Record<string, unknown> | null // Chart/diagram data
   imageUrl?: string
   imageAlt?: string
 }
