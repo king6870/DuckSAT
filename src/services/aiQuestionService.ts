@@ -331,7 +331,7 @@ export class AIQuestionService {
     includeCharts: boolean
     includePassages: boolean
   }): string {
-    return buildMathQuestionsPrompt(subtopics, {
+    return buildMathQuestionsPrompt(subtopics as any, {
       includeCharts: settings.includeCharts,
       mathCount: settings.mathCount,
     })
@@ -350,7 +350,7 @@ export class AIQuestionService {
     includeCharts: boolean
     includePassages: boolean
   }): string {
-    return buildReadingQuestionsPrompt(subtopics, {
+    return buildReadingQuestionsPrompt(subtopics as any, {
       includePassages: settings.includePassages,
       readingCount: settings.readingCount,
     })
@@ -456,14 +456,14 @@ export class AIQuestionService {
    * Build math questions prompt
    */
   private buildMathPrompt(subtopics: EnrichedSubtopic[]): string {
-    return buildMathQuestionsPrompt(subtopics, { includeCharts: true })
+    return buildMathQuestionsPrompt(subtopics as any, { includeCharts: true })
   }
 
   /**
    * Build reading questions prompt
    */
   private buildReadingPrompt(subtopics: EnrichedSubtopic[]): string {
-    return buildReadingQuestionsPrompt(subtopics, { includePassages: true })
+    return buildReadingQuestionsPrompt(subtopics as any, { includePassages: true })
   }
 
   /**
@@ -494,7 +494,7 @@ export class AIQuestionService {
         moduleType: 'math' as const,
         category: subtopics[index]?.topicName || 'Math',
         subtopic: subtopics[index]?.name || 'Unknown'
-      }))
+      })) as GeneratedQuestion[]
     } catch (error) {
       console.error('Failed to parse math questions:', error)
       console.error('Raw response:', response)
@@ -523,7 +523,7 @@ export class AIQuestionService {
         moduleType: 'reading-writing' as const,
         category: subtopics[index]?.topicName || 'Reading',
         subtopic: subtopics[index]?.name || 'Unknown'
-      }))
+      })) as GeneratedQuestion[]
     } catch (error) {
       console.error('Failed to parse reading questions:', error)
       console.error('Raw response:', response)
@@ -858,14 +858,14 @@ export class AIQuestionService {
    * Build math prompt for specific subtopic
    */
   private buildMathPromptForSubtopic(subtopic: EnrichedSubtopic, count: number): string {
-    return buildMathSubtopicPrompt(subtopic, count)
+    return buildMathSubtopicPrompt(subtopic as any, count)
   }
 
   /**
    * Build reading prompt for specific subtopic
    */
   private buildReadingPromptForSubtopic(subtopic: EnrichedSubtopic, count: number): string {
-    return buildReadingSubtopicPrompt(subtopic, count)
+    return buildReadingSubtopicPrompt(subtopic as any, count)
   }
 
   /**
@@ -886,7 +886,7 @@ export class AIQuestionService {
         moduleType: subtopic.moduleType,
         category: subtopic.name,
         subtopic: subtopic.name
-      }))
+      })) as GeneratedQuestion[]
     } catch (error) {
       console.error('Failed to parse questions for subtopic:', error)
       return []
@@ -914,7 +914,7 @@ export class AIQuestionService {
           options: question.options,
           correctAnswer: question.correctAnswer,
           explanation: question.explanation,
-          wrongAnswerExplanations: null,
+          wrongAnswerExplanations: undefined,
           imageUrl: question.imageUrl || null,
           imageAlt: question.chartDescription || null,
           chartData: question.hasChart ? {
@@ -922,7 +922,7 @@ export class AIQuestionService {
             interactionType: question.interactionType,
             graphType: question.graphType,
             hasGeneratedImage: !!question.imageUrl
-          } : null,
+          } as any : undefined,
           timeEstimate: question.points * 30,
           source: 'ai-generated',
           tags: [question.category, question.subtopic],

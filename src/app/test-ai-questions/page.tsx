@@ -2,6 +2,19 @@
 
 import { useState } from 'react'
 
+interface QuestionData {
+  question: string
+  options: string[]
+  correctAnswer: number
+  explanation: string
+  category: string
+  subtopic: string
+  difficulty: string
+  qualityScore?: number
+  feedback?: string
+  [key: string]: unknown
+}
+
 interface GenerationResult {
   success: boolean
   summary: {
@@ -12,8 +25,8 @@ interface GenerationResult {
     stored: number
   }
   questions: {
-    accepted: Array<Record<string, unknown>>
-    rejected: Array<Record<string, unknown>>
+    accepted: QuestionData[]
+    rejected: QuestionData[]
   }
 }
 
