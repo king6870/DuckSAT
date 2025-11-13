@@ -7,7 +7,7 @@ import { prisma } from '@/lib/prisma'
 export interface ChartConfig {
   type: 'coordinate-plane' | 'bar-chart' | 'scatter-plot' | 'box-plot' | 'geometric-diagram' | 'function-graph'
   description: string
-  data?: any
+  data?: Record<string, unknown>
   width?: number
   height?: number
   questionId?: string // Optional: Question ID to store image directly in question record

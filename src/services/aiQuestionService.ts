@@ -144,7 +144,7 @@ export class AIQuestionService {
             console.log(`🎨 Generating image for ${question.graphType} chart...`)
             
             const chartConfig = {
-              type: question.graphType as any || 'coordinate-plane',
+              type: (question.graphType as 'coordinate-plane' | 'bar-chart' | 'scatter-plot' | 'box-plot' | 'geometric-diagram' | 'function-graph') || 'coordinate-plane',
               description: question.chartDescription,
               width: 600,
               height: 400
@@ -488,8 +488,8 @@ export class AIQuestionService {
         cleanedResponse = cleanedResponse.replace(/^```\s*/, '').replace(/\s*```$/, '')
       }
       
-      const questions = JSON.parse(cleanedResponse)
-      return questions.map((q: any, index: number) => ({
+      const questions = JSON.parse(cleanedResponse) as Array<Record<string, unknown>>
+      return questions.map((q: Record<string, unknown>, index: number) => ({
         ...q,
         moduleType: 'math' as const,
         category: subtopics[index]?.topicName || 'Math',
@@ -517,8 +517,8 @@ export class AIQuestionService {
         cleanedResponse = cleanedResponse.replace(/^```\s*/, '').replace(/\s*```$/, '')
       }
       
-      const questions = JSON.parse(cleanedResponse)
-      return questions.map((q: any, index: number) => ({
+      const questions = JSON.parse(cleanedResponse) as Array<Record<string, unknown>>
+      return questions.map((q: Record<string, unknown>, index: number) => ({
         ...q,
         moduleType: 'reading-writing' as const,
         category: subtopics[index]?.topicName || 'Reading',
@@ -880,8 +880,8 @@ export class AIQuestionService {
         cleanedResponse = cleanedResponse.replace(/^```\s*/, '').replace(/\s*```$/, '')
       }
       
-      const questions = JSON.parse(cleanedResponse)
-      return questions.map((q: any) => ({
+      const questions = JSON.parse(cleanedResponse) as Array<Record<string, unknown>>
+      return questions.map((q: Record<string, unknown>) => ({
         ...q,
         moduleType: subtopic.moduleType,
         category: subtopic.name,

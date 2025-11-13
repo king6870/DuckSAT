@@ -133,7 +133,7 @@ export async function GET(_request: NextRequest) {
       }
     })
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Progress API Error:', error)
     return NextResponse.json({ 
       error: 'Failed to fetch progress data' 

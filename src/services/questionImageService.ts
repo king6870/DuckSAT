@@ -29,7 +29,7 @@ export class QuestionImageService {
       console.log(`🎨 Generating image for question ${questionId}...`)
 
       const chartConfig: ChartConfig = {
-        type: (imageData.graphType as any) || 'coordinate-plane',
+        type: (imageData.graphType as 'coordinate-plane' | 'bar-chart' | 'scatter-plot' | 'box-plot' | 'geometric-diagram' | 'function-graph') || 'coordinate-plane',
         description: imageData.chartDescription || 'Math diagram',
         width: imageData.width || 600,
         height: imageData.height || 400,

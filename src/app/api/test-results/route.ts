@@ -4,6 +4,17 @@ import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { calculateSATScore } from '@/utils/satScoring'
 
+interface ModuleResult {
+  questionId: string
+  selectedAnswer: number
+  isCorrect: boolean
+  timeSpent?: number
+  moduleType: string
+  difficulty?: string
+  category?: string
+  subtopic?: string
+}
+
 export async function POST(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions)
@@ -24,11 +35,11 @@ export async function POST(request: NextRequest) {
     const { testResults } = await request.json()
 
     // Extract data from testResults
-    const flatResults = testResults.moduleResults.flat()
-    const rwQuestions = flatResults.filter((r: any) => r.moduleType === 'reading-writing')
-    const mathQuestions = flatResults.filter((r: any) => r.moduleType === 'math')
-    const rwCorrect = rwQuestions.filter((r: any) => r.isCorrect).length
-    const mathCorrect = mathQuestions.filter((r: any) => r.isCorrect).length
+    const flatResults: ModuleResult[] = testResults.moduleResults.flat()
+    const rwQuestions = flatResults.filter((r: ModuleResult) => r.moduleType === 'reading-writing')
+    const mathQuestions = flatResults.filter((r: ModuleResult) => r.moduleType === 'math')
+    const rwCorrect = rwQuestions.filter((r: ModuleResult) => r.isCorrect).length
+    const mathCorrect = mathQuestions.filter((r: ModuleResult) => r.isCorrect).length
 
     const satScore = calculateSATScore(rwCorrect, rwQuestions.length, mathCorrect, mathQuestions.length)
 
@@ -78,7 +89,7 @@ export async function POST(request: NextRequest) {
       satScore
     })
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Test Results API Error:', error)
     return NextResponse.json({ 
       error: 'Failed to save test results' 
