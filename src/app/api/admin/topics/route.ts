@@ -1,6 +1,6 @@
 // API endpoint to fetch topics and subtopics for admin question generation
 import { NextResponse } from 'next/server'
-import { getServerSession } from 'next-auth'
+import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 import { ADMIN_EMAILS } from '@/middleware/adminAuth'
 import { prisma } from '@/lib/prisma'
