@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getServerSession } from 'next-auth'
+import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 import { ADMIN_EMAILS } from '@/middleware/adminAuth'
 import { aiQuestionService } from '@/services/aiQuestionService'
@@ -81,8 +81,15 @@ export async function POST(request: NextRequest) {
     console.log(`✅ Accepted: ${acceptedQuestions.length}, ❌ Rejected: ${rejectedQuestions.length}`)
 
     // Store accepted questions in database
-    const storedQuestions = []
-    const questionResults = []
+    const storedQuestions: any[] = []
+    const questionResults: Array<{ 
+      question: string; 
+      status: 'stored' | 'error'; 
+      error?: string; 
+      id?: string; 
+      needsReview?: boolean;
+      evaluationFeedback?: string;
+    }> = []
     
     for (const question of acceptedQuestions) {
       try {
@@ -137,6 +144,7 @@ export async function POST(request: NextRequest) {
 
         storedQuestions.push(storedQuestion)
         questionResults.push({
+          question: String(question.question || ''),
           id: storedQuestion.id,
           status: 'stored',
           needsReview: isFallbackEvaluation,
@@ -157,7 +165,8 @@ export async function POST(request: NextRequest) {
       } catch (error) {
         console.error('Failed to store question:', error)
         questionResults.push({
-          id: null,
+          question: String(question.question || ''),
+          id: undefined,
           status: 'error',
           needsReview: false,
           evaluationFeedback: error instanceof Error ? error.message : 'Unknown error storing question'

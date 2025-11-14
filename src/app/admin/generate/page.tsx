@@ -10,7 +10,17 @@ export default function AdminGenerate() {
   const { data: session, status } = useSession()
   const router = useRouter()
   const [generating, setGenerating] = useState(false)
-  const [result, setResult] = useState<any>(null)
+  const [result, setResult] = useState<{ 
+    success?: boolean; 
+    message?: string; 
+    count?: number;
+    error?: string;
+    generated?: number;
+    evaluated?: number;
+    accepted?: number;
+    rejected?: number;
+    stored?: number;
+  } | null>(null)
 
   // Check admin access
   if (status === 'loading') {
@@ -29,7 +39,7 @@ export default function AdminGenerate() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-red-600 mb-4">Access Denied</h1>
-          <p className="text-gray-600">You don't have permission to access this page.</p>
+          <p className="text-gray-600">You don&apos;t have permission to access this page.</p>
         </div>
       </div>
     )
@@ -134,7 +144,7 @@ export default function AdminGenerate() {
                 </div>
 
                 {/* Success Message */}
-                {result.stored > 0 && (
+                {(result.stored ?? 0) > 0 && (
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
                     <h3 className="text-green-800 font-semibold mb-2">Success!</h3>
                     <p className="text-green-700">

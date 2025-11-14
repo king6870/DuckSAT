@@ -121,10 +121,19 @@ Correct Answer: ${question.options[question.correctAnswer]}`
 async function main() {
   console.log('🤖 Starting Azure OpenAI validation and generation...')
   
+  // Check for --delete-unsafe flag
+  const allowDelete = process.argv.includes('--delete-unsafe')
+  
+  if (allowDelete) {
+    console.log('⚠️  WARNING: --delete-unsafe flag is set. Low-confidence questions will be DELETED.')
+  } else {
+    console.log('ℹ️  Safe mode: Low-confidence questions will be marked as inactive with validation metadata.')
+  }
+  
   const validator = new GrokValidator()
   
   // Step 1: Validate existing questions
-  console.log('📋 Fetching existing questions...')
+  console.log('📋 Fetching active questions...')
   const existingQuestions = await prisma.question.findMany({
     where: { isActive: true }
   })
@@ -132,6 +141,7 @@ async function main() {
   console.log(`Found ${existingQuestions.length} questions to validate`)
   
   let deletedCount = 0
+  let deactivatedCount = 0
   let validatedCount = 0
   
   for (const question of existingQuestions) {
@@ -140,12 +150,30 @@ async function main() {
     const validation = await validator.validateQuestion(question)
     
     if (!validation.isValid || validation.confidence < 0.6) {
-      console.log(`❌ Deleting (confidence: ${validation.confidence})`)
+      const validationInfo = {
+        isValid: validation.isValid,
+        confidence: validation.confidence,
+        validatedAt: new Date().toISOString(),
+        validator: 'Azure OpenAI (gpt-4o)'
+      }
       
-      await prisma.question.delete({
-        where: { id: question.id }
-      })
-      deletedCount++
+      if (allowDelete) {
+        console.log(`❌ Deleting (confidence: ${validation.confidence})`)
+        await prisma.question.delete({
+          where: { id: question.id }
+        })
+        deletedCount++
+      } else {
+        console.log(`⚠️  Marking inactive (confidence: ${validation.confidence})`)
+        await prisma.question.update({
+          where: { id: question.id },
+          data: {
+            isActive: false,
+            reviewComments: JSON.stringify(validationInfo)
+          }
+        })
+        deactivatedCount++
+      }
     } else {
       console.log(`✅ Keeping (confidence: ${validation.confidence})`)
     }
@@ -156,7 +184,12 @@ async function main() {
     await new Promise(resolve => setTimeout(resolve, 1000))
   }
   
-  console.log(`✅ Validation complete: ${deletedCount} deleted, ${validatedCount - deletedCount} kept`)
+  if (allowDelete) {
+    console.log(`✅ Validation complete: ${deletedCount} deleted, ${validatedCount - deletedCount} kept`)
+  } else {
+    console.log(`✅ Validation complete: ${deactivatedCount} deactivated, ${validatedCount - deactivatedCount} kept`)
+    console.log(`ℹ️  To permanently delete low-confidence questions, run with --delete-unsafe flag`)
+  }
   
   // Step 2: Generate 300 new questions
   console.log('🚀 Generating 300 new questions...')

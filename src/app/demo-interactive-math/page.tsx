@@ -85,7 +85,7 @@ export default function DemoInteractiveMath() {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [showAnswer, setShowAnswer] = useState(false)
   const [userAnswers, setUserAnswers] = useState<number[]>([])
-  const [graphInteractions, setGraphInteractions] = useState<any[]>([])
+  const [graphInteractions, setGraphInteractions] = useState<Array<{ x: number; y: number; userPoints?: Array<{ x: number; y: number }> } | null>>([])
 
   const handleAnswerSelect = (answerIndex: number) => {
     const newAnswers = [...userAnswers]
@@ -93,7 +93,7 @@ export default function DemoInteractiveMath() {
     setUserAnswers(newAnswers)
   }
 
-  const handleGraphInteraction = (data: any) => {
+  const handleGraphInteraction = (data: { x: number; y: number } | null) => {
     const newInteractions = [...graphInteractions]
     newInteractions[currentQuestion] = data
     setGraphInteractions(newInteractions)
@@ -212,7 +212,7 @@ export default function DemoInteractiveMath() {
                 <li>• Click anywhere on the graph to place a point</li>
                 <li>• Points snap to whole number coordinates</li>
                 <li>• Multiple points can be placed (up to limit)</li>
-                <li>• Use "Clear Points" to start over</li>
+                <li>• Use &ldquo;Clear Points&rdquo; to start over</li>
               </ul>
             </div>
             <div>
@@ -220,7 +220,7 @@ export default function DemoInteractiveMath() {
               <ul className="text-gray-600 space-y-1">
                 <li>• Click on existing points to select them</li>
                 <li>• Selected point turns yellow</li>
-                <li>• Click "Done" to confirm your selection</li>
+                <li>• Click &ldquo;Done&rdquo; to confirm your selection</li>
                 <li>• Used for identifying specific points</li>
               </ul>
             </div>
@@ -266,9 +266,9 @@ export default function DemoInteractiveMath() {
                     )}
                   </div>
                   <p className="text-sm text-gray-600">{question.subtopic}</p>
-                  {graphInteractions[index]?.userPoints?.length > 0 && (
+                  {graphInteractions[index]?.userPoints && graphInteractions[index]!.userPoints!.length > 0 && (
                     <p className="text-xs text-blue-600 mt-1">
-                      Graph interactions: {graphInteractions[index].userPoints.length} points
+                      Graph interactions: {graphInteractions[index]!.userPoints!.length} points
                     </p>
                   )}
                 </div>

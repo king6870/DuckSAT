@@ -3,16 +3,41 @@
 import { useState } from 'react'
 import ImageUpload from './ImageUpload'
 
+interface ChartPoint {
+  x: number
+  y: number
+  label?: string
+}
+
+interface ChartDataItem {
+  x?: number
+  y?: number
+  category?: string
+  value?: number
+  label?: string
+}
+
+interface ChartData {
+  diagramType?: string
+  type?: string
+  points?: ChartPoint[]
+  data?: ChartDataItem[]
+  imageUrl?: string
+  title?: string
+  xAxis?: string
+  yAxis?: string
+}
+
 interface ChartBuilderProps {
-  chartData: any
-  onChange: (chartData: any) => void
+  chartData: ChartData | null
+  onChange: (chartData: ChartData) => void
 }
 
 export default function ChartBuilder({ chartData, onChange }: ChartBuilderProps) {
   const [diagramType, setDiagramType] = useState(chartData?.diagramType || 'chart')
   const [chartType, setChartType] = useState(chartData?.type || 'coordinate-plane')
-  const [points, setPoints] = useState<any[]>(chartData?.points || [])
-  const [data, setData] = useState<any[]>(chartData?.data || [])
+  const [points, setPoints] = useState<ChartPoint[]>(chartData?.points || [])
+  const [data, setData] = useState<ChartDataItem[]>(chartData?.data || [])
   const [imageUrl, setImageUrl] = useState(chartData?.imageUrl || '')
 
   const handleDiagramTypeChange = (type: string) => {
@@ -26,7 +51,12 @@ export default function ChartBuilder({ chartData, onChange }: ChartBuilderProps)
 
   const handleTypeChange = (type: string) => {
     setChartType(type)
-    const newChartData = { diagramType, type, points: [], data: [] }
+    const newChartData: { diagramType: string; type: string; points: ChartPoint[]; data: ChartDataItem[] } = { 
+      diagramType, 
+      type, 
+      points: [] as ChartPoint[], 
+      data: [] as ChartDataItem[] 
+    }
     
     // Set default data based on type
     switch (type) {
@@ -65,7 +95,7 @@ export default function ChartBuilder({ chartData, onChange }: ChartBuilderProps)
     onChange({ diagramType, type: chartType, points: newPoints, data })
   }
 
-  const updatePoint = (index: number, field: string, value: any) => {
+  const updatePoint = (index: number, field: keyof ChartPoint, value: string | number) => {
     const newPoints = [...points]
     newPoints[index] = { ...newPoints[index], [field]: value }
     setPoints(newPoints)
@@ -73,7 +103,7 @@ export default function ChartBuilder({ chartData, onChange }: ChartBuilderProps)
   }
 
   const removePoint = (index: number) => {
-    const newPoints = points.filter((_: any, i: number) => i !== index)
+    const newPoints = points.filter((_point: ChartPoint, i: number) => i !== index)
     setPoints(newPoints)
     onChange({ diagramType, type: chartType, points: newPoints, data })
   }
@@ -84,7 +114,7 @@ export default function ChartBuilder({ chartData, onChange }: ChartBuilderProps)
     onChange({ diagramType, type: chartType, points, data: newData })
   }
 
-  const updateDataPoint = (index: number, field: string, value: any) => {
+  const updateDataPoint = (index: number, field: keyof ChartDataItem, value: string | number) => {
     const newData = [...data]
     newData[index] = { ...newData[index], [field]: value }
     setData(newData)
@@ -92,7 +122,7 @@ export default function ChartBuilder({ chartData, onChange }: ChartBuilderProps)
   }
 
   const removeDataPoint = (index: number) => {
-    const newData = data.filter((_: any, i: number) => i !== index)
+    const newData = data.filter((_item: ChartDataItem, i: number) => i !== index)
     setData(newData)
     onChange({ diagramType, type: chartType, points, data: newData })
   }
@@ -165,7 +195,7 @@ export default function ChartBuilder({ chartData, onChange }: ChartBuilderProps)
                 </button>
               </div>
               
-              {points.map((point: any, index: number) => (
+              {points.map((point: ChartPoint, index: number) => (
                 <div key={index} className="flex gap-2 mb-2 items-center">
                   <input
                     type="number"
@@ -214,7 +244,7 @@ export default function ChartBuilder({ chartData, onChange }: ChartBuilderProps)
                 </button>
               </div>
               
-              {data.map((item: any, index: number) => (
+              {data.map((item: ChartDataItem, index: number) => (
                 <div key={index} className="flex gap-2 mb-2 items-center">
                   <input
                     type="text"

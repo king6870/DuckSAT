@@ -225,9 +225,9 @@ Despite these advances, the transition faces significant obstacles. Energy stora
       correctAnswer: (i - 1) % 4,
       explanation: `Detailed explanation for question ${i}. This explains why the correct answer is right and provides the reasoning behind the choice.`,
       wrongAnswerExplanations: {
-        [(i) % 4]: `Wrong answer explanation for option ${String.fromCharCode(65 + (i % 4))}`,
-        [(i + 1) % 4]: `Wrong answer explanation for option ${String.fromCharCode(65 + ((i + 1) % 4))}`,
-        [(i + 2) % 4]: `Wrong answer explanation for option ${String.fromCharCode(65 + ((i + 2) % 4))}`
+        [String((i) % 4)]: `Wrong answer explanation for option ${String.fromCharCode(65 + (i % 4))}`,
+        [String((i + 1) % 4)]: `Wrong answer explanation for option ${String.fromCharCode(65 + ((i + 1) % 4))}`,
+        [String((i + 2) % 4)]: `Wrong answer explanation for option ${String.fromCharCode(65 + ((i + 2) % 4))}`
       },
       timeEstimate: 60 + ((i - 1) % 3) * 15,
       source: 'DuckSAT Practice',
@@ -252,9 +252,9 @@ Despite these advances, the transition faces significant obstacles. Energy stora
       correctAnswer: (i - 1) % 4,
       explanation: `Step-by-step solution for question ${i}:\n1. First step of solution\n2. Second step of solution\n3. Final answer: ${i + 1 + ((i - 1) % 4)}`,
       wrongAnswerExplanations: {
-        [(i) % 4]: `This answer results from a common error in step 2 of the solution.`,
-        [(i + 1) % 4]: `This answer results from forgetting to apply the correct operation.`,
-        [(i + 2) % 4]: `This answer results from a calculation mistake in the final step.`
+        [String((i) % 4)]: `This answer results from a common error in step 2 of the solution.`,
+        [String((i + 1) % 4)]: `This answer results from forgetting to apply the correct operation.`,
+        [String((i + 2) % 4)]: `This answer results from a calculation mistake in the final step.`
       },
       imageUrl: i % 3 === 0 ? `/images/math-diagram-${i}.png` : undefined,
       imageAlt: i % 3 === 0 ? `Mathematical diagram for question ${i}` : undefined,

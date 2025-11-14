@@ -17,7 +17,7 @@ interface Question {
   wrongAnswerExplanations?: string[]
   imageUrl?: string
   imageAlt?: string
-  chartData?: any
+  chartData?: Record<string, unknown> | null
   timeEstimate: number
   source: string
   tags: string[]

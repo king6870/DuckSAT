@@ -2,6 +2,24 @@
 
 import { useState } from 'react'
 
+interface QuestionData {
+  question: string
+  options: string[]
+  correctAnswer: number
+  explanation: string
+  category: string
+  subtopic: string
+  difficulty: string
+  qualityScore?: number
+  feedback?: string
+  points?: number
+  passage?: string
+  chartDescription?: string
+  hasChart?: boolean
+  wrongAnswerExplanations?: Record<string, string>
+  [key: string]: unknown
+}
+
 interface GenerationResult {
   success: boolean
   summary: {
@@ -12,8 +30,8 @@ interface GenerationResult {
     stored: number
   }
   questions: {
-    accepted: any[]
-    rejected: any[]
+    accepted: QuestionData[]
+    rejected: QuestionData[]
   }
 }
 
@@ -133,7 +151,7 @@ export default function TestAIQuestions() {
                             {question.points} point{question.points !== 1 ? 's' : ''}
                           </span>
                           <span className="text-sm text-gray-600">
-                            Quality: {(question.qualityScore * 100).toFixed(0)}%
+                            Quality: {((question.qualityScore ?? 0) * 100).toFixed(0)}%
                           </span>
                         </div>
                       </div>
@@ -187,7 +205,7 @@ export default function TestAIQuestions() {
                       </div>
 
                       <div className="text-sm text-green-700 bg-green-100 p-2 rounded">
-                        <strong>Grok Evaluation:</strong> {question.evaluationFeedback}
+                        <strong>Grok Evaluation:</strong> {String(question.evaluationFeedback || '')}
                       </div>
                     </div>
                   ))}
@@ -216,9 +234,9 @@ export default function TestAIQuestions() {
                           <span className="text-sm text-gray-600">{question.subtopic}</span>
                         </div>
                       </div>
-                      <p className="text-gray-800 mb-2">{question.question.substring(0, 150)}...</p>
+                      <p className="text-gray-800 mb-2">{String(question.question).substring(0, 150)}...</p>
                       <div className="text-sm text-red-700 bg-red-100 p-2 rounded">
-                        <strong>Rejection Reason:</strong> {question.evaluationFeedback}
+                        <strong>Rejection Reason:</strong> {String(question.evaluationFeedback || '')}
                       </div>
                     </div>
                   ))}

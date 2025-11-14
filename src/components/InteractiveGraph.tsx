@@ -426,7 +426,7 @@ export default function InteractiveGraph({
             <p className="font-semibold text-yellow-800">Selection Mode:</p>
             <p className="text-yellow-700">• Click on a point to select it as your answer</p>
             <p className="text-yellow-700">• Selected point will be highlighted in yellow</p>
-            <p className="text-yellow-700">• Click "Done" when you've made your selection</p>
+            <p className="text-yellow-700">• Click &ldquo;Done&rdquo; when you&apos;ve made your selection</p>
           </div>
         ) : (
           <>

@@ -1,4 +1,21 @@
 // SAT Scoring System (400-1600 scale)
+
+interface QuestionResultData {
+  questionId: string
+  userAnswer: number
+  isCorrect: boolean
+  timeSpent: number
+  moduleType?: string
+  difficulty?: string
+  category?: string
+  question: {
+    moduleType: string
+    difficulty: string
+    category: string
+    subtopic?: string
+  }
+}
+
 export interface SATScore {
   totalScore: number // 400-1600
   readingWritingScore: number // 200-800
@@ -125,7 +142,7 @@ function getPercentile(totalScore: number): number {
 }
 
 export function generateDetailedAnalytics(
-  questionResults: any[],
+  questionResults: QuestionResultData[],
   totalTimeSpent: number
 ): DetailedAnalytics {
   // Safety checks
@@ -151,11 +168,12 @@ export function generateDetailedAnalytics(
   const categoryStats: Record<string, { correct: number; total: number; percentage: number; strength: 'strong' | 'average' | 'weak' }> = {}
   
   questionResults.forEach(q => {
-    if (!categoryStats[q.category]) {
-      categoryStats[q.category] = { correct: 0, total: 0, percentage: 0, strength: 'average' }
+    const category = q.category || q.question?.category || 'Unknown'
+    if (!categoryStats[category]) {
+      categoryStats[category] = { correct: 0, total: 0, percentage: 0, strength: 'average' }
     }
-    categoryStats[q.category].total++
-    if (q.isCorrect) categoryStats[q.category].correct++
+    categoryStats[category].total++
+    if (q.isCorrect) categoryStats[category].correct++
   })
   
   // Calculate percentages and strengths
@@ -216,8 +234,8 @@ export function generateDetailedAnalytics(
 
 function generateRecommendations(
   satScore: SATScore,
-  categoryStats: Record<string, any>,
-  difficultyStats: any,
+  categoryStats: Record<string, { correct: number; total: number; percentage: number; strength: 'strong' | 'average' | 'weak' }>,
+  difficultyStats: { easy: { correct: number; total: number; percentage: number }; medium: { correct: number; total: number; percentage: number }; hard: { correct: number; total: number; percentage: number } },
   efficiency: string
 ): string[] {
   const recommendations: string[] = []

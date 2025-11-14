@@ -221,7 +221,7 @@ export default function InteractiveMathQuestion({
                     </span>
                   ) : (
                     <span>
-                      Selected: <InlineMathRenderer>{`(${selectedPoint.x}, ${selectedPoint.y})`}</InlineMathRenderer> - Click "Done" to confirm
+                      Selected: <InlineMathRenderer>{`(${selectedPoint.x}, ${selectedPoint.y})`}</InlineMathRenderer> - Click &ldquo;Done&rdquo; to confirm
                     </span>
                   )}
                 </p>

@@ -3,9 +3,19 @@
 import React, { useState, useEffect } from 'react'
 import ComprehensiveQuestionDisplay from '@/components/ComprehensiveQuestionDisplay'
 
+interface Question {
+  id: string
+  question: string
+  options: string[]
+  correctAnswer: number
+  passage?: string
+  chartData?: Record<string, unknown> | null
+  [key: string]: unknown
+}
+
 export default function TestVisuals() {
-  const [mathQuestions, setMathQuestions] = useState<any[]>([])
-  const [readingQuestions, setReadingQuestions] = useState<any[]>([])
+  const [mathQuestions, setMathQuestions] = useState<Question[]>([])
+  const [readingQuestions, setReadingQuestions] = useState<Question[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -53,14 +63,14 @@ export default function TestVisuals() {
                   <p className="text-sm">Has Chart: {question.chartData ? 'YES' : 'NO'}</p>
                   {question.chartData && (
                     <div className="mt-2 text-xs">
-                      <p><strong>Type:</strong> {question.chartData.graphType}</p>
-                      <p><strong>Interaction:</strong> {question.chartData.interactionType}</p>
-                      <p><strong>Description:</strong> {question.chartData.description?.substring(0, 100)}...</p>
+                      <p><strong>Type:</strong> {(question.chartData as any).graphType}</p>
+                      <p><strong>Interaction:</strong> {(question.chartData as any).interactionType}</p>
+                      <p><strong>Description:</strong> {(question.chartData as any).description?.substring(0, 100)}...</p>
                     </div>
                   )}
                 </div>
                 <ComprehensiveQuestionDisplay
-                  question={question}
+                  question={question as any}
                   showAnswer={false}
                   showMetadata={true}
                 />
@@ -81,7 +91,7 @@ export default function TestVisuals() {
                   <p className="text-sm">Passage Length: {question.passage?.length || 0} characters</p>
                 </div>
                 <ComprehensiveQuestionDisplay
-                  question={question}
+                  question={question as any}
                   showAnswer={false}
                   showMetadata={true}
                 />

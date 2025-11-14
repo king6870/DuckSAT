@@ -7,7 +7,7 @@ import { prisma } from '@/lib/prisma'
 export interface ChartConfig {
   type: 'coordinate-plane' | 'bar-chart' | 'scatter-plot' | 'box-plot' | 'geometric-diagram' | 'function-graph'
   description: string
-  data?: any
+  data?: Record<string, unknown>
   width?: number
   height?: number
   questionId?: string // Optional: Question ID to store image directly in question record
@@ -131,7 +131,7 @@ export class ImageGenerationService {
       await prisma.question.update({
         where: { id: questionId },
         data: {
-          imageData: imageData,
+          imageData: imageData as any,
           imageMimeType: mimeType,
           imageUrl: `/api/generated-images/${questionId}`, // Update URL to point to API route
         },
@@ -265,12 +265,12 @@ export class ImageGenerationService {
   private generateBarChart(config: ChartConfig): string {
     const width = config.width || 400
     const height = config.height || 300
-    const data = config.data || [10, 25, 15, 30, 20]
-    const maxValue = Math.max(...data)
-    const barWidth = width / (data.length * 1.5)
+    const data = (config.data as any) || [10, 25, 15, 30, 20]
+    const maxValue = Math.max(...(data as number[]))
+    const barWidth = width / ((data as number[]).length * 1.5)
     
     let bars = ''
-    data.forEach((value: number, index: number) => {
+    ;(data as number[]).forEach((value: number, index: number) => {
       const barHeight = (value / maxValue) * (height - 50)
       const x = (index + 0.5) * barWidth
       const y = height - barHeight - 30
@@ -299,10 +299,10 @@ export class ImageGenerationService {
   private generateScatterPlot(config: ChartConfig): string {
     const width = config.width || 400
     const height = config.height || 300
-    const data = config.data || [[1, 2], [2, 4], [3, 3], [4, 6], [5, 5]]
+    const data = (config.data as any) || [[1, 2], [2, 4], [3, 3], [4, 6], [5, 5]]
     
     let points = ''
-    data.forEach(([x, y]: [number, number]) => {
+    ;(data as [number, number][]).forEach(([x, y]: [number, number]) => {
       const plotX = 50 + (x / 6) * (width - 100)
       const plotY = height - 50 - (y / 8) * (height - 100)
       points += `<circle cx="${plotX}" cy="${plotY}" r="4" fill="#ef4444"/>`

@@ -4,6 +4,17 @@ import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { calculateSATScore } from '@/utils/satScoring'
 
+interface ModuleResult {
+  questionId: string
+  selectedAnswer: number
+  isCorrect: boolean
+  timeSpent?: number
+  moduleType: string
+  difficulty?: string
+  category?: string
+  subtopic?: string
+}
+
 export async function POST(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions)
@@ -24,11 +35,11 @@ export async function POST(request: NextRequest) {
     const { testResults } = await request.json()
 
     // Extract data from testResults
-    const flatResults = testResults.moduleResults.flat()
-    const rwQuestions = flatResults.filter((r: any) => r.moduleType === 'reading-writing')
-    const mathQuestions = flatResults.filter((r: any) => r.moduleType === 'math')
-    const rwCorrect = rwQuestions.filter((r: any) => r.isCorrect).length
-    const mathCorrect = mathQuestions.filter((r: any) => r.isCorrect).length
+    const flatResults: ModuleResult[] = testResults.moduleResults.flat()
+    const rwQuestions = flatResults.filter((r: ModuleResult) => r.moduleType === 'reading-writing')
+    const mathQuestions = flatResults.filter((r: ModuleResult) => r.moduleType === 'math')
+    const rwCorrect = rwQuestions.filter((r: ModuleResult) => r.isCorrect).length
+    const mathCorrect = mathQuestions.filter((r: ModuleResult) => r.isCorrect).length
 
     const satScore = calculateSATScore(rwCorrect, rwQuestions.length, mathCorrect, mathQuestions.length)
 
@@ -40,15 +51,14 @@ export async function POST(request: NextRequest) {
       data: {
         userId: user.id,
         startTime: new Date(testResults.startTime),
-        completedAt: new Date(testResults.endTime),
-        timeSpent: testResults.totalTimeSpent,
+        endTime: new Date(testResults.endTime),
+        totalTimeSpent: testResults.totalTimeSpent,
         totalQuestions: testResults.totalQuestions,
         correctAnswers: testResults.correctAnswers,
-        totalScore: Math.round((testResults.correctAnswers / testResults.totalQuestions) * 100),
-        moduleType,
-        rwScore: satScore.readingWriting,
-        mathScore: satScore.math,
-        totalSATScore: satScore.total,
+        score: Math.round((testResults.correctAnswers / testResults.totalQuestions) * 100),
+        satReadingScore: satScore.readingWritingScore,
+        satMathScore: satScore.mathScore,
+        satTotalScore: satScore.totalScore,
         categoryPerformance: testResults.categoryPerformance || {},
         subtopicPerformance: testResults.subtopicPerformance || {},
         difficultyPerformance: testResults.difficultyPerformance || {}
@@ -61,13 +71,9 @@ export async function POST(request: NextRequest) {
         data: {
           testResultId: testResult.id,
           questionId: result.questionId,
-          selectedAnswer: result.selectedAnswer,
+          userAnswer: result.selectedAnswer,
           isCorrect: result.isCorrect,
-          timeSpent: result.timeSpent || 0,
-          moduleType: result.moduleType,
-          difficulty: result.difficulty,
-          category: result.category,
-          subtopic: result.subtopic
+          timeSpent: result.timeSpent || 0
         }
       })
     }
@@ -78,7 +84,7 @@ export async function POST(request: NextRequest) {
       satScore
     })
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Test Results API Error:', error)
     return NextResponse.json({ 
       error: 'Failed to save test results' 
