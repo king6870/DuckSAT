@@ -1,232 +1,97 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getServerSession } from 'next-auth/next'
-import { authOptions } from '@/lib/auth'
-import { ADMIN_EMAILS } from '@/middleware/adminAuth'
-import { aiQuestionService } from '@/services/aiQuestionService'
-import { prisma } from '@/lib/prisma'
 
-interface GenerationSettings {
-  llmModel: string
-  questionCount: number
-  mathCount: number
-  readingCount: number
-  temperature: number
-  maxTokens: number
-  includeCharts: boolean
-  includePassages: boolean
-  // New parameters for topic/subtopic filtering
-  topicId?: string
-  subtopicId?: string
-  moduleType?: 'math' | 'reading-writing'
-  difficulty?: 'easy' | 'medium' | 'hard'
+// Adapter endpoint that validates an admin API key and forwards the generation request
+// to the internal /api/admin/generate-questions endpoint. This keeps a stable documented
+// endpoint while using the existing generation implementation.
+
+const DEFAULT_TIMEOUT = 30_000
+
+async function fetchWithTimeout(url: string, opts: any = {}, timeoutMs = DEFAULT_TIMEOUT) {
+  const controller = new AbortController()
+  const id = setTimeout(() => controller.abort(), timeoutMs)
+  try {
+    const merged = { ...opts, signal: controller.signal }
+    const res = await fetch(url, merged as any)
+    clearTimeout(id)
+    return res
+  } catch (err) {
+    clearTimeout(id)
+    throw err
+  }
 }
 
 export async function POST(request: NextRequest) {
-  try {
-    // Check admin authentication
-    const session = await getServerSession(authOptions)
-    if (!session?.user?.email || !ADMIN_EMAILS.includes(session.user.email)) {
-      return NextResponse.json(
-        { error: 'Unauthorized - Admin access required' },
-        { status: 403 }
-      )
-    }
-
-    const settings: GenerationSettings = await request.json()
-
-    // Validate settings
-    if (!settings.llmModel || settings.questionCount <= 0) {
-      return NextResponse.json(
-        { error: 'Invalid settings: LLM model and question count are required' },
-        { status: 400 }
-      )
-    }
-
-    // Validate topic/subtopic if provided
-    if (settings.topicId) {
-      const topic = await prisma.topic.findUnique({ where: { id: settings.topicId } })
-      if (!topic) {
-        return NextResponse.json(
-          { error: 'Invalid topic ID' },
-          { status: 400 }
-        )
-      }
-    }
-
-    if (settings.subtopicId) {
-      const subtopic = await prisma.subtopic.findUnique({ where: { id: settings.subtopicId } })
-      if (!subtopic) {
-        return NextResponse.json(
-          { error: 'Invalid subtopic ID' },
-          { status: 400 }
-        )
-      }
-    }
-
-    console.log('🚀 Starting enhanced AI question generation...')
-    console.log('Settings:', settings)
-
-    // Generate questions with specified settings
-    const generatedQuestions = await aiQuestionService.generateQuestionsWithSettings(settings)
-    console.log(`✅ Generated ${generatedQuestions.length} questions`)
-
-    // Evaluate questions with Grok
-    const evaluatedQuestions = await aiQuestionService.evaluateQuestions(generatedQuestions)
-    console.log(`🔍 Evaluated ${evaluatedQuestions.length} questions`)
-
-    // Filter accepted questions
-    const acceptedQuestions = evaluatedQuestions.filter(q => q.isAccepted)
-    const rejectedQuestions = evaluatedQuestions.filter(q => !q.isAccepted)
-
-    console.log(`✅ Accepted: ${acceptedQuestions.length}, ❌ Rejected: ${rejectedQuestions.length}`)
-
-    // Store accepted questions in database
-    const storedQuestions: any[] = []
-    const questionResults: Array<{ 
-      question: string; 
-      status: 'stored' | 'error'; 
-      error?: string; 
-      id?: string; 
-      needsReview?: boolean;
-      evaluationFeedback?: string;
-    }> = []
-    
-    for (const question of acceptedQuestions) {
-      try {
-        // Find the subtopic in database, prefer provided subtopicId
-        let subtopic = null
-        if (settings.subtopicId) {
-          subtopic = await prisma.subtopic.findUnique({ where: { id: settings.subtopicId } })
-        } else {
-          subtopic = await prisma.subtopic.findFirst({
-            where: {
-              name: {
-                contains: question.subtopic,
-                mode: 'insensitive'
-              }
-            }
-          })
-        }
-
-        // Check if this is a fallback evaluation
-        const isFallbackEvaluation = question.evaluationFeedback?.includes('Fallback evaluation') || 
-                                      question.evaluationFeedback?.includes('fallback logic')
-        
-        const reviewStatus = isFallbackEvaluation ? 'pending' : null
-        const reviewComments = isFallbackEvaluation 
-          ? '⚠️ Auto-generated question - Review needed. ' + question.evaluationFeedback
-          : null
-
-        const storedQuestion = await prisma.question.create({
-          data: {
-            subtopicId: subtopic?.id || null,
-            moduleType: question.moduleType,
-            difficulty: question.difficulty,
-            category: question.category,
-            subtopic: question.subtopic,
-            question: question.question,
-            passage: question.passage || null,
-            options: question.options,
-            correctAnswer: question.correctAnswer,
-            explanation: question.explanation,
-            wrongAnswerExplanations: undefined,
-            imageUrl: question.imageUrl || undefined,
-            imageAlt: question.chartDescription || undefined,
-            chartData: question.hasChart ? { description: question.chartDescription } : undefined,
-            timeEstimate: question.points * 30, // 30 seconds per point
-            source: `AI Generated (${settings.llmModel})`,
-            tags: [question.difficulty, question.category, question.subtopic],
-            isActive: true,
-            reviewStatus: reviewStatus,
-            reviewComments: reviewComments
-          }
-        })
-
-        storedQuestions.push(storedQuestion)
-        questionResults.push({
-          question: String(question.question || ''),
-          id: storedQuestion.id,
-          status: 'stored',
-          needsReview: isFallbackEvaluation,
-          evaluationFeedback: question.evaluationFeedback
-        })
-
-        // Update subtopic count if linked
-        if (subtopic) {
-          await prisma.subtopic.update({
-            where: { id: subtopic.id },
-            data: {
-              currentCount: {
-                increment: 1
-              }
-            }
-          })
-        }
-      } catch (error) {
-        console.error('Failed to store question:', error)
-        questionResults.push({
-          question: String(question.question || ''),
-          id: undefined,
-          status: 'error',
-          needsReview: false,
-          evaluationFeedback: error instanceof Error ? error.message : 'Unknown error storing question'
-        })
-      }
-    }
-
-    return NextResponse.json({
-      success: true,
-      summary: {
-        generated: generatedQuestions.length,
-        evaluated: evaluatedQuestions.length,
-        accepted: acceptedQuestions.length,
-        rejected: rejectedQuestions.length,
-        stored: storedQuestions.length,
-        needsReview: questionResults.filter(r => r.needsReview).length
-      },
-      questionResults,
-      questions: {
-        accepted: acceptedQuestions.map((q, index) => ({
-          question: q.question,
-          moduleType: q.moduleType,
-          difficulty: q.difficulty,
-          category: q.category,
-          subtopic: q.subtopic,
-          qualityScore: q.qualityScore || 0,
-          explanation: q.explanation,
-          options: q.options,
-          correctAnswer: q.correctAnswer,
-          points: q.points,
-          passage: q.passage,
-          chartDescription: q.chartDescription,
-          evaluationFeedback: q.evaluationFeedback || '',
-          needsReview: questionResults[index]?.needsReview || false,
-          storedId: questionResults[index]?.id || null
-        })),
-        rejected: rejectedQuestions.map(q => ({
-          question: q.question,
-          moduleType: q.moduleType,
-          subtopic: q.subtopic,
-          evaluationFeedback: q.evaluationFeedback || ''
-        }))
-      }
-    })
-  } catch (error) {
-    console.error('Enhanced AI question generation failed:', error)
-    
-    // Provide detailed error information
-    const errorDetails = error instanceof Error ? {
-      message: error.message,
-      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
-    } : { message: 'Unknown error' }
-    
+  if (request.method !== 'POST') {
     return NextResponse.json(
-      {
-        error: 'Failed to generate questions',
-        details: errorDetails.message,
-        stack: errorDetails.stack
-      },
-      { status: 500 }
+      { error: 'Method not allowed' },
+      { status: 405, headers: { 'Allow': 'POST' } }
     )
   }
+
+  // Simple admin auth using ADMIN_API_KEY environment variable. If ADMIN_API_KEY is not set,
+  // requests are allowed through (to maintain compatibility in local dev). For production,
+  // set ADMIN_API_KEY to require Authorization: Bearer <key>.
+  const adminKey = process.env.ADMIN_API_KEY
+  const authHeader = (request.headers.get('authorization') || '') as string
+  if (adminKey) {
+    if (!authHeader || authHeader !== `Bearer ${adminKey}`) {
+      return NextResponse.json(
+        { error: 'Unauthorized. Missing or invalid Authorization header.' },
+        { status: 401 }
+      )
+    }
+  }
+
+  // Determine base URL to reach internal endpoints. Prefer NEXT_PUBLIC_BASE_URL or BASE_URL, fallback to host header.
+  const base = process.env.NEXT_PUBLIC_BASE_URL || process.env.BASE_URL || `http://${request.headers.get('host')}`
+  const target = new URL('/api/admin/generate-questions', base).toString()
+
+  const body = await request.json()
+
+  const maxAttempts = parseInt(process.env.ENHANCED_GENERATION_RETRIES || '2', 10) + 1
+  let attempt = 0
+  let lastErr: any = null
+
+  while (attempt < maxAttempts) {
+    attempt += 1
+    try {
+      const forwardHeaders: any = { 'Content-Type': 'application/json' }
+      // Forward the admin API key if present
+      if (adminKey) forwardHeaders['Authorization'] = `Bearer ${adminKey}`
+
+      const forwardRes = await fetchWithTimeout(target, {
+        method: 'POST',
+        headers: forwardHeaders,
+        body: JSON.stringify(body),
+      }, parseInt(process.env.ENHANCED_GENERATION_TIMEOUT_MS || `${DEFAULT_TIMEOUT}`, 10))
+
+      const text = await forwardRes.text()
+      let parsed: any = null
+      try { parsed = JSON.parse(text) } catch (e) { parsed = { raw: text } }
+
+      if (!forwardRes.ok) {
+        return NextResponse.json(
+          { error: 'Generation service error', details: parsed },
+          { status: forwardRes.status }
+        )
+      }
+
+      // Return the generated response directly
+      return NextResponse.json(parsed, { status: 200 })
+    } catch (err) {
+      lastErr = err
+      // Simple retry/backoff
+      if (attempt < maxAttempts) {
+        const backoff = Math.min(60000, 500 * Math.pow(2, attempt))
+        await new Promise((r) => setTimeout(r, backoff))
+        continue
+      }
+    }
+  }
+
+  console.error('enhanced-generate-questions failed:', lastErr)
+  return NextResponse.json(
+    { error: 'Failed to reach generation service', message: String(lastErr) },
+    { status: 502 }
+  )
 }

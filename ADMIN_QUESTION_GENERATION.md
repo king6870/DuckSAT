@@ -187,12 +187,122 @@ All errors are displayed in the UI with:
 - Mix difficulty levels for comprehensive coverage
 - Use difficulty filters for targeted generation
 
+## Batch Generation Script
+
+### Enhanced Script (`run-generation-enhanced.js`)
+
+The enhanced batch generation script provides a robust command-line tool for automated question generation with retry logic, timeouts, and detailed logging.
+
+#### Features
+
+- **Configurable via environment variables** - No code changes needed
+- **Retry logic with exponential backoff** - Handles transient failures
+- **Timeout support** - Prevents hanging requests
+- **Health checks** - Verifies server availability before starting
+- **Jittered intervals** - Reduces server load spikes
+- **JSON output** - Saves detailed results to a file
+- **Progress tracking** - Real-time console feedback
+
+#### Usage
+
+```bash
+# Set environment variables (optional, uses defaults if not set)
+export BASE_URL=http://localhost:3000
+export ADMIN_API_KEY=your-secret-key  # Required in production
+export GENERATION_ENDPOINT=/api/admin/enhanced-generate-questions
+export ITERATIONS=10
+export QUESTIONS_PER_CALL=10
+export INTERVAL_MS=15000
+export RETRIES=3
+export TIMEOUT_MS=30000
+export OUTPUT_FILE=generation-results.json
+
+# Additional generation settings
+export LLM_MODEL=gpt-5
+export TEMPERATURE=0.7
+export MAX_TOKENS=4000
+export INCLUDE_CHARTS=true
+export INCLUDE_PASSAGES=true
+
+# Run the script
+node run-generation-enhanced.js
+```
+
+#### Environment Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `BASE_URL` | `http://localhost:3000` | Server base URL |
+| `ADMIN_API_KEY` | `null` | Admin API key (sent as `Authorization: Bearer <key>`) |
+| `GENERATION_ENDPOINT` | `/api/admin/enhanced-generate-questions` | API endpoint to call |
+| `ITERATIONS` | `10` | Number of generation cycles |
+| `QUESTIONS_PER_CALL` | `10` | Questions to generate per cycle |
+| `INTERVAL_MS` | `15000` | Base wait time between cycles (ms) |
+| `RETRIES` | `3` | Retry attempts per failed request |
+| `TIMEOUT_MS` | `30000` | Request timeout (ms) |
+| `OUTPUT_FILE` | `generation-results.json` | Results output file |
+| `LLM_MODEL` | `gpt-5` | LLM model to use |
+| `TEMPERATURE` | `0.7` | Generation temperature (0-2) |
+| `MAX_TOKENS` | `4000` | Max tokens per generation |
+| `INCLUDE_CHARTS` | `false` | Include charts in math questions |
+| `INCLUDE_PASSAGES` | `true` | Include passages in reading questions |
+
+#### Output Format
+
+The script creates a JSON file with detailed results:
+
+```json
+{
+  "iterations": 10,
+  "generated_total": 95,
+  "accepted_total": 82,
+  "failed": 1,
+  "results": [
+    {
+      "iteration": 1,
+      "ok": true,
+      "generated": 10,
+      "accepted": 8,
+      "raw": { ... }
+    },
+    {
+      "iteration": 2,
+      "ok": false,
+      "error": "HTTP 502: Bad Gateway",
+      "status": 502,
+      "response": { ... }
+    }
+  ]
+}
+```
+
+#### Exit Codes
+
+- `0` - All iterations succeeded
+- `1` - Fatal error (couldn't start)
+- `2` - Some iterations failed (check results file)
+
 ## API Integration
 
 ### Endpoint
 
 ```
 POST /api/admin/enhanced-generate-questions
+```
+
+This endpoint provides authenticated access to the question generation service. It acts as an adapter that validates admin credentials and forwards requests to the internal generation service with retry and timeout logic.
+
+### Authentication
+
+The endpoint supports optional API key authentication:
+
+- **Development**: If `ADMIN_API_KEY` is not set, requests are allowed (for easier local testing)
+- **Production**: Set `ADMIN_API_KEY` environment variable to require authentication
+
+When `ADMIN_API_KEY` is set, include it in requests:
+
+```bash
+Authorization: Bearer your-secret-key
 ```
 
 ### Request Body
@@ -239,6 +349,41 @@ POST /api/admin/enhanced-generate-questions
     "accepted": [...],
     "rejected": [...]
   }
+}
+```
+
+### Environment Variables for Endpoint
+
+Configure the endpoint behavior:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `ADMIN_API_KEY` | `null` | Required for authenticated access (optional in dev) |
+| `ENHANCED_GENERATION_RETRIES` | `2` | Number of retry attempts |
+| `ENHANCED_GENERATION_TIMEOUT_MS` | `30000` | Request timeout in milliseconds |
+| `NEXT_PUBLIC_BASE_URL` or `BASE_URL` | Host header | Base URL for internal forwarding |
+
+### Error Responses
+
+**401 Unauthorized** - Missing or invalid API key (when `ADMIN_API_KEY` is set)
+```json
+{
+  "error": "Unauthorized. Missing or invalid Authorization header."
+}
+```
+
+**405 Method Not Allowed** - Non-POST request
+```json
+{
+  "error": "Method not allowed"
+}
+```
+
+**502 Bad Gateway** - Generation service unavailable
+```json
+{
+  "error": "Failed to reach generation service",
+  "message": "Error details"
 }
 ```
 
