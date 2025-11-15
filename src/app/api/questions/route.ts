@@ -3,7 +3,8 @@ import { prisma } from '@/lib/prisma';
 import { Prisma } from '@prisma/client';
 
 /**
- * Helper function to check if an error is a database connection error
+ * Helper function to check if an error is a database connection error.
+ * Detects PrismaClientInitializationError and connection-related errors.
  */
 function isDatabaseConnectionError(error: unknown): boolean {
   if (!error || typeof error !== 'object') return false;
@@ -36,7 +37,8 @@ function isDatabaseConnectionError(error: unknown): boolean {
 }
 
 /**
- * Retry a database operation with exponential backoff
+ * Retry a database operation with exponential backoff.
+ * Attempts up to 3 times with delays: 200ms, 500ms, 1000ms.
  */
 async function retryDatabaseOperation<T>(
   operation: () => Promise<T>,
