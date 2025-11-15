@@ -22,6 +22,28 @@ const DEFAULT_SETTINGS: GenerationSettings = {
   includePassages: true
 }
 
+interface BatchSettings {
+  enabled: boolean
+  iterations: number
+  intervalMs: number
+}
+
+interface BatchProgress {
+  currentIteration: number
+  totalIterations: number
+  results: Array<{
+    iteration: number
+    generated: number
+    accepted: number
+    stored: number
+    error?: string
+  }>
+  totalGenerated: number
+  totalAccepted: number
+  totalStored: number
+  failed: number
+}
+
 export default function EnhancedQuestionGeneration() {
   const { data: session, status } = useSession()
   const router = useRouter()
@@ -32,6 +54,15 @@ export default function EnhancedQuestionGeneration() {
   const [result, setResult] = useState<GenerationResult | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null)
+  
+  // Batch generation state
+  const [batchSettings, setBatchSettings] = useState<BatchSettings>({
+    enabled: false,
+    iterations: 5,
+    intervalMs: 15000
+  })
+  const [batchProgress, setBatchProgress] = useState<BatchProgress | null>(null)
+  const [isBatchRunning, setIsBatchRunning] = useState(false)
 
   // Check admin access
   useEffect(() => {
@@ -93,38 +124,119 @@ export default function EnhancedQuestionGeneration() {
     )
   }
 
-  const handleGenerate = async () => {
-    setGenerating(true)
+  const generateSingle = async (): Promise<GenerationResult> => {
+    const response = await fetch('/api/admin/enhanced-generate-questions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(settings)
+    })
+
+    const data = await response.json()
+
+    if (!response.ok) {
+      throw new Error(data.details || data.error || `HTTP ${response.status}`)
+    }
+
+    return data
+  }
+
+  const handleBatchGenerate = async () => {
+    setIsBatchRunning(true)
     setError(null)
     setResult(null)
+    
+    const progress: BatchProgress = {
+      currentIteration: 0,
+      totalIterations: batchSettings.iterations,
+      results: [],
+      totalGenerated: 0,
+      totalAccepted: 0,
+      totalStored: 0,
+      failed: 0
+    }
+    
+    setBatchProgress(progress)
 
-    try {
-      const response = await fetch('/api/admin/enhanced-generate-questions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(settings)
-      })
+    for (let i = 1; i <= batchSettings.iterations; i++) {
+      progress.currentIteration = i
+      setBatchProgress({ ...progress })
 
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.details || data.error || `HTTP ${response.status}`)
+      try {
+        const data = await generateSingle()
+        
+        const iterationResult = {
+          iteration: i,
+          generated: data.summary?.generated || 0,
+          accepted: data.summary?.accepted || 0,
+          stored: data.summary?.stored || 0
+        }
+        
+        progress.results.push(iterationResult)
+        progress.totalGenerated += iterationResult.generated
+        progress.totalAccepted += iterationResult.accepted
+        progress.totalStored += iterationResult.stored
+        
+        setBatchProgress({ ...progress })
+        
+        // If this is the last iteration, set the final result
+        if (i === batchSettings.iterations) {
+          setResult(data)
+        }
+        
+        // Wait before next iteration (except for the last one)
+        if (i < batchSettings.iterations) {
+          await new Promise(resolve => setTimeout(resolve, batchSettings.intervalMs))
+        }
+      } catch (err) {
+        const errorMessage = err instanceof Error ? err.message : 'Unknown error'
+        progress.results.push({
+          iteration: i,
+          generated: 0,
+          accepted: 0,
+          stored: 0,
+          error: errorMessage
+        })
+        progress.failed += 1
+        setBatchProgress({ ...progress })
+        
+        console.error(`Batch iteration ${i} failed:`, err)
       }
+    }
+    
+    setIsBatchRunning(false)
+  }
 
-      setResult(data)
-    } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred'
-      setError(errorMessage)
-    } finally {
-      setGenerating(false)
+  const handleGenerate = async () => {
+    if (batchSettings.enabled) {
+      await handleBatchGenerate()
+    } else {
+      setGenerating(true)
+      setError(null)
+      setResult(null)
+
+      try {
+        const data = await generateSingle()
+        setResult(data)
+      } catch (err) {
+        const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred'
+        setError(errorMessage)
+      } finally {
+        setGenerating(false)
+      }
     }
   }
 
   const resetGeneration = () => {
     setResult(null)
     setError(null)
+    setBatchProgress(null)
+  }
+
+  const stopBatch = () => {
+    setIsBatchRunning(false)
+    setError('Batch generation stopped by user')
   }
 
   return (
@@ -341,14 +453,91 @@ export default function EnhancedQuestionGeneration() {
                   </div>
                 </div>
 
+                {/* Batch Generation Settings */}
+                <div className="border-t pt-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <label className="text-sm font-medium text-gray-700">Batch Mode</label>
+                    <button
+                      type="button"
+                      onClick={() => setBatchSettings(prev => ({ ...prev, enabled: !prev.enabled }))}
+                      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                        batchSettings.enabled ? 'bg-blue-600' : 'bg-gray-200'
+                      }`}
+                      disabled={generating || isBatchRunning}
+                    >
+                      <span
+                        className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                          batchSettings.enabled ? 'translate-x-6' : 'translate-x-1'
+                        }`}
+                      />
+                    </button>
+                  </div>
+
+                  {batchSettings.enabled && (
+                    <div className="space-y-4 bg-blue-50 rounded-lg p-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Iterations: {batchSettings.iterations}
+                        </label>
+                        <input
+                          type="number"
+                          min="1"
+                          max="20"
+                          value={batchSettings.iterations}
+                          onChange={(e) => setBatchSettings(prev => ({ ...prev, iterations: parseInt(e.target.value) || 1 }))}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          disabled={generating || isBatchRunning}
+                        />
+                        <p className="text-xs text-gray-600 mt-1">Number of times to run generation</p>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Interval: {(batchSettings.intervalMs / 1000).toFixed(0)}s
+                        </label>
+                        <input
+                          type="range"
+                          min="5000"
+                          max="60000"
+                          step="5000"
+                          value={batchSettings.intervalMs}
+                          onChange={(e) => setBatchSettings(prev => ({ ...prev, intervalMs: parseInt(e.target.value) }))}
+                          className="w-full"
+                          disabled={generating || isBatchRunning}
+                        />
+                        <p className="text-xs text-gray-600 mt-1">Wait time between iterations</p>
+                      </div>
+
+                      <div className="bg-blue-100 rounded p-3">
+                        <p className="text-xs text-blue-800">
+                          <strong>Total questions:</strong> {settings.questionCount} × {batchSettings.iterations} = {settings.questionCount * batchSettings.iterations}
+                        </p>
+                        <p className="text-xs text-blue-800 mt-1">
+                          <strong>Estimated time:</strong> ~{Math.ceil((batchSettings.iterations * (batchSettings.intervalMs / 1000 + 30)) / 60)} minutes
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
                 {/* Generate Button */}
                 <button
                   onClick={handleGenerate}
-                  disabled={generating || settings.mathCount + settings.readingCount === 0}
+                  disabled={generating || isBatchRunning || settings.mathCount + settings.readingCount === 0}
                   className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 rounded-xl font-bold text-lg hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105"
                 >
-                  {generating ? '🚀 Generating...' : '🎯 Generate Questions'}
+                  {generating || isBatchRunning ? '🚀 Generating...' : batchSettings.enabled ? `🎯 Start Batch (${batchSettings.iterations}x)` : '🎯 Generate Questions'}
                 </button>
+
+                {/* Stop Batch Button */}
+                {isBatchRunning && (
+                  <button
+                    onClick={stopBatch}
+                    className="w-full bg-red-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-red-700 mt-2"
+                  >
+                    ⛔ Stop Batch
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -515,8 +704,74 @@ export default function EnhancedQuestionGeneration() {
               </div>
             )}
 
+            {/* Batch Progress */}
+            {isBatchRunning && batchProgress && (
+              <div className="bg-white rounded-2xl shadow-xl p-6 mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">📊 Batch Progress</h2>
+                
+                {/* Progress Bar */}
+                <div className="mb-6">
+                  <div className="flex justify-between text-sm text-gray-600 mb-2">
+                    <span>Iteration {batchProgress.currentIteration} of {batchProgress.totalIterations}</span>
+                    <span>{Math.round((batchProgress.currentIteration / batchProgress.totalIterations) * 100)}%</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+                    <div 
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 h-4 transition-all duration-500"
+                      style={{ width: `${(batchProgress.currentIteration / batchProgress.totalIterations) * 100}%` }}
+                    />
+                  </div>
+                </div>
+
+                {/* Summary Stats */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                  <div className="text-center p-4 bg-blue-50 rounded-xl">
+                    <div className="text-2xl font-bold text-blue-600">{batchProgress.totalGenerated}</div>
+                    <div className="text-xs text-blue-700">Total Generated</div>
+                  </div>
+                  <div className="text-center p-4 bg-green-50 rounded-xl">
+                    <div className="text-2xl font-bold text-green-600">{batchProgress.totalAccepted}</div>
+                    <div className="text-xs text-green-700">Total Accepted</div>
+                  </div>
+                  <div className="text-center p-4 bg-indigo-50 rounded-xl">
+                    <div className="text-2xl font-bold text-indigo-600">{batchProgress.totalStored}</div>
+                    <div className="text-xs text-indigo-700">Total Stored</div>
+                  </div>
+                  <div className="text-center p-4 bg-red-50 rounded-xl">
+                    <div className="text-2xl font-bold text-red-600">{batchProgress.failed}</div>
+                    <div className="text-xs text-red-700">Failed</div>
+                  </div>
+                </div>
+
+                {/* Iteration Results */}
+                <div className="max-h-60 overflow-y-auto space-y-2">
+                  {batchProgress.results.map((result, index) => (
+                    <div 
+                      key={index}
+                      className={`p-3 rounded-lg border ${
+                        result.error ? 'bg-red-50 border-red-200' : 'bg-green-50 border-green-200'
+                      }`}
+                    >
+                      <div className="flex justify-between items-center">
+                        <span className="font-medium text-gray-900">
+                          {result.error ? '❌' : '✅'} Iteration {result.iteration}
+                        </span>
+                        {!result.error ? (
+                          <span className="text-sm text-gray-600">
+                            Generated: {result.generated}, Accepted: {result.accepted}, Stored: {result.stored}
+                          </span>
+                        ) : (
+                          <span className="text-sm text-red-600">{result.error}</span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Loading State */}
-            {generating && (
+            {generating && !isBatchRunning && (
               <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
                 <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600 mx-auto mb-4"></div>
                 <p className="text-xl font-semibold text-gray-900">Generating Questions...</p>
