@@ -81,7 +81,12 @@ export async function POST(request: NextRequest) {
     console.log(`✅ Accepted: ${acceptedQuestions.length}, ❌ Rejected: ${rejectedQuestions.length}`)
 
     // Store accepted questions in database
-    const storedQuestions: any[] = []
+    const storedQuestions: Array<{
+      id: string;
+      subtopicId: string | null;
+      moduleType: string;
+      difficulty: string;
+    }> = []
     const questionResults: Array<{ 
       question: string; 
       status: 'stored' | 'error'; 

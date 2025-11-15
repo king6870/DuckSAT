@@ -321,6 +321,174 @@ Questions are stored with these fields:
 3. Review network connectivity
 4. Check rate limits haven't been exceeded
 
+## Batch Generation Script
+
+### Overview
+
+For automated batch generation, use the enhanced batch generation script located at the root of the repository: `run-generation-enhanced.js`
+
+This script provides:
+- **Automated batch processing** with configurable retry logic
+- **Progress tracking** with detailed statistics
+- **Error handling** and recovery
+- **Flexible configuration** via environment variables
+- **API key authentication** support for CI/CD pipelines
+
+### Installation
+
+The script requires Node.js and uses the existing dependencies. No additional installation needed.
+
+### Configuration
+
+Configure the script using environment variables:
+
+#### Required Variables
+- `BASE_URL` - Server URL (default: `http://localhost:3000`)
+
+#### Authentication
+- `ADMIN_API_KEY` - Optional API key for authentication (if not set, uses session auth)
+  - To use API keys, set `ADMIN_API_KEYS` in your `.env` file (comma-separated list)
+  - Example: `ADMIN_API_KEYS=key1,key2,key3`
+
+#### Generation Settings
+- `QUESTION_COUNT` - Questions per batch (default: 10, range: 1-50)
+- `BATCH_SIZE` - Questions per request (default: 5, range: 1-10)
+- `BATCH_COUNT` - Number of batches to run (default: 1)
+- `DELAY_BETWEEN_BATCHES` - Milliseconds between batches (default: 15000)
+
+#### Content Filters
+- `MODULE_TYPE` - Filter by module: `math` or `reading-writing` (optional)
+- `DIFFICULTY` - Filter by difficulty: `easy`, `medium`, or `hard` (optional)
+- `TOPIC_ID` - Specific topic ID to generate for (optional)
+- `SUBTOPIC_ID` - Specific subtopic ID to generate for (optional)
+
+#### AI Settings
+- `TEMPERATURE` - AI creativity (default: 0.7, range: 0-2)
+- `MAX_TOKENS` - Max response length (default: 4000, range: 1000-8000)
+- `INCLUDE_CHARTS` - Include charts/diagrams for math (default: true)
+- `INCLUDE_PASSAGES` - Include passages for reading (default: true)
+
+#### Reliability Settings
+- `RETRY_ATTEMPTS` - Number of retry attempts on failure (default: 3)
+- `RETRY_DELAY` - Milliseconds between retries (default: 5000)
+
+### Usage Examples
+
+#### Basic Usage (Local Development)
+```bash
+# Generate 10 questions with defaults
+node run-generation-enhanced.js
+
+# With custom settings
+QUESTION_COUNT=20 BATCH_COUNT=3 node run-generation-enhanced.js
+```
+
+#### Math Questions Only
+```bash
+MODULE_TYPE=math QUESTION_COUNT=15 DIFFICULTY=hard node run-generation-enhanced.js
+```
+
+#### Production/CI Environment
+```bash
+# Using API key authentication
+export BASE_URL=https://your-production-url.com
+export ADMIN_API_KEY=your-secret-api-key
+export QUESTION_COUNT=50
+export BATCH_COUNT=5
+export DELAY_BETWEEN_BATCHES=20000
+node run-generation-enhanced.js
+```
+
+#### Specific Topic/Subtopic
+```bash
+# Generate for a specific subtopic
+SUBTOPIC_ID=clq1234567 QUESTION_COUNT=25 node run-generation-enhanced.js
+```
+
+### Output
+
+The script provides:
+1. **Configuration summary** at startup
+2. **Real-time progress** for each batch
+3. **Detailed statistics** including:
+   - Generated, evaluated, accepted, rejected counts
+   - Storage success rate
+   - Questions needing review
+   - Total duration and average time per question
+4. **Error reporting** with retry information
+5. **Exit codes**: 0 for success, 1 for errors
+
+### Batch Adapter Endpoint
+
+The script uses a lightweight adapter endpoint at `/api/admin/batch-adapter` that supports both session-based and API key authentication.
+
+#### Endpoint Features
+- **Dual Authentication**: Supports both NextAuth sessions and API key tokens
+- **Health Check**: GET request returns status and version info
+- **Transparent Forwarding**: Routes requests to the main generation endpoint
+- **Error Handling**: Robust error messages for debugging
+
+#### API Key Setup
+1. Add API keys to your `.env` file:
+   ```
+   ADMIN_API_KEYS=secret-key-1,secret-key-2
+   ```
+2. Use in requests:
+   ```bash
+   Authorization: Bearer secret-key-1
+   ```
+
+### Best Practices
+
+#### For Development
+1. Start with small batches (5-10 questions)
+2. Use shorter delays (5-10 seconds)
+3. Monitor output for issues
+4. Test with different module types and difficulties
+
+#### For Production
+1. Use larger batches (20-50 questions)
+2. Add appropriate delays (15-30 seconds) to avoid rate limiting
+3. Enable retry logic (3-5 attempts)
+4. Use API key authentication
+5. Run during off-peak hours
+6. Monitor logs and error rates
+
+#### For Quality
+1. Review questions marked for review regularly
+2. Track acceptance rates across batches
+3. Adjust temperature and max_tokens based on quality
+4. Use topic/subtopic filters for targeted generation
+
+### Troubleshooting
+
+**Script fails to start:**
+- Check Node.js is installed: `node --version`
+- Verify you're in the project root directory
+- Ensure dependencies are installed: `npm install`
+
+**Authentication errors:**
+- For local development: Make sure dev server is running and you're logged in
+- For production: Verify `ADMIN_API_KEY` is set correctly
+- Check `ADMIN_API_KEYS` is configured in `.env` file
+
+**Connection errors:**
+- Verify `BASE_URL` points to running server
+- Check firewall and network settings
+- Ensure server is accessible from script location
+
+**Low acceptance rates:**
+- Adjust `TEMPERATURE` (try 0.5-0.9)
+- Increase `MAX_TOKENS` if responses seem truncated
+- Check server logs for evaluation service issues
+- Verify topic/subtopic filters are correct
+
+**Performance issues:**
+- Increase `DELAY_BETWEEN_BATCHES` to reduce load
+- Reduce `QUESTION_COUNT` per batch
+- Check server resources (CPU, memory)
+- Review database connection pool settings
+
 ## Support
 
 For issues or questions:
@@ -332,6 +500,8 @@ For issues or questions:
 ## Future Enhancements
 
 Planned improvements:
+- [x] Enhanced batch generation script with error handling
+- [x] API key authentication for automated scripts
 - [ ] Bulk import from external sources
 - [ ] Question difficulty prediction before generation
 - [ ] Automatic question revision suggestions

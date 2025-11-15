@@ -31,12 +31,12 @@ export default function AdminDashboard() {
               </div>
             </Link>
 
-            {/* Question Generation */}
-            <Link href="/admin/generate" className="group">
+            {/* AI Question Generation */}
+            <Link href="/admin/question-generation" className="group">
               <div className="p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border-2 border-green-200 hover:border-green-400 transition-all hover:shadow-lg">
                 <div className="text-4xl mb-4">🤖</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Generate Questions</h3>
-                <p className="text-gray-600">Create new questions with AI</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">AI Question Generation</h3>
+                <p className="text-gray-600">Generate questions with AI (single or batch mode)</p>
               </div>
             </Link>
 
@@ -46,15 +46,6 @@ export default function AdminDashboard() {
                 <div className="text-4xl mb-4">✅</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Validate Questions</h3>
                 <p className="text-gray-600">Review and approve questions</p>
-              </div>
-            </Link>
-
-            {/* Question Generation (Alternative) */}
-            <Link href="/admin/question-generation" className="group">
-              <div className="p-6 bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl border-2 border-pink-200 hover:border-pink-400 transition-all hover:shadow-lg">
-                <div className="text-4xl mb-4">⚡</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Bulk Generation</h3>
-                <p className="text-gray-600">Generate questions in bulk</p>
               </div>
             </Link>
 

@@ -129,3 +129,56 @@ After your first deployment:
    - Visit `/api/env-check` to confirm environment variables
    - Test authentication at `/admin`
    - Check image loading on question pages
+
+## Admin Features
+
+### AI Question Generation
+
+DuckSAT includes powerful AI-powered question generation capabilities:
+
+- **Web UI**: Generate questions through the admin dashboard at `/admin/question-generation`
+- **Batch Script**: Automated batch generation using `run-generation-enhanced.js`
+
+#### Using the Batch Generation Script
+
+The enhanced batch generation script provides automated, robust question generation with:
+- Configurable batch sizes and counts
+- Automatic retry logic
+- Progress tracking and statistics
+- API key authentication for CI/CD
+
+**Quick Start:**
+```bash
+# Generate 10 questions locally
+node run-generation-enhanced.js
+
+# Generate 30 math questions across 3 batches
+MODULE_TYPE=math QUESTION_COUNT=10 BATCH_COUNT=3 node run-generation-enhanced.js
+```
+
+**For detailed documentation:**
+- See `BATCH_GENERATION_GUIDE.md` for complete usage guide
+- See `ADMIN_QUESTION_GENERATION.md` for web UI documentation
+- See `.env.generation.example` for configuration options
+
+**Key Features:**
+- Environment-based configuration
+- Session or API key authentication
+- Automatic error handling and retries
+- Real-time progress tracking
+- Comprehensive statistics and reporting
+- Support for topic/subtopic filtering
+- Configurable AI parameters (temperature, max tokens)
+
+#### API Endpoints
+
+The system provides two admin API endpoints:
+- `/api/admin/enhanced-generate-questions` - Main generation endpoint
+- `/api/admin/batch-adapter` - Lightweight adapter with API key support
+
+Both endpoints support:
+- NextAuth session authentication
+- API key authentication (set `ADMIN_API_KEYS` in `.env`)
+- Topic/subtopic filtering
+- Difficulty level selection
+- Module type filtering (Math/Reading)
