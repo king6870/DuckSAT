@@ -3,6 +3,73 @@ import { prisma } from '@/lib/prisma';
 import { Prisma } from '@prisma/client';
 
 /**
+ * Helper function to check if an error is a database connection error
+ */
+function isDatabaseConnectionError(error: unknown): boolean {
+  if (!error || typeof error !== 'object') return false;
+  
+  // Check for PrismaClientInitializationError
+  if ('name' in error && error.name === 'PrismaClientInitializationError') {
+    return true;
+  }
+  
+  // Check for common connection error codes
+  if ('code' in error) {
+    const code = String((error as { code: unknown }).code);
+    // Connection errors typically start with P1xxx in Prisma
+    if (code.startsWith('P1')) return true;
+  }
+  
+  // Check error message for connection-related keywords
+  if ('message' in error) {
+    const message = String((error as { message: unknown }).message).toLowerCase();
+    return (
+      message.includes('connect') ||
+      message.includes('connection') ||
+      message.includes('econnrefused') ||
+      message.includes('etimedout') ||
+      message.includes('can\'t reach database')
+    );
+  }
+  
+  return false;
+}
+
+/**
+ * Retry a database operation with exponential backoff
+ */
+async function retryDatabaseOperation<T>(
+  operation: () => Promise<T>,
+  maxAttempts = 3,
+  backoffDelays = [200, 500, 1000]
+): Promise<T> {
+  let lastError: unknown;
+  
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    try {
+      return await operation();
+    } catch (error) {
+      lastError = error;
+      
+      // Only retry on connection errors
+      if (!isDatabaseConnectionError(error)) {
+        throw error;
+      }
+      
+      // Don't wait after the last attempt
+      if (attempt < maxAttempts - 1) {
+        const delay = backoffDelays[attempt] || 1000;
+        console.log(`[retryDatabaseOperation] Attempt ${attempt + 1} failed, retrying in ${delay}ms...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+      }
+    }
+  }
+  
+  // All attempts failed
+  throw lastError;
+}
+
+/**
  * GET /api/questions
  * 
  * Fetches questions with filtering, pagination, and related data.
@@ -87,105 +154,149 @@ export async function GET(request: NextRequest) {
       offset
     });
     
-    // Fetch questions with related data
+    // Fetch questions with related data using retry logic
     // Note: Explicitly selecting only fields that exist in the database
     // imageData and imageMimeType fields are defined in schema but the migration hasn't been applied yet
     let questions;
     try {
-      questions = await prisma.question.findMany({
-        where,
-        select: {
-          id: true,
-          subtopicId: true,
-          moduleType: true,
-          difficulty: true,
-          category: true,
-          subtopic: true,
-          question: true,
-          passage: true,
-          options: true,
-          correctAnswer: true,
-          explanation: true,
-          wrongAnswerExplanations: true,
-          imageUrl: true,
-          imageAlt: true,
-          chartData: true,
-          timeEstimate: true,
-          source: true,
-          tags: true,
-          isActive: true,
-          reviewStatus: true,
-          reviewComments: true,
-          reviewedBy: true,
-          reviewedAt: true,
-          createdAt: true,
-          updatedAt: true,
-          subtopicRef: {
-            select: {
-              id: true,
-              name: true,
-              description: true,
-              topic: {
-                select: {
-                  id: true,
-                  name: true,
-                  moduleType: true
+      questions = await retryDatabaseOperation(async () => {
+        return await prisma.question.findMany({
+          where,
+          select: {
+            id: true,
+            subtopicId: true,
+            moduleType: true,
+            difficulty: true,
+            category: true,
+            subtopic: true,
+            question: true,
+            passage: true,
+            options: true,
+            correctAnswer: true,
+            explanation: true,
+            wrongAnswerExplanations: true,
+            imageUrl: true,
+            imageAlt: true,
+            chartData: true,
+            timeEstimate: true,
+            source: true,
+            tags: true,
+            isActive: true,
+            reviewStatus: true,
+            reviewComments: true,
+            reviewedBy: true,
+            reviewedAt: true,
+            createdAt: true,
+            updatedAt: true,
+            subtopicRef: {
+              select: {
+                id: true,
+                name: true,
+                description: true,
+                topic: {
+                  select: {
+                    id: true,
+                    name: true,
+                    moduleType: true
+                  }
                 }
               }
             }
-          }
-        },
-        orderBy: {
-          createdAt: sortOrder
-        },
-        take: limit,
-        skip: offset
+          },
+          orderBy: {
+            createdAt: sortOrder
+          },
+          take: limit,
+          skip: offset
+        });
       });
       console.log(`[/api/questions] Found ${questions.length} questions`);
     } catch (dbError) {
       console.error('[/api/questions] Database error fetching questions:', dbError);
+      
+      // Check if this is a connection error
+      if (isDatabaseConnectionError(dbError)) {
+        // Log the original error for diagnostics
+        if (dbError instanceof Error) {
+          console.error('[/api/questions] Connection error details:', {
+            name: dbError.name,
+            message: dbError.message,
+            stack: dbError.stack
+          });
+        }
+        
+        return NextResponse.json({
+          error: 'database_unavailable',
+          message: 'Database is temporarily unavailable. Please try again later.'
+        }, { status: 503 });
+      }
+      
+      // Other database errors
       return NextResponse.json({
         error: 'Database error while fetching questions',
         details: dbError instanceof Error ? dbError.message : 'Unknown database error'
       }, { status: 500 });
     }
 
-    // Get total count for pagination
+    // Get total count for pagination with retry logic
     let totalCount;
     try {
-      totalCount = await prisma.question.count({ where });
+      totalCount = await retryDatabaseOperation(async () => {
+        return await prisma.question.count({ where });
+      });
       console.log(`[/api/questions] Total count: ${totalCount}`);
     } catch (countError) {
       console.error('[/api/questions] Error counting questions:', countError);
-      // Continue with questions but set count to unknown
+      
+      // Check if this is a connection error
+      if (isDatabaseConnectionError(countError)) {
+        // If we can't count due to connection issues, return 503
+        if (countError instanceof Error) {
+          console.error('[/api/questions] Connection error during count:', countError.message);
+        }
+        return NextResponse.json({
+          error: 'database_unavailable',
+          message: 'Database is temporarily unavailable. Please try again later.'
+        }, { status: 503 });
+      }
+      
+      // For other errors, continue with questions but set count to unknown
       totalCount = questions.length;
     }
 
-    // Get unique categories and subtopics for filtering
+    // Get unique categories and subtopics for filtering with retry logic
     let categories: Array<{ category: string }> = [];
     let subtopics: Array<{ subtopic: string | null }> = [];
     let sources: Array<{ source: string | null }> = [];
     try {
-      [categories, subtopics, sources] = await Promise.all([
-        prisma.question.findMany({
-          where: { isActive: true },
-          select: { category: true },
-          distinct: ['category']
-        }),
-        prisma.question.findMany({
-          where: { isActive: true, subtopic: { not: null } },
-          select: { subtopic: true },
-          distinct: ['subtopic']
-        }),
-        prisma.question.findMany({
-          where: { isActive: true, source: { not: null } },
-          select: { source: true },
-          distinct: ['source']
-        })
-      ]);
+      [categories, subtopics, sources] = await retryDatabaseOperation(async () => {
+        return await Promise.all([
+          prisma.question.findMany({
+            where: { isActive: true },
+            select: { category: true },
+            distinct: ['category']
+          }),
+          prisma.question.findMany({
+            where: { isActive: true, subtopic: { not: null } },
+            select: { subtopic: true },
+            distinct: ['subtopic']
+          }),
+          prisma.question.findMany({
+            where: { isActive: true, source: { not: null } },
+            select: { source: true },
+            distinct: ['source']
+          })
+        ]);
+      });
       console.log(`[/api/questions] Filters loaded: ${categories.length} categories, ${subtopics.length} subtopics, ${sources.length} sources`);
     } catch (filterError) {
       console.error('[/api/questions] Error fetching filter options:', filterError);
+      
+      // Connection errors during filter fetch are not critical, use empty arrays
+      if (isDatabaseConnectionError(filterError) && filterError instanceof Error) {
+        console.error('[/api/questions] Connection error during filter fetch:', filterError.message);
+      }
+      
       // Return empty arrays as fallback
       categories = [];
       subtopics = [];
@@ -414,6 +525,15 @@ export async function GET(request: NextRequest) {
       console.error('[/api/questions] Error name:', error.name);
       console.error('[/api/questions] Error message:', error.message);
       console.error('[/api/questions] Error stack:', error.stack);
+    }
+    
+    // Check if this is a connection error first
+    if (isDatabaseConnectionError(error)) {
+      console.error('[/api/questions] Database connection error in outer catch:', error instanceof Error ? error.message : String(error));
+      return NextResponse.json({
+        error: 'database_unavailable',
+        message: 'Database is temporarily unavailable. Please try again later.'
+      }, { status: 503 });
     }
     
     // Check if it's a Prisma error

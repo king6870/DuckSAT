@@ -74,11 +74,18 @@ interface QuestionResponse {
   };
 }
 
+interface ErrorResponse {
+  error: string;
+  message?: string;
+  details?: string;
+}
+
 export default function QuestionReviewPage() {
   const { data: session, status } = useSession();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isDatabaseUnavailable, setIsDatabaseUnavailable] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedSubtopic, setSelectedSubtopic] = useState('');
@@ -105,6 +112,9 @@ export default function QuestionReviewPage() {
   const fetchQuestions = async () => {
     try {
       setLoading(true);
+      setError(null);
+      setIsDatabaseUnavailable(false);
+      
       const params = new URLSearchParams({
         limit: limit.toString(),
         offset: (currentPage * limit).toString(),
@@ -117,7 +127,21 @@ export default function QuestionReviewPage() {
       if (sortOrder) params.append('sortOrder', sortOrder as 'asc' | 'desc');
 
       const response = await fetch(`/api/questions?${params}`);
-      if (!response.ok) throw new Error('Failed to fetch questions');
+      
+      // Check for error responses
+      if (!response.ok) {
+        const errorData: ErrorResponse = await response.json();
+        
+        // Handle database unavailable error (503)
+        if (response.status === 503 && errorData.error === 'database_unavailable') {
+          setIsDatabaseUnavailable(true);
+          setError(errorData.message || 'Database is temporarily unavailable. Please try again later.');
+          return;
+        }
+        
+        // Handle other errors
+        throw new Error(errorData.message || errorData.details || 'Failed to fetch questions');
+      }
 
       const data: QuestionResponse = await response.json();
 
@@ -153,11 +177,20 @@ export default function QuestionReviewPage() {
       setQuestions(normalizedQuestions);
       setFilters(data.filters);
       setPagination(data.pagination);
+      
+      // Clear error on successful fetch
+      setError(null);
+      setIsDatabaseUnavailable(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setLoading(false);
     }
+  };
+
+  // Handler for manual retry
+  const handleRetry = () => {
+    fetchQuestions();
   };
 
   // Auto-refresh questions every 30 seconds to keep the page updated with database changes
@@ -480,15 +513,82 @@ export default function QuestionReviewPage() {
           </Button>
         </div>
         <p className="text-gray-600">Browse and review all questions in the database</p>
-        {loading && (
+        {loading && !isDatabaseUnavailable && (
           <div className="mt-2 text-sm text-gray-500" aria-live="polite">Updating results…</div>
         )}
-        {error && (
-          <div className="mt-2 rounded-md border border-red-300 bg-red-50 text-red-800 p-3">
-            <span className="font-semibold">Error:</span> {error}
-          </div>
-        )}
       </div>
+
+      {/* Database Unavailable Error Banner */}
+      {isDatabaseUnavailable && (
+        <Card className="mb-6 border-orange-300 bg-orange-50">
+          <CardContent className="pt-6">
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-orange-900 mb-2">
+                  Database Temporarily Unavailable
+                </h3>
+                <p className="text-orange-800 mb-4">
+                  {error || 'We are experiencing connectivity issues with the database. Please try again in a moment.'}
+                </p>
+                <div className="flex items-center gap-3">
+                  <Button
+                    onClick={handleRetry}
+                    disabled={loading}
+                    className="bg-orange-600 hover:bg-orange-700 text-white"
+                  >
+                    {loading ? 'Retrying...' : 'Retry Now'}
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      setIsDatabaseUnavailable(false);
+                      setError(null);
+                    }}
+                    className="border-orange-300 text-orange-900 hover:bg-orange-100"
+                  >
+                    Dismiss
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* General Error Banner */}
+      {error && !isDatabaseUnavailable && (
+        <Card className="mb-6 border-red-300 bg-red-50">
+          <CardContent className="pt-6">
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-red-900 mb-2">
+                  Error Loading Questions
+                </h3>
+                <p className="text-red-800 mb-4">
+                  {error}
+                </p>
+                <div className="flex items-center gap-3">
+                  <Button
+                    onClick={handleRetry}
+                    disabled={loading}
+                    variant="outline"
+                    className="border-red-300 text-red-900 hover:bg-red-100"
+                  >
+                    {loading ? 'Retrying...' : 'Try Again'}
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => setError(null)}
+                    className="border-red-300 text-red-900 hover:bg-red-100"
+                  >
+                    Dismiss
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Filters */}
       <Card className="mb-6">
