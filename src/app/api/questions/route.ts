@@ -3,6 +3,79 @@ import { prisma } from '@/lib/prisma';
 import { Prisma } from '@prisma/client';
 
 /**
+ * Helper function to detect if an error is a retryable database connection error
+ */
+function isRetryableError(error: unknown): boolean {
+  if (!error) return false;
+  
+  // Check for PrismaClientInitializationError
+  if (error && typeof error === 'object' && 'name' in error) {
+    const errorName = (error as { name: string }).name;
+    if (errorName === 'PrismaClientInitializationError') {
+      return true;
+    }
+  }
+  
+  // Check for common connection error codes
+  if (error && typeof error === 'object' && 'code' in error) {
+    const errorCode = (error as { code: string }).code;
+    if (['ECONNREFUSED', 'ENOTFOUND', 'ETIMEDOUT', 'ECONNRESET'].includes(errorCode)) {
+      return true;
+    }
+  }
+  
+  // Check error message for connection-related issues
+  if (error instanceof Error) {
+    const message = error.message.toLowerCase();
+    if (
+      message.includes('connection') ||
+      message.includes('timeout') ||
+      message.includes('reach database') ||
+      message.includes('econnrefused') ||
+      message.includes('enotfound')
+    ) {
+      return true;
+    }
+  }
+  
+  return false;
+}
+
+/**
+ * Retry helper with exponential backoff for database operations
+ * @param operation - The async operation to retry
+ * @param maxAttempts - Maximum number of attempts (default: 3)
+ * @param delays - Array of delay times in milliseconds for each retry (default: [200, 500, 1000])
+ */
+async function retryWithBackoff<T>(
+  operation: () => Promise<T>,
+  maxAttempts = 3,
+  delays = [200, 500, 1000]
+): Promise<T> {
+  let lastError: unknown;
+  
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await operation();
+    } catch (error) {
+      lastError = error;
+      
+      // Only retry if it's a retryable error and we have attempts left
+      if (!isRetryableError(error) || attempt === maxAttempts) {
+        throw error;
+      }
+      
+      // Wait before retrying (exponential backoff)
+      const delay = delays[attempt - 1] || delays[delays.length - 1];
+      console.log(`[/api/questions] Retry attempt ${attempt}/${maxAttempts} after ${delay}ms due to connection error`);
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
+  
+  throw lastError;
+}
+
+/**
  * GET /api/questions
  * 
  * Fetches questions with filtering, pagination, and related data.
@@ -87,73 +160,90 @@ export async function GET(request: NextRequest) {
       offset
     });
     
-    // Fetch questions with related data
+    // Fetch questions with related data with retry logic
     // Note: Explicitly selecting only fields that exist in the database
     // imageData and imageMimeType fields are defined in schema but the migration hasn't been applied yet
     let questions;
     try {
-      questions = await prisma.question.findMany({
-        where,
-        select: {
-          id: true,
-          subtopicId: true,
-          moduleType: true,
-          difficulty: true,
-          category: true,
-          subtopic: true,
-          question: true,
-          passage: true,
-          options: true,
-          correctAnswer: true,
-          explanation: true,
-          wrongAnswerExplanations: true,
-          imageUrl: true,
-          imageAlt: true,
-          chartData: true,
-          timeEstimate: true,
-          source: true,
-          tags: true,
-          isActive: true,
-          reviewStatus: true,
-          reviewComments: true,
-          reviewedBy: true,
-          reviewedAt: true,
-          createdAt: true,
-          updatedAt: true,
-          subtopicRef: {
-            select: {
-              id: true,
-              name: true,
-              description: true,
-              topic: {
-                select: {
-                  id: true,
-                  name: true,
-                  moduleType: true
+      questions = await retryWithBackoff(async () => {
+        return await prisma.question.findMany({
+          where,
+          select: {
+            id: true,
+            subtopicId: true,
+            moduleType: true,
+            difficulty: true,
+            category: true,
+            subtopic: true,
+            question: true,
+            passage: true,
+            options: true,
+            correctAnswer: true,
+            explanation: true,
+            wrongAnswerExplanations: true,
+            imageUrl: true,
+            imageAlt: true,
+            chartData: true,
+            timeEstimate: true,
+            source: true,
+            tags: true,
+            isActive: true,
+            reviewStatus: true,
+            reviewComments: true,
+            reviewedBy: true,
+            reviewedAt: true,
+            createdAt: true,
+            updatedAt: true,
+            subtopicRef: {
+              select: {
+                id: true,
+                name: true,
+                description: true,
+                topic: {
+                  select: {
+                    id: true,
+                    name: true,
+                    moduleType: true
+                  }
                 }
               }
             }
-          }
-        },
-        orderBy: {
-          createdAt: sortOrder
-        },
-        take: limit,
-        skip: offset
+          },
+          orderBy: {
+            createdAt: sortOrder
+          },
+          take: limit,
+          skip: offset
+        });
       });
       console.log(`[/api/questions] Found ${questions.length} questions`);
     } catch (dbError) {
       console.error('[/api/questions] Database error fetching questions:', dbError);
+      
+      // Check if this is a retryable connection error that exhausted retries
+      if (isRetryableError(dbError)) {
+        return NextResponse.json({
+          error: 'database_unavailable',
+          message: 'Database is temporarily unavailable. Please try again later.',
+          details: dbError instanceof Error ? dbError.message : 'Unknown database error',
+          timestamp: new Date().toISOString()
+        }, { status: 503 });
+      }
+      
+      // Non-retryable error
       return NextResponse.json({
         error: 'Database error while fetching questions',
-        details: dbError instanceof Error ? dbError.message : 'Unknown database error'
+        details: dbError instanceof Error ? dbError.message : 'Unknown database error',
+        timestamp: new Date().toISOString()
       }, { status: 500 });
     }
 
-    // Get total count for pagination
+    // Get total count for pagination with retry logic
     let totalCount;
     try {
-      totalCount = await prisma.question.count({ where });
+      totalCount = await retryWithBackoff(async () => {
+        return await prisma.question.count({ where });
+      });
       console.log(`[/api/questions] Total count: ${totalCount}`);
     } catch (countError) {
       console.error('[/api/questions] Error counting questions:', countError);
@@ -161,28 +251,30 @@ export async function GET(request: NextRequest) {
       totalCount = questions.length;
     }
 
-    // Get unique categories and subtopics for filtering
+    // Get unique categories and subtopics for filtering with retry logic
     let categories: Array<{ category: string }> = [];
     let subtopics: Array<{ subtopic: string | null }> = [];
     let sources: Array<{ source: string | null }> = [];
     try {
-      [categories, subtopics, sources] = await Promise.all([
-        prisma.question.findMany({
-          where: { isActive: true },
-          select: { category: true },
-          distinct: ['category']
-        }),
-        prisma.question.findMany({
-          where: { isActive: true, subtopic: { not: null } },
-          select: { subtopic: true },
-          distinct: ['subtopic']
-        }),
-        prisma.question.findMany({
-          where: { isActive: true, source: { not: null } },
-          select: { source: true },
-          distinct: ['source']
-        })
-      ]);
+      [categories, subtopics, sources] = await retryWithBackoff(async () => {
+        return await Promise.all([
+          prisma.question.findMany({
+            where: { isActive: true },
+            select: { category: true },
+            distinct: ['category']
+          }),
+          prisma.question.findMany({
+            where: { isActive: true, subtopic: { not: null } },
+            select: { subtopic: true },
+            distinct: ['subtopic']
+          }),
+          prisma.question.findMany({
+            where: { isActive: true, source: { not: null } },
+            select: { source: true },
+            distinct: ['source']
+          })
+        ]);
+      });
       console.log(`[/api/questions] Filters loaded: ${categories.length} categories, ${subtopics.length} subtopics, ${sources.length} sources`);
     } catch (filterError) {
       console.error('[/api/questions] Error fetching filter options:', filterError);

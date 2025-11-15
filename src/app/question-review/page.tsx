@@ -7,10 +7,11 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ChevronLeft, ChevronRight, Search, Filter, Eye, EyeOff } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Search, Filter, Eye, EyeOff, AlertCircle, RefreshCw } from 'lucide-react';
 import MathRenderer from '@/components/MathRenderer';
 import ChartRenderer from '@/components/ChartRenderer';
 import QuestionReviewForm from '@/components/QuestionReviewForm';
+import { isDatabaseUnavailableError, isApiError } from '@/types/api';
 
 type ScatterPoint = { x: number; y: number; label?: string };
 type ScatterChartData = { type?: 'scatter'; points?: ScatterPoint[]; line?: boolean; description?: string };
@@ -79,6 +80,7 @@ export default function QuestionReviewPage() {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isDatabaseUnavailable, setIsDatabaseUnavailable] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedSubtopic, setSelectedSubtopic] = useState('');
@@ -105,6 +107,9 @@ export default function QuestionReviewPage() {
   const fetchQuestions = async () => {
     try {
       setLoading(true);
+      setError(null);
+      setIsDatabaseUnavailable(false);
+      
       const params = new URLSearchParams({
         limit: limit.toString(),
         offset: (currentPage * limit).toString(),
@@ -117,7 +122,26 @@ export default function QuestionReviewPage() {
       if (sortOrder) params.append('sortOrder', sortOrder as 'asc' | 'desc');
 
       const response = await fetch(`/api/questions?${params}`);
-      if (!response.ok) throw new Error('Failed to fetch questions');
+      
+      // Handle error responses
+      if (!response.ok) {
+        const errorData = await response.json();
+        
+        // Check if this is a database unavailable error (503)
+        if (response.status === 503 && isDatabaseUnavailableError(errorData)) {
+          setIsDatabaseUnavailable(true);
+          setError(errorData.message || 'Database is temporarily unavailable. Please try again later.');
+          return;
+        }
+        
+        // Handle other API errors
+        if (isApiError(errorData)) {
+          setError(errorData.message || errorData.error || 'Failed to fetch questions');
+        } else {
+          setError('Failed to fetch questions');
+        }
+        return;
+      }
 
       const data: QuestionResponse = await response.json();
 
@@ -155,9 +179,15 @@ export default function QuestionReviewPage() {
       setPagination(data.pagination);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
+      setIsDatabaseUnavailable(false);
     } finally {
       setLoading(false);
     }
+  };
+
+  // Handler for manual retry
+  const handleRetry = () => {
+    fetchQuestions();
   };
 
   // Auto-refresh questions every 30 seconds to keep the page updated with database changes
@@ -480,10 +510,44 @@ export default function QuestionReviewPage() {
           </Button>
         </div>
         <p className="text-gray-600">Browse and review all questions in the database</p>
-        {loading && (
+        {loading && !isDatabaseUnavailable && (
           <div className="mt-2 text-sm text-gray-500" aria-live="polite">Updating results…</div>
         )}
-        {error && (
+        
+        {/* Database unavailable banner with retry button */}
+        {isDatabaseUnavailable && (
+          <div className="mt-4 rounded-md border border-yellow-400 bg-yellow-50 text-yellow-900 p-4 flex items-start justify-between shadow-sm" role="alert">
+            <div className="flex items-start gap-3">
+              <AlertCircle className="h-5 w-5 mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="font-semibold">Database temporarily unavailable</p>
+                <p className="text-sm mt-1">{error || 'Unable to connect to the database. Please try again in a moment.'}</p>
+              </div>
+            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleRetry}
+              disabled={loading}
+              className="ml-4 flex items-center gap-2 bg-white hover:bg-yellow-100 border-yellow-400 text-yellow-900"
+            >
+              {loading ? (
+                <>
+                  <RefreshCw className="h-4 w-4 animate-spin" />
+                  Retrying...
+                </>
+              ) : (
+                <>
+                  <RefreshCw className="h-4 w-4" />
+                  Retry
+                </>
+              )}
+            </Button>
+          </div>
+        )}
+        
+        {/* General error display (for non-database errors) */}
+        {error && !isDatabaseUnavailable && (
           <div className="mt-2 rounded-md border border-red-300 bg-red-50 text-red-800 p-3">
             <span className="font-semibold">Error:</span> {error}
           </div>
