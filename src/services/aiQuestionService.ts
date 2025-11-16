@@ -331,7 +331,7 @@ export class AIQuestionService {
     includeCharts: boolean
     includePassages: boolean
   }): string {
-    return buildMathQuestionsPrompt(subtopics as any, {
+    return buildMathQuestionsPrompt(subtopics as unknown as { name: string; topicName?: string; description?: string; difficultyDistribution?: { easy: number; medium: number; hard: number }; moduleType?: 'math' | 'reading-writing' }[], {
       includeCharts: settings.includeCharts,
       mathCount: settings.mathCount,
     })
@@ -350,7 +350,7 @@ export class AIQuestionService {
     includeCharts: boolean
     includePassages: boolean
   }): string {
-    return buildReadingQuestionsPrompt(subtopics as any, {
+    return buildReadingQuestionsPrompt(subtopics as unknown as { name: string; topicName?: string; description?: string; difficultyDistribution?: { easy: number; medium: number; hard: number }; moduleType?: 'math' | 'reading-writing' }[], {
       includePassages: settings.includePassages,
       readingCount: settings.readingCount,
     })
@@ -456,14 +456,14 @@ export class AIQuestionService {
    * Build math questions prompt
    */
   private buildMathPrompt(subtopics: EnrichedSubtopic[]): string {
-    return buildMathQuestionsPrompt(subtopics as any, { includeCharts: true })
+    return buildMathQuestionsPrompt(subtopics as unknown as { name: string; topicName?: string; description?: string; difficultyDistribution?: { easy: number; medium: number; hard: number }; moduleType?: 'math' | 'reading-writing' }[], { includeCharts: true })
   }
 
   /**
    * Build reading questions prompt
    */
   private buildReadingPrompt(subtopics: EnrichedSubtopic[]): string {
-    return buildReadingQuestionsPrompt(subtopics as any, { includePassages: true })
+    return buildReadingQuestionsPrompt(subtopics as unknown as { name: string; topicName?: string; description?: string; difficultyDistribution?: { easy: number; medium: number; hard: number }; moduleType?: 'math' | 'reading-writing' }[], { includePassages: true })
   }
 
   /**
@@ -858,14 +858,14 @@ export class AIQuestionService {
    * Build math prompt for specific subtopic
    */
   private buildMathPromptForSubtopic(subtopic: EnrichedSubtopic, count: number): string {
-    return buildMathSubtopicPrompt(subtopic as any, count)
+    return buildMathSubtopicPrompt(subtopic as unknown as { name: string; topicName?: string; description?: string; difficultyDistribution?: { easy: number; medium: number; hard: number }; moduleType?: 'math' | 'reading-writing' }, count)
   }
 
   /**
    * Build reading prompt for specific subtopic
    */
   private buildReadingPromptForSubtopic(subtopic: EnrichedSubtopic, count: number): string {
-    return buildReadingSubtopicPrompt(subtopic as any, count)
+    return buildReadingSubtopicPrompt(subtopic as unknown as { name: string; topicName?: string; description?: string; difficultyDistribution?: { easy: number; medium: number; hard: number }; moduleType?: 'math' | 'reading-writing' }, count)
   }
 
   /**
@@ -917,12 +917,12 @@ export class AIQuestionService {
           wrongAnswerExplanations: undefined,
           imageUrl: question.imageUrl || null,
           imageAlt: question.chartDescription || null,
-          chartData: question.hasChart ? {
+          chartData: question.hasChart ? JSON.parse(JSON.stringify({
             description: question.chartDescription,
             interactionType: question.interactionType,
             graphType: question.graphType,
             hasGeneratedImage: !!question.imageUrl
-          } as any : undefined,
+          })) : null,
           timeEstimate: question.points * 30,
           source: 'ai-generated',
           tags: [question.category, question.subtopic],

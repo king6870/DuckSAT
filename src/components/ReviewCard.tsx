@@ -264,12 +264,14 @@ export default function ReviewCard({
             <h4 className="font-semibold text-gray-900 mb-2">
               {question.chartData ? 'Diagram' : 'Image'}
             </h4>
-            <ChartRenderer
-              chartData={question.chartData as any}
-              imageUrl={question.imageUrl || undefined}
-              imageAlt={question.imageAlt || 'Question diagram'}
-              className="max-w-full"
-            />
+            {question.chartData && (
+              <ChartRenderer
+                chartData={question.chartData as Record<string, unknown>}
+                imageUrl={question.imageUrl || undefined}
+                imageAlt={question.imageAlt || 'Question diagram'}
+                className="max-w-full"
+              />
+            )}
           </div>
         )}
 

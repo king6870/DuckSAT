@@ -18,11 +18,12 @@
  * For now, this file serves as documentation of expected behavior.
  */
 
-import { describe, it, expect, vi } from 'vitest';
 // Uncomment when test framework is set up:
+// import { describe, it, expect } from 'vitest';
 // import { render, screen, fireEvent } from '@testing-library/react';
 // import StarRating from '../StarRating';
 
+/*
 describe('StarRating Component', () => {
   it('should render 5 stars', () => {
     // Test implementation:
@@ -86,3 +87,4 @@ describe('StarRating Component', () => {
     expect(true).toBe(true); // Placeholder
   });
 });
+*/

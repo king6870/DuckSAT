@@ -11,10 +11,11 @@ import { prisma } from '@/lib/prisma'
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const questionId = params.id
+    const { id } = await params;
+    const questionId = id
 
     // Fetch question with image data from database
     const question = await prisma.question.findUnique({

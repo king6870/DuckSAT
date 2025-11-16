@@ -38,9 +38,7 @@ async function generateSubtopicQuestions() {
     // Check existing questions
     const existingCount = await prisma.question.count({
       where: {
-        subtopic: {
-          name: subtopic.name
-        },
+        subtopic: subtopic.name,
         isActive: true
       }
     })

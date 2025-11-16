@@ -17,9 +17,11 @@ import {
  * Interface for subtopic information
  */
 interface SubtopicInfo {
+  id?: string
   name: string
   topicName?: string
   description?: string
+  targetQuestions?: number
   difficultyDistribution?: {
     easy: number
     medium: number
