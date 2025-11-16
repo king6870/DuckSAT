@@ -233,7 +233,7 @@ export class UnifiedQuestionGenerator {
     const mathSubtopics = await this.getSubtopics('math', options)
     const selectedSubtopics = this.selectRandomSubtopics(mathSubtopics, options.mathCount)
 
-    const prompt = buildMathQuestionsPrompt(selectedSubtopics as any, {
+    const prompt = buildMathQuestionsPrompt(selectedSubtopics as unknown as EnrichedSubtopic[], {
       includeCharts: options.includeCharts,
       mathCount: options.mathCount,
     })
@@ -254,7 +254,7 @@ export class UnifiedQuestionGenerator {
     const readingSubtopics = await this.getSubtopics('reading-writing', options)
     const selectedSubtopics = this.selectRandomSubtopics(readingSubtopics, options.readingCount)
 
-    const prompt = buildReadingQuestionsPrompt(selectedSubtopics as any, {
+    const prompt = buildReadingQuestionsPrompt(selectedSubtopics as unknown as EnrichedSubtopic[], {
       includePassages: options.includePassages,
       readingCount: options.readingCount,
     })
@@ -315,7 +315,7 @@ export class UnifiedQuestionGenerator {
       )
 
       return this.parseEvaluation(response)
-    } catch (error) {
+    } catch {
       console.log('Grok evaluation failed, using fallback')
       return this.fallbackEvaluation(question)
     }
@@ -331,7 +331,7 @@ export class UnifiedQuestionGenerator {
     evaluationFeedback: string
   } {
     let difficulty: 'easy' | 'medium' | 'hard' = 'medium'
-    let qualityScore = QUALITY_THRESHOLDS.BASE_QUALITY_SCORE
+    let qualityScore: number = QUALITY_THRESHOLDS.BASE_QUALITY_SCORE
     let feedback = 'Fallback evaluation: '
 
     // Difficulty based on points
@@ -349,23 +349,23 @@ export class UnifiedQuestionGenerator {
     const hasReasonableQuestion = question.question.length > QUALITY_THRESHOLDS.MIN_QUESTION_LENGTH
 
     if (hasGoodExplanation && hasProperOptions && hasReasonableQuestion) {
-      qualityScore = QUALITY_THRESHOLDS.GOOD_QUALITY_SCORE
+      qualityScore = Number(QUALITY_THRESHOLDS.GOOD_QUALITY_SCORE)
       feedback += 'Good structure. '
     }
 
     // Module-specific bonuses
     if (question.moduleType === 'math' && question.hasChart && question.chartDescription) {
-      qualityScore += EVALUATION_CRITERIA.QUALITY_BOOST_CHART
+      qualityScore += Number(EVALUATION_CRITERIA.QUALITY_BOOST_CHART)
       feedback += 'Includes chart. '
     }
 
     if (question.moduleType === 'reading-writing' && question.passage && 
         question.passage.length > QUALITY_THRESHOLDS.MIN_PASSAGE_LENGTH) {
-      qualityScore += EVALUATION_CRITERIA.QUALITY_BOOST_PASSAGE
+      qualityScore += Number(EVALUATION_CRITERIA.QUALITY_BOOST_PASSAGE)
       feedback += 'Includes passage. '
     }
 
-    qualityScore = Math.min(qualityScore, EVALUATION_CRITERIA.MAX_QUALITY_SCORE)
+    qualityScore = Math.min(qualityScore, Number(EVALUATION_CRITERIA.MAX_QUALITY_SCORE))
 
     return {
       difficulty,
@@ -573,7 +573,7 @@ export class UnifiedQuestionGenerator {
         isAccepted: evaluation.isAccepted !== false,
         evaluationFeedback: evaluation.evaluationFeedback || 'No feedback',
       }
-    } catch (error) {
+    } catch {
       return {
         difficulty: 'medium',
         qualityScore: 0.5,

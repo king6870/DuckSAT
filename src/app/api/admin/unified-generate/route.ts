@@ -23,9 +23,7 @@ import { ADMIN_EMAILS } from '@/middleware/adminAuth'
 import { unifiedQuestionGenerator, GenerationOptions } from '@/services/unifiedQuestionGenerator'
 import { prisma } from '@/lib/prisma'
 
-interface RequestBody extends GenerationOptions {
-  // All options from GenerationOptions, plus any additional validation
-}
+type RequestBody = GenerationOptions
 
 /**
  * POST handler for question generation
