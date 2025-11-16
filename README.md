@@ -137,7 +137,34 @@ After your first deployment:
 DuckSAT includes powerful AI-powered question generation capabilities:
 
 - **Web UI**: Generate questions through the admin dashboard at `/admin/question-generation`
+- **Jupyter Notebook**: Interactive, step-by-step generation workflow with `question_generation.ipynb` (recommended for visibility)
 - **Batch Script**: Automated batch generation using `run-generation-enhanced.js`
+
+#### Using the Jupyter Notebook (Recommended)
+
+The Jupyter notebook provides an interactive, visual workflow for question generation:
+
+**Quick Start:**
+```bash
+# Install Jupyter if not already installed
+pip install jupyter notebook requests python-dotenv
+
+# Start the DuckSAT server
+npm run dev
+
+# Open the notebook
+jupyter notebook question_generation.ipynb
+```
+
+**Key Benefits:**
+- **Step-by-Step Execution**: Run one step at a time to track progress
+- **Error Visibility**: See errors clearly displayed in cell outputs
+- **Interactive Results**: View results with collapsible JSON displays
+- **Web-Based**: Works in any browser, including cloud platforms
+- **Debugging**: Re-run individual steps without starting over
+
+**For detailed documentation:**
+- See `JUPYTER_NOTEBOOK_GUIDE.md` for complete usage guide and troubleshooting
 
 #### Using the Batch Generation Script
 
