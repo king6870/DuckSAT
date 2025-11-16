@@ -19,7 +19,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
-import { ADMIN_EMAILS } from '@/middleware/adminAuth'
+import { ADMIN_EMAILS } from '@/constants/adminEmails'
 import { unifiedQuestionGenerator, GenerationOptions } from '@/services/unifiedQuestionGenerator'
 import { prisma } from '@/lib/prisma'
 

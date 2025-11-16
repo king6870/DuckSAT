@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { Star } from 'lucide-react'
-import { ADMIN_EMAILS } from '@/middleware/adminAuth'
+import { ADMIN_EMAILS } from '@/constants/adminEmails'
 
 interface Question {
   id: string

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
-import { ADMIN_EMAILS } from '@/middleware/adminAuth'
+import { ADMIN_EMAILS } from '@/constants/adminEmails'
 import { aiQuestionService } from '@/services/aiQuestionService'
 import { prisma } from '@/lib/prisma'
 

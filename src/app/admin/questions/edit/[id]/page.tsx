@@ -6,8 +6,7 @@ import { useRouter } from 'next/navigation'
 import { useParams } from 'next/navigation'
 import ComprehensiveQuestionDisplay from '@/components/ComprehensiveQuestionDisplay'
 import ChartBuilder from '@/components/admin/ChartBuilder'
-
-const ADMIN_EMAILS = ['lionvihaan@gmail.com', 'kingjacobisthegoat@gmail.com']
+import { ADMIN_EMAILS } from '@/constants/adminEmails'
 
 interface QuestionForm {
   question: string

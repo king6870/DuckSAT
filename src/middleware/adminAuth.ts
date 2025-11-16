@@ -2,11 +2,7 @@
 import { NextRequest } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
-
-const ADMIN_EMAILS = [
-  'lionvihaan@gmail.com',
-  'kingjacobisthegoat@gmail.com'
-]
+import { ADMIN_EMAILS } from '@/constants/adminEmails'
 
 export async function isAdmin(request: NextRequest): Promise<boolean> {
   try {

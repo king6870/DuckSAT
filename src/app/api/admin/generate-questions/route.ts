@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 import { aiQuestionService } from '@/services/aiQuestionService'
-import { ADMIN_EMAILS } from '@/middleware/adminAuth'
+import { ADMIN_EMAILS } from '@/constants/adminEmails'
 
 async function checkAdminAuth() {
   const session = await getServerSession(authOptions)
