@@ -63,14 +63,14 @@ export default function TestVisuals() {
                   <p className="text-sm">Has Chart: {question.chartData ? 'YES' : 'NO'}</p>
                   {question.chartData && (
                     <div className="mt-2 text-xs">
-                      <p><strong>Type:</strong> {(question.chartData as any).graphType}</p>
-                      <p><strong>Interaction:</strong> {(question.chartData as any).interactionType}</p>
-                      <p><strong>Description:</strong> {(question.chartData as any).description?.substring(0, 100)}...</p>
+                      <p><strong>Type:</strong> {typeof question.chartData === 'object' && question.chartData && 'graphType' in question.chartData ? String(question.chartData.graphType) : 'N/A'}</p>
+                      <p><strong>Interaction:</strong> {typeof question.chartData === 'object' && question.chartData && 'interactionType' in question.chartData ? String(question.chartData.interactionType) : 'N/A'}</p>
+                      <p><strong>Description:</strong> {typeof question.chartData === 'object' && question.chartData && 'description' in question.chartData && typeof question.chartData.description === 'string' ? question.chartData.description.substring(0, 100) : 'N/A'}...</p>
                     </div>
                   )}
                 </div>
                 <ComprehensiveQuestionDisplay
-                  question={question as any}
+                  question={question}
                   showAnswer={false}
                   showMetadata={true}
                 />
@@ -91,7 +91,7 @@ export default function TestVisuals() {
                   <p className="text-sm">Passage Length: {question.passage?.length || 0} characters</p>
                 </div>
                 <ComprehensiveQuestionDisplay
-                  question={question as any}
+                  question={question}
                   showAnswer={false}
                   showMetadata={true}
                 />

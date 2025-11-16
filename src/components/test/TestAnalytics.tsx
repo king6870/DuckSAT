@@ -45,7 +45,7 @@ export default function TestAnalytics({ testResults }: TestAnalyticsProps) {
   try {
     // Generate detailed SAT analytics
     const allQuestions = testResults.moduleResults.flat()
-    const analytics = generateDetailedAnalytics(allQuestions as any, testResults.totalTimeSpent)
+    const analytics = generateDetailedAnalytics(allQuestions, testResults.totalTimeSpent)
     const scoreLevel = getScoreLevel(analytics.satScore.totalScore)
 
     // Calculate time statistics

@@ -331,7 +331,7 @@ export class AIQuestionService {
     includeCharts: boolean
     includePassages: boolean
   }): string {
-    return buildMathQuestionsPrompt(subtopics as any, {
+    return buildMathQuestionsPrompt(subtopics, {
       includeCharts: settings.includeCharts,
       mathCount: settings.mathCount,
     })
@@ -350,7 +350,7 @@ export class AIQuestionService {
     includeCharts: boolean
     includePassages: boolean
   }): string {
-    return buildReadingQuestionsPrompt(subtopics as any, {
+    return buildReadingQuestionsPrompt(subtopics, {
       includePassages: settings.includePassages,
       readingCount: settings.readingCount,
     })
@@ -456,14 +456,14 @@ export class AIQuestionService {
    * Build math questions prompt
    */
   private buildMathPrompt(subtopics: EnrichedSubtopic[]): string {
-    return buildMathQuestionsPrompt(subtopics as any, { includeCharts: true })
+    return buildMathQuestionsPrompt(subtopics, { includeCharts: true })
   }
 
   /**
    * Build reading questions prompt
    */
   private buildReadingPrompt(subtopics: EnrichedSubtopic[]): string {
-    return buildReadingQuestionsPrompt(subtopics as any, { includePassages: true })
+    return buildReadingQuestionsPrompt(subtopics, { includePassages: true })
   }
 
   /**
@@ -858,14 +858,14 @@ export class AIQuestionService {
    * Build math prompt for specific subtopic
    */
   private buildMathPromptForSubtopic(subtopic: EnrichedSubtopic, count: number): string {
-    return buildMathSubtopicPrompt(subtopic as any, count)
+    return buildMathSubtopicPrompt(subtopic, count)
   }
 
   /**
    * Build reading prompt for specific subtopic
    */
   private buildReadingPromptForSubtopic(subtopic: EnrichedSubtopic, count: number): string {
-    return buildReadingSubtopicPrompt(subtopic as any, count)
+    return buildReadingSubtopicPrompt(subtopic, count)
   }
 
   /**
@@ -922,7 +922,7 @@ export class AIQuestionService {
             interactionType: question.interactionType,
             graphType: question.graphType,
             hasGeneratedImage: !!question.imageUrl
-          } as any : undefined,
+          } as Record<string, unknown> : undefined,
           timeEstimate: question.points * 30,
           source: 'ai-generated',
           tags: [question.category, question.subtopic],
