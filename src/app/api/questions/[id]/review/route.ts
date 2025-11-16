@@ -5,8 +5,9 @@ import { prisma } from '@/lib/prisma';
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     // Check authentication
     const session = await getServerSession(authOptions);
@@ -47,7 +48,7 @@ export async function POST(
 
     // Check if question exists
     const question = await prisma.question.findUnique({
-      where: { id: params.id },
+      where: { id: id },
       select: { id: true }
     });
 
@@ -63,11 +64,11 @@ export async function POST(
       where: {
         userId_questionId: {
           userId: user.id,
-          questionId: params.id,
+          questionId: id,
         },
       },
       create: {
-        questionId: params.id,
+        questionId: id,
         userId: user.id,
         rating,
         description: normalizedDescription,
@@ -93,11 +94,12 @@ export async function POST(
 // GET reviews for a specific question
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const reviews = await prisma.questionReview.findMany({
-      where: { questionId: params.id },
+      where: { questionId: id },
       include: {
         user: {
           select: {

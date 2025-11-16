@@ -7,7 +7,7 @@ import { prisma } from '@/lib/prisma'
 export interface ChartConfig {
   type: 'coordinate-plane' | 'bar-chart' | 'scatter-plot' | 'box-plot' | 'geometric-diagram' | 'function-graph'
   description: string
-  data?: Record<string, unknown>
+  data?: Record<string, unknown> | number[] | [number, number][]
   width?: number
   height?: number
   questionId?: string // Optional: Question ID to store image directly in question record
@@ -131,7 +131,7 @@ export class ImageGenerationService {
       await prisma.question.update({
         where: { id: questionId },
         data: {
-          imageData: imageData,
+          imageData: Buffer.from(imageData),
           imageMimeType: mimeType,
           imageUrl: `/api/generated-images/${questionId}`, // Update URL to point to API route
         },
@@ -301,10 +301,11 @@ export class ImageGenerationService {
     const width = config.width || 400
     const height = config.height || 300
     const rawData = config.data || [[1, 2], [2, 4], [3, 3], [4, 6], [5, 5]]
-    const data = Array.isArray(rawData) ? rawData as [number, number][] : [[1, 2], [2, 4], [3, 3], [4, 6], [5, 5]]
+    const data: [number, number][] = Array.isArray(rawData) ? rawData as [number, number][] : [[1, 2], [2, 4], [3, 3], [4, 6], [5, 5]]
     
     let points = ''
-    data.forEach(([x, y]: [number, number]) => {
+    data.forEach((point) => {
+      const [x, y] = point;
       const plotX = 50 + (x / 6) * (width - 100)
       const plotY = height - 50 - (y / 8) * (height - 100)
       points += `<circle cx="${plotX}" cy="${plotY}" r="4" fill="#ef4444"/>`

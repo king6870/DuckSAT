@@ -93,9 +93,14 @@ export default function DemoInteractiveMath() {
     setUserAnswers(newAnswers)
   }
 
-  const handleGraphInteraction = (data: { x: number; y: number } | null) => {
+  const handleGraphInteraction = (data: Record<string, unknown>) => {
     const newInteractions = [...graphInteractions]
-    newInteractions[currentQuestion] = data
+    // Convert Record<string, unknown> to the expected type
+    newInteractions[currentQuestion] = {
+      x: typeof data.x === 'number' ? data.x : 0,
+      y: typeof data.y === 'number' ? data.y : 0,
+      userPoints: Array.isArray(data.userPoints) ? data.userPoints as Array<{ x: number; y: number }> : undefined
+    }
     setGraphInteractions(newInteractions)
   }
 

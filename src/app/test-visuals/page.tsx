@@ -6,11 +6,24 @@ import ComprehensiveQuestionDisplay from '@/components/ComprehensiveQuestionDisp
 interface Question {
   id: string
   question: string
+  passage?: string
   options: string[]
   correctAnswer: number
-  passage?: string
+  explanation: string
+  wrongAnswerExplanations?: string[]
+  moduleType: string
+  difficulty: string
+  category: string
+  subtopic: string
   chartData?: Record<string, unknown> | null
-  [key: string]: unknown
+  imageUrl?: string
+  imageAlt?: string
+  timeEstimate: number
+  source: string
+  tags: string[]
+  isActive: boolean
+  createdAt: string
+  updatedAt: string
 }
 
 export default function TestVisuals() {

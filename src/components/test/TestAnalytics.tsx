@@ -45,7 +45,17 @@ export default function TestAnalytics({ testResults }: TestAnalyticsProps) {
   try {
     // Generate detailed SAT analytics
     const allQuestions = testResults.moduleResults.flat()
-    const analytics = generateDetailedAnalytics(allQuestions, testResults.totalTimeSpent)
+    // Transform QuestionResult to QuestionResultData format
+    const transformedQuestions = allQuestions.map(q => ({
+      ...q,
+      question: {
+        moduleType: q.moduleType,
+        difficulty: q.difficulty,
+        category: q.category,
+        subtopic: undefined
+      }
+    }))
+    const analytics = generateDetailedAnalytics(transformedQuestions, testResults.totalTimeSpent)
     const scoreLevel = getScoreLevel(analytics.satScore.totalScore)
 
     // Calculate time statistics

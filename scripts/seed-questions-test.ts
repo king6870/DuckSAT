@@ -107,7 +107,7 @@ async function seedTestQuestions() {
         },
         imageUrl: null,
         imageAlt: null,
-        chartData: null,
+        chartData: undefined,
         timeEstimate: 90,
         source: 'Test Data',
         tags: ['linear-equations', 'algebra', 'test'],
@@ -143,7 +143,7 @@ async function seedTestQuestions() {
         },
         imageUrl: null,
         imageAlt: null,
-        chartData: null,
+        chartData: undefined,
         timeEstimate: 120,
         source: 'Test Data',
         tags: ['reading-comprehension', 'main-ideas', 'test'],
@@ -209,7 +209,7 @@ async function seedTestQuestions() {
         },
         imageUrl: null,
         imageAlt: null,
-        chartData: null,
+        chartData: undefined,
         timeEstimate: 60,
         source: 'Khan Academy',
         tags: ['algebra', 'linear-equations', 'test'],
@@ -245,7 +245,7 @@ async function seedTestQuestions() {
         },
         imageUrl: null,
         imageAlt: null,
-        chartData: null,
+        chartData: undefined,
         timeEstimate: 150,
         source: 'Test Data',
         tags: ['reading-comprehension', 'author-perspective', 'test'],
@@ -272,7 +272,7 @@ async function seedTestQuestions() {
         wrongAnswerExplanations: null,
         imageUrl: null,
         imageAlt: null,
-        chartData: null,
+        chartData: undefined,
         timeEstimate: 60,
         source: 'Test Data',
         tags: ['test', 'inactive'],
@@ -290,8 +290,8 @@ async function seedTestQuestions() {
     for (const question of sampleQuestions) {
       const result = await prisma.question.upsert({
         where: { id: question.id },
-        update: question,
-        create: question
+        update: question as Parameters<typeof prisma.question.update>[0]['data'],
+        create: question as Parameters<typeof prisma.question.create>[0]['data']
       });
 
       if (result.createdAt.getTime() === result.updatedAt?.getTime()) {

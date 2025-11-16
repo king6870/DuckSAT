@@ -1,6 +1,6 @@
 #!/usr/bin/env tsx
 
-import { imageGenerationService } from '../src/services/imageGenerationService'
+import { imageGenerationService, ChartConfig } from '../src/services/imageGenerationService'
 
 async function testImageGeneration() {
   console.log('🧪 Testing image generation...')
@@ -33,10 +33,10 @@ async function testImageGeneration() {
     
     // Test scatter plot generation
     console.log('\n📊 Testing scatter plot generation...')
-    const scatterConfig = {
+    const scatterConfig: ChartConfig = {
       type: 'scatter-plot' as const,
       description: 'Scatter plot with x-axis labeled Hours of Study (0 to 10) and y-axis labeled Test Scores (50 to 100). Data points: (1, 55), (2, 60), (4, 72), (6, 85), (8, 92), (10, 98).',
-      data: [[1, 55], [2, 60], [4, 72], [6, 85], [8, 92], [10, 98]],
+      data: [[1, 55], [2, 60], [4, 72], [6, 85], [8, 92], [10, 98]] as [number, number][],
       width: 500,
       height: 300
     }

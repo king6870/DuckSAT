@@ -55,7 +55,13 @@ async function testQuestionsEndpoint(params: {
     } = params;
 
     // Build where clause
-    const where: { isActive: boolean; category?: string; subtopic?: string; source?: string; OR?: unknown[] } = {
+    const where: {
+      isActive: boolean;
+      category?: string;
+      subtopic?: string;
+      source?: string;
+      OR?: Array<{ question?: { contains: string; mode: 'insensitive' }; category?: { contains: string; mode: 'insensitive' } }>;
+    } = {
       isActive: true
     };
 
