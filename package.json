@@ -29,7 +29,7 @@
         "jupyter": "^0.0.0",
         "katex": "^0.16.22",
         "lucide-react": "^0.263.1",
-        "next": "15.4.7",
+        "next": "15.5.11",
         "next-auth": "^4.24.11",
         "notebook": "^1.0.1",
         "openssl": "^2.0.0",
