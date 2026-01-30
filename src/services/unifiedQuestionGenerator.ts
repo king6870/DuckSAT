@@ -508,31 +508,36 @@ export class UnifiedQuestionGenerator {
   ): Promise<string> {
     const response = await fetch(this.GPT5_ENDPOINT, {
       method: 'POST',
-      try {
-        const { questionImageService } = await import('./questionImageService')
-        const imageUrl = await questionImageService.generateAndStoreImage(questionId, {
-          chartDescription: question.chartDescription!,
-          graphType: question.graphType,
-          width: 600,
-          height: 400,
-        })
-
-        await prisma.question.update({
-          where: { id: questionId },
-          data: {
-            chartData: {
-              description: question.chartDescription,
-              interactionType: question.interactionType,
-              graphType: question.graphType,
-              hasGeneratedImage: !!imageUrl,
-            },
+      headers: {
+        'Authorization': `Bearer ${this.GPT5_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        messages: [
+          {
+            role: 'system',
+            content: systemRole
           },
-        })
-        return imageUrl;
-      } catch (error) {
-        console.error('Error in generateAndStoreImage:', error)
-        return null;
-      }
+          {
+            role: 'user',
+            content: prompt
+          }
+        ],
+        temperature,
+        max_tokens: maxTokens
+      })
+    })
+
+    if (!response.ok) {
+      const errorText = await response.text()
+      throw new Error(`LLM API error: ${response.status} ${response.statusText} - ${errorText}`)
+    }
+
+    const data = await response.json()
+    
+    if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+      throw new Error('Invalid LLM response structure')
+    }
 
     return data.choices[0].message.content
   }

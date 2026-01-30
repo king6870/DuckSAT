@@ -22,6 +22,7 @@ interface Question {
     reviewStatus: string | null
 }
 
+export default function ReviewPage() {
     const [questions, setQuestions] = useState<Question[]>([])
     const [currentIndex, setCurrentIndex] = useState(0)
     const [loading, setLoading] = useState(true)
@@ -204,13 +205,14 @@ interface Question {
                 </button>
             </div>
         )
-        // Show error if review submission fails
-        const renderSubmitError = () => submitError ? (
-            <div className="bg-red-100 border border-red-300 text-red-700 px-6 py-4 rounded-xl text-center max-w-md w-full mb-4" role="alert">
-                {submitError}
-            </div>
-        ) : null
     }
+
+    // Show error if review submission fails
+    const renderSubmitError = () => submitError ? (
+        <div className="bg-red-100 border border-red-300 text-red-700 px-6 py-4 rounded-xl text-center max-w-md w-full mb-4" role="alert">
+            {submitError}
+        </div>
+    ) : null
 
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col">

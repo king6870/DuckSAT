@@ -206,13 +206,9 @@ export default function AdminTest() {
                 <span className="hidden md:inline text-sm text-gray-500">Time Remaining</span>
               </div>
             </div>
-              {/* Chart */}
-              {currentQuestion.chartData && (
-                <div className="mb-6">
-                  <ChartRenderer chartData={currentQuestion.chartData} />
-                </div>
-              )}
-
+            
+            {/* Question Content */}
+            <div className="max-w-4xl mx-auto p-8">
               {/* Chart */}
               {currentQuestion.chartData && (
                 <div className="mb-6">
