@@ -1,0 +1,14 @@
+{
+  "timestamp": "20260116_181500",
+  "totalGenerated": 0,
+  "questions": [],
+  "stats": {
+    "Equations": {
+      "generated": 0,
+      "validated": 0,
+      "approved": 0,
+      "rejected": 1,
+      "questions": []
+    }
+  }
+}

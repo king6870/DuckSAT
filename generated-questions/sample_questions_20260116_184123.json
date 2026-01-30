@@ -1,0 +1,533 @@
+{
+  "timestamp": "20260116_184123",
+  "totalGenerated": 10,
+  "questions": [
+    {
+      "id": null,
+      "moduleType": "math",
+      "difficulty": "medium",
+      "category": "Equations",
+      "subtopic": "algebraic-equations",
+      "question": "If 2x + 5 = 17, what is the value of x?",
+      "passage": null,
+      "options": [
+        "A) 6",
+        "B) 7",
+        "C) 8",
+        "D) 9"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Starting with 2x + 5 = 17, subtract 5 from both sides to get 2x = 12. Divide both sides by 2 to get x = 6.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 60,
+      "source": "sample-test-data",
+      "tags": [
+        "math",
+        "equations",
+        "medium"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:41:23.121422",
+      "updatedAt": "2026-01-16T18:41:23.121426",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:41:23.121428",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "Equations",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "math",
+      "difficulty": "medium",
+      "category": "Geometry",
+      "subtopic": "geometric-properties",
+      "question": "In a right triangle, if one leg is 3 units and the hypotenuse is 5 units, what is the length of the other leg?",
+      "passage": null,
+      "options": [
+        "A) 2",
+        "B) 3",
+        "C) 4",
+        "D) 5"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Using the Pythagorean theorem: a^2 + b^2 = c^2. If a = 3 and c = 5, then 9 + b^2 = 25, so b^2 = 16 and b = 4.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAq8AAAN2CAYAAADXJ2DOAAAAOnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjEwLjgsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmcvwVt1zgAAAAlwSFlzAAAXEgAAFxIBZ5/SUgAASjJJREFUeJzt3Qm8fPX8P/DPt4W0l/Jtk1aVpVLkJ5RWsoSypUUSof0vKtoQpUVJiIoskUiUJdpLSYlCm1bapH2vb8v9P97nmmvuvTNz5947y/mceT4fj3nUd+7cuTNnzpx5zee8zufMGBoaGkoAAJCB2fr9AAAAoF3CKwAA2RBeAQDIhvAKAEA2hFcAALIhvAIAkA3hFQCAbAivAABkQ3gFACAbwisAANkQXgEAyIbwCgBANoRXAACyIbwCAJCNSobXbbfdNs2YMaO4nHDCCT37u+edd97I333DG97Qs7+bm1tuuWVkOS2zzDL9fjilY/lUS2yDaut7bJug6mzDqGx4jXBX26A3usw333xp6aWXTm9605vSF7/4xXT77bf366FWOtx36gKd0mo9m3322dNCCy2UVllllbT11lunn/70p+npp5+28MHnAAOktCOvjzzySLr11lvTb3/72/SZz3wmLbvssumzn/1sGhoaSoNGSIRhzz77bHrggQfStddem37wgx+kd7/73eklL3lJuuyyy3qyiOxdAei/OVIJvOpVr0prrbXWqOsefPDBdOWVV6a//e1vxb+feuqpdMABBxQfXEcccUSfHmk1bLjhhmneeedteZuvfe1rI///jne8Iy255JI9eGQw2th175lnnkl33XVX+v3vf5/uvvvu4rrrr78+rbfeeumCCy5Ia6yxhkUIbfA5QNaG+mTdddeNIdTisv/++ze93UUXXTS09NJLj9w2LpdddtlQGZ177rkjjzGeX6fUP/deqf+b8bzonZtvvnlk2b/oRS8auEXfzrr35JNPDn3+858fmjFjxshtX/7ylw89++yzpXuPf+c73xn5nQ984ANdfXxQhs+BQd+G0X2lrQ3UrL322ukXv/jFqF7lt771rb4+JqC/nvOc56R99tknfeITnxi5LvbSnHnmmX19XAB0X+nDa1h99dVHHb0fuwcB9tprrzTbbP/bjJ111lkWCkDFZRFeawG25o477ujoVFlx8Mcuu+ySVlpppTTPPPOkhRdeuPh7++67b3HQ2HQP1DjnnHPS+973vrTccsulueaaKz3/+c9P66yzTjr66KOLLm8j9X+vXrOjsGNqkrIcTBZd5V133TW97GUvK5Zl/Cy6i1OZRuWf//xn+sY3vpG22GKL4v4WWGCBNOeccxbL8OUvf3n62Mc+li655JK2Hmuj9eKxxx5LX//619PrXve6NHPmzPTc5z43vfCFLyz+3kUXXTSpZdHt9aiVe++9Nx1++OFpo402Kh5/rGcLLrhgcTDTjjvumP70pz+lKor1IJZ3zU033VT8d9asWWnRRRcdWdZ/+MMf2r7Pddddd+T3jjrqqOK66NvHv6NbW3P++ec3fC+2O/3bqaeemt72trcVs6rEeveCF7wgbbzxxsWBaO0emHr55Zengw46KL31rW8tti/RZY9R6ViXY69VHOz6r3/9K03WT37yk+KxRd84HttSSy1VrFvf/e53R2Z3mOx29p577kkHH3xwsXwXX3zx4n4XWWSR9IpXvCJ98pOfTFdfffWE99Fs2xEd6O233z6tvPLKxTYifr7bbrs1vI94L37+859Pr3/969MSSyxRPI54r8bj2GOPPdI//vGPtpbR448/nn7+858X7/na9iOWfbwG8dje+c53puOPP75YFyfSbLswlc+OMovtULxOL37xi9Pcc89dzBwSx7vEjEKPPvpoX7d5cZB4vN/f+MY3Fut73F88vvjc2WmnndIf//jHrn0mdvp5HfDf7VVc4v/DE088kb75zW8W61e8/2Jdjee5zTbbNHzvxfKIY19i3Y7bx+NYfvnli8dw2223pb4bKnnntebTn/70yO3nnHPOlreNXlntttE3a+WII44Yes5znjOq21N/WWCBBYZOO+20trpuY28TvbwPf/jDTe87LmusscbQ3Xff3fK+2rlEx6gfXaexfdx4LWefffZxj+/tb3/7pPtQe+yxx6hOY6vL+973vqFHH310UuvFVVddNbTKKqu0vN/99tuvreXVyfVosn2xo48+urj/Vs8jluN2221XrJNV69mtvfbaI7ffaKONRq7/xCc+MXL99ttv39bf/sc//jHyO8997nOH7r333pH1ut334tjXbGzn9YEHHhjadNNNW97Hm970pqHHHnus5WN91ate1dbjie3ll770pbaefzy2WIat7u+1r33t0J133jmp7ezxxx8/4Toa243ddttt6Omnn256P2PfG7E+77DDDg3vb9dddx31u88888zQvvvuOzTXXHO1fBxzzDFH8XnTqj99ySWXDM0777xtLf9llllm6M9//nPL5dPJz45Omux7sdnrFMsytqWzzTZb0+ez7LLLDt14441t3X+nt3mnn3760GKLLTbha/n+979/ws+Z+tu3+5nY6ee1f932Kv4/lutqq63W9D5jW3fGGWeM/P6ll146tOSSSza9/fzzzz/0hz/8YaifSjHbQDvqR1vjG24nxLes3XfffeTf8Q08RgViJOT+++8vRlZitOBd73pXMboxWR/5yEeKkYrYrfnqV7+6GBWIqX5ipPC6664rbvPnP/+5+Obz61//etTvxohHfMMZe+R/7bqx5p9//tRvhx56aDGdWYhvaPGNOr5dx2hJjJZOVoyQxLYgvj3G6FpcYuQh7iu+nf7lL39JN954Y3Hbk046KT300EPpl7/8ZVvzzsb6FEfb3nnnncW32hiFWWyxxYrXO0Y7YraL8LnPfa74xvve9763b+tRKzG69JWvfGXk3zGS9ZrXvKZ4LvFNO5bR3//+92I5fvvb3y6e969+9atRu9pzF8u4Jkbd6t9/MYIRfvzjH6cjjzyyGBFvJZZRzWabbVaMkoRYl+O9F/NNx2hbiFG7GF0bK9bRZmLUcvPNN09nn312MfIRo6PxXonX6sILLxwZJT3jjDPS//t//6/Y69BM7baxvr30pS9NK6ywQvH847WO9TpGimK9ixG6Pffcs7jtpz71qab39+STTxbzatfvyYjnGO+NGE2M91qMcMYeiVg2MRrYjsMOO6wYWW32/jj33HPTfffdV8wkEa9RPK+Yv7ed93G872I0KcSemNVWW63YPsToaf06Hvcd7+FTTjll1DY2XtcYoY9Rplhe8RzjNYqRwJjNotnxFfG443dCjJjH8o9RrFi/Ym/ODTfckC699NLivmL7F883tvXxGnX7s6OM4nMhtqUh9kbFaxWv0xVXXFE8j3DzzTcXo5Hx7znmmKNn27zYNmy55ZbFOhJiLukYbYzXKl7jeF/W8scPf/jD4nHGZ0SMRHbyM7Fb2/KHHnoobbLJJsV7InJCrItxn//+97+L7VCsr/Hej21ZHDcQ24v4bIzfi8cQI/2xTYv3ZTzv+Hn8LF6rWBfrt7k9lcPI61NPPTX0whe+cOT273rXu1revp0RgauvvnrUSFmMNtxxxx2jbjNr1qyhvffee+SbSf0344m+PdduH6Mj11xzzajbxbfQI488ctQ3mfPPP7/tb3K90O437rEjFvGt8dRTTx13uyeeeGLSI4uHHHJI8fq1Gl244IILhlZYYYWR+/v+97/f1npRe3323HPPcd+kY7Rt/fXXH7ntcsst13QUphvrUbvLJ0az6r8JH3vsscXfGuucc84Z9S263VG4fpnMaM8999wzajTnk5/8ZNPtzLe//e2W9xUjfosvvvjI7c8+++yOzzZQe/032WSTodtuu23cdi72NtSPsLTao/Kxj31s6Fe/+lXTEdp4PvG355lnnpER2Jtuuqnp/e2zzz4jfzuW6WGHHVaMVtaLEZy11lpr3LrcbDsbs8XUjzrF8/73v/89btsQr1v963744YdP+N6o3W98NsR2oNU2J0Zca78XI2ynnHJKw/f0ySefPGrk68c//nHTkdcYnf3b3/7WZGkODd11111DW2+99ch9bbDBBk1v263Pjl6+F5u9TrF9jHV5+eWXH/rjH//YcJnHulm7/Xe/+92ebfNuuOGGUSPosW5ff/31o24T74FYH+u3MzvvvHNHPxM7/bz2rxt5ra1PMZL/0EMPjbrdrbfeOrTyyiuP3DY+I9dcc83i9TrggAPGje7+/e9/HzVC/dnPfnaoX7IIrzElTv0K8bvf/W7a4fW9733vyG1iOP3xxx9ven+77LLLqL/fTniNy4orrjj08MMPN73fCOG12370ox/NPrzGm7udDWmnp1GJ+6vtCoyNTzvrRVwiUDYTH7C1D/24xIdVr9ajdpZPbIQWXHDBkQ+HZo+vPmTXltHzn//8CXd99dNkPjDrw15c6nd9hRNPPHHU7u5WotZRu2180DYKN9MNr3F5/etfXwTVRuJv1tcBDj744KHpOumkk0bu71Of+lTD29x3332jdqcfdNBBTe/v/vvvL9bL+ufUbDu7zjrrjNwm6h2tdnXWvz/iA3zsB+3Y90Zc5p577qHrrruu5fOP36kF3YUXXrgILK1EQKjdf9SKpjv9WgT22v3F+7CXnx1lCK+1bc7tt9/e1vs4KjO92uZts802I383BkGiNtPMl7/85VGfdc2+CE72M7Ebz2v/MTWnrbbaqun9/f73vx9124ky2Q9+8INR749+KW14ffDBB4tv01tsscWohbr77rtPeN8ThdfY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8VxjNK9f26aq6cY2LwYUautZzAccBweP/TIY74GYHrD+/bHjjjuOmjarbM9rEJR6toFGox6x0sQJC0JsnGO0q37C3HbF1EsHH3zwyAoZ4SimYIowFCtEHOAQuxVjdDfCSRwkVjuzRjuT0XdSbARr4S1Gi+Jo6Xj89R8en/nMZyp1xHl0nKMOEMs/DtKLD8zowMXBEfHBEUHxqquuKm4bG5yYnqYTk//ntB7FkfGxof385z9f/DsmSz/xxBOL/mKMesVGOaoKcWBNTELfz70HZRHBM4Lq2N3H7c7tGkEsptn64Q9/WPw7XudYN+O1roW02B59+tOfTt0Ur/nGG29cfLDGLvnoXsYE6jEqGK95BMXaHKcxN3ZMfj7RgUPxQX7WWWcV/b+43913372Y1SDO0BPrUqxr0d+McBf1i/hbsb61Wpdj12y8P2JUK5x++unFsoqpo6KLGu+PmA4tTiZQ8853vrP4250UYTgCdxyoFx/+MfARJ0N45StfWYTbWC/igK64TdQbaj3o+pH2mnhvRbCN91uI+4r1IeYrj+1Q3EcspwjlUXU79NBD00c/+tGOPp9B1eltXrz28TkT24QYmY0TBsRJImKdj5/V3kv1e1nii+N0aou9eF4DoS8npR0aKs4LXjuXbpyHt13/+c9/huaZZ56R391nn31ansO+0Tm36x166KFDc84556jzEddfFlhggaHTTjutOG997bo4B3qnznte/7eamTVr1tA666zT9DHGJc4l3Y9zWrfz+Fud9zrOo97MxRdfPOpc540u73jHO4YeeOCBtl7zyawXY89JH7/bq/Wo3eVTf+70JZZYouVyqr+stdZaQ0888cRQWU31fOrtuuKKK0b9jVe+8pWT+v1bbrllaLHFFmu6fMe+ZpNZjybz+n/jG98YmmOOOZo+jtlmm21ov/32G3r22WeL+2lnWxHne19//fVbrj9rr7320J133jn0/ve/f+S6U089teVzOu6444bmn3/+lvc7++yzD+26665DTz/99LSXTTNHHXXU0EILLdTW+yTO277ppps2vJ9HH310aOONN275+0sttdTQ73//+7Y+F7r12dGv9+JUXqd219FubPNOP/30oZkzZ054P1tssUXx2nfrdenU89p///0nla8m+9lYn9+6sY1uR1a1gdr0FjHXa018e45z3U9V7PK58sorixHdFVdc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XbfWWmulKhJegZ7TcwU6VRe48sorLcyU0lZbbVVcBoHaANBTeq5AJ1x++eXp4IMPHvn3IossYsEOCOEV6Bk9V6ATZs2aVdQFnn766eLfsbv8kEMO6crCPeGEE8b1Q9/whjc0vG0c3T/2tvE4J3Of9957b9pvv/3S6quvnuaff/40zzzzpJe+9KVp7733Tvfdd9+UZxuo/XzZZZdt+PuNerDnnXfeqNvcddddxReGjTbaKC299NLFcp9zzjnToosumlZeeeW07rrrpo9//OPF84tubbeoDQA9o+cKdML++++f/v73v4/8+9BDD20aynJyxhlnFLv+I8DWu/rqq4vLj370oyJQ9mMWhZNPPjl98IMfTI899ti4n91zzz3F5brrrksXXHBB+sY3vpHWXHPNoiLWDUZegZ7QcwU64dJLLy3Cak2MAn70ox/NfuFGGN90003HBdd6//znP9N2222Xeu3GG29M22yzTcPg2g9GXoGu03MFOuGJJ55IH/jAB9IzzzxT/Dt2qx9//PGVWLi10DrffPOlTTbZJM0111zptNNOK7af9c4999z017/+Na266qpTmo3g4YcfTt/73vfG/XzHHXccd92SSy5Z/Pekk05KTz755KifLbDAAkXVYebMmUWNIyoFMTocAbvbhFegq/RcgU7ZZ5990rXXXjvy7yOPPDK98IUvrMwCXmGFFdL555+fllhiieLfsRv+Na95Tbr//vvHBdhVJxlea7MRRBe1UXg9+uijm/7u2EAawfqaa65Jiy+++Ljb3nHHHenMM88c9Tp1mvAKdJWeK9AJF198cTriiCNG/v2Wt7yl6GBWSRwMVQuuYaWVVipGYX/4wx+Out3NN9/c08cVo6z1nn322WKktVF4jccfo+PdJLwCXaPnCnTC448/XhwtH6EpLLTQQunYY4+t1MKNusA73/nOcdfXh9mahx56KPXSxhtvnA477LCRf0dN4BWveEUxUhyzDCy//PJF0F5jjTWKS8xA0E3CK9AVeq5AJ09GcP3114/axd1o1C9nMfXUbLONP44+dtGP9ex/Q3yvxEFxW265ZTrxxBNHXX/DDTcUl7Eh/L3vfW8xI8RSSy3VlccjvAIdp+cKdFL0K+vDUVQI4lLv9ttvH/d7MS/qTjvtVPz/3HPP3bG5YJuFx7vvvnvK99nsJAuzzz57KoPvf//7RVXjW9/6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+mSeeeZJxxxzTNp0001HQmy9J598shh5PP7448f97OKLLxZeARhIZhuAPplvvvnSDjvs0DC4huc+97npoIMOavizWbNmTfnvnnfeeeOO4m/WDT3hhBPG3fYNb3jDpO4zDj479NBDi13+Cy20UJprrrnSCiuskHbaaad06623Tnm2gfqfNxKj2WN/P55PvQcffDAdddRR6a1vfWtafvnli9dkjjnmSAsvvHBxoNxrX/va9OEPf7j4knHNNde0vYwB6B4jr1DyakEjK6+8cspB1Bs222yz9K9//WvU9TfeeGNx4NmPfvSj9Lvf/S6tueaaPX9s559/ftp8883TvffeO+5n999/f3G54YYbilHu4447rpj54Z577un54wRgNCOvUDJPP/10uu2229KJJ56Y3v72tzcMrhtvvHEquwh666233rjgWi+mBdtiiy2K59xL0SVuFlwBKDcjr1ACsTv7gx/84IS3i13Zp5xySrFru+weffTRkfrDm970pmLk8je/+U268847R93u+uuvT7/+9a+L7u9UZyOIUdyxttlmm6IGUK82T+6vfvWrccE15tWNqcuWXHLJ9OyzzxZTmV177bXF6KvjWgHKo/yfgECad955i/7rdtttV4SsXCyyyCLF7vmXvOQlIzWItddeu5iDtd6555476fD65je/ubg0C6+f/exnm3Z5//nPf467Lk4Ysfrqq4+7PkLuOeeck84+++xJPT4AukNtADLwyCOPpD333DPtv//+6fHHH0+52GuvvUaCa1hsscWKmsBYY8Nsty2wwALjrrvjjjsa3jZGjOPsZnHQFgD9Z+QVSiB2Z9d2gT/xxBPp9ttvT3/4wx+Ko+Fr4qj9ww47rLg+RgKf85znpLKLXfdjLbHEEuOue+ihh1IvbbjhhsXsA/V1gLe85S1p6aWXLsL2csstl1ZaaaW02mqrFfUEZzQDKA/hFUrg1a9+dXEZO89rVAVi9/fY3duHH3542nvvvVPZqw6LLrrouOtjqqyxomPaSxFMP/3pT6cvfOELo66Pg8vGHmAWjzcqDTE1V60zC0D/qA1AScWBThGY4mCnsX7wgx909G81C49x0NJUxe72RuIMYmVw4IEHFgeQxYhrq5HVGAk/+eST06te9ar05z//uaePEYDxhFcouUYHEcU8qVM122zj3/bNerS33HJLqrL4YvDLX/6ymDrrL3/5S/rxj3+cDj744GLmh7H1hpg9Yd999+3bYwVgmNoA9EnMbdrOlFdXXnnluOumM+PA2OmjavOtRjiLU9bWB9qf/OQnKQcRyMeOHj/zzDNt/370h+NLQv0XhQi0Sy211MiUXyFOWABAfxl5hT6Jg4K++MUvFvOINvLUU0+N7Noe6+Uvf/mU/27ttKn1IvjFaVLr/x2zG0ynNtBLjQL5VVdd1fT2l156adp+++2L6a+iFtBIPPfoHdcb+28Aes/IK/TJrbfemj7zmc8UlzjKPY5sf8ELXlB0QmMi/xjla3YGqI985CNT/rsLLrhgesUrXjGuvxkHMF1wwQXFaGP87auvvjrl4sUvfnG67LLLRl239dZbp0022aTo3kZYj9HqQw45ZGTmhuOPP764xAFZcSDW8ssvXyybELM9nHfeeePO/JXLaXkBqkx4hRJodJR7MxHKttxyy2n9vd133724n7HOOOOMUf+O2QJyGH2N2QDGhteYfis6rPVzu9bCa70YeY2+a1wmsssuu3ToEQMwVWoDkImFF164mOf1u9/97rTva6uttirO1tXKhz/84aLWkINdd9111MkQpnLQWivRTf7c5z6Xtt122yk8OgA6ycgr9EmcVerMM88s+pfRz4yR1zhwKnqVsSs7epxxetMIZRtvvHExpVOjbudUxS7zjTbaKB177LHFqGOcxWvmzJnp9a9/ffrYxz5W/PeEE05IOYjlcskll6QjjzwynXbaaekf//hHevjhh0edhKDeOuusk6699tritLQxYhsVidrynzVrVrH8o26w4oorpnXXXbcYpY6uMAD9N2Oo2dYdAABKRm0AAIBsCK8AAGRDeAUAIBvCKwAA2RBeAQDIhvAKAEA2hFcAALIhvAIAkA3hFQCAbAivAABkQ3gFACAbwisAANkQXgEAyIbwCgBANoRXAACyIbwCAJAN4RUAgGwIrwAAZEN4BQAgG8IrAADZEF4BAMiG8AoAQDaEVwAAsiG8AgCQDeEVAIBsCK8AAGRDeAUAIBvCKwAA2RBeAQDIhvAKAEA2hFcAALIhvAIAkA3hFQCAbAivAABkQ3gFACAbwisAANkQXgEAyIbwCgBANoRXAACyIbwCAJAN4RUAgGwIrwAAZEN4BQAgG8IrAADZEF4BAMiG8AoAQDaEVwAAsiG8AgCQDeEVAIBsCK8AAGRDeAUAIBvCKwAA2RBeAQDIhvAKAEA2hFcAALIhvAIAkA3hFQCAbAivAABkQ3gFACAbwisAANkQXgEAyIbwCgBANoRXAACyIbwCAJAN4RUAgGwIrwAAZEN4BQAgG8IrAADZEF4BAMiG8AoAQDaEVwAAsiG8AgCQDeEVAIBsCK8AAGRDeAUAIBvCKwAA2RBeAQDIhvAKAEA2hFcAALIhvAIAkA3hFQCAbAivAABkQ3gFACAbwisAANkQXgEAyIbwCgBANoRXAACyIbwCAJAN4RUAgGwIrwAAZEN4BQAgG8IrAAApF/8fN/8xxCownS4AAAAASUVORK5CYII=",
+      "imageMimeType": "image/png",
+      "imageAlt": "Right triangle with legs of 3 and unknown length, hypotenuse of 5",
+      "chartData": {
+        "description": "Right triangle with legs of 3 and unknown length, hypotenuse of 5"
+      },
+      "timeEstimate": 60,
+      "source": "sample-test-data",
+      "tags": [
+        "math",
+        "geometry",
+        "medium"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:41:23.316203",
+      "updatedAt": "2026-01-16T18:41:23.316209",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:41:23.316211",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "Geometry",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "math",
+      "difficulty": "easy",
+      "category": "WordProblems",
+      "subtopic": "applied-math",
+      "question": "A train travels 120 miles in 2 hours. At this rate, how long will it take to travel 300 miles?",
+      "passage": null,
+      "options": [
+        "A) 3 hours",
+        "B) 3.5 hours",
+        "C) 4 hours",
+        "D) 5 hours"
+      ],
+      "correctAnswer": 3,
+      "explanation": "The train travels at 120/2 = 60 miles per hour. To travel 300 miles at 60 mph: 300/60 = 5 hours.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 60,
+      "source": "sample-test-data",
+      "tags": [
+        "math",
+        "wordproblems",
+        "easy"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:41:23.316225",
+      "updatedAt": "2026-01-16T18:41:23.316226",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:41:23.316227",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "WordProblems",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "math",
+      "difficulty": "easy",
+      "category": "Functions",
+      "subtopic": "function-properties",
+      "question": "If f(x) = 2x + 3, what is f(5)?",
+      "passage": null,
+      "options": [
+        "A) 10",
+        "B) 11",
+        "C) 12",
+        "D) 13"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Substitute x = 5 into f(x) = 2x + 3: f(5) = 2(5) + 3 = 10 + 3 = 13.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 60,
+      "source": "sample-test-data",
+      "tags": [
+        "math",
+        "functions",
+        "easy"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:41:23.316235",
+      "updatedAt": "2026-01-16T18:41:23.316236",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:41:23.316237",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "Functions",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "math",
+      "difficulty": "easy",
+      "category": "Data",
+      "subtopic": "data-analysis",
+      "question": "In a dataset with values 2, 4, 6, 8, 10, what is the mean?",
+      "passage": null,
+      "options": [
+        "A) 4",
+        "B) 5",
+        "C) 6",
+        "D) 7"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The mean is the sum divided by the count: (2+4+6+8+10)/5 = 30/5 = 6.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 60,
+      "source": "sample-test-data",
+      "tags": [
+        "math",
+        "data",
+        "easy"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:41:23.316242",
+      "updatedAt": "2026-01-16T18:41:23.316243",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:41:23.316244",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "Data",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "reading-writing",
+      "difficulty": "medium",
+      "category": "ReadingVocabulary",
+      "subtopic": "vocabulary-context",
+      "question": "Despite the ___ weather, the team decided to proceed with their outdoor event.",
+      "passage": null,
+      "options": [
+        "A) favorable",
+        "B) inclement",
+        "C) pleasant",
+        "D) mild"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The word \"despite\" indicates a contrast. The weather would normally stop an event, but the team proceeded anyway. \"Inclement\" means stormy or unfavorable weather.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 90,
+      "source": "sample-test-data",
+      "tags": [
+        "reading-writing",
+        "readingvocabulary",
+        "medium"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:41:23.316250",
+      "updatedAt": "2026-01-16T18:41:23.316251",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:41:23.316252",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "FillInBlank",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "reading-writing",
+      "difficulty": "medium",
+      "category": "ReadingComprehension",
+      "subtopic": "detail-comprehension",
+      "question": "According to the passage, what was the primary reason for the market decline?",
+      "passage": "The economic market experienced a significant decline in the third quarter due to rising interest rates and declining consumer confidence. Investors became increasingly cautious, leading to reduced spending and lower stock valuations.",
+      "options": [
+        "A) Government policy changes",
+        "B) Rising interest rates and declining consumer confidence",
+        "C) Supply chain disruptions",
+        "D) Employee shortages"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage explicitly states that the market decline was due to \"rising interest rates and declining consumer confidence.\"",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 90,
+      "source": "sample-test-data",
+      "tags": [
+        "reading-writing",
+        "readingcomprehension",
+        "medium"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:41:23.316257",
+      "updatedAt": "2026-01-16T18:41:23.316258",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:41:23.316259",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "Details",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "reading-writing",
+      "difficulty": "medium",
+      "category": "ReadingComprehension",
+      "subtopic": "main-idea",
+      "question": "Which of the following best describes the main purpose of the passage?",
+      "passage": "Throughout history, humans have used various methods to measure time. From ancient sundials to modern atomic clocks, these instruments have become increasingly precise. This evolution reflects our growing need to coordinate complex activities and our desire to understand the precise nature of temporal progression.",
+      "options": [
+        "A) To criticize ancient timekeeping methods",
+        "B) To trace the evolution of timekeeping and its significance",
+        "C) To promote the use of atomic clocks",
+        "D) To explain how sundials work"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage discusses the evolution of timekeeping from ancient to modern methods, emphasizing how this reflects human needs and desires.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 90,
+      "source": "sample-test-data",
+      "tags": [
+        "reading-writing",
+        "readingcomprehension",
+        "medium"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:41:23.316264",
+      "updatedAt": "2026-01-16T18:41:23.316265",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:41:23.316266",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "Summary",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "reading-writing",
+      "difficulty": "medium",
+      "category": "ReadingData",
+      "subtopic": "data-interpretation",
+      "question": "Based on the data shown, in which year did sales first exceed 100 million dollars?",
+      "passage": "Our company has experienced steady growth over the past decade. Year-over-year revenue has increased consistently, with particular acceleration in recent years.",
+      "options": [
+        "A) 2020",
+        "B) 2021",
+        "C) 2022",
+        "D) 2023"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The chart indicates that sales surpassed the 100 million dollar mark in 2022.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": "Line chart showing company revenue growth from 2015 to 2023",
+      "chartData": {
+        "description": "Line chart showing company revenue growth from 2015 to 2023"
+      },
+      "timeEstimate": 90,
+      "source": "sample-test-data",
+      "tags": [
+        "reading-writing",
+        "readingdata",
+        "medium"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:41:23.316273",
+      "updatedAt": "2026-01-16T18:41:23.316274",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:41:23.316275",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "PassageDiagram",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "reading-writing",
+      "difficulty": "medium",
+      "category": "ReadingClaims",
+      "subtopic": "claims-evidence",
+      "question": "Which statement is best supported by the passage?",
+      "passage": "Recent studies have shown that regular exercise improves both physical and mental health. Participants who exercised three or more times per week reported higher levels of life satisfaction and lower rates of depression compared to sedentary participants.",
+      "options": [
+        "A) Exercise is the only way to improve mental health",
+        "B) Regular exercise improves physical and mental health",
+        "C) All sedentary people are depressed",
+        "D) Mental health is more important than physical health"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage directly supports that regular exercise improves both physical and mental health with evidence from studies.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 90,
+      "source": "sample-test-data",
+      "tags": [
+        "reading-writing",
+        "readingclaims",
+        "medium"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:41:23.316280",
+      "updatedAt": "2026-01-16T18:41:23.316281",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:41:23.316282",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "Research",
+        "hasDiagram": false
+      }
+    }
+  ],
+  "stats": {
+    "Equations": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "Geometry": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "WordProblems": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "Functions": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "Data": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "FillInBlank": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "Details": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "Summary": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "PassageDiagram": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "Research": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    }
+  },
+  "note": "Sample test data - replace with real generated questions"
+}

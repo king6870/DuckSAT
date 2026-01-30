@@ -1,0 +1,415 @@
+/* Question Review Page Styles */
+/* Self-contained styles that won't affect admin pages */
+
+.container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, rgb(250, 245, 255), rgb(224, 231, 255));
+}
+
+.header {
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgb(229, 231, 235);
+}
+
+.headerContent {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: rgb(17, 24, 39);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: rgb(75, 85, 99);
+}
+
+.mainContent {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Layout Grid */
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .layoutGrid {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+/* Filter Panel */
+.filterPanel {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+}
+
+@media (max-width: 1023px) {
+  .filterPanel {
+    position: relative;
+    top: 0;
+  }
+}
+
+/* Card Grid */
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .cardGrid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* Question Card */
+.questionCard {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  position: relative;
+}
+
+.questionCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Search Bar */
+.searchBar {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgb(209, 213, 219);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: rgb(59, 130, 246);
+  ring: 2px;
+  ring-color: rgba(59, 130, 246, 0.5);
+}
+
+/* Buttons */
+.button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  border: none;
+  font-size: 0.875rem;
+}
+
+.buttonPrimary {
+  background-color: rgb(37, 99, 235);
+  color: white;
+}
+
+.buttonPrimary:hover:not(:disabled) {
+  background-color: rgb(29, 78, 216);
+}
+
+.buttonPrimary:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: rgba(37, 99, 235, 0.5);
+  ring-offset: 2px;
+}
+
+.buttonPrimary:disabled {
+  background-color: rgb(209, 213, 219);
+  color: rgb(156, 163, 175);
+  cursor: not-allowed;
+}
+
+.buttonSecondary {
+  background-color: rgb(243, 244, 246);
+  color: rgb(55, 65, 81);
+}
+
+.buttonSecondary:hover {
+  background-color: rgb(229, 231, 235);
+}
+
+/* Star Rating Hover Effects */
+.starButton {
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.starButton:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: rgba(59, 130, 246, 0.5);
+  ring-offset: 2px;
+}
+
+.starButton:not(:disabled):hover {
+  transform: scale(1.1);
+}
+
+.starIcon {
+  transition: all 0.15s ease-in-out;
+}
+
+.starIconActive {
+  fill: rgb(250, 204, 21);
+  color: rgb(250, 204, 21);
+}
+
+.starIconInactive {
+  color: rgb(209, 213, 219);
+}
+
+.starIcon:hover {
+  color: rgb(253, 224, 71);
+}
+
+/* Form Elements */
+.formLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(55, 65, 81);
+  margin-bottom: 0.5rem;
+}
+
+.formInput,
+.formTextarea,
+.formSelect {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid rgb(209, 213, 219);
+  border-radius: 0.5rem;
+  transition: all 0.15s ease-in-out;
+  font-size: 0.875rem;
+}
+
+.formInput:focus,
+.formTextarea:focus,
+.formSelect:focus {
+  outline: none;
+  border-color: rgb(59, 130, 246);
+  ring: 2px;
+  ring-color: rgba(59, 130, 246, 0.5);
+}
+
+.formTextarea {
+  resize: none;
+}
+
+/* Checkbox */
+.checkbox {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgb(209, 213, 219);
+  color: rgb(37, 99, 235);
+  cursor: pointer;
+}
+
+.checkbox:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: rgba(37, 99, 235, 0.5);
+}
+
+/* Badges */
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badgeMath {
+  background-color: rgb(219, 234, 254);
+  color: rgb(30, 64, 175);
+}
+
+.badgeReading {
+  background-color: rgb(233, 213, 255);
+  color: rgb(91, 33, 182);
+}
+
+.badgeEasy {
+  background-color: rgb(220, 252, 231);
+  color: rgb(22, 101, 52);
+}
+
+.badgeMedium {
+  background-color: rgb(254, 249, 195);
+  color: rgb(133, 77, 14);
+}
+
+.badgeHard {
+  background-color: rgb(254, 226, 226);
+  color: rgb(153, 27, 27);
+}
+
+/* Pagination */
+.pagination {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.paginationButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(209, 213, 219);
+  border-radius: 0.5rem;
+  background-color: white;
+  color: rgb(55, 65, 81);
+  font-weight: 500;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.paginationButton:hover:not(:disabled) {
+  background-color: rgb(249, 250, 251);
+}
+
+.paginationButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.paginationInfo {
+  padding: 0.5rem 1rem;
+  color: rgb(55, 65, 81);
+  font-weight: 500;
+}
+
+/* Loading State */
+.loadingSpinner {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  border: 0.25rem solid rgb(219, 234, 254);
+  border-top-color: rgb(37, 99, 235);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.loadingText {
+  margin-top: 1rem;
+  color: rgb(107, 114, 128);
+}
+
+/* Skeleton Loader */
+.skeleton {
+  background: linear-gradient(90deg, rgb(229, 231, 235) 0%, rgb(243, 244, 246) 50%, rgb(229, 231, 235) 100%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: 0.5rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 50;
+  max-width: 28rem;
+  animation: toast-slide-in 0.3s ease-out;
+}
+
+@keyframes toast-slide-in {
+  from {
+    transform: translateY(-1.25rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Ensure WCAG AA contrast ratios */
+.textPrimary {
+  color: rgb(17, 24, 39); /* Contrast ratio: 16.16:1 */
+}
+
+.textSecondary {
+  color: rgb(75, 85, 99); /* Contrast ratio: 7.21:1 */
+}
+
+.textTertiary {
+  color: rgb(107, 114, 128); /* Contrast ratio: 4.66:1 */
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .title {
+    font-size: 1.875rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .headerContent {
+    padding: 1rem;
+  }
+  
+  .mainContent {
+    padding: 1rem;
+  }
+}

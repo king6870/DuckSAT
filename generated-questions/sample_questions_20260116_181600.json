@@ -1,0 +1,533 @@
+{
+  "timestamp": "20260116_181600",
+  "totalGenerated": 10,
+  "questions": [
+    {
+      "id": null,
+      "moduleType": "math",
+      "difficulty": "medium",
+      "category": "Equations",
+      "subtopic": "algebraic-equations",
+      "question": "If 2x + 5 = 17, what is the value of x?",
+      "passage": null,
+      "options": [
+        "A) 6",
+        "B) 7",
+        "C) 8",
+        "D) 9"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Starting with 2x + 5 = 17, subtract 5 from both sides to get 2x = 12. Divide both sides by 2 to get x = 6.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 60,
+      "source": "sample-test-data",
+      "tags": [
+        "math",
+        "equations",
+        "medium"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:16:00.682386",
+      "updatedAt": "2026-01-16T18:16:00.682399",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:16:00.682401",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "Equations",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "math",
+      "difficulty": "medium",
+      "category": "Geometry",
+      "subtopic": "geometric-properties",
+      "question": "In a right triangle, if one leg is 3 units and the hypotenuse is 5 units, what is the length of the other leg?",
+      "passage": null,
+      "options": [
+        "A) 2",
+        "B) 3",
+        "C) 4",
+        "D) 5"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Using the Pythagorean theorem: a^2 + b^2 = c^2. If a = 3 and c = 5, then 9 + b^2 = 25, so b^2 = 16 and b = 4.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": {
+        "description": "Right triangle with legs of 3 and unknown length, hypotenuse of 5"
+      },
+      "timeEstimate": 60,
+      "source": "sample-test-data",
+      "tags": [
+        "math",
+        "geometry",
+        "medium"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:16:00.682530",
+      "updatedAt": "2026-01-16T18:16:00.682534",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:16:00.682536",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "Geometry",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "math",
+      "difficulty": "easy",
+      "category": "WordProblems",
+      "subtopic": "applied-math",
+      "question": "A train travels 120 miles in 2 hours. At this rate, how long will it take to travel 300 miles?",
+      "passage": null,
+      "options": [
+        "A) 3 hours",
+        "B) 3.5 hours",
+        "C) 4 hours",
+        "D) 5 hours"
+      ],
+      "correctAnswer": 3,
+      "explanation": "The train travels at 120/2 = 60 miles per hour. To travel 300 miles at 60 mph: 300/60 = 5 hours.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 60,
+      "source": "sample-test-data",
+      "tags": [
+        "math",
+        "wordproblems",
+        "easy"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:16:00.682616",
+      "updatedAt": "2026-01-16T18:16:00.682620",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:16:00.682621",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "WordProblems",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "math",
+      "difficulty": "easy",
+      "category": "Functions",
+      "subtopic": "function-properties",
+      "question": "If f(x) = 2x + 3, what is f(5)?",
+      "passage": null,
+      "options": [
+        "A) 10",
+        "B) 11",
+        "C) 12",
+        "D) 13"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Substitute x = 5 into f(x) = 2x + 3: f(5) = 2(5) + 3 = 10 + 3 = 13.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 60,
+      "source": "sample-test-data",
+      "tags": [
+        "math",
+        "functions",
+        "easy"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:16:00.682728",
+      "updatedAt": "2026-01-16T18:16:00.682731",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:16:00.682733",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "Functions",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "math",
+      "difficulty": "easy",
+      "category": "Data",
+      "subtopic": "data-analysis",
+      "question": "In a dataset with values 2, 4, 6, 8, 10, what is the mean?",
+      "passage": null,
+      "options": [
+        "A) 4",
+        "B) 5",
+        "C) 6",
+        "D) 7"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The mean is the sum divided by the count: (2+4+6+8+10)/5 = 30/5 = 6.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 60,
+      "source": "sample-test-data",
+      "tags": [
+        "math",
+        "data",
+        "easy"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:16:00.682845",
+      "updatedAt": "2026-01-16T18:16:00.682849",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:16:00.682850",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "Data",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "reading-writing",
+      "difficulty": "medium",
+      "category": "ReadingVocabulary",
+      "subtopic": "vocabulary-context",
+      "question": "Despite the ___ weather, the team decided to proceed with their outdoor event.",
+      "passage": null,
+      "options": [
+        "A) favorable",
+        "B) inclement",
+        "C) pleasant",
+        "D) mild"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The word \"despite\" indicates a contrast. The weather would normally stop an event, but the team proceeded anyway. \"Inclement\" means stormy or unfavorable weather.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 90,
+      "source": "sample-test-data",
+      "tags": [
+        "reading-writing",
+        "readingvocabulary",
+        "medium"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:16:00.682948",
+      "updatedAt": "2026-01-16T18:16:00.682952",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:16:00.682953",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "FillInBlank",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "reading-writing",
+      "difficulty": "medium",
+      "category": "ReadingComprehension",
+      "subtopic": "detail-comprehension",
+      "question": "According to the passage, what was the primary reason for the market decline?",
+      "passage": "The economic market experienced a significant decline in the third quarter due to rising interest rates and declining consumer confidence. Investors became increasingly cautious, leading to reduced spending and lower stock valuations.",
+      "options": [
+        "A) Government policy changes",
+        "B) Rising interest rates and declining consumer confidence",
+        "C) Supply chain disruptions",
+        "D) Employee shortages"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage explicitly states that the market decline was due to \"rising interest rates and declining consumer confidence.\"",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 90,
+      "source": "sample-test-data",
+      "tags": [
+        "reading-writing",
+        "readingcomprehension",
+        "medium"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:16:00.683282",
+      "updatedAt": "2026-01-16T18:16:00.683285",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:16:00.683286",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "Details",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "reading-writing",
+      "difficulty": "medium",
+      "category": "ReadingComprehension",
+      "subtopic": "main-idea",
+      "question": "Which of the following best describes the main purpose of the passage?",
+      "passage": "Throughout history, humans have used various methods to measure time. From ancient sundials to modern atomic clocks, these instruments have become increasingly precise. This evolution reflects our growing need to coordinate complex activities and our desire to understand the precise nature of temporal progression.",
+      "options": [
+        "A) To criticize ancient timekeeping methods",
+        "B) To trace the evolution of timekeeping and its significance",
+        "C) To promote the use of atomic clocks",
+        "D) To explain how sundials work"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage discusses the evolution of timekeeping from ancient to modern methods, emphasizing how this reflects human needs and desires.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 90,
+      "source": "sample-test-data",
+      "tags": [
+        "reading-writing",
+        "readingcomprehension",
+        "medium"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:16:00.683376",
+      "updatedAt": "2026-01-16T18:16:00.683379",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:16:00.683380",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "Summary",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "reading-writing",
+      "difficulty": "medium",
+      "category": "ReadingData",
+      "subtopic": "data-interpretation",
+      "question": "Based on the data shown, in which year did sales first exceed 100 million dollars?",
+      "passage": "Our company has experienced steady growth over the past decade. Year-over-year revenue has increased consistently, with particular acceleration in recent years.",
+      "options": [
+        "A) 2020",
+        "B) 2021",
+        "C) 2022",
+        "D) 2023"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The chart indicates that sales surpassed the 100 million dollar mark in 2022.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": {
+        "description": "Line chart showing company revenue growth from 2015 to 2023"
+      },
+      "timeEstimate": 90,
+      "source": "sample-test-data",
+      "tags": [
+        "reading-writing",
+        "readingdata",
+        "medium"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:16:00.683479",
+      "updatedAt": "2026-01-16T18:16:00.683483",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:16:00.683484",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "PassageDiagram",
+        "hasDiagram": false
+      }
+    },
+    {
+      "id": null,
+      "moduleType": "reading-writing",
+      "difficulty": "medium",
+      "category": "ReadingClaims",
+      "subtopic": "claims-evidence",
+      "question": "Which statement is best supported by the passage?",
+      "passage": "Recent studies have shown that regular exercise improves both physical and mental health. Participants who exercised three or more times per week reported higher levels of life satisfaction and lower rates of depression compared to sedentary participants.",
+      "options": [
+        "A) Exercise is the only way to improve mental health",
+        "B) Regular exercise improves physical and mental health",
+        "C) All sedentary people are depressed",
+        "D) Mental health is more important than physical health"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage directly supports that regular exercise improves both physical and mental health with evidence from studies.",
+      "wrongAnswerExplanations": {},
+      "imageUrl": null,
+      "imageData": null,
+      "imageMimeType": null,
+      "imageAlt": null,
+      "chartData": null,
+      "timeEstimate": 90,
+      "source": "sample-test-data",
+      "tags": [
+        "reading-writing",
+        "readingclaims",
+        "medium"
+      ],
+      "isActive": true,
+      "reviewStatus": "approved",
+      "reviewRating": 8,
+      "reviewComments": "Sample question for testing",
+      "createdAt": "2026-01-16T18:16:00.683579",
+      "updatedAt": "2026-01-16T18:16:00.683582",
+      "_metadata": {
+        "generatedAt": "2026-01-16T18:16:00.683583",
+        "validation": {
+          "isValid": true,
+          "qualityScore": 8,
+          "recommendation": "approve"
+        },
+        "questionType": "Research",
+        "hasDiagram": false
+      }
+    }
+  ],
+  "stats": {
+    "Equations": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "Geometry": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "WordProblems": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "Functions": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "Data": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "FillInBlank": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "Details": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "Summary": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "PassageDiagram": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    },
+    "Research": {
+      "generated": 1,
+      "validated": 1,
+      "approved": 1,
+      "rejected": 0
+    }
+  },
+  "note": "Sample test data - replace with real generated questions"
+}
