@@ -1,14 +1,11 @@
 "use client"
 
-import { useSession, signIn, signOut } from "next-auth/react"
-import Link from "next/link"
+import { useSession, signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
 
 export default function Home() {
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
   const router = useRouter()
-
-  const isAdmin = session?.user?.email === 'lionvihaan@gmail.com' || session?.user?.email === 'kingjacobisthegoat@gmail.com'
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">

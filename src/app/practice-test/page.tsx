@@ -14,7 +14,7 @@ import ChartRenderer from '../../components/ChartRenderer';
 
 export default function PracticeTestPage() {
   const router = useRouter();
-  const { data: session } = useSession ? useSession() : { data: null };
+  const { data: session } = useSession();
   const {
     hasStarted,
     moduleStarted,

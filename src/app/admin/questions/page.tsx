@@ -70,8 +70,8 @@ export default function EnhancedQuestionsReview() {
 
   // Trigger MathJax to process content
   useEffect(() => {
-    if (typeof window !== 'undefined' && (window as any).MathJax && mathJaxLoaded && questions.length > 0) {
-      ; (window as any).MathJax?.typesetPromise?.().catch((err: Error) => console.error('MathJax error:', err))
+    if (typeof window !== 'undefined' && (window as { MathJax?: { typesetPromise?: () => Promise<void> } }).MathJax && mathJaxLoaded && questions.length > 0) {
+      ; (window as { MathJax?: { typesetPromise?: () => Promise<void> } }).MathJax?.typesetPromise?.().catch((err: Error) => console.error('MathJax error:', err))
     }
   }, [questions, mathJaxLoaded])
 

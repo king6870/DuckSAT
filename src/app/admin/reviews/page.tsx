@@ -302,7 +302,8 @@ export default function AdminReviewsPage() {
                         <form
                             onSubmit={e => {
                                 e.preventDefault()
-                                const page = Number((e.target as any).elements.jumpTo.value)
+                                const form = e.target as HTMLFormElement
+                                const page = Number((form.elements.namedItem('jumpTo') as HTMLInputElement).value)
                                 if (!isNaN(page) && page >= 1 && page <= pagination.pages) setCurrentPage(page)
                             }}
                             className="flex items-center gap-1"

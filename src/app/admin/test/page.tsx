@@ -14,7 +14,6 @@ export default function AdminTest() {
   const [selectedModuleId, setSelectedModuleId] = useState<number | null>(null)
   // Error state for loading and submission
   const [fetchError, setFetchError] = useState<string | null>(null)
-  const [submitError, setSubmitError] = useState<string | null>(null)
   
   const {
     currentModule,

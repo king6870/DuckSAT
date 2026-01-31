@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
         const category = searchParams.get('category')
 
         // Build where clause for pending questions
-        const where: any = {
+        const where: Record<string, unknown> = {
             reviewStatus: 'pending',
             isActive: true
         }

@@ -18,13 +18,13 @@ function createSerializableAdapter(): Adapter {
     
     // Handle arrays
     if (Array.isArray(obj)) {
-      return obj.map(item => serialize(item)) as any
+      return obj.map(item => serialize(item)) as T
     }
     
     // Handle plain objects - remove Set/Map but preserve Date fields
-    const serialized: any = {}
+    const serialized: Record<string, unknown> = {}
     for (const key in obj) {
-      const value = (obj as any)[key]
+      const value = (obj as Record<string, unknown>)[key]
       
       // Skip Set/Map instances
       if (value instanceof Set || value instanceof Map) continue
@@ -52,12 +52,12 @@ function createSerializableAdapter(): Adapter {
   }
 
   // Wrap all adapter methods to serialize their return values
-  const wrappedAdapter: any = {}
+  const wrappedAdapter: Record<string, unknown> = {}
   
   for (const key in baseAdapter) {
-    const method = (baseAdapter as any)[key]
+    const method = (baseAdapter as Record<string, unknown>)[key]
     if (typeof method === 'function') {
-      wrappedAdapter[key] = async (...args: any[]) => {
+      wrappedAdapter[key] = async (...args: unknown[]) => {
         const result = await method(...args)
         return serialize(result)
       }
@@ -81,7 +81,7 @@ const authConfig = {
     error: '/auth/error',
   },
   callbacks: {
-    async session({ session, user }: any) {
+    async session({ session, user }: { session: { user?: { id?: string; name?: string | null; email?: string | null; image?: string | null } }; user?: { id: string; name?: string | null; email?: string | null; image?: string | null } }) {
       if (session?.user && user) {
         // Return plain object with only serializable properties
         return {

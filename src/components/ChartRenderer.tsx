@@ -90,7 +90,7 @@ export default function ChartRenderer({ chartData, imageUrl, imageData, imageMim
             </div>
             {/* Render Vega-Lite diagram */}
             <VegaEmbed
-              spec={vegaSpec as any}
+              spec={vegaSpec as Record<string, unknown>}
               options={{ actions: false }}
             />
           </div>
@@ -117,9 +117,9 @@ export default function ChartRenderer({ chartData, imageUrl, imageData, imageMim
   } else if (imageUrl) {
     // Always use imageUrl if provided
     src = imageUrl;
-  } else if (chartData && typeof chartData === 'object' && 'imageUrl' in chartData && (chartData as any).imageUrl) {
+  } else if (chartData && typeof chartData === 'object' && 'imageUrl' in chartData && (chartData as Record<string, unknown>).imageUrl) {
     // Check chartData for imageUrl
-    src = (chartData as any).imageUrl;
+    src = (chartData as Record<string, unknown>).imageUrl as string;
   } else {
     // Fallback to placeholder if nothing else
     src = '/assets/diagram-placeholder.svg';
@@ -156,7 +156,7 @@ export default function ChartRenderer({ chartData, imageUrl, imageData, imageMim
         <div className={`chart-container ${className}`}>
           <div className="bg-white p-4 rounded border shadow-sm">
             <VegaEmbed
-              spec={vegaSpec as any}
+              spec={vegaSpec as Record<string, unknown>}
               options={{ actions: false }}
             />
           </div>
@@ -167,7 +167,7 @@ export default function ChartRenderer({ chartData, imageUrl, imageData, imageMim
 
   // Check if chartData has a nested vegaSpec property
   if (typeof chartData === 'object' && chartData && 'vegaSpec' in chartData) {
-    const vegaSpec = (chartData as any).vegaSpec;
+    const vegaSpec = (chartData as Record<string, unknown>).vegaSpec;
     if (typeof vegaSpec === 'object' && vegaSpec) {
       // Add $schema if missing (required for VegaLite component)
       const completeSpec = {
@@ -179,7 +179,7 @@ export default function ChartRenderer({ chartData, imageUrl, imageData, imageMim
         <div className={`chart-container ${className}`}>
           <div className="bg-white p-4 rounded border shadow-sm">
             <VegaEmbed
-              spec={completeSpec as any}
+              spec={completeSpec as Record<string, unknown>}
               options={{ actions: false }}
             />
           </div>
