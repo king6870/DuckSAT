@@ -282,7 +282,7 @@ export function useTestState(userId: string) {
     }
   }, [currentModule, moduleStartTime, currentModuleQuestions, selectedAnswers, moduleResults, currentModuleIndex, fetchQuestions, recordQuestionTime, questionTimeSpent])
 
-  const completeTest = useCallback((finalModuleResults: QuestionResult[][]) => {
+  const completeTest = useCallback(async (finalModuleResults: QuestionResult[][]) => {
     if (!testStartTime) return
 
     const endTime = new Date()
@@ -321,6 +321,24 @@ export function useTestState(userId: string) {
 
     setTestResults(finalResults)
     setIsComplete(true)
+
+    // Save test results to database
+    try {
+      const response = await fetch('/api/test-results', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ testResults: finalResults })
+      })
+
+      if (!response.ok) {
+        console.error('Failed to save test results:', await response.text())
+      } else {
+        const data = await response.json()
+        console.log('✅ Test results saved successfully:', data)
+      }
+    } catch (error) {
+      console.error('Error saving test results:', error)
+    }
   }, [testStartTime, userId])
 
   // Timer countdown effect
