@@ -68,7 +68,14 @@ export async function GET(_request: NextRequest) {
       const lastThree = testResults.slice(0, 3).map(r => r.score)
       const firstAvg = firstThree.reduce((a, b) => a + b, 0) / 3
       const lastAvg = lastThree.reduce((a, b) => a + b, 0) / 3
-      improvementRate = Math.round(((lastAvg - firstAvg) / firstAvg) * 100)
+      
+      // Prevent division by zero
+      if (firstAvg > 0) {
+        improvementRate = Math.round(((lastAvg - firstAvg) / firstAvg) * 100)
+      } else if (lastAvg > 0) {
+        // If started at 0 but improved, show as 100% improvement
+        improvementRate = 100
+      }
     }
 
     // === MODULE PERFORMANCE ===
@@ -212,12 +219,17 @@ export async function GET(_request: NextRequest) {
     const scoreProgression = testResults
       .slice(0, 10)
       .reverse()
-      .map((result, index) => ({
-        testNumber: testsCompleted - 9 + index >= 1 ? testsCompleted - 9 + index : index + 1,
-        score: result.score,
-        satScore: result.satTotalScore || 0,
-        date: result.completedAt.toISOString()
-      }))
+      .map((result, index) => {
+        // Calculate the actual test number from the beginning
+        const displayCount = Math.min(10, testsCompleted)
+        const actualTestNumber = testsCompleted - displayCount + index + 1
+        return {
+          testNumber: actualTestNumber,
+          score: result.score,
+          satScore: result.satTotalScore || 0,
+          date: result.completedAt.toISOString()
+        }
+      })
 
     // === TEST HISTORY ===
     const testHistory = testResults.map(result => {

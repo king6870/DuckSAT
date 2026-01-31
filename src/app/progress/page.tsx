@@ -78,39 +78,36 @@ export default function Progress() {
       return
     }
 
+    const fetchProgressData = async () => {
+      try {
+        const response = await fetch('/api/progress')
+        const result = await response.json()
+        
+        if (result.success && result.data) {
+          setProgressData(result.data)
+        } else {
+          setProgressData(null)
+        }
+      } catch (error) {
+        console.error('Failed to fetch progress data:', error)
+        setProgressData(null)
+      } finally {
+        setLoading(false)
+      }
+    }
+
     fetchProgressData()
   }, [session, router])
 
-  const fetchProgressData = async () => {
-    try {
-      const response = await fetch('/api/progress')
-      const result = await response.json()
-      
-      if (result.success && result.data) {
-        setProgressData(result.data)
-      } else {
-        setProgressData(null)
-      }
-    } catch (error) {
-      console.error('Failed to fetch progress data:', error)
-      setProgressData(null)
-    } finally {
-      setLoading(false)
+  const formatTime = (value: number, unit: 'seconds' | 'minutes' = 'seconds') => {
+    const totalMinutes = unit === 'seconds' ? Math.floor(value / 60) : value
+    const hours = Math.floor(totalMinutes / 60)
+    const minutes = totalMinutes % 60
+    
+    if (hours > 0) {
+      return `${hours}h ${minutes}m`
     }
-  }
-
-  const formatTime = (seconds: number) => {
-    const hours = Math.floor(seconds / 3600)
-    const minutes = Math.floor((seconds % 3600) / 60)
-    if (hours > 0) return `${hours}h ${minutes}m`
     return `${minutes}m`
-  }
-
-  const formatStudyTime = (minutes: number) => {
-    const hours = Math.floor(minutes / 60)
-    const mins = minutes % 60
-    if (hours > 0) return `${hours}h ${mins}m`
-    return `${mins}m`
   }
 
   if (!session || loading) {
@@ -187,7 +184,7 @@ export default function Progress() {
           
           <div className="bg-white rounded-xl shadow-md p-6 border-t-4 border-orange-500">
             <div className="text-sm text-gray-600 mb-1">Study Time</div>
-            <div className="text-3xl font-bold text-orange-600">{formatStudyTime(progressData.overview.totalStudyTime)}</div>
+            <div className="text-3xl font-bold text-orange-600">{formatTime(progressData.overview.totalStudyTime, 'minutes')}</div>
             {progressData.overview.improvementRate !== 0 && (
               <div className={`text-xs mt-1 ${progressData.overview.improvementRate > 0 ? 'text-green-600' : 'text-red-600'}`}>
                 {progressData.overview.improvementRate > 0 ? '↑' : '↓'} {Math.abs(progressData.overview.improvementRate)}% improvement
@@ -216,7 +213,7 @@ export default function Progress() {
               <div className="w-full bg-gray-200 rounded-full h-2.5">
                 <div 
                   className="bg-blue-600 h-2.5 rounded-full transition-all" 
-                  style={{ width: `${progressData.modulePerformance.readingWriting.averageScore}%` }}
+                  style={{ width: `${Math.max(progressData.modulePerformance.readingWriting.averageScore, 2)}%` }}
                 ></div>
               </div>
               <div className="grid grid-cols-2 gap-4 pt-2 text-sm">
@@ -255,7 +252,7 @@ export default function Progress() {
               <div className="w-full bg-gray-200 rounded-full h-2.5">
                 <div 
                   className="bg-purple-600 h-2.5 rounded-full transition-all" 
-                  style={{ width: `${progressData.modulePerformance.math.averageScore}%` }}
+                  style={{ width: `${Math.max(progressData.modulePerformance.math.averageScore, 2)}%` }}
                 ></div>
               </div>
               <div className="grid grid-cols-2 gap-4 pt-2 text-sm">
@@ -320,19 +317,29 @@ export default function Progress() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {(['easy', 'medium', 'hard'] as const).map((difficulty) => {
               const data = progressData.difficultyPerformance[difficulty]
-              const colorClass = difficulty === 'easy' ? 'green' : difficulty === 'medium' ? 'yellow' : 'red'
+              const colors = {
+                easy: { text: '#16a34a', bg: '#16a34a' },
+                medium: { text: '#ca8a04', bg: '#ca8a04' },
+                hard: { text: '#dc2626', bg: '#dc2626' }
+              }
+              const color = colors[difficulty]
               return (
                 <div key={difficulty} className="text-center p-4 bg-gray-50 rounded-lg">
                   <div className="text-lg font-semibold text-gray-700 mb-2 capitalize">{difficulty}</div>
-                  <div className={`text-4xl font-bold text-${colorClass}-600 mb-2`}>{data.percentage}%</div>
+                  <div className="text-4xl font-bold mb-2" style={{ color: color.text }}>
+                    {data.percentage}%
+                  </div>
                   <div className="text-sm text-gray-600">
                     {data.correct} / {data.total} correct
                   </div>
                   <div className="mt-3">
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div 
-                        className={`bg-${colorClass}-600 h-2 rounded-full transition-all`}
-                        style={{ width: `${data.percentage}%` }}
+                        className="h-2 rounded-full transition-all"
+                        style={{ 
+                          width: `${Math.max(data.percentage, 2)}%`,
+                          backgroundColor: color.bg
+                        }}
                       ></div>
                     </div>
                   </div>
