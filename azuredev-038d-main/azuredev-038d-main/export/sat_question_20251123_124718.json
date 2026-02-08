@@ -1,0 +1,14 @@
+{
+  "timestamp": "20251123_124718",
+  "question": "In the coordinate plane, let A = (0,0), B = (8,0), and C = (0,6). A line through C with slope -4/3 intersects segment AB at D. What is the area of triangle BCD?",
+  "choices": [
+    "A) 10.5",
+    "B) 12",
+    "C) 15",
+    "D) 21"
+  ],
+  "diagram_description": "Draw a coordinate plane with labeled axes. Place point A at (0,0) on the origin, point B at (8,0) on the x-axis, and point C at (0,6) on the y-axis. Draw the line through C with slope -4/3. Locate and label the intersection of this line with segment AB as point D on AB. Label the vertices B(8,0), C(0,6), and D (the intersection point). Ensure AB is the horizontal segment from x = 0 to x = 8 and indicate the line through C has slope -4/3.",
+  "correct_answer": "A",
+  "answer_value": "$\\\\frac{21}{2}$",
+  "explanation": "Let the given points be $A = (0,0)$, $B = (8,0)$, and $C = (0,6)$. A line through $C$ with slope $-\\\\frac{4}{3}$ has equation $y-6 = -\\\\frac{4}{3}(x-0)$, i.e. $y = 6 - \\\\frac{4}{3}x$. The segment $AB$ lies on the line $y=0$, so the intersection point $D$ satisfies $0 = 6 - \\\\frac{4}{3}x$, giving $x = \\\\frac{9}{2}$. Thus $D = (\\\\frac{9}{2}, 0)$ and $D$ lies on $AB$ since $0 \\\\le \\\\frac{9}{2} \\\\le 8$.\n\nThe base of triangle $BCD$ on the $x$-axis is $BD = |8 - \\\\frac{9}{2}| = \\\\frac{7}{2}$. The height with respect to this base is the perpendicular distance from $C$ to the line $y=0$, which is $|6| = 6$.\n\nHence the area is \n$\\\\text{Area} = \\tfrac{1}{2} \\cdot BD \\cdot \\text{height} = \\\\tfrac{1}{2} \\cdot \\\\frac{7}{2} \\\\cdot 6 = \\\\tfrac{21}{2} = 10.5$.\n\nTherefore, the correct answer is choice A."
+}

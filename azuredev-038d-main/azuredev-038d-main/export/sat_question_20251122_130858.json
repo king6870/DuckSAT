@@ -1,0 +1,14 @@
+{
+  "timestamp": "20251122_130858",
+  "question": "In triangle ABC, angle ABC is a right angle. The legs AB and BC have lengths 6 and 8, respectively, and the hypotenuse AC has length 10. A perpendicular from B to AC meets AC at D. What is the length of BD?",
+  "choices": [
+    "A) 4.5",
+    "B) 4.8",
+    "C) 5.0",
+    "D) 4.2"
+  ],
+  "diagram_description": "Draw triangle ABC with a right angle at B. Place AB = 6 and BC = 8 so that AC = 10 is the hypotenuse. Draw the altitude BD from B to the hypotenuse AC, meeting AC at point D. Label the vertices A, B, C, and D, and indicate on the sides AB = 6, BC = 8, and AC = 10.",
+  "correct_answer": "B",
+  "answer_value": "$4.8$",
+  "explanation": "Step 1: Note the right triangle with ∠ABC = 90°, and sides $AB = 6$, $BC = 8$, and $AC = 10$. Step 2: Let $D$ be the foot of the altitude from $B$ to the hypotenuse $AC$, so $BD$ is the altitude to the hypotenuse.\n\nStep 3: Use the area of triangle $ABC$ in two ways. First, using the legs: $$[ABC] = \\frac{1}{2} \\cdot AB \\cdot BC = \\frac{1}{2} \\cdot 6 \\cdot 8 = 24.$$ Second, using the hypotenuse and altitude: $$[ABC] = \\frac{1}{2} \\cdot AC \\cdot BD = \\frac{1}{2} \\cdot 10 \\cdot BD = 5\\cdot BD.$$ Step 4: Equate the two expressions for the area: $$5\\cdot BD = 24 \\quad\\Rightarrow\\quad BD = \\frac{24}{5} = 4.8.$$\n\nResult: The length of $BD$ is $\\frac{AB \\cdot BC}{AC} = \\frac{6 \\cdot 8}{10} = \\frac{24}{5} = 4.8$, which corresponds to choice $\\textbf{B}$."
+}

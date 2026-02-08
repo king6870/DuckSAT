@@ -1,0 +1,14 @@
+{
+  "timestamp": "20251123_060151",
+  "question": "In the coordinate plane shown, triangle ACD is defined by points A, C, and D with coordinates A(0,0), C(0,8), and D(2,0). Point D lies on AB between A and B, with AD:DB = 1:2 and B at (6,0). What is the area of triangle ACD?",
+  "choices": [
+    "A) 6",
+    "B) 8",
+    "C) 10",
+    "D) 12"
+  ],
+  "diagram_description": "On a coordinate plane with labeled x- and y-axes, place A at (0,0). Place B at (6,0) on the x-axis. Mark D at (2,0) on AB to reflect AD:DB = 1:2. Place C at (0,8) on the y-axis. Draw segment AC from A to C and segment CD from C to D. Include the points A, B, C, D with their coordinates labeled, and ensure the segments AB, AC, and CD are drawn. The grid should show unit marks; label the axes.",
+  "correct_answer": "B",
+  "answer_value": "$8$",
+  "explanation": "Step 1: Identify the given coordinates: $A=(0,0)$, $C=(0,8)$, and $D=(2,0)$. The point $D$ lies on $AB$ with $A=(0,0)$ and $B=(6,0)$ since $AD=2$ and $DB=4$, giving $AD:DB=1:2$.\n\nStep 2: Use the base–height method with base $\\overline{AC}$. The length of $\\overline{AC}$ is $|AC|=\\sqrt{(0-0)^2+(8-0)^2}=8$.\n\nStep 3: The distance from $D$ to the line $AC$ (which is the line $x=0$) is $|2-0|=2$; this is the height $h$.\n\nStep 4: Compute the area: $[ACD]=\\tfrac{1}{2}\\cdot |AC| \\cdot h = \\tfrac{1}{2}\\cdot 8 \\cdot 2 = 8$.\n\nStep 5: (Optional check) Using the determinant formula with $A=(0,0)$, $C=(0,8)$, $D=(2,0)$:\n$[ACD]=\\tfrac{1}{2}\\left| x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2) \\right|$\n$=\\tfrac{1}{2}\\left| 0(8-0) + 0(0-0) + 2(0-8) \\right| = 8$.\n\nStep 6: Therefore, the area of triangle $ACD$ is $8$, so the correct answer is choice $B$."
+}

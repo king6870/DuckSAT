@@ -1,0 +1,11 @@
+{
+  "is_valid": true,
+  "is_answer_correct": true,
+  "quality_score": 6,
+  "issues_found": [
+    "The problem statement references a bar chart but does not provide the chart in the prompt; solvability depends on the actual chart data.",
+    "The solution text uses the phrasing '(for example)' when the chart should provide fixed counts; this could mislead readers into thinking multiple sets of counts are possible."
+  ],
+  "verification_notes": "If the bar chart indeed shows X=7, Y=9, Z=10, then the total is 26 and P(Y) = 9/26, which matches option A. The arithmetic is correct, and 9/26 is in simplest terms. The distractors are plausible but incorrect given the chart data. The main issues are the missing chart in the prompt and the awkward 'for example' wording in the solution.",
+  "recommendation": "revise"
+}

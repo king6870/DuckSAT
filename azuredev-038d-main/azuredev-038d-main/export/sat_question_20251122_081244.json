@@ -1,0 +1,14 @@
+{
+  "timestamp": "20251122_081244",
+  "question": "In the right triangle ABC, a right angle is at A. Given AB = 6 and AC = 8, let D be the foot of the perpendicular from A to BC. What is the length of AD?",
+  "choices": [
+    "A) 4.0",
+    "B) 4.8",
+    "C) 6.0",
+    "D) 9.6"
+  ],
+  "diagram_description": "Draw coordinate-like diagram: place A at the origin (0,0). Draw AB along the positive x-axis to B(6,0). Draw AC along the positive y-axis to C(0,8). Connect A to B, A to C, and B to C to form triangle ABC with a right angle at A. From A, draw segment AD perpendicular to BC that intersects BC at D; mark the right angle at D. Label AB with 6 and AC with 8. Label points A(0,0), B(6,0), C(0,8); optionally show BC as the hypotenuse.",
+  "correct_answer": "B",
+  "answer_value": "4.8",
+  "explanation": "In right triangle $ABC$ with a right angle at $A$, we have $AB = 6$ and $AC = 8$. The hypotenuse $BC$ is\n$$BC = \\sqrt{AB^2 + AC^2} = \\sqrt{6^2 + 8^2} = \\sqrt{100} = 10.$$\n\nLet $AD$ be the altitude from $A$ to the hypotenuse $BC$. The area of triangle $ABC$ can be computed two ways:\n1) Using legs: $[ABC] = \\frac{1}{2} AB \\cdot AC = \\frac{1}{2} \\cdot 6 \\cdot 8 = 24.$\n2) Using base and altitude: $[ABC] = \\frac{1}{2} BC \\cdot AD = \\frac{1}{2} \\cdot 10 \\cdot AD = 5AD.$\nEquating the two expressions for the area gives $24 = 5AD$, so $AD = \\frac{24}{5} = 4.8.$\n\nTherefore, the length of $AD$ is $4.8$, which corresponds to choice B. (An alternative formula is $AD = \\dfrac{AB \\cdot AC}{BC} = \\dfrac{6 \\cdot 8}{10} = 4.8$.)"
+}

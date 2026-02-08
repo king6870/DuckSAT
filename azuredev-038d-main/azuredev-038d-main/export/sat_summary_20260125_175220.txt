@@ -1,0 +1,46 @@
+======================================================================
+SAT MATH QUESTION - COMPLETE SUMMARY
+Generated: 2026-01-25 17:52:20
+======================================================================
+
+QUESTION:
+----------------------------------------------------------------------
+In the coordinate plane, triangle ABC is right-angled at A with A(0,0), B(6,0), and C(0,8). A square is drawn with vertex at A and sides parallel to the axes, such that the opposite vertex lies on BC. What is the area of the square?
+
+ANSWER CHOICES:
+----------------------------------------------------------------------
+A) 576/49
+B) 144/7
+C) 64
+D) 32
+
+CORRECT ANSWER:
+----------------------------------------------------------------------
+A) $\\frac{576}{49}$
+
+EXPLANATION:
+----------------------------------------------------------------------
+Let $A = (0,0)$, $B = (6,0)$, $C = (0,8)$. The line $BC$ has slope $m = \\frac{8-0}{0-6} = -\\frac{4}{3}$, and using point $B$, its equation is $y - 0 = -\\frac{4}{3}(x - 6)$, so $y = -\\frac{4}{3}x + 8$. A square with a vertex at $A$ and sides parallel to the axes has vertices at $A = (0,0)$, $(s,0)$, $(0,s)$, and the opposite vertex at $(s,s)$. Since the opposite vertex lies on $BC$, the point $(s,s)$ satisfies the line equation: $s = -\\frac{4}{3}s + 8$. Solving: $s + \\\frac{4}{3}s = 8 \\Rightarrow \\\frac{7}{3}s = 8 \\\Rightarrow s = \\\frac{24}{7}$. The area is $s^{2} = \\\left(\\frac{24}{7}\\right)^{2} = \\\frac{576}{49}$. Therefore the correct choice is $A$.
+
+TECHNICAL VALIDATION:
+----------------------------------------------------------------------
+Overall Status: PASS
+Geometrically Valid: True
+Question-Diagram Match: True
+Solvable: True
+Terminology Correct: True
+Warnings: No issues detected. The diagram description is consistent with the problem statement. The square's side length is rational (24/7) and yields a valid position for E on AB (0 ≤ x ≤ 6) and F on AC (0 ≤ y ≤ 8).
+
+QUALITY VERIFICATION:
+----------------------------------------------------------------------
+Quality Score: 9/10
+Answer Correct: True
+Recommendation: APPROVE
+
+FILES GENERATED:
+----------------------------------------------------------------------
+- sat_diagram_20260125_175220.png (diagram image)
+- sat_question_20260125_175220.json (complete question data)
+- sat_validation_20260125_175220.json (technical validation)
+- sat_verification_20260125_175220.json (quality verification)
+- sat_summary_20260125_175220.txt (this summary)

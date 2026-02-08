@@ -1,0 +1,14 @@
+{
+  "timestamp": "20260126_092843",
+  "question": "In the diagram, triangle ABC has vertices A(0,0), B(6,0), and C(0,6). Point D is the midpoint of BC. What is the area of triangle ABD?",
+  "choices": [
+    "A) 6",
+    "B) 9",
+    "C) 12",
+    "D) 18"
+  ],
+  "diagram_description": "Draw a coordinate plane with labeled axes. Plot A at (0,0), B at (6,0), and C at (0,6). Connect A-B, B-C, and C-A to form triangle ABC. Mark D as the midpoint of BC, which is at (3,3). Draw segment A-D. Label points A, B, C, and D with their coordinates in parentheses next to each point.",
+  "correct_answer": "B",
+  "answer_value": "$9$",
+  "explanation": "Step 1. Find the coordinates of point $D$ as the midpoint of $B$ and $C$. Since $B=(6,0)$ and $C=(0,6)$, $D=\\left(\\frac{6+0}{2}, \\frac{0+6}{2}\\right)=(3,3)$.\\nStep 2. Treat $AB$ as the base. The segment $AB$ lies on the line $y=0$ with length $|AB|=6$. The height from $D$ to $AB$ is the distance from $D$ to $y=0$, which is $|y_D|=3$.\\nStep 3. Compute area using base and height: $\\text{Area}_{ABD}=\\frac{1}{2}\\cdot |AB|\\cdot \\text{height}=\\frac{1}{2}\\cdot 6\\cdot 3=9$.\\nAlternative check: using vectors, $\\vec{AB}=(6,0)$ and $\\vec{AD}=(3,3)$, and $\\text{Area}_{ABD}=\\frac{1}{2}|\\vec{AB}\\times \\vec{AD}|=\\frac{1}{2}|6\\cdot 3-0\\cdot 3|=9$."
+}

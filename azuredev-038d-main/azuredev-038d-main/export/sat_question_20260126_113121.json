@@ -1,0 +1,14 @@
+{
+  "timestamp": "20260126_113121",
+  "question": "In trapezoid ABCD, AB ∥ CD with vertices A(0,0), B(9,0), C(6,4), and D(0,4). The diagonals AC and BD intersect at E. Which of the following is the ratio AE:EC?",
+  "choices": [
+    "A) 1:1",
+    "B) 3:2",
+    "C) 2:3",
+    "D) 4:3"
+  ],
+  "diagram_description": "Draw trapezoid ABCD with AB parallel to CD. Mark A at (0,0) and B at (9,0) on the bottom base, D at (0,4) and C at (6,4) on the top base. Connect A to C and B to D with diagonals, and label their intersection point as E.",
+  "correct_answer": "B",
+  "answer_value": "$3:2$",
+  "explanation": "Step 1: In a trapezoid with $AB \\parallel CD$, the diagonals intersect at $E$ and satisfy a proportionality between the segments: $\\frac{AE}{CE} = \\frac{AB}{CD}$.\n\nJustification (via similarity): Consider triangles $AEB$ and $CED$. Since $AB \\parallel CD$, corresponding angles formed with line $BE$ are equal, and the angle at $E$ is common; hence triangles $AEB$ and $CED$ are similar by AA. Therefore $\\frac{AE}{CE} = \\frac{AB}{CD}$.\n\nStep 2: Compute base lengths: $AB = 9$, $CD = 6$.\n\nStep 3: Hence $\\frac{AE}{EC} = \\frac{AB}{CD} = \\frac{9}{6} = \\frac{3}{2}$, so $AE:EC = 3:2$.\n\nStep 4: Coordinate check (optional): Parametrize $AC$ by $A + t(C-A) = (6t, 4t)$, $0 \\le t \\le 1$. Parametrize $BD$ by $B + s(D-B) = (9-9s, 4s)$, $0 \\le s \\le 1$.\nSet equal: $6t = 9-9s$ and $4t = 4s$. From $4t = 4s$, we have $t = s$. Substituting gives $6t = 9 - 9t$, so $15t = 9$, hence $t = \\frac{3}{5}$.\nOn $AC$, $AE:EC = t:(1-t) = \\frac{3}{5}:\\frac{2}{5} = 3:2$."
+}

@@ -1,0 +1,14 @@
+{
+  "timestamp": "20251123_113515",
+  "question": "In the diagram, right triangle ABC has A at the origin, B on the x-axis, and C on the y-axis with coordinates A(0,0), B(8,0), C(0,6). Points D and E lie on AB and AC respectively with AD = 2 and AE = 3, and line DE is drawn. What is the area of quadrilateral BDEC?",
+  "choices": [
+    "A) 3",
+    "B) 12",
+    "C) 21",
+    "D) 24"
+  ],
+  "diagram_description": "Draw coordinate plane with x- and y-axes. Label A at (0,0). Plot B at (8,0) on the x-axis and C at (0,6) on the y-axis, connecting AB, AC, and BC to form right triangle ABC with right angle at A. On AB place D so that AD = 2, giving D at (2,0). On AC place E so that AE = 3, giving E at (0,3). Draw segment DE. Label coordinates for A(0,0), B(8,0), C(0,6), D(2,0), E(0,3).",
+  "correct_answer": "C",
+  "answer_value": "$21$",
+  "explanation": "Let $A=(0,0)$, $B=(8,0)$, $C=(0,6)$. Then $AB=8$ and $AC=6$, so the area of triangle $ABC$ is $$[ABC]=\tfrac{1}{2}\times AB \times AC=\tfrac{1}{2}\times 8 \times 6=24.$$ Point $D$ lies on $AB$ with $AD=2$, so $D=(2,0)$. Point $E$ lies on $AC$ with $AE=3$, so $E=(0,3)$. Triangle $ADE$ is right-angled at $A$ with legs $AD$ and $AE$, so its area is $$[ADE]=\tfrac{1}{2}\times AD \times AE=\tfrac{1}{2}\times 2 \times 3=3.$$ The segment $DE$ partitions triangle $ABC$ into triangle $ADE$ and quadrilateral $BDEC$, so the desired area is the difference: $$[BDEC]=[ABC]-[ADE]=24-3=21.$$ Therefore, the correct choice is $\text{C}$."
+}

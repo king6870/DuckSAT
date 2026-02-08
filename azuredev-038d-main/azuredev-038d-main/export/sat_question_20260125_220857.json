@@ -1,0 +1,14 @@
+{
+  "timestamp": "20260125_220857",
+  "question": "In right triangle ABC with A at (0,0), B at (6,0), and C at (0,4), point D lies on AB with AD = 2. A line through D is drawn parallel to BC and intersects AC at E. What is the area of triangle ADE?",
+  "choices": [
+    "A) 4/3",
+    "B) 2",
+    "C) 8/3",
+    "D) 4"
+  ],
+  "diagram_description": "Draw right triangle ABC with A at (0,0). Place B at (6,0) on the x-axis and C at (0,4) on the y-axis, so AB is horizontal and AC is vertical. Label point D on AB such that AD = 2 (so D is at (2,0)). Draw line BC between B(6,0) and C(0,4). Through D(2,0) draw a line parallel to BC; let this line intersect AC at E. Label E on AC where the line meets.",
+  "correct_answer": "A",
+  "answer_value": "$\\\\frac{4}{3}$",
+  "explanation": "Step 1: In triangle $ABC$ with $A=(0,0)$, $B=(6,0)$, $C=(0,4)$, note that $AB$ lies on the $x$-axis and $AC$ lies on the $y$-axis. Since $AD=2$, the point $D$ on $AB$ is $D=(2,0)$.\nStep 2: The slope of $BC$ is $m_{BC}=\\frac{4-0}{0-6}=-\\frac{2}{3}$.\nStep 3: A line through $D$ parallel to $BC$ has the same slope, so its equation is $y = m_{BC}(x-2) = -\\frac{2}{3}(x-2)$.\nStep 4: Intersect this line with $AC$ (which is the line $x=0$). At $x=0$, $y = -\\frac{2}{3}(-2) = \\frac{4}{3}$, hence $E=(0,\\frac{4}{3})$.\nStep 5: The triangle $ADE$ has vertices $A=(0,0)$, $D=(2,0)$, $E=(0,\\frac{4}{3})$, so its legs along the $x$- and $y$-axes have lengths $AD=2$ and $AE=\\frac{4}{3}$, and the angle at $A$ is a right angle.\nStep 6: The area is $[ADE]=\\tfrac{1}{2}\\,AD\\,AE=\\tfrac{1}{2}\\cdot 2\\cdot \\tfrac{4}{3}=\\tfrac{4}{3}$.\nTherefore the correct choice is $A$ and the area is $\\tfrac{4}{3}$."
+}

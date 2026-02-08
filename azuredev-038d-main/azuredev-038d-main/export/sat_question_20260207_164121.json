@@ -1,0 +1,14 @@
+{
+  "timestamp": "20260207_164121",
+  "question": "In the diagram, triangle ABC is a right triangle with a right angle at B. The coordinates are A(-4,0), B(0,0), and C(0,6). A bar chart beside the triangle displays the lengths of sides AB, BC, and AC. Based on the diagram, what is the area of triangle ABC?",
+  "choices": [
+    "A) 12",
+    "B) 14",
+    "C) 18",
+    "D) 24"
+  ],
+  "diagram_description": "Draw triangle ABC with A(-4,0), B(0,0), C(0,6). Mark a right angle at B. Label side AB with length 4, side BC with length 6, and hypotenuse AC with length sqrt(52). Place a bar chart to the right of the triangle with three bars labeled AB, BC, AC and heights corresponding to 4, 6, and sqrt(52), respectively. Ensure axes marks and scale reflect the stated lengths, and clearly show the labels.",
+  "correct_answer": "A",
+  "answer_value": "$12$",
+  "explanation": "Since \\(\\angle B\\) is the right angle, \\(AB\\) and \\(BC\\) are the legs of triangle \\(ABC\\). Compute their lengths from the coordinates: \\\\(AB = \\sqrt{(-4 - 0)^2 + (0 - 0)^2} = \\sqrt{(-4)^2 + 0^2} = \\sqrt{16} = 4.\\\\\nBC = \\sqrt{(0 - 0)^2 + (0 - 6)^2} = \\sqrt{0^2 + (-6)^2} = \\sqrt{36} = 6.\\\\\nFor a right triangle, the area is \\(A = \\tfrac{1}{2} \\cdot AB \\cdot BC\\). Thus \\\\(A = \\tfrac{1}{2} \\cdot 4 \\cdot 6 = 12.\\\\\nThus the correct choice is \\(A\\) and the area is \\(12\\)."
+}

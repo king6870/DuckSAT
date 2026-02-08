@@ -1,0 +1,10 @@
+{
+  "is_geometrically_valid": true,
+  "is_question_diagram_match": true,
+  "is_solvable": true,
+  "is_terminology_correct": true,
+  "critical_errors": [],
+  "warnings": [],
+  "validation_details": "Check 1 (Geometric validity): The given coordinates form a valid right triangle ABC with A(0,0), B(6,0), C(0,4). AB is horizontal, AC is vertical, and BC is the hypotenuse with slope -2/3. Point D lies on AB with AD = 2, so D = (2,0). A line through D parallel to BC has slope -2/3 and intersects AC (x = 0) at E = (0, 4/3). Points A, D, and E are non-collinear, so triangle ADE is well-defined. The problem asks for the area of triangle ADE, which is computable via base AD = 2 and height from E to AD (y-coordinate of E) = 4/3, yielding area = (1/2)(2)(4/3) = 4/3. All steps are consistent and non-contradictory.\n\nCheck 2 (Question-diagram match): The narrative mentions A, B, C, D on AB with AD = 2, a line through D parallel to BC intersecting AC at E, and the area of triangle ADE. The described diagram in the prompt matches these elements: A at origin, B on the x-axis, C on the y-axis, D on AB with AD = 2, a line through D parallel to BC meeting AC at E. Coordinates are consistent with the description, and E lies on segment AC (0 ≤ y ≤ 4). No mismatches between labeled points and problem statements.\n\nCheck 3 (Solvability): There is enough information: coordinates fix A, B, C; D is determined; E is the intersection of a line through D parallel to BC with AC; all three points ADE are non-collinear; the area is uniquely determined as 4/3. No contradictions or ambiguities exist.\n\nCheck 4 (Terminology accuracy): The problem uses standard geometric terms: right triangle ABC, point D on AB, line through D parallel to BC intersecting AC at E, area of triangle ADE. All terms are used correctly and refer to non-degenerate geometric objects.\n\nOverall verdict: The problem is geometrically valid, diagrammatically aligned with the statement, solvable with a unique answer, and uses correct terminology. There are no critical errors detected.",
+  "overall_status": "PASS"
+}

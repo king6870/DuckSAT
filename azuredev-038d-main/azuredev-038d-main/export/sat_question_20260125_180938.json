@@ -1,0 +1,14 @@
+{
+  "timestamp": "20260125_180938",
+  "question": "Refer to the bar chart showing counts for three categories labeled X, Y, and Z. If one item is chosen at random from all items represented, what is the probability that the item belongs to category Y?",
+  "choices": [
+    "A) 9/26",
+    "B) 5/26",
+    "C) 3/8",
+    "D) 6/13"
+  ],
+  "diagram_description": "Draw a bar chart with three bars labeled X, Y, Z on the horizontal axis. The vertical axis represents count. The height of bar X is 5, bar Y is 9, and bar Z is 12. Include the numbers 5, 9, and 12 at the tops of the respective bars or along the bars to indicate the counts. Label the axis with 'Count' on the vertical axis and the categories on the horizontal axis as X, Y, Z.",
+  "correct_answer": "A",
+  "answer_value": "$\\\\frac{9}{26}$",
+  "explanation": "Step 1: Let $N_X$, $N_Y$, and $N_Z$ denote the counts of items in categories $X$, $Y$, and $Z$, respectively. The probability that a randomly chosen item belongs to category $Y$ is given by the discrete probability formula\n$$P(Y) = \\frac{N_Y}{N_X + N_Y + N_Z}.$$\n\nStep 2: From the bar chart, the counts are (for example) $N_X = 7$, $N_Y = 9$, and $N_Z = 10$. The total number of items is\n$$N_X + N_Y + N_Z = 7 + 9 + 10 = 26.$$\n\nStep 3: Substitute into the probability formula:\n$$P(Y) = \\frac{N_Y}{N_X + N_Y + N_Z} = \\frac{9}{26}.$$ \n\nStep 4: Since $\\gcd(9,26) = 1$, the fraction is already in simplest terms. Therefore, the probability equals $\\frac{9}{26}$ and corresponds to option $A$."
+}

@@ -1,0 +1,11 @@
+SAT MATH QUESTION
+============================================================
+
+QUESTION:
+In the diagram, triangle ABC is a right triangle with a right angle at B. The coordinates are A(-4,0), B(0,0), and C(0,6). A bar chart beside the triangle displays the lengths of sides AB, BC, and AC. Based on the diagram, what is the area of triangle ABC?
+
+ANSWER CHOICES:
+  A) 12
+  B) 14
+  C) 18
+  D) 24

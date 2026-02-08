@@ -1,0 +1,10 @@
+{
+  "is_geometrically_valid": true,
+  "is_question_diagram_match": true,
+  "is_solvable": true,
+  "is_terminology_correct": true,
+  "critical_errors": [],
+  "warnings": [],
+  "validation_details": "Geometric validity: A(0,0), B(12,0), C(4,6) are non-collinear, forming triangle ABC. The altitude from C to AB is CD perpendicular to AB, with D on AB; since AB lies on y=0, CD is vertical and D = (4,0) lies between A and B, so triangle BCD is well-defined and non-degenerate. All given relationships (altitude, perpendicularity) are consistent. Question-diagram match: The diagram description places A, B on AB, C above the axis, and D on AB at the foot of the perpendicular from C; this aligns with the problem statement. Coordinates are consistent and correctly used to define all segments (AB, CD, BD, BC) referenced in the question. Solvability: The problem has enough information to compute area; no contradictions exist. Terminology accuracy: Terms such as altitude, perpendicular, triangle BCD, and AB are used correctly; D is the foot of the altitude, not a separate point outside the configuration. Overall, the problem is mathematically sound and well-posed.",
+  "overall_status": "PASS"
+}

@@ -1,0 +1,14 @@
+{
+  "timestamp": "20251122_170742",
+  "question": "In the coordinate plane, triangle ABC has vertices A(0,0), B(12,0), and C(4,6). The altitude from C to AB meets AB at D, with CD perpendicular to AB. What is the area of triangle BCD?",
+  "choices": [
+    "A) 18",
+    "B) 24",
+    "C) 28",
+    "D) 32"
+  ],
+  "diagram_description": "Draw triangle ABC with A at (0,0) and B at (12,0) on the x-axis; place C at (4,6) above the axis. Draw segment AB connecting A and B. From C, drop a perpendicular to AB and mark its intersection as point D on AB, with a right-angle symbol at D. Label the points A, B, C, and D.",
+  "correct_answer": "B",
+  "answer_value": "$24$",
+  "explanation": "Step 1: The line $AB$ lies on the $x$-axis, so $AB$ is the line $y=0$. The altitude from $C=(4,6)$ to $AB$ meets $AB$ at $D$. Since the altitude is perpendicular to $AB$, the foot has the same $x$-coordinate as $C$, hence $D=(4,0)$.\\nStep 2: With $B=(12,0)$, $D=(4,0)$, the base length is $|BD|=|12-4|=8$.\\nStep 3: The line $BD$ is $y=0$, so the height is the distance from $C=(4,6)$ to $y=0$, which is $|6-0|=6$.\\nStep 4: Area: $[ \\triangle BCD ] = \\frac{1}{2} \\cdot |BD| \\cdot h = \\frac{1}{2} \\cdot 8 \\cdot 6 = 24$.\\nThus the correct choice is $B$ and the answer value is $24$."
+}

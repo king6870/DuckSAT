@@ -1,0 +1,14 @@
+{
+  "timestamp": "20251122_082701",
+  "question": "In the coordinate plane, right triangle ABC has a right angle at A with AB = 8 and AC = 6. A square A D F E is drawn with vertex A at the right angle, with AD along AB, AE along AC, and the opposite vertex F on BC. What is the area of square ADEF?",
+  "choices": [
+    "A) 576/49",
+    "B) 288/49",
+    "C) 576/25",
+    "D) 432/49"
+  ],
+  "diagram_description": "Draw the right triangle ABC with A at (0,0), B at (8,0), C at (0,6). AB lies on the x-axis, AC lies on the y-axis, and angle A is 90 degrees. Draw segment BC. Construct square A-D-F-E with vertices in that order such that AD lies on AB, AE lies on AC, and the vertex F lies on BC; the four sides AD, DF, FE, and EA are equal in length. Point D is on AB, point E is on AC, and point F is on BC.",
+  "correct_answer": "A",
+  "answer_value": "$\\frac{576}{49}$",
+  "explanation": "Step 1: Place the right triangle on a coordinate plane. Let A = (0,0), AB lie along the x-axis with B = (8,0), and AC lie along the y-axis with C = (0,6). Then BC is the line from (8,0) to (0,6).\\n\\nStep 2: The square ADEF has A at the origin, AD along AB, and AE along AC. If the side length of the square is s, then\\n- D is at (s, 0) on AB, and\\n- E is at (0, s) on AC. The opposite vertex F is at (s, s).\\nThus, the square sits with sides parallel to the coordinate axes.\\n\\nStep 3: Since F lies on BC, the point (s, s) must satisfy the equation of line BC. The line BC passes through (8,0) and (0,6), so its slope is m = (6-0)/(0-8) = -3/4, and its equation is\\n\\[ y = -\\frac{3}{4}x + 6 \\] or equivalently \\(3x + 4y = 24\\).\\nSubstituting F(s, s) gives\\n\\[ 3s + 4s = 24 \\quad \\Rightarrow \\quad 7s = 24 \\quad \\Rightarrow \\quad s = \\frac{24}{7}. \\]\\\\n\\\\nStep 4: The area of square ADEF is s^2 = (24/7)^2 = 576/49.\\n\\nAnswer: A, with area $\\frac{576}{49}$."
+}

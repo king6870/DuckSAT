@@ -1,0 +1,14 @@
+{
+  "timestamp": "20251122_125907",
+  "question": "In triangle ABC, AB = AC = 6 and BC = 8. An altitude AD is drawn to BC. What is the measure of angle ABC?",
+  "choices": [
+    "A) 48.2°",
+    "B) 60°",
+    "C) 41.0°",
+    "D) 36.0°"
+  ],
+  "diagram_description": "Draw triangle ABC with BC horizontal and length 8. Place B at (-4,0) and C at (4,0). Place A on the perpendicular bisector of BC so that AB = AC = 6 (for example at (0, sqrt(20))). Connect AB, AC, and BC. Draw altitude AD from A to BC, meeting BC at D, with AD perpendicular to BC. Label AB and AC with 6, label BC with 8, and mark a right angle at D.",
+  "correct_answer": "A",
+  "answer_value": "$48.2^\\\\circ$",
+  "explanation": "Let $D$ be the foot of the altitude from $A$ to $BC$. Since $AB = AC$, triangle $ABC$ is isosceles with base $BC$, so $D$ is the midpoint of $BC$. Thus $BD = DC = \\frac{BC}{2} = \\frac{8}{2} = 4$. In right triangle $ABD$ (right angle at $D$), $AB^{2} = AD^{2} + BD^{2}$, so $AD^{2} = AB^{2} - BD^{2} = 6^{2} - 4^{2} = 36 - 16 = 20$, hence $AD = \\sqrt{20} = 2\\sqrt{5}$. In triangle $ABD$, angle $ABC$ corresponds to angle $ABD$, and $\\tan(\\angle ABC) = \\frac{AD}{BD} = \\frac{2\\sqrt{5}}{4} = \\frac{\\sqrt{5}}{2}$. Therefore $\\angle ABC = \\arctan\\left(\\frac{\\sqrt{5}}{2}\\right) \\approx 48.2^{\\circ}$. Thus the correct choice is $A$."
+}

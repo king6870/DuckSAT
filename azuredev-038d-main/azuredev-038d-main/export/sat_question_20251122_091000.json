@@ -1,0 +1,14 @@
+{
+  "timestamp": "20251122_091000",
+  "question": "In the circle shown, AB is a diameter of length 10. A chord CD is drawn parallel to AB and has length 6. What is the distance between the lines AB and CD?",
+  "choices": [
+    "A) 2",
+    "B) 3",
+    "C) 4",
+    "D) 5"
+  ],
+  "diagram_description": "Draw a circle with center O. Draw a horizontal diameter AB through O with endpoints A on the left and B on the right; label AB = 10. Draw a chord CD parallel to AB located above AB on the circle; label CD = 6, with C on the left side and D on the right side of the circle. Ensure AB and CD are parallel.",
+  "correct_answer": "C",
+  "answer_value": 4,
+  "explanation": "Step 1: Identify the circle's radius. Since AB is a diameter of length 10, the radius is $R = \\frac{10}{2} = 5$. \n\nStep 2: Let the center of the circle be $O$, and let $d$ be the perpendicular distance from $O$ to the chord $CD$. Because $AB$ and $CD$ are parallel, the distance between the lines $AB$ and $CD$ equals $d$.\n\nStep 3: Use the chord-length relation. For a chord of length $L$ at a distance $d$ from the center of a circle of radius $R$, we have\n$$L = 2\\sqrt{R^2 - d^2}.$$\nWith $L = 6$ and $R = 5$, this gives\n$$6 = 2\\sqrt{5^2 - d^2} \\quad\\Rightarrow\\quad 3 = \\sqrt{25 - d^2}.$$ \nSquaring both sides yields\n$$9 = 25 - d^2 \\quad\\Rightarrow\\quad d^2 = 16 \\quad\\Rightarrow\\quad d = 4.$$ \n\nStep 4: The distance between the parallel lines $AB$ and $CD$ is $d = 4$.\n\nAnswer: The distance is $4$, so the correct choice is C."
+}
