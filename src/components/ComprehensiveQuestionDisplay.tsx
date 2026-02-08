@@ -18,6 +18,8 @@ interface QuestionData {
   subtopic: string
   chartData?: Record<string, unknown> | null
   imageUrl?: string
+  imageData?: string
+  imageMimeType?: string
   imageAlt?: string
   timeEstimate: number
   source: string
@@ -75,11 +77,13 @@ export default function ComprehensiveQuestionDisplay({
       )}
 
       {/* Chart/Image */}
-      {(question.chartData || question.imageUrl) && question.chartData && (
+      {(question.chartData || question.imageUrl || question.imageData) && (
         <div className="mb-6">
           <ChartRenderer 
-            chartData={question.chartData as Record<string, unknown>}
+            chartData={question.chartData || {} as Record<string, unknown>}
             imageUrl={question.imageUrl}
+            imageData={question.imageData}
+            imageMimeType={question.imageMimeType}
             imageAlt={question.imageAlt}
             className="mb-4"
           />
