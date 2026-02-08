@@ -1,0 +1,37 @@
+{
+  "id": "question-024",
+  "timestamp": "20260125_221212",
+  "question": "In the diagram, triangle ABC is drawn on a coordinate plane with A at the origin, B on the x-axis at x = 6, and C on the y-axis at y = 8. A point P is located at (2, 3). Lines AP, BP, and CP are drawn. Based on the diagram, what is the area of triangle ABP?",
+  "choices": [
+    "A) 9",
+    "B) 12",
+    "C) 15",
+    "D) 18"
+  ],
+  "correctAnswer": "A",
+  "correctAnswerIndex": 0,
+  "answerValue": "$9$",
+  "explanation": "Let $A = (0,0)$, $B = (6,0)$, and $P = (2,3)$. \n\nSince $A$ and $B$ lie on the x-axis, the base of triangle $ABP$ can be taken as $|AB|$, and the height is the perpendicular distance from $P$ to the line $AB$, which in this case is simply the absolute value of the $y$-coordinate of $P$, i.e. $|y_P|$. \n\nCompute the base: \n$|AB| = \\sqrt{(6-0)^2 + (0-0)^2} = \\sqrt{36} = 6$. \n\nHeight: $\\text{height} = |y_P| = |3| = 3$. \n\nArea: \n$[ABP] = \\dfrac{1}{2} \\cdot |AB| \\cdot \\text{height} = \\dfrac{1}{2} \\cdot 6 \\cdot 3 = 9$. \n\n(Alternative method: using the determinant formula for area with coordinates, $[ABP] = \\dfrac{1}{2} \\left| \\det(\\overrightarrow{AB}, \\overrightarrow{AP}) \\right|$, where $\\overrightarrow{AB} = (6,0)$ and $\\overrightarrow{AP} = (2,3)$; thus $[ABP] = \\dfrac{1}{2} |6\\cdot 3 - 0\\cdot 2| = 9$.)",
+  "diagramDescription": "Draw a coordinate plane with labeled axes x and y. Mark A at (0,0). Mark B at (6,0) on the x-axis. Mark C at (0,8) on the y-axis. Connect A-B-C to form triangle ABC with sides along the axes. Place P at (2,3) inside the triangle. Draw segments AP, BP, and CP.",
+  "hasDiagram": true,
+  "moduleType": "math",
+  "category": "geometry",
+  "subtopic": "triangles",
+  "difficulty": "medium",
+  "timeEstimate": 90,
+  "source": "Azure OpenAI GPT-4",
+  "tags": [
+    "math",
+    "geometry",
+    "area",
+    "AI-generated"
+  ],
+  "validation": {
+    "status": "PASS",
+    "warnings": []
+  },
+  "verification": {
+    "qualityScore": 9,
+    "recommendation": "approve"
+  }
+}

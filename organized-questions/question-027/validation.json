@@ -1,0 +1,10 @@
+{
+  "is_geometrically_valid": true,
+  "is_question_diagram_match": true,
+  "is_solvable": true,
+  "is_terminology_correct": true,
+  "critical_errors": [],
+  "warnings": [],
+  "validation_details": "Validation steps performed: 1) Geometric setup checked: AB is from (0,0) to (9,0) and CD from (0,4) to (6,4); both are horizontal, so AB ∥ CD. The vertices A(0,0), B(9,0), C(6,4), D(0,4) form a simple trapezoid with left leg AD along x = 0 and right leg BC from (9,0) to (6,4). 2) Diagonals AC and BD intersect at E; compute intersection: parametrize AC as A + t(C−A) = (6t, 4t) and BD as B + s(D−B) = (9−9s, 4s). Equating gives t = s and 6t = 9 − 9t, hence 15t = 9 and t = 3/5. Therefore E = (18/5, 12/5). 3) Ratio AE:EC on AC is t:(1−t) = (3/5):(2/5) = 3:2, so AE:EC = 3:2. 4) Intersection E lies inside the trapezoid, consistent with a typical convex trapezoid. 5) Diagram description matches the problem: A and B on the bottom base, D and C on the top base, diagonals AC and BD drawn with intersection E labeled. 6) No ambiguous or contradictory constraints; problem is well-defined and solvable.",
+  "overall_status": "PASS"
+}

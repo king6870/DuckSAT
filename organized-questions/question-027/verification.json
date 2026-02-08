@@ -1,0 +1,8 @@
+{
+  "is_valid": true,
+  "is_answer_correct": true,
+  "quality_score": 9,
+  "issues_found": [],
+  "verification_notes": "The problem is well-posed: A(0,0), B(9,0), C(6,4), D(0,4) defines a trapezoid with AB ∥ CD. The diagonals AC and BD intersect at E. In a trapezoid, AE/CE = AB/CD holds because triangles ABE and CDE are similar (AB ∥ CD and BE is the common diagonal BD; angle ABE equals CDE, and angle AEB equals CED since both are formed by the same pair of lines AC and BD). With AB = 9 and CD = 6, AE/CE = 9/6 = 3/2, giving AE:EC = 3:2. A coordinate check by parameterizing AC and BD also yields t = 3/5 along AC, hence AE:EC = 3:2. All answer choices are reasonable, and the correct choice is B.",
+  "recommendation": "approve"
+}

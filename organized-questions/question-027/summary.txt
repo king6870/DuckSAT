@@ -1,0 +1,55 @@
+======================================================================
+SAT MATH QUESTION - COMPLETE SUMMARY
+Generated: 2026-01-26 11:31:21
+======================================================================
+
+QUESTION:
+----------------------------------------------------------------------
+In trapezoid ABCD, AB ∥ CD with vertices A(0,0), B(9,0), C(6,4), and D(0,4). The diagonals AC and BD intersect at E. Which of the following is the ratio AE:EC?
+
+ANSWER CHOICES:
+----------------------------------------------------------------------
+A) 1:1
+B) 3:2
+C) 2:3
+D) 4:3
+
+CORRECT ANSWER:
+----------------------------------------------------------------------
+B) $3:2$
+
+EXPLANATION:
+----------------------------------------------------------------------
+Step 1: In a trapezoid with $AB \parallel CD$, the diagonals intersect at $E$ and satisfy a proportionality between the segments: $\frac{AE}{CE} = \frac{AB}{CD}$.
+
+Justification (via similarity): Consider triangles $AEB$ and $CED$. Since $AB \parallel CD$, corresponding angles formed with line $BE$ are equal, and the angle at $E$ is common; hence triangles $AEB$ and $CED$ are similar by AA. Therefore $\frac{AE}{CE} = \frac{AB}{CD}$.
+
+Step 2: Compute base lengths: $AB = 9$, $CD = 6$.
+
+Step 3: Hence $\frac{AE}{EC} = \frac{AB}{CD} = \frac{9}{6} = \frac{3}{2}$, so $AE:EC = 3:2$.
+
+Step 4: Coordinate check (optional): Parametrize $AC$ by $A + t(C-A) = (6t, 4t)$, $0 \le t \le 1$. Parametrize $BD$ by $B + s(D-B) = (9-9s, 4s)$, $0 \le s \le 1$.
+Set equal: $6t = 9-9s$ and $4t = 4s$. From $4t = 4s$, we have $t = s$. Substituting gives $6t = 9 - 9t$, so $15t = 9$, hence $t = \frac{3}{5}$.
+On $AC$, $AE:EC = t:(1-t) = \frac{3}{5}:\frac{2}{5} = 3:2$.
+
+TECHNICAL VALIDATION:
+----------------------------------------------------------------------
+Overall Status: PASS
+Geometrically Valid: True
+Question-Diagram Match: True
+Solvable: True
+Terminology Correct: True
+
+QUALITY VERIFICATION:
+----------------------------------------------------------------------
+Quality Score: 9/10
+Answer Correct: True
+Recommendation: APPROVE
+
+FILES GENERATED:
+----------------------------------------------------------------------
+- sat_diagram_20260126_113121.png (diagram image)
+- sat_question_20260126_113121.json (complete question data)
+- sat_validation_20260126_113121.json (technical validation)
+- sat_verification_20260126_113121.json (quality verification)
+- sat_summary_20260126_113121.txt (this summary)

@@ -1,0 +1,39 @@
+{
+  "id": "question-008",
+  "timestamp": "20251122_131531",
+  "question": "In triangle ABC, angle ABC is a right angle. The legs AB and BC have lengths 6 and 8, respectively, and the hypotenuse AC has length 10. A perpendicular from B to AC meets AC at D. What is the length of BD?",
+  "choices": [
+    "A) 4.5",
+    "B) 4.8",
+    "C) 5.0",
+    "D) 4.2"
+  ],
+  "correctAnswer": "B",
+  "correctAnswerIndex": 1,
+  "answerValue": "$\\\\frac{24}{5}$",
+  "explanation": "Step 1: In triangle $\\\\triangle ABC$ with the right angle at $B$, we have $AB = 6$, $BC = 8$, and $AC = 10$. Step 2: Let $D$ be the foot of the perpendicular from $B$ to $AC$. Then $BD$ is the altitude to the hypotenuse. Step 3: Compute the area of $\\\\triangle ABC$ in two ways: Using the legs: $\\\\text{Area} = \\\\frac{1}{2} \\\\cdot AB \\\\cdot BC = \\\\frac{1}{2} \\\\cdot 6 \\\\cdot 8 = 24$. Using the hypotenuse: $\\\\text{Area} = \\\\frac{1}{2} \\\\cdot AC \\\\cdot BD = \\\\frac{1}{2} \\\\cdot 10 \\\\cdot BD = 5 \\\\cdot BD$. Step 4: Equate the two expressions: $24 = 5 \\\\cdot BD$, hence $BD = \\\\frac{24}{5} = 4.8$. Step 5: Alternatively, using the standard altitude-to-hypotenuse formula: $BD = \\\\frac{AB \\\\cdot BC}{AC} = \\\\frac{6 \\\\cdot 8}{10} = \\\\frac{24}{5}$. Conclusion: The correct choice is $\\\\textbf{B}$, and $BD = \\\\frac{24}{5}$.",
+  "diagramDescription": "Draw triangle ABC with a right angle at B. Place AB = 6 and BC = 8 so that AC = 10 is the hypotenuse. Draw the altitude BD from B to the hypotenuse AC, meeting AC at point D. Label the vertices A, B, C, and D, and indicate on the sides AB = 6, BC = 8, and AC = 10.",
+  "hasDiagram": true,
+  "moduleType": "math",
+  "category": "geometry",
+  "subtopic": "triangles",
+  "difficulty": "medium",
+  "timeEstimate": 90,
+  "source": "Azure OpenAI GPT-4",
+  "tags": [
+    "math",
+    "geometry",
+    "altitude",
+    "AI-generated"
+  ],
+  "validation": {
+    "status": "PASS",
+    "warnings": [
+      "BD length is given as a decimal (4.8). An exact fractional form (24/5) is often preferred for exactness in geometry problems."
+    ]
+  },
+  "verification": {
+    "qualityScore": 9,
+    "recommendation": "approve"
+  }
+}

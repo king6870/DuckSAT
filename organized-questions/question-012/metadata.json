@@ -1,0 +1,37 @@
+{
+  "id": "question-012",
+  "timestamp": "20251122_194206",
+  "question": "In the bar chart below, bars A, B, C, and D have heights corresponding to the values shown. What fraction of the total height is represented by bars C and D? Express your answer as a fraction in simplest form.",
+  "choices": [
+    "A) 7/25",
+    "B) 14/25",
+    "C) 13/25",
+    "D) 9/25"
+  ],
+  "correctAnswer": "N/A",
+  "correctAnswerIndex": 0,
+  "answerValue": "$\\frac{C+D}{A+B+C+D}$",
+  "explanation": "The problem refers to a bar chart image, but the numerical heights of bars $A$, $B$, $C$, and $D$ are not provided in the text. To determine the fraction of the total height represented by bars $C$ and $D$, follow these steps if the chart values are known:\n\n1) Denote the heights of the bars as $A$, $B$, $C$, and $D$.\n2) Compute the total height: $T = A + B + C + D$.\n3) The combined height of bars $C$ and $D$ is $C + D$.\n4) The fraction of the total height represented by bars $C$ and $D$ is $$\\frac{C+D}{T} = \\frac{C+D}{A+B+C+D}.$$\n5) Reduce the fraction to simplest terms by dividing numerator and denominator by their greatest common divisor: if $g = \\gcd(C+D, A+B+C+D)$, then the reduced fraction is $$\\frac{\\frac{C+D}{g}}{\\frac{A+B+C+D}{g}}.$$ \n6) Compare the resulting fraction to the provided answer choices: $$\\left\\{\\frac{7}{25}, \\frac{14}{25}, \\frac{13}{25}, \\frac{9}{25}\\right\\}.$$ The corresponding letter (A, B, C, or D) would be the correct choice.\n\nIf you can supply the actual numerical heights from the chart, I can substitute them into the steps above and produce a complete, step-by-step solution with the final answer in the required format.",
+  "diagramDescription": "Draw a vertical bar chart with four bars labeled A, B, C, D. The heights are A = 4, B = 7, C = 9, D = 5 (in units). Include a vertical axis labeled 'Value' with tick marks at integer values from 0 to at least 10 and a horizontal axis labeling the four bars A, B, C, D. Show exactly the four bars with the specified heights.",
+  "hasDiagram": true,
+  "moduleType": "reading-writing",
+  "category": "reading-comprehension",
+  "difficulty": "medium",
+  "timeEstimate": 90,
+  "source": "Azure OpenAI GPT-4",
+  "tags": [
+    "reading-writing",
+    "reading-comprehension",
+    "AI-generated"
+  ],
+  "validation": {
+    "status": "PASS",
+    "warnings": [
+      "The phrasing 'total height' in a bar chart is somewhat unusual since bars are independent categories; however, interpreting it as the sum of all bar heights (A+B+C+D) is reasonable and common in data-interpretation problems."
+    ]
+  },
+  "verification": {
+    "qualityScore": 4,
+    "recommendation": "revise"
+  }
+}

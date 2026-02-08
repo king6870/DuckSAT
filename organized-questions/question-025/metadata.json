@@ -1,0 +1,37 @@
+{
+  "id": "question-025",
+  "timestamp": "20260125_221513",
+  "question": "From the bar chart for categories A, B, C, and D, determine the mean value of the four categories.",
+  "choices": [
+    "A) 7",
+    "B) 8",
+    "C) 8.5",
+    "D) 9"
+  ],
+  "correctAnswer": "Cannot determine from data provided",
+  "correctAnswerIndex": 2,
+  "answerValue": "$\\\\text{N/A}$",
+  "explanation": "Let the heights of the bars for categories $A$, $B$, $C$, and $D$ be $a$, $b$, $c$, and $d$, respectively. The mean (average) of the four category values is $$\\bar{x} = \\frac{a + b + c + d}{4}.$$ Since the problem statement does not supply the actual numerical heights from the bar chart, we cannot compute a numeric value for the mean or select one of the choices $A$, $B$, $C$, or $D$. To solve once the chart data is known, read off the four heights, compute their sum, and divide by four. For example, if the chart gave $a = 6$, $b = 8$, $c = 9$, $d = 7$, then $$\\bar{x} = \\frac{6 + 8 + 9 + 7}{4} = \\frac{30}{4} = 7.5,$$ which would not match any of the provided options. The general method is: $$\\bar{x} = \\frac{a + b + c + d}{4}.$$",
+  "diagramDescription": "Bar chart with four vertical bars labeled A, B, C, D. Heights correspond to values: A = 5 units, B = 9 units, C = 11 units, D = 7 units. The y-axis is labeled 'Value (units)' and the bars are evenly spaced with uniform width.",
+  "hasDiagram": true,
+  "moduleType": "math",
+  "category": "data-analysis",
+  "difficulty": "medium",
+  "timeEstimate": 90,
+  "source": "Azure OpenAI GPT-4",
+  "tags": [
+    "math",
+    "data-analysis",
+    "AI-generated"
+  ],
+  "validation": {
+    "status": "PASS",
+    "warnings": [
+      "The diagram describes a bar chart without axis tick marks or a numerical scale; however, the problem provides explicit values for A, B, C, and D, so this does not impede solving."
+    ]
+  },
+  "verification": {
+    "qualityScore": 3,
+    "recommendation": "revise"
+  }
+}

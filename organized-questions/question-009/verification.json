@@ -1,0 +1,8 @@
+{
+  "is_valid": true,
+  "is_answer_correct": true,
+  "quality_score": 9,
+  "issues_found": [],
+  "verification_notes": "The question asks for the distance from P(2,0) to the line y = -x + 3. Converting to standard form: x + y - 3 = 0, so A=1, B=1, C=-3. Distance formula: d = |Ax0 + By0 + C| / sqrt(A^2 + B^2). Substitute: |1*2 + 1*0 - 3| / sqrt(1^2 + 1^2) = |2 - 3| / sqrt(2) = 1 / sqrt(2) = sqrt(2)/2. This matches option A. All steps are valid and consistent with the distance-from-a-point-to-line formula.",
+  "recommendation": "approve"
+}

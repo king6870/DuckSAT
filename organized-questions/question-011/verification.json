@@ -1,0 +1,8 @@
+{
+  "is_valid": true,
+  "is_answer_correct": true,
+  "quality_score": 9,
+  "issues_found": [],
+  "verification_notes": "The problem provides coordinates A(0,0), B(12,0), C(4,6). Since AB lies on the x-axis (y=0), the altitude from C to AB is perpendicular to AB, so CD is vertical and D has the same x-coordinate as C, giving D(4,0). The segment BD lies on AB, so its length is |BD| = 12 - 4 = 8. The base BD lies on y=0, so the height from C to BD is the distance from C(4,6) to y=0, which is 6. The area is (1/2) * base * height = (1/2) * 8 * 6 = 24. This matches choice B. All steps are mathematically sound and the answer is correctly determined. The question is clear, the data are sufficient, and the distractors are plausible.",
+  "recommendation": "approve"
+}

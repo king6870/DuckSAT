@@ -51,15 +51,40 @@ Use the streamlined Jupyter notebook for AI-powered SAT question generation:
 
 **Run cells 1→2→3→4→5 in order.**
 
+## Question Import System
+
+Import generated questions into the database with 3 simple commands:
+
+```bash
+npm run questions:organize   # Organize export files into structured folders
+npm run questions:import     # Import questions to database
+npm run questions:verify     # Verify import succeeded
+```
+
+**Complete Guide:** See [USAGE_GUIDE.md](USAGE_GUIDE.md) for detailed instructions.
+
+**Documentation:**
+- [Usage Guide](USAGE_GUIDE.md) - Step-by-step workflows
+- [Scripts Documentation](scripts/README.md) - Technical details
+- [Full Specification](SPECS/QUESTION_IMPORT_SPEC.md) - Complete system design
+
 ## Available Scripts
 
+### Development
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run start` - Start production server
+
+### Database
 - `npm run db:migrate` - Run database migrations
 - `npm run db:seed` - Seed database with initial data
 - `npm run db:studio` - Open Prisma Studio
-- `npm run db:import` - Import generated questions from JSON
+
+### Question Management
+- `npm run questions:organize` - Organize export questions into folders
+- `npm run questions:import` - Import organized questions to database
+- `npm run questions:verify` - Verify imported questions
+- `npm run db:import` - Import generated questions from JSON (legacy)
 - `npm run generate:questions` - Bulk generate questions (TypeScript)
 - `npm run generate:images` - Generate images for existing questions
 

@@ -1,0 +1,38 @@
+{
+  "id": "question-005",
+  "timestamp": "20251122_100407",
+  "question": "In the coordinate plane, a right triangle is drawn with the right angle at A. A square is placed in the corner at A with sides along the legs of the triangle, and the far vertex of the square lies on the hypotenuse. Given B(8,0) and C(0,6) are the other two vertices of the triangle, what is the area of the inscribed square?",
+  "choices": [
+    "A) 576/49",
+    "B) 64/7",
+    "C) 36",
+    "D) 144/7"
+  ],
+  "correctAnswer": "A",
+  "correctAnswerIndex": 0,
+  "answerValue": "$\\frac{576}{49}$",
+  "explanation": "1) Let A be the right-angled vertex at the origin, so A = (0,0). Given B = (8,0) and C = (0,6), the hypotenuse BC is the line joining these points. The slope is m = \\frac{0-6}{8-0} = -\\frac{3}{4}, and using the y-intercept form with C gives the equation of BC as $$y = -\\frac{3}{4}x + 6.$$ \n2) A square is placed in the corner at A with sides along the legs (the x- and y-axes). If the side length is s, then the far vertex of the square is at (s, s). This point lies on the hypotenuse, so it must satisfy the line equation: $$s = -\\frac{3}{4}s + 6.$$ \n3) Solve for s: $$s + \\frac{3}{4}s = 6 \\quad\\Rightarrow\\quad \\frac{7}{4}s = 6 \\quad\\Rightarrow\\quad s = \\frac{24}{7}.$$\n4) The area of the inscribed square is A_{square} = s^2 = \\left(\\frac{24}{7}\\right)^2 = \\frac{576}{49}.$$ \n5) Therefore, the correct answer is choice A, and the area is $$\\frac{576}{49}.$$",
+  "diagramDescription": "Draw right triangle ABC with A at (0,0), B at (8,0), C at (0,6). Draw the square with vertex A at (0,0) and sides along AB and AC, so the other two square vertices lie on AB and AC at (s,0) and (0,s). The square's fourth vertex is at (s,s). Draw the hypotenuse BC connecting B(8,0) and C(0,6). Ensure the point (s,s) lies on BC.",
+  "hasDiagram": true,
+  "moduleType": "math",
+  "category": "geometry",
+  "subtopic": "triangles",
+  "difficulty": "medium",
+  "timeEstimate": 90,
+  "source": "Azure OpenAI GPT-4",
+  "tags": [
+    "math",
+    "geometry",
+    "right-triangle",
+    "area",
+    "AI-generated"
+  ],
+  "validation": {
+    "status": "PASS",
+    "warnings": []
+  },
+  "verification": {
+    "qualityScore": 9,
+    "recommendation": "approve"
+  }
+}

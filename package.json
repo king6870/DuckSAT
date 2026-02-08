@@ -16,7 +16,10 @@
         "db:studio": "prisma studio",
         "postinstall": "prisma generate",
         "generate:questions": "tsx scripts/generate-bulk-questions.ts",
-        "generate:images": "tsx scripts/generate-images-for-existing-questions.ts"
+        "generate:images": "tsx scripts/generate-images-for-existing-questions.ts",
+        "questions:organize": "tsx scripts/organize-export-questions.ts",
+        "questions:import": "tsx scripts/import-organized-questions.ts",
+        "questions:verify": "tsx scripts/verify-imported-questions.ts"
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.10.0",
