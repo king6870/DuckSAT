@@ -1,0 +1,39 @@
+{
+  "id": "question-020",
+  "timestamp": "20260125_175220",
+  "question": "In the coordinate plane, triangle ABC is right-angled at A with A(0,0), B(6,0), and C(0,8). A square is drawn with vertex at A and sides parallel to the axes, such that the opposite vertex lies on BC. What is the area of the square?",
+  "choices": [
+    "A) 576/49",
+    "B) 144/7",
+    "C) 64",
+    "D) 32"
+  ],
+  "correctAnswer": "A",
+  "correctAnswerIndex": 0,
+  "answerValue": "$\\\\frac{576}{49}$",
+  "explanation": "Let $A = (0,0)$, $B = (6,0)$, $C = (0,8)$. The line $BC$ has slope $m = \\\\frac{8-0}{0-6} = -\\\\frac{4}{3}$, and using point $B$, its equation is $y - 0 = -\\\\frac{4}{3}(x - 6)$, so $y = -\\\\frac{4}{3}x + 8$. A square with a vertex at $A$ and sides parallel to the axes has vertices at $A = (0,0)$, $(s,0)$, $(0,s)$, and the opposite vertex at $(s,s)$. Since the opposite vertex lies on $BC$, the point $(s,s)$ satisfies the line equation: $s = -\\\\frac{4}{3}s + 8$. Solving: $s + \\\\\\frac{4}{3}s = 8 \\\\Rightarrow \\\\\\frac{7}{3}s = 8 \\\\\\Rightarrow s = \\\\\\frac{24}{7}$. The area is $s^{2} = \\\\\\left(\\\\frac{24}{7}\\\\right)^{2} = \\\\\\frac{576}{49}$. Therefore the correct choice is $A$.",
+  "diagramDescription": "Draw coordinate plane. Plot A(0,0), B(6,0), and C(0,8). Draw AB along the x-axis from (0,0) to (6,0) and AC along the y-axis from (0,0) to (0,8). Draw the line segment BC from (6,0) to (0,8). Construct a square A E F G with vertex A at (0,0), with E on AB and F on AC, such that AE equals AF and the side AE is along AB and AF along AC, so that the opposite vertex G lies on BC. Label E on AB, F on AC, and G on BC.",
+  "hasDiagram": true,
+  "moduleType": "math",
+  "category": "geometry",
+  "subtopic": "triangles",
+  "difficulty": "medium",
+  "timeEstimate": 90,
+  "source": "Azure OpenAI GPT-4",
+  "tags": [
+    "math",
+    "geometry",
+    "area",
+    "AI-generated"
+  ],
+  "validation": {
+    "status": "PASS",
+    "warnings": [
+      "No issues detected. The diagram description is consistent with the problem statement. The square's side length is rational (24/7) and yields a valid position for E on AB (0 ≤ x ≤ 6) and F on AC (0 ≤ y ≤ 8)."
+    ]
+  },
+  "verification": {
+    "qualityScore": 9,
+    "recommendation": "approve"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "question-004",
+  "timestamp": "20251122_094608",
+  "question": "In the diagram below, a circle with center O at the origin and radius 5 is intersected by the vertical line x = 4 at points P and Q. What is the length of chord PQ?",
+  "choices": [
+    "A) 6",
+    "B) 4",
+    "C) 8",
+    "D) 10"
+  ],
+  "correctAnswer": "A",
+  "correctAnswerIndex": 0,
+  "answerValue": "6",
+  "explanation": "Step 1: The circle with center at the origin and radius 5 has equation $x^2 + y^2 = 25$. Step 2: The vertical line is $x = 4$, which is at distance $d = 4$ from the center. Step 3: Intersecting the line with the circle: $4^2 + y^2 = 25 \\Rightarrow y^2 = 9$, so the intersection points are $P(4,3)$ and $Q(4,-3)$. Step 4: The chord length $PQ$ is the distance between these points: $$|PQ| = \\sqrt{(4-4)^2 + (3-(-3))^2} = \\sqrt{0 + 36} = 6.$$ Alternatively, using the chord-length formula for a circle of radius $R$ cut by a line at distance $d$ from the center, $L = 2\\sqrt{R^2 - d^2}$, with $R = 5$ and $d = 4$, we get $$L = 2\\sqrt{25 - 16} = 2\\sqrt{9} = 6.$$ Therefore, the correct choice is A.",
+  "diagramDescription": "Draw a circle centered at O(0,0) with radius 5. Draw the vertical line x = 4, which intersects the circle at two points. Label the intersection points P and Q. Label the center O. Show coordinate axes for reference.",
+  "hasDiagram": true,
+  "moduleType": "math",
+  "category": "geometry",
+  "subtopic": "circles",
+  "difficulty": "medium",
+  "timeEstimate": 90,
+  "source": "Azure OpenAI GPT-4",
+  "tags": [
+    "math",
+    "geometry",
+    "AI-generated"
+  ],
+  "validation": {
+    "status": "PASS",
+    "warnings": []
+  },
+  "verification": {
+    "qualityScore": 9,
+    "recommendation": "approve"
+  }
+}

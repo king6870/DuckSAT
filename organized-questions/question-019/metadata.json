@@ -1,0 +1,41 @@
+{
+  "id": "question-019",
+  "timestamp": "20260125_174516",
+  "question": "In the coordinate plane, a right triangle has vertices at (0,0), (8,0), and (0,6). A rectangle with sides parallel to the axes is inscribed in the triangle, with one vertex at the origin and the opposite vertex on the hypotenuse. What is the maximum possible area of such a rectangle?",
+  "choices": [
+    "A) 6",
+    "B) 12",
+    "C) 18",
+    "D) 24"
+  ],
+  "correctAnswer": "B",
+  "correctAnswerIndex": 1,
+  "answerValue": "12",
+  "explanation": "Let the rectangle have lower-left corner at $ (0,0) $ and its opposite corner at $ (x,y) $ on the hypotenuse. The hypotenuse is the line through $ (8,0) $ and $ (0,6) $, which has slope $ m = \\frac{6-0}{0-8} = -\\frac{3}{4} $ and equation $ y = -\\frac{3}{4}x + 6 $. Since the rectangle is axis-aligned, its area is $ A = x y $. Substituting $ y = 6 - \\frac{3}{4}x $ gives $ A(x) = x \\left(6 - \\frac{3}{4}x\\right) = 6x - \\frac{3}{4}x^2 $. Rewrite as a completed square: \n$ A(x) = -\\frac{3}{4}x^2 + 6x = -\\frac{3}{4}\\left(x^2 - 8x\\right) = -\\frac{3}{4}\\left[(x-4)^2 - 16\\right] = -\\frac{3}{4}(x-4)^2 + 12 $. \nTherefore the maximum occurs when $(x-4)^2 = 0$, i.e., $ x = 4 $, giving $ A = 12 $. The corresponding $ y $-coordinate is $ y = 6 - \\frac{3}{4}(4) = 3 $, so the rectangle has dimensions $ x = 4 $ and $ y = 3 $. Thus the maximum possible area is $ A = 12 $, which is choice B.",
+  "diagramDescription": "Draw a coordinate plane. Plot a right triangle with vertices at (0,0), (8,0), and (0,6). Draw the hypotenuse as the segment from (8,0) to (0,6). Inside the triangle, draw a rectangle with its lower-left corner at (0,0), sides parallel to the axes, and its upper-right corner at (x,y) that lies on the hypotenuse segment.",
+  "hasDiagram": true,
+  "moduleType": "math",
+  "category": "geometry",
+  "subtopic": "triangles",
+  "difficulty": "medium",
+  "timeEstimate": 90,
+  "source": "Azure OpenAI GPT-4",
+  "tags": [
+    "math",
+    "geometry",
+    "right-triangle",
+    "area",
+    "AI-generated"
+  ],
+  "validation": {
+    "status": "PASS",
+    "warnings": [
+      "No major issues. The rectangle indeed has vertices on the triangle boundary (0,0), (x,0) on the base, (0,y) on the left leg, and (x,y) on the hypotenuse, satisfying the definition of an inscribed rectangle.",
+      "The problem could be misread by some as requiring the rectangle to have all four sides on triangle sides; in fact only three sides/points lie on triangle boundaries (the lower and left legs and the hypotenuse at (x,y)). This is consistent with the given description."
+    ]
+  },
+  "verification": {
+    "qualityScore": 9,
+    "recommendation": "approve"
+  }
+}

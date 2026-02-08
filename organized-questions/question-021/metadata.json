@@ -1,0 +1,37 @@
+{
+  "id": "question-021",
+  "timestamp": "20260125_180001",
+  "question": "In the coordinate plane, triangle ABC has vertices A(0,0), B(6,0), and C(0,8). Point D lies on AB with AD = 4. A line through D is drawn parallel to BC and intersects AC at E. What is the area of triangle ADE?",
+  "choices": [
+    "A) 32/3",
+    "B) 16",
+    "C) 24",
+    "D) 8"
+  ],
+  "correctAnswer": "A",
+  "correctAnswerIndex": 0,
+  "answerValue": "$\\\\frac{32}{3}$",
+  "explanation": "Let $A=(0,0)$, $B=(6,0)$, $C=(0,8)$. Since $AD=4$ on segment $AB$ and $AB$ lies along the $x$-axis from $(0,0)$ to $(6,0)$, we have $D=(4,0)$. The slope of $BC$ is\n$$m_{BC}=\\frac{8-0}{0-6}= -\\frac{4}{3}.$$\nA line through $D$ parallel to $BC$ has slope $m=-\\frac{4}{3}$ and equation\n$$y-0 = m(x-4) \\quad\\Rightarrow\\quad y = -\\frac{4}{3}(x-4) = -\\frac{4}{3}x + \\frac{16}{3}.$$\nThe line $AC$ is the segment from $(0,0)$ to $(0,8)$, i.e. the line $x=0$. Intersecting with $x=0$ gives $E=(0,\\frac{16}{3})$. Thus the triangle $ADE$ has vertices $A=(0,0)$, $D=(4,0)$, $E=(0,\\frac{16}{3})$. Since $AD$ lies on the $x$-axis and $AE$ lies on the $y$-axis, angle $A$ is a right angle, so\n$$[\\triangle ADE] = \\frac{1}{2}\\,|AD|\\,|AE|.$$\nHere $|AD|=4$ and $|AE|=\\left|\\frac{16}{3}-0\\right|=\\frac{16}{3}$. Therefore,\n$$[\\triangle ADE] = \\frac{1}{2} \\cdot 4 \\cdot \\frac{16}{3} = 2 \\cdot \\frac{16}{3} = \\frac{32}{3}.$$\nThus the correct answer is choice $A$ and the area is $\\frac{32}{3}$.",
+  "diagramDescription": "Draw triangle ABC with A at (0,0), B at (6,0), and C at (0,8). On AB place point D so that AD = 4 (so D is at (4,0)). Draw the line through D that is parallel to BC; let it intersect AC at E. Clearly label AB = 6, AC = 8, and AD = 4 on the diagram.",
+  "hasDiagram": true,
+  "moduleType": "math",
+  "category": "geometry",
+  "subtopic": "triangles",
+  "difficulty": "medium",
+  "timeEstimate": 90,
+  "source": "Azure OpenAI GPT-4",
+  "tags": [
+    "math",
+    "geometry",
+    "area",
+    "AI-generated"
+  ],
+  "validation": {
+    "status": "PASS",
+    "warnings": []
+  },
+  "verification": {
+    "qualityScore": 9,
+    "recommendation": "approve"
+  }
+}

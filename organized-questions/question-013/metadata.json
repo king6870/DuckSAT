@@ -1,0 +1,36 @@
+{
+  "id": "question-013",
+  "timestamp": "20251122_195821",
+  "question": "In the diagram, triangle ABC is drawn with a right angle at A. The coordinates are A(0,0), B(8,0), and C(0,6). On AB, point P satisfies AP = 3. Through P, draw a line parallel to BC, intersecting AC at Q. What is the length of segment PQ?",
+  "choices": [
+    "A) 3",
+    "B) 3.5",
+    "C) 3.75",
+    "D) 4"
+  ],
+  "correctAnswer": "C",
+  "correctAnswerIndex": 2,
+  "answerValue": "3.75",
+  "explanation": "Step 1: Determine P. Since $A=(0,0)$ and $B=(8,0)$ lie on the x-axis, the point $P$ on $AB$ with $AP=3$ is $P=(3,0)$. Step 2: Compute slope of $BC$: $m_{BC}=\\frac{6-0}{0-8}=-\\frac{3}{4}$. Step 3: The line through $P$ parallel to $BC$ has slope $-\\frac{3}{4}$. Its equation is $y - y_P = m(x - x_P)$, i.e., $y - 0 = -\\frac{3}{4}(x-3)$, so $y=-\\frac{3}{4}x+\\frac{9}{4}$. Step 4: $AC$ is the line $x=0$. Intersect with the line gives $Q=(0,\\frac{9}{4})$. Step 5: Compute length $PQ$: $PQ=\\sqrt{(x_P-x_Q)^2+(y_P-y_Q)^2}=\\sqrt{(3-0)^2+(0-\\frac{9}{4})^2}=\\sqrt{9+\\frac{81}{16}}=\\sqrt{\\frac{225}{16}}=\\frac{15}{4}=3.75$.",
+  "diagramDescription": "Draw coordinate plane with axes. Plot triangle ABC with A at (0,0), B at (8,0), and C at (0,6), forming a right triangle at A. Label A, B, C. On AB, place P at AP = 3 (P at (3,0)). Through P, draw a line parallel to BC; let this line intersect AC at Q; label Q on AC. Draw segment PQ. Include axis scales with x from 0 to 8 and y from 0 to 6; clearly show the triangle edges, the line through P parallel to BC, and points A, B, C, P, Q.",
+  "hasDiagram": true,
+  "moduleType": "math",
+  "category": "geometry",
+  "subtopic": "triangles",
+  "difficulty": "medium",
+  "timeEstimate": 90,
+  "source": "Azure OpenAI GPT-4",
+  "tags": [
+    "math",
+    "geometry",
+    "AI-generated"
+  ],
+  "validation": {
+    "status": "PASS",
+    "warnings": []
+  },
+  "verification": {
+    "qualityScore": 9,
+    "recommendation": "approve"
+  }
+}
