@@ -1,4 +1,5 @@
 import GoogleProvider from 'next-auth/providers/google'
+import type { NextAuthOptions, Session } from 'next-auth'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { prisma } from './prisma'
 
@@ -101,7 +102,7 @@ function getSecret() {
 Generate a secure secret with: openssl rand -base64 32`);
 }
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: getProviders(),
   session: {
@@ -112,9 +113,9 @@ export const authOptions = {
     error: '/auth/error',
   },
   callbacks: {
-    async session({ session, user }: any) {
+    async session({ session, user }) {
       if (session?.user) {
-        session.user.id = user.id
+        (session.user as Session['user'] & { id?: string }).id = user.id
       }
       return session
     },

@@ -38,7 +38,7 @@ export class QuestionImageService {
 
       // Try DALL-E first (if API key is available)
       let imageUrl = null;
-      let errorLog = [];
+      const errorLog: string[] = [];
 
       // Try DALL-E with up to 2 retries
       for (let i = 0; i < 2 && !imageUrl; i++) {
