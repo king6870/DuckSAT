@@ -2,6 +2,7 @@
 
 import { useSession, signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
+import { Target, Zap, TrendingUp } from "lucide-react"
 
 export default function Home() {
   const { data: session } = useSession()
@@ -46,19 +47,19 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl mb-3">🎯</div>
+            <Target className="w-10 h-10 mb-3 text-[var(--color-primary)]" />
             <h3 className="text-lg font-bold mb-2">Adaptive Testing</h3>
             <p className="text-gray-600">Module 2 adjusts based on Module 1 performance</p>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl mb-3">⚡</div>
+            <Zap className="w-10 h-10 mb-3 text-[var(--color-accent)]" />
             <h3 className="text-lg font-bold mb-2">Real-time Feedback</h3>
             <p className="text-gray-600">Instant explanations and insights</p>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl mb-3">📈</div>
+            <TrendingUp className="w-10 h-10 mb-3 text-[var(--color-success)]" />
             <h3 className="text-lg font-bold mb-2">Progress Tracking</h3>
             <p className="text-gray-600">Detailed analytics and recommendations</p>
           </div>

@@ -1,8 +1,8 @@
 "use client";
-
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import { Coffee, BookOpen } from 'lucide-react';
 import { useTestState } from '../../hooks/useTestState';
 import TestLauncher from '../../components/test/TestLauncher';
 import ModuleStart from '../../components/test/ModuleStart';
@@ -32,6 +32,7 @@ export default function PracticeTestPage() {
     testResults,
     isBreakTime,
     breakTimeRemaining,
+    skipBreak,
     goToQuestion,
     setShowReview,
     showReview,
@@ -39,8 +40,7 @@ export default function PracticeTestPage() {
     selectAnswer,
     nextQuestion,
     previousQuestion,
-    questionsAnswered,
-    skipBreak
+    questionsAnswered
   } = useTestState(session?.user?.email || '');
 
   const submitModule = completeModule;
@@ -48,15 +48,15 @@ export default function PracticeTestPage() {
 
   // Track answered questions for navigator
   const answeredQuestions = selectedAnswers
-    ? selectedAnswers.map((answer, index) => answer !== -1 ? index : -1).filter(index => index !== -1)
-    : [];
+    .map((answer, index) => answer !== -1 ? index : -1)
+    .filter(index => index !== -1);
 
   // Error state for loading and submission
   const [fetchError, setFetchError] = useState<string | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && !session) {
+    if (!session) {
       router.push('/');
     }
   }, [session, router]);
@@ -98,7 +98,7 @@ export default function PracticeTestPage() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center">
         <div className="bg-white rounded-2xl shadow-2xl p-12 text-center max-w-md">
-          <div className="text-6xl mb-6">☕</div>
+          <Coffee className="w-16 h-16 mb-6 mx-auto text-[var(--color-warning)]" />
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Break Time</h2>
 
           <p className="text-gray-600 mb-6">
@@ -107,12 +107,12 @@ export default function PracticeTestPage() {
           <div className="text-4xl font-bold text-blue-600 mb-4">
             {minutes}:{seconds.toString().padStart(2, '0')}
           </div>
-          <p className="text-sm text-gray-500 mb-6">
+          <p className="text-sm text-gray-500">
             The Math section will start automatically when the break ends
           </p>
           <button
             onClick={skipBreak}
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+            className="mt-6 w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-2xl font-bold hover:shadow-lg transition-all"
           >
             Skip Break & Continue
           </button>
@@ -246,8 +246,9 @@ export default function PracticeTestPage() {
               {currentQuestion.passage && (
                 <div className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-200 shadow-sm">
                   <div className="flex items-center mb-4">
+                    <BookOpen className="w-5 h-5 text-blue-700 mr-2" />
                     <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-3">
-                      📖 Reading Passage
+                      Reading Passage
                     </span>
                     <span className="text-blue-700 text-sm font-medium">
                       Read carefully before answering
@@ -262,11 +263,9 @@ export default function PracticeTestPage() {
               )}
 
               {/* Chart/Diagram */}
-              {(currentQuestion.imageData || currentQuestion.chartData || currentQuestion.imageUrl) && (
+              {(currentQuestion.chartData || currentQuestion.imageUrl) && (
                 <div className="mb-6">
                   <ChartRenderer
-                    imageData={currentQuestion.imageData}
-                    imageMimeType={currentQuestion.imageMimeType}
                     chartData={currentQuestion.chartData}
                     imageUrl={currentQuestion.imageUrl}
                     imageAlt={currentQuestion.imageAlt || 'Question diagram'}

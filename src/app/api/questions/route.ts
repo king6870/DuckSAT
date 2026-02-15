@@ -119,6 +119,10 @@ export async function GET(request: NextRequest) {
       isActive: true
     };
 
+    if (moduleType && (moduleType === 'math' || moduleType === 'reading-writing')) {
+      where.moduleType = moduleType;
+    }
+
     if (category) {
       where.category = category;
     }
@@ -129,10 +133,6 @@ export async function GET(request: NextRequest) {
 
     if (source) {
       where.source = source;
-    }
-
-    if (moduleType) {
-      where.moduleType = moduleType;
     }
 
     if (search) {
@@ -156,10 +156,10 @@ export async function GET(request: NextRequest) {
     }
  
     console.log('[/api/questions] Fetching questions with filters:', { 
+      moduleType,
       category, 
       subtopic, 
-      source,
-      moduleType,
+      source, 
       search: search ? `${search.substring(0, 20)}...` : null,
       sortOrder,
       limit,
@@ -424,10 +424,8 @@ export async function GET(request: NextRequest) {
           passage: typeof q.passage === 'string' ? cleanText(q.passage) : q.passage,
           options: normalizeOptions(q.options),
           correctAnswer: q.correctAnswer,
-          tags: Array.isArray(q.tags) ? [...q.tags] : [],
+          tags: Array.isArray(q.tags) ? q.tags : [],
           imageUrl: q.imageUrl,
-          imageData: q.imageData || undefined,
-          imageMimeType: q.imageMimeType || undefined,
           imageAlt: cleanOptionalText(q.imageAlt),
           source: cleanOptionalText(q.source),
           difficulty: q.difficulty,
@@ -547,5 +545,5 @@ export async function GET(request: NextRequest) {
       timestamp: new Date().toISOString(),
       stack: process.env.NODE_ENV === 'development' && error instanceof Error ? error.stack : undefined
     }, { status: 500 });
-}
+  }
 }

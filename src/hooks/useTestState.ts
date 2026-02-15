@@ -15,57 +15,51 @@ export function useTestState(userId: string) {
   const [isBreakTime, setIsBreakTime] = useState(false)
   const [breakTimeRemaining, setBreakTimeRemaining] = useState(0)
   const [showReview, setShowReview] = useState(false)
-  
+
   // Timer and answer state
   const [timeRemaining, setTimeRemaining] = useState(0)
   const [selectedAnswers, setSelectedAnswers] = useState<number[]>([])
   const [moduleStartTime, setModuleStartTime] = useState<Date | null>(null)
   const [testStartTime, setTestStartTime] = useState<Date | null>(null)
-  
+
   // Test results tracking
   const [testResults, setTestResults] = useState<TestResult | null>(null)
   const [moduleResults, setModuleResults] = useState<QuestionResult[][]>([])
-  
+
   // Questions from database with no-repeat tracking
   const [currentModuleQuestions, setCurrentModuleQuestions] = useState<Question[]>([])
   const [usedQuestionIds, setUsedQuestionIds] = useState<string[]>([])
-  
-  // Per-question time tracking - use Record instead of Map for JSON serializability
+
+  // Per-question time tracking (records are JSON-safe)
   const [questionStartTimes, setQuestionStartTimes] = useState<Record<number, number>>({})
   const [questionTimeSpent, setQuestionTimeSpent] = useState<Record<number, number>>({})
 
-  // Get current module config
   const currentModule = useMemo(() => {
     if (currentModuleIndex >= MODULE_CONFIGS.length) return null
     return MODULE_CONFIGS[currentModuleIndex]
   }, [currentModuleIndex])
 
-  // Get current question
   const currentQuestion = useMemo(() => {
     if (!currentModule || currentModuleQuestions.length === 0) return null
-    
     if (currentQuestionIndex >= currentModuleQuestions.length) return null
     return currentModuleQuestions[currentQuestionIndex]
   }, [currentModule, currentModuleQuestions, currentQuestionIndex])
 
-  // Fetch questions from database with no-repeat logic
   const fetchQuestions = useCallback(async (moduleType: string, questionCount?: number) => {
     try {
       setIsLoading(true)
       const limit = questionCount || (moduleType === 'math' ? 22 : 27)
       console.log(`🔍 Fetching ${limit} questions for moduleType: ${moduleType}`)
-      
-      // Get more questions than needed to filter out used ones
+
       const response = await fetch(`/api/questions?moduleType=${moduleType}&limit=${limit * 2}`)
-      
       if (!response.ok) {
         throw new Error(`Failed to fetch questions: ${response.statusText}`)
       }
 
       const data = await response.json()
-      const questions = data.questions || data // Handle both {questions: [...]} and [...] formats
+      const questions = data.questions || data
       console.log(`📝 Received ${questions.length || 0} questions from API`)
-      
+
       if (!questions || questions.length === 0) {
         console.warn('⚠️ No questions available from API, returning empty array')
         setCurrentModuleQuestions([])
@@ -74,101 +68,58 @@ export function useTestState(userId: string) {
         return []
       }
 
-      // Filter out already used questions
       const availableQuestions = questions.filter((q: Question) => !usedQuestionIds.includes(q.id))
-      
-      // If we don't have enough unused questions, reset the used set (allow repeats but minimize them)
       let questionsToUse = availableQuestions
       if (availableQuestions.length < limit) {
         console.log('⚠️ Not enough unused questions, allowing some repeats')
         questionsToUse = questions
-        setUsedQuestionIds([]) // Reset used questions to allow repeats
+        setUsedQuestionIds([])
       }
 
-      // Select the required number of questions
       const selectedQuestions = questionsToUse.slice(0, limit)
-      
-      // Add selected question IDs to used set
       const newUsedIds = [...usedQuestionIds]
       selectedQuestions.forEach((q: Question) => {
         if (!newUsedIds.includes(q.id)) newUsedIds.push(q.id)
       })
       setUsedQuestionIds(newUsedIds)
-      
+
       setCurrentModuleQuestions(selectedQuestions)
       setSelectedAnswers(new Array(selectedQuestions.length).fill(-1))
-      
+
       console.log(`✅ Set ${selectedQuestions.length} questions for current module`)
-      
-    } catch (error) {
-      console.error('❌ Error fetching questions:', error)
-      throw error
+      return selectedQuestions
+    } catch (fetchError) {
+      console.error('❌ Error fetching questions:', fetchError)
+      throw fetchError
     } finally {
       setIsLoading(false)
     }
   }, [usedQuestionIds])
 
-  // Auto-start module 1 (Reading Module 2) after 10 seconds
-  useEffect(() => {
-    if (isTransitioning && currentModuleIndex === 1 && !moduleStarted) {
-      const timer = setTimeout(() => {
-        startModule()
-      }, 10000) // 10 seconds
-
-      return () => clearTimeout(timer)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isTransitioning, currentModuleIndex, moduleStarted])
-
-  // Auto-start module 2 (Math Module 1) after 10 seconds
-  useEffect(() => {
-    if (isTransitioning && currentModuleIndex === 2 && !moduleStarted) {
-      const timer = setTimeout(() => {
-        startModule()
-      }, 10000) // 10 seconds
-
-      return () => clearTimeout(timer)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isTransitioning, currentModuleIndex, moduleStarted])
-
-  // Auto-start module 3 (Math Module 2) after 10 seconds
-  useEffect(() => {
-    if (isTransitioning && currentModuleIndex === 3 && !moduleStarted) {
-      const timer = setTimeout(() => {
-        startModule()
-      }, 10000) // 10 seconds
-
-      return () => clearTimeout(timer)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isTransitioning, currentModuleIndex, moduleStarted])
-
-  // Start timing when a new question is displayed
   useEffect(() => {
     if (moduleStarted && !isTransitioning && currentQuestion) {
       setQuestionStartTimes(prev => {
-        if (!(currentQuestionIndex in prev)) {
-          return { ...prev, [currentQuestionIndex]: Date.now() }
-        }
-        return prev
+        if (currentQuestionIndex in prev) return prev
+        return { ...prev, [currentQuestionIndex]: Date.now() }
       })
     }
   }, [moduleStarted, isTransitioning, currentQuestion, currentQuestionIndex])
 
-  // Handle 10-minute break between reading and math
   useEffect(() => {
     if (isBreakTime && breakTimeRemaining > 0) {
       const timer = setTimeout(() => {
         setBreakTimeRemaining(prev => prev - 1)
       }, 1000)
-
       return () => clearTimeout(timer)
-    } else if (isBreakTime && breakTimeRemaining === 0) {
-      // Break is over, start math module
+    }
+
+    if (isBreakTime && breakTimeRemaining === 0) {
       setIsBreakTime(false)
       setIsTransitioning(true)
-      setCurrentModuleIndex(2) // Math module
+      setCurrentModuleQuestions([])
+      setSelectedAnswers([])
+      setCurrentQuestionIndex(0)
+      setCurrentModuleIndex(2)
     }
   }, [isBreakTime, breakTimeRemaining])
 
@@ -180,13 +131,12 @@ export function useTestState(userId: string) {
       setCurrentModuleIndex(0)
       setCurrentQuestionIndex(0)
 
-      // Start with reading-writing module
       await fetchQuestions('reading-writing', 27)
 
       setIsTransitioning(false)
       setModuleStarted(false)
-    } catch (error) {
-      console.error('Error starting test:', error)
+    } catch (startError) {
+      console.error('Error starting test:', startError)
       setIsLoading(false)
     }
   }, [fetchQuestions])
@@ -195,45 +145,48 @@ export function useTestState(userId: string) {
     if (!currentModule) return
 
     console.log('🚀 Starting module:', currentModule.title)
-
     setModuleStartTime(new Date())
     setModuleStarted(true)
     setIsTransitioning(false)
     setCurrentQuestionIndex(0)
 
-    // Set timer for current module (convert minutes to seconds)
     setTimeRemaining(currentModule.duration * 60)
-    
-    // Reset time tracking for new module
     setQuestionStartTimes({})
     setQuestionTimeSpent({})
 
     console.log('✅ Module started successfully')
   }, [currentModule])
 
-  // Track time spent on current question before navigating away
+  useEffect(() => {
+    if (!isTransitioning || moduleStarted || isBreakTime) return
+    if (!currentModule || currentModuleQuestions.length === 0) return
+
+    const timer = setTimeout(() => {
+      startModule()
+    }, 10000)
+
+    return () => clearTimeout(timer)
+  }, [isTransitioning, moduleStarted, isBreakTime, currentModule, currentModuleQuestions.length, startModule])
+
   const recordQuestionTime = useCallback(() => {
     const startTime = questionStartTimes[currentQuestionIndex]
-    if (startTime) {
-      const now = Date.now()
-      const timeSpent = Math.floor((now - startTime) / 1000)
-      const existingTime = questionTimeSpent[currentQuestionIndex] || 0
-      setQuestionTimeSpent(prev => ({
-        ...prev,
-        [currentQuestionIndex]: existingTime + timeSpent
-      }))
-    }
+    if (!startTime) return
+
+    const now = Date.now()
+    const timeSpent = Math.floor((now - startTime) / 1000)
+    const existingTime = questionTimeSpent[currentQuestionIndex] || 0
+
+    setQuestionTimeSpent(prev => ({
+      ...prev,
+      [currentQuestionIndex]: existingTime + timeSpent
+    }))
   }, [currentQuestionIndex, questionStartTimes, questionTimeSpent])
 
   const completeModule = useCallback(async () => {
     if (!currentModule || !moduleStartTime) return
 
-    const endTime = new Date()
-    
-    // Record time for current question before completing
     recordQuestionTime()
-    
-    // Calculate module results with actual time per question
+
     const moduleQuestionResults: QuestionResult[] = currentModuleQuestions.map((question, index) => ({
       questionId: question.id,
       question: question.question,
@@ -243,43 +196,41 @@ export function useTestState(userId: string) {
       userAnswer: selectedAnswers[index] || -1,
       correctAnswer: question.correctAnswer,
       isCorrect: selectedAnswers[index] === question.correctAnswer,
-      timeSpent: questionTimeSpent[index] || 0, // Use actual tracked time
+      timeSpent: questionTimeSpent[index] || 0,
       options: question.options,
       explanation: question.explanation
     }))
 
-    // Add to module results
     const newModuleResults = [...moduleResults]
     newModuleResults[currentModuleIndex] = moduleQuestionResults
     setModuleResults(newModuleResults)
 
-    // Check if this is the end of reading modules (before math)
     if (currentModuleIndex === 1) {
-      // Start 10-minute break
       setIsBreakTime(true)
-      setBreakTimeRemaining(600) // 10 minutes = 600 seconds
+      setBreakTimeRemaining(600)
       setModuleStarted(false)
+      setIsTransitioning(false)
+      setCurrentModuleQuestions([])
+      setSelectedAnswers([])
+      setCurrentQuestionIndex(0)
+      setShowReview(false)
       return
     }
 
-    // Move to next module or complete test
     if (currentModuleIndex < MODULE_CONFIGS.length - 1) {
       setCurrentModuleIndex(prev => prev + 1)
       setIsTransitioning(true)
       setModuleStarted(false)
-      setCurrentModuleQuestions([]) // Clear questions for next module
-      
-      // Fetch questions for next module
+      setCurrentModuleQuestions([])
+
       const nextModule = MODULE_CONFIGS[currentModuleIndex + 1]
       if (nextModule) {
         await fetchQuestions(nextModule.type, nextModule.questionCount)
-        // After questions are fetched, clear transition state so timer can start
-        setIsTransitioning(true)
       }
-    } else {
-      // Test complete
-      completeTest(newModuleResults)
+      return
     }
+
+    completeTest(newModuleResults)
   }, [currentModule, moduleStartTime, currentModuleQuestions, selectedAnswers, moduleResults, currentModuleIndex, fetchQuestions, recordQuestionTime, questionTimeSpent])
 
   const completeTest = useCallback(async (finalModuleResults: QuestionResult[][]) => {
@@ -287,13 +238,11 @@ export function useTestState(userId: string) {
 
     const endTime = new Date()
     const totalTimeSpent = Math.floor((endTime.getTime() - testStartTime.getTime()) / 1000)
-    
-    // Calculate overall results
+
     const allResults = finalModuleResults.flat()
     const correctAnswers = allResults.filter(r => r.isCorrect).length
     const totalQuestions = allResults.length
-    
-    // Calculate category performance
+
     const categoryPerformance: Record<string, { correct: number; total: number }> = {}
     allResults.forEach(result => {
       if (!categoryPerformance[result.category]) {
@@ -322,7 +271,6 @@ export function useTestState(userId: string) {
     setTestResults(finalResults)
     setIsComplete(true)
 
-    // Save test results to database
     try {
       const response = await fetch('/api/test-results', {
         method: 'POST',
@@ -336,12 +284,11 @@ export function useTestState(userId: string) {
         const data = await response.json()
         console.log('✅ Test results saved successfully:', data)
       }
-    } catch (error) {
-      console.error('Error saving test results:', error)
+    } catch (saveError) {
+      console.error('Error saving test results:', saveError)
     }
   }, [testStartTime, userId])
 
-  // Timer countdown effect
   useEffect(() => {
     if (moduleStarted && timeRemaining > 0 && !isTransitioning && !isComplete) {
       const timer = setTimeout(() => {
@@ -349,8 +296,9 @@ export function useTestState(userId: string) {
       }, 1000)
 
       return () => clearTimeout(timer)
-    } else if (moduleStarted && timeRemaining === 0) {
-      // Time's up for this module
+    }
+
+    if (moduleStarted && timeRemaining === 0) {
       completeModule()
     }
   }, [moduleStarted, timeRemaining, isTransitioning, isComplete, completeModule])
@@ -385,16 +333,25 @@ export function useTestState(userId: string) {
   }, [currentModuleQuestions.length, recordQuestionTime])
 
   const skipBreak = useCallback(() => {
-    if (isBreakTime) {
-      setIsBreakTime(false)
-      setBreakTimeRemaining(0)
-      setIsTransitioning(true)
-      setCurrentModuleIndex(2) // Math module
-    }
+    if (!isBreakTime) return
+    setIsBreakTime(false)
+    setBreakTimeRemaining(0)
+    setIsTransitioning(true)
+    setCurrentModuleQuestions([])
+    setSelectedAnswers([])
+    setCurrentQuestionIndex(0)
+    setCurrentModuleIndex(2)
   }, [isBreakTime])
 
+  useEffect(() => {
+    if (!isTransitioning || isBreakTime) return
+    if (!currentModule || currentModuleQuestions.length > 0) return
+    if (isLoading) return
+
+    fetchQuestions(currentModule.type, currentModule.questionCount)
+  }, [isTransitioning, isBreakTime, currentModule, currentModuleQuestions.length, isLoading, fetchQuestions])
+
   return {
-    // State
     testState,
     isLoading,
     error,
@@ -406,15 +363,14 @@ export function useTestState(userId: string) {
     moduleStarted,
     isBreakTime,
     breakTimeRemaining,
+    showReview,
     timeRemaining,
     selectedAnswers,
     testResults,
     currentModule,
     currentQuestion,
     currentModuleQuestions,
-    showReview,
-    
-    // Actions
+
     startTest,
     startModule,
     completeModule,
@@ -424,10 +380,10 @@ export function useTestState(userId: string) {
     goToQuestion,
     setShowReview,
     skipBreak,
-    
-    // Computed values
-    progress: currentModuleQuestions.length > 0 ? 
-      Math.round(((currentQuestionIndex + 1) / currentModuleQuestions.length) * 100) : 0,
+
+    progress: currentModuleQuestions.length > 0
+      ? Math.round(((currentQuestionIndex + 1) / currentModuleQuestions.length) * 100)
+      : 0,
     questionsAnswered: selectedAnswers.filter(answer => answer !== -1).length,
     canGoNext: currentQuestionIndex < currentModuleQuestions.length - 1,
     canGoPrevious: currentQuestionIndex > 0,

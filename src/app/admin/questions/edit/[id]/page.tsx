@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation'
 import { useParams } from 'next/navigation'
 import ComprehensiveQuestionDisplay from '@/components/ComprehensiveQuestionDisplay'
 import ChartBuilder from '@/components/admin/ChartBuilder'
-import { ADMIN_EMAILS } from '@/constants/adminEmails'
 
 interface QuestionForm {
   question: string
@@ -62,7 +61,9 @@ export default function EditQuestion() {
   useEffect(() => {
     if (status === 'loading') return
     
-    if (!session?.user?.email || !ADMIN_EMAILS.includes(session.user.email)) {
+    const userEmail = session?.user?.email || '';
+    const isAdmin = userEmail === 'lionvihaan@gmail.com' || userEmail === 'kingjacobisthegoat@gmail.com';
+    if (!isAdmin) {
       router.push('/')
       return
     }
@@ -162,7 +163,9 @@ export default function EditQuestion() {
     )
   }
 
-  if (!session?.user?.email || !ADMIN_EMAILS.includes(session.user.email)) {
+  const userEmail = session?.user?.email || '';
+  const isAdmin = userEmail === 'lionvihaan@gmail.com' || userEmail === 'kingjacobisthegoat@gmail.com';
+  if (!isAdmin) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">

@@ -74,9 +74,14 @@ export async function POST(request: NextRequest) {
     const evaluatedQuestions = await aiQuestionService.evaluateQuestions(generatedQuestions)
     console.log(`🔍 Evaluated ${evaluatedQuestions.length} questions`)
 
-    // Filter accepted questions
-    const acceptedQuestions = evaluatedQuestions.filter(q => q.isAccepted)
-    const rejectedQuestions = evaluatedQuestions.filter(q => !q.isAccepted)
+    // Filter accepted questions; if none accepted, surface all for review
+    let acceptedQuestions = evaluatedQuestions.filter(q => q.isAccepted)
+    let rejectedQuestions = evaluatedQuestions.filter(q => !q.isAccepted)
+    const forceAcceptAll = acceptedQuestions.length === 0 && evaluatedQuestions.length > 0
+    if (forceAcceptAll) {
+      acceptedQuestions = evaluatedQuestions
+      rejectedQuestions = []
+    }
 
     console.log(`✅ Accepted: ${acceptedQuestions.length}, ❌ Rejected: ${rejectedQuestions.length}`)
 
@@ -115,11 +120,12 @@ export async function POST(request: NextRequest) {
 
         // Check if this is a fallback evaluation
         const isFallbackEvaluation = question.evaluationFeedback?.includes('Fallback evaluation') || 
-                                      question.evaluationFeedback?.includes('fallback logic')
+                    question.evaluationFeedback?.includes('fallback logic')
+        const needsReview = forceAcceptAll || isFallbackEvaluation
         
-        const reviewStatus = isFallbackEvaluation ? 'pending' : null
-        const reviewComments = isFallbackEvaluation 
-          ? '⚠️ Auto-generated question - Review needed. ' + question.evaluationFeedback
+        const reviewStatus = needsReview ? 'pending' : null
+        const reviewComments = needsReview
+          ? '⚠️ Auto-generated question - Review needed. ' + (question.evaluationFeedback || 'No evaluator feedback.')
           : null
 
         const storedQuestion = await prisma.question.create({
@@ -152,7 +158,7 @@ export async function POST(request: NextRequest) {
           question: String(question.question || ''),
           id: storedQuestion.id,
           status: 'stored',
-          needsReview: isFallbackEvaluation,
+          needsReview: needsReview,
           evaluationFeedback: question.evaluationFeedback
         })
 

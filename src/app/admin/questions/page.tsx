@@ -5,7 +5,6 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Script from 'next/script'
 import { Star, ChevronLeft, ChevronRight, Filter, X } from 'lucide-react'
-import { ADMIN_EMAILS } from '@/constants/adminEmails'
 
 interface Question {
   id: string
@@ -118,7 +117,9 @@ export default function EnhancedQuestionsReview() {
   }
 
   useEffect(() => {
-    if (status === 'authenticated' && session?.user?.email && ADMIN_EMAILS.includes(session.user.email)) {
+    const userEmail = session?.user?.email || '';
+    const isAdmin = userEmail === 'lionvihaan@gmail.com' || userEmail === 'kingjacobisthegoat@gmail.com';
+    if (status === 'authenticated' && isAdmin) {
       fetchQuestions()
     }
   }, [status, session, statusFilter, categoryFilter, subtopicFilter])
@@ -198,7 +199,9 @@ export default function EnhancedQuestionsReview() {
     )
   }
 
-  if (!session?.user?.email || !ADMIN_EMAILS.includes(session.user.email)) {
+  const userEmail = session?.user?.email || '';
+  const isAdmin = userEmail === 'lionvihaan@gmail.com' || userEmail === 'kingjacobisthegoat@gmail.com';
+  if (!isAdmin) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50 flex items-center justify-center">
         <div className="text-center bg-white p-12 rounded-3xl shadow-2xl">

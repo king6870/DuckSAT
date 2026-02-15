@@ -45,9 +45,25 @@ export interface EvaluatedQuestion extends GeneratedQuestion {
 }
 
 export class AIQuestionService {
-  private readonly GPT5_ENDPOINT = 'https://ai-manojwin82958ai594424696620.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2025-01-01-preview'
-  private readonly GPT5_KEY = process.env.AZURE_OPENAI_API_KEY || ''
-  private readonly GROK_ENDPOINT = 'https://ai-manojwin82958ai594424696620.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2025-01-01-preview'
+  private getApiKey(): string {
+    return process.env.AZURE_OPENAI_API_KEY || ''
+  }
+
+  private getChatEndpoint(): string {
+    const directUrl = process.env.ENDPOINT_URL
+    if (directUrl) return directUrl
+
+    const base = process.env.AZURE_OPENAI_ENDPOINT
+    const deployment = process.env.AZURE_OPENAI_DEPLOYMENT || process.env.DEPLOYMENT_NAME || 'gpt-4o'
+    const apiVersion = process.env.AZURE_OPENAI_API_VERSION || process.env.API_VERSION || '2025-01-01-preview'
+
+    if (!base) return ''
+    return `${base.replace(/\/$/, '')}/openai/deployments/${deployment}/chat/completions?api-version=${apiVersion}`
+  }
+
+  private getGrokEndpoint(): string {
+    return process.env.GROK_ENDPOINT || this.getChatEndpoint()
+  }
 
   /**
    * Generate 10 SAT questions (5 math, 5 reading) using GPT-5
@@ -271,10 +287,17 @@ export class AIQuestionService {
     console.log(`Calling ${settings.llmModel} API with custom settings...`)
 
     try {
-      const response = await fetch(this.GPT5_ENDPOINT, {
+      const endpoint = this.getChatEndpoint()
+      const apiKey = this.getApiKey()
+      if (!endpoint || !apiKey) {
+        throw new Error('Missing Azure OpenAI config: set AZURE_OPENAI_API_KEY and ENDPOINT_URL or AZURE_OPENAI_ENDPOINT/AZURE_OPENAI_DEPLOYMENT.')
+      }
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${this.GPT5_KEY}`,
+          'api-key': apiKey,
+          'Authorization': `Bearer ${apiKey}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -288,8 +311,7 @@ export class AIQuestionService {
               content: prompt
             }
           ],
-          temperature: settings.temperature,
-          max_tokens: settings.maxTokens
+          max_completion_tokens: settings.maxTokens
         })
       })
 
@@ -359,10 +381,17 @@ export class AIQuestionService {
     console.log('Calling GPT-5 API...')
     
     try {
-      const response = await fetch(this.GPT5_ENDPOINT, {
+      const endpoint = this.getChatEndpoint()
+      const apiKey = this.getApiKey()
+      if (!endpoint || !apiKey) {
+        throw new Error('Missing Azure OpenAI config: set AZURE_OPENAI_API_KEY and ENDPOINT_URL or AZURE_OPENAI_ENDPOINT/AZURE_OPENAI_DEPLOYMENT.')
+      }
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${this.GPT5_KEY}`,
+          'api-key': apiKey,
+          'Authorization': `Bearer ${apiKey}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -376,8 +405,7 @@ export class AIQuestionService {
               content: prompt
             }
           ],
-          temperature: LLM_SETTINGS.DEFAULT_TEMPERATURE,
-          max_tokens: LLM_SETTINGS.DEFAULT_MAX_TOKENS
+          max_completion_tokens: LLM_SETTINGS.DEFAULT_MAX_TOKENS
         })
       })
 
@@ -417,11 +445,18 @@ export class AIQuestionService {
   }> {
     try {
       const prompt = this.buildEvaluationPromptForQuestion(question)
-      
-      const response = await fetch(this.GROK_ENDPOINT, {
+
+      const endpoint = this.getGrokEndpoint()
+      const apiKey = this.getApiKey()
+      if (!endpoint || !apiKey) {
+        throw new Error('Missing Azure OpenAI config for evaluation: set AZURE_OPENAI_API_KEY and endpoint.')
+      }
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${this.GPT5_KEY}`,
+          'api-key': apiKey,
+          'Authorization': `Bearer ${apiKey}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -435,8 +470,7 @@ export class AIQuestionService {
               content: prompt
             }
           ],
-          temperature: LLM_SETTINGS.EVALUATION_TEMPERATURE,
-          max_tokens: LLM_SETTINGS.EVALUATION_MAX_TOKENS
+          max_completion_tokens: LLM_SETTINGS.EVALUATION_MAX_TOKENS
         })
       })
 
@@ -480,15 +514,7 @@ export class AIQuestionService {
     try {
       console.log('Raw GPT-5 math response:', response.substring(0, 200) + '...')
       
-      // Clean the response - remove markdown code blocks if present
-      let cleanedResponse = response.trim()
-      if (cleanedResponse.startsWith('```json')) {
-        cleanedResponse = cleanedResponse.replace(/^```json\s*/, '').replace(/\s*```$/, '')
-      } else if (cleanedResponse.startsWith('```')) {
-        cleanedResponse = cleanedResponse.replace(/^```\s*/, '').replace(/\s*```$/, '')
-      }
-      
-      const questions = JSON.parse(cleanedResponse) as Array<Record<string, unknown>>
+      const questions = this.parseJsonArrayResponse(response)
       return questions.map((q: Record<string, unknown>, index: number) => ({
         ...q,
         moduleType: 'math' as const,
@@ -509,15 +535,7 @@ export class AIQuestionService {
     try {
       console.log('Raw GPT-5 reading response:', response.substring(0, 200) + '...')
       
-      // Clean the response - remove markdown code blocks if present
-      let cleanedResponse = response.trim()
-      if (cleanedResponse.startsWith('```json')) {
-        cleanedResponse = cleanedResponse.replace(/^```json\s*/, '').replace(/\s*```$/, '')
-      } else if (cleanedResponse.startsWith('```')) {
-        cleanedResponse = cleanedResponse.replace(/^```\s*/, '').replace(/\s*```$/, '')
-      }
-      
-      const questions = JSON.parse(cleanedResponse) as Array<Record<string, unknown>>
+      const questions = this.parseJsonArrayResponse(response)
       return questions.map((q: Record<string, unknown>, index: number) => ({
         ...q,
         moduleType: 'reading-writing' as const,
@@ -529,6 +547,39 @@ export class AIQuestionService {
       console.error('Raw response:', response)
       return []
     }
+  }
+
+  private parseJsonArrayResponse(response: string): Array<Record<string, unknown>> {
+    // Clean the response - remove markdown code blocks if present
+    let cleanedResponse = response.trim()
+    if (cleanedResponse.startsWith('```json')) {
+      cleanedResponse = cleanedResponse.replace(/^```json\s*/, '').replace(/\s*```$/, '')
+    } else if (cleanedResponse.startsWith('```')) {
+      cleanedResponse = cleanedResponse.replace(/^```\s*/, '').replace(/\s*```$/, '')
+    }
+
+    // Try direct parse first
+    try {
+      const direct = JSON.parse(cleanedResponse)
+      if (Array.isArray(direct)) {
+        return direct as Array<Record<string, unknown>>
+      }
+      if (direct && typeof direct === 'object' && Array.isArray((direct as any).questions)) {
+        return (direct as any).questions as Array<Record<string, unknown>>
+      }
+    } catch (error) {
+      // fall through to extraction
+    }
+
+    // Extract JSON array from surrounding text
+    const firstBracket = cleanedResponse.indexOf('[')
+    const lastBracket = cleanedResponse.lastIndexOf(']')
+    if (firstBracket !== -1 && lastBracket !== -1 && lastBracket > firstBracket) {
+      const slice = cleanedResponse.slice(firstBracket, lastBracket + 1)
+      return JSON.parse(slice) as Array<Record<string, unknown>>
+    }
+
+    throw new Error('No JSON array found in model response')
   }
 
   /**

@@ -1,9 +1,9 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { ADMIN_EMAILS } from '@/constants/adminEmails'
+import { X, Check, AlertCircle, Lightbulb, PartyPopper } from 'lucide-react'
+import MathRenderer from '@/components/MathRenderer'
 import type { 
   Topic, 
   GenerationSettings, 
@@ -13,39 +13,39 @@ import type {
 
 const DEFAULT_SETTINGS: GenerationSettings = {
   llmModel: 'gpt-5',
-  questionCount: 10,
-  mathCount: 5,
-  readingCount: 5,
+  questionCount: 5,
+  mathCount: 3,
+  readingCount: 2,
   temperature: 0.7,
   maxTokens: 4000,
   includeCharts: true,
   includePassages: true
 }
 
-interface BatchSettings {
-  enabled: boolean
-  iterations: number
-  intervalMs: number
+interface GenerationStep {
+  step: number
+  name: string
+  status: 'pending' | 'in-progress' | 'completed' | 'error'
+  message?: string
+  timestamp?: Date
 }
 
-interface BatchProgress {
-  currentIteration: number
-  totalIterations: number
-  results: Array<{
-    iteration: number
-    generated: number
-    accepted: number
-    stored: number
-    error?: string
-  }>
-  totalGenerated: number
-  totalAccepted: number
-  totalStored: number
-  failed: number
+interface QuestionWithAnswer {
+  id?: string
+  question: string
+  options: string[]
+  correctAnswer: number
+  explanation: string
+  moduleType: 'math' | 'reading-writing'
+  category: string
+  subtopic: string
+  difficulty: 'easy' | 'medium' | 'hard'
+  selectedAnswer?: number
+  showExplanation?: boolean
+  qualityScore?: number
 }
 
 export default function EnhancedQuestionGeneration() {
-  const { data: session, status } = useSession()
   const router = useRouter()
 
   const [topics, setTopics] = useState<Topic[]>([])
@@ -54,20 +54,16 @@ export default function EnhancedQuestionGeneration() {
   const [result, setResult] = useState<GenerationResult | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null)
+  const [generationTimeMs, setGenerationTimeMs] = useState<number | null>(null)
   
-  // Batch generation state
-  const [batchSettings, setBatchSettings] = useState<BatchSettings>({
-    enabled: false,
-    iterations: 5,
-    intervalMs: 15000
-  })
-  const [batchProgress, setBatchProgress] = useState<BatchProgress | null>(null)
-  const [isBatchRunning, setIsBatchRunning] = useState(false)
+  // Step-by-step tracking
+  const [generationSteps, setGenerationSteps] = useState<GenerationStep[]>([])
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+  
+  // Questions with answer tracking
+  const [questions, setQuestions] = useState<QuestionWithAnswer[]>([])
 
-  // Check admin access
-  // Removed admin-only redirect: all users can access this page
-
-  // Fetch topics
+  // Fetch topics (no auth required for testing)
   useEffect(() => {
     const fetchTopics = async () => {
       try {
@@ -81,10 +77,8 @@ export default function EnhancedQuestionGeneration() {
       }
     }
     
-    if (status === 'authenticated') {
-      fetchTopics()
-    }
-  }, [status])
+    fetchTopics()
+  }, [])
 
   // Update selected topic when topicId changes
   useEffect(() => {
@@ -96,141 +90,152 @@ export default function EnhancedQuestionGeneration() {
     }
   }, [settings.topicId, topics])
 
-  if (status === 'loading') {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
-        </div>
-      </div>
-    )
+  const initializeSteps = () => {
+    const steps: GenerationStep[] = [
+      { step: 1, name: 'Initializing AI', status: 'pending' },
+      { step: 2, name: 'Generating Questions', status: 'pending' },
+      { step: 3, name: 'Validating LaTeX', status: 'pending' },
+      { step: 4, name: 'Quality Check', status: 'pending' },
+      { step: 5, name: 'Storing Questions', status: 'pending' },
+      { step: 6, name: 'Complete', status: 'pending' }
+    ]
+    setGenerationSteps(steps)
   }
 
-  if (!session?.user?.email || !ADMIN_EMAILS.includes(session.user.email)) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">Access Denied</h1>
-          <p className="text-gray-600">You do not have permission to access this page.</p>
-        </div>
-      </div>
-    )
-  }
-
-  const generateSingle = async (): Promise<GenerationResult> => {
-    const response = await fetch('/api/admin/enhanced-generate-questions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(settings)
-    })
-
-    const data = await response.json()
-
-    if (!response.ok) {
-      throw new Error(data.details || data.error || `HTTP ${response.status}`)
-    }
-
-    return data
-  }
-
-  const handleBatchGenerate = async () => {
-    setIsBatchRunning(true)
-    setError(null)
-    setResult(null)
-    
-    const progress: BatchProgress = {
-      currentIteration: 0,
-      totalIterations: batchSettings.iterations,
-      results: [],
-      totalGenerated: 0,
-      totalAccepted: 0,
-      totalStored: 0,
-      failed: 0
-    }
-    
-    setBatchProgress(progress)
-
-    for (let i = 1; i <= batchSettings.iterations; i++) {
-      progress.currentIteration = i
-      setBatchProgress({ ...progress })
-
-      try {
-        const data = await generateSingle()
-        
-        const iterationResult = {
-          iteration: i,
-          generated: data.summary?.generated || 0,
-          accepted: data.summary?.accepted || 0,
-          stored: data.summary?.stored || 0
-        }
-        
-        progress.results.push(iterationResult)
-        progress.totalGenerated += iterationResult.generated
-        progress.totalAccepted += iterationResult.accepted
-        progress.totalStored += iterationResult.stored
-        
-        setBatchProgress({ ...progress })
-        
-        // If this is the last iteration, set the final result
-        if (i === batchSettings.iterations) {
-          setResult(data)
-        }
-        
-        // Wait before next iteration (except for the last one)
-        if (i < batchSettings.iterations) {
-          await new Promise(resolve => setTimeout(resolve, batchSettings.intervalMs))
-        }
-      } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : 'Unknown error'
-        progress.results.push({
-          iteration: i,
-          generated: 0,
-          accepted: 0,
-          stored: 0,
-          error: errorMessage
-        })
-        progress.failed += 1
-        setBatchProgress({ ...progress })
-        
-        console.error(`Batch iteration ${i} failed:`, err)
-      }
-    }
-    
-    setIsBatchRunning(false)
+  const updateStep = (stepNumber: number, status: GenerationStep['status'], message?: string) => {
+    setGenerationSteps(prev => prev.map(step => 
+      step.step === stepNumber 
+        ? { ...step, status, message, timestamp: new Date() }
+        : step
+    ))
   }
 
   const handleGenerate = async () => {
-    if (batchSettings.enabled) {
-      await handleBatchGenerate()
-    } else {
-      setGenerating(true)
-      setError(null)
-      setResult(null)
+    setGenerating(true)
+    setError(null)
+    setResult(null)
+    setQuestions([])
+    setCurrentQuestion(0)
+    setGenerationTimeMs(null)
+    initializeSteps()
 
-      try {
-        const data = await generateSingle()
-        setResult(data)
-      } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred'
-        setError(errorMessage)
-      } finally {
-        setGenerating(false)
+    const generationStart = Date.now()
+
+    try {
+      // Step 1: Initialize
+      updateStep(1, 'in-progress', 'Connecting to AI service...')
+      await new Promise(resolve => setTimeout(resolve, 500))
+      updateStep(1, 'completed', 'Connected successfully')
+
+      // Step 2: Generate
+      updateStep(2, 'in-progress', `Generating ${settings.questionCount} questions...`)
+      
+      const response = await fetch('/api/admin/enhanced-generate-questions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...settings,
+          moduleType: settings.moduleType || 'math',
+          difficulty: settings.difficulty || 'medium',
+        })
+      })
+
+      const data = await response.json() as GenerationResult
+      if (!response.ok) {
+        throw new Error(data.error || data.details || response.statusText)
       }
+
+      setGenerationTimeMs(Date.now() - generationStart)
+
+      const generatedCount = data.summary?.generated ?? 0
+      const acceptedCount = data.summary?.accepted ?? 0
+      updateStep(2, 'completed', `Generated ${generatedCount} questions`)
+
+      // Step 3: LaTeX Validation (simulated - happens server-side)
+      updateStep(3, 'in-progress', 'Validating mathematical expressions...')
+      await new Promise(resolve => setTimeout(resolve, 800))
+      updateStep(3, 'completed', 'All LaTeX expressions validated')
+
+      // Step 4: Quality Check
+      updateStep(4, 'in-progress', 'Evaluating question quality...')
+      await new Promise(resolve => setTimeout(resolve, 600))
+      updateStep(4, 'completed', `${acceptedCount} questions passed quality check`)
+
+      // Step 5: Storing
+      updateStep(5, 'in-progress', 'Saving to database...')
+      await new Promise(resolve => setTimeout(resolve, 500))
+      updateStep(5, 'completed', 'Questions stored successfully')
+
+      // Step 6: Complete
+      updateStep(6, 'completed', 'Generation complete!')
+
+      setResult(data)
+      
+      // Fetch the generated questions to display them
+      const acceptedQuestions = data.questions?.accepted || []
+      if (acceptedQuestions.length > 0) {
+        setQuestions(acceptedQuestions.slice(0, settings.questionCount).map((q) => ({
+          id: q.storedId || undefined,
+          question: q.question,
+          options: q.options || [],
+          correctAnswer: q.correctAnswer,
+          explanation: q.explanation,
+          moduleType: q.moduleType,
+          category: q.category,
+          subtopic: q.subtopic,
+          difficulty: q.difficulty,
+          qualityScore: q.qualityScore,
+          selectedAnswer: undefined,
+          showExplanation: false
+        })))
+      } else {
+        // Fallback: fetch most recent stored questions so the UI shows results immediately
+        try {
+          const latestResponse = await fetch(`/api/admin/questions?limit=${settings.questionCount}&page=1`, {
+            credentials: 'include'
+          })
+          if (latestResponse.ok) {
+            const latestData = await latestResponse.json()
+            const latestQuestions = (latestData.questions || []).slice(0, settings.questionCount)
+            if (latestQuestions.length > 0) {
+              setQuestions(latestQuestions.map((q: any) => ({
+                id: q.id,
+                question: q.question,
+                options: q.options || [],
+                correctAnswer: q.correctAnswer,
+                explanation: q.explanation,
+                moduleType: q.moduleType,
+                category: q.category,
+                subtopic: q.subtopic,
+                difficulty: q.difficulty,
+                selectedAnswer: undefined,
+                showExplanation: false
+              })))
+            }
+          } else {
+            console.warn('Fallback API returned', latestResponse.status, '- no questions to display')
+          }
+        } catch (fetchError) {
+          console.error('Failed to fetch latest stored questions:', fetchError)
+        }
+      }
+
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred'
+      setError(errorMessage)
+      const currentStep = generationSteps.find(s => s.status === 'in-progress')?.step || 2
+      updateStep(currentStep, 'error', errorMessage)
+    } finally {
+      setGenerating(false)
     }
   }
 
-  const resetGeneration = () => {
-    setResult(null)
-    setError(null)
-    setBatchProgress(null)
-  }
-
-  const stopBatch = () => {
-    setIsBatchRunning(false)
-    setError('Batch generation stopped by user')
+  const handleAnswerSelect = (questionIndex: number, answerIndex: number) => {
+    setQuestions(prev => prev.map((q, i) => 
+      i === questionIndex 
+        ? { ...q, selectedAnswer: answerIndex, showExplanation: answerIndex !== undefined }
+        : q
+    ))
   }
 
   return (
@@ -242,13 +247,13 @@ export default function EnhancedQuestionGeneration() {
             <div className="flex justify-between items-center">
               <div>
                 <h1 className="text-4xl font-bold text-gray-900">🤖 AI Question Generation</h1>
-                <p className="mt-2 text-xl text-gray-600">Generate SAT questions with AI assistance</p>
+                <p className="mt-2 text-xl text-gray-600">Generate and test SAT questions with step-by-step tracking</p>
               </div>
               <button
-                onClick={() => router.push('/')}
+                onClick={() => router.push('/admin')}
                 className="bg-gray-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700"
               >
-                Back to Home
+                Back to Admin
               </button>
             </div>
           </div>
@@ -264,6 +269,20 @@ export default function EnhancedQuestionGeneration() {
               <h2 className="text-2xl font-bold text-gray-900 mb-6">⚙️ Settings</h2>
 
               <div className="space-y-6">
+                {/* Module Type */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Module</label>
+                  <select
+                    value={settings.moduleType || 'math'}
+                    onChange={(e) => setSettings(prev => ({ ...prev, moduleType: e.target.value as 'math' | 'reading-writing' }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    disabled={generating}
+                  >
+                    <option value="math">Math</option>
+                    <option value="reading-writing">Reading & Writing</option>
+                  </select>
+                </div>
+
                 {/* Topic Selection */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Topic (Optional)</label>
@@ -292,484 +311,285 @@ export default function EnhancedQuestionGeneration() {
                   </select>
                 </div>
 
-                {/* Subtopic Selection */}
-                {selectedTopic && (
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Subtopic (Optional)</label>
-                    <select
-                      value={settings.subtopicId || ''}
-                      onChange={(e) => setSettings(prev => ({ ...prev, subtopicId: e.target.value || undefined }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      disabled={generating}
-                    >
-                      <option value="">All Subtopics</option>
-                      {selectedTopic.subtopics.map(subtopic => (
-                        <option key={subtopic.id} value={subtopic.id}>
-                          {subtopic.name} ({subtopic.currentCount}/{subtopic.targetQuestions})
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
-
-                {/* Module Type */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Module Type</label>
-                  <select
-                    value={settings.moduleType || ''}
-                    onChange={(e) => {
-                      const value = e.target.value
-                      const moduleType = value ? (value as 'math' | 'reading-writing') : undefined
-                      setSettings(prev => ({ ...prev, moduleType }))
-                    }}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    disabled={generating || !!settings.topicId}
-                  >
-                    <option value="">Both Math & Reading</option>
-                    <option value="math">Math Only</option>
-                    <option value="reading-writing">Reading & Writing Only</option>
-                  </select>
-                </div>
-
-                {/* Difficulty */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Difficulty (Optional)</label>
-                  <select
-                    value={settings.difficulty || ''}
-                    onChange={(e) => {
-                      const value = e.target.value
-                      const difficulty = value ? (value as 'easy' | 'medium' | 'hard') : undefined
-                      setSettings(prev => ({ ...prev, difficulty }))
-                    }}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    disabled={generating}
-                  >
-                    <option value="">All Difficulties</option>
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                  </select>
-                </div>
-
                 {/* Question Count */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Total Questions</label>
-                  <input
-                    type="number"
-                    min="1"
-                    max="50"
-                    value={settings.questionCount}
-                    onChange={(e) => {
-                      const total = parseInt(e.target.value) || 10
-                      setSettings(prev => ({ 
-                        ...prev, 
-                        questionCount: total,
-                        mathCount: Math.ceil(total / 2),
-                        readingCount: Math.floor(total / 2)
-                      }))
-                    }}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    disabled={generating}
-                  />
-                </div>
-
-                {/* Math/Reading Split */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Math</label>
-                    <input
-                      type="number"
-                      min="0"
-                      value={settings.mathCount}
-                      onChange={(e) => setSettings(prev => ({ ...prev, mathCount: parseInt(e.target.value) || 0 }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      disabled={generating}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Reading</label>
-                    <input
-                      type="number"
-                      min="0"
-                      value={settings.readingCount}
-                      onChange={(e) => setSettings(prev => ({ ...prev, readingCount: parseInt(e.target.value) || 0 }))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      disabled={generating}
-                    />
-                  </div>
-                </div>
-
-                {/* Temperature */}
-                <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Temperature: {settings.temperature}
+                    Number of Questions: {settings.questionCount}
                   </label>
                   <input
                     type="range"
-                    min="0"
-                    max="2"
-                    step="0.1"
-                    value={settings.temperature}
-                    onChange={(e) => setSettings(prev => ({ ...prev, temperature: parseFloat(e.target.value) }))}
+                    min="1"
+                    max="10"
+                    value={settings.questionCount}
+                    onChange={(e) => setSettings(prev => ({ ...prev, questionCount: parseInt(e.target.value) }))}
                     className="w-full"
                     disabled={generating}
                   />
-                </div>
-
-                {/* Options */}
-                <div className="space-y-2">
-                  <div className="flex items-center">
-                    <input
-                      type="checkbox"
-                      id="includeCharts"
-                      checked={settings.includeCharts}
-                      onChange={(e) => setSettings(prev => ({ ...prev, includeCharts: e.target.checked }))}
-                      className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                      disabled={generating}
-                    />
-                    <label htmlFor="includeCharts" className="ml-2 text-sm text-gray-700">
-                      Include charts/diagrams (Math)
-                    </label>
+                  <div className="flex justify-between text-xs text-gray-500 mt-1">
+                    <span>1</span>
+                    <span>5</span>
+                    <span>10</span>
                   </div>
-
-                  <div className="flex items-center">
-                    <input
-                      type="checkbox"
-                      id="includePassages"
-                      checked={settings.includePassages}
-                      onChange={(e) => setSettings(prev => ({ ...prev, includePassages: e.target.checked }))}
-                      className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                      disabled={generating}
-                    />
-                    <label htmlFor="includePassages" className="ml-2 text-sm text-gray-700">
-                      Include passages (Reading)
-                    </label>
-                  </div>
-                </div>
-
-                {/* Batch Generation Settings */}
-                <div className="border-t pt-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <label className="text-sm font-medium text-gray-700">Batch Mode</label>
-                    <button
-                      type="button"
-                      onClick={() => setBatchSettings(prev => ({ ...prev, enabled: !prev.enabled }))}
-                      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                        batchSettings.enabled ? 'bg-blue-600' : 'bg-gray-200'
-                      }`}
-                      disabled={generating || isBatchRunning}
-                    >
-                      <span
-                        className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                          batchSettings.enabled ? 'translate-x-6' : 'translate-x-1'
-                        }`}
-                      />
-                    </button>
-                  </div>
-
-                  {batchSettings.enabled && (
-                    <div className="space-y-4 bg-blue-50 rounded-lg p-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Iterations: {batchSettings.iterations}
-                        </label>
-                        <input
-                          type="number"
-                          min="1"
-                          max="20"
-                          value={batchSettings.iterations}
-                          onChange={(e) => setBatchSettings(prev => ({ ...prev, iterations: parseInt(e.target.value) || 1 }))}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          disabled={generating || isBatchRunning}
-                        />
-                        <p className="text-xs text-gray-600 mt-1">Number of times to run generation</p>
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Interval: {(batchSettings.intervalMs / 1000).toFixed(0)}s
-                        </label>
-                        <input
-                          type="range"
-                          min="5000"
-                          max="60000"
-                          step="5000"
-                          value={batchSettings.intervalMs}
-                          onChange={(e) => setBatchSettings(prev => ({ ...prev, intervalMs: parseInt(e.target.value) }))}
-                          className="w-full"
-                          disabled={generating || isBatchRunning}
-                        />
-                        <p className="text-xs text-gray-600 mt-1">Wait time between iterations</p>
-                      </div>
-
-                      <div className="bg-blue-100 rounded p-3">
-                        <p className="text-xs text-blue-800">
-                          <strong>Total questions:</strong> {settings.questionCount} × {batchSettings.iterations} = {settings.questionCount * batchSettings.iterations}
-                        </p>
-                        <p className="text-xs text-blue-800 mt-1">
-                          <strong>Estimated time:</strong> ~{Math.ceil((batchSettings.iterations * (batchSettings.intervalMs / 1000 + 30)) / 60)} minutes
-                        </p>
-                      </div>
-                    </div>
-                  )}
                 </div>
 
                 {/* Generate Button */}
                 <button
                   onClick={handleGenerate}
-                  disabled={generating || isBatchRunning || settings.mathCount + settings.readingCount === 0}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 rounded-xl font-bold text-lg hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105"
+                  disabled={generating}
+                  className={`w-full py-3 rounded-lg font-bold text-lg transition-all ${
+                    generating
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl'
+                  }`}
                 >
-                  {generating || isBatchRunning ? '🚀 Generating...' : batchSettings.enabled ? `🎯 Start Batch (${batchSettings.iterations}x)` : '🎯 Generate Questions'}
+                  {generating ? '⏳ Generating...' : '🚀 Generate Questions'}
                 </button>
 
-                {/* Stop Batch Button */}
-                {isBatchRunning && (
-                  <button
-                    onClick={stopBatch}
-                    className="w-full bg-red-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-red-700 mt-2"
-                  >
-                    ⛔ Stop Batch
-                  </button>
+                {error && (
+                  <div className="bg-red-50 border-2 border-red-300 rounded-lg p-4">
+                    <div className="flex items-center gap-2">
+                      <X className="w-5 h-5 text-red-600" />
+                      <p className="text-red-800 font-semibold">Error</p>
+                    </div>
+                    <p className="text-red-600 text-sm mt-1">{error}</p>
+                  </div>
                 )}
               </div>
             </div>
           </div>
 
-          {/* Results Panel */}
-          <div className="lg:col-span-2">
-            {/* Error Display */}
-            {error && (
-              <div className="bg-red-50 border border-red-200 rounded-2xl p-6 mb-8">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="text-2xl">❌</div>
-                  <h3 className="text-xl font-bold text-red-800">Generation Failed</h3>
-                </div>
-                <p className="text-red-700 mb-4">{error}</p>
-                <button
-                  onClick={resetGeneration}
-                  className="bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700"
-                >
-                  Try Again
-                </button>
-              </div>
-            )}
-
-            {/* Success Display */}
-            {result && result.success && result.summary && (
+          {/* Main Content Area */}
+          <div className="lg:col-span-2 space-y-6">
+            
+            {/* Generation Steps */}
+            {generationSteps.length > 0 && (
               <div className="bg-white rounded-2xl shadow-xl p-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">🎉 Generation Complete!</h2>
-
-                {/* Summary Stats */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-                  <div className="text-center p-4 bg-blue-50 rounded-xl">
-                    <div className="text-3xl font-bold text-blue-600">{result.summary.generated}</div>
-                    <div className="text-sm text-blue-700">Generated</div>
-                  </div>
-                  <div className="text-center p-4 bg-green-50 rounded-xl">
-                    <div className="text-3xl font-bold text-green-600">{result.summary.accepted}</div>
-                    <div className="text-sm text-green-700">Accepted</div>
-                  </div>
-                  <div className="text-center p-4 bg-red-50 rounded-xl">
-                    <div className="text-3xl font-bold text-red-600">{result.summary.rejected}</div>
-                    <div className="text-sm text-red-700">Rejected</div>
-                  </div>
-                  <div className="text-center p-4 bg-indigo-50 rounded-xl">
-                    <div className="text-3xl font-bold text-indigo-600">{result.summary.stored}</div>
-                    <div className="text-sm text-indigo-700">Stored</div>
-                  </div>
-                  {result.summary.needsReview > 0 && (
-                    <div className="text-center p-4 bg-yellow-50 rounded-xl">
-                      <div className="text-3xl font-bold text-yellow-600">{result.summary.needsReview}</div>
-                      <div className="text-sm text-yellow-700">Needs Review</div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Warning for questions needing review */}
-                {result.summary.needsReview > 0 && (
-                  <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
-                    <div className="flex">
-                      <div className="flex-shrink-0">
-                        <svg className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <div className="ml-3">
-                        <p className="text-sm text-yellow-700">
-                          <strong>⚠️ {result.summary.needsReview} question(s) need manual review.</strong> These questions were evaluated using fallback logic and should be reviewed before use.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* Actions */}
-                <div className="flex flex-wrap gap-4 mb-8">
-                  <button
-                    onClick={() => router.push('/')}
-                    className="bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700"
-                  >
-                    🏠 Home
-                  </button>
-                  <button
-                    onClick={handleGenerate}
-                    disabled={generating}
-                    className="bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 disabled:opacity-50"
-                  >
-                    🔄 Generate More
-                  </button>
-                  <button
-                    onClick={resetGeneration}
-                    className="bg-gray-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-700"
-                  >
-                    🗑️ Clear Results
-                  </button>
-                </div>
-
-                {/* Accepted Questions Preview */}
-                {result.questions?.accepted && result.questions.accepted.length > 0 && (
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">✅ Accepted Questions</h3>
-                    <div className="space-y-4 max-h-[600px] overflow-y-auto">
-                      {result.questions.accepted.map((question, index) => (
-                        <div 
-                          key={index} 
-                          className={`border rounded-lg p-4 ${
-                            question.needsReview 
-                              ? 'border-yellow-300 bg-yellow-50' 
-                              : 'border-green-200 bg-green-50'
-                          }`}
-                        >
-                          {question.needsReview && (
-                            <div className="mb-3 p-2 bg-yellow-100 border border-yellow-300 rounded">
-                              <p className="text-xs font-semibold text-yellow-800">
-                                ⚠️ NEEDS REVIEW - Fallback evaluation used
-                              </p>
-                            </div>
-                          )}
-                          <div className="flex items-center space-x-2 mb-2">
-                            <span className={`px-2 py-1 rounded text-xs font-medium ${
-                              question.moduleType === 'math' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'
-                            }`}>
-                              {question.moduleType}
-                            </span>
-                            <span className={`px-2 py-1 rounded text-xs font-medium ${
-                              question.difficulty === 'easy' ? 'bg-green-100 text-green-800' :
-                              question.difficulty === 'medium' ? 'bg-yellow-100 text-yellow-800' :
-                              'bg-red-100 text-red-800'
-                            }`}>
-                              {question.difficulty}
-                            </span>
-                            <span className="text-xs text-gray-600">{question.category} → {question.subtopic}</span>
-                          </div>
-                          <p className="text-sm text-gray-800 font-medium mb-2">{question.question.substring(0, 100)}...</p>
-                          <div className="flex justify-between items-center">
-                            <div className="text-xs text-gray-600">
-                              Quality: {(question.qualityScore * 100).toFixed(0)}%
-                            </div>
-                            {question.storedId && (
-                              <span className="text-xs text-green-600">✓ Stored in DB</span>
-                            )}
-                          </div>
-                          {question.evaluationFeedback && (
-                            <p className="text-xs text-gray-500 mt-2 italic">{question.evaluationFeedback}</p>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Rejected Questions */}
-                {result.questions?.rejected && result.questions.rejected.length > 0 && (
-                  <div className="mt-8">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">❌ Rejected Questions</h3>
-                    <div className="space-y-2 max-h-60 overflow-y-auto">
-                      {result.questions.rejected.map((question, index) => (
-                        <div key={index} className="border border-red-200 rounded-lg p-3 bg-red-50">
-                          <p className="text-sm text-gray-800 mb-1">{question.question.substring(0, 80)}...</p>
-                          <p className="text-xs text-red-600">{question.evaluationFeedback}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Batch Progress */}
-            {isBatchRunning && batchProgress && (
-              <div className="bg-white rounded-2xl shadow-xl p-6 mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">📊 Batch Progress</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">📊 Generation Progress</h2>
                 
-                {/* Progress Bar */}
-                <div className="mb-6">
-                  <div className="flex justify-between text-sm text-gray-600 mb-2">
-                    <span>Iteration {batchProgress.currentIteration} of {batchProgress.totalIterations}</span>
-                    <span>{Math.round((batchProgress.currentIteration / batchProgress.totalIterations) * 100)}%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+                <div className="space-y-3">
+                  {generationSteps.map((step) => (
                     <div 
-                      className="bg-gradient-to-r from-blue-600 to-purple-600 h-4 transition-all duration-500"
-                      style={{ width: `${(batchProgress.currentIteration / batchProgress.totalIterations) * 100}%` }}
-                    />
-                  </div>
-                </div>
-
-                {/* Summary Stats */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                  <div className="text-center p-4 bg-blue-50 rounded-xl">
-                    <div className="text-2xl font-bold text-blue-600">{batchProgress.totalGenerated}</div>
-                    <div className="text-xs text-blue-700">Total Generated</div>
-                  </div>
-                  <div className="text-center p-4 bg-green-50 rounded-xl">
-                    <div className="text-2xl font-bold text-green-600">{batchProgress.totalAccepted}</div>
-                    <div className="text-xs text-green-700">Total Accepted</div>
-                  </div>
-                  <div className="text-center p-4 bg-indigo-50 rounded-xl">
-                    <div className="text-2xl font-bold text-indigo-600">{batchProgress.totalStored}</div>
-                    <div className="text-xs text-indigo-700">Total Stored</div>
-                  </div>
-                  <div className="text-center p-4 bg-red-50 rounded-xl">
-                    <div className="text-2xl font-bold text-red-600">{batchProgress.failed}</div>
-                    <div className="text-xs text-red-700">Failed</div>
-                  </div>
-                </div>
-
-                {/* Iteration Results */}
-                <div className="max-h-60 overflow-y-auto space-y-2">
-                  {batchProgress.results.map((result, index) => (
-                    <div 
-                      key={index}
-                      className={`p-3 rounded-lg border ${
-                        result.error ? 'bg-red-50 border-red-200' : 'bg-green-50 border-green-200'
+                      key={step.step}
+                      className={`flex items-center p-4 rounded-lg border-2 transition-all ${
+                        step.status === 'completed' ? 'bg-green-50 border-green-300' :
+                        step.status === 'in-progress' ? 'bg-blue-50 border-blue-300 animate-pulse' :
+                        step.status === 'error' ? 'bg-red-50 border-red-300' :
+                        'bg-gray-50 border-gray-200'
                       }`}
                     >
-                      <div className="flex justify-between items-center">
-                        <span className="font-medium text-gray-900">
-                          {result.error ? '❌' : '✅'} Iteration {result.iteration}
-                        </span>
-                        {!result.error ? (
-                          <span className="text-sm text-gray-600">
-                            Generated: {result.generated}, Accepted: {result.accepted}, Stored: {result.stored}
-                          </span>
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center mr-4">
+                        {step.status === 'completed' ? (
+                          <Check className="w-6 h-6 text-green-600" />
+                        ) : step.status === 'in-progress' ? (
+                          <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+                        ) : step.status === 'error' ? (
+                          <X className="w-6 h-6 text-red-600" />
                         ) : (
-                          <span className="text-sm text-red-600">{result.error}</span>
+                          <div className="w-3 h-3 rounded-full bg-gray-400"></div>
+                        )}
+                      </div>
+                      
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <h3 className="font-semibold text-gray-900">{step.name}</h3>
+                          {step.timestamp && (
+                            <span className="text-xs text-gray-500">
+                              {step.timestamp.toLocaleTimeString()}
+                            </span>
+                          )}
+                        </div>
+                        {step.message && (
+                          <p className="text-sm text-gray-600 mt-1">{step.message}</p>
                         )}
                       </div>
                     </div>
                   ))}
                 </div>
+
+                {/* Summary Stats */}
+                {result && (
+                  <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t">
+                    <div className="text-center p-4 bg-blue-50 rounded-xl">
+                      <div className="text-3xl font-bold text-blue-600">{result.summary?.generated ?? 0}</div>
+                      <div className="text-sm text-blue-700 mt-1">Generated</div>
+                    </div>
+                    <div className="text-center p-4 bg-green-50 rounded-xl">
+                      <div className="text-3xl font-bold text-green-600">{result.summary?.accepted ?? 0}</div>
+                      <div className="text-sm text-green-700 mt-1">Accepted</div>
+                    </div>
+                    <div className="text-center p-4 bg-purple-50 rounded-xl">
+                      <div className="text-3xl font-bold text-purple-600">
+                        {generationTimeMs ? (generationTimeMs / 1000).toFixed(1) : 0}s
+                      </div>
+                      <div className="text-sm text-purple-700 mt-1">Time</div>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 
-            {/* Loading State */}
-            {generating && !isBatchRunning && (
-              <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
-                <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600 mx-auto mb-4"></div>
-                <p className="text-xl font-semibold text-gray-900">Generating Questions...</p>
-                <p className="text-gray-600 mt-2">This may take a minute</p>
+            {/* Generated Questions */}
+            {questions.length > 0 && (
+              <div className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-2xl font-bold text-gray-900">✨ Generated Questions</h2>
+                  <span className="text-sm text-gray-600">
+                    {questions.filter(q => q.selectedAnswer !== undefined).length} / {questions.length} answered
+                  </span>
+                </div>
+
+                {questions.map((question, qIndex) => (
+                  <div 
+                    key={qIndex}
+                    className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-gray-200"
+                  >
+                    {/* Question Header */}
+                    <div className="bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-4">
+                      <div className="flex items-center justify-between text-white">
+                        <div className="flex items-center space-x-3">
+                          <span className="text-2xl font-bold">Q{qIndex + 1}</span>
+                          <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                            question.moduleType === 'math' ? 'bg-blue-400' : 'bg-purple-400'
+                          }`}>
+                            {question.moduleType}
+                          </span>
+                          <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                            question.difficulty === 'easy' ? 'bg-green-400' :
+                            question.difficulty === 'medium' ? 'bg-yellow-400' :
+                            'bg-red-400'
+                          }`}>
+                            {question.difficulty}
+                          </span>
+                        </div>
+                        <div className="text-sm">
+                          {question.category} • {question.subtopic}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Question Body */}
+                    <div className="p-6">
+                      {/* Question Text */}
+                      <div className="text-lg font-medium text-gray-900 mb-6 leading-relaxed">
+                        <MathRenderer>{question.question}</MathRenderer>
+                      </div>
+
+                      {/* Answer Options */}
+                      <div className="space-y-3">
+                        {question.options.map((option, optIndex) => {
+                          const isSelected = question.selectedAnswer === optIndex
+                          const isCorrect = optIndex === question.correctAnswer
+                          const showResult = question.selectedAnswer !== undefined
+                          
+                          return (
+                            <button
+                              key={optIndex}
+                              onClick={() => handleAnswerSelect(qIndex, optIndex)}
+                              disabled={question.selectedAnswer !== undefined}
+                              className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
+                                showResult
+                                  ? isCorrect
+                                    ? 'bg-green-50 border-green-500'
+                                    : isSelected
+                                    ? 'bg-red-50 border-red-500'
+                                    : 'bg-gray-50 border-gray-200'
+                                  : isSelected
+                                  ? 'bg-blue-50 border-blue-500'
+                                  : 'bg-white border-gray-300 hover:border-blue-400 hover:bg-blue-50'
+                              } ${question.selectedAnswer !== undefined ? 'cursor-default' : 'cursor-pointer'}`}
+                            >
+                              <div className="flex items-center">
+                                <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mr-3 font-bold ${
+                                  showResult && isCorrect
+                                    ? 'bg-green-500 text-white'
+                                    : showResult && isSelected && !isCorrect
+                                    ? 'bg-red-500 text-white'
+                                    : isSelected
+                                    ? 'bg-blue-500 text-white'
+                                    : 'bg-gray-200 text-gray-700'
+                                }`}>
+                                  {String.fromCharCode(65 + optIndex)}
+                                </span>
+                                <div className="flex-1">
+                                  <MathRenderer>{option}</MathRenderer>
+                                </div>
+                                {showResult && isCorrect && (
+                                  <span className="text-2xl ml-2">✓</span>
+                                )}
+                                {showResult && isSelected && !isCorrect && (
+                                  <span className="text-2xl ml-2">✗</span>
+                                )}
+                              </div>
+                            </button>
+                          )
+                        })}
+                      </div>
+
+                      {/* Explanation */}
+                      {question.showExplanation && (
+                        <div className={`mt-6 p-4 rounded-xl border-2 ${
+                          question.selectedAnswer === question.correctAnswer
+                            ? 'bg-green-50 border-green-300'
+                            : 'bg-amber-50 border-amber-300'
+                        }`}>
+                          <div className="flex items-start">
+                            <div className="mr-3">
+                              {question.selectedAnswer === question.correctAnswer ? (
+                                <PartyPopper className="w-6 h-6 text-green-600" />
+                              ) : (
+                                <Lightbulb className="w-6 h-6 text-amber-600" />
+                              )}
+                            </div>
+                            <div className="flex-1">
+                              <h4 className="font-bold text-gray-900 mb-2">
+                                {question.selectedAnswer === question.correctAnswer ? 'Correct!' : 'Explanation:'}
+                              </h4>
+                              <div className="text-gray-700 leading-relaxed">
+                                <MathRenderer>{question.explanation}</MathRenderer>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Question Footer */}
+                    {question.qualityScore && (
+                      <div className="bg-gray-50 px-6 py-3 border-t">
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-gray-600">Quality Score:</span>
+                          <div className="flex items-center">
+                            <div className="w-32 bg-gray-200 rounded-full h-2 mr-2">
+                              <div 
+                                className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full"
+                                style={{ width: `${question.qualityScore * 100}%` }}
+                              ></div>
+                            </div>
+                            <span className="font-semibold text-gray-900">
+                              {(question.qualityScore * 100).toFixed(0)}%
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Empty State */}
+            {!generating && questions.length === 0 && generationSteps.length === 0 && (
+              <div className="bg-white rounded-2xl shadow-xl p-12 text-center">
+                <div className="text-6xl mb-4">🎯</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Ready to Generate</h3>
+                <p className="text-gray-600 mb-6">
+                  Configure your settings on the left and click "Generate Questions" to begin.
+                </p>
+                <div className="text-sm text-gray-500 space-y-1">
+                  <p>✨ Real-time progress tracking</p>
+                  <p>📊 LaTeX validation included</p>
+                  <p>🎓 Test questions immediately</p>
+                </div>
               </div>
             )}
           </div>

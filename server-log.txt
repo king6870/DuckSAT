@@ -1,0 +1,16 @@
+
+> ducksat-app@0.1.0 dev
+> next dev --turbopack
+
+ ΓÜá Warning: Found multiple lockfiles. Selecting C:\Users\lionv\package-lock.json.
+   Consider removing the lockfiles at:
+   * C:\Users\lionv\DuckSAT\Migration\DuckSAT\package-lock.json
+   * C:\Users\lionv\DuckSAT\package-lock.json
+
+ ΓÜá Port 3000 is in use by process 31380, using available port 3002 instead.
+   Γû▓ Next.js 15.4.7 (Turbopack)
+   - Local:        http://localhost:3002
+   - Network:      http://192.168.50.145:3002
+   - Environments: .env
+
+ Γ£ô Starting...
