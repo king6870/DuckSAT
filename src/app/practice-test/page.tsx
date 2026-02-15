@@ -55,6 +55,69 @@ export default function PracticeTestPage() {
   const [fetchError, setFetchError] = useState<string | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
+  // Keyboard navigation event handler
+  useEffect(() => {
+    // Only enable keyboard navigation when actively taking a test (not on launcher, break, or results screens)
+    if (!hasStarted || !moduleStarted || isTransitioning || isComplete || showReview) {
+      return;
+    }
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Prevent default behavior for handled keys
+      const handledKeys = ['ArrowLeft', 'ArrowRight', 'Enter', 'a', 'b', 'c', 'd', 'A', 'B', 'C', 'D'];
+      if (handledKeys.includes(e.key)) {
+        e.preventDefault();
+      }
+
+      // Arrow Left: Previous question
+      if (e.key === 'ArrowLeft' && currentQuestionIndex > 0) {
+        previousQuestion();
+        return;
+      }
+
+      // Arrow Right or Enter: Next question
+      if ((e.key === 'ArrowRight' || e.key === 'Enter') && currentQuestionIndex < (currentModule?.questionCount || 0) - 1) {
+        nextQuestion();
+        return;
+      }
+
+      // Enter on last question: Show review
+      if (e.key === 'Enter' && currentQuestionIndex === (currentModule?.questionCount || 0) - 1) {
+        setShowReview(true);
+        return;
+      }
+
+      // A, B, C, D keys: Select answer
+      const answerKeys = ['a', 'b', 'c', 'd'];
+      const upperAnswerKeys = ['A', 'B', 'C', 'D'];
+      const keyIndex = answerKeys.indexOf(e.key.toLowerCase());
+      
+      if (keyIndex !== -1 && currentQuestion && keyIndex < currentQuestion.options.length) {
+        selectAnswer(keyIndex);
+        return;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [
+    hasStarted,
+    moduleStarted,
+    isTransitioning,
+    isComplete,
+    showReview,
+    currentQuestionIndex,
+    currentModule,
+    currentQuestion,
+    previousQuestion,
+    nextQuestion,
+    selectAnswer,
+    setShowReview
+  ]);
+
   useEffect(() => {
     if (!session) {
       router.push('/');
@@ -112,7 +175,8 @@ export default function PracticeTestPage() {
           </p>
           <button
             onClick={skipBreak}
-            className="mt-6 w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-2xl font-bold hover:shadow-lg transition-all"
+            className="mt-6 w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-2xl font-bold hover:shadow-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
+            aria-label="Skip break and continue to Math section"
           >
             Skip Break & Continue
           </button>
@@ -185,7 +249,8 @@ export default function PracticeTestPage() {
         <div className="p-4 flex justify-between items-center">
           <button
             onClick={() => router.push('/')}
-            className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-all"
+            className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
+            aria-label="Exit test and return to home page"
           >
             ← Back to Home
           </button>
@@ -209,6 +274,9 @@ export default function PracticeTestPage() {
                 </h1>
                 <p className="text-gray-600">
                   Question {currentQuestionIndex + 1} of {currentModule.questionCount}
+                </p>
+                <p className="text-xs text-gray-500 mt-1" role="complementary" aria-label="Keyboard shortcuts">
+                  ⌨️ Shortcuts: A/B/C/D to answer • ← → to navigate • Enter for next
                 </p>
               </div>
               <div className="text-right">
@@ -313,7 +381,8 @@ export default function PracticeTestPage() {
               <button
                 onClick={previousQuestion}
                 disabled={currentQuestionIndex === 0}
-                className="px-6 py-3 bg-gray-200 text-gray-700 rounded-2xl disabled:opacity-50 hover:bg-gray-300 transition-colors font-medium"
+                className="px-6 py-3 bg-gray-200 text-gray-700 rounded-2xl disabled:opacity-50 hover:bg-gray-300 transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
+                aria-label="Go to previous question"
               >
                 ← Previous
               </button>
@@ -328,14 +397,16 @@ export default function PracticeTestPage() {
               {currentQuestionIndex === currentModule.questionCount - 1 ? (
                 <button
                   onClick={() => setShowReview(true)}
-                  className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl hover:shadow-lg transition-all font-medium"
+                  className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl hover:shadow-lg transition-all font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
+                  aria-label="Review answers and submit module"
                 >
                   Review & Submit →
                 </button>
               ) : (
                 <button
                   onClick={nextQuestion}
-                  className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-2xl hover:shadow-lg transition-all font-medium"
+                  className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-2xl hover:shadow-lg transition-all font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
+                  aria-label="Go to next question"
                 >
                   Next →
                 </button>

@@ -11,8 +11,55 @@ interface MathRendererProps {
 }
 
 /**
+ * Convert LaTeX to screen reader friendly text
+ * This helps visually impaired users understand mathematical expressions
+ */
+const latexToText = (latex: string): string => {
+  return latex
+    // Fractions
+    .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '$1 over $2')
+    // Square root
+    .replace(/\\sqrt\{([^}]+)\}/g, 'square root of $1')
+    // Exponents
+    .replace(/\^(\d+)/g, ' to the power of $1')
+    .replace(/\^\{([^}]+)\}/g, ' to the power of $1')
+    // Subscripts
+    .replace(/_(\d+)/g, ' subscript $1')
+    .replace(/\_\{([^}]+)\}/g, ' subscript $1')
+    // Greek letters
+    .replace(/\\pi\b/g, 'pi')
+    .replace(/\\theta\b/g, 'theta')
+    .replace(/\\alpha\b/g, 'alpha')
+    .replace(/\\beta\b/g, 'beta')
+    .replace(/\\gamma\b/g, 'gamma')
+    .replace(/\\delta\b/g, 'delta')
+    // Infinity
+    .replace(/\\infty/g, 'infinity')
+    // Plus/minus
+    .replace(/\\pm/g, 'plus or minus')
+    // Degree
+    .replace(/\^\\circ/g, ' degrees')
+    // Inequalities
+    .replace(/\\leq/g, ' less than or equal to ')
+    .replace(/\\geq/g, ' greater than or equal to ')
+    .replace(/\\neq/g, ' not equal to ')
+    // Functions
+    .replace(/\\sin/g, 'sine')
+    .replace(/\\cos/g, 'cosine')
+    .replace(/\\tan/g, 'tangent')
+    .replace(/\\log/g, 'logarithm')
+    .replace(/\\ln/g, 'natural logarithm')
+    // Clean up remaining LaTeX commands
+    .replace(/\\/g, '')
+    .replace(/\{/g, '')
+    .replace(/\}/g, '')
+    .trim()
+}
+
+/**
  * MathRenderer component for displaying mathematical equations
  * Automatically detects and renders LaTeX math expressions
+ * Includes screen reader support via aria-label
  */
 export default function MathRenderer({ children, block = false, className = '' }: MathRendererProps) {
   // Convert common math notation to LaTeX
@@ -94,10 +141,15 @@ export default function MathRenderer({ children, block = false, className = '' }
       }
       
       try {
+        const latexExpression = convertToLatex(mathExpression)
+        const screenReaderText = latexToText(latexExpression)
+        
         parts.push(
-          <InlineMath key={`math-${match.index}`}>
-            {convertToLatex(mathExpression)}
-          </InlineMath>
+          <span key={`math-${match.index}`} role="img" aria-label={screenReaderText}>
+            <InlineMath>
+              {latexExpression}
+            </InlineMath>
+          </span>
         )
       } catch (error) {
         // If LaTeX parsing fails, show as regular text
@@ -131,9 +183,16 @@ export default function MathRenderer({ children, block = false, className = '' }
         mathExpression = mathExpression.slice(1, -1)
       }
       
+      const latexExpression = convertToLatex(mathExpression)
+      const screenReaderText = latexToText(latexExpression)
+      
       return (
-        <div className={`math-block ${className}`}>
-          <BlockMath>{convertToLatex(mathExpression)}</BlockMath>
+        <div 
+          className={`math-block ${className}`}
+          role="img"
+          aria-label={screenReaderText}
+        >
+          <BlockMath>{latexExpression}</BlockMath>
         </div>
       )
     } catch (error) {

@@ -22,7 +22,7 @@ export default function UserMenu() {
           {session.user.image && (
             <img 
               src={session.user.image} 
-              alt="Profile" 
+              alt={`${session.user.name || 'User'} profile picture`}
               className="w-9 h-9 rounded-full border-2 border-indigo-200 shadow" 
             />
           )}
@@ -36,7 +36,8 @@ export default function UserMenu() {
           {isAdmin && (
             <Link
               href="/admin"
-              className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded font-semibold transition-colors shadow-md"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded font-semibold transition-colors shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
+              aria-label="Go to Admin Dashboard"
             >
               Admin
             </Link>
@@ -45,7 +46,8 @@ export default function UserMenu() {
           {/* Sign Out Button */}
           <button
             onClick={() => signOut()}
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded font-semibold transition-colors"
+            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+            aria-label="Sign out of your account"
           >
             Sign Out
           </button>
@@ -54,7 +56,8 @@ export default function UserMenu() {
         /* Sign In Button */
         <button
           onClick={() => signIn("google")}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded font-semibold transition-colors"
+          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+          aria-label="Sign in with Google"
         >
           Sign In
         </button>
