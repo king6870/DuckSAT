@@ -7,7 +7,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlserver"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -114,18 +114,18 @@ model Question {
   subtopic     String?  // More specific subtopic (e.g., 'linear-equations', 'quadratic-functions')
   question     String   @db.Text
   passage      String?  @db.Text // Reading passages or context
-  options      String   @db.NVarChar(max) // JSON array of answer options
+  options      String   @db.Text // JSON array of answer options
   correctAnswer Int     // Index of correct answer (0-3)
   explanation  String   @db.Text // Detailed explanation for correct answer
-  wrongAnswerExplanations String? @db.NVarChar(max) // JSON object for wrong answer explanations
+  wrongAnswerExplanations String? @db.Text // JSON object for wrong answer explanations
   imageUrl     String?  // URL for math charts, graphs, diagrams (legacy filesystem path or new DB reference)
   imageData    Bytes?   // Stored SVG/image data as blob
   imageMimeType String? // MIME type of stored image (e.g., 'image/svg+xml', 'image/png')
   imageAlt     String?  // Alt text for accessibility
-  chartData    String?  @db.NVarChar(max) // JSON for chart/graph data
+  chartData    String?  @db.Text // JSON for chart/graph data
   timeEstimate Int      // Estimated time in seconds
   source       String?  // Source of the question (e.g., 'Official SAT', 'Khan Academy')
-  tags         String   @db.NVarChar(max) // JSON array of tags
+  tags         String   @db.Text // JSON array of tags
   isActive     Boolean  @default(true)
   // Review fields for question quality control
   reviewStatus      String?  // 'pending' | 'approved' | 'rejected'
@@ -159,18 +159,18 @@ model ArchivedQuestion {
   subtopic     String?
   question     String   @db.Text
   passage      String?  @db.Text
-  options      String   @db.NVarChar(max)
+  options      String   @db.Text
   correctAnswer Int
   explanation  String   @db.Text
-  wrongAnswerExplanations String? @db.NVarChar(max)
+  wrongAnswerExplanations String? @db.Text
   imageUrl     String?
   imageData    Bytes?
   imageMimeType String?
   imageAlt     String?
-  chartData    String?  @db.NVarChar(max)
+  chartData    String?  @db.Text
   timeEstimate Int
   source       String?
-  tags         String   @db.NVarChar(max)
+  tags         String   @db.Text
   isActive     Boolean  @default(false)
   reviewStatus      String?
   reviewRating      Int?
@@ -221,9 +221,9 @@ model TestResult {
   satReadingScore  Int?     // Reading & Writing score 200-800
   satMathScore     Int?     // Math score 200-800
   percentile       Int?     // 1-99 percentile
-  categoryPerformance String  @db.NVarChar(max) // JSON record of category performance
-  subtopicPerformance String? @db.NVarChar(max) // JSON for subtopic breakdown
-  difficultyPerformance String? @db.NVarChar(max) // JSON for difficulty performance
+  categoryPerformance String  @db.Text // JSON record of category performance
+  subtopicPerformance String? @db.Text // JSON for subtopic breakdown
+  difficultyPerformance String? @db.Text // JSON for difficulty performance
   completedAt      DateTime @default(now())
 
   // Relations
@@ -302,8 +302,8 @@ model StudySession {
   questionsAnswered Int    @default(0)
   timeSpent       Int      @default(0) // seconds
   sessionType     String   // 'practice', 'full-test', 'category-focus'
-  categories      String?  @db.NVarChar(max) // JSON array of categories practiced
-  subtopics       String?  @db.NVarChar(max) // JSON array of subtopics practiced
+  categories      String?  @db.Text // JSON array of categories practiced
+  subtopics       String?  @db.Text // JSON array of subtopics practiced
   completed       Boolean  @default(false)
   createdAt       DateTime @default(now())
 
@@ -318,7 +318,7 @@ model ErrorLog {
   errorType String   // 'api_error', 'client_error', 'database_error'
   message   String   @db.Text
   stack     String?  @db.Text
-  metadata  String?  @db.NVarChar(max) // JSON metadata
+  metadata  String?  @db.Text // JSON metadata
   createdAt DateTime @default(now())
 
   @@index([errorType, createdAt])
@@ -330,7 +330,7 @@ model UsageAnalytics {
   id          String   @id @default(cuid())
   userId      String?
   action      String   // 'test_started', 'question_answered', 'test_completed'
-  metadata    String?  @db.NVarChar(max) // JSON metadata about the action
+  metadata    String?  @db.Text // JSON metadata about the action
   userAgent   String?
   ipAddress   String?
   createdAt   DateTime @default(now())
