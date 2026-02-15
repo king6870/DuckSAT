@@ -2,6 +2,7 @@
 
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import ThemeToggle from "./ui/theme-toggle";
 
 export default function UserMenu() {
   const { data: session, status } = useSession();
@@ -43,6 +44,9 @@ export default function UserMenu() {
             </Link>
           )}
           
+          {/* Theme Toggle */}
+          <ThemeToggle />
+          
           {/* Sign Out Button */}
           <button
             onClick={() => signOut()}
@@ -53,14 +57,19 @@ export default function UserMenu() {
           </button>
         </>
       ) : (
-        /* Sign In Button */
-        <button
-          onClick={() => signIn("google")}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-          aria-label="Sign in with Google"
-        >
-          Sign In
-        </button>
+        <>
+          {/* Theme Toggle */}
+          <ThemeToggle />
+          
+          {/* Sign In Button */}
+          <button
+            onClick={() => signIn("google")}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            aria-label="Sign in with Google"
+          >
+            Sign In
+          </button>
+        </>
       )}
     </div>
   );
