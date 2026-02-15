@@ -2,7 +2,7 @@
 
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
-import ThemeToggle from "./ui/theme-toggle";
+import { ThemeToggle } from "./ui/theme-toggle";
 
 export default function UserMenu() {
   const { data: session, status } = useSession();
@@ -29,7 +29,7 @@ export default function UserMenu() {
           )}
           
           {/* User Name */}
-          <span className="font-medium text-gray-700 max-w-[120px] truncate">
+          <span className="font-medium text-[var(--color-text-secondary)] max-w-[120px] truncate">
             {session.user.name}
           </span>
           

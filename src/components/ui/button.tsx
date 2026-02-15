@@ -17,7 +17,7 @@ const buttonVariants = cva(
       variant: {
         primary: "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] active:translate-y-px shadow-sm hover:shadow-md focus-visible:ring-[var(--color-primary)]",
         secondary: "bg-[var(--color-secondary)] text-white hover:bg-[var(--color-secondary-hover)] active:translate-y-px shadow-sm hover:shadow-md focus-visible:ring-[var(--color-secondary)]",
-        outline: "border-2 border-[var(--color-border)] bg-white text-[var(--color-text-primary)] hover:bg-[var(--color-gray-50)] hover:border-[var(--color-primary)] focus-visible:ring-[var(--color-primary)]",
+        outline: "border-2 border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-text-primary)] hover:bg-[var(--color-gray-50)] hover:border-[var(--color-primary)] focus-visible:ring-[var(--color-primary)]",
         ghost: "bg-transparent text-[var(--color-text-primary)] hover:bg-[var(--color-gray-100)] focus-visible:ring-[var(--color-gray-400)]",
         danger: "bg-[var(--color-error)] text-white hover:bg-[var(--color-error-hover)] active:translate-y-px shadow-sm hover:shadow-md focus-visible:ring-[var(--color-error)]",
         // Legacy aliases for compatibility

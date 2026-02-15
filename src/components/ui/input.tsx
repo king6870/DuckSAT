@@ -92,7 +92,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               // Base styles
               "flex w-full rounded-lg px-4 py-3",
               "text-base text-[var(--color-text-primary)]",
-              "bg-white",
+              "bg-[var(--color-background)]",
               "border-2 transition-all duration-200",
               "placeholder:text-[var(--color-text-tertiary)]",
               

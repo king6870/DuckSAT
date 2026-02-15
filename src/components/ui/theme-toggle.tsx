@@ -25,8 +25,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       onClick={toggleTheme}
       className={cn(
         "relative w-10 h-10 rounded-lg",
-        "bg-gray-200 hover:bg-gray-300",
-        "dark:bg-gray-700 dark:hover:bg-gray-600",
+        "bg-[var(--color-gray-200)] hover:bg-[var(--color-gray-300)]",
         "transition-all duration-200",
         "focus-visible:outline-none focus-visible:ring-2",
         "focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2",
@@ -49,7 +48,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       {/* Moon icon (visible in light mode) */}
       <Moon
         className={cn(
-          "absolute w-5 h-5 text-gray-700",
+          "absolute w-5 h-5 text-[var(--color-text-secondary)]",
           "transition-all duration-300",
           resolvedTheme === 'light'
             ? "rotate-0 scale-100 opacity-100"

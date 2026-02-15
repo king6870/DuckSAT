@@ -75,7 +75,7 @@ const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(
           <div
             className={cn(
               "mb-6 rounded-full p-4",
-              "bg-white shadow-md",
+              "bg-[var(--color-background)] shadow-md",
               iconColorClass
             )}
             aria-hidden="true"

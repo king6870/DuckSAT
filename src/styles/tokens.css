@@ -248,6 +248,71 @@
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+
+  /* ===== SEMANTIC COLOR OVERRIDES FOR DARK MODE ===== */
+  /* Flip light pastel backgrounds (50/100 shades) to dark equivalents */
+  --color-blue-50: #172136;
+  --color-blue-100: #1E3A5F;
+  --color-blue-200: #1E40AF;
+  
+  --color-indigo-50: #1E1B3A;
+  --color-indigo-100: #312E81;
+  --color-indigo-200: #3730A3;
+  
+  --color-purple-50: #2D1B4E;
+  --color-purple-100: #581C87;
+  --color-purple-200: #6B21A8;
+  
+  --color-pink-50: #3B1028;
+  --color-pink-100: #831843;
+  
+  --color-green-50: #0A2C1A;
+  --color-green-100: #064E3B;
+  --color-green-200: #065F46;
+  
+  --color-red-50: #2D1212;
+  --color-red-100: #7F1D1D;
+  --color-red-200: #991B1B;
+  
+  --color-yellow-50: #2D1F0A;
+  --color-yellow-300: #92400E;
+  
+  --color-amber-50: #2D1F0A;
+  
+  --color-orange-50: #2D1A0A;
+  --color-orange-200: #9A3412;
+  
+  --color-cyan-50: #0C2D3F;
+  --color-teal-50: #0D3331;
+  --color-emerald-50: #0A2C1A;
+  --color-emerald-100: #064E3B;
+  
+  /* Flip dark text shades (700-900) to light equivalents for readability on dark backgrounds */
+  --color-blue-700: #93C5FD;
+  --color-blue-800: #60A5FA;
+  --color-blue-900: #93C5FD;
+  
+  --color-indigo-700: #A5B4FC;
+  --color-indigo-800: #818CF8;
+  --color-indigo-900: #A5B4FC;
+  
+  --color-purple-700: #C4B5FD;
+  --color-purple-800: #A855F7;
+  --color-purple-900: #C4B5FD;
+  
+  --color-green-700: #6EE7B7;
+  --color-green-800: #34D399;
+  --color-green-900: #6EE7B7;
+  
+  --color-red-700: #FCA5A5;
+  --color-red-800: #F87171;
+  --color-red-900: #FCA5A5;
+  
+  --color-yellow-800: #FDE68A;
+  --color-yellow-900: #FDE68A;
+  
+  --color-orange-800: #FDBA74;
+  --color-orange-900: #FDBA74;
 }
 
 /* ===== REDUCED MOTION ===== */

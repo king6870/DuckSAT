@@ -61,7 +61,7 @@ const ModalContent = React.forwardRef<
         "fixed left-[50%] top-[50%] z-50",
         "translate-x-[-50%] translate-y-[-50%]",
         "w-full max-w-lg max-h-[90vh] overflow-y-auto",
-        "bg-white rounded-2xl shadow-2xl",
+        "bg-[var(--color-background)] rounded-2xl shadow-2xl",
         "border-2",
         variant === "default" && "border-[var(--color-gray-300)]",
         variant === "danger" && "border-[var(--color-error)]",

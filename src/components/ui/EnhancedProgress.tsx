@@ -40,10 +40,10 @@ export default function EnhancedProgress({
     <div className={`w-full ${className}`}>
       {showLabel && (
         <div className="flex justify-between items-center mb-2">
-          <span className="text-sm font-medium text-gray-700">
+          <span className="text-sm font-medium text-[var(--color-text-secondary)]">
             {label || 'Progress'}
           </span>
-          <span className="text-sm font-medium text-gray-700">
+          <span className="text-sm font-medium text-[var(--color-text-secondary)]">
             {Math.round(percentage)}%
           </span>
         </div>

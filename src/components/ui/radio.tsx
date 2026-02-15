@@ -34,7 +34,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
               // Base styles
               "peer w-5 h-5 cursor-pointer appearance-none rounded-full",
               "border-2 border-[var(--color-gray-400)]",
-              "bg-white transition-all duration-200",
+              "bg-[var(--color-background)] transition-all duration-200",
               
               // Hover state
               "hover:border-[var(--color-primary)]",

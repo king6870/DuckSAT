@@ -34,7 +34,7 @@ const SelectTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       "flex h-12 w-full items-center justify-between rounded-lg",
-      "border-2 bg-white px-4 py-3 text-base",
+      "border-2 bg-[var(--color-background)] px-4 py-3 text-base",
       "text-[var(--color-text-primary)]",
       "placeholder:text-[var(--color-text-tertiary)]",
       "transition-all duration-200",
@@ -119,7 +119,7 @@ const SelectContent = React.forwardRef<
       className={cn(
         "relative z-50 max-h-96 min-w-[8rem] overflow-hidden",
         "rounded-xl border-2 border-[var(--color-gray-300)]",
-        "bg-white shadow-xl",
+        "bg-[var(--color-background)] shadow-xl",
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
         "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
         "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",

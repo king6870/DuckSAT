@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "../styles/tokens.css";
 
+/* Configure Tailwind dark: variant to use [data-theme="dark"] attribute */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /* NOTE: Dark mode is now controlled by [data-theme="dark"] attribute, not prefers-color-scheme */
 /* See tokens.css for comprehensive dark mode token definitions */
 
@@ -20,3 +23,84 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
 }
+
+/* ===== DARK MODE GLOBAL OVERRIDES ===== */
+/* Overrides for Tailwind utilities that don't use CSS custom properties */
+
+/* bg-white → dark surface (can't override --color-white without breaking text-white) */
+[data-theme="dark"] .bg-white {
+  background-color: var(--color-surface);
+}
+[data-theme="dark"] .bg-white\/80 {
+  background-color: rgb(31 41 55 / 0.8);
+}
+[data-theme="dark"] .bg-white\/90 {
+  background-color: rgb(31 41 55 / 0.9);
+}
+[data-theme="dark"] .bg-white\/95 {
+  background-color: rgb(31 41 55 / 0.95);
+}
+[data-theme="dark"] .hover\:bg-white:hover {
+  background-color: var(--color-surface);
+}
+
+/* Border white transparent variants */
+[data-theme="dark"] .border-white\/20 {
+  border-color: rgb(55 65 81 / 0.3);
+}
+
+/* Gradient page background overrides - darken pastel gradients */
+[data-theme="dark"] .from-blue-50 {
+  --tw-gradient-from: #172136;
+}
+[data-theme="dark"] .from-indigo-50 {
+  --tw-gradient-from: #1E1B3A;
+}
+[data-theme="dark"] .from-purple-50 {
+  --tw-gradient-from: #2D1B4E;
+}
+[data-theme="dark"] .from-green-50 {
+  --tw-gradient-from: #0A2C1A;
+}
+[data-theme="dark"] .from-pink-50 {
+  --tw-gradient-from: #3B1028;
+}
+[data-theme="dark"] .via-indigo-50 {
+  --tw-gradient-via: #1E1B3A;
+}
+[data-theme="dark"] .via-purple-50 {
+  --tw-gradient-via: #2D1B4E;
+}
+[data-theme="dark"] .to-purple-50 {
+  --tw-gradient-to: #2D1B4E;
+}
+[data-theme="dark"] .to-pink-50 {
+  --tw-gradient-to: #3B1028;
+}
+[data-theme="dark"] .to-blue-50 {
+  --tw-gradient-to: #172136;
+}
+[data-theme="dark"] .to-indigo-50 {
+  --tw-gradient-to: #1E1B3A;
+}
+[data-theme="dark"] .from-blue-50.to-indigo-50 {
+  --tw-gradient-from: #172136;
+  --tw-gradient-to: #1E1B3A;
+}
+
+/* Gradient card backgrounds (from-X-50 to-Y-100) */
+[data-theme="dark"] .to-indigo-100 {
+  --tw-gradient-to: #312E81;
+}
+[data-theme="dark"] .to-emerald-100 {
+  --tw-gradient-to: #064E3B;
+}
+[data-theme="dark"] .to-red-100 {
+  --tw-gradient-to: #7F1D1D;
+}
+
+/* Hover overrides for bg-gray-50 */
+[data-theme="dark"] .hover\:bg-gray-50:hover {
+  background-color: var(--color-gray-100);
+}
+
