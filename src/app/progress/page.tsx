@@ -3,7 +3,8 @@
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { BookOpen, Calculator, AlertCircle } from 'lucide-react'
+import { BookOpen, Calculator, AlertCircle, ArrowLeft, TrendingUp, Award, Clock } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 interface ProgressData {
   overview: {
@@ -127,15 +128,19 @@ export default function Progress() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
         <div className="text-center max-w-md mx-auto p-8">
-          <div className="text-6xl mb-6">📊</div>
+          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+            <TrendingUp className="w-10 h-10 text-white" />
+          </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">No Progress Data Yet</h2>
           <p className="text-gray-600 mb-8 text-lg">Take your first practice test to start tracking your progress and see your improvement over time!</p>
-          <button
+          <Button
             onClick={() => router.push('/practice-test')}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl hover:shadow-lg transition-all font-semibold text-lg"
+            variant="primary"
+            size="lg"
+            className="min-h-[56px]"
           >
             Start Practice Test
-          </button>
+          </Button>
         </div>
       </div>
     )
@@ -144,13 +149,16 @@ export default function Progress() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
       <div className="p-4 flex justify-between items-center border-b bg-white/80 backdrop-blur">
-        <button
+        <Button
           onClick={() => router.push('/')}
-          className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-all"
+          variant="outline"
+          size="md"
+          className="min-h-[44px]"
         >
-          ← Back to Home
-        </button>
-        <div className="text-sm text-gray-600">
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Back to Home
+        </Button>
+        <div className="text-sm text-gray-600 font-medium">
           {session?.user?.name || session?.user?.email}
         </div>
       </div>
@@ -241,7 +249,10 @@ export default function Progress() {
           {/* Math */}
           <div className="bg-white rounded-xl shadow-md p-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-gray-900">🔢 Math</h3>
+              <div className="flex items-center gap-2">
+                <Calculator className="w-6 h-6 text-purple-600" />
+                <h3 className="text-xl font-bold text-gray-900">Math</h3>
+              </div>
               <div className="text-3xl font-bold text-purple-600">
                 {progressData.modulePerformance.math.averageSATScore}
               </div>
@@ -281,7 +292,10 @@ export default function Progress() {
         {/* Score Progression Chart */}
         {progressData.scoreProgression.length > 0 && (
           <div className="bg-white rounded-xl shadow-md p-6 mb-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">📈 Score Progress</h3>
+            <div className="flex items-center gap-2 mb-4">
+              <TrendingUp className="w-6 h-6 text-green-600" />
+              <h3 className="text-xl font-bold text-gray-900">Score Progress</h3>
+            </div>
             <div className="overflow-x-auto">
               <div className="min-w-[600px] h-64 flex items-end justify-around gap-2 px-4">
                 {progressData.scoreProgression.map((test, index) => {
@@ -317,7 +331,10 @@ export default function Progress() {
 
         {/* Difficulty Performance */}
         <div className="bg-white rounded-xl shadow-md p-6 mb-8">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">🎯 Performance by Difficulty</h3>
+          <div className="flex items-center gap-2 mb-4">
+            <Award className="w-6 h-6 text-indigo-600" />
+            <h3 className="text-xl font-bold text-gray-900">Performance by Difficulty</h3>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {(['easy', 'medium', 'hard'] as const).map((difficulty) => {
               const data = progressData.difficultyPerformance[difficulty]
@@ -356,9 +373,10 @@ export default function Progress() {
         {/* Strengths and Weaknesses */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-md p-6">
-            <h3 className="text-xl font-bold text-green-700 mb-4 flex items-center">
-              <span className="mr-2">💪</span> Strong Areas
-            </h3>
+            <div className="flex items-center gap-2 mb-4">
+              <TrendingUp className="w-6 h-6 text-green-700" />
+              <h3 className="text-xl font-bold text-green-700">Strong Areas</h3>
+            </div>
             {progressData.strongAreas.length > 0 ? (
               <div className="space-y-2">
                 {progressData.strongAreas.map((area, index) => (
@@ -396,7 +414,10 @@ export default function Progress() {
         {/* Category Performance */}
         {progressData.categoryPerformance.length > 0 && (
           <div className="bg-white rounded-xl shadow-md p-6 mb-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">📊 Category Performance</h3>
+            <div className="flex items-center gap-2 mb-4">
+              <BookOpen className="w-6 h-6 text-blue-600" />
+              <h3 className="text-xl font-bold text-gray-900">Category Performance</h3>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {progressData.categoryPerformance.map((category) => (
                 <div key={category.category} className="p-4 border-2 rounded-lg hover:shadow-md transition-shadow">
@@ -433,7 +454,10 @@ export default function Progress() {
 
         {/* Test History */}
         <div className="bg-white rounded-xl shadow-md p-6 mb-8">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">📅 Test History</h3>
+          <div className="flex items-center gap-2 mb-4">
+            <Clock className="w-6 h-6 text-gray-700" />
+            <h3 className="text-xl font-bold text-gray-900">Test History</h3>
+          </div>
           <div className="overflow-x-auto">
             <table className="min-w-full">
               <thead>
@@ -486,12 +510,14 @@ export default function Progress() {
 
         {/* Action Button */}
         <div className="text-center">
-          <button
+          <Button
             onClick={() => router.push('/practice-test')}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-4 rounded-xl hover:shadow-lg transition-all font-semibold text-lg"
+            variant="primary"
+            size="lg"
+            className="min-h-[56px] px-10"
           >
-            Take Another Practice Test →
-          </button>
+            Take Another Practice Test
+          </Button>
         </div>
       </div>
     </div>
