@@ -460,6 +460,18 @@ export default function EnhancedQuestionGeneration() {
                           }`}>
                             {question.difficulty}
                           </span>
+                          {question.id && (
+                            <button
+                              onClick={() => {
+                                navigator.clipboard.writeText(question.id!)
+                                alert(`Copied question ID: ${question.id}`)
+                              }}
+                              className="px-3 py-1 rounded-full text-xs font-semibold bg-white/20 backdrop-blur border border-white/30 hover:bg-white/30 transition-colors cursor-pointer"
+                              title={`Click to copy full ID: ${question.id}`}
+                            >
+                              ID: {question.id.substring(0, 8)} 📋
+                            </button>
+                          )}
                         </div>
                         <div className="text-sm">
                           {question.category} • {question.subtopic}
@@ -547,6 +559,20 @@ export default function EnhancedQuestionGeneration() {
                               <div className="text-gray-700 leading-relaxed">
                                 <MathRenderer>{question.explanation}</MathRenderer>
                               </div>
+                              {question.id && (
+                                <div className="mt-4 pt-3 border-t border-gray-200">
+                                  <a
+                                    href={`/admin/questions/edit/${question.id}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
+                                  >
+                                    <span>🗄️</span>
+                                    <span className="ml-2">View in Database</span>
+                                    <span className="ml-2 text-xs opacity-75">↗</span>
+                                  </a>
+                                </div>
+                              )}
                             </div>
                           </div>
                         </div>
