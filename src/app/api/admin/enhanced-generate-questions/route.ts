@@ -60,6 +60,39 @@ export async function POST(request: NextRequest) {
 
     console.log('✅ Authenticated admin:', session.user.email)
 
+    // Validate Azure OpenAI environment variables EARLY
+    const azureApiKey = process.env.AZURE_OPENAI_API_KEY
+    const endpointUrl = process.env.ENDPOINT_URL || process.env.AZURE_OPENAI_ENDPOINT
+    
+    if (!azureApiKey) {
+      console.error('❌ AZURE_OPENAI_API_KEY is not set')
+      return NextResponse.json(
+        { 
+          error: 'Azure OpenAI configuration missing',
+          details: 'AZURE_OPENAI_API_KEY environment variable is not set. Please configure it in Vercel Dashboard → Settings → Environment Variables.',
+          hint: 'See docs/VERCEL_ENV_SETUP.md for setup instructions'
+        },
+        { status: 500 }
+      )
+    }
+
+    if (!endpointUrl) {
+      console.error('❌ Azure OpenAI endpoint is not set')
+      return NextResponse.json(
+        { 
+          error: 'Azure OpenAI configuration missing',
+          details: 'ENDPOINT_URL or AZURE_OPENAI_ENDPOINT environment variable is not set. Please configure it in Vercel Dashboard.',
+          hint: 'See docs/VERCEL_ENV_SETUP.md for setup instructions'
+        },
+        { status: 500 }
+      )
+    }
+
+    console.log('✅ Azure OpenAI config present:', {
+      apiKeyLength: azureApiKey.length,
+      endpointDomain: new URL(endpointUrl).hostname
+    })
+
     // Parse request body with error handling
     let settings: GenerationSettings
     try {
@@ -222,14 +255,26 @@ export async function POST(request: NextRequest) {
     // Provide detailed error information
     const errorDetails = error instanceof Error ? {
       message: error.message,
-      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
-    } : { message: 'Unknown error' }
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined,
+      name: error.name
+    } : { message: 'Unknown error', name: 'UnknownError' }
+    
+    // Add diagnostic information
+    const diagnostics = {
+      hasAzureApiKey: !!process.env.AZURE_OPENAI_API_KEY,
+      hasEndpointUrl: !!(process.env.ENDPOINT_URL || process.env.AZURE_OPENAI_ENDPOINT),
+      nodeEnv: process.env.NODE_ENV,
+      timestamp: new Date().toISOString()
+    }
     
     return NextResponse.json(
       {
         error: 'Failed to generate questions',
         details: errorDetails.message,
-        stack: errorDetails.stack
+        errorType: errorDetails.name,
+        stack: errorDetails.stack,
+        diagnostics: diagnostics,
+        hint: 'Check Vercel deployment logs for more details. Visit /api/admin/health-check for system diagnostics.'
       },
       { status: 500 }
     )
