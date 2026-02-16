@@ -74,6 +74,48 @@ For Neon PostgreSQL (or your database provider):
 - `DATABASE_URL` - Connection string with pgBouncer pooling
 - `DATABASE_URL_UNPOOLED` - Direct connection string (for migrations)
 
+### Azure OpenAI Configuration (Required for Question Generation)
+
+**CRITICAL:** These variables are required for the question generation feature to work. If missing, you'll see a `500 Internal Server Error` with message: _"Missing Azure OpenAI config"_.
+
+Set these in Vercel Dashboard → Settings → Environment Variables:
+
+#### Option 1: Direct Endpoint URL (Recommended)
+```
+AZURE_OPENAI_API_KEY=your-azure-openai-api-key
+ENDPOINT_URL=https://your-resource.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2025-01-01-preview
+```
+
+#### Option 2: Component Configuration
+```
+AZURE_OPENAI_API_KEY=your-azure-openai-api-key
+AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4o
+AZURE_OPENAI_API_VERSION=2025-01-01-preview
+```
+
+**Optional (for quality evaluation):**
+```
+GROK_ENDPOINT=https://your-grok-endpoint.openai.azure.com/...
+```
+
+**How to get these from Azure Portal:**
+
+1. Go to [Azure Portal](https://portal.azure.com)
+2. Navigate to **Azure OpenAI Service**
+3. Select your cognitive services resource
+4. Go to **Keys and Endpoint** section:
+   - Copy **Key 1** → `AZURE_OPENAI_API_KEY`
+   - Copy **Endpoint** → `AZURE_OPENAI_ENDPOINT`
+5. Go to **Model deployments** (or Azure OpenAI Studio):
+   - Note your deployment name (e.g., `gpt-4o`) → `AZURE_OPENAI_DEPLOYMENT`
+
+**Important Notes:**
+- You must have an **Azure OpenAI deployment** (not just regular Azure)
+- The deployment must have **GPT-4o** or similar model
+- API version `2025-01-01-preview` is required for `max_completion_tokens` parameter
+- These variables must be set in **all environments** (Production, Preview, Development)
+
 ## Best Practices
 
 ### 1. Never Commit Secrets to Git
@@ -208,6 +250,42 @@ If users are getting logged out frequently:
 - Never regenerate the secret unless you want to invalidate all sessions
 - Make sure the same secret is used in all production deployments
 
+### Error: "500 Internal Server Error" on Question Generation
+
+**Symptom:** When trying to generate questions in the Admin panel, you see:
+```
+POST /api/admin/enhanced-generate-questions 500 (Internal Server Error)
+```
+
+**Cause:** Missing Azure OpenAI configuration environment variables.
+
+**Solution:**
+
+1. **Check if variables are set:** Go to Vercel Dashboard → Settings → Environment Variables
+2. **Add missing variables:**
+   - `AZURE_OPENAI_API_KEY` - Your Azure OpenAI API key
+   - `ENDPOINT_URL` (or `AZURE_OPENAI_ENDPOINT`) - Your Azure OpenAI endpoint URL
+3. **Verify deployment name (optional):**
+   - `AZURE_OPENAI_DEPLOYMENT` - Should match your Azure deployment (defaults to `gpt-4o`)
+4. **Select all environments:** Production, Preview, and Development
+5. **Redeploy:** 
+   - Go to Deployments tab
+   - Click **⋯** on latest deployment → **Redeploy**
+   - Wait 2-3 minutes for deployment to complete
+6. **Test again:** Try generating questions
+
+**How to verify fix worked:**
+- Check Vercel deployment logs (Runtime Logs tab)
+- Look for log entry: `✅ Database connection verified`
+- If you still see errors, look for messages mentioning environment variables
+- Browser console (F12) should no longer show 500 error
+
+**Related error messages:**
+- `"Missing Azure OpenAI config: set AZURE_OPENAI_API_KEY and ENDPOINT_URL or AZURE_OPENAI_ENDPOINT"`
+- `"Failed to generate questions"`
+
+**Prevention:** Always set Azure OpenAI variables before deploying question generation features.
+
 ## Environment Variable Checklist
 
 Before deploying to production, ensure these are set in Vercel:
@@ -218,6 +296,11 @@ Before deploying to production, ensure these are set in Vercel:
 - [ ] `GOOGLE_CLIENT_SECRET` - From Google Cloud Console
 - [ ] `DATABASE_URL` - Your database connection string
 - [ ] `DATABASE_URL_UNPOOLED` - For migrations (if using connection pooling)
+- [ ] `AZURE_OPENAI_API_KEY` - Azure OpenAI API key (**REQUIRED for question generation**)
+- [ ] `ENDPOINT_URL` **OR** `AZURE_OPENAI_ENDPOINT` - Azure OpenAI endpoint (**REQUIRED**)
+- [ ] `AZURE_OPENAI_DEPLOYMENT` - Model deployment name (optional, defaults to `gpt-4o`)
+- [ ] `AZURE_OPENAI_API_VERSION` - API version (optional, defaults to `2025-01-01-preview`)
+- [ ] `GROK_ENDPOINT` - Quality evaluation endpoint (optional, falls back to main endpoint)
 
 **Note:** The build process will automatically validate all these variables and fail if any are missing, so you'll know immediately if configuration is incomplete.
 
