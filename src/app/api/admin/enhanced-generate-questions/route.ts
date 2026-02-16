@@ -1,8 +1,31 @@
+/**
+ * Enhanced Question Generation API
+ * 
+ * Generates SAT questions with automatic quality control and regeneration.
+ * 
+ * Features:
+ * - AI-powered question generation (GPT-5)
+ * - Automatic quality evaluation (Grok)
+ * - Smart regeneration: Questions with quality scores ≤80% are automatically regenerated
+ * - Maximum 5 regeneration attempts per question
+ * - Image generation for math questions with charts
+ * - Topic/subtopic filtering support
+ * 
+ * Quality Control:
+ * - Each question is evaluated for quality, accuracy, and SAT alignment
+ * - Questions scoring ≤80% are regenerated up to 5 times
+ * - Final questions have quality scores >80% or hit retry limit
+ * 
+ * @endpoint POST /api/admin/enhanced-generate-questions
+ * @auth Admin only
+ * @returns Generated and evaluated questions with images
+ */
+
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 import { ADMIN_EMAILS } from '@/constants/adminEmails'
-import { aiQuestionService } from '@/services/aiQuestionService'
+import { unifiedQuestionGenerator } from '@/services/unifiedQuestionGenerator'
 import { prisma } from '@/lib/prisma'
 
 interface GenerationSettings {
@@ -23,42 +46,95 @@ interface GenerationSettings {
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('📥 Enhanced generation endpoint called')
+    
     // Check admin authentication
     const session = await getServerSession(authOptions)
     if (!session?.user?.email || !ADMIN_EMAILS.includes(session.user.email)) {
+      console.error('❌ Unauthorized access attempt:', session?.user?.email)
       return NextResponse.json(
         { error: 'Unauthorized - Admin access required' },
         { status: 403 }
       )
     }
 
-    const settings: GenerationSettings = await request.json()
+    console.log('✅ Authenticated admin:', session.user.email)
+
+    // Parse request body with error handling
+    let settings: GenerationSettings
+    try {
+      settings = await request.json()
+      console.log('📊 Parsed settings:', settings)
+    } catch (parseError) {
+      console.error('❌ Failed to parse request body:', parseError)
+      return NextResponse.json(
+        { error: 'Invalid JSON in request body', details: parseError instanceof Error ? parseError.message : 'Unknown parse error' },
+        { status: 400 }
+      )
+    }
 
     // Validate settings
     if (!settings.llmModel || settings.questionCount <= 0) {
+      console.error('❌ Invalid settings:', settings)
       return NextResponse.json(
         { error: 'Invalid settings: LLM model and question count are required' },
         { status: 400 }
       )
     }
 
+    // Validate database connection
+    try {
+      await prisma.$queryRaw`SELECT 1`
+      console.log('✅ Database connection verified')
+    } catch (dbError) {
+      console.error('❌ Database connection failed:', dbError)
+      return NextResponse.json(
+        { 
+          error: 'Database connection failed', 
+          details: dbError instanceof Error ? dbError.message : 'Unknown database error',
+          hint: 'Check DATABASE_URL and ensure database is accessible'
+        },
+        { status: 500 }
+      )
+    }
+
     // Validate topic/subtopic if provided
     if (settings.topicId) {
-      const topic = await prisma.topic.findUnique({ where: { id: settings.topicId } })
-      if (!topic) {
+      try {
+        const topic = await prisma.topic.findUnique({ where: { id: settings.topicId } })
+        if (!topic) {
+          console.error('❌ Topic not found:', settings.topicId)
+          return NextResponse.json(
+            { error: 'Invalid topic ID' },
+            { status: 400 }
+          )
+        }
+        console.log('✅ Valid topic:', topic.name)
+      } catch (topicError) {
+        console.error('❌ Error validating topic:', topicError)
         return NextResponse.json(
-          { error: 'Invalid topic ID' },
-          { status: 400 }
+          { error: 'Failed to validate topic', details: topicError instanceof Error ? topicError.message : 'Unknown error' },
+          { status: 500 }
         )
       }
     }
 
     if (settings.subtopicId) {
-      const subtopic = await prisma.subtopic.findUnique({ where: { id: settings.subtopicId } })
-      if (!subtopic) {
+      try {
+        const subtopic = await prisma.subtopic.findUnique({ where: { id: settings.subtopicId } })
+        if (!subtopic) {
+          console.error('❌ Subtopic not found:', settings.subtopicId)
+          return NextResponse.json(
+            { error: 'Invalid subtopic ID' },
+            { status: 400 }
+          )
+        }
+        console.log('✅ Valid subtopic:', subtopic.name)
+      } catch (subtopicError) {
+        console.error('❌ Error validating subtopic:', subtopicError)
         return NextResponse.json(
-          { error: 'Invalid subtopic ID' },
-          { status: 400 }
+          { error: 'Failed to validate subtopic', details: subtopicError instanceof Error ? subtopicError.message : 'Unknown error' },
+          { status: 500 }
         )
       }
     }
@@ -66,158 +142,76 @@ export async function POST(request: NextRequest) {
     console.log('🚀 Starting enhanced AI question generation...')
     console.log('Settings:', settings)
 
-    // Generate questions with specified settings
-    const generatedQuestions = await aiQuestionService.generateQuestionsWithSettings(settings)
-    console.log(`✅ Generated ${generatedQuestions.length} questions`)
-
-    // Evaluate questions with Grok
-    const evaluatedQuestions = await aiQuestionService.evaluateQuestions(generatedQuestions)
-    console.log(`🔍 Evaluated ${evaluatedQuestions.length} questions`)
-
-    // Filter accepted questions; if none accepted, surface all for review
-    let acceptedQuestions = evaluatedQuestions.filter(q => q.isAccepted)
-    let rejectedQuestions = evaluatedQuestions.filter(q => !q.isAccepted)
-    const forceAcceptAll = acceptedQuestions.length === 0 && evaluatedQuestions.length > 0
-    if (forceAcceptAll) {
-      acceptedQuestions = evaluatedQuestions
-      rejectedQuestions = []
+    // Generate questions using the unified service (6-step pipeline)
+    let result
+    try {
+      result = await unifiedQuestionGenerator.generateQuestions({
+        mathCount: settings.mathCount,
+        readingCount: settings.readingCount,
+        includeImages: settings.includeCharts,
+        includePassages: settings.includePassages,
+        storeInDatabase: true,
+        temperature: settings.temperature,
+        maxTokens: settings.maxTokens,
+        enableRetry: true,
+        enableValidation: true,
+        moduleType: settings.moduleType || 'both',
+        difficulty: settings.difficulty || 'mixed'
+      })
+      console.log(`✅ Pipeline complete: ${result.summary.accepted}/${result.summary.total} questions accepted`)
+    } catch (genError) {
+      console.error('❌ Question generation failed:', genError)
+      return NextResponse.json(
+        { 
+          error: 'Failed to generate questions', 
+          details: genError instanceof Error ? genError.message : 'Unknown generation error',
+          stack: process.env.NODE_ENV === 'development' && genError instanceof Error ? genError.stack : undefined
+        },
+        { status: 500 }
+      )
     }
 
-    console.log(`✅ Accepted: ${acceptedQuestions.length}, ❌ Rejected: ${rejectedQuestions.length}`)
+    // Extract accepted and rejected questions
+    // Extract accepted and rejected questions
+    const acceptedQuestions = result.questions.filter(q => q.isAccepted)
+    const rejectedQuestions = result.questions.filter(q => !q.isAccepted)
 
-    // Store accepted questions in database
-    const storedQuestions: Array<{
-      id: string;
-      subtopicId: string | null;
-      moduleType: string;
-      difficulty: string;
-    }> = []
-    const questionResults: Array<{ 
-      question: string; 
-      status: 'stored' | 'error'; 
-      error?: string; 
-      id?: string; 
-      needsReview?: boolean;
-      evaluationFeedback?: string;
-    }> = []
-    
-    for (const question of acceptedQuestions) {
-      try {
-        // Find the subtopic in database, prefer provided subtopicId
-        let subtopic = null
-        if (settings.subtopicId) {
-          subtopic = await prisma.subtopic.findUnique({ where: { id: settings.subtopicId } })
-        } else {
-          subtopic = await prisma.subtopic.findFirst({
-            where: {
-              name: {
-                contains: question.subtopic,
-                mode: 'insensitive'
-              }
-            }
-          })
-        }
+    console.log(`✅ Final results: ${acceptedQuestions.length} accepted, ${rejectedQuestions.length} rejected`)
 
-        // Check if this is a fallback evaluation
-        const isFallbackEvaluation = question.evaluationFeedback?.includes('Fallback evaluation') || 
-                    question.evaluationFeedback?.includes('fallback logic')
-        const needsReview = forceAcceptAll || isFallbackEvaluation
-        
-        const reviewStatus = needsReview ? 'pending' : null
-        const reviewComments = needsReview
-          ? '⚠️ Auto-generated question - Review needed. ' + (question.evaluationFeedback || 'No evaluator feedback.')
-          : null
-
-        const storedQuestion = await prisma.question.create({
-          data: {
-            subtopicId: subtopic?.id || null,
-            moduleType: question.moduleType,
-            difficulty: question.difficulty,
-            category: question.category,
-            subtopic: question.subtopic,
-            question: question.question,
-            passage: question.passage || null,
-            options: question.options,
-            correctAnswer: question.correctAnswer,
-            explanation: question.explanation,
-            wrongAnswerExplanations: undefined,
-            imageUrl: question.imageUrl || undefined,
-            imageAlt: question.chartDescription || undefined,
-            chartData: question.hasChart ? { description: question.chartDescription } : undefined,
-            timeEstimate: question.points * 30, // 30 seconds per point
-            source: `AI Generated (${settings.llmModel})`,
-            tags: [question.difficulty, question.category, question.subtopic],
-            isActive: true,
-            reviewStatus: reviewStatus,
-            reviewComments: reviewComments
-          }
-        })
-
-        storedQuestions.push(storedQuestion)
-        questionResults.push({
-          question: String(question.question || ''),
-          id: storedQuestion.id,
-          status: 'stored',
-          needsReview: needsReview,
-          evaluationFeedback: question.evaluationFeedback
-        })
-
-        // Update subtopic count if linked
-        if (subtopic) {
-          await prisma.subtopic.update({
-            where: { id: subtopic.id },
-            data: {
-              currentCount: {
-                increment: 1
-              }
-            }
-          })
-        }
-      } catch (error) {
-        console.error('Failed to store question:', error)
-        questionResults.push({
-          question: String(question.question || ''),
-          id: undefined,
-          status: 'error',
-          needsReview: false,
-          evaluationFeedback: error instanceof Error ? error.message : 'Unknown error storing question'
-        })
-      }
-    }
-
+    // Return results (questions already stored in database by unified service)
     return NextResponse.json({
       success: true,
       summary: {
-        generated: generatedQuestions.length,
-        evaluated: evaluatedQuestions.length,
-        accepted: acceptedQuestions.length,
-        rejected: rejectedQuestions.length,
-        stored: storedQuestions.length,
-        needsReview: questionResults.filter(r => r.needsReview).length
+        generated: result.summary.total,
+        evaluated: result.summary.total,
+        accepted: result.summary.accepted,
+        rejected: result.summary.rejected,
+        stored: result.summary.accepted, // Unified service stores accepted questions
+        needsReview: rejectedQuestions.length,
+        retryCount: result.summary.retryCount,
+        validationErrors: result.summary.validationErrors
       },
-      questionResults,
       questions: {
-        accepted: acceptedQuestions.map((q, index) => ({
+        accepted: acceptedQuestions.map(q => ({
           question: q.question,
           moduleType: q.moduleType,
           difficulty: q.difficulty,
-          category: q.category,
           subtopic: q.subtopic,
           qualityScore: q.qualityScore || 0,
           explanation: q.explanation,
           options: q.options,
           correctAnswer: q.correctAnswer,
-          points: q.points,
           passage: q.passage,
+          imageUrl: q.imageUrl,
           chartDescription: q.chartDescription,
           evaluationFeedback: q.evaluationFeedback || '',
-          needsReview: questionResults[index]?.needsReview || false,
-          storedId: questionResults[index]?.id || null
+          needsReview: false // Already filtered to accepted
         })),
         rejected: rejectedQuestions.map(q => ({
           question: q.question,
           moduleType: q.moduleType,
           subtopic: q.subtopic,
+          qualityScore: q.qualityScore,
           evaluationFeedback: q.evaluationFeedback || ''
         }))
       }
