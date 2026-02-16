@@ -376,7 +376,8 @@ export class UnifiedQuestionGenerator {
 
     console.log(`🌐 Calling LLM at ${endpoint.substring(0, 50)}...`)
 
-    const requestBody = {
+    // Build request body - some Azure OpenAI models have strict parameter requirements
+    const requestBody: any = {
       messages: [
         {
           role: 'system',
@@ -387,9 +388,13 @@ export class UnifiedQuestionGenerator {
           content: prompt
         }
       ],
-      temperature: options.temperature || 0.7,
-      max_tokens: options.maxTokens || 16000
+      max_completion_tokens: options.maxTokens || 16000  // Azure OpenAI requires max_completion_tokens for GPT-4o/newer models
     }
+    
+    // Only add temperature if explicitly set and not default (some models only support default temperature=1)
+    // if (options.temperature && options.temperature !== 1) {
+    //   requestBody.temperature = options.temperature
+    // }
 
     const response = await fetch(endpoint, {
       method: 'POST',
@@ -538,13 +543,14 @@ Respond in JSON format:
               content: evaluationPrompt
             }
           ],
-          temperature: 0.3,
-          max_tokens: 500
+          max_completion_tokens: 1000  // Increased from 500 - evaluation responses need more tokens for complete JSON
+          // Note: temperature removed - some models only support default value
         })
       })
 
       if (!response.ok) {
-        console.warn(`⚠️  Grok evaluation failed (${response.status}), using fallback`)
+        const errorText = await response.text()
+        console.warn(`⚠️  Grok evaluation failed (${response.status}): ${errorText.substring(0, 200)}`)
         return this.fallbackEvaluation(question)
       }
 
@@ -552,9 +558,11 @@ Respond in JSON format:
       const content = data.choices?.[0]?.message?.content
 
       if (!content) {
+        console.warn(`⚠️  Grok response missing content. Response structure:`, JSON.stringify(data).substring(0, 200))
         return this.fallbackEvaluation(question)
       }
 
+      console.log(`📊 Grok evaluation response (first 200 chars): ${content.substring(0, 200)}`)
       const evaluation = this.parseEvaluation(content)
 
       return {
@@ -645,6 +653,7 @@ Respond in JSON format:
         
         let currentQuestion = question
         let attempts = 0
+        let previousScores: number[] = []
 
         while (attempts < maxAttempts && currentQuestion.qualityScore <= threshold) {
           attempts++
@@ -658,6 +667,20 @@ Respond in JSON format:
             const evaluated = await this.evaluateQuestion(regenerated)
             
             console.log(`  Attempt ${attempts}: Quality = ${(evaluated.qualityScore * 100).toFixed(0)}%`)
+
+            // Check for plateau detection - if last 3 scores are identical, stop retrying
+            previousScores.push(evaluated.qualityScore)
+            if (previousScores.length >= 3) {
+              const lastThree = previousScores.slice(-3)
+              const allSame = lastThree.every(score => Math.abs(score - lastThree[0]) < 0.01) // Within 1%
+              if (allSame) {
+                console.log(`  ⏹️  Quality plateau detected (${(lastThree[0] * 100).toFixed(0)}% × 3), stopping retries`)
+                return {
+                  ...evaluated,
+                  evaluationFeedback: `${evaluated.evaluationFeedback} (Quality plateau reached)`
+                }
+              }
+            }
 
             if (evaluated.qualityScore > threshold) {
               console.log(`  ✅ Quality improved, accepting`)
@@ -693,12 +716,35 @@ Respond in JSON format:
     console.log(`  🔄 Regenerating ${question.moduleType} question for ${question.subtopic}`)
 
     const allSubtopics = getAllSubtopics()
-    const subtopic = allSubtopics.find(
+    
+    // Try exact match first
+    let subtopic = allSubtopics.find(
       s => s.name.toLowerCase() === question.subtopic.toLowerCase() && s.moduleType === question.moduleType
     )
+    
+    // If no exact match, try matching without parentheses (e.g., "Main Ideas (Reading)" → "Main Ideas")
+    if (!subtopic) {
+      const cleanedQuestionSubtopic = question.subtopic.replace(/\s*\([^)]*\)/g, '').trim().toLowerCase()
+      subtopic = allSubtopics.find(
+        s => s.name.replace(/\s*\([^)]*\)/g, '').trim().toLowerCase() === cleanedQuestionSubtopic && 
+             s.moduleType === question.moduleType
+      )
+    }
+    
+    // If still no match, try partial match (contains)
+    if (!subtopic) {
+      const cleanedQuestionSubtopic = question.subtopic.replace(/\s*\([^)]*\)/g, '').trim().toLowerCase()
+      subtopic = allSubtopics.find(
+        s => (s.name.toLowerCase().includes(cleanedQuestionSubtopic) || 
+              cleanedQuestionSubtopic.includes(s.name.toLowerCase())) &&
+             s.moduleType === question.moduleType
+      )
+    }
 
     if (!subtopic) {
-      throw new Error(`Subtopic not found: ${question.subtopic}`)
+      console.warn(`⚠️  Subtopic not found: "${question.subtopic}" - using fallback`)
+      // Return original question if we can't find subtopic (better than crashing)
+      return question
     }
 
     if (question.moduleType === 'math') {
@@ -727,16 +773,30 @@ Respond in JSON format:
       }
 
       const questionLower = question.question.toLowerCase()
-      const mentionsDiagram =
-        questionLower.includes('diagram') ||
-        questionLower.includes('chart') ||
-        questionLower.includes('graph') ||
-        questionLower.includes('coordinate plane') ||
-        questionLower.includes('the figure') ||
-        questionLower.includes('shown') ||
-        questionLower.includes('illustrated') ||
-        questionLower.includes('displayed')
-
+      
+      // More precise detection: look for phrases that indicate visual elements
+      const diagramPhrases = [
+        'in the diagram',
+        'in the chart',
+        'in the graph',
+        'in the figure',
+        'the diagram',
+        'the chart',
+        'the graph',
+        'the figure',
+        'coordinate plane',
+        'shown in',
+        'shown below',
+        'shown above',
+        'as shown',
+        'illustrated in',
+        'displayed in',
+        'refers to the',
+        'look at the'
+      ]
+      
+      const mentionsDiagram = diagramPhrases.some(phrase => questionLower.includes(phrase))
+      
       const hasImageUrl = !!question.imageUrl && question.imageUrl.length > 0
       const hasChartDescription = !!question.chartDescription && question.chartDescription.length > 10
 

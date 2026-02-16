@@ -45,6 +45,7 @@ export interface QuestionResult {
   correctAnswer: number
   points: number
   passage?: string
+  imageUrl?: string | null
   chartDescription?: string
   explanation: string
 }

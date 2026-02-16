@@ -117,34 +117,208 @@ export class AIQuestionService {
   }
 
   /**
-   * Evaluate questions using Grok
+   * Evaluate questions using Grok with automatic retry for low-quality questions
    */
-  async evaluateQuestions(questions: GeneratedQuestion[]): Promise<EvaluatedQuestion[]> {
-    console.log('🔍 Evaluating questions with Grok...')
+  async evaluateQuestions(questions: GeneratedQuestion[], maxRetries: number = QUALITY_THRESHOLDS.MAX_REGENERATION_ATTEMPTS): Promise<EvaluatedQuestion[]> {
+    console.log(`🔍 Evaluating questions with Grok (max ${maxRetries} retries for quality ≤${(QUALITY_THRESHOLDS.REGENERATION_THRESHOLD * 100).toFixed(0)}%)...`)
     
     const evaluatedQuestions: EvaluatedQuestion[] = []
     
     for (const question of questions) {
-      try {
-        const evaluation = await this.evaluateWithGrok(question)
-        evaluatedQuestions.push({
-          ...question,
-          ...evaluation
-        })
-      } catch (error) {
-        console.error('Failed to evaluate question:', error)
-        // Add with default evaluation if Grok fails
-        evaluatedQuestions.push({
-          ...question,
-          difficulty: 'medium',
-          qualityScore: 75,
-          isAccepted: true,
-          evaluationFeedback: 'Fallback evaluation - evaluator unavailable'
-        })
-      }
+      const evaluatedQuestion = await this.evaluateQuestionWithRetry(question, maxRetries)
+      evaluatedQuestions.push(evaluatedQuestion)
     }
     
     return evaluatedQuestions
+  }
+
+  /**
+   * Evaluate a single question with automatic regeneration for quality scores ≤REGENERATION_THRESHOLD
+   */
+  private async evaluateQuestionWithRetry(
+    question: GeneratedQuestion,
+    maxRetries: number = QUALITY_THRESHOLDS.MAX_REGENERATION_ATTEMPTS
+  ): Promise<EvaluatedQuestion> {
+    let currentQuestion = question
+    let attempts = 0
+    const qualityThreshold = QUALITY_THRESHOLDS.REGENERATION_THRESHOLD
+    
+    while (attempts < maxRetries) {
+      attempts++
+      
+      try {
+        // Evaluate current question
+        const evaluation = await this.evaluateWithGrok(currentQuestion)
+        
+        // Check quality score (convert from 0-100 scale to 0-1 if needed)
+        const normalizedScore = evaluation.qualityScore > 1 
+          ? evaluation.qualityScore / 100 
+          : evaluation.qualityScore
+        
+        console.log(`📊 Question attempt ${attempts}: Quality = ${(normalizedScore * 100).toFixed(0)}%`)
+        
+        // If quality is acceptable, return this question
+        if (normalizedScore > qualityThreshold) {
+          console.log(`✅ Quality acceptable (>${(qualityThreshold * 100).toFixed(0)}%), accepting question`)
+          return {
+            ...currentQuestion,
+            ...evaluation,
+            qualityScore: normalizedScore
+          }
+        }
+        
+        // Quality too low, regenerate if retries remain
+        if (attempts < maxRetries) {
+          console.log(`🔄 Quality too low (≤${(qualityThreshold * 100).toFixed(0)}%), regenerating... (attempt ${attempts + 1}/${maxRetries})`)
+          currentQuestion = await this.regenerateSingleQuestion(currentQuestion)
+        } else {
+          console.log(`⚠️ Max retries reached (${maxRetries}), accepting last attempt with quality ${(normalizedScore * 100).toFixed(0)}%`)
+          return {
+            ...currentQuestion,
+            ...evaluation,
+            qualityScore: normalizedScore,
+            evaluationFeedback: `${evaluation.evaluationFeedback} (Max retries reached after ${attempts} attempts)`
+          }
+        }
+        
+      } catch (error) {
+        console.error(`Failed to evaluate question (attempt ${attempts}):`, error)
+        
+        // If this is the last attempt or regeneration fails, use fallback
+        if (attempts >= maxRetries) {
+          return {
+            ...currentQuestion,
+            difficulty: 'medium',
+            qualityScore: 0.75,
+            isAccepted: true,
+            evaluationFeedback: `Fallback evaluation after ${attempts} attempts - evaluator unavailable`
+          }
+        }
+        
+        // Try regenerating for next attempt
+        try {
+          currentQuestion = await this.regenerateSingleQuestion(currentQuestion)
+        } catch (regenError) {
+          // If regeneration fails, return with fallback evaluation
+          return {
+            ...currentQuestion,
+            difficulty: 'medium',
+            qualityScore: 0.75,
+            isAccepted: true,
+            evaluationFeedback: 'Fallback evaluation - regeneration failed'
+          }
+        }
+      }
+    }
+    
+    // Fallback return (shouldn't reach here)
+    return {
+      ...currentQuestion,
+      difficulty: 'medium',
+      qualityScore: 0.75,
+      isAccepted: true,
+      evaluationFeedback: `Accepted after ${attempts} attempts`
+    }
+  }
+
+  /**
+   * Regenerate a single question using the same parameters
+   */
+  private async regenerateSingleQuestion(question: GeneratedQuestion): Promise<GeneratedQuestion> {
+    console.log(`🔄 Regenerating ${question.moduleType} question for ${question.subtopic}...`)
+    
+    const subtopic = getAllSubtopics().find(s => 
+      s.name.toLowerCase() === question.subtopic.toLowerCase() &&
+      s.moduleType === question.moduleType
+    )
+    
+    if (!subtopic) {
+      throw new Error(`Subtopic not found: ${question.subtopic}`)
+    }
+    
+    let prompt: string
+    
+    if (question.moduleType === 'math') {
+      prompt = this.buildMathPrompt([subtopic])
+      const response = await this.callGPT5(prompt)
+      const regenerated = this.parseMathQuestions(response, [subtopic])
+      return regenerated[0] || question // Return first regenerated question or original if parsing fails
+    } else {
+      prompt = this.buildReadingPrompt([subtopic])
+      const response = await this.callGPT5(prompt)
+      const regenerated = this.parseReadingQuestions(response, [subtopic])
+      return regenerated[0] || question
+    }
+  }
+
+  /**
+   * Validate questions after image generation to ensure diagram consistency
+   * Penalizes questions that mention diagrams/charts but don't have imageUrl
+   */
+  async validateDiagramConsistency(questions: EvaluatedQuestion[]): Promise<EvaluatedQuestion[]> {
+    console.log('🔍 Post-generation validation: Checking diagram consistency...')
+    
+    return questions.map(question => {
+      // Skip if not a math question
+      if (question.moduleType !== 'math') {
+        return question
+      }
+      
+      // Check if question text mentions diagram/chart/graph/coordinate/shows/figure
+      const questionLower = question.question.toLowerCase()
+      const mentionsDiagram = 
+        questionLower.includes('diagram') ||
+        questionLower.includes('chart') ||
+        questionLower.includes('graph') ||
+        questionLower.includes('coordinate plane') ||
+        questionLower.includes('the figure') ||
+        questionLower.includes('shown') ||
+        questionLower.includes('illustrated') ||
+        questionLower.includes('displayed')
+      
+      const hasImageUrl = !!question.imageUrl && question.imageUrl.length > 0
+      const hasChartDescription = !!question.chartDescription && question.chartDescription.length > 10
+      
+      // Case 1: Question mentions diagram but has no image
+      if (mentionsDiagram && !hasImageUrl) {
+        console.log(`⚠️ Diagram consistency error: Question mentions visual but has no image`)
+        console.log(`   Question: "${question.question.substring(0, 80)}..."`)
+        console.log(`   hasChart: ${question.hasChart}, imageUrl: ${hasImageUrl}, chartDesc: ${hasChartDescription}`)
+        
+        // Severely penalize - reduce quality score by 40%
+        const newQualityScore = Math.max(0.3, question.qualityScore - 0.4)
+        
+        return {
+          ...question,
+          qualityScore: newQualityScore,
+          isAccepted: false,
+          evaluationFeedback: `${question.evaluationFeedback} | CRITICAL ERROR: Question references a diagram/chart that doesn't exist. Quality penalized from ${(question.qualityScore * 100).toFixed(0)}% to ${(newQualityScore * 100).toFixed(0)}%.`
+        }
+      }
+      
+      // Case 2: Has chart flag but no image was generated
+      if (question.hasChart && !hasImageUrl) {
+        console.log(`⚠️ Image generation failed for question with hasChart=true`)
+        console.log(`   Question: "${question.question.substring(0, 80)}..."`)
+        
+        // Moderate penalty - reduce quality score by 25%
+        const newQualityScore = Math.max(0.4, question.qualityScore - 0.25)
+        
+        return {
+          ...question,
+          qualityScore: newQualityScore,
+          isAccepted: false,
+          evaluationFeedback: `${question.evaluationFeedback} | ERROR: Chart/diagram generation failed. Quality penalized from ${(question.qualityScore * 100).toFixed(0)}% to ${(newQualityScore * 100).toFixed(0)}%.`
+        }
+      }
+      
+      // Case 3: All good - diagram mentioned and image exists
+      if (mentionsDiagram && hasImageUrl) {
+        console.log(`✅ Diagram consistency OK: "${question.question.substring(0, 60)}..."`)
+      }
+      
+      return question
+    })
   }
 
   /**
@@ -153,11 +327,22 @@ export class AIQuestionService {
   async generateImagesForQuestions(questions: EvaluatedQuestion[]): Promise<EvaluatedQuestion[]> {
     const { imageGenerationService } = await import('./imageGenerationService')
     
+    console.log(`🎨 Processing ${questions.length} questions for image generation...`)
+    const questionsWithCharts = questions.filter(q => q.hasChart && q.chartDescription && q.moduleType === 'math')
+    console.log(`� Found ${questionsWithCharts.length} questions marked with hasChart=true`)
+    
+    if (questionsWithCharts.length === 0) {
+      console.log('⚠️ No questions have hasChart=true, skipping image generation')
+      return questions
+    }
+    
     const questionsWithImages = await Promise.all(
       questions.map(async (question) => {
         if (question.hasChart && question.chartDescription && question.moduleType === 'math') {
           try {
-            console.log(`🎨 Generating image for ${question.graphType} chart...`)
+            console.log(`🎨 Generating image for question: "${question.question.substring(0, 50)}..."`)
+            console.log(`   Graph type: ${question.graphType || 'not specified'}`)
+            console.log(`   Description: ${question.chartDescription.substring(0, 100)}...`)
             
             const chartConfig = {
               type: (question.graphType as 'coordinate-plane' | 'bar-chart' | 'scatter-plot' | 'box-plot' | 'geometric-diagram' | 'function-graph') || 'coordinate-plane',
@@ -170,25 +355,33 @@ export class AIQuestionService {
             let imageUrl = await imageGenerationService.generateChartImage(chartConfig)
             
             if (!imageUrl) {
-              console.log('📊 DALL-E failed, generating SVG fallback...')
+              console.log('📋 DALL-E failed, generating SVG fallback...')
               imageUrl = await imageGenerationService.generateSVGChart(chartConfig)
             }
             
             if (imageUrl) {
+              console.log(`✅ Generated image successfully: ${imageUrl.substring(0, 80)}...`)
               return {
                 ...question,
                 imageUrl,
                 imageAlt: question.chartDescription
               }
+            } else {
+              console.error(`❌ Failed to generate any image for question`)
+              return question
             }
           } catch (error) {
-            console.error('Image generation failed for question:', error)
+            console.error('❌ Image generation error:', error instanceof Error ? error.message : String(error))
+            return question
           }
         }
         
         return question
       })
     )
+    
+    const successCount = questionsWithImages.filter(q => q.imageUrl).length
+    console.log(`✅ Image generation complete: ${successCount}/${questionsWithCharts.length} successful`)
     
     return questionsWithImages
   }
@@ -214,12 +407,7 @@ export class AIQuestionService {
 
       const allQuestions = [...mathQuestions, ...readingQuestions]
 
-      // Generate images for math questions with charts if enabled
-      if (settings.includeCharts) {
-        const questionsWithImages = await this.generateImagesForQuestions(allQuestions as EvaluatedQuestion[])
-        return questionsWithImages
-      }
-
+      // Note: Image generation happens AFTER evaluation in the API route
       return allQuestions
     } catch (error) {
       console.error('Failed to generate questions with settings:', error)
@@ -293,6 +481,45 @@ export class AIQuestionService {
         throw new Error('Missing Azure OpenAI config: set AZURE_OPENAI_API_KEY and ENDPOINT_URL or AZURE_OPENAI_ENDPOINT/AZURE_OPENAI_DEPLOYMENT.')
       }
 
+      // Detect if this is a reasoning model (gpt-5, o1, etc.)
+      const isReasoningModel = settings.llmModel.toLowerCase().includes('gpt-5') || 
+                              settings.llmModel.toLowerCase().includes('o1') ||
+                              settings.llmModel.toLowerCase().includes('nano')
+      
+      // Reasoning models need MUCH higher token limits and different parameters
+      const tokenLimit = isReasoningModel ? 32000 : settings.maxTokens
+      
+      console.log(`🤖 Model type: ${isReasoningModel ? 'Reasoning' : 'Standard'}, Token limit: ${tokenLimit}`)
+
+      const requestBody: any = {
+        messages: isReasoningModel 
+          ? [
+              // Reasoning models work better with single user message
+              {
+                role: 'user',
+                content: `${SYSTEM_ROLES.QUESTION_GENERATOR}\n\n${prompt}`
+              }
+            ]
+          : [
+              {
+                role: 'system',
+                content: SYSTEM_ROLES.QUESTION_GENERATOR
+              },
+              {
+                role: 'user',
+                content: prompt
+              }
+            ]
+      }
+      
+      // Reasoning models use max_completion_tokens, standard models use max_tokens
+      if (isReasoningModel) {
+        requestBody.max_completion_tokens = tokenLimit
+      } else {
+        requestBody.max_tokens = tokenLimit
+        requestBody.temperature = settings.temperature
+      }
+
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
@@ -300,19 +527,7 @@ export class AIQuestionService {
           'Authorization': `Bearer ${apiKey}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          messages: [
-            {
-              role: 'system',
-              content: SYSTEM_ROLES.QUESTION_GENERATOR
-            },
-            {
-              role: 'user',
-              content: prompt
-            }
-          ],
-          max_completion_tokens: settings.maxTokens
-        })
+        body: JSON.stringify(requestBody)
       })
 
       console.log(`${settings.llmModel} Response Status:`, response.status, response.statusText)
@@ -331,7 +546,22 @@ export class AIQuestionService {
       }
 
       const content = data.choices[0].message.content
-      console.log(`${settings.llmModel} Content Length:`, content.length)
+      console.log(`${settings.llmModel} Content Length:`, content?.length || 0)
+
+      if (!content || content.trim().length === 0) {
+        console.error(`❌ Empty response from ${settings.llmModel}!`)
+        console.error('Token usage:', data.usage)
+        console.error('Finish reason:', data.choices[0].finish_reason)
+        
+        // Check if it's a reasoning token issue
+        if (data.usage?.completion_tokens_details?.reasoning_tokens) {
+          const reasoningTokens = data.usage.completion_tokens_details.reasoning_tokens
+          console.error(`⚠️ Reasoning model used ${reasoningTokens} tokens for reasoning but produced no output`)
+          console.error(`💡 Try increasing max_tokens beyond ${settings.maxTokens}`)
+        }
+        
+        throw new Error(`${settings.llmModel} returned empty content. This may be due to insufficient token limit for reasoning models.`)
+      }
 
       return content
     } catch (error) {
@@ -444,12 +674,33 @@ export class AIQuestionService {
     evaluationFeedback: string
   }> {
     try {
+      console.log(`🔍 Evaluating question: "${question.question.substring(0, 60)}..."`)
       const prompt = this.buildEvaluationPromptForQuestion(question)
 
       const endpoint = this.getGrokEndpoint()
       const apiKey = this.getApiKey()
+      
       if (!endpoint || !apiKey) {
-        throw new Error('Missing Azure OpenAI config for evaluation: set AZURE_OPENAI_API_KEY and endpoint.')
+        const errorMsg = `Missing config - Endpoint: ${endpoint ? 'OK' : 'MISSING'}, API Key: ${apiKey ? 'OK' : 'MISSING'}`
+        console.error('❌ Evaluation config error:', errorMsg)
+        throw new Error('Missing Azure OpenAI config for evaluation')
+      }
+
+      console.log(`📡 Calling evaluation API: ${endpoint.substring(0, 50)}...`)
+      
+      const requestBody = {
+        messages: [
+          {
+            role: 'system',
+            content: SYSTEM_ROLES.EVALUATOR
+          },
+          {
+            role: 'user',
+            content: prompt
+          }
+        ],
+        max_completion_tokens: 500, // Increased from 200 for more detailed evaluation
+        temperature: 0.1 // Lower temperature for consistent evaluation
       }
 
       const response = await fetch(endpoint, {
@@ -459,30 +710,37 @@ export class AIQuestionService {
           'Authorization': `Bearer ${apiKey}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          messages: [
-            {
-              role: 'system',
-              content: SYSTEM_ROLES.EVALUATOR
-            },
-            {
-              role: 'user',
-              content: prompt
-            }
-          ],
-          max_completion_tokens: LLM_SETTINGS.EVALUATION_MAX_TOKENS
-        })
+        body: JSON.stringify(requestBody)
       })
 
-      if (response.ok) {
-        const data = await response.json()
-        return this.parseGrokEvaluation(data.choices[0].message.content)
-      } else {
-        throw new Error(`Grok API failed: ${response.status}`)
+      console.log(`📊 Evaluation API response status: ${response.status}`)
+
+      if (!response.ok) {
+        const errorText = await response.text()
+        console.error(`❌ Evaluation API error ${response.status}:`, errorText)
+        throw new Error(`Evaluation API failed: ${response.status} - ${errorText}`)
       }
+
+      const data = await response.json()
+      
+      if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+        console.error('❌ Invalid API response structure:', JSON.stringify(data))
+        throw new Error('Invalid evaluation response structure')
+      }
+
+      const evaluationContent = data.choices[0].message.content
+      console.log(`📝 Raw evaluation response: ${evaluationContent.substring(0, 150)}...`)
+      
+      const evaluation = this.parseGrokEvaluation(evaluationContent)
+      console.log(`✅ Parsed evaluation - Quality: ${(evaluation.qualityScore * 100).toFixed(0)}%, Difficulty: ${evaluation.difficulty}, Accepted: ${evaluation.isAccepted}`)
+      
+      return evaluation
+      
     } catch (error) {
-      console.log('Using fallback evaluation')
-      return this.enhancedFallbackEvaluation(question)
+      console.error('⚠️ Evaluation failed, using fallback:', error instanceof Error ? error.message : String(error))
+      const fallback = this.enhancedFallbackEvaluation(question)
+      console.log(`📊 Fallback evaluation - Quality: ${(fallback.qualityScore * 100).toFixed(0)}%`)
+      return fallback
     }
   }
 
@@ -515,12 +773,24 @@ export class AIQuestionService {
       console.log('Raw GPT-5 math response:', response.substring(0, 200) + '...')
       
       const questions = this.parseJsonArrayResponse(response)
-      return questions.map((q: Record<string, unknown>, index: number) => ({
-        ...q,
-        moduleType: 'math' as const,
-        category: subtopics[index]?.topicName || 'Math',
-        subtopic: subtopics[index]?.name || 'Unknown'
-      })) as GeneratedQuestion[]
+      console.log(`📊 Parsed ${questions.length} math questions from response`)
+      
+      const parsed = questions.map((q: Record<string, unknown>, index: number) => {
+        const question = {
+          ...q,
+          moduleType: 'math' as const,
+          category: subtopics[index]?.topicName || 'Math',
+          subtopic: subtopics[index]?.name || 'Unknown'
+        } as GeneratedQuestion
+        
+        console.log(`   Question ${index + 1}: hasChart=${question.hasChart}, chartDesc=${question.chartDescription?.substring(0, 50)}...`)
+        return question
+      })
+      
+      const questionsWithCharts = parsed.filter(q => q.hasChart && q.chartDescription)
+      console.log(`✅ Found ${questionsWithCharts.length} questions marked with charts`)
+      
+      return parsed
     } catch (error) {
       console.error('Failed to parse math questions:', error)
       console.error('Raw response:', response)
@@ -583,7 +853,7 @@ export class AIQuestionService {
   }
 
   /**
-   * Parse Grok evaluation response
+   * Parse Grok evaluation response with robust error handling
    */
   private parseGrokEvaluation(response: string): {
     difficulty: 'easy' | 'medium' | 'hard'
@@ -592,20 +862,60 @@ export class AIQuestionService {
     evaluationFeedback: string
   } {
     try {
-      const evaluation = JSON.parse(response)
-      return {
-        difficulty: evaluation.difficulty || 'medium',
-        qualityScore: evaluation.qualityScore || 0.5,
-        isAccepted: evaluation.isAccepted !== false,
+      // Remove markdown code blocks if present
+      let cleaned = response.trim()
+      if (cleaned.startsWith('```json')) {
+        cleaned = cleaned.replace(/^```json\s*/i, '').replace(/\s*```$/, '')
+      } else if (cleaned.startsWith('```')) {
+        cleaned = cleaned.replace(/^```\s*/, '').replace(/\s*```$/, '')
+      }
+
+      // Try to find JSON object in the response
+      const jsonMatch = cleaned.match(/\{[\s\S]*\}/)
+      if (jsonMatch) {
+        cleaned = jsonMatch[0]
+      }
+
+      const evaluation = JSON.parse(cleaned)
+      
+      // Validate required fields
+      if (!evaluation.difficulty || !('qualityScore' in evaluation) || !('isAccepted' in evaluation)) {
+        console.error('❌ Evaluation missing required fields:', evaluation)
+        throw new Error('Invalid evaluation structure')
+      }
+      
+      // Normalize quality score (handle both 0-1 and 0-100 scales)
+      let normalizedScore = parseFloat(evaluation.qualityScore)
+      if (normalizedScore > 1) {
+        normalizedScore = normalizedScore / 100
+      }
+      
+      // Validate difficulty
+      const validDifficulties = ['easy', 'medium', 'hard']
+      const difficulty = validDifficulties.includes(evaluation.difficulty) 
+        ? evaluation.difficulty 
+        : 'medium'
+      
+      const result = {
+        difficulty: difficulty as 'easy' | 'medium' | 'hard',
+        qualityScore: Math.max(0, Math.min(1, normalizedScore)), // Clamp between 0 and 1
+        isAccepted: evaluation.isAccepted === true,
         evaluationFeedback: evaluation.evaluationFeedback || 'No feedback provided'
       }
+      
+      console.log('✅ Successfully parsed evaluation:', result)
+      return result
+      
     } catch (error) {
-      console.error('Failed to parse Grok evaluation:', error)
+      console.error('❌ Failed to parse evaluation response:', error)
+      console.error('Raw response:', response.substring(0, 200))
+      
+      // Return a conservative fallback score
       return {
         difficulty: 'medium',
         qualityScore: 0.5,
-        isAccepted: true,
-        evaluationFeedback: 'Evaluation parsing failed'
+        isAccepted: false, // Mark as rejected so it gets regenerated
+        evaluationFeedback: `Evaluation parsing failed: ${error instanceof Error ? error.message : 'Unknown error'}. Raw response length: ${response.length} chars.`
       }
     }
   }

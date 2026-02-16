@@ -108,6 +108,12 @@ Requirements for each question:
 - Vary complexity across the ${count} questions
 - Make graphs interactive when possible (e.g., "Click to identify the vertex", "Select the correct point")
 
+🚨 CRITICAL DIAGRAM CONSISTENCY RULES (VIOLATION = AUTOMATIC REJECTION):
+1. If your question text mentions "diagram", "chart", "graph", "shown", "illustrated", "coordinate plane", or "the figure", you MUST set hasChart: true
+2. If hasChart is true, you MUST provide a detailed chartDescription (minimum 50 characters)
+3. If hasChart is false, DO NOT mention any visual elements in the question text
+4. Questions that reference diagrams without providing chartDescription will be automatically rejected
+
 VISUAL REQUIREMENTS - Every question MUST have one of these${includeCharts ? '' : ' (if charts are included)'}:
 ${visualRequirementsList}
 
@@ -150,6 +156,12 @@ ${JSON_OUTPUT_INSTRUCTIONS.PREFIX} Use this exact format:
     "graphType": "bar-chart"
   }
 ]
+
+⚠️ FINAL REMINDER - Before submitting your JSON:
+- Check EVERY question text for words like "diagram", "chart", "graph", "shown", "coordinate", "figure"
+- If ANY of these words appear, hasChart MUST be true and chartDescription MUST be detailed
+- If hasChart is false, the question text must NOT reference any visual elements
+- Violating this rule causes automatic rejection with severe quality penalty
 
 Generate all ${count} questions following this pattern. Ensure each question uses proper mathematical notation and includes step-by-step explanations with clear mathematical reasoning. ${JSON_OUTPUT_INSTRUCTIONS.REMINDER}
 `
@@ -343,29 +355,52 @@ export function buildEvaluationPrompt(question: {
   points: number
 }): string {
   return `
-Evaluate this SAT question for difficulty and quality:
+You are an expert SAT question evaluator. Carefully assess this question based on official SAT standards.
+
+=== QUESTION TO EVALUATE ===
 
 Question: ${question.question}
-${question.passage ? `Passage: ${question.passage}` : ''}
-${question.chartDescription ? `Chart: ${question.chartDescription}` : ''}
-Options: ${question.options.join(', ')}
-Correct Answer: ${question.options[question.correctAnswer]}
+${question.passage ? `
+Passage: ${question.passage.substring(0, 500)}${question.passage.length > 500 ? '...' : ''}` : ''}
+${question.chartDescription ? `
+Chart/Diagram: ${question.chartDescription}` : ''}
+
+Answer Options:
+A) ${question.options[0]}
+B) ${question.options[1]}
+C) ${question.options[2]}
+D) ${question.options[3]}
+
+Correct Answer: ${String.fromCharCode(65 + question.correctAnswer)} (${question.options[question.correctAnswer]})
+
 Explanation: ${question.explanation}
+
 Subtopic: ${question.subtopic}
 Points: ${question.points}
 
-Please evaluate:
-1. Difficulty level (easy/medium/hard) based on SAT standards
-2. Quality score (0-1) for accuracy, clarity, and appropriateness
-3. Whether to accept this question (true/false) - reject if too easy or too hard for SAT
-4. Brief feedback on the question
+=== EVALUATION CRITERIA ===
 
-Respond in this JSON format:
+1. **Accuracy**: Is the correct answer truly correct? Are distractors plausible but clearly wrong?
+2. **Clarity**: Is the question clear and unambiguous? Are options distinct?
+3. **Difficulty**: Does the difficulty match SAT standards for this point value?
+4. **Explanation Quality**: Is the explanation clear, step-by-step, and educational?
+5. **SAT Authenticity**: Does this feel like a real SAT question?
+
+=== QUALITY SCORING GUIDE ===
+- 0.90-1.0: Excellent - Ready for SAT, high-quality question
+- 0.80-0.89: Good - Minor improvements could help, acceptable
+- 0.70-0.79: Fair - Has issues but salvageable with edits
+- 0.60-0.69: Poor - Significant problems, needs major revision
+- Below 0.60: Reject - Fundamental flaws, should not be used
+
+=== YOUR RESPONSE ===
+
+Provide your evaluation in this EXACT JSON format (no extra text, no markdown):
 {
-  "difficulty": "medium",
-  "qualityScore": 0.85,
-  "isAccepted": true,
-  "evaluationFeedback": "Well-constructed question with appropriate difficulty for SAT standards."
+  "difficulty": "easy" | "medium" | "hard",
+  "qualityScore": 0.XX (number between 0 and 1),
+  "isAccepted": true | false,
+  "evaluationFeedback": "Detailed feedback explaining your score and any issues found"
 }
 `
 }

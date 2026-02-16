@@ -40,6 +40,7 @@ export class ImageGenerationService {
       const response = await fetch(this.DALLE_ENDPOINT, {
         method: 'POST',
         headers: {
+          'api-key': this.API_KEY,
           'Authorization': `Bearer ${this.API_KEY}`,
           'Content-Type': 'application/json'
         },

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { X, Check, AlertCircle, Lightbulb, PartyPopper } from 'lucide-react'
 import MathRenderer from '@/components/MathRenderer'
 import type { 
@@ -33,6 +34,7 @@ interface GenerationStep {
 interface QuestionWithAnswer {
   id?: string
   question: string
+  passage?: string | null
   options: string[]
   correctAnswer: number
   explanation: string
@@ -43,6 +45,8 @@ interface QuestionWithAnswer {
   selectedAnswer?: number
   showExplanation?: boolean
   qualityScore?: number
+  imageUrl?: string | null
+  chartDescription?: string
 }
 
 export default function EnhancedQuestionGeneration() {
@@ -174,20 +178,38 @@ export default function EnhancedQuestionGeneration() {
       // Fetch the generated questions to display them
       const acceptedQuestions = data.questions?.accepted || []
       if (acceptedQuestions.length > 0) {
-        setQuestions(acceptedQuestions.slice(0, settings.questionCount).map((q) => ({
-          id: q.storedId || undefined,
-          question: q.question,
-          options: q.options || [],
-          correctAnswer: q.correctAnswer,
-          explanation: q.explanation,
-          moduleType: q.moduleType,
-          category: q.category,
-          subtopic: q.subtopic,
-          difficulty: q.difficulty,
-          qualityScore: q.qualityScore,
-          selectedAnswer: undefined,
-          showExplanation: false
-        })))
+        setQuestions(acceptedQuestions.slice(0, settings.questionCount).map((q) => {
+          // Ensure options is always an array
+          let parsedOptions: string[] = []
+          if (Array.isArray(q.options)) {
+            parsedOptions = q.options
+          } else if (typeof q.options === 'string') {
+            try {
+              parsedOptions = JSON.parse(q.options)
+            } catch {
+              console.error('Failed to parse options for question:', q.question)
+              parsedOptions = []
+            }
+          }
+
+          return {
+            id: q.storedId || undefined,
+            question: q.question,
+            passage: q.passage,
+            options: parsedOptions,
+            correctAnswer: q.correctAnswer,
+            explanation: q.explanation,
+            moduleType: q.moduleType,
+            category: q.category,
+            subtopic: q.subtopic,
+            difficulty: q.difficulty,
+            qualityScore: q.qualityScore,
+            imageUrl: q.imageUrl,
+            chartDescription: q.chartDescription,
+            selectedAnswer: undefined,
+            showExplanation: false
+          }
+        }))
       } else {
         // Fallback: fetch most recent stored questions so the UI shows results immediately
         try {
@@ -198,19 +220,37 @@ export default function EnhancedQuestionGeneration() {
             const latestData = await latestResponse.json()
             const latestQuestions = (latestData.questions || []).slice(0, settings.questionCount)
             if (latestQuestions.length > 0) {
-              setQuestions(latestQuestions.map((q: any) => ({
-                id: q.id,
-                question: q.question,
-                options: q.options || [],
-                correctAnswer: q.correctAnswer,
-                explanation: q.explanation,
-                moduleType: q.moduleType,
-                category: q.category,
-                subtopic: q.subtopic,
-                difficulty: q.difficulty,
-                selectedAnswer: undefined,
-                showExplanation: false
-              })))
+              setQuestions(latestQuestions.map((q: any) => {
+                // Ensure options is always an array
+                let parsedOptions: string[] = []
+                if (Array.isArray(q.options)) {
+                  parsedOptions = q.options
+                } else if (typeof q.options === 'string') {
+                  try {
+                    parsedOptions = JSON.parse(q.options)
+                  } catch {
+                    console.error('Failed to parse options for question:', q.question)
+                    parsedOptions = []
+                  }
+                }
+
+                return {
+                  id: q.id,
+                  question: q.question,
+                  passage: q.passage,
+                  options: parsedOptions,
+                  correctAnswer: q.correctAnswer,
+                  explanation: q.explanation,
+                  moduleType: q.moduleType,
+                  category: q.category,
+                  subtopic: q.subtopic,
+                  difficulty: q.difficulty,
+                  imageUrl: q.imageUrl,
+                  chartDescription: q.chartDescription,
+                  selectedAnswer: undefined,
+                  showExplanation: false
+                }
+              }))
             }
           } else {
             console.warn('Fallback API returned', latestResponse.status, '- no questions to display')
@@ -481,6 +521,47 @@ export default function EnhancedQuestionGeneration() {
 
                     {/* Question Body */}
                     <div className="p-6">
+                      {/* Reading Passage */}
+                      {question.passage && (
+                        <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                          <h4 className="text-sm font-semibold text-blue-900 mb-2">Passage</h4>
+                          <div className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
+                            <MathRenderer>{question.passage}</MathRenderer>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Diagram/Chart Image */}
+                      {question.imageUrl && (
+                        <div className="mb-6">
+                          <div className="relative rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            {question.imageUrl.startsWith('data:') ? (
+                              // For data URLs, use regular img tag
+                              <img
+                                src={question.imageUrl}
+                                alt={question.chartDescription || 'Question diagram'}
+                                className="w-full h-auto"
+                              />
+                            ) : (
+                              // For external URLs, use Next.js Image
+                              <Image
+                                src={question.imageUrl}
+                                alt={question.chartDescription || 'Question diagram'}
+                                width={800}
+                                height={600}
+                                className="w-full h-auto"
+                                unoptimized
+                              />
+                            )}
+                            {question.chartDescription && (
+                              <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-xs p-2">
+                                {question.chartDescription}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+
                       {/* Question Text */}
                       <div className="text-lg font-medium text-gray-900 mb-6 leading-relaxed">
                         <MathRenderer>{question.question}</MathRenderer>
@@ -488,26 +569,27 @@ export default function EnhancedQuestionGeneration() {
 
                       {/* Answer Options */}
                       <div className="space-y-3">
-                        {question.options.map((option, optIndex) => {
-                          const isSelected = question.selectedAnswer === optIndex
-                          const isCorrect = optIndex === question.correctAnswer
-                          const showResult = question.selectedAnswer !== undefined
-                          
-                          return (
-                            <button
-                              key={optIndex}
-                              onClick={() => handleAnswerSelect(qIndex, optIndex)}
-                              disabled={question.selectedAnswer !== undefined}
-                              className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
-                                showResult
-                                  ? isCorrect
-                                    ? 'bg-green-50 border-green-500'
+                        {Array.isArray(question.options) && question.options.length > 0 ? (
+                          question.options.map((option, optIndex) => {
+                            const isSelected = question.selectedAnswer === optIndex
+                            const isCorrect = optIndex === question.correctAnswer
+                            const showResult = question.selectedAnswer !== undefined
+                            
+                            return (
+                              <button
+                                key={optIndex}
+                                onClick={() => handleAnswerSelect(qIndex, optIndex)}
+                                disabled={question.selectedAnswer !== undefined}
+                                className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
+                                  showResult
+                                    ? isCorrect
+                                      ? 'bg-green-50 border-green-500'
+                                      : isSelected
+                                      ? 'bg-red-50 border-red-500'
+                                      : 'bg-gray-50 border-gray-200'
                                     : isSelected
-                                    ? 'bg-red-50 border-red-500'
-                                    : 'bg-gray-50 border-gray-200'
-                                  : isSelected
-                                  ? 'bg-blue-50 border-blue-500'
-                                  : 'bg-white border-gray-300 hover:border-blue-400 hover:bg-blue-50'
+                                    ? 'bg-blue-50 border-blue-500'
+                                    : 'bg-white border-gray-300 hover:border-blue-400 hover:bg-blue-50'
                               } ${question.selectedAnswer !== undefined ? 'cursor-default' : 'cursor-pointer'}`}
                             >
                               <div className="flex items-center">
@@ -534,7 +616,13 @@ export default function EnhancedQuestionGeneration() {
                               </div>
                             </button>
                           )
-                        })}
+                        })
+                        ) : (
+                          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-yellow-800">
+                            <AlertCircle className="h-5 w-5 inline mr-2" />
+                            Question options are not properly formatted. Please regenerate the question.
+                          </div>
+                        )}
                       </div>
 
                       {/* Explanation */}

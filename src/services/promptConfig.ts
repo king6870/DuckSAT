@@ -13,7 +13,7 @@ export const LLM_SETTINGS = {
   DEFAULT_TEMPERATURE: 0.7,
   DEFAULT_MAX_TOKENS: 4000,
   EVALUATION_TEMPERATURE: 0.1,
-  EVALUATION_MAX_TOKENS: 200,
+  EVALUATION_MAX_TOKENS: 500, // Increased for detailed evaluation feedback
 } as const
 
 /**
@@ -130,6 +130,8 @@ export const QUALITY_THRESHOLDS = {
   BASE_QUALITY_SCORE: 0.7,
   GOOD_QUALITY_SCORE: 0.8,
   ACCEPTANCE_THRESHOLD: 0.6,
+  REGENERATION_THRESHOLD: 0.8, // Questions with scores ≤80% will be regenerated
+  MAX_REGENERATION_ATTEMPTS: 5, // Maximum retries per question
 } as const
 
 /**
