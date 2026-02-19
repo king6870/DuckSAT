@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 })
     }
 
-    const { testResults } = await request.json()
+    const { testResults, practiceTestId } = await request.json()
 
     // Extract data from testResults
     const flatResults: ModuleResult[] = testResults.moduleResults.flat()
@@ -46,10 +46,24 @@ export async function POST(request: NextRequest) {
     // Determine primary module type
     const moduleType = mathQuestions.length > rwQuestions.length ? 'math' : 'reading-writing'
 
+    // Epic #61: Calculate attempt number if this is a fixed practice test
+    let attemptNumber: number | null = null;
+    if (practiceTestId) {
+      const existingAttempts = await prisma.testResult.count({
+        where: {
+          userId: user.id,
+          practiceTestId: practiceTestId,
+        },
+      });
+      attemptNumber = existingAttempts + 1;
+    }
+
     // Create test result
     const testResult = await prisma.testResult.create({
       data: {
         userId: user.id,
+        practiceTestId: practiceTestId || null, // Epic #61: Link to practice test if applicable
+        attemptNumber: attemptNumber, // Epic #61: Store attempt number
         startTime: new Date(testResults.startTime),
         endTime: new Date(testResults.endTime),
         totalTimeSpent: testResults.totalTimeSpent,

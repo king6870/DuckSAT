@@ -7,7 +7,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlserver"
   url      = env("DATABASE_URL")
 }
 
@@ -112,6 +112,9 @@ model Question {
   difficulty   String   // 'easy' | 'medium' | 'hard'
   category     String   // 'algebra', 'geometry', 'reading-comprehension', etc.
   subtopic     String?  // More specific subtopic (e.g., 'linear-equations', 'quadratic-functions')
+  // V3 Generator fields (Epic #34)
+  visualType   String?  // 'bar-chart' | 'line-graph' | 'scatter-plot' | 'pie-chart' | 'table' | 'function-graph' | 'geometry' | 'system-of-equations' | 'none'
+  difficultyScore Int?  // Numeric difficulty (easy=25, medium=50, hard=75) for fine-grained filtering
   question     String   @db.Text
   passage      String?  @db.Text // Reading passages or context
   options      String   @db.Text // JSON array of answer options
@@ -127,6 +130,7 @@ model Question {
   source       String?  // Source of the question (e.g., 'Official SAT', 'Khan Academy')
   tags         String   @db.Text // JSON array of tags
   isActive     Boolean  @default(true)
+  isReserved   Boolean  @default(false) // Epic #61: Marks questions reserved for fixed practice tests
   // Review fields for question quality control
   reviewStatus      String?  // 'pending' | 'approved' | 'rejected'
   reviewRating      Int?     // Rating 1-5 from admin review
@@ -141,10 +145,12 @@ model Question {
   subtopicRef     Subtopic? @relation(fields: [subtopicId], references: [id])
   questionResults QuestionResult[]
   questionReviews QuestionReview[]
+  practiceTestQuestions PracticeTestQuestion[] // Epic #61: Practice test assignments
 
   @@index([moduleType, difficulty, category])
   @@index([category, subtopic])
   @@index([subtopicId])
+  @@index([isActive, isReserved, moduleType]) // Epic #61: For random test exclusion
   @@map("questions")
 }
 
@@ -211,6 +217,8 @@ model QuestionReview {
 model TestResult {
   id               String   @id @default(cuid())
   userId           String
+  practiceTestId   String?  // Epic #61: Link to fixed practice test (nullable for random tests)
+  attemptNumber    Int?     // Epic #61: Attempt counter per practice test per user
   startTime        DateTime
   endTime          DateTime
   totalTimeSpent   Int      // seconds
@@ -228,10 +236,12 @@ model TestResult {
 
   // Relations
   user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  practiceTest    PracticeTest?    @relation(fields: [practiceTestId], references: [id]) // Epic #61
   questionResults QuestionResult[]
 
   @@index([userId, completedAt])
   @@index([satTotalScore])
+  @@index([userId, practiceTestId]) // Epic #61: For attempt queries
   @@map("test_results")
 }
 
@@ -252,6 +262,41 @@ model QuestionResult {
   @@index([testResultId])
   @@index([questionId])
   @@map("question_results")
+}
+
+// Epic #61: Fixed SAT Practice Tests
+model PracticeTest {
+  id          String   @id @default(cuid())
+  name        String   @unique // e.g., "SAT Practice Test 1"
+  description String?  @db.Text
+  difficulty  String   // "diagnostic" | "standard" | "advanced"
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  questions   PracticeTestQuestion[]
+  testResults TestResult[]
+
+  @@map("practice_tests")
+}
+
+// Epic #61: Join table for fixed practice test questions with ordering
+model PracticeTestQuestion {
+  id             String @id @default(cuid())
+  practiceTestId String
+  questionId     String
+  moduleIndex    Int    // 0=RW-1, 1=RW-2, 2=Math-1, 3=Math-2 (maps to MODULE_CONFIGS)
+  orderIndex     Int    // 0-97 global ordering within the test
+
+  // Relations
+  practiceTest PracticeTest @relation(fields: [practiceTestId], references: [id], onDelete: Cascade)
+  question     Question     @relation(fields: [questionId], references: [id])
+
+  @@unique([practiceTestId, orderIndex])
+  @@unique([practiceTestId, questionId])
+  @@index([practiceTestId, moduleIndex])
+  @@map("practice_test_questions")
 }
 
 // User Analytics and Progress Tracking
