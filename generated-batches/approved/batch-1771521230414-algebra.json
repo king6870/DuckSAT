@@ -1,0 +1,593 @@
+{
+  "batchId": "batch-1771521230414-algebra",
+  "topic": "algebra",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T17:20:05.204Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 20,
+  "totalValid": 20,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Solve for x: $3x - 4 = 2x + 7$.",
+      "options": [
+        "A) $x = 11$",
+        "B) $x = -3$",
+        "C) $x = 4$",
+        "D) $x = -11$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From the equation $3x - 4 = 2x + 7$, subtract $2x$ from both sides to obtain $x - 4 = 7$. Then add $4$ to both sides to get $x = 11$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option is correct; there is no mistake here.",
+        "B": "This option results from a sign error when moving terms across the equals sign.",
+        "C": "This option results from incorrectly adding 4 to the left side instead of the right side.",
+        "D": "This option results from an incorrect arithmetic step, such as dividing by 2 at the wrong time."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:16:00.077Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If $2x + 5 < 9$, what is the solution for $x$?",
+      "options": [
+        "A) $x < 2$",
+        "B) $x > 2$",
+        "C) $x \\le 2$",
+        "D) $x \\ge 2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Solve: $2x + 5 < 9$. Subtract $5$ to get $2x < 4$. Divide by 2 to obtain $x < 2$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer; no mistake.",
+        "B": "Sign of the inequality is reversed; incorrect direction.",
+        "C": "Treats the inequality as non-strict; there is no equality allowed here.",
+        "D": "Incorrectly uses the opposite inequality sign."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:16:00.090Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the following system: $2x + y = 7$, $x - y = 1$.",
+      "options": [
+        "A) $x = \\frac{8}{3},\\; y = \\frac{5}{3}$",
+        "B) $x = 3,\\; y = 1$",
+        "C) $x = 4,\\; y = 3$",
+        "D) $x = 2,\\; y = 1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Add the two equations: $(2x + y) + (x - y) = 7 + 1$ gives $3x = 8$, so $x = \\frac{8}{3}$. Substitute into $x - y = 1$ to get $y = x - 1 = \\frac{8}{3} - 1 = \\frac{5}{3}$; thus $(x,y) = (\\frac{8}{3}, \\frac{5}{3})$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer; this option shows the correct solution.",
+        "B": "Incorrect substitution or arithmetic; would imply integers while the actual solution is fractions.",
+        "C": "Mistake in solving: choosing larger integers for both variables.",
+        "D": "Arithmetic or sign error when solving substitution/elimination."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:16:00.092Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute the product: $(2x - 5)(x + 4)$.",
+      "options": [
+        "A) $2x^2 + 3x - 20$",
+        "B) $2x^2 - 7x + 20$",
+        "C) $2x^2 + x - 20$",
+        "D) $x^2 + 8x - 5$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distribute: $(2x - 5)(x + 4) = 2x(x+4) -5(x+4) = (2x^2 + 8x) + (-5x - 20) = 2x^2 + 3x - 20$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct arithmetic would yield this; incorrect sign or coefficient errors in the middle term.",
+        "B": "Mistake in distributing the -5x term; incorrect sign for the middle term.",
+        "C": "Miscomputes the middle term by not correctly combining 8x and -5x.",
+        "D": "Forgets the 2x factor or miscomputes the squared term."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:16:00.098Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the absolute-value equation: $|x - 4| = 0$.",
+      "options": [
+        "A) $x = 4$",
+        "B) $x = -4$",
+        "C) $x = 0$",
+        "D) no solution"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An absolute value equals zero only when its inside is zero: $x - 4 = 0 \\Rightarrow x = 4$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer; this option reflects the correct understanding of the property.",
+        "B": "Mistakenly set the inside to the negative value or misinterpretation of absolute value.",
+        "C": "Misreads the inside; sets it equal to 0 incorrectly.",
+        "D": "Assumes there is no solution when the inside can be zero."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:16:00.101Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A cellphone plan charges a base fee of 20 dollars plus 0.10 dollars per minute. If the total cost is 46 dollars, how many minutes were used?",
+      "options": [
+        "A) 260",
+        "B) 230",
+        "C) 2600",
+        "D) 60"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let m be minutes used. Then $46 = 20 + 0.10 m$. Subtract 20: $26 = 0.10 m$. Multiply both sides by 10: $m = 260$ minutes.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer; this is the intended result from solving the equation.",
+        "B": "Confuses cents per minute with minutes; effectively dividing by the wrong factor.",
+        "C": "Mistakes decimal placement; 2600 would correspond to a different per-minute rate or base.",
+        "D": "Interprets minutes as a smaller quantity; miscomputes by missing the base cost."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:16:00.102Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for x: $4x - 3 = 2x + 9$.",
+      "options": [
+        "A) $3$",
+        "B) $6$",
+        "C) $4.5$",
+        "D) $-3$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "To solve, move terms: $4x - 3 = 2x + 9 \\Rightarrow 4x - 2x = 9 + 3 \\Rightarrow 2x = 12 \\Rightarrow x = 6$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Plugging in x = 3 gives LHS $4(3) - 3 = 9$ and RHS $2(3) + 9 = 15$, which are not equal.",
+        "B": "This is the correct answer; no mistake.",
+        "C": "If x = 4.5, LHS is $4(4.5) - 3 = 15$, RHS is $2(4.5) + 9 = 18$, not equal.",
+        "D": "If x = -3, LHS is $-15$ and RHS is $3$, not equal."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:18:17.507Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A gym charges a base fee of 8 dollars and 2 dollars per class. If the monthly cost cannot exceed 48 dollars, what is the maximum number of classes you can attend?",
+      "options": [
+        "A) $16$",
+        "B) $20$",
+        "C) $24$",
+        "D) $22$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let n be the number of classes. Cost = 8 + 2n ≤ 48. Subtract 8: 2n ≤ 40. Divide by 2: n ≤ 20. The maximum integer n is 20.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "16 is within the budget but not the maximum; 8 + 2(16) = 40 ≤ 48, but you can attend more classes.",
+        "B": "This is correct; no mistake.",
+        "C": "24 would cost 8 + 2(24) = 56, which exceeds the limit.",
+        "D": "22 would cost 8 + 2(22) = 52, which exceeds the limit."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:18:17.510Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Given $x + y = 7$ and $2x - y = 1$, solve for $x$ using substitution.",
+      "options": [
+        "A) $\\frac{8}{3}$",
+        "B) $3$",
+        "C) $4$",
+        "D) $\\frac{7}{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From $x + y = 7$, we get $y = 7 - x$. Substitute into $2x - y = 1$: $2x - (7 - x) = 1 \\Rightarrow 3x - 7 = 1 \\Rightarrow 3x = 8 \\Rightarrow x = \\frac{8}{3}$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct answer; no mistake.",
+        "B": "Plugging x = 3 gives $2(3) - (7-3) = 6 - 4 = 2$, not 1.",
+        "C": "Plugging x = 4 gives $2(4) - (7-4) = 8 - 3 = 5$, not 1.",
+        "D": "Plugging x = 7/3 gives $2(7/3) - (7 - 7/3) = 14/3 - 14/3 = 0$, not 1."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:18:17.513Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Expand $ (2x - 5)(x + 3) $.",
+      "options": [
+        "A) $2x^2 + x - 15$",
+        "B) $2x^2 + 3x - 15$",
+        "C) $2x^2 - 5x - 15$",
+        "D) $x^2 + x - 15$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distribute: $(2x - 5)(x + 3) = 2x(x + 3) - 5(x + 3) = (2x^2 + 6x) - (5x + 15) = 2x^2 + x - 15$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect distribution; 6x - 5x should be x, not 0.",
+        "B": "Added 3x instead of  x; incorrect middle term.",
+        "C": "Used -5x instead of +6x from distribution; incorrect middle term.",
+        "D": "Dropped the -5x term entirely; incorrect expansion."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:18:17.516Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the inequality $|2x - 7| \\le 3$.",
+      "options": [
+        "A) $x \\le 2$ or $x \\ge 5$",
+        "B) $2 \\le x \\le 5$",
+        "C) $2 < x < 5$",
+        "D) $x \\in [5, \\infty) \\cup (-\\infty, 2]$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Absolute value inequality $|A| \\le c$ implies $-c \\le A \\le c$. Here, $-3 \\le 2x - 7 \\le 3$. Add 7: $4 \\le 2x \\le 10$. Divide by 2: $2 \\le x \\le 5$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the complement of the correct interval; it describes values outside the allowed range.",
+        "B": "Correct interval is inclusive at endpoints; this matches the right bound but forgets the left bound? Actually B is correct; if marked wrong, explain that endpoints are included.",
+        "C": "Excludes endpoints; incorrect because endpoints 2 and 5 satisfy the inequality.",
+        "D": "Uses union with incorrect half-lines; endpoints included on the wrong side."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:18:17.518Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A cell phone plan: base cost is 30 dollars, plus $0.15 per minute. If the total cost is 60 dollars, how many minutes were used?$",
+      "options": [
+        "A) $100$",
+        "B) $200$",
+        "C) $400$",
+        "D) $500$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let m be minutes. $30 + 0.15m = 60$. Subtract 30: $0.15m = 30$. Divide by 0.15: $m = 200$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "word-problem-modeling",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Plugging m = 100 gives total $30 + 0.15(100) = 45$, which is under 60; not the exact amount.",
+        "B": "This is the correct answer; no mistake.",
+        "C": "Plugging m = 400 yields $30 + 0.15(400) = 90$; too high.",
+        "D": "Plugging m = 500 yields $30 + 0.15(500) = 105$; too high."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:18:17.521Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system: $x + y = 12$ and $3x - y = 4$ using elimination.",
+      "options": [
+        "A) $x=3, y=9$",
+        "B) $x=4, y=8$",
+        "C) $x=6, y=6$",
+        "D) $x=8, y=4$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Add the two equations: $(x+y) + (3x - y) = 12 + 4 \\Rightarrow 4x = 16 \\Rightarrow x = 4$. Substitute into $x + y = 12$: $4 + y = 12 \\Rightarrow y = 8$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "If x=3, y=9 then $3x - y = 0$ not 4.",
+        "B": "This is the correct answer; no mistake.",
+        "C": "x=6, y=6 gives $x+y=12$ but $3x - y = 18 - 6 = 12$, not 4.",
+        "D": "x=8, y=4 gives $3x - y = 24 - 4 = 20$, not 4."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:18:17.524Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Divide $3x^3 - 6x^2 + x - 4$ by $x - 2$. What is the quotient?",
+      "options": [
+        "A) $3x^2 + 1$",
+        "B) $3x^2 + 2x + 1$",
+        "C) $3x^2 + 3$",
+        "D) $3x^2 + x + 1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using long division or synthetic division with root 2 on coefficients 3, -6, 1, -4 yields quotient $3x^2 + 0x + 1 = 3x^2 + 1$ and remainder $-2$; the question asks for the quotient.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect quotient; missing the $2x$ term which would arise from cross-multiplication.",
+        "B": "Included an erroneous $2x$ term due to miscounting degree reductions.",
+        "C": "Dropped the linear term entirely; incorrect expansion.",
+        "D": "Kept a linear term $x$; incorrect quotient."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:18:17.526Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the absolute value equation $|x - 7| = 0$.",
+      "options": [
+        "A) $x = 7$",
+        "B) $x = -7$",
+        "C) $x = 0$",
+        "D) $x = 14$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An absolute value equals zero only when the inside is zero: $x - 7 = 0 \\Rightarrow x = 7$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer; no mistake.",
+        "B": "Incorrect; would imply $|x - 7| = |-14| = 14$ if x = -7.",
+        "C": "Incorrect; would give $| -7| = 7$.",
+        "D": "Incorrect; would give $|7 - 7| = 0$ but x must be 14 here."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:18:17.527Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the compound inequality $-4 \\le 2x + 3 < 7$.",
+      "options": [
+        "A) $-\\frac{7}{2} \\le x < 2$",
+        "B) $-\\frac{7}{2} < x \\le 2$",
+        "C) $-\\frac{7}{3} \\le x < \\frac{4}{2}$",
+        "D) $-\\frac{7}{2} \\le x \\le 2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Split and solve: $-4 \\le 2x + 3 < 7$ subtract 3: $-7 \\le 2x < 4$. Divide by 2: $-\\frac{7}{2} \\le x < 2$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct interval; other options misplace endpoints.",
+        "B": "Left endpoint correct but right endpoint should be open; inequality is strict on the right.",
+        "C": "Incorrect arithmetic in the bounds; used $-\\frac{7}{3}$ and $\\frac{4}{2}$ which are not the correct bounds.",
+        "D": "Right endpoint should be open; left endpoint is correct, but the inequality is not inclusive on the right."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:18:17.529Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two numbers have a sum of $50$. The second number is $4$ less than twice the first. If the first number is $x$ and the second is $y$, set up the equations and solve for $(x,y)$.",
+      "options": [
+        "A) $x=18$ and $y=32$",
+        "B) $x=16$ and $y=34$",
+        "C) $x=20$ and $y=30$",
+        "D) $x=36$ and $y=14$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let the two numbers be $x$ and $y$. Then $x + y = 50$ and $y = 2x - 4$. Substitute: $x + (2x - 4) = 50$ → $3x - 4 = 50$ → $3x = 54$ → $x = 18$. Then $y = 2x - 4 = 32$. So the numbers are $x = 18$ and $y = 32$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option is correct; no error in reasoning needs to be shown here.",
+        "B": "Sign error: using $y = 2x + 4$ instead of $y = 2x - 4$, which changes the equation and yields an incorrect pair.",
+        "C": "Arithmetic slip when simplifying $x + (2x - 4) = 50$; miscomputes to an incorrect value for $x$.",
+        "D": "Swaps the roles of the two numbers, effectively solving for $(y,x)$ rather than $(x,y)$."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:20:04.187Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Consider the compound inequality -4 ≤ 3x - 7 ≤ 5. Solve for x and express the solution as an interval.",
+      "options": [
+        "A) $x \\in (-\\infty, 1]$",
+        "B) $x \\in [1, 4]$",
+        "C) $x \\in [4, \\infty)$",
+        "D) $x \\in [0, 3]$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Add 7 to all parts: -4 + 7 ≤ 3x ≤ 5 + 7, so $3 ≤ 3x ≤ 12$. Divide by 3: $1 ≤ x ≤ 4$. Thus the solution is $x \\in [1,4]$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Mistakenly treated the compound inequality as a union rather than the intersection, giving an incorrect left endpoint.",
+        "B": "Correct answer; this field explains why other options are wrong, not this one.",
+        "C": "Misinterprets the upper or lower bound, giving an interval that starts at 4 rather than ending at 4.",
+        "D": "Uses an incorrect lower bound, ignoring part of the left inequality."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:20:04.191Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A theater sold x adult tickets and y student tickets. The total number of tickets sold is 50, and adult tickets cost $12 while student tickets cost $7. If the total revenue was $540, how many adult and student tickets were sold? Solve the system: x + y = 50, 12x + 7y = 540.$",
+      "options": [
+        "A) 38 adults and 12 students",
+        "B) 40 adults and 10 students",
+        "C) 30 adults and 20 students",
+        "D) 25 adults and 25 students"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let $x$ be adults and $y$ be students. From $x + y = 50$, we have $y = 50 - x$. Substitute into $12x + 7y = 540$: $12x + 7(50 - x) = 540$ → $12x + 350 - 7x = 540$ → $5x = 190$ → $x = 38$. Then $y = 50 - 38 = 12$. So there were 38 adults and 12 students.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct distribution; this field should explain why the other options are wrong.",
+        "B": "Mistakenly assumes more adults while not satisfying the revenue equation.",
+        "C": "Another distribution that does not satisfy the revenue constraint.",
+        "D": "Assumes an equal split that fails to meet either the ticket total or revenue."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:20:04.193Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Multiply the polynomials: (3x^2 - x + 4)(2x - 5). Choose the correct expanded form.",
+      "options": [
+        "A) 6x^3 - 17x^2 + 13x - 20",
+        "B) 6x^3 - 15x^2 + 13x - 20",
+        "C) 6x^3 - 17x^2 - 3x - 20",
+        "D) 6x^3 - 17x^2 + 13x + 20"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distribute each term: (3x^2)(2x) = 6x^3, (3x^2)(-5) = -15x^2, (-x)(2x) = -2x^2, (-x)(-5) = 5x, (4)(2x) = 8x, (4)(-5) = -20. Combine: -15x^2 + (-2x^2) = -17x^2; 5x + 8x = 13x. Final: 6x^3 - 17x^2 + 13x - 20.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct expanded form; this entry is acknowledged as correct but explanations focus on wrong choices.",
+        "B": "Mistake: forgetting the -2x^2 term from (-x)(-5) when combining like terms.",
+        "C": "Sign error on the x-term, miscounting contributions to the x term.",
+        "D": "Sign error on the constant term; adding instead of subtracting 20."
+      },
+      "_batchId": "batch-1771521230414-algebra",
+      "_generatedAt": "2026-02-19T17:20:04.196Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

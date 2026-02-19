@@ -1,0 +1,12 @@
+{
+  "batchId": "batch-1771470060254-algebra",
+  "topic": "algebra",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T03:01:57.358Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 5,
+  "totalGenerated": 0,
+  "totalValid": 0,
+  "totalInvalid": 0,
+  "questions": []
+}

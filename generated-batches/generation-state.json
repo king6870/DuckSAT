@@ -1,0 +1,632 @@
+{
+  "startedAt": "2026-02-19T02:20:56.703Z",
+  "lastUpdatedAt": "2026-02-19T19:28:39.100Z",
+  "target": {
+    "reading": 400,
+    "math": 400
+  },
+  "current": {
+    "reading": 45,
+    "math": 70
+  },
+  "generated": {
+    "reading": 51,
+    "math": 522
+  },
+  "approved": {
+    "reading": 0,
+    "math": 0
+  },
+  "batches": [
+    {
+      "batchId": "batch-1771469987527-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T03:00:42.121Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771470060254-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T03:01:57.358Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771470313051-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T03:07:28.795Z",
+      "totalGenerated": 5,
+      "totalValid": 5,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771470474611-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T03:14:18.058Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771470858080-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T03:21:19.701Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771471279703-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T03:25:01.702Z",
+      "totalGenerated": 18,
+      "totalValid": 18,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771471501706-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T03:30:26.467Z",
+      "totalGenerated": 14,
+      "totalValid": 14,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771471826474-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T03:38:47.003Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771472327006-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T03:44:03.559Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771472643561-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T03:50:54.666Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771473054669-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T03:56:09.008Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771473369011-statistics",
+      "topic": "statistics",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T03:59:11.664Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771473551667-statistics",
+      "topic": "statistics",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T04:03:01.083Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771473781086-statistics",
+      "topic": "statistics",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T04:08:29.937Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771474109944-quadratic",
+      "topic": "quadratic",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T04:11:21.944Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771474281947-quadratic",
+      "topic": "quadratic",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T04:14:23.983Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771474463986-linear-functions",
+      "topic": "linear-functions",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T04:17:24.915Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771474644922-linear-functions",
+      "topic": "linear-functions",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T04:20:29.908Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771474829910-advanced-math",
+      "topic": "advanced-math",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T04:27:26.171Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771475246174-advanced-math",
+      "topic": "advanced-math",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T04:31:17.437Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771475477440-reading-comp",
+      "topic": "reading-comp",
+      "moduleType": "reading-writing",
+      "generatedAt": "2026-02-19T04:34:32.860Z",
+      "totalGenerated": 10,
+      "totalValid": 10,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771475672867-vocabulary",
+      "topic": "vocabulary",
+      "moduleType": "reading-writing",
+      "generatedAt": "2026-02-19T04:37:21.379Z",
+      "totalGenerated": 10,
+      "totalValid": 10,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771475841382-rhetoric",
+      "topic": "rhetoric",
+      "moduleType": "reading-writing",
+      "generatedAt": "2026-02-19T04:39:43.763Z",
+      "totalGenerated": 6,
+      "totalValid": 6,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771475983766-synthesis",
+      "topic": "synthesis",
+      "moduleType": "reading-writing",
+      "generatedAt": "2026-02-19T04:40:58.771Z",
+      "totalGenerated": 5,
+      "totalValid": 5,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771476142078-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T04:45:24.418Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771476379478-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T04:49:31.564Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771476593555-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T04:50:59.014Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771476668400-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T04:52:52.056Z",
+      "totalGenerated": 2,
+      "totalValid": 2,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771476835194-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T04:55:25.300Z",
+      "totalGenerated": 2,
+      "totalValid": 2,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771476956074-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T04:57:47.656Z",
+      "totalGenerated": 2,
+      "totalValid": 2,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771477088820-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T05:00:00.494Z",
+      "totalGenerated": 3,
+      "totalValid": 3,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771477221236-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T05:05:06.902Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771477506923-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T05:09:33.561Z",
+      "totalGenerated": 14,
+      "totalValid": 14,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771477773563-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T05:14:52.354Z",
+      "totalGenerated": 10,
+      "totalValid": 10,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771478092360-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T05:20:12.738Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771478412741-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T05:24:29.402Z",
+      "totalGenerated": 9,
+      "totalValid": 9,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771478669406-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T05:29:22.166Z",
+      "totalGenerated": 10,
+      "totalValid": 10,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771478962168-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T05:33:53.585Z",
+      "totalGenerated": 10,
+      "totalValid": 10,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771479233587-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T05:39:27.906Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771479567910-statistics",
+      "topic": "statistics",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T05:43:16.154Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771479796157-statistics",
+      "topic": "statistics",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T05:46:33.423Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771479993425-statistics",
+      "topic": "statistics",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T05:49:57.929Z",
+      "totalGenerated": 10,
+      "totalValid": 10,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771480197932-quadratic",
+      "topic": "quadratic",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T05:53:24.780Z",
+      "totalGenerated": 14,
+      "totalValid": 14,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771521230414-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T17:20:05.204Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771521605234-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T17:26:55.405Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771522015408-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T17:34:16.548Z",
+      "totalGenerated": 13,
+      "totalValid": 13,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771522456556-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T17:41:00.508Z",
+      "totalGenerated": 0,
+      "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771522860512-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T17:46:55.620Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771523215622-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T17:52:03.414Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771523523416-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T17:58:42.839Z",
+      "totalGenerated": 10,
+      "totalValid": 10,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771523922850-geometry",
+      "topic": "geometry",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T18:05:49.866Z",
+      "totalGenerated": 10,
+      "totalValid": 10,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771524349869-statistics",
+      "topic": "statistics",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T18:10:24.168Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771524624170-statistics",
+      "topic": "statistics",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T18:15:16.262Z",
+      "totalGenerated": 16,
+      "totalValid": 16,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771524916265-statistics",
+      "topic": "statistics",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T18:21:53.234Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771525313237-quadratic",
+      "topic": "quadratic",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T18:26:49.559Z",
+      "totalGenerated": 4,
+      "totalValid": 4,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771525609562-quadratic",
+      "topic": "quadratic",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T18:32:15.530Z",
+      "totalGenerated": 14,
+      "totalValid": 14,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771525935532-linear-functions",
+      "topic": "linear-functions",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T19:05:01.676Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771527901687-linear-functions",
+      "topic": "linear-functions",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T19:11:53.098Z",
+      "totalGenerated": 16,
+      "totalValid": 16,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771528313101-advanced-math",
+      "topic": "advanced-math",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T19:17:47.331Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771528667333-advanced-math",
+      "topic": "advanced-math",
+      "moduleType": "math",
+      "generatedAt": "2026-02-19T19:23:07.993Z",
+      "totalGenerated": 16,
+      "totalValid": 16,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1771528987996-reading-comp",
+      "topic": "reading-comp",
+      "moduleType": "reading-writing",
+      "generatedAt": "2026-02-19T19:28:39.098Z",
+      "totalGenerated": 20,
+      "totalValid": 20,
+      "totalInvalid": 0,
+      "status": "pending"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "batchId": "batch-1771470313051-algebra",
+  "topic": "algebra",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T03:07:28.795Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 5,
+  "totalGenerated": 5,
+  "totalValid": 5,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Solve for x: $2x + 3 = 7 - x$.",
+      "options": [
+        "A) 2",
+        "B) 4/3",
+        "C) 1",
+        "D) 5/3"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Add x to both sides to collect x terms: $2x + x + 3 = 7$. Step 2: Subtract 3 from both sides: $3x = 4$. Step 3: Divide by 3: $x = \\frac{4}{3}$. Therefore, the solution is $x = \\frac{4}{3}$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Mistake: Cancelling the -x term on the right side when moving terms, effectively solving 2x = 4, which gives x = 2.",
+        "C": "Mistake: moving terms incorrectly and not properly combining x terms, leading to an incorrect simplification that yields x = 1.",
+        "D": "Mistake: dividing by 3 before properly isolating x, which can lead to an incorrect value such as x = \\frac{5}{3}."
+      },
+      "_batchId": "batch-1771470313051-algebra",
+      "_generatedAt": "2026-02-19T03:06:35.055Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two types of tickets cost dollars: adult tickets cost A dollars and student tickets cost B dollars. In Sale 1, 6 adult tickets and 4 student tickets were sold for 42 dollars. In Sale 2, 2 adult tickets and 5 student tickets were sold for 25 dollars. What is the price of an adult ticket?",
+      "options": [
+        "A) 3 dollars",
+        "B) 4 dollars",
+        "C) 5 dollars",
+        "D) 6 dollars"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Let A be the adult price and B be the student price. The two sales give the system: 6A + 4B = 42 and 2A + 5B = 25. Solve by elimination: multiply the first by 2 to get 12A + 8B = 84; multiply the second by 6 to get 12A + 30B = 150. Subtract: 22B = 66 → B = 3. Substitute into 6A + 4(3) = 42 → 6A = 30 → A = 5. Therefore, the adult ticket price is 5 dollars.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Assuming the adult price is 3 dollars leads to contradictions when checked against both sales.",
+        "B": "Assuming the adult price is 4 dollars yields inconsistent results when plugged into both equations.",
+        "D": "Assuming the adult price is 6 dollars yields inconsistent results when checked against both equations."
+      },
+      "_batchId": "batch-1771470313051-algebra",
+      "_generatedAt": "2026-02-19T03:06:35.069Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the linear equation: $3(2x - 4) + 5 = 7x + 1$ for $x$.",
+      "options": [
+        "A) $x = -8$",
+        "B) $x = -4$",
+        "C) $x = 8$",
+        "D) $x = 0$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Start with the equation: $3(2x - 4) + 5 = 7x + 1$. Distribute: $6x - 12 + 5 = 7x + 1$, so $6x - 7 = 7x + 1$. Subtract $6x$ from both sides: $-7 = x + 1$. Subtract 1: $-8 = x$. Therefore, $x = -8$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Choosing $x = -4$ does not satisfy the equation. Substituting shows $6(-4) - 7 = -24 - 7 = -31$ on the left, while $7(-4) + 1 = -28 + 1 = -27$ on the right; they are not equal.",
+        "C": "Choosing $x = 8$ does not satisfy the equation. Substituting gives left side $6(8) - 7 = 48 - 7 = 41$, right side $7(8) + 1 = 56 + 1 = 57$; not equal.",
+        "D": "Choosing $x = 0$ does not satisfy the equation. Substituting gives left side $-7$, right side $1$; not equal."
+      },
+      "_batchId": "batch-1771470313051-algebra",
+      "_generatedAt": "2026-02-19T03:07:24.334Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the compound inequality $-4 \\le 2x - 3 < 5$ and select the correct interval describing the solution set.",
+      "options": [
+        "A) $x \\in [-\\frac{1}{2}, 4)$",
+        "B) $x \\in (-\\frac{1}{2}, 4]$",
+        "C) $x \\in [-4, 2)$",
+        "D) $x \\in (-2, 4)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Add 3 to all parts: $-1 \\le 2x < 8$. Divide by 2: $-\\frac{1}{2} \\le x < 4$. The solution set is $[-\\frac{1}{2}, 4)$. Only option A matches this. The other options have incorrect endpoint inclusions or bounds.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B has the left endpoint open and the right endpoint closed; the left bound is included due to ≤ and the right bound is not included due to <, so this is reversed.",
+        "C": "C uses an incorrect left bound of -4 and right bound of 2; these do not come from the inequality.",
+        "D": "D has the right bound 4 but uses an open left bound (-2, 4); the left bound should be -1/2 and included."
+      },
+      "_batchId": "batch-1771470313051-algebra",
+      "_generatedAt": "2026-02-19T03:07:24.339Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A small theater sells adult tickets for 12 dollars and student tickets for 8 dollars. Let a be the number of adult tickets and s be the number of student tickets. If a + s = 180 and 12a + 8s = 1500, how many adult tickets were sold?",
+      "options": [
+        "A) 15",
+        "B) 60",
+        "C) 120",
+        "D) 165"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From a + s = 180, we have s = 180 - a. Substitute into 12a + 8s = 1500: 12a + 8(180 - a) = 1500. This gives 12a + 1440 - 8a = 1500 → 4a + 1440 = 1500 → 4a = 60 → a = 15. Therefore, 15 adult tickets were sold.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "If a = 60, then s = 120. Revenue would be 12(60) + 8(120) = 720 + 960 = 1680, not 1500.",
+        "C": "If a = 120, then s = 60. Revenue would be 12(120) + 8(60) = 1440 + 480 = 1920, not 1500.",
+        "D": "If a = 165, then s = 15. Revenue would be 12(165) + 8(15) = 1980 + 120 = 2100, not 1500."
+      },
+      "_batchId": "batch-1771470313051-algebra",
+      "_generatedAt": "2026-02-19T03:07:24.343Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

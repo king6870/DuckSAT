@@ -1,0 +1,415 @@
+{
+  "batchId": "batch-1771525609562-quadratic",
+  "topic": "quadratic",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T18:32:15.530Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 14,
+  "totalValid": 14,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Solve by factoring: if $x^2 - 5x + 6 = 0$, what are the real solutions for x?",
+      "options": [
+        "A) x = 2 or x = 3",
+        "B) x = -2 or x = -3",
+        "C) x = 1 or x = 6",
+        "D) x = 0 or x = 5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor $x^2 - 5x + 6$ as $(x-2)(x-3)=0$. By the zero-product property, the solutions satisfy x-2=0 or x-3=0. Therefore x = 2 or x = 3.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Factoring",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer; no mistake in this option.",
+        "B": "Both roots are negative here; this would come from a quadratic with negative roots, which is not the case.",
+        "C": "This pairing would come from splitting -5 into -1 and -4, which does not yield the correct factorization for this polynomial.",
+        "D": "These roots do not satisfy the equation; neither 0 nor 5 makes the left-hand side zero."
+      },
+      "_batchId": "batch-1771525609562-quadratic",
+      "_generatedAt": "2026-02-19T18:30:33.624Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Complete the square to rewrite $x^2 - 4x + 5$ in vertex form $a(x-h)^2 + k$. What is the vertex?",
+      "options": [
+        "A) (2, 1)",
+        "B) (-2, 1)",
+        "C) (2, -1)",
+        "D) (-2, -1)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "To complete the square, $x^2 - 4x + 5 = (x^2 - 4x + 4) + 1 = (x-2)^2 + 1$. Thus the vertex is at $(h,k)=(2,1)$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Completing the square",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct vertex; no mistake in identifying (h,k).",
+        "B": "Sign of the x-term is reversed, which would give a vertex at (-2,1).",
+        "C": "Sign of the y-coordinate is wrong; would place the vertex at (2,-1).",
+        "D": "Both coordinates have the wrong signs; vertex would be (-2,-1)."
+      },
+      "_batchId": "batch-1771525609562-quadratic",
+      "_generatedAt": "2026-02-19T18:30:33.625Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve $2x^2 + 3x - 2 = 0$ using the quadratic formula. What are the solutions?",
+      "options": [
+        "A) $x = \\frac{1}{2}$ or $x = -2$",
+        "B) $x = -\\frac{1}{2}$ or $x = 2$",
+        "C) $x = 1$ or $x = -4$",
+        "D) $x = -1$ or $x = 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Here $a=2$, $b=3$, $c=-2$. The discriminant $D=b^2-4ac=9-4(2)(-2)=9+16=25$. So $x=\\frac{-b\\pm\\sqrt{D}}{2a}=\\frac{-3\\pm5}{4}$ giving $x=\\frac{1}{2}$ or $x=-2$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Quadratic Formula",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer; this option is presented as the correct one.",
+        "B": "Sign errors: using -b with the wrong sign and a wrong discriminant.",
+        "C": "Incorrect application of the formula; the roots shown do not satisfy the equation with D=25.",
+        "D": "Incorrect numerator values; the expression -b ± √D does not yield -1 and 4 here."
+      },
+      "_batchId": "batch-1771525609562-quadratic",
+      "_generatedAt": "2026-02-19T18:30:33.626Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the vertex form $y = a(x-h)^2 + k$, with $a < 0$, what is true about the parabola?",
+      "options": [
+        "A) Vertex is at $(h,k)$ and it has a maximum value of $k$",
+        "B) Vertex is at $(h,k)$ and it has a minimum value of $k$",
+        "C) Axis of symmetry is $y = h$ and the parabola opens upward",
+        "D) Axis of symmetry is $x = k$ and the parabola opens upward"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In $y = a(x-h)^2 + k$, the vertex is $(h,k)$. If $a < 0$, the parabola opens downward, so the vertex gives a maximum value of $k$; the axis of symmetry is $x = h$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Vertex form",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct concept but the axis of symmetry is not addressed; however as a whole this option correctly states the vertex and maximum.",
+        "B": "Incorrect: a < 0 gives a maximum, not a minimum.",
+        "C": "Axis of symmetry is not $y = h$; it is $x = h$, and the parabola with a<0 opens downward.",
+        "D": "Incorrect: the axis of symmetry is vertical $x=h$, not horizontal."
+      },
+      "_batchId": "batch-1771525609562-quadratic",
+      "_generatedAt": "2026-02-19T18:30:33.628Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "How many real solutions does the equation $3x^2 + 2x + 7 = 0$ have?",
+      "options": [
+        "A) 0 real solutions",
+        "B) 1 real solution",
+        "C) 2 real solutions",
+        "D) Infinitely many real solutions"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Compute discriminant: $D = b^2 - 4ac = 2^2 - 4(3)(7) = 4 - 84 = -80 < 0$. A negative discriminant means no real solutions.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Discriminant",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct: negative discriminant yields no real solutions.",
+        "B": "A negative discriminant cannot yield exactly one real solution.",
+        "C": "If $D>0$, there would be two real solutions; this case has $D<0$.",
+        "D": "Quadratics with real coefficients cannot have infinitely many real solutions unless the equation is identically zero."
+      },
+      "_batchId": "batch-1771525609562-quadratic",
+      "_generatedAt": "2026-02-19T18:30:33.629Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Factor or solve by completing the square: Solve $x^2 - 5x + 4 = 0$.",
+      "options": [
+        "A) $x = 1$ or $x = 4$",
+        "B) $x = -1$ or $x = -4$",
+        "C) $x = 0$ or $x = 5$",
+        "D) $x = 2$ or $x = -2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor: $x^2 - 5x + 4 = (x-1)(x-4)=0$. So $x=1$ or $x=4$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Factoring",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer; no mistakes in factoring.",
+        "B": "Roots are negative, which would require both roots negative for this polynomial.",
+        "C": "Incorrect constant term factoring; does not produce the given middle term.",
+        "D": "Roots are not symmetric about 0; these do not satisfy the equation."
+      },
+      "_batchId": "batch-1771525609562-quadratic",
+      "_generatedAt": "2026-02-19T18:30:33.630Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve by completing the square: Solve $x^2 + 4x - 5 = 0$.",
+      "options": [
+        "A) $x = 1$ or $x = -5$",
+        "B) $x = -1$ or $x = 5$",
+        "C) $x = -3$ or $x = 3$",
+        "D) $x = 0$ or $x = -7$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Rewrite: $x^2 + 4x - 5 = (x+2)^2 - 9 = 0 \\Rightarrow (x+2)^2 = 9 \\Rightarrow x = -2 \\pm 3$, so $x=1$ or $x=-5$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Completing the square",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct: these are the two roots from completing the square.",
+        "B": "Sign of the linear term is incorrect, giving opposite signs for the roots.",
+        "C": "This would come from $(x+2)^2 = -9$, which has no real solutions.",
+        "D": "One root is incorrect due to an off-by-one error in completing the square."
+      },
+      "_batchId": "batch-1771525609562-quadratic",
+      "_generatedAt": "2026-02-19T18:30:33.631Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A projectile has height $y = -4.9 t^2 + 20 t$ meters, where $t$ is time in seconds. When does the projectile hit the ground again (excluding $t=0$)?",
+      "options": [
+        "A) $t = 0$ s",
+        "B) $t \\approx 4$ s",
+        "C) $t \\approx 4.08$ s",
+        "D) $t = 20$ s"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Set $y=0$: $-4.9t^2 + 20t = 0 \\Rightarrow t(-4.9t + 20) = 0$. The nonzero root is $t = \\frac{20}{4.9} \\approx 4.08$ s.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Applications",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the time at launch (a trivial root) but not when it lands again.",
+        "B": "Approximation to 4 s ignores the more precise quotient $20/4.9$.",
+        "C": "The exact nonzero solution is $20/4.9$ ≈ 4.08 s, not 4.0 s.",
+        "D": "Unrelated time; the computed landing time is not 20 s."
+      },
+      "_batchId": "batch-1771525609562-quadratic",
+      "_generatedAt": "2026-02-19T18:30:33.632Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Identify the vertex and axis of symmetry for $y = 3(x - 4)^2 - 5$.",
+      "options": [
+        "A) Vertex (4, -5); axis of symmetry $x = 4$; minimum value -5",
+        "B) Vertex (4, 5); axis of symmetry $x = 4$; maximum value 5",
+        "C) Vertex (-4, -5); axis of symmetry $x = -4$; minimum value -5",
+        "D) Vertex (4, -5); axis of symmetry $y = 4$; minimum value -5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "This is already in vertex form with $a=3>0$, so the vertex is $(h,k)=(4,-5)$, the axis is $x=h=4$, and the parabola opens upward (minimum at the vertex).",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Vertex form",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct vertex and axis; correctly identifies a minimum since $a>0$.",
+        "B": "y-coordinate sign incorrect; vertex should be (4, -5) and the minimum, not maximum.",
+        "C": "Incorrect vertex and axis; signs of h and k are wrong.",
+        "D": "Axis of symmetry is vertical; not $y=4$."
+      },
+      "_batchId": "batch-1771525609562-quadratic",
+      "_generatedAt": "2026-02-19T18:30:33.633Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Factor or use the discriminant to determine how many real solutions: how many real solutions does $x^2 - 6x + 9 = 0$ have?",
+      "options": [
+        "A) 1 real solution",
+        "B) 2 real solutions",
+        "C) 0 real solutions",
+        "D) Infinitely many real solutions"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The equation is $(x-3)^2 = 0$, which has a double root at $x=3$. Thus there is exactly one real solution (a repeated root).",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Discriminant",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option recognizes a single root, but there are two coincident roots; there is technically one real solution, a double root.",
+        "B": "Discriminant would be positive for two distinct real roots; here $D=0$.",
+        "C": "Discriminant would be negative for no real roots; here $D=0$.",
+        "D": "A quadratic with real coefficients cannot have infinitely many real solutions unless it's the zero polynomial, which this is not."
+      },
+      "_batchId": "batch-1771525609562-quadratic",
+      "_generatedAt": "2026-02-19T18:30:33.634Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Factor and solve: Solve the quadratic equation $2x^2 - 7x + 3 = 0$ by factoring. Which are the real roots?",
+      "options": [
+        "A) $x = 3$ or $x = \\frac{1}{2}$",
+        "B) $x = -3$ or $x = \\frac{1}{2}$",
+        "C) $x = 3$ or $x = -\\frac{1}{2}$",
+        "D) $x = -3$ or $x = -\\frac{1}{2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor $2x^2 - 7x + 3$ as $(2x - 1)(x - 3)$. Setting each factor equal to zero gives $2x - 1 = 0$ or $x - 3 = 0$, hence $x = \\tfrac{1}{2}$ or $x = 3$; thus the roots are $x = \\tfrac{1}{2}$ and $x = 3$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "factoring",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This would imply a root of $-3$, which does not satisfy the given polynomial. The middle-term sign error leads to an incorrect root.",
+        "C": "Combines the correct root 3 with the negative of the other root; this does not come from factoring the given expression.",
+        "D": "Both roots negative would contradict the sum of roots, which is $\\frac{b}{a} = \\frac{7}{2} > 0$."
+      },
+      "_batchId": "batch-1771525609562-quadratic",
+      "_generatedAt": "2026-02-19T18:32:14.520Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Complete the square to solve: Solve $x^2 + 4x - 5 = 0$ by completing the square.",
+      "options": [
+        "A) $x = 1$ or $x = -5$",
+        "B) $x = -1$ or $x = 5$",
+        "C) $x = -1$ or $x = -5$",
+        "D) $x = 2$ or $x = -2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Rewrite as $(x^2 + 4x + 4) - 4 - 5 = 0 \\Rightarrow (x + 2)^2 - 9 = 0$. Then $(x + 2)^2 = 9$ so $x + 2 = \\pm 3$, giving $x = 1$ or $x = -5$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "completing-square",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Roots 5 and -1 correspond to $x^2 - 4x - 5 = 0$, i.e., an incorrect middle-term sign choice.",
+        "C": "Both roots negative would imply a different sum and does not satisfy the original equation.",
+        "D": "Roots 2 and -2 come from incorrectly completing the square or mis-factoring the constant term."
+      },
+      "_batchId": "batch-1771525609562-quadratic",
+      "_generatedAt": "2026-02-19T18:32:14.522Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A projectile's height is modeled by $h(t) = -4t^2 + 60t$, where $t$ is time in seconds and height in meters. How many real solutions does $h(t) = 0$ have, and at what times does the projectile hit the ground?",
+      "options": [
+        "A) There are $2$ real solutions: $t = 0$ and $t = 15$",
+        "B) There is $1$ real solution: $t = 0$",
+        "C) There are $0$ real solutions",
+        "D) There are $3$ real solutions"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Set $h(t)=0$: $-4t^2 + 60t = 0 \\Rightarrow -4t(t - 15) = 0$. The real solutions are $t = 0$ and $t = 15$, so there are two real solutions. The discriminant analysis with $a = -4$, $b = 60$, $c = 0$ yields $\\Delta = b^2 - 4ac = 3600 > 0$, confirming two real roots: $t = \\frac{-b \\pm \\sqrt{\\Delta}}{2a} = \\frac{-60 \\pm 60}{-8}$ which gives $t = 0$ and $t = 15$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "quadratic-formula",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Assumes only one real root due to a misinterpretation of the discriminant being zero.",
+        "C": "Assumes no real solutions due to a miscalculation of the discriminant.",
+        "D": "Incorrectly claims three real solutions; a quadratic can have at most two."
+      },
+      "_batchId": "batch-1771525609562-quadratic",
+      "_generatedAt": "2026-02-19T18:32:14.523Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "For the vertex form $f(x) = -3(x - 2)^2 + 4$, identify the vertex, axis of symmetry, and whether the parabola opens upward or downward.",
+      "options": [
+        "A) Vertex $(2, 4)$; axis of symmetry $x = 2$; opens downward",
+        "B) Vertex $(4, -2)$; axis of symmetry $x = -2$; opens upward",
+        "C) Vertex $(2, -4)$; axis of symmetry $y = 2$; opens downward",
+        "D) Vertex $(-2, 4)$; axis of symmetry $x = -2$; opens upward"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In vertex form $f(x) = a(x - h)^2 + k$, the vertex is $(h, k)$ and the axis of symmetry is $x = h$. Here $a = -3$, $h = 2$, $k = 4$, so the vertex is $(2, 4)$ and the axis of symmetry is $x = 2$. Since $a < 0$, the parabola opens downward, giving a maximum at the vertex.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "vertex-form",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Swaps the coordinates of the vertex and uses the incorrect axis, suggesting an incorrect h-value.",
+        "C": "Gives an incorrect vertex and misidentifies the axis; also misstates the opening direction.",
+        "D": "Uses the wrong h-value and misstates axis and opening direction."
+      },
+      "_batchId": "batch-1771525609562-quadratic",
+      "_generatedAt": "2026-02-19T18:32:14.525Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

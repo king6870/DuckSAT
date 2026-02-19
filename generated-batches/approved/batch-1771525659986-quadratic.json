@@ -1,0 +1,461 @@
+{
+  "batchId": "batch-1771525659986-quadratic",
+  "topic": "quadratic",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T19:02:19.259Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 16,
+  "totalValid": 16,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Solve by factoring: $x^2 - 5x + 6 = 0$.",
+      "options": [
+        "A) $x = 2$ or $x = 3$",
+        "B) $x = 1$ or $x = 6$",
+        "C) $x = 0$ or $x = 5$",
+        "D) $x = -2$ or $x = -3$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor the quadratic: $x^2 - 5x + 6 = (x-2)(x-3)$. By the zero-product property, set each factor equal to zero: $x-2=0$ or $x-3=0$. So $x=2$ or $x=3$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "factoring",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect factorization: $(x-1)(x-6)$ expands to $x^2 - 7x + 6$, not $x^2 - 5x + 6$.",
+        "C": "Constants do not multiply to 6 with the given middle term; 0 and 5 would not produce the correct constant term.",
+        "D": "Sign error: $(x+2)(x+3)$ gives $x^2 + 5x + 6$, not $x^2 - 5x + 6$."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:30:18.179Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve by factoring: $2x^2 - 8x = 0$.",
+      "options": [
+        "A) $x = 0$ or $x = 4$",
+        "B) $x = 0$ or $x = -4$",
+        "C) $x = -4$ or $x = 2$",
+        "D) $x = 1$ or $x = 8$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor: $2x^2 - 8x = 2x(x-4) = 0$. So either $2x=0$ or $x-4=0$, giving $x=0$ or $x=4$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "factoring",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Factored as $2x(x+4)$, which would yield $x=0$ or $x=-4$; the sign inside the factor is incorrect.",
+        "C": "Uses $x-4$ with a different partner, producing incorrect roots.",
+        "D": "Incorrect roots; solving gives $x=0$ and $x=4$, not the values shown."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:30:18.192Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which is the correct completed-square form of $x^2 + 4x - 5 = 0$?",
+      "options": [
+        "A) $(x+2)^2 - 9 = 0$",
+        "B) $(x-2)^2 - 9 = 0$",
+        "C) $(x+2)^2 + 9 = 0$",
+        "D) $(x+2)^2 - 5 = 0$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Complete the square: $x^2 + 4x - 5 = (x+2)^2 - 4 - 5 = (x+2)^2 - 9$. So the correct completed-square form is $(x+2)^2 - 9 = 0$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "completing-square",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Uses $(x-2)^2$; the sign in front of the linear term is incorrect.",
+        "C": "Adds 9 instead of subtracting 9; wrong constant sign.",
+        "D": "Only subtracts 5 and omits the necessary $-4$ that comes from completing the square."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:30:18.194Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Complete the square to rewrite $y = 2x^2 - 8x + 3$ in vertex form.",
+      "options": [
+        "A) $y = 2(x-2)^2 - 5$",
+        "B) $y = 2(x+2)^2 - 5$",
+        "C) $y = 2(x-2)^2 + 5$",
+        "D) $y = 2(x-4)^2 - 3$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor 2: $y = 2(x^2 - 4x) + 3 = 2[(x-2)^2 - 4] + 3 = 2(x-2)^2 - 8 + 3 = 2(x-2)^2 - 5$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "completing-square",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Sign error in forming $(x-2)$ vs $(x+2)$.",
+        "C": "Incorrect constant; the vertex value should be $-5$, not $+5$.",
+        "D": "Uses $x-4$ and an incorrect completion; not the correct square."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:30:18.197Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "For the equation $3x^2 - 7x + 2 = 0$, which statement about the discriminant and the number of real solutions is correct?",
+      "options": [
+        "A) $\\Delta = 25$; 2 real solutions",
+        "B) $\\Delta = 9$; 1 real solution",
+        "C) $\\Delta = -3$; 0 real solutions",
+        "D) $\\Delta = 0$; 1 real solution"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Discriminant: $\\Delta = (-7)^2 - 4(3)(2) = 49 - 24 = 25$. Since $\\Delta > 0$, there are two real solutions.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "quadratic-formula",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect calculation; $\\\\Delta$ is not 9 for these coefficients.",
+        "C": "Wrong sign for $4ac$; the discriminant is not negative.",
+        "D": "Misread; $\\\\Delta$ is not zero; the equation has two real roots."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:30:18.199Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A projectile's height is modeled by $h(t) = -16(t - 2)^2 + 40$, where t is time in seconds and h is height in feet. What is the maximum height and when does it occur?",
+      "options": [
+        "A) 40 feet at t = 2 seconds",
+        "B) 16 feet at t = 2 seconds",
+        "C) 40 feet at t = 4 seconds",
+        "D) 64 feet at t = 2 seconds"
+      ],
+      "correctAnswer": 0,
+      "explanation": "This is in vertex form $h(t) = a(t-h)^2 + k$ with vertex at $(h,k) = (2,40)$. Since $a = -16 < 0$, the parabola opens downward, so the maximum height is $k = 40$ at $t = h = 2$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "vertex-form",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Confuses maximum height with the square term; the vertical shift 40 must be included.",
+        "C": "Vertex occurs at $t=2$, not at $t=4$.",
+        "D": "Incorrect maximum height; 64 is not the maximum."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:30:18.201Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the equation $6x^2 - 5x - 4 = 0$ by factoring.",
+      "options": [
+        "A) $x = \\frac{4}{3}$ or $x = -\\frac{1}{2}$",
+        "B) $x = -\\frac{4}{3}$ or $x = \\frac{1}{2}$",
+        "C) $x = \\frac{4}{3}$ or $x = \\frac{1}{2}$",
+        "D) $x = -\\frac{4}{3}$ or $x = -\\frac{1}{2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Factor $6x^2 - 5x - 4$ as $(3x - 4)(2x + 1) = 0$. Step 2: Set each factor to zero: $3x - 4 = 0$ or $2x + 1 = 0$. Step 3: Solve: $x = \\frac{4}{3}$ or $x = -\\frac{1}{2}$. Thus the roots are $x = \\frac{4}{3}$ and $x = -\\frac{1}{2}$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Factoring",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B uses a root that is not a solution of the equation (no root is $-\\\\frac{4}{3}$ or $\\\\frac{1}{2}$).",
+        "C": "C mistakenly includes one correct root ($\\\\frac{4}{3}$) but pairs it with a nonroot ($\\\\frac{1}{2}$).",
+        "D": "D uses both incorrect roots; neither $-\\\\frac{4}{3}$ nor $-\\\\frac{1}{2}$ is a root."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:32:55.714Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Rewrite $y = x^2 - 6x - 5$ in vertex form $y = a(x-h)^2 + k$ by completing the square, and identify the vertex $(h,k)$.",
+      "options": [
+        "A) $y = (x-3)^2 - 14$, vertex $(3,-14)$",
+        "B) $y = (x+3)^2 - 14$, vertex $(-3,-14)$",
+        "C) $y = (x-3)^2 + 14$, vertex $(3,14)$",
+        "D) $y = (x-3)^2 - 6$, vertex $(3,-6)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Complete the square: $y = x^2 - 6x - 5 = (x-3)^2 - 9 - 5 = (x-3)^2 - 14$. Therefore $a=1$, $h=3$, $k=-14$, and the vertex is $(h,k)=(3,-14)$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Completing the square",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Using $x+3$ instead of $x-3$ changes the sign in the complete square, giving the wrong vertex.",
+        "C": "The sign of the constant term is incorrect; it should be $-14$, not $+14$.",
+        "D": "The vertex is incorrect; $k$ should be $-14$, not $-6$."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:32:55.720Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve $2x^2 + 3x - 2 = 0$ using the quadratic formula.",
+      "options": [
+        "A) $x = \\frac{1}{2}$ or $x = -2$",
+        "B) $x = -\\frac{1}{2}$ or $x = 2$",
+        "C) $x = 1$ or $x = -2$",
+        "D) $x = 0$ or $x = -2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Here $a=2$, $b=3$, $c=-2$. Discriminant: $D=b^2-4ac=9-4(2)(-2)=9+16=25$. $x=\\frac{-b\\pm\\sqrt{D}}{2a}=\\frac{-3\\\\pm5}{4}$. Thus $x=\\frac{2}{4}=\\frac{1}{2}$ or $x=\\frac{-8}{4}=-2$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Quadratic formula",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Uses the wrong sign for the square root term; also yields a non-root $2$.",
+        "C": "One root is correct ($-2$) but the other is not $1$; $1$ is not a root.",
+        "D": "Includes a non-root $0$; $-2$ is a root but the other is incorrect."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:32:55.724Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Given $f(x) = -2(x - 4)^2 + 7$, identify the vertex and axis of symmetry.",
+      "options": [
+        "A) Vertex $(4,7)$, axis $x = 4$",
+        "B) Vertex $(-4,-7)$, axis $x = -4$",
+        "C) Vertex $(4,-7)$, axis $x = -4$",
+        "D) Vertex $(-4,7)$, axis $x = 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In vertex form $a(x-h)^2 + k$, the vertex is $(h,k)$ and the axis of symmetry is $x=h$. Here $h=4$, $k=7$, so vertex is $(4,7)$ and axis is $x=4$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Vertex form",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect signs for the vertex coordinates.",
+        "C": "Incorrect sign of the $k$ value; vertex is not $(4,-7)$.",
+        "D": "Incorrect vertex and axis; the correct vertex is $(4,7)$ with axis $x=4$."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:32:55.728Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Consider the quadratic $x^2 + 2x + 3 = 0$. How many real solutions does it have?",
+      "options": [
+        "A) 0 real solutions",
+        "B) 1 real solution",
+        "C) 2 real solutions",
+        "D) Infinitely many"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Discriminant $D=b^2-4ac=2^2-4(1)(3)=4-12=-8<0$, so there are no real solutions.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Discriminant",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Confuses the case of a double real root with a single real root; here $D<0$ so none real.",
+        "C": "Incorrectly assumes a positive discriminant; $D$ is negative.",
+        "D": "Incorrect because a quadratic with negative discriminant has no real solutions."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:32:55.730Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A ball is thrown upward from height 2 feet with initial velocity 48 ft/s. Height is modeled by $h(t) = -16t^2 + 48t + 2$. After how many seconds does the ball hit the ground?",
+      "options": [
+        "A) 3.04 s",
+        "B) 2.00 s",
+        "C) 4.80 s",
+        "D) 1.50 s"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Set $h(t)=0$: $-16t^2+48t+2=0$. Multiply by $-1$: $16t^2-48t-2=0$. Divide by 2: $8t^2-24t-1=0$. Use quadratic formula: $t=\\frac{24\\pm\\sqrt{(-24)^2-4(8)(-1)}}{2\\\\cdot8}=\\frac{24\\pm\\sqrt{576+32}}{16}=\\frac{24\\pm\\sqrt{608}}{16}=\\frac{24\\\\pm4\\sqrt{38}}{16}=\\frac{6\\pm\\sqrt{38}}{4}$. Positive root is $\\frac{6+\\sqrt{38}}{4}\\approx 3.04$ seconds.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Real-world application",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "2.00 s is too small; it does not satisfy the equation.",
+        "C": "4.80 s overestimates the time to ground.",
+        "D": "1.50 s is not the time solution of the quadratic."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:32:55.731Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve $x^2 + 4x - 5 = 0$ by completing the square.",
+      "options": [
+        "A) $x = 1$ or $x = -5$",
+        "B) $x = -1$ or $x = 5$",
+        "C) $x = 3$ or $x = -3$",
+        "D) $x = 2$ or $x = -4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Rewrite as $x^2+4x-5=(x+2)^2-9=0$, so $(x+2)^2=9$ and $x+2=\\\\pm3$. Therefore $x=1$ or $x=-5$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Completing the square",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Sign error in completing the square; the correct pair is $x+2$ with $\\\\pm3$.",
+        "C": "Incorrect solving after completing the square; these are not the actual roots.",
+        "D": "Incorrect constant; $(x+2)^2-9$ yields roots 1 and -5, not 2 and -4."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:32:55.734Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve $9x^2 - 25 = 0$ by factoring.",
+      "options": [
+        "A) $x = \\frac{5}{3}$ or $x = -\\frac{5}{3}$",
+        "B) $x = \\frac{25}{3}$ or $x = -\\frac{25}{3}$",
+        "C) $x = 0$ or $x = \\frac{25}{3}$",
+        "D) $x = 0$ or $x = -\\frac{25}{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Recognize as a difference of squares: $9x^2 - 25 = (3x - 5)(3x + 5) = 0$. So $3x - 5 = 0$ or $3x + 5 = 0$, giving $x = \\frac{5}{3}$ or $x = -\\frac{5}{3}$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Factoring",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Uses too large a value; these are not roots of the equation.",
+        "C": "Includes a nonroot value $\\\\frac{25}{3}$.",
+        "D": "Includes a nonroot value $-\\\\frac{25}{3}$."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:32:55.737Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Factor $3x^2 - 12x = 0$.",
+      "options": [
+        "A) $3x(x - 4) = 0$",
+        "B) $(3x + 12)(x - 1) = 0$",
+        "C) $(3x - 4)(x - 3) = 0$",
+        "D) $x(3x - 4) = 0$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor out the greatest common factor: $3x^2 - 12x = 3x(x - 4)$, so the equation becomes $3x(x - 4) = 0$ with roots $x=0$ or $x=4$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Factoring",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Inaccurate factoring; this product does not equal $3x^2 - 12x$.",
+        "C": "Incorrect factors; multiplication yields a different middle term.",
+        "D": "Different grouping that does not equal the original expression; misleading factorization."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:32:55.739Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Find the intersection points of the graphs $y = -\\tfrac{1}{2}(x+4)^2 + 6$ and the line $y = 2$.",
+      "options": [
+        "A) $x = -4 \\pm 2\\sqrt{2}$",
+        "B) $x = -4$",
+        "C) $x = -6 \\pm 2\\sqrt{2}$",
+        "D) $x = -2 \\pm \\sqrt{2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Set $-\\tfrac{1}{2}(x+4)^2 + 6 = 2$. Then $-\\tfrac{1}{2}(x+4)^2 = -4$ so $(x+4)^2 = 8$ and $x+4 = \\pm\\sqrt{8} = \\pm 2\\sqrt{2}$. Thus $x = -4 \\pm 2\\sqrt{2}$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Vertex form",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Only a single value; not the full set of intersection x-coordinates.",
+        "C": "Incorrect solution set; sign inside the square root yields the wrong values.",
+        "D": "Incorrect shift; solving yields $x = -4 \\\\pm 2\\\\sqrt{2}$, not $-2$ or $- \\\\sqrt{2}$."
+      },
+      "_batchId": "batch-1771525659986-quadratic",
+      "_generatedAt": "2026-02-19T18:32:55.742Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

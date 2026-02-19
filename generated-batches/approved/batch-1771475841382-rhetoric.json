@@ -1,0 +1,181 @@
+{
+  "batchId": "batch-1771475841382-rhetoric",
+  "topic": "rhetoric",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-02-19T04:39:43.763Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 6,
+  "totalGenerated": 6,
+  "totalValid": 6,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "The author includes the anecdote about a grandmother named Rosa planting beans beside her neighbors' plots in order to...",
+      "options": [
+        "A) to persuade readers that small acts can transform neighborhoods",
+        "B) to emphasize the emotional weight of community stories in urban life",
+        "C) to propose a formal policy plan for city zoning",
+        "D) to present numerical data about health benefits"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The anecdote about Rosa trading beans with neighbors is a concrete example that links personal action to broader community changes. It serves as evidence that small, tangible acts can catalyze increased involvement, healthier habits, and stronger social ties, which supports the claim that turning vacant lots into gardens improves neighborhood well-being and justifies policy support. While the other options describe plausible purposes, they do not capture the passage's main function: to use a specific moment to illustrate the argument and move readers toward endorsement. Option B shifts focus to emotion rather than the argumentative effect; Option C suggests a formal zoning proposal; Option D imagines statistics that the text does not provide.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Neighborhoods in our city have one quiet hurdle: empty lots that invite litter and worry. My argument is simple: turning these spaces into community gardens improves health, trust, and safety. In the spring, I visited a corner lot where a grandmother named Rosa began planting beans beside her neighbors' plots. Her story spread through the block, and soon volunteers built raised beds, shared seedlings, and hosted weekly harvests. Local teachers noted students walking to the garden instead of the corner store, mothers spoke about fresher meals, and a once-distant retiree began mentoring teens about soil and planning. City planners observed less vandalism on weekends and more neighborly conversations taking place by the trellis. When residents feel ownership, the area becomes part of daily life rather than a careless afterthought. Therefore, the city should support small grants and permission for community gardens, because these spaces cultivate healthier bodies and stronger bonds.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Though the anecdote may evoke emotion, the text uses it primarily to support a claim about neighborhood transformation, not to focus on emotional appeal alone.",
+        "C": "The passage does not present a formal zoning proposal; it argues for community gardens through examples and reasoning.",
+        "D": "No numerical health data is provided in this anecdote; the claim rests on observed community effects rather than statistics."
+      },
+      "_batchId": "batch-1771475841382-rhetoric",
+      "_generatedAt": "2026-02-19T04:38:11.266Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence 'If we do nothing, achievement gaps will widen' in order to...",
+      "options": [
+        "A) to present a warning that underscores the stakes of inaction",
+        "B) to provide a statistical projection about future test scores",
+        "C) to signal a change in policy direction",
+        "D) to describe a past failure and its consequences"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence functions as a warning about the consequences of inaction, creating urgency and linking the evidence about better school resources to the conclusion that stable funding is necessary. It is not a statistical projection, nor does it announce a policy shift or recount a past failure; rather, it sharpens the argument by showing what could happen if no steps are taken.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Over the past decade, our district has faced uneven resources that leave some classrooms crowded and others empty of essential books. My argument is that steady funding for public schools is not a luxury but a necessity for equitable learning. When a school can replace aging desks with flexible seating and maintain up-to-date science labs, students respond with more focus and curiosity. A veteran teacher notes that students show more confidence when they have materials that feel recent and relevant. Even on tough days, the principal reminds staff that budgeting decisions are not abstract; they affect daily routines, classroom morale, and long-term opportunity. If we do nothing, achievement gaps will widen, and students from low-income families will bear the burden. Therefore, the district should adopt a stable funding model that accounts for enrollment and inflation, and communicate the plan clearly to families, teachers, and students.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The sentence is not a statistic or projection; it states a consequence in plain language, which is different from presenting numbers.",
+        "C": "The sentence does not indicate a policy change direction; it warns about outcomes if no action occurs.",
+        "D": "The sentence does not recount a past failure; it warns about future consequences of inaction."
+      },
+      "_batchId": "batch-1771475841382-rhetoric",
+      "_generatedAt": "2026-02-19T04:38:11.267Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes a reference to a 2015 study by the Metropolitan Health Institute in order to support the claim about health benefits.",
+      "options": [
+        "A) to provide empirical support for the claim",
+        "B) to anticipate a counterargument",
+        "C) to define gardening",
+        "D) to celebrate a volunteer"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The reference to the 2015 study is used as empirical evidence to bolster the central claim that community gardens yield public health benefits. It moves the argument from opinion to measurable impact. The other options misread the function: B would suggest addressing a challenge that the passage does not present with this detail; C would imply defining a term, which the text does not do here; D would imply praising an individual, which the study citation does not perform.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "I argue that urban planning should treat green spaces not as luxuries but as essential infrastructure for public health. In neighborhoods where residents organize community gardens, gardeners report lower levels of stress and a sense of belonging that spreads to classrooms and workplaces. A 2015 study by the Metropolitan Health Institute found a notable reduction in hospital visits among participants in garden programs, a statistic that echoes the personal stories of volunteers who describe better sleep and improved appetite. These observations suggest that greenery acts as a low-cost antidote to urban strain, not merely a pleasant backdrop. If city budgets prioritize green spaces, schools will have a resource for outdoor learning, clinics will see fewer acute visits, and small plots will incubate local leadership. Therefore, the city should allocate funds to create and maintain community gardens across neighborhoods, with a simple plan to measure outcomes annually.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This choice would imply the author is setting up a counterargument, but the study is used as supportive evidence, not as a defense against a challenge.",
+        "C": "The detail is not used to define gardening; it is used to support a claim about outcomes.",
+        "D": "The passage cites data, not an individual, so it does not celebrate a volunteer."
+      },
+      "_batchId": "batch-1771475841382-rhetoric",
+      "_generatedAt": "2026-02-19T04:39:02.841Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence 'But the report also notes that teachers must receive training and time to develop these units' in order to...",
+      "options": [
+        "A) acknowledge a practical obstacle to the proposal",
+        "B) present a counterargument",
+        "C) propose a separate policy",
+        "D) highlight a statistic about teachers"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence signals a real-world constraint that the proposal must address, thereby strengthening the argument by showing the author anticipates implementation challenges. It prevents an overly rosy claim and reframes the discussion as feasible with support. The other options misread the function: B would imply a counterargument is being introduced, which this sentence does not do; C would imply a new policy is being proposed in that sentence, which it is not; D would suggest a statistical emphasis, which is not the sentence’s purpose.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "To prepare students for a changing world, schools should insert climate literacy into core curricula. Districts that have integrated hands-on climate projects report higher engagement and evidence-based reasoning among students. A 2022 survey of three urban districts found that students who participated in year-long climate projects outperformed peers on problem-solving tasks. However, the report also notes that teachers must receive training and time to develop these units, a hurdle that districts often overlook. When schools invest in professional development, the projects become sustained rather than one-off experiments. In those districts, administrators describe students asking informed questions about energy use at home and community meetings. The conclusion is clear: climate literacy is not a luxury but a core competency for civic life, and school boards should allocate resources to support it.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This sentence does not present or acknowledge a separate opposing argument; it notes a constraint instead.",
+        "C": "The sentence is not proposing a new policy here; it is acknowledging a need for training and time.",
+        "D": "The sentence is not presenting a statistic about teachers; it states a requirement for implementation."
+      },
+      "_batchId": "batch-1771475841382-rhetoric",
+      "_generatedAt": "2026-02-19T04:39:02.841Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes a neighborhood mural anecdote in order to illustrate a human impact that supports the main claim.",
+      "options": [
+        "A) illustrate a human impact that supports the main claim",
+        "B) appeal to emotion",
+        "C) provide a statistic",
+        "D) present a counterargument about funding"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The anecdote about unveiling a mural provides a concrete example of how public art fosters social interaction and civic engagement, reinforcing the argument that public art investments yield community benefits. The other options misinterpret the purpose: B would overemphasize emotion rather than demonstrating a concrete impact; C would require a statistic which the anecdote does not provide; D would require presenting a funding critique, which the anecdote itself does not.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Public art across neighborhoods is more than decoration; it is a public investment in social life. When residents gather to unveil a mural, conversations begin across ages and cultures, and neighbors who once passed on the same corner without greeting now exchange hello. A city survey found that districts with funded art programs reported higher trust in local government and more participation in neighborhood councils. The mayor's office argues that art projects are catalysts for downtown revitalization, yet critics warn that funds could be better used for schools or transit. The message, however, is clear: art creates a public space where people imagine shared futures. For that reason, the city should continue supporting artist residencies and community-led commissions, while evaluating outcomes through simple measures of participation and collaboration. If policymakers treat art as an essential service, districts can cultivate civic engagement that endures beyond the length of any single project.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The anecdote is used to show a real effect on social life rather than simply evoke emotion.",
+        "C": "An anecdote does not provide a numerical statistic, it offers a qualitative example.",
+        "D": "The anecdote does not argue against funding; it supports benefits of funding."
+      },
+      "_batchId": "batch-1771475841382-rhetoric",
+      "_generatedAt": "2026-02-19T04:39:02.842Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the anecdote about a seventh-grade student named Omar refusing to replace his grandmother's phrases with textbook jargon in order to...",
+      "options": [
+        "A) anchor the claim in a concrete, relatable instance.",
+        "B) illustrate a broader concern about how language is policed in classrooms.",
+        "C) establish the author’s credibility by recounting a personal encounter.",
+        "D) foreshadow a future policy proposal with a normative claim."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The anecdote about Omar serves to connect the argument to real-life experience, giving readers a concrete example of how linguistic diversity intersects with identity and learning. This grounding makes the author’s claim that curricula should honor linguistic variety more persuasive because it is not just abstract theory. The other options are less accurate: B is plausible but not the primary function—while the anecdote nods to classroom policing, its main function is anchoring the point in lived experience. C is less correct because the excerpt uses the personal encounter to illustrate a broader point, not mainly to establish the author’s credibility. D is incorrect because there is no indication that the anecdote is used to forecast a policy agenda; the passage presents inclusion as a strategy rather than a forward-looking proposal.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Public schools are defined by their ability to translate a range of voices into a common curriculum. Yet the price of uniformity is often a quiet erasure of home languages. I spoke with several teachers who admitted that when students code-switch too soon, they are told to speak 'clearly' in standard English, a phrase that translates to conforming. In a seventh-grade class, a student named Omar refused to replace his grandmother's phrases with textbook jargon, and the room paused; by the end of the project, Omar's group won an assignment by weaving his dialect into a poem about identity. The observation is not sentimental fudge; it highlights a pattern: students who see themselves reflected in the material perform better and stay engaged longer. If schools adopt curricula that honor linguistic diversity, students will learn not only grammar but also the courage to express truth in their own voice. The conclusion is clear: inclusion is a strategy for deeper learning and social cohesion.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The anecdote does illuminate concerns about how language is policed, but its primary rhetorical function is not to argue policy-level policing; it aims to ground the claim in lived experience.",
+        "C": "The encounter adds credibility, but the main purpose is not to establish the author's credibility; it supports the claim with a concrete example.",
+        "D": "There is no explicit foreshadowing of a detailed future policy proposal tied to that anecdote; the conclusion asserts inclusion as beneficial, not as a specific proposal."
+      },
+      "_batchId": "batch-1771475841382-rhetoric",
+      "_generatedAt": "2026-02-19T04:39:42.758Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

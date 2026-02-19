@@ -1,0 +1,415 @@
+{
+  "batchId": "batch-1771471501706-algebra",
+  "topic": "algebra",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T03:30:26.467Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 14,
+  "totalValid": 14,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Solve for x: $2(3x - 4) + 5 = 3x + 1$.",
+      "options": [
+        "A) $\\frac{4}{3}$",
+        "B) $\\frac{1}{3}$",
+        "C) 2",
+        "D) $-\\frac{4}{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distribute: $2(3x - 4) = 6x - 8$. So the left side becomes $6x - 8 + 5 = 6x - 3$. The equation is $6x - 3 = 3x + 1$. Subtract $3x$ from both sides: $3x - 3 = 1$. Add 3: $3x = 4$. Divide by 3: $x = \\frac{4}{3}$. ",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Common error: dividing by 9 instead of by 3 or distributing incorrectly leading to a different value.",
+        "C": "Sign or arithmetic slip could yield a whole number like 2.",
+        "D": "Sign error or incorrect division leading to a negative fraction."
+      },
+      "_batchId": "batch-1771471501706-algebra",
+      "_generatedAt": "2026-02-19T03:29:21.667Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If a compound inequality holds, which of the following describes all x that satisfy $-3 \\leq 2x - 5 \\leq 7$?",
+      "options": [
+        "A) $x \\in [1, 6]$",
+        "B) $x \\in (-\\infty, 1) \\cup (6, \\infty)$",
+        "C) $x \\in [0, 5]$",
+        "D) $x \\in [1, 5]$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Add 5 to all parts: $-3 + 5 \\le 2x \\le 7 + 5$ gives $2 \\le 2x \\le 12$. Divide by 2: $1 \\le x \\le 6$. So x is in [1, 6].",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Endpoints are included; this option is correct. The others mis-handle endpoints or bounds.",
+        "B": "Represents x outside the interval, not inside.",
+        "C": "Lower bound is correct but upper bound is wrong.",
+        "D": "Upper bound is too small; misses x up to 6."
+      },
+      "_batchId": "batch-1771471501706-algebra",
+      "_generatedAt": "2026-02-19T03:29:21.670Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two numbers x and y have sum 8 and difference 2. What are x and y?",
+      "options": [
+        "A) x = 5, y = 3",
+        "B) x = 4, y = 4",
+        "C) x = 6, y = 2",
+        "D) x = 7, y = 1"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From \"x + y = 8\" and \"x − y = 2\", add the equations: $2x = 10$, so $x = 5$. Substitute into $x + y = 8$ gives $5 + y = 8$, so $y = 3$. Therefore, (x, y) = (5, 3).",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct pair sums to 8 and difference is 2; this is the actual solution.",
+        "B": "Sum is 8 but difference is 0, not 2.",
+        "C": "Difference is 4, not 2.",
+        "D": "Difference is 6, not 2."
+      },
+      "_batchId": "batch-1771471501706-algebra",
+      "_generatedAt": "2026-02-19T03:29:21.671Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Multiply the polynomials: $(x + 3)(2x - 4)$.",
+      "options": [
+        "A) $2x^2 + 2x - 12$",
+        "B) $x^2 - 2x - 12$",
+        "C) $2x^2 - 2x - 12$",
+        "D) $2x^2 + 6x - 12$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distribute: $(x + 3)(2x - 4) = x(2x - 4) + 3(2x - 4) = (2x^2 - 4x) + (6x - 12) = 2x^2 + 2x - 12$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct expansion of the cross term is mishandled; the middle term should be +2x, not -12.",
+        "B": "Cross term sign or coefficient is wrong.",
+        "C": "Cross term sign is wrong; it should be +2x, not -2x.",
+        "D": "Middle term sign or coefficient is incorrect."
+      },
+      "_batchId": "batch-1771471501706-algebra",
+      "_generatedAt": "2026-02-19T03:29:21.672Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following is the correct set of roots for $|4x - 1| = 9$?",
+      "options": [
+        "A) $x = -2$ or $x = 2.5$",
+        "B) $x = -2$ only",
+        "C) $x = 2.5$ only",
+        "D) No solution"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Solve the absolute value: either $4x - 1 = 9$ or $4x - 1 = -9$. From the first, $4x = 10$ so $x = 2.5$. From the second, $4x = -8$ so $x = -2$. Thus the roots are $x = -2$ and $x = 2.5$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Includes both correct roots but this option presents them as a single disjunctive statement; however, it is the complete correct description.",
+        "B": "Gives only one of the two roots.",
+        "C": "Gives only the other root.",
+        "D": "Ignores the possibility of two roots."
+      },
+      "_batchId": "batch-1771471501706-algebra",
+      "_generatedAt": "2026-02-19T03:29:21.673Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A pencils-and-pens problem: Pencils cost 0.75 dollars and pens cost 1.25 dollars. If you buy 8 items for a total of 8.50 dollars, how many pencils did you buy?",
+      "options": [
+        "A) 3 pencils and 5 pens",
+        "B) 4 pencils and 4 pens",
+        "C) 5 pencils and 3 pens",
+        "D) 6 pencils and 2 pens"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let p be pencils and q be pens. Then p + q = 8 and 0.75p + 1.25q = 8.50. Substitute p = 8 - q: 0.75(8 - q) + 1.25q = 8.50 ⇒ 6 - 0.75q + 1.25q = 8.50 ⇒ 6 + 0.5q = 8.50 ⇒ 0.5q = 2.50 ⇒ q = 5, so p = 3.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Gives the correct counts; other options swap counts or miscount.",
+        "B": "Assumes equal numbers of pencils and pens.",
+        "C": "Switches the numbers, implying 5 pencils and 3 pens.",
+        "D": "Pencil count too high; miscalculation of the system."
+      },
+      "_batchId": "batch-1771471501706-algebra",
+      "_generatedAt": "2026-02-19T03:29:21.675Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Divide the polynomial: $\\dfrac{x^3 - 6x^2 + 11x - 6}{x - 2}$.",
+      "options": [
+        "A) $x^2 - 4x + 3$",
+        "B) $x^2 - 5x + 1$",
+        "C) $x^2 - 3x + 2$",
+        "D) $x^2 - 2x + 6$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Perform synthetic division or long division by $(x-2)$. Coefficients 1, -6, 11, -6. Bring down 1; multiply by 2 → 2; add to -6 → -4; multiply by 2 → -8; add to 11 → 3; multiply by 2 → 6; add to -6 → 0. Quotient is $x^2 - 4x + 3$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct quotient; other options misplace coefficients or signs.",
+        "B": "Middle term off by 1 or sign error.",
+        "C": "Middle term incorrect sign or value.",
+        "D": "Incorrect constant and middle term."
+      },
+      "_batchId": "batch-1771471501706-algebra",
+      "_generatedAt": "2026-02-19T03:29:21.675Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Factor the quadratic: $x^2 - 5x + 6$.",
+      "options": [
+        "A) $(x - 2)(x - 3)$",
+        "B) $(x - 1)(x - 4)$",
+        "C) $(x + 2)(x - 3)$",
+        "D) $(x - 6)(x - 1)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Find two numbers that multiply to 6 and add to -5: -2 and -3. Thus $x^2 - 5x + 6 = (x - 2)(x - 3)$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct factorization.",
+        "B": "Pairs sum to -5 but multiply to 4, not 6.",
+        "C": "One negative and one positive factor; sum incorrect.",
+        "D": "Factors chosen do not multiply to 6 and sum to -5."
+      },
+      "_batchId": "batch-1771471501706-algebra",
+      "_generatedAt": "2026-02-19T03:29:21.677Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If the length of a rectangle is $3x$ and the width is $2x + 5$, and the perimeter is 40, what is $x$?",
+      "options": [
+        "A) 3",
+        "B) 2",
+        "C) 4",
+        "D) 1"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Perimeter: $2( \\text{length} + \\text{width} ) = 40$. So $2(3x + 2x + 5) = 40 \\Rightarrow 2(5x + 5) = 40 \\Rightarrow 10x + 10 = 40 \\Rightarrow 10x = 30 \\Rightarrow x = 3$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Accidentally dividing by 3 or mis-summing terms.",
+        "B": "Solving for a smaller perimeter; miscalculation.",
+        "C": "Incorrectly distributing or solving the equation.",
+        "D": "Misplaced constant term in the equation."
+      },
+      "_batchId": "batch-1771471501706-algebra",
+      "_generatedAt": "2026-02-19T03:29:21.678Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two numbers have sum 43 and difference 9. What are the numbers?",
+      "options": [
+        "A) 26 and 17",
+        "B) 24 and 19",
+        "C) 30 and 13",
+        "D) 23 and 20"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let the numbers be x and y with x ≥ y. Then x + y = 43 and x − y = 9. Adding: 2x = 52 → x = 26. Subtracting: y = 43 − 26 = 17.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct result.",
+        "B": "Sum 43 but difference not 9.",
+        "C": "Sum 43 but difference not 9.",
+        "D": "Sum 43 but difference not 9."
+      },
+      "_batchId": "batch-1771471501706-algebra",
+      "_generatedAt": "2026-02-19T03:29:21.680Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A tutoring service charges a one-time setup fee of 40 dollars plus 12 dollars per hour of tutoring. If a student pays 112 dollars in total, how many hours of tutoring did they receive?",
+      "options": [
+        "A) 4",
+        "B) 5",
+        "C) 6",
+        "D) 7"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Let h be the number of hours of tutoring. The total cost equals 40 + 12h. Set this equal to 112: 40 + 12h = 112. Subtract 40 from both sides: 12h = 72. Divide by 12: h = 6.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "If h = 4, the total would be 40 + 12(4) = 88, not 112.",
+        "B": "If h = 5, the total would be 40 + 12(5) = 100, not 112.",
+        "D": "If h = 7, the total would be 40 + 12(7) = 124, not 112."
+      },
+      "_batchId": "batch-1771471501706-algebra",
+      "_generatedAt": "2026-02-19T03:30:25.457Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the inequality $|2x - 3| > 5$. Which of the following describes the solution set?",
+      "options": [
+        "A) $x < -1$ or $x > 4$",
+        "B) $-1 \\le x \\le 4$",
+        "C) $x \\le -1$ or $x \\ge 4$",
+        "D) -1 < x < 4"
+      ],
+      "correctAnswer": 0,
+      "explanation": "|2x - 3| > 5 splits into 2x - 3 > 5 or 2x - 3 < -5. The first gives 2x > 8 ⇒ x > 4. The second gives 2x < -2 ⇒ x < -1. Thus the solution is x < -1 or x > 4, i.e., (-∞, -1) ∪ (4, ∞).",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This interval includes the interior between -1 and 4, which would make |2x - 3| ≤ 5, not > 5.",
+        "C": "Endpoints -1 and 4 are included, but at those values |2x - 3| = 5, which does not satisfy the strict > 5 condition.",
+        "D": "This gives the interior (-1, 4) only, missing the two outer regions where the inequality holds."
+      },
+      "_batchId": "batch-1771471501706-algebra",
+      "_generatedAt": "2026-02-19T03:30:25.458Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two numbers $x$ and $y$ satisfy the system of equations $x + y = 9$ and $2x - y = 1$. What is the value of $x$?",
+      "options": [
+        "A) $\\tfrac{10}{3}$",
+        "B) 3",
+        "C) $\\tfrac{5}{2}$",
+        "D) 4"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From x + y = 9, express y = 9 - x. Substitute into 2x - y = 1: 2x - (9 - x) = 1 ⇒ 2x - 9 + x = 1 ⇒ 3x = 10 ⇒ x = 10/3.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "If x = 3, then y = 6 from x + y = 9; 2x - y = 6 - 6 = 0 ≠ 1.",
+        "C": "If x = 5/2, then y = 9 - 5/2 = 13/2; 2x - y = 5 - 13/2 = -3/2 ≠ 1.",
+        "D": "If x = 4, then y = 5; 2x - y = 8 - 5 = 3 ≠ 1."
+      },
+      "_batchId": "batch-1771471501706-algebra",
+      "_generatedAt": "2026-02-19T03:30:25.459Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Divide $2x^3 - 3x^2 + x - 5$ by $x - 2$. Which of the following is the quotient?",
+      "options": [
+        "A) $2x^2 + x + 3$",
+        "B) $2x^2 - x + 3$",
+        "C) $2x^2 + x + 4$",
+        "D) $2x^2 + 3x + 1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Perform polynomial long division: (2x^3 - 3x^2 + x - 5) ÷ (x - 2). The steps give a quotient of $2x^2 + x + 3$ with remainder 1. Therefore the quotient is $2x^2 + x + 3$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Using the wrong sign in the middle term; substituting would yield a quotient that does not reproduce the original polynomial when multiplied back.",
+        "C": "Last term incorrect due to mis-subtraction after the second step.",
+        "D": "Quotient has degree 3, which cannot occur when dividing by a linear factor; the quotient must be quadratic."
+      },
+      "_batchId": "batch-1771471501706-algebra",
+      "_generatedAt": "2026-02-19T03:30:25.460Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

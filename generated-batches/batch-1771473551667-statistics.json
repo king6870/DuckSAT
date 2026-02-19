@@ -1,0 +1,12 @@
+{
+  "batchId": "batch-1771473551667-statistics",
+  "topic": "statistics",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T04:03:01.083Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 0,
+  "totalValid": 0,
+  "totalInvalid": 0,
+  "questions": []
+}

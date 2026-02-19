@@ -1,0 +1,12 @@
+{
+  "batchId": "batch-1771523637169-advanced-math",
+  "topic": "advanced-math",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T18:03:56.665Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 10,
+  "totalGenerated": 0,
+  "totalValid": 0,
+  "totalInvalid": 0,
+  "questions": []
+}

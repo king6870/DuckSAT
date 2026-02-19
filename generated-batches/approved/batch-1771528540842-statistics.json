@@ -1,0 +1,212 @@
+{
+  "batchId": "batch-1771528540842-statistics",
+  "topic": "statistics",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T19:19:41.202Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 7,
+  "totalGenerated": 7,
+  "totalValid": 7,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In a class, five quiz scores are $70$, $85$, $90$, $75$, and $80$. What is the mean score?",
+      "options": [
+        "A) $75$",
+        "B) $80$",
+        "C) $85$",
+        "D) $90$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Sum the scores: 70 + 85 + 90 + 75 + 80 = 400. There are 5 scores, so the mean is $\\dfrac{400}{5} = 80$. Therefore, the correct answer is $80$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "mean-median-mode",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect because you divided by 4 instead of 5 (or omitted one value).",
+        "B": "Correct calculation for the mean; this is the right answer.",
+        "C": "You might be thinking of the median, which is the middle value, not the mean.",
+        "D": "You picked the maximum score instead of the average."
+      },
+      "_batchId": "batch-1771528540842-statistics",
+      "_generatedAt": "2026-02-19T19:17:43.828Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A bag contains $3$ red, $2$ blue, and $5$ green marbles. If one marble is drawn at random, what is the probability it is red?",
+      "options": [
+        "A) $\\frac{3}{10}$",
+        "B) $\\frac{1}{2}$",
+        "C) $\\frac{3}{5}$",
+        "D) $\\frac{1}{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "There are $3$ red marbles out of a total of $3+2+5 = 10$ marbles. The probability is $\\frac{3}{10}$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "probability",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer.",
+        "B": "Incorrect because the total number of marbles is 10, not 6; $1/2$ would imply 5 red out of 10.",
+        "C": "Incorrect because $\\\\\\\\frac{3}{5}$ uses 3 red out of 5 total, which ignores blue and green marbles.",
+        "D": "Incorrect because $\\\\\\\\frac{1}{3}$ would imply 1 red out of 3 total, which is not our case."
+      },
+      "_batchId": "batch-1771528540842-statistics",
+      "_generatedAt": "2026-02-19T19:17:43.844Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The monthly rainfall (in inches) for January through April is January $2$, February $2.5$, March $3$, April $3.5$. From January to April, by what percent did rainfall increase?",
+      "options": [
+        "A) $50\\\\%$",
+        "B) $75\\\\%$",
+        "C) $100\\\\%$",
+        "D) $125\\\\%$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Increase from January to April: $3.5 - 2 = 1.5$ inches. Percent increase relative to January: $\\dfrac{1.5}{2} \\times 100\\\\% = 75\\\\%$. So the correct answer is $75\\\\%$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "trends",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "50% would occur if the increase were 1 inch (1/2 of 2).",
+        "B": "Correct answer.",
+        "C": "100% would mean rainfall doubled (2 inches to 4 inches).",
+        "D": "125% would require rainfall to rise to 4.5 inches (more than double)."
+      },
+      "_batchId": "batch-1771528540842-statistics",
+      "_generatedAt": "2026-02-19T19:17:43.847Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a math class of 6 students, the quiz scores are 68, 72, 72, 75, 80, and 92. What is the mean score of the class? Use the definition $\\bar{x} = \\dfrac{\\sum x_i}{n}$.",
+      "options": [
+        "A) 76.5",
+        "B) 75",
+        "C) 77",
+        "D) 78"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Sum the scores: $68 + 72 + 72 + 75 + 80 + 92 = 459$.\nStep 2: There are $n = 6$ scores.\nStep 3: Using the definition $\\bar{x} = \\dfrac{\\sum x_i}{n}$, we have $\\bar{x} = \\dfrac{459}{6} = 76.5$.\nTherefore, the mean score is 76.5.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "mean-median-mode",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The sum 459 divided by 6 is 76.5, not 75. A common mistake is miscounting a value or dividing by the wrong number of observations.",
+        "C": "77 would require a different total sum (e.g., 462) divided by 6; the actual sum is 459, so the mean is not 77.",
+        "D": "78 would require a total of 468; since the sum is 459, the correct mean is 76.5."
+      },
+      "_batchId": "batch-1771528540842-statistics",
+      "_generatedAt": "2026-02-19T19:19:36.756Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a survey of 400 students, 240 prefer online courses; 120 prefer in-person; 40 prefer hybrid. What proportion of students prefer online or hybrid?",
+      "options": [
+        "A) 0.70",
+        "B) 0.60",
+        "C) 0.80",
+        "D) 0.50"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Number who prefer online or hybrid = 240 + 40 = 280.\nStep 2: Proportion = 280/400 = 0.7.\nThus the proportion is $\\dfrac{280}{400} = 0.7$ (or 7/10).",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "ratio-proportion",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "0.60 is the online fraction alone (240/400) and ignores the hybrid group.",
+        "C": "0.80 would come from miscounting the groups or using an incorrect numerator/denominator.",
+        "D": "0.50 would ignore most of the online and hybrid respondents."
+      },
+      "_batchId": "batch-1771528540842-statistics",
+      "_generatedAt": "2026-02-19T19:19:36.761Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A scatter plot is described by the following paired data: x-values 1,2,3,4,5,6 and corresponding y-values 2,3,5,6,8,9. Which statement is best supported by this data?",
+      "options": [
+        "A) The correlation is negative.",
+        "B) There is no relationship between x and y.",
+        "C) There is a positive correlation.",
+        "D) All points lie exactly on a straight line."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Step 1: As x increases from 1 to 6, y generally increases from 2 to 9, indicating a positive association.\nStep 2: The points are not perfectly on a single straight line (e.g., (2,3) and (3,5) do not lie on the same exact line as (4,6)); thus option D is incorrect.\nConclusion: There is a positive correlation between x and y, so option C is best supported.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "scatter-plots",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The data show an increasing pattern, not a decreasing one; so the correlation is not negative.",
+        "B": "The data points show a clear upward trend, indicating a relationship exists.",
+        "D": "The points do not all lie on a single straight line; they deviate from perfect linearity."
+      },
+      "_batchId": "batch-1771528540842-statistics",
+      "_generatedAt": "2026-02-19T19:19:36.761Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Quarterly sales (in thousands) are: Q1 = 80, Q2 = 96, Q3 = 112, Q4 = 128. From quarter to quarter, which interval has the greatest percent increase?",
+      "options": [
+        "A) Q1 to Q2",
+        "B) Q2 to Q3",
+        "C) Q3 to Q4",
+        "D) They are all the same"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Q1 to Q2 percent increase = (96−80)/80 = 16/80 = 0.20 = 20%.\nStep 2: Q2 to Q3 percent increase = (112−96)/96 = 16/96 ≈ 0.1667 ≈ 16.7%.\nStep 3: Q3 to Q4 percent increase = (128−112)/112 = 16/112 ≈ 0.1429 ≈ 14.3%.\nStep 4: The largest percent increase is 20%, which occurs from Q1 to Q2.\nAnswer: A",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "trends",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Q2 to Q3 is not the largest; it is about 16.7%.",
+        "C": "Q3 to Q4 is not the largest; it is about 14.3%.",
+        "D": "Percent increases are not all equal; they decline each interval."
+      },
+      "_batchId": "batch-1771528540842-statistics",
+      "_generatedAt": "2026-02-19T19:19:36.764Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

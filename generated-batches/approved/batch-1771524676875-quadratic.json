@@ -1,0 +1,157 @@
+{
+  "batchId": "batch-1771524676875-quadratic",
+  "topic": "quadratic",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T18:14:55.611Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 5,
+  "totalGenerated": 5,
+  "totalValid": 5,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "For the quadratic equation $3x^2 - 4x - 5 = 0$, the discriminant is $b^2 - 4ac$. How many real solutions does it have?",
+      "options": [
+        "A) 0 real solutions",
+        "B) 1 real solution",
+        "C) 2 real solutions",
+        "D) infinitely many real solutions"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Compute the discriminant: $b^2 - 4ac = (-4)^2 - 4(3)(-5) = 16 + 60 = 76$. Since $76 > 0$, the equation has two distinct real solutions. Therefore the correct choice is C.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Discriminant analysis",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "0 real solutions: This would require the discriminant to be negative; here $76 > 0$.",
+        "B": "1 real solution: This would require the discriminant to be zero, giving a repeated root; here the discriminant is not zero.",
+        "D": "Infinitely many: A quadratic cannot have infinitely many solutions; it has at most two real roots."
+      },
+      "_batchId": "batch-1771524676875-quadratic",
+      "_generatedAt": "2026-02-19T18:12:25.070Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The parabola $y = -x^2 + 4x + 5$ can be rewritten in vertex form $y = -(x - h)^2 + k$. What is the vertex $(h,k)$ of the parabola?",
+      "options": [
+        "A) (0,5)",
+        "B) (2,9)",
+        "C) (4,5)",
+        "D) (-2,9)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Complete the square: \n$y = -x^2 + 4x + 5 = -(x^2 - 4x) + 5 = -(x^2 - 4x + 4) + 5 + 4 = -(x - 2)^2 + 9$. The vertex is at $(h,k) = (2,9)$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Vertex form and vertex",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Vertex cannot be at (0,5); that point is the y-intercept, not the vertex.",
+        "B": "(2,9) is the correct vertex; mis-reading or miscomputing could lead to (0,5) or (4,5).",
+        "C": "Vertex at (4,5) ignores the axis of symmetry; the x-coordinate should be 2.",
+        "D": "(-2,9) would negate the x-coordinate; the correct x-coordinate is 2."
+      },
+      "_batchId": "batch-1771524676875-quadratic",
+      "_generatedAt": "2026-02-19T18:12:25.082Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Factor the quadratic equation $x^2 - 5x + 6 = 0$ to find its roots.",
+      "options": [
+        "A) $x = 2$ and $x = 3$",
+        "B) $x = -2$ and $x = -3$",
+        "C) $x = 1$ and $x = 6$",
+        "D) $x = -1$ and $x = -6$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Factor $x^2 - 5x + 6$ as $(x-2)(x-3)$. Step 2: Set each factor equal to zero: $x-2=0$ or $x-3=0$. Step 3: Solve: $x=2$ or $x=3$. Thus the roots are $x=2$ and $x=3$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Factoring",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Option B gives roots $-2$ and $-3$. This would come from $(x+2)(x+3)=x^2+5x+6$, which has the wrong middle term sign.",
+        "C": "Option C gives roots $1$ and $6$, which would come from $(x-1)(x-6)=x^2-7x+6$, not $x^2-5x+6$.",
+        "D": "Option D gives roots $-1$ and $-6$, which would come from $(x+1)(x+6)=x^2+7x+6$, not $x^2-5x+6$."
+      },
+      "_batchId": "batch-1771524676875-quadratic",
+      "_generatedAt": "2026-02-19T18:14:49.915Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Consider the quadratic $y = 2x^2 + 8x - 3$. Express it in vertex form and identify the vertex and axis of symmetry.",
+      "options": [
+        "A) $y = 2(x+2)^2 - 11$, vertex $(-2, -11)$, axis of symmetry $x = -2$",
+        "B) $y = 2(x-2)^2 - 3$, vertex $(2, -3)$, axis of symmetry $x = 2$",
+        "C) $y = -2(x+2)^2 + 11$, vertex $(-2, 11)$, axis of symmetry $x = -2$",
+        "D) $y = 2(x+2)^2 + 3$, vertex $(-2, 3)$, axis of symmetry $x = -2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Start with $y=2x^2+8x-3$. Step 2: Factor out 2 from the x-terms: $y=2(x^2+4x)-3$. Step 3: Complete the square inside: $x^2+4x=(x+2)^2-4$. Step 4: Substitute: $y=2[(x+2)^2-4]-3=2(x+2)^2-11$. Thus vertex form is $y=2(x+2)^2-11$; vertex is $(-2,-11)$ and axis of symmetry is $x=-2$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Completing the square",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Option B uses $(x-2)^2$, which would yield a different expansion and does not match the given coefficients; the vertex would be $(2,-3)$ which is incorrect.",
+        "C": "Option C squares with a negative leading coefficient and flips the sign; this would not match the original quadratic.",
+        "D": "Option D uses +3 instead of -11, altering the constant term and the vertex."
+      },
+      "_batchId": "batch-1771524676875-quadratic",
+      "_generatedAt": "2026-02-19T18:14:49.918Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A projectile launched from a height of 5 feet with initial velocity 50 ft/s has height $y = -16t^2 + 50t + 5$. Using the discriminant, how many real solutions does $y = 0$ have?",
+      "options": [
+        "A) Two real solutions, both positive",
+        "B) Two real solutions, one positive and one negative",
+        "C) One real solution",
+        "D) No real solutions"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Identify $a=-16$, $b=50$, $c=5$. Step 2: Compute the discriminant $\\Delta=b^2-4ac=50^2-4(-16)(5)=2500+320=2820>0$, so there are two real solutions. Step 3: Solve $t=\\frac{-b\\pm\\sqrt{\\Delta}}{2a}=\\frac{-50\\pm\\sqrt{2820}}{-32}$. With $\\sqrt{2820}\\\\approx53.14$, the roots are $t_1\\approx\\frac{-50+53.14}{-32}\\approx-0.098$ and $t_2\\approx\\frac{-50-53.14}{-32}\\\\approx3.223$. Thus there are two real solutions, one negative and one positive.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Discriminant & real solutions (projectile)",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Option A claims two real solutions both positive; this ignores the negative root that arises from the sign structure of the quadratic and the negative time root in this projectile scenario.",
+        "B": "",
+        "C": "Option C would be correct only if the discriminant were zero (one real solution). Here Δ=2820>0, so two real solutions exist.",
+        "D": "Option D would be correct if the discriminant were negative (no real solutions). Here Δ>0, so real solutions exist."
+      },
+      "_batchId": "batch-1771524676875-quadratic",
+      "_generatedAt": "2026-02-19T18:14:49.922Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

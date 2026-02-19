@@ -1,0 +1,574 @@
+{
+  "batchId": "batch-1771479796157-statistics",
+  "topic": "statistics",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T05:46:33.423Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 20,
+  "totalValid": 20,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "A dataset contains the scores 70, 72, 68, 75, and 70. What is the mean of the dataset?",
+      "options": [
+        "A) 71",
+        "B) 72",
+        "C) 70",
+        "D) 69"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Add the scores: $70 + 72 + 68 + 75 + 70 = 355$. There are 5 numbers, so the mean is $\\frac{355}{5} = 71$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "mean-median-mode",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Dividing by the number of distinct scores or miscounting can lead to 72, but the correct divisor is the number of data points (5).",
+        "C": "70 is the mode, not the mean; the mean is 71.",
+        "D": "A simple arithmetic slip could yield 69, but the correct calculation gives 71."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:44:18.513Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a jar, red marbles and blue marbles are in the ratio 3:2. If there are 25 marbles total, how many red marbles are there?",
+      "options": [
+        "A) 15",
+        "B) 10",
+        "C) 12",
+        "D) 18"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The red portion is 3 parts out of 3+2 = 5 parts. Red marbles = $25 \\cdot \\frac{3}{5} = 15$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "ratio-proportion",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This would be 2/5 of the total (misinterpreting which color corresponds to which part).",
+        "C": "Uses an incorrect fraction (e.g., 3/4) instead of 3/5 from the ratio.",
+        "D": "Adds more marbles than total or misapplies the ratio; red cannot be 18."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:44:18.514Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A fair six-sided die is rolled. What is the probability of rolling an even number?",
+      "options": [
+        "A) 1/2",
+        "B) 1/3",
+        "C) 2/3",
+        "D) 1/6"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Even outcomes are 2, 4, or 6, which are 3 of the 6 equally likely outcomes. Probability = $\\frac{3}{6} = \\frac{1}{2}$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "probability",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This would be the probability if there were 3 favorable outcomes out of 9, not out of 6.",
+        "C": "Counts odd numbers or doubles the favorable set; wrong count of outcomes.",
+        "D": "Counts only a single outcome (e.g., rolling a 2), which is $1/6$."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:44:18.516Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A scatter plot is described by four data points: $(1,2)$, $(2,4)$, $(3,6)$, $(4,8)$. What is the slope of the line of best fit?",
+      "options": [
+        "A) 1",
+        "B) 2",
+        "C) 0",
+        "D) -2"
+      ],
+      "correctAnswer": 1,
+      "explanation": "These points lie on the line $y=2x$. The slope of the line of best fit for these data points is $\\frac{4-2}{2-1} = 2$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "scatter-plots",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A slope of 1 would be the line $y=x$, which would not pass through the given points.",
+        "C": "A slope of 0 would be a horizontal line; the $y$-values change with $x$ here.",
+        "D": "A negative slope would imply $y$ decreases as $x$ increases; not the case for these points."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:44:18.517Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A town’s population grows from 10,000 people to 12,000 people in one year. What is the percent increase in population?",
+      "options": [
+        "A) 15%",
+        "B) 20%",
+        "C) 25%",
+        "D) 10%"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Percent increase = $\\frac{12{,}000-10{,}000}{10{,}000} \\times 100\\% = \\frac{2{,}000}{10{,}000} \\times 100\\% = 20\\%$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "trends",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Confuses the base or miscomputes the ratio; the correct base is 10,000.",
+        "C": "Uses 25% which would arise from an incorrect base or miscalculation.",
+        "D": "Represents a mistaken half or incorrect percent; the correct increase is 20%."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:44:18.518Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two data sets have the same mean. Data set A is 2, 4, 6, 8; Data set B is 4, 4, 6, 6. Which has the greater standard deviation?",
+      "options": [
+        "A) Data A (2, 4, 6, 8)",
+        "B) Data B (4, 4, 6, 6)",
+        "C) They have the same standard deviation",
+        "D) Not enough information"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Both sets have mean $5$. For A, deviations are $-3,-1,1,3$; variance $\\frac{9+1+1+9}{4}=\\frac{20}{4}=5$; SD $=\\sqrt{5}$. For B, deviations are $-1,-1,1,1$; variance $\\frac{1+1+1+1}{4}=1$; SD $=1$. Therefore Data A has greater standard deviation.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "standard-deviation",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Data B has a smaller spread, so its standard deviation is not greater.",
+        "C": "They do not have the same spread; A has more variability.",
+        "D": "There is enough information: we can compute the SDs from the data."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:44:18.519Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Scores: 68, 72, 75, 80, 84. If a sixth score of 92 is added, what is the new mean of the six scores?",
+      "options": [
+        "A) 75.8",
+        "B) 76.0",
+        "C) 78.5",
+        "D) 80.0"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Compute the original mean: $\\mu_1 = \\frac{68+72+75+80+84}{5} = \\frac{379}{5} = 75.8$. After adding 92, the total is $68+72+75+80+84+92 = 471$ with $n=6$, so $\\mu_2 = \\frac{471}{6} = 78.5$. Therefore, the new mean is 78.5.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "mean-median-mode",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the original mean before the new score was included.",
+        "B": "An incorrect mean that might come from an arithmetic slip or rounding error.",
+        "D": "Dividing the wrong total or using the wrong denominator could yield 80."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:45:31.760Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a class of 40 students, 12 are left-handed and 28 right-handed. If one student is chosen at random, what is the probability that the student is left-handed?",
+      "options": [
+        "A) 3/10",
+        "B) 1/3",
+        "C) 2/5",
+        "D) 3/4"
+      ],
+      "correctAnswer": 0,
+      "explanation": "There are 12 left-handed out of 40 total, so $P(\text{left-handed}) = \\frac{12}{40} = \\frac{3}{10}$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "probability",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct probability, not simplified in some work.",
+        "B": "Confuses 12/40 with 1/3; uses the wrong ratio.",
+        "C": "Uses 24/40 or 2/5 by miscounting left-handed vs total.",
+        "D": "Misreads as a ratio much larger than actual probability."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:45:31.762Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A bag contains 3 red, 2 blue, and 5 green balls. Two balls are drawn without replacement. What is the probability that both drawn balls are the same color?",
+      "options": [
+        "A) 14/45",
+        "B) 10/45",
+        "C) 7/15",
+        "D) 2/5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Total pairs: $\\binom{10}{2} = 45$. Same-color pairs: $\\binom{3}{2} + \\binom{2}{2} + \\binom{5}{2} = 3 + 1 + 10 = 14$. Probability = $\\frac{14}{45}$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "scatter-plots",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct calculation for same-color pairs but sometimes miscounts.",
+        "B": "Counts only one color pair type or miscounts.",
+        "C": " mixes fractions; not matching the correct total 45."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:45:31.762Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Five data points describe a scatter of (1,2), (2,3), (3,5), (4,4), (5,6). Which statement best describes the correlation?",
+      "options": [
+        "A) Strong negative correlation",
+        "B) No correlation",
+        "C) Positive correlation with moderate strength",
+        "D) Perfect positive correlation"
+      ],
+      "correctAnswer": 2,
+      "explanation": "As x increases, y generally increases, indicating a positive correlation. The points are not exactly on a straight line, so the strength is moderate, not perfect.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "scatter-plots",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Direction is wrong; the trend is not negative.",
+        "B": "There is a clear positive trend, so not no correlation.",
+        "D": "Not all points lie on a line; not perfect."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:45:31.763Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "From 2019 to 2021, a company's yearly sales (in thousands of dollars) rise from 120 to 180. What is the percent increase over this period?",
+      "options": [
+        "A) 25%",
+        "B) 50%",
+        "C) 75%",
+        "D) 100%"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Percent increase = $\\frac{180-120}{120} = \\frac{60}{120} = 0.50 = 50\\%$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "trends",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Using the wrong base: 60/240 would give 25%.",
+        "C": "Confuses the increase with the base and multiplies by 3.",
+        "D": "Assumes double the original value."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:45:31.764Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two data sets are D1: 4, 6, 8, 10 and D2: 6, 8, 10, 12. Which statement is true about their standard deviations?",
+      "options": [
+        "A) D1 has a larger standard deviation",
+        "B) D2 has a larger standard deviation",
+        "C) They have the same standard deviation",
+        "D) It cannot be determined from the data"
+      ],
+      "correctAnswer": 2,
+      "explanation": "D2 equals D1 with every value increased by 2, i.e., a translation. Standard deviation is invariant under translation, so both have the same SD.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "standard-deviation",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect; translation does not change spread.",
+        "B": "Incorrect; translation does not change spread.",
+        "D": "Determinable from the given information."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:45:31.765Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Consider the data set 2, 3, 3, 3, 50. Which statistic is most affected by the value 50?",
+      "options": [
+        "A) mean",
+        "B) median",
+        "C) mode",
+        "D) range"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The mean is sensitive to extreme values; the median remains 3 (the middle value when ordered), the mode is 3, and the range increases from 50-2 = 48.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "mean-median-mode",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Median is resistant to outliers; not as affected.",
+        "C": "Mode remains 3; not affected by the outlier.",
+        "D": "Range is affected, but the question asks which statistic is most affected; mean is more affected than range here."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:45:31.765Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A survey of 200 students found average daily screen time 3.2 hours. If 50 more students with 6 hours of screen time are added, what is the new mean daily screen time?",
+      "options": [
+        "A) 3.2",
+        "B) 3.4",
+        "C) 3.76",
+        "D) 4.0"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Initial total = $200 \\times 3.2 = 640$. New total = $640 + 50 \\times 6 = 940$. New mean = $\\frac{940}{250} = 3.76$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "trends",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": " assumes no change when adding new data.",
+        "B": " rounds too coarsely or uses an incorrect base.",
+        "D": " overestimates the effect of the new data."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:45:31.766Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A bookshelf has 4 novels and 3 non-fiction works. Two books are drawn at random without replacement. What is the probability that at least one of the two drawn is non-fiction?",
+      "options": [
+        "A) 5/7",
+        "B) 2/7",
+        "C) 6/7",
+        "D) 4/7"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Total pairs: $\\binom{7}{2} = 21$. Pairs with both novels: $\\binom{4}{2} = 6$. So at least one non-fiction: $21 - 6 = 15$. Probability = $\\frac{15}{21} = \\frac{5}{7}$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "probability",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Counts only one non-fiction pair or miscounts.",
+        "C": "Overcounts by including too many non-fiction pairs.",
+        "D": "Inappropriate subtraction leading to an incorrect fraction."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:45:31.767Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Monthly sales (in thousands of dollars) for a company are: Jan 120, Feb 150, Mar 165, Apr 198. What is the percent increase from Jan to Apr?",
+      "options": [
+        "A) 65%",
+        "B) 50%",
+        "C) 40%",
+        "D) 25%"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Percent increase = $\\frac{198-120}{120} = \\frac{78}{120} = 0.65 = 65\\%$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "trends",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Uses the wrong base in the denominator.",
+        "C": "Miscomputes the difference or uses an incorrect final value.",
+        "D": "Misreads the percentage change entirely."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:45:31.768Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A dataset contains the seven values 3, 5, 5, 7, 8, 9, 12. The mean is 7 and the median is 7. If we add a value 100 to the dataset, which of the following statements is true?",
+      "options": [
+        "A) The mean decreases and the median remains 7.",
+        "B) The mean increases to $\\frac{149}{8} = 18.625$ and the median becomes $\\frac{7+8}{2} = 7.5$.",
+        "C) The mean remains 7 and the median becomes 7.5.",
+        "D) The mean increases and the median remains 7."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Compute the initial mean and median. Sum = 3+5+5+7+8+9+12 = 49, so mean = 49/7 = 7. The sorted list is 3,5,5,7,8,9,12, so the median (middle value) is 7. Step 2: After adding 100, the new sum is 149 and the new n is 8, so the new mean is $\\frac{149}{8} = 18.625$. Step 3: The new sorted list is 3,5,5,7,8,9,12,100; the median (average of 4th and 5th values) is $(7+8)/2 = 7.5$. Step 4: Therefore, statement B is true while A, C, and D are false.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "mean-median-mode",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The mistake is thinking the mean would decrease when an outlier is added; in fact, adding a value well above the current mean increases the mean.",
+        "C": "This misreads the median change by ignoring the shift caused by the outlier; the median actually changes from 7 to 7.5.",
+        "D": "Assumes the median stays at 7 despite the outlier; the median becomes 7.5 after adding 100."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:46:32.411Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a survey of 200 people, 120 prefer coffee, 95 prefer tea, and 40 prefer both. If a person is chosen at random, what is the probability that the person prefers coffee or tea (or both)?",
+      "options": [
+        "A) $\\frac{7}{8}$",
+        "B) $\\frac{5}{8}$",
+        "C) $\\frac{3}{8}$",
+        "D) $\\frac{11}{20}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: P(coffee) = 120/200 = 0.60; P(tea) = 95/200 = 0.475; P(both) = 40/200 = 0.20. Step 2: P(coffee or tea) = P(coffee) + P(tea) - P(both) = (120+95-40)/200 = 175/200 = 7/8. Step 3: Therefore, the probability is $\\frac{7}{8}$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "probability",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Adds P(coffee) and P(tea) without subtracting the overlap P(both); yields a value greater than 1 in decimal form, which is impossible.",
+        "C": "Assumes independence and multiplies probabilities instead of using inclusion-exclusion for union.",
+        "D": "Confuses the union with the intersection or uses an incorrect denominator."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:46:32.412Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A scatter plot describes the relationship between hours studied per week (x) and exam score (y) for six students: (2,68), (4,72), (5,78), (6,81), (8,88), (9,90). The line of best fit has a positive slope. Which statement is true?",
+      "options": [
+        "A) There is a negative linear relationship.",
+        "B) There is a positive linear relationship; as x increases, y tends to increase; residuals are randomly scattered around the line.",
+        "C) There is no relationship; the correlation coefficient is 0.",
+        "D) All six points lie exactly on a straight line."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: As hours studied (x) increase from 2 to 9, the scores (y) increase from 68 to 90, indicating a positive association. Step 2: A line of best fit with positive slope confirms a positive correlation; residuals around the line would appear scattered if not a perfect fit. Step 3: The other options are false: A states a negative relationship; C states no relationship; D states perfect linear alignment, which is not indicated by typical scatter data.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "scatter-plots",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The data show increasing y as x increases, not decreasing; the relationship is positive, not negative.",
+        "C": "The plotted points show a clear upward trend, so the correlation is not zero.",
+        "D": "Not all points lie on a single straight line; there is scatter around the line of best fit."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:46:32.413Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A data set S has standard deviation s. If every value is transformed by T = 2S + 3, what is the standard deviation of the transformed data?",
+      "options": [
+        "A) $\\frac{s}{2}$",
+        "B) s",
+        "C) 2s",
+        "D) 4s"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Step 1: For a linear transformation y = a x + b, the spread (standard deviation) scales by |a| and is independent of the shift b. Step 2: Here a = 2, so the new standard deviation is |2| * s = 2s. Step 3: Therefore, the correct answer is 2s.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "standard-deviation",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Dividing by 2 would shrink the spread, but the data were doubled, which increases spread.",
+        "B": "Ignoring the scale change; doubling all values increases dispersion by a factor of 2.",
+        "D": " quadrupling would correspond to a = 4, which is not the transformation given."
+      },
+      "_batchId": "batch-1771479796157-statistics",
+      "_generatedAt": "2026-02-19T05:46:32.414Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

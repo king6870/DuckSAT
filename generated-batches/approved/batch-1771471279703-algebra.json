@@ -1,0 +1,517 @@
+{
+  "batchId": "batch-1771471279703-algebra",
+  "topic": "algebra",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T03:25:01.702Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 18,
+  "totalValid": 18,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Solve for $x$: $3x - 5 = 7$.",
+      "options": [
+        "A) 4",
+        "B) 3",
+        "C) -4",
+        "D) 12"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From $3x - 5 = 7$, add $5$ to both sides to get $3x = 12$. Then divide both sides by $3$ to obtain $x = 4$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "If $x=3$, then $3x - 5 = 3\\cdot 3 - 5 = 9 - 5 = 4$, which is not equal to 7.",
+        "C": "If $x=-4$, then $3x - 5 = 3(-4) - 5 = -12 - 5 = -17$, which is not 7.",
+        "D": "If $x=12$, then $3x - 5 = 3(12) - 5 = 36 - 5 = 31$, which is not 7."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:22:13.528Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the inequality for $x$: $2x + 5 > 11$.",
+      "options": [
+        "A) $x > 3$",
+        "B) $x < 3$",
+        "C) $x \\ge 3$",
+        "D) $x \\le 3$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Subtract 5 from both sides: $2x > 6$. Then divide by 2: $x > 3$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect direction; this would correspond to $2x + 5 < 11$.",
+        "C": "Includes equality; the original inequality is strict ($>$).",
+        "D": "Incorrect both direction and inclusion."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:22:13.529Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system by elimination: $x + y = 6$ and $2x + y = 9$.",
+      "options": [
+        "A) $x = 3$, $y = 3$",
+        "B) $x = 4$, $y = 2$",
+        "C) $x = 2$, $y = 4$",
+        "D) $x = 5$, $y = 1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Subtract the first equation from the second: $(2x+y) - (x+y) = 9 - 6$ gives $x = 3$. Substitute into $x+y=6$: $3 + y = 6$ gives $y = 3$. So $(x,y) = (3,3)$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "If $x=4, y=2$, then $2x+y = 2(4) + 2 = 10 \\neq 9$.",
+        "C": "If $x=2, y=4$, then $x+y = 6$ is true, but $2x+y = 2(2) + 4 = 8 \\neq 9$.",
+        "D": "If $x=5, y=1$, then $2x+y = 2(5) + 1 = 11 \\neq 9$."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:22:13.529Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Expand and simplify: $(x+4)(x-3)$.",
+      "options": [
+        "A) $x^2 + x - 12$",
+        "B) $x^2 - x - 12$",
+        "C) $x^2 - x - 6$",
+        "D) $x^2 - x + 12$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "FOIL: $(x+4)(x-3) = x(x-3) + 4(x-3) = (x^2 - 3x) + (4x - 12) = x^2 + x - 12$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Middle term sign incorrect; $-3x + 4x = +x$, not $-x$.",
+        "C": "Both the middle term and the constant term are incorrect; expansion would yield $x^2 + x - 12$.",
+        "D": "Constant term and sign of the middle term are incorrect."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:22:13.531Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for $x$: $|2x - 4| = 0$.",
+      "options": [
+        "A) 2",
+        "B) 0",
+        "C) -2",
+        "D) 4"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An absolute value equals zero only when the inside is zero: $2x - 4 = 0 \\Rightarrow 2x = 4 \\Rightarrow x = 2$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "If $x=0$, then $|2x-4|=| -4|=4 \\neq 0$.",
+        "C": "If $x=-2$, then $|2x-4|=| -8|=8 \\neq 0$.",
+        "D": "If $x=4$, then $|2x-4|=|4|=4 \\neq 0$."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:22:13.533Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Factor the polynomial: $x^2 - 5x + 6$.",
+      "options": [
+        "A) (x-2)(x-3)",
+        "B) (x-1)(x-6)",
+        "C) (x+2)(x-3)",
+        "D) x^2 - 5x - 6"
+      ],
+      "correctAnswer": 0,
+      "explanation": "We look for two numbers that multiply to 6 and add to -5: -2 and -3 work since (-2)(-3) = 6 and (-2) + (-3) = -5. Thus $x^2 - 5x + 6 = (x-2)(x-3)$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "(-1) and (-6) multiply to 6 but add to -7, not -5.",
+        "C": "One factor is correct in sign for the constant, but the linear term would be $-x$ instead of $-5x$; product is $x^2 - x - 6$.",
+        "D": "Constant term sign incorrect; should be +6, not -6."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:22:13.534Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for x: $3x - 7 = 5 + 2x$.",
+      "options": [
+        "A) 12",
+        "B) 2",
+        "C) -4",
+        "D) 7"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Subtract $2x$ from both sides to get $x - 7 = 5$. Then add 7 to both sides to obtain $x = 12$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This option results from a sign error when moving the x-terms; the correct step is to subtract 2x from both sides, not subtract 3x.",
+        "C": "This arises from an incorrect sign when adding 7 to both sides, producing a negative result.",
+        "D": "This ignores the x terms entirely and treats the equation as if only constants mattered."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:23:40.905Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the compound inequality: $-4 \\leq 3x - 5 \\leq 7$.",
+      "options": [
+        "A) $x \\in [\\tfrac{1}{3}, 4]$",
+        "B) $x \\in [-4, 7]$",
+        "C) $x \\in (\\tfrac{1}{3}, 4)$",
+        "D) $x \\le \\tfrac{1}{3}$ or $x \\ge 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Add 5 to all parts: $-4 + 5 \\leq 3x \\leq 7 + 5$ gives $1 \\leq 3x \\leq 12$. Divide by 3: $\\tfrac{1}{3} \\leq x \\leq 4$, i.e., $x \\in [\\tfrac{1}{3}, 4]$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Confuses the endpoints or uses the wrong operation when isolating x.",
+        "C": "Treats the endpoints as exclusive, forgetting the inclusive inequality signs.",
+        "D": "Treats the inequality as a union of two rays rather than a closed interval."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:23:40.906Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system: $2x + y = 7$ and $x + y = 5$.",
+      "options": [
+        "A) $(2, 3)$",
+        "B) $(1, 4)$",
+        "C) $(0, 5)$",
+        "D) $(3, 1)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From the second equation, $y = 5 - x$. Substitute into the first: $2x + (5 - x) = 7 \\Rightarrow x + 5 = 7 \\Rightarrow x = 2$. Then $y = 5 - 2 = 3$. So the solution is $(x, y) = (2, 3)$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect substitution or solving for x incorrectly.",
+        "C": "Failed to use the second equation to express y in terms of x.",
+        "D": "Arithmetic mistake in solving the system or in substitution."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:23:40.907Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Find the sum: $(3x^2 - x + 4) + (2x^2 + 5x - 1)$.",
+      "options": [
+        "A) $5x^2 + 4x + 3$",
+        "B) $5x^2 + 6x + 3$",
+        "C) $5x^2 + 4x - 3$",
+        "D) $4x^2 + 4x + 3$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Combine like terms: $3x^2 + 2x^2 = 5x^2$, $-x + 5x = 4x$, $4 - 1 = 3$. So the sum is $5x^2 + 4x + 3$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrectly adding the x terms, giving +6x.",
+        "C": "Sign error in the constant term.",
+        "D": "Incorrect x^2 coefficient addition."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:23:40.909Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Multiply: $(2x - 3)(x + 4)$.",
+      "options": [
+        "A) $2x^2 + 5x - 12$",
+        "B) $2x^2 + 4x - 3$",
+        "C) $2x^2 - x - 12$",
+        "D) $x^2 + 4x - 3$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "FOIL: $2x \\cdot x = 2x^2$, $2x \\cdot 4 = 8x$, $-3 \\cdot x = -3x$, $-3 \\cdot 4 = -12$. Combine like terms: $2x^2 + (8x - 3x) - 12 = 2x^2 + 5x - 12$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect distribution of terms.",
+        "C": "Sign error on one product term.",
+        "D": "Incorrectly treated as a monomial times a binomial."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:23:40.911Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Factor: $x^2 - 9x + 20$.",
+      "options": [
+        "A) $(x - 4)(x - 5)$",
+        "B) $(x - 10)(x - 4)$",
+        "C) $(x - 1)(x - 20)$",
+        "D) $(x + 5)(x - 4)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Find two numbers that multiply to 20 and sum to -9: -4 and -5 work. So $x^2 - 9x + 20 = (x - 4)(x - 5)$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Chose factors that do not sum to -9.",
+        "C": "Used incorrect pair that multiplies to 20 but sums differently.",
+        "D": "Incorrect sign in one factor."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:23:40.913Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve $|2x - 3| = 7$.",
+      "options": [
+        "A) $x = 5$ or $x = -2$",
+        "B) $x = -5$ or $x = 2$",
+        "C) $x = 4$ or $x = -1$",
+        "D) $x = 7$ or $x = -7$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Split by cases: 2x - 3 = 7 => 2x = 10 => x = 5; or 2x - 3 = -7 => 2x = -4 => x = -2. Thus $x = 5$ or $x = -2$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Signs reversed compared to correct cases.",
+        "C": "Incorrect solving of the absolute value case.",
+        "D": "Uses incorrect magnitudes or signs."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:23:40.914Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Word problem: A bakery sells cupcakes c dollars each and cookies k dollars each. A customer buys 3 cupcakes and 4 cookies for 10 dollars, and another buys 1 cupcake and 6 cookies for 8 dollars. Find c and k.",
+      "options": [
+        "A) cupcakes $2, cookies $1",
+        "B) cupcakes $1, cookies $2",
+        "C) cupcakes $3, cookies $0.50",
+        "D) cupcakes $2.50, cookies $1"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Set up equations: 3c + 4k = 10 and c + 6k = 8. From the second, c = 8 - 6k. Substitute into the first: 3(8 - 6k) + 4k = 10 ⇒ 24 - 18k + 4k = 10 ⇒ -14k = -14 ⇒ k = 1. Then c = 8 - 6(1) = 2.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Swaps the price signs or misreads which item is more expensive.",
+        "C": "Incorrectly solves the system, giving a nonrealistic price.",
+        "D": "Decimals introduced without solving the system correctly."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:23:40.915Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Divide $2x^3 + 3x^2 - x + 5$ by $x + 2$. What is the quotient and remainder?",
+      "options": [
+        "A) $2x^2 - x + 1$ with remainder 3",
+        "B) $2x^2 + x - 2$ with remainder 7",
+        "C) $2x^2 - 2x + 5$ with remainder -1",
+        "D) $x^2 + x + 3$ with remainder 3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Long division: Divide $2x^3$ by $x$ to get $2x^2$. Multiply: $(x+2)\\cdot 2x^2 = 2x^3 + 4x^2$. Subtract: $(2x^3 + 3x^2 - x + 5) - (2x^3 + 4x^2) = -x^2 - x + 5$. Divide $-x^2$ by $x$ to get $-x$. Multiply: $(x+2)(-x) = -x^2 - 2x$. Subtract: $(-x^2 - x) - (-x^2 - 2x) = x$. Bring down 5. Divide $x$ by $x$ to get 1. Multiply: $(x+2)(1) = x + 2$. Subtract: $(x + 5) - (x + 2) = 3$. Thus quotient is $2x^2 - x + 1$ and remainder is 3.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect quotient term from mishandling signs in the second step.",
+        "C": "Mistakenly miscomputes the second subtraction leading to a wrong remainder.",
+        "D": "Chooses an incorrect quotient that does not satisfy the division."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:23:40.916Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for x: $3(2x - 5) - 4(x - 7) = 6x + 9$.",
+      "options": [
+        "A) 1",
+        "B) 0",
+        "C) 2",
+        "D) -1"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1 Expand left side: $3(2x - 5) - 4(x - 7) = 6x - 15 - 4x + 28$. So the equation becomes $6x - 15 - 4x + 28 = 6x + 9$. Step 2 Simplify LHS: $2x + 13$. Step 3 Set equal to the right side: $2x + 13 = 6x + 9$. Step 4 Subtract $2x$ from both sides: $13 = 4x + 9$. Step 5 Subtract $9$: $4 = 4x$. Step 6 Divide by 4: $x = 1$. Step 7 Check: LHS with x=1 is $3(-3) - 4(-6) = -9 + 24 = 15$; RHS is $6(1) + 9 = 15$. Therefore x = 1 is correct.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) x = 0 arises from distributing -4(x - 7) incorrectly as -4x - 28 instead of -4x + 28, which changes the constant term and the solution.",
+        "C": "C) x = 2 would result from an incorrect handling of the x-terms, such as canceling 2x on both sides or misplacing terms, which leads to a different equation than the correct one.",
+        "D": "D) x = -1 is a result of sign errors when moving constants across the equation, producing an incorrect balance."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:25:00.684Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the absolute value inequality: $|3x - 4| \\le 7$.",
+      "options": [
+        "A) [-1, 11/3]",
+        "B) (-∞, -1) ∪ [11/3, ∞)",
+        "C) [-2, 7]",
+        "D) [-1/2, 7/3]"
+      ],
+      "correctAnswer": 0,
+      "explanation": "We solve the inequality by removing the absolute value: $-7 \\le 3x - 4 \\le 7$. Adding 4 to all parts gives $-3 \\le 3x \\le 11$. Dividing by 3 yields $-1 \\le x \\le 11/3$. Therefore the solution set is [-1, 11/3].",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) is the complement of the interval; it would be the solution if you solved $|3x - 4| \\ge 7$ instead of \\le 7 (or misinterpreted the inequality direction).",
+        "C": "C) [-2, 7] places endpoints incorrectly because -3 ≤ 3x ≤ 11 leads to x ∈ [-1, 11/3], not [-2, 7].",
+        "D": "D) [-1/2, 7/3] miscomputes the lower bound by dividing -3 by 3 incorrectly or misreading -3 as -1/2; it also omits part of the interval."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:25:00.686Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system: $x + y = 5$, $2x + 3y = 13$.",
+      "options": [
+        "A) (2, 3)",
+        "B) (3, 2)",
+        "C) (1, 4)",
+        "D) (0, 5)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From the first equation, y = 5 - x. Substitute into the second: $2x + 3(5 - x) = 13 \\Rightarrow 2x + 15 - 3x = 13 \\Rightarrow -x + 15 = 13 \\Rightarrow -x = -2 \\Rightarrow x = 2$. Then y = 5 - 2 = 3. So the solution is (2, 3).",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) (3, 2) switches the coordinates; it would satisfy x + y = 5 but not the second equation $2x + 3y = 13$.",
+        "C": "C) (1, 4) does not satisfy $2x + 3y = 13$ since $2(1) + 3(4) = 2 + 12 = 14 \\neq 13$.",
+        "D": "D) (0, 5) yields $2(0) + 3(5) = 15 \\neq 13$ and does not satisfy the second equation."
+      },
+      "_batchId": "batch-1771471279703-algebra",
+      "_generatedAt": "2026-02-19T03:25:00.687Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

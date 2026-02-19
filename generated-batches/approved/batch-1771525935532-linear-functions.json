@@ -1,0 +1,587 @@
+{
+  "batchId": "batch-1771525935532-linear-functions",
+  "topic": "linear-functions",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T19:05:01.676Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 20,
+  "totalValid": 20,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "A car rental charges a base daily fee of 20 dollars and 3 dollars per mile. The total cost y (in dollars) for x miles is modeled by which equation in slope-intercept form?",
+      "options": [
+        "A) $y = 3x + 20$",
+        "B) $y = 20x + 3$",
+        "C) $y = \\frac{x}{3} + 20$",
+        "D) $y = 3x - 20$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Identify the slope m (cost per mile) and the y-intercept b (base fee). Here m = 3 and b = 20. Step 2: Write the slope-intercept form $y = mx + b$ with m = 3 and b = 20: $y = 3x + 20$. Step 3: Check the other options: (B) wrongly uses 20 as the slope and 3 as the intercept; (C) uses division; (D) uses a negative intercept. Therefore, A is correct.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "Slope-Intercept Form",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B swaps the slope and intercept, using $y = 20x + 3$ instead of $y = 3x + 20$; the slope should be 3, not 20.",
+        "C": "C incorrectly divides x by 3, yielding a slope of 1/3 instead of 3.",
+        "D": "D uses a negative intercept, but the base fee is +20, not -20."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:01:13.664Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A line has slope $m = 4$ and passes through $(2, -1)$. Write the equation in slope-intercept form.",
+      "options": [
+        "A) $y = 4x - 9$",
+        "B) $y = 4x + 9$",
+        "C) $y = -4x + 2$",
+        "D) $y = x - 3$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Use point-slope form with $(x_1, y_1) = (2, -1)$ and $m = 4$: $y - (-1) = 4(x - 2)$. Step 2: Simplify: $y + 1 = 4x - 8$ → $y = 4x - 9$. Step 3: The other options have incorrect signs or slopes, so A is correct.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "Point-Slope Form",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B uses the correct slope but the intercept should be -9, not +9.",
+        "C": "C uses the wrong slope sign (negative) and incorrect point relation.",
+        "D": "D uses the wrong slope altogether (1) and a nonmatching line."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:01:13.665Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which statement about two lines with slopes $m_1 = 3$ and $m_2 = -\\frac{1}{3}$ is true?",
+      "options": [
+        "A) They are parallel.",
+        "B) They are perpendicular.",
+        "C) They intersect at the origin only.",
+        "D) They have the same y-intercept."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Two lines are perpendicular if their slopes are negative reciprocals, i.e., $m_1 m_2 = -1$. Here $3 \\cdot (-\\tfrac{1}{3}) = -1$, so the lines are perpendicular. Step 2: They are not parallel since $m_1 \neq m_2$. Step 3: The intersection is not necessarily at the origin. Step 4: The y-intercepts are not determined to be the same. Therefore, B is correct.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "Parallel and Perpendicular Lines",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is wrong because the slopes are not equal; equal slopes would make them parallel, which would require $m_1 = m_2$.",
+        "C": "C assumes a special intersection at the origin that is not guaranteed by the given slopes.",
+        "D": "D makes an unfounded claim about equal intercepts; slopes do not determine intercepts."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:01:13.667Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "For the line $y = -2x + 6$, what are its x-intercept and y-intercept?",
+      "options": [
+        "A) x-intercept 3, y-intercept 6",
+        "B) x-intercept -3, y-intercept 6",
+        "C) x-intercept 3, y-intercept -6",
+        "D) x-intercept -3, y-intercept -6"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: y-intercept occurs at x = 0: $y = -2(0) + 6 = 6$, so y-intercept is 6. Step 2: x-intercept occurs at y = 0: $0 = -2x + 6$ → $x = 3$, so x-intercept is 3. Therefore, (x-intercept, y-intercept) = (3, 0) and (0, 6). Option A is correct.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "Graph Intercepts",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B uses the wrong sign for the x-intercept.",
+        "C": "C uses a negative y-intercept instead of +6.",
+        "D": "D uses negative values for both intercepts."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:01:13.668Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A car rental charges a base daily fee of 5 dollars and 0.75 dollars per mile. If total cost is y (in dollars) for x miles, the equation is $y = 0.75x + 5$. What is the slope of the line representing the cost per mile?",
+      "options": [
+        "A) 0.75 dollars per mile",
+        "B) 5 dollars per mile",
+        "C) 1.75 dollars per mile",
+        "D) 0.75 miles per dollar"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: In the slope-intercept form $y = mx + b$, the slope $m$ is the rate of change per unit of $x$. Here $m = 0.75$, so the slope is $0.75$ dollars per mile. Step 2: The intercept $b$ is 5, which is the base daily fee. Options B, C, and D misidentify the slope or its units.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "Real-World Linear Relationships",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B treats the intercept as the slope; the coefficient of x is the slope.",
+        "C": "C adds 1.0 to the slope incorrectly, giving 1.75.",
+        "D": "D inverts the units, implying miles per dollar instead of dollars per mile."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:01:13.669Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the linear function $y = -6x + 15$, what does the slope represent?",
+      "options": [
+        "A) The rate of change of y with respect to x is -6 per 1 unit of x.",
+        "B) The y-intercept is -6.",
+        "C) The line increases as x increases.",
+        "D) The x-intercept is 15."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: The slope is the coefficient of x, here -6. Step 2: Therefore, for every 1 unit increase in x, y changes by -6 (a decrease of 6). Step 3: The y-intercept is actually 15, not -6, and with a negative slope the line decreases as x increases. The x-intercept is 15/6 = 2.5. Thus A is correct.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "Slope as Rate of Change",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B misidentifies the y-intercept; it is 15, not -6.",
+        "C": "C is incorrect because a negative slope means the line decreases as x increases.",
+        "D": "D incorrectly states the x-intercept equals the slope; the x-intercept is found by setting y = 0."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:01:13.670Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A taxi company charges a base fare of 3 dollars and 2 dollars per mile. If x is the number of miles driven, which equation models the total cost C (in dollars)?",
+      "options": [
+        "A) $C = 2x + 3$",
+        "B) $C = x + 3$",
+        "C) $C = 2x - 3$",
+        "D) $C = -2x + 3$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The linear form is $C = mx + b$ where m is the per-mile rate and b is the base fare. Here m = 2 and b = 3, so $C = 2x + 3$. Check: if x = 0, C = 3; if x = 5, C = 13. The other options use the wrong slope or intercept or a negative sign.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "slope-intercept",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Mistake: uses slope 1 instead of 2 (x + 3 would imply $1 per mile).",
+        "C": "Mistake: base fare is added instead of subtracted; sign of intercept is wrong.",
+        "D": "Mistake: uses a negative slope, implying a discount per mile."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:03:51.352Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The line passes through (0, -5) and has slope m = 2. Which equation expresses this line in slope-intercept form?",
+      "options": [
+        "A) $y = 2x - 5$",
+        "B) $y = 2x + 5$",
+        "C) $y = -2x - 5$",
+        "D) $y = x - 5$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In slope-intercept form, y = mx + b. With m = 2 and the point (0, -5), the intercept b is -5. Thus y = 2x - 5. The other options have the wrong sign for the intercept or the slope.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "point-slope",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect intercept sign; should be -5 not +5.",
+        "B": "Intercept sign is correct for y when x = 0, but the intercept would be +5, which contradicts the given point (0, -5).",
+        "C": "Slope has the wrong sign; should be positive 2, not -2.",
+        "D": "Incorrect slope and missing the correct intercept relation; uses x instead of 2x."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:03:51.353Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which equation is perpendicular to $y = 3x + 4$?",
+      "options": [
+        "A) $y = -\\frac{1}{3}x + 2$",
+        "B) $y = 3x - 2$",
+        "C) $y = \\frac{1}{3}x + 8$",
+        "D) $y = 0x + 5$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "If a line is perpendicular to another with slope m, its slope is the negative reciprocal, -1/m. For y = 3x + 4, m = 3, so a perpendicular line has slope -1/3. Option A has slope -1/3; intercept can be any value, but among choices it is the perpendicular one.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "parallel-perpendicular",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Parallel line (same slope 3), not perpendicular.",
+        "C": "Uses slope 1/3 instead of -1/3; not perpendicular.",
+        "D": "Horizontal line with slope 0; not perpendicular."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:03:51.355Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a shop with per-unit profit 2 dollars and fixed cost 6 dollars, total profit y as a function of x units sold is y = 2x - 6. What are the x-intercept and y-intercept?",
+      "options": [
+        "A) x-intercept (3,0) and y-intercept (0,-6)",
+        "B) x-intercept (-3,0) and y-intercept (0,6)",
+        "C) x-intercept (0,-6) and y-intercept (3,0)",
+        "D) x-intercept (6,0) and y-intercept (0,-3)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "x-intercept occurs when y = 0: 0 = 2x - 6 => x = 3, so x-intercept is (3,0). y-intercept occurs when x = 0: y = -6, so y-intercept is (0,-6).",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "graphing",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Incorrect x- or y-intercept signs; problem uses 2x - 6 so intercepts are (3,0) and (0,-6).",
+        "C": "Swaps intercepts; the x-intercept is not (0,-6).",
+        "D": "Intercepts miscomputed; x-intercept not (6,0) and y-intercept not (0,-3)."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:03:51.356Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The line in point-slope form is $y - 4 = -2(x - 1)$. Which is its slope-intercept form?",
+      "options": [
+        "A) $y = -2x + 6$",
+        "B) $y = -2x + 4$",
+        "C) $y = 2x - 6$",
+        "D) $y = 2x + 2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Expand: y - 4 = -2x + 2, so y = -2x + 6. Thus slope m = -2 and y-intercept b = 6.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "point-slope",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect intercept; should be 6, not 4.",
+        "B": "Intercept wrong; also sign of slope is correct but intercept is wrong.",
+        "C": "Uses wrong sign for slope and wrong intercept.",
+        "D": "Uses positive slope; does not match the given point-slope form."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:03:51.356Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A charity walk fundraiser receives donations at 5 dollars per mile plus a 10 dollar registration. Which equation models total donations D as a function of miles x?",
+      "options": [
+        "A) $D = 5x + 10$",
+        "B) $D = -5x + 10$",
+        "C) $D = 5x - 10$",
+        "D) $D = 10x + 5$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "This is a slope-intercept form D = mx + b with m = 5 (per mile) and b = 10 (registration). Hence D = 5x + 10.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "slope-intercept",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct for the slope, but the intercept is wrongly placed; the fixed amount is +10, not +0.",
+        "B": "Sign of slope is wrong; should be positive 5.",
+        "C": "Intercept is incorrect; base is 10, not -10.",
+        "D": "Both slope and intercept are incorrect for this scenario."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:03:51.357Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A factory's cost to produce x units is given by a linear model. If producing 10 units costs 70 and the per-unit cost is 2, write the equation in point-slope form using the point (10, 70).",
+      "options": [
+        "A) $y - 70 = 2(x - 10)$",
+        "B) $y - 70 = 2(x - 20)$",
+        "C) $y - 50 = 2(x - 10)$",
+        "D) $y - 70 = -2(x - 10)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Cost function is y = 2x + 50, and the point (10, 70) lies on it since 70 = 2(10) + 50. In point-slope form: y - y1 = m(x - x1) with (x1, y1) = (10, 70) and m = 2, yielding y - 70 = 2(x - 10).",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "point-slope",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Uses a different x-coordinate (20) for the point, which is not the given point.",
+        "C": "Uses the wrong y-intercept; the point should be (10, 70).",
+        "D": "Uses negative slope; the slope is positive 2."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:03:51.358Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The line y = -2x + 7 describes the relationship between cost y and units x. Is the graph increasing or decreasing?",
+      "options": [
+        "A) Increasing",
+        "B) Decreasing",
+        "C) Horizontal",
+        "D) Vertical"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The slope is -2, which is negative. A negative slope means the line is decreasing as x increases. It is not increasing, horizontal, or vertical.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "graphing",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Confuses negative slope with positive; an increasing line would have a positive slope.",
+        "B": "",
+        "C": "Horizontal lines have slope 0, not -2.",
+        "D": "Vertical lines are undefined slope; this line is not vertical."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:03:51.359Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A phone plan charges a base monthly fee of 25 dollars plus 0.10 dollars per minute of usage. Which equation models the total monthly bill B as a function of minutes m?",
+      "options": [
+        "A) $B = 0.10 m + 25$",
+        "B) $B = -0.10 m + 25$",
+        "C) $B = 0.10 m - 25$",
+        "D) $B = 25 m + 0.10$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "This is a slope-intercept model B = mx + b with m = 0.10 dollars per minute and b = 25 dollars. Therefore B = 0.10m + 25.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "slope-intercept",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Uses negative slope; the per-minute charge is positive.",
+        "C": "Intercept sign wrong; base is +25, not -25.",
+        "D": "Incorrectly multiplies minutes by the monthly base; slope and intercept are swapped."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:03:51.359Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In $y = -3x + 5$, what is the y-intercept?",
+      "options": [
+        "A) 5",
+        "B) -3",
+        "C) 0",
+        "D) 3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In y = mx + b, the y-intercept is b. Here b = 5, so the y-intercept is 5, corresponding to the point (0, 5).",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "slope-intercept",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses slope m with intercept; -3 is the slope.",
+        "C": "Interprets intercept as zero; y-intercept is not zero here.",
+        "D": "Confuses intercept with the x-intercept or misreads sign."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:03:51.360Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A car rental company charges a fixed daily fee plus a per-mile charge. If you drive x miles in a day, the total cost y dollars is described by a linear relationship. The per-mile rate is 0.75 dollars and the fixed daily fee is 25 dollars. Write the equation in slope-intercept form and identify the slope and y-intercept from the equation.",
+      "options": [
+        "A) $y = 0.75x + 25$",
+        "B) $y = 25x + 0.75$",
+        "C) $y = -0.75x + 25$",
+        "D) $y = 0.75x - 25$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Recognize the standard slope-intercept form is $y = mx + b$, where m is the slope (rate of change) and b is the y-intercept. Here, the per-mile rate is the slope and is 0.75; the fixed daily fee is the y-intercept and is 25. Step 2: Substitute m = 0.75 and b = 25 into the form to obtain $y = 0.75x + 25$. Step 3: The slope is $m = 0.75$ and the y-intercept is $b = 25$.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "Slope-Intercept Form",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer. This option incorrectly swaps the roles of the two numbers, making the daily fee appear as the coefficient of x and the per-mile rate as the constant term.",
+        "B": "Uses 25x as the slope and 0.75 as the intercept, which incorrectly assigns the daily fee to the variable x and ignores the interpretation of y = mx + b.",
+        "C": "Signs are correct for the slope, but the intercept is kept positive 25 while the slope is negative, which misrepresents the given positive per-mile rate.",
+        "D": "Intercept sign is incorrect; this would imply a negative fixed daily fee, which contradicts the description."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:05:00.661Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A line has slope m and passes through the point (4, -2). In point-slope form it is given that m = 3: $y - y_1 = m(x - x_1)$. Convert this to slope-intercept form and identify the slope and intercept.",
+      "options": [
+        "A) $y = 3x - 14$",
+        "B) $y = 3x + 10$",
+        "C) $y = -3x + 14$",
+        "D) $y = x - 6$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Start with the point-slope form with (x1, y1) = (4, -2) and m = 3: $y - (-2) = 3(x - 4)$. Step 2: Simplify: $y + 2 = 3x - 12$. Step 3: Subtract 2 from both sides: $y = 3x - 14$. Therefore the slope is 3 and the intercept is -14.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "Point-Slope Form",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer. The error in reasoning for others usually involves miscalculating the constant term when expanding or misplacing the constant 2.",
+        "B": "This option incorrectly adds 10 as the intercept, which would result from an incorrect handling of the constants when moving from $y + 2$ to y.",
+        "C": "This option uses a negative slope, which is inconsistent with the given m = 3.",
+        "D": "This option uses a slope of 1 and a small intercept; it forgets the 3 and miscomputes the expansion."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:05:00.662Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Consider line L with equation $y = -2x + 5$. A line M is perpendicular to L and passes through the point (2, 1). What is the equation of line M in slope-intercept form?",
+      "options": [
+        "A) $y = \\frac{1}{2}x$",
+        "B) $y = -\\frac{1}{2}x + 5$",
+        "C) $y = \\frac{1}{2}x + 5$",
+        "D) $y = -2x + 5$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: The slope of L is -2. A line perpendicular to L has slope equal to the negative reciprocal: $m_{perp} = -1/(-2) = \\frac{1}{2}$. Step 2: Use the point (2,1) to find b in $y = \\frac{1}{2}x + b$: $1 = \\frac{1}{2}(2) + b = 1 + b$, so $b = 0$. Step 3: The equation is $y = \\frac{1}{2}x$.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "Parallel-Perpendicular Lines",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer. The perpendicular slope is correctly computed as the positive reciprocal, and the intercept is found using the given point.",
+        "B": "Uses a negative reciprocal instead of the correct positive reciprocal, giving a slope that would be parallel to L’s line in this context.",
+        "C": "Keeps the correct slope but adds a nonzero intercept, ignoring the fact that the line must pass through (2,1).",
+        "D": "Treats the line as if it were parallel to L, using the same slope -2 rather than the perpendicular slope."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:05:00.663Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A described graph shows a line that rises as x increases and crosses the y-axis at -4. The line rises by 3 units for every 2 units it moves to the right. Write the equation in slope-intercept form.",
+      "options": [
+        "A) $y = \\frac{3}{2}x - 4$",
+        "B) $y = \\frac{2}{3}x - 4$",
+        "C) $y = -\\frac{3}{2}x - 4$",
+        "D) $y = \\frac{3}{2}x + 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: The slope is the rate of change: rise/run = 3/2, so m = 3/2. Step 2: The y-intercept is -4, so b = -4. Step 3: Put together in slope-intercept form: $y = \\frac{3}{2}x - 4$. Step 4: The line is increasing (positive slope), consistent with the description.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "Graphing",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer. This option correctly uses the described slope 3/2 and intercept -4.",
+        "B": "Uses the reciprocal slope instead of the given 3/2, representing a misinterpretation of rise over run.",
+        "C": "Uses a negative slope, which would indicate a decreasing line, not matching the description.",
+        "D": "Intercept is positive; the graph crosses the y-axis at -4, so the intercept should be -4, not +4."
+      },
+      "_batchId": "batch-1771525935532-linear-functions",
+      "_generatedAt": "2026-02-19T19:05:00.665Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

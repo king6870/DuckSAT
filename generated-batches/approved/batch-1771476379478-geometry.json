@@ -1,0 +1,12 @@
+{
+  "batchId": "batch-1771476379478-geometry",
+  "topic": "geometry",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T04:49:31.564Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 6,
+  "totalGenerated": 0,
+  "totalValid": 0,
+  "totalInvalid": 0,
+  "questions": []
+}

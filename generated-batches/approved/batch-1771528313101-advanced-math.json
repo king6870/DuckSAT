@@ -1,0 +1,593 @@
+{
+  "batchId": "batch-1771528313101-advanced-math",
+  "topic": "advanced-math",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T19:17:47.331Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 20,
+  "totalValid": 20,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Which function models exponential growth (as opposed to linear growth)?",
+      "options": [
+        "A) $P = 1000t$",
+        "B) $P = 1000 \\cdot 2^t$",
+        "C) $P = t^2$",
+        "D) $P = 5t + 100$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Exponential growth has the variable in the exponent. Step 2: In option B, the variable t is in the exponent of 2, i.e., $P = 1000 \\cdot 2^t$, which is exponential. Step 3: Options A and D are linear in t, and option C is quadratic, so they are not exponential.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "exponentials",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is linear in t, not exponential.",
+        "B": "Correct answer: exponential growth is represented by an exponent with t.",
+        "C": "C is a quadratic function, not exponential.",
+        "D": "D is linear in t."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:13:47.642Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A city's population grows by 4% per year, starting with 1000 people. After 5 years, what is the population (to the nearest whole person)?",
+      "options": [
+        "A) 1120",
+        "B) 1200",
+        "C) 1217",
+        "D) 1440"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Step 1: Use exponential growth formula $P = P_0(1+r)^t$. Here $P_0=1000$, $r=0.04$, $t=5$ so $P = 1000(1.04)^5$. Step 2: Calculate $(1.04)^5 \\approx 1.2166529$. Step 3: Multiply by 1000 to get $P \\approx 1216.6529$, rounds to 1217. Therefore, option C is correct.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "exponentials",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Used simple interest or undercounted the compounding effect, giving too small a value.",
+        "B": "Used a linear growth approximation $P_0(1+rt)$ instead of compounding.",
+        "C": "This is the correct answer.",
+        "D": "Overestimated by applying growth for too many years or miscalculated."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:13:47.643Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify the sum of two rational expressions: $\\frac{3x}{x-1}$ + $\\frac{2}{x+1}$.",
+      "options": [
+        "A) $\\frac{3x^2+5x-2}{x^2-1}$",
+        "B) $\\frac{3x^2+2x-1}{x^2+1}$",
+        "C) $\\frac{3x^2+5x+2}{x^2-1}$",
+        "D) $\\frac{3x^2+5x-2}{x-1}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Find common denominator: $(x-1)(x+1) = x^2-1$. Step 2: Rewrite each fraction with the common denominator: $\\frac{3x}{x-1} = \\frac{3x(x+1)}{x^2-1}$ and $\\frac{2}{x+1} = \\frac{2(x-1)}{x^2-1}$. Step 3: Add numerators: $3x(x+1) + 2(x-1) = 3x^2+3x+2x-2 = 3x^2+5x-2$. Therefore the sum is $\\frac{3x^2+5x-2}{x^2-1}$. The domain restrictions are $x \neq 1, -1$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "rational-expressions",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer; no mistake.",
+        "B": "Used a denominator of $x^2+1$ and an incorrect numerator.",
+        "C": "Made a sign error in the constant term or used $x^2-1$ with +2 instead of -2.",
+        "D": "Forgot that the common denominator must be $x^2-1$; used $x-1$ as the denominator."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:13:47.644Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $\\log_2(8) + \\log_2(4)$.",
+      "options": [
+        "A) 3",
+        "B) 5",
+        "C) 4",
+        "D) 2"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Use the property $\\log_b(m) + \\log_b(n) = \\log_b(mn)$. So the sum is $\\log_2(8\\cdot 4) = \\log_2(32)$. Step 2: Since $32 = 2^5$, $\\log_2(32) = 5$. Therefore the correct answer is 5.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "logarithms",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Forgot that the logs add to a single log of the product.",
+        "B": "Interpreted log incorrectly by exponentiating instead of adding.",
+        "C": "Confused the product; used 8+4 instead of 8\\cdot 4.",
+        "D": "Used base 2 but evaluated log of 2 instead of 32."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:13:47.647Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute \\( (2+i)(3-2i) \\).",
+      "options": [
+        "A) 6 - i",
+        "B) 7 - 2i",
+        "C) 8 - i",
+        "D) 5 + i"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Step 1: Use distribution: $(2+i)(3-2i) = 2(3-2i) + i(3-2i) = 6 - 4i + 3i - 2i^2$. Step 2: Combine like terms: $6 - i - 2(-1) = 6 - i + 2 = 8 - i$. Therefore, the correct result is $8 - i$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "complex-numbers",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Miscomputed the signs in the imaginary part.",
+        "B": "Dropped the cross-term correctly or misapplied distributive law.",
+        "C": "Correct imaginary sign but wrong real part.",
+        "D": "Incorrectly added the real parts and imaginary parts."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:13:47.648Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $i^7$.",
+      "options": [
+        "A) i",
+        "B) -i",
+        "C) 1",
+        "D) -1"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Recall the cycle i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1, and then repeats every 4. Step 2: 7 has remainder 3 when divided by 4, so i^7 = i^3 = -i. Therefore the correct answer is -i.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "complex-numbers",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Took i^7 as i, forgetting the cycle length 4.",
+        "B": "Took i^7 as -i (the correct answer) but listed as wrong; this is the correct option.",
+        "C": "Set i^7 = i^4 = 1; ignored the remainder when dividing by 4.",
+        "D": "Used repeated squaring incorrectly or misapplied exponent rules."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:13:47.649Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The population P(t) is modeled by P(t) = 500(1.25)^t, where t is measured in years. What is P(6) (to the nearest whole person)?",
+      "options": [
+        "A) 1,500",
+        "B) 1,907",
+        "C) 2,000",
+        "D) 3,000"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Compute P(6) = 500(1.25)^6. Note that (1.25)^6 = (5/4)^6 = 15625/4096 ≈ 3.814697265625. Therefore P(6) ≈ 500 × 3.814697265625 ≈ 1907.3486328125, so P(6) ≈ 1,907 people.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential growth (Population)",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Used t = 5 instead of t = 6, giving a smaller value.",
+        "B": "Correct calculation path; but explained for why others are wrong.",
+        "C": "Rounded growth by misapplying the exponent, yielding about 2,000.",
+        "D": "Used a different initial population (600) instead of 500."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:15:55.714Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "An investment of USD 1,000 earns 6% annual interest, compounded yearly. After 5 years, the value is approximately?",
+      "options": [
+        "A) USD 1,300",
+        "B) USD 1,338.23",
+        "C) USD 1,349.00",
+        "D) USD 1,600"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Value after 5 years: 1000(1.06)^5. Since (1.06)^5 ≈ 1.3382255776, the amount ≈ USD 1338.23. Therefore the correct choice is B. A is the simple interest result, C is a mis-round, and D is a large overestimate.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential growth/decay (Compound interest)",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Represents simple interest, not compound interest: 1000(1 + 0.06×5) = 1300.",
+        "B": "Correct.",
+        "C": "Overestimates slightly due to rounding, but not the exact compound result.",
+        "D": "Assumes a much larger growth than 6% per year."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:15:55.715Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Consider two population models with the same starting value: Linear P_L(t) = 1000 + 50t and Exponential P_E(t) = 1000(1.03)^t. Which statement is true for large t?",
+      "options": [
+        "A) P_E(t) eventually exceeds P_L(t) and stays greater.",
+        "B) P_L(t) stays greater for all t.",
+        "C) They grow at the same rate for large t.",
+        "D) Exponential grows faster at first but then slows below linear."
+      ],
+      "correctAnswer": 0,
+      "explanation": "As t grows large, P_L(t) ≈ 50t while P_E(t) ≈ 1000(1.03)^t grows exponentially. Exponential growth eventually dominates linear growth, so P_E(t) will exceed P_L(t) for sufficiently large t.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential vs linear growth",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct statement is A; this is the right choice.",
+        "B": "Linear will not stay ahead for very large t because exponential grows faster eventually.",
+        "C": "Linear and exponential do not have the same long-term rate; exponential dominates.",
+        "D": "Exponential does not slow down; it accelerates relative to linear."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:15:55.716Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If log_2(x) = 3 - log_2(3), what is x?",
+      "options": [
+        "A) 8/3",
+        "B) 24",
+        "C) 3/8",
+        "D) 6"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Rewrite using log rules: log_2(x) = log_2(8) − log_2(3) = log_2(8/3). Therefore x = 8/3.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct transformation shows x = 8/3; other choices come from misapplying subtraction or a miscalculation.",
+        "B": "Mistakenly adds the numbers: 8 × 3 = 24, ignoring the log subtraction.",
+        "C": "Inverts the fraction, using 1/(8/3) instead of 8/3.",
+        "D": "Mistakenly treats as an integer solution rather than a power-of-two result."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:15:55.716Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Using change of base, express log_3(12) in terms of common (base-10) logarithms.",
+      "options": [
+        "A) log_10(12) / log_10(3)",
+        "B) log_10(3) / log_10(12)",
+        "C) log_2(12) / log_2(3)",
+        "D) log_3(12) (unchanged)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "For any base b and any x>0, log_b(x) = log_k(x) / log_k(b) for any base k. Taking k = 10 gives log_3(12) = log_10(12) / log_10(3).",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct expression using change of base.",
+        "B": "Inverted the ratio; not equivalent.",
+        "C": "Used base 2 instead of base 10; not the change-of-base form.",
+        "D": "Pretends the expression is unchanged."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:15:55.717Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify the rational expression: (x^2 − 9) / (x^2 − 3x) with the domain restrictions needed for the original expression.",
+      "options": [
+        "A) (x+3)/x",
+        "B) (x-3)/x",
+        "C) (x+3)/(x-3)",
+        "D) (x^2 − 9)/(x^2 − 3x)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor numerator: (x^2 − 9) = (x−3)(x+3). Factor denominator: (x^2 − 3x) = x(x−3). Cancel common factor (x−3) with the restriction x ≠ 0 and x ≠ 3. Result: (x+3)/x with x ≠ 0, 3.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct simplified form after cancellation.",
+        "B": "Cancels the wrong factor, giving a sign error.",
+        "C": "Cancels the wrong factors; gives (x+3)/(x−3).",
+        "D": "Keeps the original fraction without simplification."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:15:55.717Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute (3 − 4i)(1 + 2i).",
+      "options": [
+        "A) 11 + 2i",
+        "B) -2 + 7i",
+        "C) 7 − i",
+        "D) −11 − 2i"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Use FOIL: (3)(1) + (3)(2i) − (4i)(1) − (4i)(2i) = 3 + 6i − 4i − 8i^2 = 3 + 2i − 8(−1) = 3 + 2i + 8 = 11 + 2i.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct calculation path leads to 11 + 2i; other options come from sign mistakes in FOIL.",
+        "B": "Incorrect linear combination of real and imaginary parts.",
+        "C": "Incorrect distribution of terms, leading to a different imaginary part.",
+        "D": "Negates both parts, giving the negative of the correct result."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:15:55.718Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute (2+i)(2−i).",
+      "options": [
+        "A) 5",
+        "B) 1",
+        "C) −5",
+        "D) 4"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Use difference of squares: (2+i)(2−i) = 2^2 − i^2 = 4 − (−1) = 5.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct result via difference of squares.",
+        "B": "Forgets the i^2 term or miscomputes a sign.",
+        "C": "Negates the result; sign error in i^2 term.",
+        "D": "Adds the squares instead of using difference of squares."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:15:55.718Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Add the rational expressions: (x+4)/(x−1) + (3x−2)/(x+1).",
+      "options": [
+        "A) (4x^2 + 6)/(x^2 − 1)",
+        "B) (4x^2 − 6)/(x^2 − 1)",
+        "C) (4x^2 + 6)/(x^2 + 1)",
+        "D) (2x^2 + 3)/(x^2 − 1)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Find common denominator (x−1)(x+1) = x^2 − 1. Convert: (x+4)(x+1) = x^2 + 5x + 4; (3x−2)(x−1) = 3x^2 − 5x + 2. Sum numerators: (x^2 + 5x + 4) + (3x^2 − 5x + 2) = 4x^2 + 6. Therefore the sum is (4x^2 + 6)/(x^2 − 1), with x ≠ ±1.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct result after combining over a common denominator.",
+        "B": "Sign error in combining the middle terms.",
+        "C": "Used the wrong denominator (x^2 + 1) instead of x^2 − 1.",
+        "D": "Did not fully combine the fractions; kept separate terms."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:15:55.719Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for x: 2^(3x+1) = 16.",
+      "options": [
+        "A) 0",
+        "B) 1",
+        "C) 2",
+        "D) −1"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Write 16 as a power of 2: 16 = 2^4. Then 2^(3x+1) = 2^4 implies 3x + 1 = 4, so x = 1.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrectly sets 3x+1 = 1, which would give x = 0, not solving for 16.",
+        "B": "Correct application of equating exponents.",
+        "C": "Incorrectly sets 3x+1 = 4x or misapplies the exponent rule.",
+        "D": "Uses a negative exponent; does not satisfy the equation."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:15:55.719Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Question 1 (Exponentials, real-world): A population grows according to $P(t) = 50{,}000 (1.023)^t$ where t is in years. A linear projection would predict $P_{linear}(t) = 50{,}000 + 2{,}300 t$. After $t = 15$, which statement is true?",
+      "options": [
+        "A) $P(15) \\approx 70{,}300$, which is about $14{,}200$ fewer than $P_{linear}(15)$.",
+        "B) $P(15) \\approx 84{,}500$, which matches the linear projection.",
+        "C) $P(15) \\approx 90{,}000$.",
+        "D) The value at $t = 15$ cannot be determined from the given information."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Compute $P(15) = 50{,}000 (1.023)^{15} \\approx 50{,}000 \\times 1.4069 \\approx 70{,}300$. Step 2: Compute $P_{linear}(15) = 50{,}000 + 2{,}300 \\cdot 15 = 84{,}500$. Step 3: Compare: $70{,}300 < 84{,}500$, so the exponential model yields about $14{,}200$ fewer people than the linear projection after 15 years. Therefore, option A is true. Option B incorrectly claims equality, option C is not supported by the calculations, and option D is false because we can determine the values from the given formulas.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential growth/decay",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is actually correct; the statement as written incorrectly claims the population is greater and by the wrong amount, misrepresenting the comparison.",
+        "B": "B wrongly asserts equality to the linear projection; the two models give different results after 15 years.",
+        "C": "C misestimates the value; the approximate calculation yields about 70,300, not 90,000.",
+        "D": "D is false because the information given suffices to compute both values."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:17:46.321Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Question 2 (Logarithms): If $\\log_2 (3x+1) - \\log_2 (x-1) = 3$, what is x?",
+      "options": [
+        "A) $x = \\dfrac{3}{2}$",
+        "B) $x = 2$",
+        "C) $x = \\dfrac{9}{5}$",
+        "D) $x = \\dfrac{4}{3}$"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Step 1: Use the quotient rule: $\\log_2\\big(\\frac{3x+1}{x-1}\\big) = 3$. Step 2: Exponentiate base 2: $\\frac{3x+1}{x-1} = 2^3 = 8$. Step 3: Solve: $3x+1 = 8(x-1) = 8x - 8 \\Rightarrow 9 = 5x \\Rightarrow x = \\dfrac{9}{5}$. Step 4: Check domain: require $x-1>0 \\Rightarrow x>1$, and $9/5>1$, so valid. The correct answer is $\\dfrac{9}{5}$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A arises from incorrectly combining the logs or solving the resulting equation by adding rather than dividing; it does not satisfy the equation.",
+        "B": "B would come from forgetting to raise 2 to the 3rd power when exponentiating, or misplacing terms when solving the resulting equation.",
+        "C": "C is correct; see explanation. (Note: this is the actual correct value.)",
+        "D": "D results from using an incorrect fraction or misplacing terms when solving for x."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:17:46.323Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Question 3 (Rational expressions): Simplify the sum $\\frac{x^2 - 1}{x^2 - x} + \\frac{2x - 2}{x - 1}$ and state all restrictions on x.",
+      "options": [
+        "A) $\\dfrac{3x+1}{x}$, with $x \neq 0,1$",
+        "B) $\\dfrac{3x+1}{x-1}$, with $x \neq 1$",
+        "C) $\\dfrac{3x+1}{x+1}$, with $x \neq -1,0$",
+        "D) $\\dfrac{3x+2}{x}$, with $x \neq 0,1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Factor: $x^2 - 1 = (x-1)(x+1)$ and $x^2 - x = x(x-1)$. So the first term becomes $\\frac{(x-1)(x+1)}{x(x-1)} = \\frac{x+1}{x}$ for $x \neq 0,1$. Step 2: The second term $\\frac{2x-2}{x-1} = \\frac{2(x-1)}{x-1} = 2$ for $x \neq 1$. Step 3: Sum: $\\frac{x+1}{x} + 2 = \\frac{x+1}{x} + \\frac{2x}{x} = \\frac{3x+1}{x}$. Restrictions come from the original denominators: $x \neq 0$ and $x \neq 1$. The simplified form is $\\dfrac{3x+1}{x}$ with those restrictions.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A correctly gives the simplified form but includes the proper restrictions; however, if a student picks B, C, or D, they misapplied one of the restrictions or the algebra.",
+        "B": "B uses the denominator $x-1$, which ignores the factor $x$ in the first denominator and thus omits a restriction.",
+        "C": "C uses $x+1$ in the denominator, which is not obtained from the simplification and ignores the actual restrictions.",
+        "D": "D yields a different numerator and does not reflect the correct combination of the two fractions."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:17:46.326Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Question 4 (Complex numbers): Let $z = 3 + 4i$. Which of the following is $z^2$?",
+      "options": [
+        "A) $-7 + 24i$",
+        "B) $-7 - 24i$",
+        "C) $7 + 24i$",
+        "D) $7 - 24i$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Compute: $(3 + 4i)^2 = 3^2 + 2\\cdot 3 \\cdot 4i + (4i)^2 = 9 + 24i + 16i^2 = 9 + 24i - 16 = -7 + 24i$. Therefore option A is correct.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is the correct answer; the explanation is correct here. (Note: this field is for incorrect options; included for completeness.)",
+        "B": "B flips the sign of the imaginary part, forgetting that i^2 = -1 contributes a negative real part.",
+        "C": "C changes the real part sign and keeps the imaginary part positive, showing a common sign confusion in squaring complex numbers.",
+        "D": "D changes both signs in a way that does not come from standard expansion; demonstrates a misunderstanding of i^2."
+      },
+      "_batchId": "batch-1771528313101-advanced-math",
+      "_generatedAt": "2026-02-19T19:17:46.328Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

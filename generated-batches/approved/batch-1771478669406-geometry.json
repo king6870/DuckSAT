@@ -1,0 +1,303 @@
+{
+  "batchId": "batch-1771478669406-geometry",
+  "topic": "geometry",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T05:29:22.166Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 10,
+  "totalValid": 10,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In right triangle $\\triangle ABC$ with a right angle at $C$, $AB = 5$ and $AC = 3$. What is the length of $BC$?",
+      "options": [
+        "A) 4",
+        "B) 2",
+        "C) $\\sqrt{34}$",
+        "D) $\\sqrt{6}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Use the Pythagorean theorem in the right triangle: $AB^2 = AC^2 + BC^2$. Substituting gives $5^2 = 3^2 + BC^2$, so $25 = 9 + BC^2$ and $BC^2 = 16$. Therefore $BC = 4$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles: Pythagorean theorem",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct answer, so there is no error in the calculation.",
+        "B": "If $BC = 2$, then $AC^2 + BC^2 = 9 + 4 = 13 \neq AB^2 = 25$, so this cannot be correct.",
+        "C": "If $BC = \\sqrt{34}$, then $BC^2 = 34$ and $AC^2 + BC^2 = 9 + 34 = 43 \\neq 25$, so this is incorrect.",
+        "D": "If $BC = \\sqrt{6}$, then $BC^2 = 6$ and $AC^2 + BC^2 = 9 + 6 = 15 \\neq 25$, so this is incorrect."
+      },
+      "_batchId": "batch-1771478669406-geometry",
+      "_generatedAt": "2026-02-19T05:25:56.938Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In coordinate geometry, what is the distance between $P(1,2)$ and $Q(4,6)$?",
+      "options": [
+        "A) 3",
+        "B) 5",
+        "C) $\\sqrt{5}$",
+        "D) $\\sqrt{13}$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Distance formula: $d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$. Here $x_2-x_1 = 4-1 = 3$ and $y_2-y_1 = 6-2 = 4$. Thus $d = \\sqrt{3^2 + 4^2} = \\sqrt{9+16} = \\sqrt{25} = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry: Distance formula",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Distance is not just the horizontal difference; you must include the vertical difference as well.",
+        "B": "Incorrectly used a distance of 3, which ignores the vertical change.",
+        "C": "Used differences $1$ and $2$, which do not match the actual coordinates.",
+        "D": "Used differences $2$ and $3$, which do not match the actual coordinates."
+      },
+      "_batchId": "batch-1771478669406-geometry",
+      "_generatedAt": "2026-02-19T05:25:56.941Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The circle with center $(2,-3)$ passes through $(5,-3)$. Its equation in the form $(x-h)^2 + (y-k)^2 = r^2$ is which of the following?",
+      "options": [
+        "A) $(x-2)^2 + (y+3)^2 = 9$",
+        "B) $(x-2)^2 + (y+3)^2 = 6$",
+        "C) $(x+2)^2 + (y+3)^2 = 9$",
+        "D) $(x-2)^2 + (y-3)^2 = 9$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The radius is the distance from the center to the given point: $r = \\sqrt{(5-2)^2 + (-3+3)^2} = \\sqrt{3^2 + 0^2} = 3$. With center $(h,k)=(2,-3)$, the equation is $(x-2)^2 + (y+3)^2 = 3^2 = 9$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles: Equation of a circle",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct form has $r^2=9$, but this set uses the correct center; check the radius value.",
+        "B": "Radius squared should be 9, not 6.",
+        "C": "Sign of the $h$-coordinate is incorrect; center is $(2,-3)$, not $(-2,-3)$.",
+        "D": "Sign of the $k$-coordinate is incorrect; center is $(2,-3)$, not $(2,3)$."
+      },
+      "_batchId": "batch-1771478669406-geometry",
+      "_generatedAt": "2026-02-19T05:25:56.943Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A composite figure consists of a $6\\text{ by }4$ rectangle and a right triangle with base 2 and height 4 attached to the top edge. What is the total area?",
+      "options": [
+        "A) 28",
+        "B) 24",
+        "C) 30",
+        "D) 32"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Rectangle area: $6 \\times 4 = 24$. Triangle area: $\\tfrac{1}{2} \\cdot 2 \\cdot 4 = 4$. Total area: $24 + 4 = 28$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-perimeter: Area of composite shapes",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct total area; see explanation.",
+        "B": "Forgot to include the triangle area.",
+        "C": "Used a larger triangle area calculation: $\\tfrac{1}{2} \\cdot 2 \\cdot 6 = 6$, giving 30.",
+        "D": "Used base 4 for the triangle: $\\tfrac{1}{2} \\cdot 4 \\cdot 4 = 8$, giving 32."
+      },
+      "_batchId": "batch-1771478669406-geometry",
+      "_generatedAt": "2026-02-19T05:25:56.946Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two parallel lines are cut by a transversal. If interior angles on the same side of the transversal satisfy $m\\angle A = 60^\\circ$, what is $m\\angle B$ when $\\angle B$ is on the same side?",
+      "options": [
+        "A) 60",
+        "B) 120",
+        "C) 30",
+        "D) 90"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Interior angles on the same side of the transversal are supplementary: $m\\angle B = 180^\\circ - m\\angle A = 180^\\circ - 60^\\circ = 120^\\circ$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Angles: Parallel lines cut by transversal",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This would ignore the supplementary relationship for same-side interior angles.",
+        "B": "Correct concept is supplementary; 60° would only occur if the angles were corresponding or alternate with another configuration.",
+        "C": "Incorrect angle; 30° would imply a different relationship (e.g., complementary, which does not apply here).",
+        "D": "Incorrect; 90° would require a right angle, not given by parallel lines with this transversal."
+      },
+      "_batchId": "batch-1771478669406-geometry",
+      "_generatedAt": "2026-02-19T05:25:56.948Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Point $P$ has coordinates $(2,3)$. After translating by the vector $(-3,-2)$, what are the coordinates of its image $P'$?",
+      "options": [
+        "A) (5,5)",
+        "B) (-1,1)",
+        "C) (-1,5)",
+        "D) (5,1)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Translation by vector $(-3,-2)$ sends $(x,y)$ to $(x-3, y-2)$. For $P(2,3)$, $P' = (2-3, 3-2) = (-1,1)$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Transformations: translations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Used the opposite vector (+3,+2) instead of (-3,-2).",
+        "B": "Correct answer; this option is the translation result.",
+        "C": "Used $y$-shift of 2 but kept $x$-coordinate unchanged or misapplied sign.",
+        "D": "Used wrong $x$-shift (+3) and wrong $y$-shift (+2)."
+      },
+      "_batchId": "batch-1771478669406-geometry",
+      "_generatedAt": "2026-02-19T05:25:56.950Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In triangle $\\triangle ABC$, AB = 6, AC = 8, BC = 10. The altitude from A to BC meets BC at D. What is the length of AD?",
+      "options": [
+        "A) $\\dfrac{24}{5}$",
+        "B) $6$",
+        "C) $4$",
+        "D) $\\dfrac{12}{5}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Since $AB^2 + AC^2 = BC^2$ (i.e., $6^2 + 8^2 = 10^2$), angle $A$ is a right angle. Step 2: The altitude from the right angle to the hypotenuse has length $AD = \\dfrac{AB \\cdot AC}{BC} = \\dfrac{6 \\cdot 8}{10} = \\dfrac{48}{10} = \\dfrac{24}{5}$. Step 3: Therefore $AD = \\dfrac{24}{5}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles: right triangle altitude and Pythagorean theorem",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer.",
+        "B": "Mistake: treated the altitude as equal to the hypotenuse length, i.e., AD = BC.",
+        "C": "Mistake: used the wrong proportional relationship or misapplied area; AD is not 4.",
+        "D": "Mistake: halved the correct result by using $AD = \\dfrac{AB \\cdot AC}{2\\,BC}$."
+      },
+      "_batchId": "batch-1771478669406-geometry",
+      "_generatedAt": "2026-02-19T05:29:21.147Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In circle with center O and radius $R=5$, chord AB has length AB = 6. Find the measure of the central angle $\\angle AOB$ (in degrees).",
+      "options": [
+        "A) $60°$",
+        "B) $73.74°$",
+        "C) $106.26°$",
+        "D) $120°$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let $\\theta = \\angle AOB$. For a chord, $AB = 2R \\sin(\\tfrac{\\theta}{2})$. With $AB=6$ and $R=5$, $6 = 2\\cdot 5 \\sin(\\tfrac{\\theta}{2})$, so $\\sin(\\tfrac{\\theta}{2}) = \\tfrac{3}{5}$. Thus $\\tfrac{\\theta}{2} = \\arcsin(\\tfrac{3}{5}) \\approx 36.8699°$, giving $\\theta \\approx 73.7398°$, i.e., $73.74°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles: central angles and chords",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Mistake: central angle is not 60° for a chord of length 6 when R = 5.",
+        "B": "Correct answer.",
+        "C": "Mistake: used the supplement $180° - 73.74°$ instead of the central angle for a chord.",
+        "D": "Mistake: chose 120°, which would correspond to a different chord length given R=5."
+      },
+      "_batchId": "batch-1771478669406-geometry",
+      "_generatedAt": "2026-02-19T05:29:21.149Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the coordinate plane, let $A=(1,2)$ and $B=(7,-4)$. Point $C$ lies on line $AB$ such that $AC:CB=1:2$. Find the coordinates of $C$.",
+      "options": [
+        "A) $(3,0)$",
+        "B) $(5,-2)$",
+        "C) $(7,-4)$",
+        "D) $(3,-1)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "If $AC:CB=1:2$, then $C$ divides segment $AB$ internally in the ratio $1:2$. By the section formula, $C = \\left(\\dfrac{2x_A+x_B}{3}, \\dfrac{2y_A+y_B}{3}\\right)$. With $A=(1,2)$ and $B=(7,-4)$, $C = \\left(\\dfrac{2(1)+7}{3}, \\dfrac{2(2)+(-4)}{3}\\right) = (3,0)$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate geometry: section formula",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer.",
+        "B": "Mistake: used the wrong division ratio, effectively placing C at a 2:1 division from A to B.",
+        "C": "Mistake: treated C as point B itself, ignoring division along AB.",
+        "D": "Mistake: incorrectly applying the section formula to obtain the $y$-coordinate."
+      },
+      "_batchId": "batch-1771478669406-geometry",
+      "_generatedAt": "2026-02-19T05:29:21.151Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A regular hexagon with side length 6 is inscribed in a circle. Find the difference between the circle's area and the hexagon's area.",
+      "options": [
+        "A) $36\\pi - 54\\sqrt{3}$",
+        "B) $36\\pi - 54$",
+        "C) $54\\sqrt{3} - 36\\pi$",
+        "D) $36\\pi - 54\\sqrt{2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "For a regular hexagon with side length $s$, the circumradius equals $R=s$, so with $s=6$ we have $R=6$. Circle area is $\\pi R^2 = 36\\pi$. The hexagon area is $A_{hex} = \\frac{3\\sqrt{3}}{2}s^2 = \\frac{3\\sqrt{3}}{2}\\cdot 36 = 54\\sqrt{3}$. The difference is $36\\pi - 54\\sqrt{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-perimeter: area of regular polygons",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer.",
+        "B": "Forgot the $\\\\sqrt{3}$ factor in the hexagon area formula; used $A_{hex} = \\\\frac{3}{2}s^2$.",
+        "C": "Swapped the roles of circle and hexagon areas, producing $54\\\\sqrt{3} - 36\\\\pi$.",
+        "D": "Used an incorrect hexagon formula involving $\\\\sqrt{2}$, leading to $36\\\\pi - 54\\\\sqrt{2}$."
+      },
+      "_batchId": "batch-1771478669406-geometry",
+      "_generatedAt": "2026-02-19T05:29:21.154Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

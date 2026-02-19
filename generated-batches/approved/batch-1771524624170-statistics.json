@@ -1,0 +1,467 @@
+{
+  "batchId": "batch-1771524624170-statistics",
+  "topic": "statistics",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T18:15:16.262Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 16,
+  "totalValid": 16,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In a math class, the quiz scores for five students are: 72, 85, 91, 85, and 73. What is the mean score?",
+      "options": [
+        "A) 81",
+        "B) 81.2",
+        "C) 83",
+        "D) 85"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Compute the mean by summing the scores and dividing by the number of scores. Step 1: $72+85+91+85+73 = 406$. Step 2: $\\frac{406}{5} = 81.2$. Therefore, the mean is 81.2, so the correct answer is B. Common mistakes: A rounds 81.2 to 81, C uses the wrong divisor or wrong sum, D uses the maximum score instead of the mean.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Mean",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "81 is the mean rounded to the nearest integer, but the exact mean is 81.2.",
+        "B": "",
+        "C": "83 could result from using the wrong sum or dividing by the wrong number of scores (e.g., dividing by 5 but mis-summing), or dividing by 4.",
+        "D": "85 is the maximum score, not the mean."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:11:41.362Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A fair six-sided die is rolled once. What is the probability of rolling an even number?",
+      "options": [
+        "A) 1/6",
+        "B) 1/2",
+        "C) 2/3",
+        "D) 1"
+      ],
+      "correctAnswer": 1,
+      "explanation": "There are three even outcomes: 2, 4, 6. So probability = $\\frac{3}{6} = \\frac{1}{2}$. Common mistakes: A) thinking of a single outcome, C) miscounting evens vs odds, D) assuming certainty.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Probability",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "1/6 is the probability of rolling a specific face, not the event 'even number.'",
+        "B": "",
+        "C": "2/3 would come from counting odds as 3 out of 6 rather than evens.",
+        "D": "1 would imply certainty, which is incorrect for a single-roll event."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:11:41.364Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A scatter plot is described by the following data points: (1, 2), (2, 3), (3, 4), (4, 5). Which statement best describes the relationship between x and y?",
+      "options": [
+        "A) There is no relationship between x and y.",
+        "B) There is a positive linear relationship, with y increasing by about 1 for each increase in x.",
+        "C) There is a negative relationship.",
+        "D) The trend cannot be determined from these points."
+      ],
+      "correctAnswer": 1,
+      "explanation": "For each step to the right in x, y increases by 1. This indicates a positive linear relationship with slope approximately 1 (indeed the points lie on the line y = x + 1).",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Scatter-Plots",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The data show a clear pattern; y increases as x increases.",
+        "B": "",
+        "C": " y does not decrease as x increases, so negative is incorrect.",
+        "D": "From the described points, a trend is evident."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:11:41.364Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A store sells 150 units in January and 180 units in February. What is the percent increase from January to February?",
+      "options": [
+        "A) 15%",
+        "B) 20%",
+        "C) 25%",
+        "D) 30%"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Increase = 180 − 150 = 30. Percent increase = $\\frac{30}{150} = 0.20 = 20\\%$. Common mistakes: A) using a 15% base, C) using 120 as base, D) using 100 as base.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Trends",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "15% would occur if you divided the increase by 200 or misinterpreted the base.",
+        "B": "",
+        "C": "25% would come from dividing by 120 (or miscalculating the base).",
+        "D": "30% would come from dividing by 100 (misreading the base)."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:11:41.365Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If a data set has standard deviation s, what happens to the standard deviation if every value in the data set is increased by a constant 2?",
+      "options": [
+        "A) It increases.",
+        "B) It decreases.",
+        "C) It stays the same.",
+        "D) It doubles."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Adding a constant to every data point shifts the entire data set but does not change the spread. The mean changes by +2, but the deviations from the mean remain the same, so the standard deviation stays the same. Formally, if new data are $x_i' = x_i + c$ and new mean is $\\mu' = \\mu + c$, then $x_i' - \\mu' = x_i - \\mu$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Standard Deviation",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Increasing the values can increase spread in some cases, but a constant shift does not change spread.",
+        "B": "A constant shift does not reduce spread.",
+        "C": "",
+        "D": "Doubling would change the spread; a constant addition does not."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:11:41.366Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a survey of 100 students, 40 preferred coffee over tea. If 120 students are surveyed with the same preference rate, how many would be expected to prefer coffee?",
+      "options": [
+        "A) 40",
+        "B) 48",
+        "C) 60",
+        "D) 72"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Proportion preferring coffee = $\\frac{40}{100} = 0.4$. Expected number in 120 = $0.4 \\times 120 = 48$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Ratio and Proportion",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Keeping the original 40 out of 100 ignores the larger sample size.",
+        "B": "",
+        "C": "60 corresponds to a 0.5 proportion; misapplied; 0.5 × 120 = 60.",
+        "D": "72 corresponds to a 0.6 proportion; misread or miscalculate."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:11:41.367Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A dataset of 8 test scores is given: $72$, $85$, $90$, $92$, $76$, $88$, $79$, $83$. What is the mean of the data?",
+      "options": [
+        "A) $83$",
+        "B) $83.125$",
+        "C) $83.5$",
+        "D) $84$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Sum the eight scores: $72+85+90+92+76+88+79+83=665$. The mean is $\\frac{665}{8}=83.125$. Therefore the correct answer is $83.125$. The other options are incorrect because they are rounded or miscalculated: $83$ (A) is rounded down, $83.5$ (C) and $84$ (D) are also not equal to $83.125$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Mean",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is rounded down from the exact mean; the true mean is 83.125.",
+        "C": "C is rounded up too high; the exact mean is 83.125.",
+        "D": "D is another incorrect rounding; the exact mean is 83.125."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:13:56.326Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two classes, Class A has 22 students with average score $78$, and Class B has 18 students with average score $85$. What is the overall average score of all 40 students?",
+      "options": [
+        "A) $80$",
+        "B) $81.15$",
+        "C) $82$",
+        "D) $81.5$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Total score = $22\\times 78 + 18\\times 85 = 1716 + 1530 = 3246$. Overall average = $\\frac{3246}{40} = 81.15$. Therefore, option B is correct. (A) would be the simple average of the two class means, which ignores class sizes; (C) and (D) are incorrect calculations.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Weighted averages",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A uses the unweighted average of the two class means, which ignores that Class A has more students than Class B.",
+        "C": "C is a miscalculation of the total divided by 40.",
+        "D": "D is another incorrect division result; the correct total divided by 40 yields 81.15."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:13:56.328Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a survey of 100 students, 40 prefer coffee, 25 prefer tea, and the rest prefer water. If a student is chosen at random, what is the probability that they prefer coffee or tea?",
+      "options": [
+        "A) $0.65$",
+        "B) $0.50$",
+        "C) $0.40$",
+        "D) $0.75$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Number who prefer coffee or tea = 40 + 25 = 65. Probability = $\\frac{65}{100} = 0.65$. So (A) is correct. The other options correspond to incorrect sums or mistaken probability rules.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Probability",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B corresponds to 50%, which would be correct if coffee and tea total were 50 out of 100, which is not the case.",
+        "C": "C corresponds to 40%, which would be just coffee (or tea) alone.",
+        "D": "D corresponds to 75%, which is the result if you incorrectly added 25 more; the correct is 65%."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:13:56.329Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a scatter plot described as having 12 points, as x increases, y tends to increase; the points are moderately scattered around an upward trend. Which statement about the correlation is most accurate?",
+      "options": [
+        "A) Negative correlation",
+        "B) No correlation",
+        "C) Positive correlation",
+        "D) Correlation cannot be determined from this description"
+      ],
+      "correctAnswer": 2,
+      "explanation": "As x increases and y tends to increase, the direction is a positive relationship, so the data show a positive correlation. The scatter is not perfectly on a line, but a positive trend indicates positive correlation. The other options contradict the described pattern.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Scatter plots interpretation",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A describes a negative relationship, which is opposite of the described positive trend.",
+        "B": "B would be chosen if there were no discernible pattern; the description indicates a pattern (upward trend).",
+        "D": "D is incorrect because the description does imply a correlation direction."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:13:56.329Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "During a 6-month period, the number of museum visitors rose from 2,500 to 3,000. (a) What is the percent increase? (b) If the same percentage increase occurs again during the next 6 months, what is the projected total number of visitors after 12 months?",
+      "options": [
+        "A) $3,500$",
+        "B) $3,600$",
+        "C) $3,750$",
+        "D) $4,000$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "(a) Percent increase = (3,000 − 2,500) / 2,500 = 500/2,500 = 0.20 = 20%. (b) If the same 20% increase occurs on 3,000, the next 6 months add 600, giving 3,000 × 1.20 = 3,600. Therefore, option B is correct. The other options reflect incorrect applications of the percent increase or noncompounding arithmetic.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Trends",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A assumes a flat $500 increase in the second 6 months, which ignores the 20% growth from 3,000.",
+        "C": "C uses a larger jump (25%), not the 20% growth calculated for each 6-month period.",
+        "D": "D reflects a larger absolute increase than 3,600, not consistent with a 20% rise on 3,000."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:13:56.330Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Consider two data sets: A = {5, 7, 9, 11} and B = {5, 9, 9, 9}. Which data set has the larger standard deviation (spread)?",
+      "options": [
+        "A) Data set A",
+        "B) Data set B",
+        "C) They have the same standard deviation",
+        "D) Not enough information"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Compute the mean and deviations: Data set A has mean 8 and deviations ±3, ±1, ±1, ±3 with squared deviations summing to 20; variance = 20/4 = 5; stdev = sqrt(5) ≈ 2.236. Data set B has mean 8 and deviations −3, 1, 1, 1 with squared deviations summing to 12; variance = 12/4 = 3; stdev = sqrt(3) ≈ 1.732. Therefore, A has the larger standard deviation. The other options are false.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Standard deviation",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B would be correct only if B had greater spread; but B is tighter around the mean.",
+        "C": "They do not have the same spread; A’s spread is larger.",
+        "D": "There is enough information to compare the spreads from the given data."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:13:56.331Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a club with 40 members, 3/5 are boys. What fraction of members are girls?",
+      "options": [
+        "A) $1/5$",
+        "B) $2/5$",
+        "C) $3/5$",
+        "D) $4/5$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "If 3/5 are boys, the remaining members are girls, which is 1 − 3/5 = 2/5. Therefore, the correct fraction is 2/5. The other options miscount the remaining portion.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Ratio and proportion",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A would be the remaining if 4/5 were boys; incorrect by miscounting.",
+        "C": "C equals the boys’ fraction, not the girls’ fraction.",
+        "D": "D would indicate 4/5 girls, which is inconsistent with 3/5 boys."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:13:56.331Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Scores: 60, 70, 75, 80, 85. If we add a new score of 100, which statistic increases more: the mean or the median?",
+      "options": [
+        "A) The mean increases more than the median",
+        "B) The median increases more than the mean",
+        "C) Both increase by the same amount",
+        "D) The mean decreases while the median increases"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Initial mean = (60+70+75+80+85)/5 = 370/5 = 74; median is 75. After adding 100, new mean = (470)/6 ≈ 78.33; new median is the average of the 3rd and 4th values in the ordered list: (75+80)/2 = 77.5. The mean increases by about 4.33, the median by 2.5, so the mean increases more. Therefore A is correct.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Mean vs median",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B incorrectly states the median increases more; in this dataset, the mean increases more.",
+        "C": "C would require equal changes, which does not occur here.",
+        "D": "D describes a mean decrease, which does not happen when adding a large value."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:13:56.332Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A bag contains 4 red, 3 blue, and 2 yellow marbles. Two marbles are drawn without replacement. What is the probability that at least one red marble is drawn?",
+      "options": [
+        "A) $\\frac{13}{18}$",
+        "B) $\\frac{11}{18}$",
+        "C) $\\frac{2}{3}$",
+        "D) $\\frac{7}{9}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Total ways to choose 2 marbles: $\\binom{9}{2} = 36$. Ways with no red: choose 2 from the 5 non-red marbles (3 blue, 2 yellow): $\\binom{5}{2} = 10$. So at least one red: $1 - \\frac{10}{36} = \\frac{26}{36} = \\frac{13}{18}$. Therefore A is correct; others correspond to incorrect counts.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Probability",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B corresponds to 11/18, which would result from a different count of non-red marbles.",
+        "C": "C (2/3) would imply 12 out of 18; incorrect count.",
+        "D": "D (7/9) would imply 28 of 36, also incorrect."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:13:56.333Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A scatter plot is described by a line of best fit $y=2x+5$. What is the predicted value of $y$ when $x=4$?",
+      "options": [
+        "A) $9$",
+        "B) $11$",
+        "C) $13$",
+        "D) $15$"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Substitute $x=4$ into the line of best fit: $y=2(4)+5=8+5=13$. So the predicted $y$ is 13, option C. The other options correspond to incorrect substitutions or miscalculation.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "Line of best fit / Scatter plots",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A uses $y=2x+1$-type miscalculation; wrong intercept.",
+        "B": "B would be $x=3$ or miscomputed slope.",
+        "D": "D corresponds to $x=5$ instead of $x=4$."
+      },
+      "_batchId": "batch-1771524624170-statistics",
+      "_generatedAt": "2026-02-19T18:13:56.334Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "batchId": "batch-1771474281947-quadratic",
+  "topic": "quadratic",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T04:14:23.983Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 0,
+  "totalValid": 0,
+  "totalInvalid": 0,
+  "questions": []
+}

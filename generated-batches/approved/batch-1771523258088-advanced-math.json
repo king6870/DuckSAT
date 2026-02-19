@@ -1,0 +1,581 @@
+{
+  "batchId": "batch-1771523258088-advanced-math",
+  "topic": "advanced-math",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T17:53:54.653Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 20,
+  "totalValid": 20,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "A population starts at $800$ and doubles every $2$ years. What is the population after $6$ years?",
+      "options": [
+        "A) 3200",
+        "B) 4800",
+        "C) 6400",
+        "D) 12800"
+      ],
+      "correctAnswer": 2,
+      "explanation": "There are 3 doubling periods in 6 years since $6 \\div 2 = 3$. The population after 6 years is $P = 800 \\times 2^3 = 800 \\times 8 = 6400$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponentials",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "3200 is the result of using only 2 doubling periods instead of 3.",
+        "B": "4800 corresponds to an arithmetic misstep or miscounting the growth factor.",
+        "D": "12800 corresponds to treating it as 4 doubling periods instead of 3."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:49:27.796Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which equation represents exponential growth?",
+      "options": [
+        "A) $y = 3x + 2$",
+        "B) $y = 2^x$",
+        "C) $y = x^2$",
+        "D) $y = x^3$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Exponential growth occurs when the variable is in the exponent. $y = 2^x$ is exponential; the others are linear or polynomial.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponentials",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Linear growth: adding a constant per unit increase in x.",
+        "C": "Quadratic growth: proportional to $x^2$.",
+        "D": "Cubic polynomial growth: proportional to $x^3$."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:49:27.809Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $\\log_2(8) + \\log_2(4)$.",
+      "options": [
+        "A) 3",
+        "B) 4",
+        "C) 5",
+        "D) 6"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Using log properties: $\\log_2(8)=3$ and $\\log_2(4)=2$, so the sum is $3+2=5$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Forgot the second term $\\log_2(4)$ and only used $\\log_2(8)$.",
+        "B": "Incorrectly treated as $\\log_2(32)$ by combining arguments incorrectly.",
+        "D": "Added an incorrect value; the correct sum is 5."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:49:27.811Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify the expression $\\dfrac{x^2 - 9}{x^2 - 3x}$.",
+      "options": [
+        "A) $\\dfrac{x+3}{x}$, with $x \neq 0$, $x \neq 3$",
+        "B) $\\dfrac{x-3}{x}$",
+        "C) $\\dfrac{x+3}{x-3}$",
+        "D) $\\dfrac{x^2 - 9}{x(x-3)}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor: $x^2 - 9=(x-3)(x+3)$ and $x^2 - 3x = x(x-3)$. Cancelling the common factor $(x-3)$ gives $\\dfrac{x+3}{x}$ with restrictions $x \neq 0$ and $x \neq 3$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational-expressions",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Used the wrong cancelation, canceling $(x-3)$ incorrectly to get $(x-3)/x$.",
+        "C": "Cancels the wrong factor; should be over $x$ not $x-3$.",
+        "D": "Keeps the original form without simplification; forgetting cancellation."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:49:27.814Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $(3 + 4i)(2 - i)$ and express as $a + bi$.",
+      "options": [
+        "A) $10 + 5i$",
+        "B) $6 + 7i$",
+        "C) $2 + i$",
+        "D) $12 + i$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Multiply: $(3+4i)(2-i)=3\\cdot2 + 3(-i) + 4i(2) + 4i(-i) = 6 - 3i + 8i - 4i^2 = 6 + 5i + 4 = 10 + 5i$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex-numbers",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect distribution of terms leading to $6 + 7i$.",
+        "C": "Imaginary part ignored or real/imaginary parts mixed up.",
+        "D": "Arithmetic error in combining terms; real and imaginary parts off."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:49:27.819Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $\\log_5(125) - \\log_5(25)$.",
+      "options": [
+        "A) 0",
+        "B) 1",
+        "C) 2",
+        "D) 3"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Use the log difference identity: $\\log_b(a) - \\log_b(c) = \\log_b\\left(\\dfrac{a}{c}\\right)$. So $\\log_5(125) - \\log_5(25) = \\log_5\\left(\\dfrac{125}{25}\\right) = \\log_5(5) = 1$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Confused the difference with a quotient that would give $\\log_5(1)=0$.",
+        "C": "Miscomputed $125/25$ or misused a power identity.",
+        "D": "Misread the quotient as a larger power or added logs instead of subtracting."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:49:27.821Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A town's population grows at 6% per year. If the current population is $P_0 = 20{,}000$, what is the population after 7 years? Use $P = P_0(1.06)^t$.",
+      "options": [
+        "A) 28,400",
+        "B) 30,073",
+        "C) 24,000",
+        "D) 36,000"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Using the compound-growth formula $P = P_0(1.06)^7$ with $P_0 = 20{,}000$. Since $(1.06)^7 \\approx 1.50363$, $P \\approx 20{,}000 \\times 1.50363 \\approx 30{,}073$. Therefore, the correct answer is B.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential growth: population",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A uses simple interest instead of compound growth (P = P_0(1+rt)).",
+        "B": "",
+        "C": "C uses a much smaller growth assumption, as if the growth did not compound, or used a shorter time period.",
+        "D": "D overestimates growth by applying growth for too many years or using a too large rate."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:51:54.951Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "An initial investment of USD 2,000 earns 5% annual interest, compounded yearly. What is the value after 8 years? Use $A = P(1 + r)^n$.",
+      "options": [
+        "A) 2,000",
+        "B) 2,955",
+        "C) 3,500",
+        "D) 4,000"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Using $A = 2000(1 + 0.05)^8$. Evaluate $(1.05)^8 \\approx 1.477455$, so $A \\approx 2000 \\times 1.477455 \\approx 2{,}955$. Answer: B.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential growth: compound interest",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A ignores any growth; it represents initial principal with no interest.",
+        "C": "C implies a larger final amount than compounding for 8 years at 5%, but the value should be around 2,955.",
+        "D": "D underestimates or misapplies compounding (or uses a wrong rate)."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:51:54.954Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which equation represents exponential growth (growth by a constant percent per unit of time)?",
+      "options": [
+        "A) $y = 3 \\cdot 2^x$",
+        "B) $y = 3x + 2$",
+        "C) $y = x^2$",
+        "D) $y = \\log_{2} x$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An exponential function has the form $y = a \\cdot b^x$. Here $y = 3 \\cdot 2^x$ fits that pattern; the others are linear, polynomial, and logarithmic.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential vs Linear Growth",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B is linear in x, not exponential.",
+        "C": "C is quadratic, not exponential.",
+        "D": "D is logarithmic, not exponential."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:51:54.956Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Evaluate $\\log_3(27) + \\log_3(9) - \\log_3(3)$.",
+      "options": [
+        "A) 4",
+        "B) 5",
+        "C) 3",
+        "D) 2"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Compute each term: $\\log_3(27)=3$, $\\log_3(9)=2$, $\\log_3(3)=1$. Sum: $3+2-1 = 4$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B adds instead of subtracting one of the logs or misapplies the base.",
+        "C": "C ignores that 27 is 3^3 and 9 is 3^2.",
+        "D": "D miscounts the subtractive term."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:51:54.957Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify the rational expression $\\frac{8x^2 - 18x}{4x - 9}$ and state any restrictions on x.",
+      "options": [
+        "A) $2x$, for all x",
+        "B) $2x$, with $x \neq \\tfrac{9}{4}$",
+        "C) $\\dfrac{8x^2 - 18x}{4x}$",
+        "D) $\\dfrac{2x - 9}{2x}$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Factor the numerator: $8x^2 - 18x = 2x(4x - 9)$. The expression becomes $\\dfrac{2x(4x-9)}{4x-9} = 2x$, with restriction $4x-9 \neq 0$, i.e. $x \neq \\tfrac{9}{4}$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A forgets the restriction on x; the cancellation is not valid when $4x-9=0$.",
+        "B": "",
+        "C": "C incorrectly cancels a different factor, leading to a different expression.",
+        "D": "D misconstructed the fraction, not matching original factoring."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:51:54.959Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A sample of radioactive material has a half-life of 6 hours. If the initial mass is 200 grams, how many grams remain after 18 hours?",
+      "options": [
+        "A) 12.5",
+        "B) 25",
+        "C) 50",
+        "D) 100"
+      ],
+      "correctAnswer": 1,
+      "explanation": "After each half-life, mass halves. In 18 hours there are $18/6=3$ half-lives: $200 \\left(\\tfrac{1}{2}\\right)^3 = 200/8 = 25$ grams.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Half-life (exponential decay)",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A uses 2 half-lives (12 hours) rather than 3.",
+        "C": "C corresponds to a miscount of half-lives or a misinterpretation of decay.",
+        "D": "D assumes no decay or wrong time multiplier."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:51:54.962Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two solutions with concentrations 12% and 35% are mixed to obtain a 24% solution. If x liters of the 12% solution are mixed with y liters of the 35% solution, the ratio x:y must satisfy $\\dfrac{0.12x + 0.35y}{x+y} = 0.24$. What is the ratio x:y?",
+      "options": [
+        "A) 11:12",
+        "B) 12:11",
+        "C) 1:1",
+        "D) 20:17"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Set up equation: $0.12x+0.35y = 0.24x+0.24y \\Rightarrow -0.12x+0.11y = 0 \\Rightarrow 0.11y = 0.12x \\Rightarrow y/x = 12/11$, so $x:y = 11:12$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A correctly uses the idea but swapped the ratio; it gives x:y = 12:11.",
+        "B": "B reverses the ratio; it would give y:x = 12:11.",
+        "C": "C assumes equal volumes, which would yield 1:1 but not the desired concentration.",
+        "D": "D is just a random ratio not derived from the equation."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:51:54.963Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute the product $$(3 + 4i)(3 - 4i)$$.",
+      "options": [
+        "A) 25",
+        "B) -25",
+        "C) 7",
+        "D) 1"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Use difference of squares: $(3+4i)(3-4i) = 3^2 - (4i)^2 = 9 - (16)(-1) = 9 + 16 = 25$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B uses the wrong sign as if the imaginary parts doubled with a negative sign.",
+        "C": "C miscomputes the square: 3^2 - (4i)^2 ≠ 7.",
+        "D": "D ignores the product, yielding 1 for some reason."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:51:54.965Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve $\\log_2(x) + \\log_2(x-1) = 3$. Find the valid value(s) of x.",
+      "options": [
+        "A) $(1+\\sqrt{33})/2$",
+        "B) $(1-\\sqrt{33})/2$",
+        "C) 2",
+        "D) 4"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Combine logs: $\\log_2(x(x-1)) = 3$ ⇒ $x(x-1)=8$ ⇒ $x^2 - x - 8 = 0$ ⇒ $x = \\frac{1 \\pm \\sqrt{33}}{2}$. Domain requires $x>1$, so $x = \\frac{1+\\sqrt{33}}{2}$ is the valid value. Numerically ≈ 3.37.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B uses the negative root, which fails the domain x>1.",
+        "C": "C is a plausible value but does not satisfy the equation after substitution.",
+        "D": "D is not a solution to the quadratic."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:51:54.968Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute the magnitude of the complex number $1 + i$, i.e., $|1 + i|$.",
+      "options": [
+        "A) $\\sqrt{2}$",
+        "B) 2",
+        "C) 1",
+        "D) $\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "For a complex number a + bi, its magnitude is $\\sqrt{a^2 + b^2}$. Here $a=1$, $b=1$, so $|1+i| = \\sqrt{1^2 + 1^2} = \\sqrt{2}$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B miscomputes magnitude as the absolute value of the real part or as length 2.",
+        "C": "C treats imaginary part as zero.",
+        "D": "D miscomputes using Pythagorean triple wrong."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:51:54.973Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A population grows according to $P(t) = P_0 \\cdot 2^{t/3}$, where $P_0 = 5000$ and the population doubles every 3 years. After how many years $t$ will $P(t)$ first reach at least 50,000 individuals?",
+      "options": [
+        "A) $3 \\log_2(10)$",
+        "B) 9",
+        "C) $3 \\log_2(100)$",
+        "D) $\\dfrac{9}{2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let $P_0 = 5000$ and $P(t) = 5000 \\cdot 2^{t/3}$. To reach 50,000, solve $5000 \\cdot 2^{t/3} = 50{,}000$. This gives $2^{t/3} = 10$. Taking logarithms base 2 yields $t/3 = \\log_2(10)$, so $t = 3 \\log_2(10)$. This is the first time the population reaches 50,000 since the model doubles every 3 years. Numerically, $t \\approx 9.97$ years.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential growth",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "9 years would correspond to $P(9) = 5000 \\cdot 2^{9/3} = 5000 \\cdot 2^{3} = 40{,}000$, which is not enough to reach 50,000. This mistake ignores the exponent divided by 3.",
+        "C": "Setting $2^{t/3} = 100$ would imply $t = 3 \\log_2(100)$, which is solving for when the population would be 500,000, not 50,000. The target amount is 10 in the equation $2^{t/3} = 10$.",
+        "D": "Using $t = \\dfrac{9}{2}$ years yields $P(t) = 5000 \\cdot 2^{(4.5)/3} = 5000 \\cdot 2^{1.5} \\approx 14{,}140$, far short of 50,000. This is an incorrect partial-steps timing."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:53:53.635Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for $x > 1$: $\\log_2(x-1) + \\log_2(x+1) = 2$, using logarithm properties.",
+      "options": [
+        "A) $\\sqrt{5}$",
+        "B) $-\\sqrt{5}$",
+        "C) $\\dfrac{5}{2}$",
+        "D) 3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Combine logs: $\\log_2(x-1) + \\log_2(x+1) = \\log_2((x-1)(x+1)) = 2$. So $\\log_2(x^2-1) = 2$, hence $x^2 - 1 = 4$ and $x^2 = 5$. Since the domain requires $x > 1$, the valid solution is $x = \\sqrt{5}$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Negative root is invalid because the domain requires $x > 1$, and $-\\sqrt{5}$ does not satisfy this.",
+        "C": "Choosing $\\dfrac{5}{2}$ misapplies the logarithm rule, perhaps treating the equation as $\\log_2(x^2-1) = 2$ giving a linear solution rather than solving the quadratic.",
+        "D": "Choosing 3 ignores the equation entirely; substituting $x = 3$ gives $\\log_2(2) + \\log_2(4) = 1 + 2 = 3 \\neq 2$."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:53:53.638Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify the rational expression $\\dfrac{x^2 - 4}{x^2 - 2x}$ and state the restrictions on $x$.",
+      "options": [
+        "A) $\\dfrac{x+2}{x}$, with $x \neq 0, 2$",
+        "B) $\\dfrac{x-2}{x}$, with $x \neq 0$",
+        "C) $\\dfrac{x+2}{x-2}$, with $x \neq 2$",
+        "D) $\\dfrac{x^2 - 4}{x}$, with $x \neq 0$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor numerator and denominator: $\\dfrac{(x-2)(x+2)}{x(x-2)}$. Cancel the common factor $(x-2)$ for $x \neq 2$, yielding $\\dfrac{x+2}{x}$ with restrictions $x \neq 0$ and $x \neq 2$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Cancelling the $(x-2)$ factor incorrectly yields $\\dfrac{x-2}{x}$; the correct cancellation removes the common factor rather than leaving it in the numerator.",
+        "C": "Using $\\dfrac{x+2}{x-2}$ treats the factors incorrectly and ignores the cancellation of the $(x-2)$ factor.",
+        "D": "Keeping the original numerator $x^2-4$ over $x$ ignores the cancellation of the $(x-2)$ factor entirely."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:53:53.641Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute the value of $(1 + i)^8$ where $i^2 = -1$.",
+      "options": [
+        "A) 16",
+        "B) -16",
+        "C) 16i",
+        "D) -8 + 8i"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Use successively: $(1+i)^2 = 1 + 2i + i^2 = 2i$. Then $(1+i)^4 = (2i)^2 = -4$, and $(1+i)^8 = (-4)^2 = 16$. Hence the result is real and positive.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Mistakenly keeping a negative sign from a power calculation; in fact the final result is positive.",
+        "C": "Treats the result as a purely imaginary number; the even power eliminates the imaginary part here.",
+        "D": "Misapplies the binomial expansion, producing a nonzero imaginary part where none remains."
+      },
+      "_batchId": "batch-1771523258088-advanced-math",
+      "_generatedAt": "2026-02-19T17:53:53.644Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "batchId": "batch-1771477773563-algebra",
+  "topic": "algebra",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T05:14:52.354Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 10,
+  "totalValid": 10,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Solve for x: $3x - 4 = 2x + 7$",
+      "options": [
+        "A) 11",
+        "B) -3",
+        "C) 4",
+        "D) -7"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From $3x - 4 = 2x + 7$, subtract $2x$ from both sides to get $x - 4 = 7$. Then add $4$ to both sides to obtain $x = 11$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) -3 is a sign error in moving terms across the equation; the correct sign keeps x positive after isolating.",
+        "C": "C) 4 results from an incorrect step such as dividing by 3 too early or mismanaging constants.",
+        "D": "D) -7 reflects a misplacement of the constant when rearranging, not the proper solution."
+      },
+      "_batchId": "batch-1771477773563-algebra",
+      "_generatedAt": "2026-02-19T05:11:04.958Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Let $x$ satisfy $x + 5 \\le 11$ and $x \\ge 2$. Which interval describes all possible values of $x$?",
+      "options": [
+        "A) $x \\le 6$",
+        "B) $x \\ge 2$",
+        "C) $2 \\le x \\le 6$",
+        "D) $2 < x < 6$"
+      ],
+      "correctAnswer": 2,
+      "explanation": "From $x + 5 \\le 11$, we get $x \\le 6$. From $x \\ge 2$, both conditions must hold, so the intersection is $2 \\le x \\le 6$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) Only captures the upper bound $x \\le 6$ and ignores the lower bound $x \\ge 2$.",
+        "B": "B) Only captures the lower bound and ignores the upper bound $x \\le 6$.",
+        "D": "D) Excludes the endpoint values; the inequalities permit equality at 2 and 6."
+      },
+      "_batchId": "batch-1771477773563-algebra",
+      "_generatedAt": "2026-02-19T05:11:04.959Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system: $2x + y = 7$ and $x - y = 1$.",
+      "options": [
+        "A) $x = \\frac{8}{3}, \\; y = \\frac{5}{3}$",
+        "B) $x = 4, \\; y = 3$",
+        "C) $x = -\\frac{8}{3}, \\; y = -\\frac{5}{3}$",
+        "D) $x = 3, \\; y = 2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Add the two equations to eliminate y: $(2x + y) + (x - y) = 7 + 1$ gives $3x = 8$, so $x = \\frac{8}{3}$. Substitute into $x - y = 1$: $\\frac{8}{3} - y = 1$ so $y = \\frac{5}{3}$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) $x = 4, \\; y = 3$ does not satisfy $2x + y = 7$ since $2(4) + 3 = 11$.",
+        "C": "C) $x = -\\frac{8}{3}, \\; y = -\\frac{5}{3}$ does not satisfy the equations; signs are inconsistent with the system.",
+        "D": "D) $x = 3, \\; y = 2$ does not satisfy $2x + y = 7$ since $2(3) + 2 = 8$."
+      },
+      "_batchId": "batch-1771477773563-algebra",
+      "_generatedAt": "2026-02-19T05:11:04.961Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Multiply the polynomials: $(x + 3)(x - 2)$",
+      "options": [
+        "A) $x^2 - x - 6$",
+        "B) $x^2 + x - 6$",
+        "C) $x^2 + 3x - 6$",
+        "D) $x^2 - 3x - 6$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Use FOIL: $(x + 3)(x - 2) = x\\cdot x + x(-2) + 3(x) + 3(-2) = x^2 - 2x + 3x - 6 = x^2 + x - 6$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) Incorrect cross-term sign; middle term should be +x, not -x.",
+        "C": "C) Middle term coefficient 3 is from adding the constants incorrectly; real coefficient is 1.",
+        "D": "D) Sign of the x-term is wrong due to distributing incorrectly."
+      },
+      "_batchId": "batch-1771477773563-algebra",
+      "_generatedAt": "2026-02-19T05:11:04.963Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve $|2x - 5| = 7$",
+      "options": [
+        "A) $x = 6$",
+        "B) $x = -1$",
+        "C) $x = 6 \\text{ or } x = -1$",
+        "D) No solution"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Absolute value gives two cases: 2x - 5 = 7 or 2x - 5 = -7. From the first, 2x = 12 => x = 6. From the second, 2x = -2 => x = -1. Therefore, $x = 6$ or $x = -1$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) Only one of the two possible solutions is listed; the other occurs from the negative case.",
+        "B": "B) Only lists the negative solution and omits the positive one.",
+        "D": "D) There are indeed solutions; absolute value equations can have two solutions when the inside expression equals ±the constant."
+      },
+      "_batchId": "batch-1771477773563-algebra",
+      "_generatedAt": "2026-02-19T05:11:04.965Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A cell phone plan charges 20 dollars per month plus 0.10 dollars per text. If the total bill is 35 dollars, how many texts were sent? Let $t$ be the number of texts; solve using $20 + 0.10 t = 35$.",
+      "options": [
+        "A) 100",
+        "B) 150",
+        "C) 200",
+        "D) 250"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Set up the equation: $20 + 0.10t = 35$. Subtract 20 from both sides: $0.10t = 15$. Divide by 0.10: $t = 150$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) 100 would result if you solved $0.10t = 25$ instead of $15$.",
+        "C": "C) 200 would result from using $0.10t = 20$ which would give $t = 200$.",
+        "D": "D) 250 would come from an incorrect subtraction or rate interpretation."
+      },
+      "_batchId": "batch-1771477773563-algebra",
+      "_generatedAt": "2026-02-19T05:11:04.966Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for x: $\\frac{3x - 5}{4} + \\frac{x + 2}{3} = 7$.",
+      "options": [
+        "A) $7$",
+        "B) $-7$",
+        "C) $\\frac{77}{13}$",
+        "D) $\\frac{84}{13}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step-by-step: Multiply both sides by 12 to clear denominators: $12\\left(\\frac{3x - 5}{4} + \\frac{x + 2}{3}\\right) = 12\\cdot 7$. This gives $3(3x - 5) + 4(x + 2) = 84$. Simplify: $9x - 15 + 4x + 8 = 84$, so $13x - 7 = 84$. Add 7: $13x = 91$. Divide by 13: $x = 7$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Sign error: moving the constant term across the equation incorrectly changes the sign, giving $x = -7$.",
+        "C": "Arithmetic slip: moving the constant on the other side by subtracting 7 instead of adding 7 yields $13x = 77$, so $x = \\frac{77}{13}$.",
+        "D": "Forgot to add 7 when moving the constant term to the other side, yielding $13x = 84$ and $x = \\frac{84}{13}$."
+      },
+      "_batchId": "batch-1771477773563-algebra",
+      "_generatedAt": "2026-02-19T05:14:51.341Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the compound inequality $-4 \\le 3x - 5 < 11$.",
+      "options": [
+        "A) $\\,x \\in [\\frac{1}{3}, \\frac{16}{3})$",
+        "B) $\\,x \\in (\\frac{1}{3}, \\frac{16}{3})$",
+        "C) $(-\\infty, \\frac{1}{3}] \\cup [\\frac{16}{3}, \\infty)$",
+        "D) $x \\in [0, \\frac{16}{3})$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Add 5 to all parts: $1 \\le 3x < 16$. Divide by 3 (positive): $\\frac{1}{3} \\le x < \\frac{16}{3}$. Therefore the solution set is $x \\in [\\frac{1}{3}, \\frac{16}{3})$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "You excluded the left endpoint, forgetting that -4 ≤ ... includes -4, so x = 1/3 is valid.",
+        "C": "You converted the inequality into the complement interval, which is incorrect for a chain inequality.",
+        "D": "You started at 0 instead of at the correct left endpoint; the lower bound is 1/3, not 0."
+      },
+      "_batchId": "batch-1771477773563-algebra",
+      "_generatedAt": "2026-02-19T05:14:51.343Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A theater sells adult tickets for 5 dollars and child tickets for 3 dollars. On a certain day, x adult tickets and y child tickets were sold, for a total of 7 tickets and total revenue of 31 dollars. How many adult tickets were sold? (Set up and solve the system: $5x + 3y = 31$, $x + y = 7$.)",
+      "options": [
+        "A) $3$",
+        "B) $5$",
+        "C) $2$",
+        "D) $7$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let x be the number of adult tickets and y the number of child tickets. From the total tickets: $x + y = 7$ ⇒ $y = 7 - x$. Substitute into the revenue equation: $5x + 3(7 - x) = 31$ ⇒ $5x + 21 - 3x = 31$ ⇒ $2x = 10$ ⇒ $x = 5$. Therefore, 5 adult tickets were sold.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "You incorrectly solved for x by guessing or misapplying the equations; the correct x is 5, not 3.",
+        "C": "You ignored the revenue equation and solved only from the ticket count, giving an incorrect x.",
+        "D": "You assumed all tickets were adults without using the equations."
+      },
+      "_batchId": "batch-1771477773563-algebra",
+      "_generatedAt": "2026-02-19T05:14:51.345Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Factor the polynomial $4x^3 - 4x^2 - 9x + 9$.",
+      "options": [
+        "A) $\\,(x - 1)(2x - 3)(2x + 3)$",
+        "B) $\\,(x - 5)(2x - 3)(2x + 3)$",
+        "C) $\\,(x + 1)(2x - 3)(2x + 3)$",
+        "D) $(x - 1)(4x^2 - 9)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Group terms: $4x^3 - 4x^2 - 9x + 9 = 4x^2(x - 1) - 9(x - 1) = (x - 1)(4x^2 - 9) = (x - 1)(2x - 3)(2x + 3)$. This matches option A, which is the correct factorization.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The first factor is incorrect; replacing (x - 1) with (x - 5) changes the factorization and does not yield the original polynomial.",
+        "C": "The first factor is incorrect; replacing (x - 1) with (x + 1) changes the sign pattern and fails to reconstruct the original polynomial.",
+        "D": "The factoring by grouping was not completed to linear factors; $4x^2 - 9$ is not broken into linear factors."
+      },
+      "_batchId": "batch-1771477773563-algebra",
+      "_generatedAt": "2026-02-19T05:14:51.347Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

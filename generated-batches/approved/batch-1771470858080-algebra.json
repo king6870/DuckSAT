@@ -1,0 +1,573 @@
+{
+  "batchId": "batch-1771470858080-algebra",
+  "topic": "algebra",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T03:21:19.701Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 20,
+  "totalValid": 20,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Solve for x: $2x - 8 = x + 4$.",
+      "options": [
+        "A) 12",
+        "B) 4",
+        "C) -4",
+        "D) 8"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From $2x - 8 = x + 4$, subtract $x$ from both sides: $x - 8 = 4$. Then add 8 to both sides: $x = 12$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "If you substitute x = 4 into the original equation, the left side is $2(4) - 8 = 0$ and the right side is $4$, which are not equal; this is a sign/ arithmetic error in solving.",
+        "C": "Substituting x = -4 gives $2(-4) - 8 = -16$ on the left and $-4$ on the right; not equal. This reflects a misstep with signs.",
+        "D": "Substituting x = 8 gives $2(8) - 8 = 8$ on the left and $12$ on the right; not equal. This is a simple arithmetic mismatch."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:15:36.328Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for x: $-3x + 7 > 1$.",
+      "options": [
+        "A) $x < 2$",
+        "B) $x > 2$",
+        "C) $x \\le 2$",
+        "D) $x \\ge 2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Subtract 7 from both sides: $-3x > -6$. Divide both sides by -3 and remember to flip the inequality: $x < 2$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Forgot to flip the inequality when dividing by the negative number; it should be $x < 2$, not $x > 2$.",
+        "C": "Failed to flip the inequality and used a non-strict symbol; the correct relation is strict.",
+        "D": "Mistakenly kept the inequality non-strict and kept the wrong direction."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:15:36.329Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system: $2x + 3y = 12$ and $x - y = 1$.",
+      "options": [
+        "A) $x=3$, $y=2$",
+        "B) $x=2$, $y=3$",
+        "C) $x=4$, $y=2$",
+        "D) $x=3$, $y=4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From $x - y = 1$, we get $x = y + 1$. Substitute into $2x + 3y = 12$: $2(y+1) + 3y = 12 \\Rightarrow 2y + 2 + 3y = 12 \\Rightarrow 5y = 10 \\Rightarrow y = 2$ and $x = 3$. Therefore, $x=3$, $y=2$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "If $x=2$ and $y=3$, substituting into the first equation yields $2(2) + 3(3) = 4 + 9 = 13$, which is not 12.",
+        "C": "If $x=4$ and $y=2$, $2x + 3y = 8 + 6 = 14$, not 12.",
+        "D": "If $x=3$ and $y=4$, $2x + 3y = 6 + 12 = 18$, not 12."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:15:36.330Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Multiply polynomials: $(x + 3)(x - 2) = $",
+      "options": [
+        "A) $x^2 + x - 6$",
+        "B) $x^2 - x - 6$",
+        "C) $x^2 + 3x - 6$",
+        "D) $x^2 + x + 6$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "FOIL: $(x+3)(x-2) = x\\cdot x + x(-2) + 3x + 3(-2) = x^2 - 2x + 3x - 6 = x^2 + x - 6$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Middle term sign is incorrect; should be +x, not -x.",
+        "C": "Mistakenly used +3x for the middle term instead of -2x combined with +3x.",
+        "D": "Constant term sign is incorrect; should be -6, not +6."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:15:36.333Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the absolute-value equation: $|2x - 4| = 0$.",
+      "options": [
+        "A) 2",
+        "B) -2",
+        "C) 0",
+        "D) 4"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An absolute value equals zero only when the inside is zero: $2x - 4 = 0 \\Rightarrow 2x = 4 \\Rightarrow x = 2$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect sign; negative values are not solutions because absolute value is nonnegative.",
+        "C": "Confuses the solution of the inside with the solution of the absolute value; does not satisfy $|2x-4|=0$ when x=0.",
+        "D": "Plugging in 4 gives $|2(4)-4| = |8-4| = 4$, not 0."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:15:36.335Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Word problem (setting up an equation): The larger of two numbers and the smaller of two numbers satisfy that their sum is 24 and their difference is 6. What is the larger number?",
+      "options": [
+        "A) 15",
+        "B) 9",
+        "C) 24",
+        "D) 18"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let the larger number be x and the smaller be y. Then x + y = 24 and x - y = 6. Adding gives 2x = 30, so x = 15. Substituting back gives y = 9. Therefore, the larger number is 15.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "9 is the smaller number; the larger is obtained by solving the system, not by picking the smaller outright.",
+        "C": "24 is the sum, not the larger number; this confuses the total with the individual value.",
+        "D": "18 is not a correct result from the standard solve; it could arise from a mistaken arithmetic step in combining the equations."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:15:36.336Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for x: $3x - 7 = 2x + 5$.",
+      "options": [
+        "A) x = 12",
+        "B) x = -12",
+        "C) x = 1",
+        "D) x = 5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Subtract 2x from both sides to get $x - 7 = 5$. Then add 7 to both sides to obtain $x = 12$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect sign after moving terms; substituting would give $-7 = 5$ which is false.",
+        "C": "Plugging x = 1 yields $3(1) - 7 = -4$ and $2(1) + 5 = 7$, not equal.",
+        "D": "Plugging x = 5 yields $3(5) - 7 = 8$ and $2(5) + 5 = 15$, not equal."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:20:06.623Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the compound inequality: $2 \\le 3x - 4 \\le 8$. Which of the following describes the solution set?",
+      "options": [
+        "A) x $\\le$ 2 or x $\\ge$ 4",
+        "B) 2 $\\le$ x $\\le$ 4",
+        "C) -$\\infty$ < x < 2",
+        "D) 2 < x < 4"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Add 4 to all parts: $6 \\le 3x \\le 12$. Divide by 3: $2 \\le x \\le 4$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Treats the endpoints as if they were outside the interval; misinterprets the chain as two separate inequalities.",
+        "C": " omissions of the upper bound; excludes 2 and 4 improperly.",
+        "D": " Excludes endpoints 2 and 4, which are actually included."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:20:06.625Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system: $y = 2x + 3$, and $y - x = -1$.",
+      "options": [
+        "A) (x, y) = (-4, -5)",
+        "B) (x, y) = (0, 0)",
+        "C) (x, y) = (4, -5)",
+        "D) (x, y) = (-4, 5)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Substitute $y = 2x + 3$ into $y - x = -1$: $(2x + 3) - x = -1 \\Rightarrow x + 3 = -1 \\Rightarrow x = -4$. Then $y = 2(-4) + 3 = -8 + 3 = -5$; solution is $(-4, -5)$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Gives the origin, which does not satisfy the equations.",
+        "C": "Uses the wrong sign for y; fails substitution.",
+        "D": "Keeps x = -4 but gives y = +5, which contradicts $y = 2x + 3$."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:20:06.626Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Multiply the polynomials: $(3x - 2)(x + 4) = ?$",
+      "options": [
+        "A) $3x^2 + 10x - 8$",
+        "B) $3x^2 + 6x - 8$",
+        "C) $3x^2 - 10x - 8$",
+        "D) $3x^2 + 4x - 8$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distribute: $3x\\cdot x = 3x^2$, $3x\\cdot 4 = 12x$, $-2\\cdot x = -2x$, $-2\\cdot 4 = -8$. Combine: $12x-2x = 10x$, so $3x^2 + 10x - 8$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Uses 6x instead of 10x, sign error in combining terms.",
+        "C": "Signs misapplied for the middle terms.",
+        "D": "Middle term coefficient incorrect."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:20:06.628Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the equation $|2x - 5| = 7$.",
+      "options": [
+        "A) { -1, 6 }",
+        "B) { 6 }",
+        "C) { -1 }",
+        "D) { -6, 1 }"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Absolute value equality gives two cases: $2x - 5 = 7$ or $2x - 5 = -7$. Solving yields $x = 6$ or $x = -1$. So the solution set is { -1, 6 }. ",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Only lists one of the two solutions.",
+        "C": "Only lists the other solution.",
+        "D": "Incorrect numbers and ordering; signs wrong."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:20:06.629Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the equation $x^2 - 9 = 0$ by factoring.",
+      "options": [
+        "A) x = -3 or x = 3",
+        "B) x = -9 or x = 3",
+        "C) x = -9 or x = -3",
+        "D) x = 0 or x = 9"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor: $(x - 3)(x + 3) = 0$, so $x = 3$ or $x = -3$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrectly factoring or solving gives extraneous roots.",
+        "C": "Includes -9 which is not a root.",
+        "D": "Assumes zeroes at 0 and 9."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:20:06.630Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A tutoring service charges a base monthly fee of $12 and $3 per tutoring hour. If the total charge for the month is $60, how many hours of tutoring were used?$",
+      "options": [
+        "A) 16 hours",
+        "B) 20 hours",
+        "C) 8 hours",
+        "D) 12 hours"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let h be hours. $12 + 3h = 60$. Then $3h = 48$ and $h = 16$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Miscomputes the remaining after base fee.",
+        "C": "Divides the remaining by the wrong value.",
+        "D": "Misreads the total cost or base fee."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:20:06.631Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Divide $2x^3 - x^2 - 3x + 4$ by $x - 1$. What is the quotient and remainder?",
+      "options": [
+        "A) Quotient $2x^2 + x - 2$ and remainder $2$",
+        "B) Quotient $2x^2 + x - 4$ and remainder $0$",
+        "C) Quotient $2x^2 - x + 2$ and remainder $-2$",
+        "D) Quotient $2x^2 + 0x - 2$ and remainder $1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using synthetic division with root 1 on coefficients 2, -1, -3, 4 gives quotient $2x^2 + x - 2$ and remainder 2.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect quotient and remainder (remainder should be 2).",
+        "C": "Sign errors in the middle term and remainder.",
+        "D": "Incorrect quotient and remainder values."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:20:06.632Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the inequality $|x - 3| \\ge 5$.",
+      "options": [
+        "A) x $\\le$ -2 or x $\\ge$ 8",
+        "B) -2 $\\le$ x $\\le$ 8",
+        "C) -5 < x < 5",
+        "D) x < -2 and x > 8"
+      ],
+      "correctAnswer": 0,
+      "explanation": "|x - 3| ≥ 5 means x - 3 ≤ -5 or x - 3 ≥ 5, so x ≤ -2 or x ≥ 8.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Contains the interval between -2 and 8, which is incorrect for |x-3| ≥ 5.",
+        "C": "Gives a narrow interval around 3, which is incorrect.",
+        "D": "Conjunction 'and' is incorrect; the two regions are disjoint."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:20:06.634Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two numbers have sum 7 and difference 3. What is the ordered pair (x,y) of the numbers, with x the larger?",
+      "options": [
+        "A) (5, 2)",
+        "B) (3, 4)",
+        "C) (1, 6)",
+        "D) (2, 5)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let x and y be the numbers with x > y. Then x + y = 7 and x - y = 3. Adding gives 2x = 10, so x = 5 and y = 2.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Flips the order or uses incorrect system solving.",
+        "C": "Misinterprets equations leading to wrong pair.",
+        "D": "Gives the smaller number as the first coordinate."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:20:06.634Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for $x$: $3(2x - 5) + 4(x + 1) = 5x + 9$.",
+      "options": [
+        "A) 4",
+        "B) 2",
+        "C) 1",
+        "D) 5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Expand: $3(2x - 5) + 4(x + 1) = (6x - 15) + (4x + 4) = 10x - 11$. Set equal to the right side: $10x - 11 = 5x + 9$. Subtract $5x$: $5x - 11 = 9$. Add $11$: $5x = 20$. Divide by 5: $x = 4$. Check: LHS $= 3(2\\cdot 4 - 5) + 4(4 + 1) = 3(8 - 5) + 4(5) = 3(3) + 20 = 9 + 20 = 29$. RHS $= 5\\cdot 4 + 9 = 20 + 9 = 29$. Balance holds, so $x = 4$ is correct.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B arises from distributing incorrectly: $3(2x - 5)$ is $6x - 15$, not $6x - 5$, which would lead to a different solution.",
+        "C": "C would come from miscomputing the constants or miscombining terms; plugging $x = 1$ does not satisfy the equation.",
+        "D": "D ignores the solved value and tests an arbitrary number; the equation balances only at $x = 4$."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:21:18.687Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Let $x$ be a number such that $-1 ≤ 2x - 3 ≤ 5$. What are the possible values of $x$?",
+      "options": [
+        "A) x < 1",
+        "B) 1 ≤ x ≤ 4",
+        "C) x > 4",
+        "D) 0 ≤ x ≤ 2"
+      ],
+      "correctAnswer": 1,
+      "explanation": "From $-1 ≤ 2x - 3 ≤ 5$, add 3: $2 ≤ 2x ≤ 8$. Divide by 2: $1 ≤ x ≤ 4$. Therefore, the possible values of $x$ lie in the interval $[1, 4]$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This ignores the lower and upper bounds; it incorrectly concludes $x$ must be less than 1.",
+        "C": "This ignores the lower bound; it only uses the right inequality and claims $x > 4$.",
+        "D": "This incorrectly combines the bounds into a narrower interval that does not match the actual solution."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:21:18.690Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Let $x$ and $y$ be numbers with $x \\ge y$. They satisfy $x + y = 6$ and $x - y = 2$. Find $x$ and $y$.",
+      "options": [
+        "A) x=2, y=4",
+        "B) x=3, y=3",
+        "C) x=4, y=2",
+        "D) x=5, y=1"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Add the equations: $(x + y) + (x - y) = 6 + 2$ gives $2x = 8$, so $x = 4$. Substitute into $x + y = 6$: $4 + y = 6$, so $y = 2$. Since $x \\ge y$, this pair satisfies the condition, so $x=4$, $y=2$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Option A swaps the order of the numbers; it also violates $x \\ge y$ since $2 < 4$.",
+        "B": "Option B has $x = y = 3$, which would make $x - y = 0$, not 2.",
+        "D": "Option D gives $x - y = 4$, not 2."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:21:18.691Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve $|2x - 3| + 4 \\le 3x$.",
+      "options": [
+        "A) $x \\ge \\frac{7}{5}$",
+        "B) $x \\le 0$",
+        "C) $x \\ge 4$",
+        "D) all real numbers"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Do casework on the absolute value. Case 1: $2x - 3 \\ge 0$ (i.e., $x \\ge \\tfrac{3}{2}$). Then $|2x - 3| = 2x - 3$ and $(2x - 3) + 4 \\le 3x$ gives $2x + 1 \\le 3x \\Rightarrow x \\ge 1$. Intersect with $x \\ge \\tfrac{3}{2}$ to get $x \\ge \\tfrac{3}{2}$. Case 2: $2x - 3 < 0$ (i.e., $x < \\tfrac{3}{2}$). Then $|2x - 3| = -2x + 3$ and $(-2x + 3) + 4 \\le 3x$ gives $-2x + 7 \\le 3x \\Rightarrow 7 \\le 5x \\Rightarrow x \\ge \\tfrac{7}{5}$. Intersect with $x < \\tfrac{3}{2}$ to get $\\tfrac{7}{5} \\le x < \\tfrac{3}{2}$. Union with Case 1 yields $x \\ge \\tfrac{7}{5}$. So the solution is $x \\ge \\tfrac{7}{5}$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Common mistake: dropping the absolute value and solving as if $|2x - 3| = 2x - 3 for all x$, which would give a different interval.",
+        "C": "Misapplying the case split, e.g., concluding only $x \\ge 4$ without considering the full union from both cases.",
+        "D": "Assuming every real number satisfies the inequality, neglecting the constraint from the absolute value and the right-hand side."
+      },
+      "_batchId": "batch-1771470858080-algebra",
+      "_generatedAt": "2026-02-19T03:21:18.693Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

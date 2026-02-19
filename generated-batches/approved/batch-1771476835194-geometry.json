@@ -1,0 +1,70 @@
+{
+  "batchId": "batch-1771476835194-geometry",
+  "topic": "geometry",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T04:55:25.300Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 3,
+  "totalGenerated": 2,
+  "totalValid": 2,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In coordinate geometry, let $A(1, 2)$ and $B(4, 6)$. What is the length of $\\overline{AB}$?",
+      "options": [
+        "A) 3",
+        "B) 4",
+        "C) 5",
+        "D) 7"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Use the distance formula for the length of segment $\\overline{AB}$: $AB = \\sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$. Here $A = (1,2)$ and $B = (4,6)$, so $AB = \\sqrt{(4-1)^2 + (6-2)^2} = \\sqrt{3^2 + 4^2} = \\sqrt{9+16} = \\sqrt{25} = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate Geometry",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "You computed only the horizontal change (dx = 3) and ignored the vertical change (dy).",
+        "B": "You computed only the vertical change (dy = 4) and ignored the horizontal change (dx).",
+        "D": "You added the changes (3 + 4) instead of applying the distance formula which uses a square root of sum of squares."
+      },
+      "_batchId": "batch-1771476835194-geometry",
+      "_generatedAt": "2026-02-19T04:54:23.373Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the coordinate plane, points $P(2,3)$ and $Q(7,-1)$ are given. The distance $PQ$ equals which of the following?",
+      "options": [
+        "A) $\\sqrt{41}$",
+        "B) $\\sqrt{50}$",
+        "C) $\\sqrt{34}$",
+        "D) $\\sqrt{32}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distance formula: $PQ = \\sqrt{(x_Q - x_P)^2 + (y_Q - y_P)^2} = \\sqrt{(7-2)^2 + (-1-3)^2} = \\sqrt{5^2 + (-4)^2} = \\sqrt{25+16} = \\sqrt{41}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate geometry: distance formula",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Not applicable (A is the correct answer in this problem).",
+        "B": "B would occur if you mistakenly used $\\\\Delta y = -5$ instead of $-4$, giving $\\\\sqrt{25+25}=\\\\sqrt{50}$.",
+        "C": "C would occur if you used $\\\\Delta y = -3$ instead of $-4$, giving $\\\\sqrt{25+9}=\\\\sqrt{34}$.",
+        "D": "D would occur if you used $\\\\Delta x = 4$ instead of $5$, giving $\\\\sqrt{16+16}=\\\\sqrt{32}$."
+      },
+      "_batchId": "batch-1771476835194-geometry",
+      "_generatedAt": "2026-02-19T04:55:20.713Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

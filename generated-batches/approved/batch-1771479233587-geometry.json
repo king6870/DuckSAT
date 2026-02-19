@@ -1,0 +1,589 @@
+{
+  "batchId": "batch-1771479233587-geometry",
+  "topic": "geometry",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T05:39:27.906Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 20,
+  "totalValid": 20,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In right triangle $\\triangle ABC$ with right angle at $C$, $AC = 3$ and $BC = 4$. What is the length of the hypotenuse $AB$?",
+      "options": [
+        "A) 4",
+        "B) 5",
+        "C) 7",
+        "D) 3"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: identify a right triangle with legs $AC$ and $BC$. Step 2: apply Pythagorean theorem: $AB^2 = AC^2 + BC^2 = 3^2 + 4^2 = 9 + 16 = 25$. Step 3: $AB = \\sqrt{25} = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "triangles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "4 is not the hypotenuse; AB is longer than both legs.",
+        "B": "This option is the correct answer.",
+        "C": "7 is the sum of the two legs, not the hypotenuse.",
+        "D": "3 is the length of the other leg, not the hypotenuse."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:35:49.263Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a circle with center $O$ and radius $5$, what is the area of the sector with central angle $60°$?",
+      "options": [
+        "A) $\\frac{25\\pi}{6}$",
+        "B) $\\frac{25\\pi}{3}$",
+        "C) $\\frac{5\\pi}{3}$",
+        "D) $\\frac{25\\pi}{12}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area of a sector with central angle $\\theta$ is $A = \\frac{\\theta}{360} \\cdot \\pi r^2$. Here $\\theta = 60°$, $r = 5$: $A = \\frac{60}{360} \\cdot \\pi \\cdot 25 = \\frac{1}{6} \\cdot 25\\pi = \\frac{25\\pi}{6}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "circles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer.",
+        "B": "Using $\\\\theta/180$ instead of $\\\\theta/360$ doubles the result.",
+        "C": "Forgot to account for the radius being squared; used a smaller fraction of the circle.",
+        "D": "Dividing by 12 instead of 6; misapplied the sector fraction."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:35:49.265Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the coordinate plane, points $A(2,3)$ and $B(5,-1)$. What is the distance $AB$?",
+      "options": [
+        "A) 4",
+        "B) 5",
+        "C) $\\sqrt{13}$",
+        "D) $\\sqrt{20}$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Use distance formula: $AB = \\sqrt{(x_B - x_A)^2 + (y_B - y_A)^2} = \\sqrt{(5-2)^2 + (-1-3)^2} = \\sqrt{3^2 + (-4)^2} = \\sqrt{9+16} = \\sqrt{25} = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "coordinate-geometry",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "4 would result from using only the x-difference (ignoring the y-difference).",
+        "B": "This is the correct answer.",
+        "C": "$\\\\sqrt{13}$ would come from using $\\\\Delta x=2$ and $\\\\Delta y=3$ (mixing coordinates).",
+        "D": "$\\\\sqrt{20}$ could arise from an incorrect assignment of differences to both coordinates."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:35:49.267Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The line through $A(0,0)$ and $B(2,3)$ has slope equal to which value?",
+      "options": [
+        "A) 0",
+        "B) $\\frac{3}{2}$",
+        "C) $\\frac{2}{3}$",
+        "D) $-\\frac{3}{2}$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Slope $m = \\frac{y_B - y_A}{x_B - x_A} = \\frac{3-0}{2-0} = \\frac{3}{2}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "coordinate-geometry",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A zero slope would be a horizontal line; here both x and y change.",
+        "B": "This is the reciprocal; it would be the slope of a line perpendicular to AB.",
+        "C": "Using the reciprocal of the correct slope; incorrect.",
+        "D": "Negative slope; sign error or misinterpretation of direction."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:35:49.269Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a trapezoid with bases $b_1=8$ and $b_2=3$, and height $h=4$, what is the area?",
+      "options": [
+        "A) 14",
+        "B) 22",
+        "C) 18",
+        "D) 20"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Area of a trapezoid: $A = \\tfrac{1}{2}(b_1 + b_2)h = \\tfrac{1}{2}(8+3)\\cdot 4 = \\tfrac{1}{2}\\cdot 11 \\cdot 4 = 22$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "area-perimeter",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Using an incorrect average of bases: if you incorrectly used 3.5 as the average base, $3.5 \\cdot 4 = 14$.",
+        "B": "This is the correct answer.",
+        "C": "Using only one base times height (e.g., $b_1 \\cdot h$) would give 32; not the trapezoid area.",
+        "D": "Using (b1 - b2)h would give 20, which is not the trapezoid area."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:35:49.270Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Under reflection across the x-axis, point $A(2,-5)$ maps to $A'$ with coordinates which of the following?",
+      "options": [
+        "A) (2,5)",
+        "B) (2,-5)",
+        "C) (-2,5)",
+        "D) (-2,-5)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reflection across the x-axis maps $(x,y)$ to $(x,-y)$. So $A(2,-5) \\rightarrow A'(2,5)$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "transformations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the image after reflection and is actually correct.",
+        "B": "No movement; this would be the original point, not its image.",
+        "C": "Reflection across the y-axis, which would change the sign of x.",
+        "D": "Both coordinates negated; this is a 180-degree rotation about the origin."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:35:49.272Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In $\\triangle ABC$, with $\\angle C = 90°$, $\\angle A = 30°$, and $AB = 10$, what is the length of $BC$?",
+      "options": [
+        "A) 5",
+        "B) $5\\sqrt{3}$",
+        "C) $\\sqrt{3}$",
+        "D) 10"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step-by-step: In a $30°-60°-90°$ triangle, the side opposite 30° (here BC) has length x, the hypotenuse is 2x, and the side opposite 60° is x√3. Since AB is the hypotenuse and AB = 10, we have 2x = 10 → x = 5. Therefore BC = 5.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) This is correct; there is no mistake here.",
+        "B": "B) Confuses the side opposite 30° with the side opposite 60°, using $x\\sqrt{3}$ instead of $x$ for BC.",
+        "C": "C) Treats BC as $\\sqrt{3}$, which ignores the 30-60-90 ratio and the given hypotenuse.",
+        "D": "D) Assuming BC equals the hypotenuse AB is a common error."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:37:20.060Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In circle with center $O$ and radius $6$, the central angle $\\angle AOB = 60°$ spans arc $AB$. What is the length of arc $AB$?",
+      "options": [
+        "A) $2\\pi$",
+        "B) $4\\pi$",
+        "C) $6\\pi$",
+        "D) $12\\pi$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step-by-step: Convert the angle to radians: $60° = \\frac{\\pi}{3}$. Arc length $s = r\\theta = 6\\cdot \\frac{\\pi}{3} = 2\\pi$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) Correct value, but if someone misused degrees in the formula, they might get a wrong result.",
+        "B": "B) Incorrect because it uses $2\\pi r$ for full circle, not a 60° arc.",
+        "C": "C) Incorrect; $6\\pi$ would correspond to a 180° arc (half circle) with radius 6.",
+        "D": "D) Incorrect; $12\\pi$ would correspond to a full circumference ($2\\pi r = 12\\pi$) for r = 6."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:37:20.061Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Given the circle equation $(x-3)^2 + (y+2)^2 = 25$, which point lies on the circle?",
+      "options": [
+        "A) (8,-2)",
+        "B) (2,-2)",
+        "C) (7,0)",
+        "D) (0,0)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step-by-step: The center is $(3,-2)$ and radius $5$. Check each point: A) $(8,-2)$ gives $(8-3)^2+(-2+2)^2=5^2+0=25$ → on circle. B) $(2,-2)$ gives $(-1)^2+0^2=1$ → not on circle. C) $(7,0)$ gives $(4)^2+(2)^2=20$ → not on circle. D) $(0,0)$ gives $(-3)^2+(2)^2=13$ → not on circle. So only A lies on the circle.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) This is actually correct; no mistake.",
+        "B": "B) Mistakes distance from the center by using 1 instead of 5 for the radius.",
+        "C": "C) Used wrong coordinates, giving distance $\\sqrt{20}$ which is not 5.",
+        "D": "D) Miscalculates distance by using $\\sqrt{13}$ which is not the radius."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:37:20.063Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Find the distance between points $P(1,2)$ and $Q(4,-3)$.",
+      "options": [
+        "A) $\\sqrt{34}$",
+        "B) $\\sqrt{13}$",
+        "C) $\\sqrt{29}$",
+        "D) $\\sqrt{41}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step-by-step: Distance formula: $d = \\sqrt{(4-1)^2 + (-3-2)^2} = \\sqrt{3^2 + (-5)^2} = \\sqrt{9+25} = \\sqrt{34}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) Correct calculation for the distance; no mistake here.",
+        "B": "B) Used $\\Delta y = -3-2$ but $\\Delta x$ was mishandled, giving $\\sqrt{13}$.",
+        "C": "C) Used $(-3-2)^2$ and $(4-1)^2$ incorrectly, yielding $\\sqrt{29}$.",
+        "D": "D) Added an extra unit in one coordinate, leading to $\\sqrt{41}$."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:37:20.065Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A rectangle of width 6 and height 4 has a right triangle of legs 2 and 3 cut out from the top-right corner. What is the area of the resulting figure?",
+      "options": [
+        "A) 21",
+        "B) 24",
+        "C) 22",
+        "D) 23"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step-by-step: Area of rectangle = $6\\times 4 = 24$. Area of cut-out triangle = $\\tfrac{1}{2}(2)(3) = 3$. Remaining area = $24-3 = 21$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-perimeter",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) This is the correct area; no mistake.",
+        "B": "B) Forgets to subtract the area of the removed triangle.",
+        "C": "C) Subtracts a wrong portion of the rectangle; does not account for the notch correctly.",
+        "D": "D) Rounds or miscomputes the triangle area, giving an incorrect result."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:37:20.067Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two parallel lines are cut by a transversal. If the interior angles on the same side of the transversal measure $110°$, what is the measure of the other interior angle on the same side?",
+      "options": [
+        "A) $70°$",
+        "B) $110°$",
+        "C) $180°$",
+        "D) $90°$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step-by-step: Same-side interior angles are supplementary, so the two angles sum to 180°. If one is $110°$, the other is $180°-110° = 70°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Angles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) Confuses with corresponding angles; corresponding angles are equal, not supplementary.",
+        "B": "B) Incorrect; those two angles are not equal when they are on the same side of the transversal.",
+        "C": "C) Misapplies the straight angle concept; interior angles on the same side sum to 180°, not 180° individually.",
+        "D": "D) 90° would only occur if the lines were perpendicular, which is not given."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:37:20.069Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A point $P(-4,5)$ is translated by vector $(3,2)$. What are the coordinates of the image $P'$?",
+      "options": [
+        "A) $(-1,7)$",
+        "B) $(-7,5)$",
+        "C) $(1,7)$",
+        "D) $(-4,-3)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step-by-step: Translation by vector $(a,b)$ adds $a$ to $x$ and $b$ to $y$. So $P' = (-4+3, 5+2) = (-1,7)$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Transformations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) Correct result for the translation; no mistake.",
+        "B": "B) If you subtracted 3 from x instead of adding, you would get $(-7,5)$.",
+        "C": "C) Added 3 to x but added 2 to y in the wrong direction for y.",
+        "D": "D) Flipped signs; this would be a reflection, not a translation."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:37:20.070Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the area of a regular hexagon with side length $2$?",
+      "options": [
+        "A) $6\\sqrt{3}$",
+        "B) $8\\sqrt{3}$",
+        "C) $12\\sqrt{3}$",
+        "D) $3\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step-by-step: Area of a regular hexagon with side $s$ is $A = \\frac{3\\sqrt{3}}{2} s^2$. With $s=2$, $A = \\frac{3\\sqrt{3}}{2} \\cdot 4 = 6\\sqrt{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-perimeter",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) Correct value; many distractors come from misapplying the formula.",
+        "B": "B) Uses a larger coefficient, overestimates area.",
+        "C": "C) Miscomputes by doubling or misusing the formula.",
+        "D": "D) Uses an incorrect coefficient; the correct coefficient is $\\frac{3\\sqrt{3}}{2}$."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:37:20.072Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In triangles $\\triangle ABC$ and $\\triangle DEF$, the correspondence is $A\\leftrightarrow D$, $B\\leftrightarrow E$, $C\\leftrightarrow F$, and $AB:DE = 3:5$. If $AB = 9$, what is $DE$?",
+      "options": [
+        "A) 15",
+        "B) 12",
+        "C) 18",
+        "D) 21"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step-by-step: Since $AB:DE = 3:5$ and $AB = 9$, set $\\frac{AB}{DE} = \\frac{3}{5}$. Then $\\frac{9}{DE} = \\frac{3}{5} \\Rightarrow DE = 9 \\cdot \\frac{5}{3} = 15$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) Correct result; but listed as wrong here for explanation consistency.",
+        "B": "B) If you mistakenly assumed a 3:4:5 scaling or used the wrong ratio, you could get 12.",
+        "C": "C) Misapplies the ratio, yielding a larger value if you used 3:5 with AB=9 incorrectly.",
+        "D": "D) Mis-scales by using a multiplier that doesn’t match the given ratio."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:37:20.075Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In circle geometry, a sector has radius $7$ and central angle $120°$. What is the area of the sector?",
+      "options": [
+        "A) $\\frac{49\\pi}{3}$",
+        "B) $\\frac{49\\pi}{6}$",
+        "C) $\\frac{98\\pi}{3}$",
+        "D) $\\frac{49\\pi}{2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step-by-step: Sector area $A = \\frac{\\theta}{360}=\\frac{120}{360}=\\frac{1}{3}$ times the circle area $\\pi r^2$. With $r=7$, circle area $=49\\pi$. So $A = \\frac{1}{3} \\cdot 49\\pi = \\frac{49\\pi}{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) Correct value; the division by 3 is essential from the 120° central angle.",
+        "B": "B) Using $\\frac{1}{6}$ instead of $\\frac{1}{3}$ corresponds to a 60° sector, not 120°.",
+        "C": "C) Incorrect; doubles the correct area by misusing the radius or angle.",
+        "D": "D) Incorrect; uses $\\frac{1}{2}$ of the circle area, which would be a semicircle."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:37:20.076Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In $\\triangle ABC$, $\\overline{AB}=8$, $\\overline{AC}=6$, $\\angle A=60°$, and $D$ is a point on $\\overline{AB}$ with $AD=3$. What is the length of $\\overline{CD}$?",
+      "options": [
+        "A) $3\\sqrt{3}$",
+        "B) 6",
+        "C) $3\\sqrt{2}$",
+        "D) $2\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Note that in triangle ACD, the sides AD and AC form the included angle ∠DAC equal to ∠A = 60°. Step 2: Apply the Law of Cosines: $CD^2 = AD^2 + AC^2 - 2\\cdot AD\\cdot AC\\cdot \\cos 60°$. Substitute AD=3, AC=6, cos60°=1/2: $CD^2 = 3^2 + 6^2 - 2\\cdot 3\\cdot 6\\cdot \\frac{1}{2} = 9 + 36 - 18 = 27$. Step 3: Therefore $CD = \\sqrt{27} = 3\\sqrt{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Using BC in the cosine formula instead of AC (or treating the wrong pair as the included sides).",
+        "C": "Using the angle incorrectly or treating the included angle as between AD and AB instead of AD and AC.",
+        "D": "Forgetting to take the square root after computing CD^2; giving the value 27 instead of $\\sqrt{27}$."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:39:26.883Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a circle with center $O$ and radius $6$, the central angle $\\angle AOB$ is $120°$. What is the length of arc $\\\\widehat{AB}$?",
+      "options": [
+        "A) $4\\pi$",
+        "B) $8\\pi/3$",
+        "C) $6\\pi$",
+        "D) $12\\pi$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Arc length $\\ell = r\\theta$ with $\\theta$ in radians. Here $r=6$ and $\\theta = 120° = \\frac{2\\pi}{3}$, so $\\ell = 6\\cdot \\frac{2\\pi}{3} = 4\\pi$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Used the fraction 2/3 of the circumference instead of 1/3 (since 120° is one third of 360°).",
+        "C": "Used the diameter or the full circumference by mistake.",
+        "D": "Used arc length formula with $\\theta$ in degrees instead of converting to radians."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:39:26.886Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Let $A=(0,0)$, $B=(6,0)$, $C=(2,8)$. Let $M$ be the midpoint of $\\overline{AB}$; the line through $M$ perpendicular to $\\overline{AB}$ is $x=3$. The line through $C$ parallel to $\\overline{AB}$ is $y=8$. Their intersection is $D$. What is the area of $\\triangle ACD$?",
+      "options": [
+        "A) 4",
+        "B) 24",
+        "C) 12",
+        "D) 6"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: $M$ is the midpoint of $AB$, so $M=(3,0)$. The line through $M$ perpendicular to $AB$ is $x=3$. The line through $C$ parallel to $AB$ has equation $y=8$. Their intersection is $D=(3,8)$. Step 2: The segment $CD$ is horizontal with length $|3-2|=1$. The distance from $A$ to the line $y=8$ (the height relative to base $CD$) is $8$. Thus the area is $\\frac{1}{2}\\cdot CD\\cdot height = \\frac{1}{2}\\cdot 1 \\cdot 8 = 4$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate Geometry",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": " Used area of triangle ABC rather than ACD.",
+        "C": " Used base AD and height 8, yielding 12 instead of 4.",
+        "D": " Miscomputed base as 2 or used an incorrect height."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:39:26.888Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a circle of radius $R=5$, a regular hexagon is inscribed. Find its area.",
+      "options": [
+        "A) $\\frac{75\\sqrt{3}}{2}$",
+        "B) $25\\sqrt{3}$",
+        "C) $75\\sqrt{3}$",
+        "D) $\\frac{75\\sqrt{3}}{4}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A regular hexagon inscribed in a circle of radius $R$ can be divided into six equilateral triangles of side length $R$. Each triangle area is $\\frac{\\sqrt{3}}{4}R^2$, so total area is $6\\cdot \\frac{\\sqrt{3}}{4}R^2 = \\frac{3\\sqrt{3}}{2}R^2$. With $R=5$, area = $\\frac{3\\sqrt{3}}{2}\\cdot$ 25 = $\\frac{75\\sqrt{3}}{2}$$.$",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-Perimeter / Regular Polygons",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": " Used $R^2$ but misapplied the coefficient, yielding $25\\\\sqrt{3}$.",
+        "C": " Multiplied the correct value by 2, giving $75\\\\sqrt{3}$.",
+        "D": " Divided by 2 again, giving $\\\\frac{75\\\\sqrt{3}}{4}$."
+      },
+      "_batchId": "batch-1771479233587-geometry",
+      "_generatedAt": "2026-02-19T05:39:26.890Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

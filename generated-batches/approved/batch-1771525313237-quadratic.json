@@ -1,0 +1,129 @@
+{
+  "batchId": "batch-1771525313237-quadratic",
+  "topic": "quadratic",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T18:26:49.559Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 4,
+  "totalValid": 4,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Factor and solve the quadratic equation $2x^2 - 7x + 3 = 0$ using the zero-product property.",
+      "options": [
+        "A) $x = \\frac{1}{2}$ and $x = 3$",
+        "B) $x = -\\frac{1}{2}$ and $x = 3$",
+        "C) $x = \\frac{1}{2}$ or $x = -3$",
+        "D) $x = -\\frac{1}{2}$ and $x = -3$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor $2x^2 - 7x + 3$ as $(2x - 1)(x - 3)$. Expanding gives $2x^2 - 6x - x + 3 = 2x^2 - 7x + 3$. Thus $(2x - 1)(x - 3) = 0$, so by the zero-product property $2x - 1 = 0$ or $x - 3 = 0$, yielding $x = \\tfrac{1}{2}$ and $x = 3$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Factoring",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "If you chose $-\\frac{1}{2}$ and $3$, you signed one root incorrectly; the sum and product of the roots do not match the coefficients.",
+        "C": "If you chose $\\frac{1}{2}$ and $-3$, the signs are inconsistent with the correct factorization; the sum and product do not match $b$ and $c$.",
+        "D": "If you chose $-\\frac{1}{2}$ and $-3$, both roots have incorrect signs; the product would be positive but the sum would not match $-\\frac{b}{a}$."
+      },
+      "_batchId": "batch-1771525313237-quadratic",
+      "_generatedAt": "2026-02-19T18:26:48.547Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "For $f(x) = 3x^2 - 12x + 4$, rewrite in vertex form by completing the square and identify the vertex.",
+      "options": [
+        "A) $f(x) = 3(x-2)^2 - 8$",
+        "B) $f(x) = 3(x+2)^2 - 8$",
+        "C) $f(x) = 3(x-2)^2 + 4$",
+        "D) $f(x) = 3(x-2)^2 - 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor the leading coefficient: $3x^2 - 12x + 4 = 3(x^2 - 4x) + 4$. Complete the square: $x^2 - 4x = (x-2)^2 - 4$. So $f(x) = 3[(x-2)^2 - 4] + 4 = 3(x-2)^2 - 12 + 4 = 3(x-2)^2 - 8$. The vertex form is $f(x) = 3(x-2)^2 - 8$ with vertex at $(2, -8)$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Completing the square",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Using $(x+2)^2$ would place the vertex at $(-2,-8)$, which is incorrect for this quadratic.",
+        "C": "Adding +4 instead of -8 changes the constant term and moves the vertex vertically.",
+        "D": "Using -4 instead of -8 changes the constant term and the vertex height."
+      },
+      "_batchId": "batch-1771525313237-quadratic",
+      "_generatedAt": "2026-02-19T18:26:48.550Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "For the equation $4x^2 - 4x + 1 = 0$, which statement correctly describes its discriminant and number of real solutions?",
+      "options": [
+        "A) $\\Delta = 0$; exactly one real solution",
+        "B) $\\Delta > 0$; two real solutions",
+        "C) $\\Delta < 0$; no real solutions",
+        "D) $\\Delta = 1$; two real solutions"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Here $a = 4$, $b = -4$, $c = 1$. The discriminant is $\\Delta = b^2 - 4ac = (-4)^2 - 4(4)(1) = 16 - 16 = 0$. A zero discriminant means exactly one real solution (a repeated root).",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Quadratic formula & discriminant",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Delta would be positive if $b^2 > 4ac$, which would give two distinct real solutions; not the case here.",
+        "C": "Delta negative would imply no real solutions; not the case here since Delta = 0.",
+        "D": "Delta equals 0 here, not 1; this option misstates the discriminant value."
+      },
+      "_batchId": "batch-1771525313237-quadratic",
+      "_generatedAt": "2026-02-19T18:26:48.552Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A company's profit P(x) in dollars from selling x units is modeled by the vertex form $P(x) = -2\\,(x-5)^2 + 60$. What is the maximum profit and at how many units should be sold to achieve it?",
+      "options": [
+        "A) Maximum profit 60 dollars at 5 units",
+        "B) Maximum profit 60 dollars at 0 units",
+        "C) Maximum profit 120 dollars at 5 units",
+        "D) Maximum profit 60 dollars at -5 units"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In vertex form $P(x) = a(x-h)^2 + k$, the vertex is $(h,k)$. Here $h = 5$, $k = 60$, and $a = -2 < 0$, so the parabola opens downward making the vertex a maximum. Thus the maximum profit is $P(5) = 60$ dollars, achieved at 5 units sold.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Vertex form",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Choosing 0 units ignores the vertex location; the maximum occurs at x = 5, not 0.",
+        "C": "The maximum value is 60 dollars, not 120; the vertex's y-coordinate is 60.",
+        "D": "The vertex's x-coordinate is 5, not -5; axis of symmetry is x = 5."
+      },
+      "_batchId": "batch-1771525313237-quadratic",
+      "_generatedAt": "2026-02-19T18:26:48.553Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "batchId": "batch-1771527741429-advanced-math",
+  "topic": "advanced-math",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T19:11:29.255Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 10,
+  "totalGenerated": 10,
+  "totalValid": 10,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "A town's population grows at 4% per year, starting at 1000 people. Which function represents the population after t years?",
+      "options": [
+        "A) $P(t) = 1000 \\cdot (1.04)^t$",
+        "B) $P(t) = 1000 + 40t$",
+        "C) $P(t) = 1000 \\cdot (1.04)^{t-1}$",
+        "D) $P(t) = 1000 \\cdot (1.04t)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: A 4% annual growth rate means each year multiplies the population by 1.04. Step 2: Starting value is 1000, so after t years the population is $P(t) = 1000 \\cdot (1.04)^t$. Step 3: Option B describes linear growth, not exponential growth. Step 4: Option C shifts the exponent by 1, which does not match the starting condition at t = 0. Step 5: Option D multiplies by a linear factor in t, which is not exponential growth.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponentials",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B represents linear growth, adding 40 each year, not exponential multiplication by 1.04 each year.",
+        "C": "C shifts the exponent by 1, which does not reproduce the initial condition P(0) = 1000.",
+        "D": "D uses a linear factor 1.04t instead of an exponential factor; growth is not exponential."
+      },
+      "_batchId": "batch-1771527741429-advanced-math",
+      "_generatedAt": "2026-02-19T19:05:39.582Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Using properties of logarithms, evaluate $\\\\log_2(8) + \\\\log_2(3) - \\\\log_2(12)$.",
+      "options": [
+        "A) 1",
+        "B) 0",
+        "C) 2",
+        "D) 3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Apply product rule to combine the first two terms: $\\\\log_2(8) + \\\\log_2(3) = \\\\log_2(8\\cdot 3) = \\\\log_2(24)$. Step 2: Apply quotient rule to subtract the third term: $\\\\log_2(24) - \\\\log_2(12) = \\\\log_2(24/12) = \\\\log_2(2) = 1$. Therefore the value is 1.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "0 is not the correct value; this option results from misapplying the product/quotient rules or forgetting that the subtraction affects the log of a quotient.",
+        "C": "2 would result if the logs were combined incorrectly or if a step were skipped in applying the product/quotient rules.",
+        "D": "3 would come from miscomputing one of the logs or forgetting to apply the subtraction correctly."
+      },
+      "_batchId": "batch-1771527741429-advanced-math",
+      "_generatedAt": "2026-02-19T19:05:39.595Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify the rational expression $\\frac{2x^2 - x}{x^2 - x}$, assuming $x \\\neq 0$ and $x \\\neq 1$.",
+      "options": [
+        "A) $\\frac{2x - 1}{x - 1}$",
+        "B) $\\frac{2x + 1}{x - 1}$",
+        "C) $\\frac{2x - 1}{x + 1}$",
+        "D) $\\frac{x - 2}{x - 1}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Factor both numerator and denominator: $2x^2 - x = x(2x - 1)$ and $x^2 - x = x(x - 1)$. Step 2: Cancel the common factor x (valid for $x \\\neq 0$): $\\frac{x(2x - 1)}{x(x - 1)} = \\frac{2x - 1}{x - 1}$. Step 3: State domain restrictions: $x \\\neq 0$ and $x \\\neq 1$ to avoid division by zero. Therefore the simplified form is $\\frac{2x - 1}{x - 1}$ with those restrictions.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational Expressions",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrectly factoring the numerator as $x(2x + 1)$, which is not equal to $2x^2 - x$.",
+        "C": "Denominator is incorrectly changed from $x - 1$ to $x + 1$, i.e., an error in simplifying the denominator.",
+        "D": "Failed to cancel the common factor correctly; they canceled an x in a way that yields $(x - 2)/(x - 1)$, which is not equivalent to the original expression."
+      },
+      "_batchId": "batch-1771527741429-advanced-math",
+      "_generatedAt": "2026-02-19T19:05:39.598Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A population of $2000$ people grows at $3\\\\%$ per year. If $P(t) = 2000(1.03)^t$, where $t$ is in years, what is $P(12)$ (approximately)?",
+      "options": [
+        "A) $2852$",
+        "B) $2600$",
+        "C) $4000$",
+        "D) $3200$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Compute $P(12) = 2000(1.03)^{12}$. Since $1.03^{12} \\approx 1.4258$, we have $P(12) \\approx 2000 \\cdot 1.4258 \\approx 2851.6$. Round to the nearest integer: $2852$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "exponential growth (population)",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option is correct.",
+        "B": "Uses a smaller growth factor and ignores compounding, underestimating the population.",
+        "C": "Overestimates growth by using a larger final value or exponent than given.",
+        "D": "Mistakenly uses a different growth rate (e.g., 4%) or misapplies the exponent."
+      },
+      "_batchId": "batch-1771527741429-advanced-math",
+      "_generatedAt": "2026-02-19T19:08:41.237Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which statement is true about the functions $A(t) = 1000(1.04)^t$ and $L(t) = 100t$ as $t$ becomes large?",
+      "options": [
+        "A) $L(t)$ grows faster than $A(t)$ for large $t$.",
+        "B) $A(t)$ grows faster than $L(t)$ for large $t$.",
+        "C) They grow at the same rate.",
+        "D) They never compare in magnitude."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Consider the ratio $\\frac{A(t)}{L(t)} = \\frac{1000(1.04)^t}{100t} = 10\\cdot \\frac{(1.04)^t}{t}$. As $t \\\\to \\infty$, the exponential $(1.04)^t$ grows faster than the linear $t$, so the ratio goes to infinity. Therefore $A(t)$ eventually exceeds $L(t)$ for large $t$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "exponential vs linear growth",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect: linear growth does not outrun exponential growth; exponential growth eventually dominates a linear function.",
+        "B": "This option is correct.",
+        "C": "Incorrect: exponential and linear growth do not have the same growth rate; exponentials outpace polynomials.",
+        "D": "Incorrect: with exponential growth, the two functions will cross and eventually $A(t)$ is larger for sufficiently large $t$."
+      },
+      "_batchId": "batch-1771527741429-advanced-math",
+      "_generatedAt": "2026-02-19T19:08:41.240Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify the rational expression $\\frac{x^2 - 9}{x^2 - 3x}$, for $x \\\\\\\neq 0, 3$.",
+      "options": [
+        "A) $\\frac{x+3}{x}$",
+        "B) $\\frac{x+3}{x-3}$",
+        "C) $\\frac{x-3}{x}$",
+        "D) $\\frac{x-3}{x+3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor the numerator and denominator: $x^2 - 9 = (x-3)(x+3)$ and $x^2 - 3x = x(x-3)$. Cancel the common factor $(x-3)$ (valid for $x \\\\\\\neq 3$), giving $\\frac{x+3}{x}$. Domain restrictions are $x \\\\\\\neq 0$ and $x \\\\\\\neq 3$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct simplification; see factorization and cancellation.",
+        "B": "Cancels the wrong factor in the denominator.",
+        "C": "Cancels the wrong factor; does not properly cancel $(x-3)$.",
+        "D": "Incorrectly cancels and uses the wrong denominator."
+      },
+      "_batchId": "batch-1771527741429-advanced-math",
+      "_generatedAt": "2026-02-19T19:08:41.243Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for $x$ in $\\\\log_2\\bigl[(x-1)(x+3)\\bigr] = 3$ with the condition $x > 1$.",
+      "options": [
+        "A) $-1 + 2\\sqrt{3}$",
+        "B) $-1 - 2\\sqrt{3}$",
+        "C) $2$",
+        "D) $4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Rewrite: $\\\\log_2[(x-1)(x+3)] = 3 \\\\Rightarrow (x-1)(x+3) = 2^3 = 8$. Expand: $x^2+2x-3=8 \\\\Rightarrow x^2+2x-11=0$. Solve: $x = \\frac{-2 \\pm \\sqrt{4+44}}{2} = -1 \\pm 2\\sqrt{3}$. Domain requires $x>1$, so $x = -1 + 2\\sqrt{3}$ is the valid root.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "logarithms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct root; valid for $x>1$.",
+        "B": "The other root $-1-2\\\\\\\\sqrt{3}$ is negative and violates the domain.",
+        "C": "Plugging in $x=2$ does not satisfy the equation; check by substitution.",
+        "D": "Plugging in $x=4$ does not satisfy the equation."
+      },
+      "_batchId": "batch-1771527741429-advanced-math",
+      "_generatedAt": "2026-02-19T19:08:41.247Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $(3+4i)(1-2i)$ and select the correct result.",
+      "options": [
+        "A) $11 - 2i$",
+        "B) $11 + 2i$",
+        "C) $-11 + 2i$",
+        "D) $-11 - 2i$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distribute: $(3+4i)(1-2i) = 3(1) + 3(-2i) + 4i(1) + 4i(-2i) = 3 - 6i + 4i - 8i^2 = 3 - 2i + 8 = 11 - 2i$. The correct answer is A.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option is correct.",
+        "B": "Imaginary part sign is reversed; error in distributing the $4i$ term.",
+        "C": "Incorrect real-part sign; misused $i^2$ as $+1$ instead of $-1$.",
+        "D": "Incorrect both real and imaginary parts; miscomputed the product."
+      },
+      "_batchId": "batch-1771527741429-advanced-math",
+      "_generatedAt": "2026-02-19T19:08:41.252Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "An investment account starts with 1000 dollars and grows at 8% annually, so value $V(t) = 1000\\times(1.08)^t$, with t in years. A maintenance budget for a project increases linearly by 320 dollars per year, $C(t) = 1000 + 320 t$. After how many complete years will the investment value first exceed the cumulative maintenance cost? Let t be the smallest integer with $V(t) > C(t)$.",
+      "options": [
+        "A) 30",
+        "B) 31",
+        "C) 32",
+        "D) 33"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Step 1: Write the two functions: $V(t) = 1000\\times(1.08)^t$ and $C(t) = 1000 + 320t$, with t in years. Step 2: Evaluate at successive integer years to locate the first crossing. \\\n- At t = 30: $V(30) = 1000\\times(1.08)^{30} \\approx 1000 \\times 10.063 \\approx 10063$, while $C(30) = 1000 + 320\\cdot 30 = 10600$; thus $V(30) < C(30)$. \\\n- At t = 31: $V(31) = 1000\\times(1.08)^{31} \\approx 1000 \\times 10.869 \\approx 10869$, and $C(31) = 1000 + 320\\cdot 31 = 10920$; thus $V(31) < C(31)$. \\\n- At t = 32: $V(32) = 1000\\times(1.08)^{32} \\approx 1000 \\times 11.739 \\approx 11739$, and $C(32) = 1000 + 320\\cdot 32 = 11240$; thus $V(32) > C(32)$.\\\nConclusion: The smallest integer t with $V(t) > C(t)$ is 32.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential growth and real-world applications",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Mistake: cross-multiplication error: set x-1 = 9(x-2) instead of x-2 = 9(x-1).",
+        "C": "Mistake: sign error when isolating x; incorrectly moved terms leading to a negative value for x.",
+        "D": "Mistake: assuming the crossing occurs at t = 33 without verifying; the first crossing is actually at t = 32."
+      },
+      "_batchId": "batch-1771527741429-advanced-math",
+      "_generatedAt": "2026-02-19T19:11:28.238Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If $\\\\log_{3}\\left(\\frac{x-2}{x-1}\\right) = 2$, what is the value of $x$? (Assume $x \\\neq 1$ and the expression is defined.)",
+      "options": [
+        "A) $\\frac{7}{8}$",
+        "B) $\\frac{17}{8}$",
+        "C) $-\\frac{7}{8}$",
+        "D) $1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: From $\\\\log_{3}\\left(\\frac{x-2}{x-1}\\right) = 2$, exponentiate to get $\\frac{x-2}{x-1} = 3^2 = 9$. Step 2: Solve for x: $x-2 = 9(x-1) \\\\Rightarrow x-2 = 9x - 9 \\\\Rightarrow -8x = -7 \\\\Rightarrow x = \\frac{7}{8}$. Step 3: Check domain: $x \\\neq 1$ is satisfied by $x = \\frac{7}{8}$, and the fraction is defined since both numerator and denominator are negative, giving a positive quotient. Therefore, $x = \\frac{7}{8}$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms; Rational Expressions",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Mistake: swapped cross-multiplication and solved $x-1 = 9(x-2)$ instead of $x-2 = 9(x-1)$.",
+        "C": "Mistake: sign error when isolating x, yielding a negative value instead of the correct positive $\\\\tfrac{7}{8}$.",
+        "D": "Mistake: ignoring the domain restriction $x \\\\neq 1$ and treating 1 as a possible solution."
+      },
+      "_batchId": "batch-1771527741429-advanced-math",
+      "_generatedAt": "2026-02-19T19:11:28.242Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

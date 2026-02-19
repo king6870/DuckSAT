@@ -1,0 +1,213 @@
+{
+  "batchId": "batch-1771528291405-geometry",
+  "topic": "geometry",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T19:15:38.414Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 7,
+  "totalGenerated": 7,
+  "totalValid": 7,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In the right triangle $\\triangle ABC$ with right angle at $C$, $AB = 10$, and $\\angle A = 30°$, what is the length of $\\overline{AC}$?",
+      "options": [
+        "A) $5$",
+        "B) $5\\sqrt{3}$",
+        "C) $5\\sqrt{2}$",
+        "D) $10$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Because $\\triangle ABC$ is right and $AB$ is the hypotenuse, $\\cos A = \\frac{\\overline{AC}}{AB}$. With $A=30°$ and $AB=10$, $\\cos 30° = \\frac{\\sqrt{3}}{2}$, so $\\overline{AC} = AB \\cdot \\cos A = 10 \\cdot \\frac{\\sqrt{3}}{2} = 5\\sqrt{3}$. Therefore, the correct choice is B.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "triangles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This uses sin A to compute AC; sin A would give the opposite side BC, not AC.",
+        "C": "This would be the length for a 45°-45°-90° guess; it assumes A is 45°, which it is not.",
+        "D": "Confuses AC with AB (treating AC as the hypotenuse)."
+      },
+      "_batchId": "batch-1771528291405-geometry",
+      "_generatedAt": "2026-02-19T19:13:30.904Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the coordinate plane, points $A(1,2)$ and $B(4,6)$ are given. What is the length of segment $\\overline{AB}$?",
+      "options": [
+        "A) $5$",
+        "B) $3\\sqrt{2}$",
+        "C) $\\sqrt{13}$",
+        "D) $6$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Use the distance formula: $AB = \\sqrt{(x_B - x_A)^2 + (y_B - y_A)^2} = \\sqrt{(4-1)^2 + (6-2)^2} = \\sqrt{3^2 + 4^2} = \\sqrt{9+16} = \\sqrt{25} = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "coordinate-geometry",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Used dx = 3 and dy = 3, giving $\\\\\\\\sqrt{18} = 3\\\\\\\\sqrt{2}$; the correct dy is 4, not 3.",
+        "C": "Used $\\\\\\\\sqrt{13}$, which would come from (dx, dy) = (3, 2); here dy = 4.",
+        "D": "Added differences (Manhattan distance) instead of using the Euclidean distance."
+      },
+      "_batchId": "batch-1771528291405-geometry",
+      "_generatedAt": "2026-02-19T19:13:30.925Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a circle with center $O$ and radius $5$, the central angle $\\angle AOB$ measures $60°$. What is the length of arc $AB$?",
+      "options": [
+        "A) $\\frac{5\\pi}{3}$",
+        "B) $\\frac{5\\pi}{6}$",
+        "C) $\\frac{10\\pi}{3}$",
+        "D) $\\pi$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Arc length for a central angle is $s = r\\theta$ with $\\theta$ in radians. Here $\\theta = 60° = \\pi/3$ and $r = 5$. Hence $s = 5 \\cdot (\\pi/3) = \\frac{5\\pi}{3}$. So A is correct.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "circles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect radian conversion: 60° equals \\\\\\\\pi/3, not \\\\\\\\pi/6, so $\\\\\\\\frac{5\\\\\\\\pi}{6}$ is wrong.",
+        "C": "Used $2\\\\\\\\pi/3$ (120°) instead of 60°; arc length would be $5\\\\\\\\cdot (2\\\\\\\\pi/3) = \\\\\\\\frac{10\\\\\\\\pi}{3}$.",
+        "D": "Forgot to multiply by the radius; arc length is not $\\\\\\\\pi$."
+      },
+      "_batchId": "batch-1771528291405-geometry",
+      "_generatedAt": "2026-02-19T19:13:30.929Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In $\\triangle ABC$, with $\\angle C = 90°$, $\\overline{AB} = 10$, and $\\angle A = 30°$, what is the area of $\\triangle ABC$?",
+      "options": [
+        "A) $\\frac{25\\sqrt{3}}{2}$",
+        "B) $25\\sqrt{3}$",
+        "C) $50$",
+        "D) $\\frac{25}{2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Since $\\angle C = 90°$, $AB$ is the hypotenuse. With $\\angle A = 30°$, the other angles are $60°$ and $30°$; the side opposite $30°$ is $BC$ and the side adjacent to $A$ is $AC$.\\\nStep 2: $BC = AB\\sin A = 10 \\cdot \\tfrac{1}{2} = 5$, and $AC = AB\\cos A = 10 \\cdot \\tfrac{\\sqrt{3}}{2} = 5\\sqrt{3}$.\\\nStep 3: Area = $\\tfrac{1}{2} \\cdot BC \\cdot AC = \\tfrac{1}{2} \\cdot 5 \\cdot 5\\sqrt{3} = \\tfrac{25\\sqrt{3}}{2}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles (30-60-90) area",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option is correct; no mistake.",
+        "B": "Mistake: using $AC$ as the height to base $AB$ (i.e., treating $AC$ as the altitude). In fact, the altitude to base $AB$ is the distance from $C$ to line $AB$, which corresponds to $BC$ in this configuration.",
+        "C": "Mistake: using $AB$ as both base and height (e.g., $\\\\tfrac{1}{2} \\\\cdot AB \\\\cdot AB$) which is not the area.",
+        "D": "Mistake: forgetting the $1/2$ factor or using wrong legs; treating the area as $\\\\tfrac{1}{2}$ times a product that does not correspond to the perpendicular sides."
+      },
+      "_batchId": "batch-1771528291405-geometry",
+      "_generatedAt": "2026-02-19T19:15:33.420Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Let $P(2,-1)$ and $Q(-4,5)$ lie on line $L$. What is the distance from the origin to line $L$?",
+      "options": [
+        "A) $\\tfrac{\\sqrt{2}}{2}$",
+        "B) $\\tfrac{1}{2}$",
+        "C) 1",
+        "D) $\\sqrt{2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Slope of $PQ$ is $m = \\dfrac{5-(-1)}{-4-2} = \\dfrac{6}{-6} = -1$, so the line has equation $y+1 = -1(x-2)$, i.e. $x+y-1=0$.\\\nStep 2: The distance from the origin to the line $ax+by+c=0$ is $\\dfrac{|c|}{\\sqrt{a^2+b^2}}$ with $a=1$, $b=1$, $c=-1$; thus distance = $\\dfrac{| -1|}{\\sqrt{1^2+1^2}} = \\dfrac{1}{\\sqrt{2}} = \\dfrac{\\sqrt{2}}{2}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate geometry: distance from a point to a line",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option is correct; no mistake.",
+        "B": "Mistake: using $\\\\dfrac{1}{\\\\sqrt{3}}$ instead of $\\\\dfrac{1}{\\\\sqrt{2}}$; mixing numbers from different steps (slope or coefficients).",
+        "C": "Mistake: taking the distance as 1 which would occur if the line passed at distance 1 from the origin, ignoring the actual line coefficients.",
+        "D": "Mistake: using $\\\\sqrt{2}$ instead of $\\\\dfrac{\\\\sqrt{2}}{2}$; double counting the square root or misapplying the distance formula."
+      },
+      "_batchId": "batch-1771528291405-geometry",
+      "_generatedAt": "2026-02-19T19:15:33.425Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a circle with center $O$ and radius $6$, central angle $\\angle AOB = 120°$. What is the area of sector $AOB$?",
+      "options": [
+        "A) $12\\pi$",
+        "B) $24\\pi$",
+        "C) $6\\pi$",
+        "D) $4\\pi$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Sector area = $(\\theta/360°) \\cdot (\\pi r^2)$ = $(120/360) \\cdot (\\pi \\cdot 6^2)$ = $(1/3) \\cdot 36\\pi = 12\\pi$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles: sector area",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option is correct; no mistake.",
+        "B": "Mistake: using full circle area instead of the fraction corresponding to 120°, i.e., using 2/3 of the circle.",
+        "C": "Mistake: using radius incorrectly as 6 and multiplying by 6 instead of squaring; or using 1/6 of the circle.",
+        "D": "Mistake: confusing degrees with radians or misapplying the formula."
+      },
+      "_batchId": "batch-1771528291405-geometry",
+      "_generatedAt": "2026-02-19T19:15:33.430Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In $\\triangle ABC$ with $\\overline{AB}=6$, $\\overline{BC}=8$, $\\overline{CA}=10$, what is the length of the altitude from $B$ to $\\overline{AC}$?",
+      "options": [
+        "A) 4.8",
+        "B) 3.2",
+        "C) 6",
+        "D) 8"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Check Pythagoras: $AB^2 + BC^2 = CA^2$ ( $6^2 + 8^2 = 10^2$ ), so $\\angle B$ is a right angle and $CA$ is the hypotenuse. Step 2: The altitude from $B$ to $AC$ (the hypotenuse) in a right triangle is given by $h = \\dfrac{AB\\cdot BC}{AC}$. Thus $h = \\dfrac{6\\cdot 8}{10} = \\dfrac{48}{10} = 4.8$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area & Perimeter: altitudes in right triangles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option is correct; no mistake.",
+        "B": "Mistake: using the product of the legs divided by the other leg length or misidentifying the altitude formula; e.g., using 6*8/15.",
+        "C": "Mistake: using the leg length as the altitude or taking the base as the height incorrectly.",
+        "D": "Mistake: forgetting to divide by the hypotenuse; using 6*8/6 or 6*8/8."
+      },
+      "_batchId": "batch-1771528291405-geometry",
+      "_generatedAt": "2026-02-19T19:15:33.432Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

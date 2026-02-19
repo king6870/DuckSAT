@@ -1,0 +1,380 @@
+{
+  "batchId": "batch-1771522015408-algebra",
+  "topic": "algebra",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T17:34:16.548Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 13,
+  "totalValid": 13,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Solve for x: $3x - 5 = 2x + 9$.",
+      "options": [
+        "A) 14",
+        "B) 7",
+        "C) -14",
+        "D) -2"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Subtract 2x from both sides: $x - 5 = 9$. Step 2: Add 5 to both sides: $x = 14$. Therefore, x = 14.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Linear equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Plugging in x = 7 gives LHS: 3(7) - 5 = 16 and RHS: 2(7) + 9 = 23, which are not equal.",
+        "C": "Plugging in x = -14 gives LHS: 3(-14) - 5 = -47 and RHS: 2(-14) + 9 = -19, which are not equal.",
+        "D": "Plugging in x = -2 gives LHS: 3(-2) - 5 = -11 and RHS: 2(-2) + 9 = 5, which are not equal."
+      },
+      "_batchId": "batch-1771522015408-algebra",
+      "_generatedAt": "2026-02-19T17:31:21.956Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the inequality: $2x - 3 < 5$.",
+      "options": [
+        "A) x < 4",
+        "B) x > 4",
+        "C) x ≤ 4",
+        "D) x ≥ 4"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Add 3 to both sides: $2x < 8$. Divide by the positive number 2: $x < 4$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Inequalities",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "If x = 5, then 2x - 3 = 7 which is not < 5, so x > 4 is not a solution.",
+        "C": "x = 4 gives 2x - 3 = 5, which is not < 5, so x ≤ 4 is not a valid solution.",
+        "D": "x = 4 yields 5, which is not < 5, so x ≥ 4 is not a valid solution."
+      },
+      "_batchId": "batch-1771522015408-algebra",
+      "_generatedAt": "2026-02-19T17:31:21.957Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system by substitution: $\\begin{cases} x + y = 6 \\\\ 2x - y = 1 \\end{cases}$.",
+      "options": [
+        "A) (7/3, 11/3)",
+        "B) (3, 3)",
+        "C) (4, 2)",
+        "D) (5, 1)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From the first equation, $y = 6 - x$. Substitute into $2x - y = 1$: $2x - (6 - x) = 1 \\Rightarrow 3x = 7 \\Rightarrow x = 7/3$. Then $y = 6 - 7/3 = 11/3$. So the solution is (7/3, 11/3).",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Systems of equations - substitution",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "If x = 3 and y = 3, then $2x - y = 3$, not 1.",
+        "C": "If x = 4 and y = 2, then $2x - y = 6$, not 1.",
+        "D": "If x = 5 and y = 1, then $x + y = 6$ holds but $2x - y = 9$, not 1."
+      },
+      "_batchId": "batch-1771522015408-algebra",
+      "_generatedAt": "2026-02-19T17:31:21.959Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Multiply the polynomials: $(2x - 3)(x + 4)$.",
+      "options": [
+        "A) 2x^2 + 5x - 12",
+        "B) 2x^2 + x - 12",
+        "C) 2x^2 - 5x - 12",
+        "D) 2x^2 + 5x + 12"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Use FOIL: $(2x)(x)=2x^2$, $(2x)(4)=8x$, $(-3)(x)=-3x$, $(-3)(4)=-12$. Sum the x-terms: $8x-3x=5x$. Final: $2x^2 + 5x - 12$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Polynomials - multiplication",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Expanding incorrectly might yield $2x^2 + x - 12$ by forgetting to combine $8x$ and $-3x$.",
+        "C": "A common sign error gives $2x^2 - 5x - 12$",
+        "D": "Adding the constant terms incorrectly can produce $2x^2 + 5x + 12$."
+      },
+      "_batchId": "batch-1771522015408-algebra",
+      "_generatedAt": "2026-02-19T17:31:21.963Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for x: $|2x - 3| = 7$.",
+      "options": [
+        "A) $x = 5$ or $x = -2$",
+        "B) $x = 0$",
+        "C) $x = 2$",
+        "D) $x = -5$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Split into two cases: $2x - 3 = 7$ or $2x - 3 = -7$. First gives $x = 5$, second gives $x = -2$. Thus the solution set is { -2, 5 }, so x = 5 or x = -2. The option A lists exactly those.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Absolute value",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Plug x=0: |2(0) - 3| = 3, not 7.",
+        "C": "Plug x=2: |2(2) - 3| = 1, not 7.",
+        "D": "Plug x=-5: |2(-5) - 3| = 13, not 7."
+      },
+      "_batchId": "batch-1771522015408-algebra",
+      "_generatedAt": "2026-02-19T17:31:21.964Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two cell-phone plans are compared: Plan A charges a base of 15 dollars and 0.25 dollars per minute; Plan B charges a base of 40 dollars and 0.15 dollars per minute. For how many minutes are the total monthly costs equal?",
+      "options": [
+        "A) 200",
+        "B) 250",
+        "C) 400",
+        "D) 600"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let m be minutes. Plan A: 0.25m + 15. Plan B: 0.15m + 40. Set equal: 0.25m + 15 = 0.15m + 40. Subtract 0.15m: 0.10m + 15 = 40. Subtract 15: 0.10m = 25. m = 250.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Word problems with linear equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "If m = 200, A costs 65 dollars and B costs 70 dollars; not equal.",
+        "C": "If m = 400, A costs 115 dollars and B costs 100 dollars; not equal.",
+        "D": "If m = 600, A costs 165 dollars and B costs 130 dollars; not equal."
+      },
+      "_batchId": "batch-1771522015408-algebra",
+      "_generatedAt": "2026-02-19T17:31:21.965Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Factor the polynomial: $x^2 - 5x + 6$.",
+      "options": [
+        "A) $(x-2)(x-3)$",
+        "B) $(x+2)(x+3)$",
+        "C) $(x-1)(x-6)$",
+        "D) $(x-3)^2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor the quadratic: look for two numbers that multiply to 6 and add to -5: -2 and -3. So $x^2 - 5x + 6 = (x-2)(x-3)$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Polynomials - factoring",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Expands to $x^2 + 5x + 6$, not $x^2 - 5x + 6$.",
+        "C": "Expands to $x^2 - 7x + 6$, not $x^2 - 5x + 6$.",
+        "D": "Expands to $x^2 - 6x + 9$, not $x^2 - 5x + 6$."
+      },
+      "_batchId": "batch-1771522015408-algebra",
+      "_generatedAt": "2026-02-19T17:31:21.966Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the absolute-value inequality: $|x - 4| < 3$.",
+      "options": [
+        "A) 1 < x < 7",
+        "B) x < 1 or x > 7",
+        "C) -3 < x < 7",
+        "D) 1 <= x <= 7"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An absolute-value inequality |x - 4| < 3 means the expression inside is within 3 of 4: 4 - 3 < x < 4 + 3, i.e., 1 < x < 7.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Absolute-value inequalities",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This option excludes the interval (1,7) where the inequality holds; test x=2 shows the inequality is true, so B is wrong.",
+        "C": "Choosing -3 < x < 7 includes x=0 where |0-4|=4, which is not < 3.",
+        "D": "Includes the endpoint x=1, but |1-4|=3 is not strictly less than 3."
+      },
+      "_batchId": "batch-1771522015408-algebra",
+      "_generatedAt": "2026-02-19T17:31:21.967Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system by elimination: $\\begin{cases} 2x + 3y = 6 \\\\ 4x - y = 5 \\end{cases}$.",
+      "options": [
+        "A) (3/2, 1)",
+        "B) (0, 6)",
+        "C) (2, -1)",
+        "D) (1, 2)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From the second equation, $y = 4x - 5$. Substitute into the first: $2x + 3(4x - 5) = 6 \\Rightarrow 2x + 12x - 15 = 6 \\Rightarrow 14x = 21 \\Rightarrow x = 3/2$. Then $y = 4(3/2) - 5 = 6 - 5 = 1$. So the solution is (3/2, 1).",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Systems of equations - elimination",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Plug (0,6) into the equations: 2(0) + 3(6) = 18 ≠ 6.",
+        "C": "Plug (2,-1): 2(2) + 3(-1) = 4 - 3 = 1 ≠ 6.",
+        "D": "Plug (1,2): 2(1) + 3(2) = 2 + 6 = 8 ≠ 6."
+      },
+      "_batchId": "batch-1771522015408-algebra",
+      "_generatedAt": "2026-02-19T17:31:21.968Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A nonprofit fundraiser sells T-shirts for 10 dollars and hoodies for 25 dollars. They sold 420 items in total and raised 5040 dollars. How many hoodies were sold?",
+      "options": [
+        "A) 28",
+        "B) 56",
+        "C) 112",
+        "D) 168"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let T be the number of T-shirts and H the number of hoodies. T + H = 420 and 10T + 25H = 5040. Solve: from T = 420 - H, substitute: 10(420 - H) + 25H = 5040 => 4200 - 10H + 25H = 5040 => 15H = 840 => H = 56. Thus hoodies = 56.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Word problems with systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "If H = 28, then T = 392 and revenue would be 10(392) + 25(28) = 3920 + 700 = 4620, not 5040.",
+        "C": "If H = 112, T = 308 and revenue would be 3080 + 2800 = 5880, not 5040.",
+        "D": "If H = 168, T = 252 and revenue would be 2520 + 4200 = 6720, not 5040."
+      },
+      "_batchId": "batch-1771522015408-algebra",
+      "_generatedAt": "2026-02-19T17:31:21.970Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A theater sells adult tickets priced at $12 and student tickets priced at $8. If 120 tickets were sold and the total revenue was $1080, how many adult tickets were sold?$",
+      "options": [
+        "A) 30",
+        "B) 20",
+        "C) 40",
+        "D) 50"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let a be the number of adult tickets and s be the number of student tickets. The equations are a + s = 120 and 12a + 8s = 1080. From the first, s = 120 - a. Substitute into the second: 12a + 8(120 - a) = 1080 $\\Rightarrow$ 12a + 960 - 8a = 1080 $\\Rightarrow$ 4a = 120 $\\Rightarrow$ a = 30. Therefore, the correct answer is 30, which corresponds to option A. $a = 30$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A (A is correct).",
+        "B": "Common error: forgetting to use both the ticket-count equation and the revenue equation, effectively ignoring the price difference between ticket types.",
+        "C": "Incorrect substitution or arithmetic when solving the system (e.g., mixing up a and s or misplacing a sign).",
+        "D": "Arithmetic slip when solving 4a = 120 (miscomputing the division)."
+      },
+      "_batchId": "batch-1771522015408-algebra",
+      "_generatedAt": "2026-02-19T17:34:15.531Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the absolute-value inequality: |2x - 3| ≤ x + 7.",
+      "options": [
+        "A) $-rac{4}{3} \\le x \\le 10$",
+        "B) $-7 \\le x \\le 10$",
+        "C) $-rac{4}{3} \\le x < \\frac{3}{2}$",
+        "D) $(-\\infty, -\\frac{4}{3}] \\cup [10, \\infty)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "We require x + 7 ≥ 0, so x ≥ -7. Consider two cases: Case 1: x ≥ 3/2. Then |2x - 3| = 2x - 3, and 2x - 3 ≤ x + 7 gives x ≤ 10, so 3/2 ≤ x ≤ 10. Case 2: x < 3/2. Then |2x - 3| = -(2x - 3) = -2x + 3, and -2x + 3 ≤ x + 7 gives -3x ≤ 4, so x ≥ -4/3. With x < 3/2, this gives -4/3 ≤ x < 3/2. Unioning the two cases yields -4/3 ≤ x ≤ 10. The correct option is A.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A (A is correct).",
+        "B": "Misses the lower bound in the solution and does not account for the -4/3 limit from Case 2.",
+        "C": "Treats the upper bound as strict (x < 3/2) and omits the x = 3/2 point that satisfies the inequality.",
+        "D": "Confuses the solution with the complement; lists the outside region instead of the inside interval."
+      },
+      "_batchId": "batch-1771522015408-algebra",
+      "_generatedAt": "2026-02-19T17:34:15.533Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A rectangular tile has length (2x - 3) and width (x^2 + 4x - 5). What is its area as a polynomial in x?",
+      "options": [
+        "A) $2x^3 + 5x^2 - 22x + 15$",
+        "B) $2x^3 + 6x^2 - 32x + 15$",
+        "C) $2x^3 + 5x^2 - 7x + 15$",
+        "D) $2x^3 + 2x^2 - 22x + 15$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Compute the product: (2x - 3)(x^2 + 4x - 5) = 2x·x^2 + 2x·4x + 2x·(-5) - 3·x^2 - 3·4x - 3·(-5) = 2x^3 + 8x^2 - 10x - 3x^2 - 12x + 15 = 2x^3 + 5x^2 - 22x + 15.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correctly identifying the last step but miscounting a cross-term; the x^2 term should be 5x^2, not 6x^2.",
+        "B": "Incorrectly distributing the -3 across the quadratic to yield an extra  x^2 term (assumes 2x·4x = 6x^2 instead of 8x^2).",
+        "C": "Drops the -3·x^2 term, omitting part of the expansion and giving an incorrect x^2 coefficient.",
+        "D": "Signs of the cross terms are mishandled, changing the coefficient of x."
+      },
+      "_batchId": "batch-1771522015408-algebra",
+      "_generatedAt": "2026-02-19T17:34:15.537Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

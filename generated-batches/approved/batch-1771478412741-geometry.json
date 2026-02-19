@@ -1,0 +1,269 @@
+{
+  "batchId": "batch-1771478412741-geometry",
+  "topic": "geometry",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T05:24:29.402Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 9,
+  "totalValid": 9,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In $\\triangle ABC$, $\\angle C = 90^\\circ$, $\\angle A = 30^\\circ$, and the hypotenuse is $AB = 12$. What is the length of $BC$?",
+      "options": [
+        "A) 6√3",
+        "B) 6",
+        "C) 12",
+        "D) 3"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Since $\\triangle ABC$ is a 30-60-90 triangle with the right angle at $C$, the side opposite $30^\\circ$ (which is $BC$) is half the hypotenuse. Therefore $BC = \\tfrac{1}{2} \\cdot AB = \\tfrac{1}{2} \\cdot 12 = 6$. The other leg would be $AC = 6\\sqrt{3}$, and the hypotenuse remains $12$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "triangles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "6√3 is the longer leg (opposite 60°), not the side opposite 30°.",
+        "B": "This is the correct length for BC since BC is opposite the 30° angle.",
+        "C": "AB is the hypotenuse, not BC.",
+        "D": "Halving the hypotenuse again or misapplying the 1:2:√3 ratios leads to 3."
+      },
+      "_batchId": "batch-1771478412741-geometry",
+      "_generatedAt": "2026-02-19T05:21:25.049Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If $P=(1,2)$ and $Q=(4,-2)$, what is the distance $PQ$?",
+      "options": [
+        "A) 3",
+        "B) 5",
+        "C) 6",
+        "D) 7"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Distance formula: $PQ = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} = \\sqrt{(4-1)^2 + (-2-2)^2} = \\sqrt{3^2 + (-4)^2} = \\sqrt{9+16} = \\sqrt{25} = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "coordinate-geometry",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Confuses the horizontal distance with the full distance; ignores the vertical change.",
+        "C": "Adds distances instead of using the Pythagorean sum.",
+        "D": "Incorrectly adds 3 and 4 to get 7; distance uses squares and square root."
+      },
+      "_batchId": "batch-1771478412741-geometry",
+      "_generatedAt": "2026-02-19T05:21:25.052Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "For the circle $(x-2)^2 + (y-5)^2 = 16$, what is the center of the circle?",
+      "options": [
+        "A) (2,-5)",
+        "B) (2,5)",
+        "C) (-2,5)",
+        "D) (-2,-5)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In the standard form $(x-h)^2 + (y-k)^2 = r^2$, the center is $(h,k)$. Here $h=2$ and $k=5$, so the center is $(2,5)$ and the radius is $r=4$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "circles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect sign on the y-coordinate.",
+        "C": "Incorrect sign on the x-coordinate.",
+        "D": "Both coordinates have incorrect signs."
+      },
+      "_batchId": "batch-1771478412741-geometry",
+      "_generatedAt": "2026-02-19T05:21:25.053Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In triangle $\\triangle ABC$, base $\\overline{AB} = 8$ and the altitude from $C$ to $\\overline{AB}$ has length 5. What is the area of $\\triangle ABC$?",
+      "options": [
+        "A) 40",
+        "B) 20",
+        "C) 15",
+        "D) 10"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Area of a triangle is $\\tfrac{1}{2} \\times \\text{base} \\times \\text{height} = \\tfrac{1}{2} \\cdot 8 \\cdot 5 = 20$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "area-perimeter",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Forgetting the factor of 1/2; doubles the true area.",
+        "C": "Using a height of 3 instead of 5 (unrelated to base).",
+        "D": "Using a height of 2.5 or other incorrect height; not applying the formula correctly."
+      },
+      "_batchId": "batch-1771478412741-geometry",
+      "_generatedAt": "2026-02-19T05:21:25.055Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two parallel lines are cut by a transversal. The interior angles on the same side of the transversal are supplementary. If $m\\angle A = 110^\\circ$, what is $m\\angle B$?",
+      "options": [
+        "A) 60°",
+        "B) 70°",
+        "C) 110°",
+        "D) 90°"
+      ],
+      "correctAnswer": 1,
+      "explanation": "For interior angles on the same side, $m\\angle A + m\\angle B = 180^\\circ$. Thus $m\\angle B = 180^\\circ - 110^\\circ = 70^\\circ$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "angles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Confuses supplementary with complementary; subtracts from 120° or uses wrong sum.",
+        "C": "Treats angles as equal rather than supplementary.",
+        "D": "Assumes a right angle; 90° is not implied by parallel lines and a transversal."
+      },
+      "_batchId": "batch-1771478412741-geometry",
+      "_generatedAt": "2026-02-19T05:21:25.056Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A point $P=(3,-4)$ is reflected across the $x$-axis. What are the coordinates of the image $P'$?",
+      "options": [
+        "A) (3,-4)",
+        "B) (3,4)",
+        "C) (-3,4)",
+        "D) (-3,-4)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Reflection across the $x$-axis changes the sign of the $y$-coordinate while keeping the $x$-coordinate the same. So $P' = (3, -(-4)) = (3, 4)$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "transformations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "No transformation; leaves the point unchanged.",
+        "C": "Flips the sign of the $x$-coordinate as well, which is a reflection across the $y$-axis.",
+        "D": "Flips both coordinates, which is a 180° rotation about the origin."
+      },
+      "_batchId": "batch-1771478412741-geometry",
+      "_generatedAt": "2026-02-19T05:21:25.057Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the right triangle $\\triangle ABC$, a right angle at $C$, $\\angle A = 30^\\circ$, and $\\overline{BC} = 12$. What is the length of the hypotenuse $\\overline{AB}$?",
+      "options": [
+        "A) 12",
+        "B) 24",
+        "C) 6",
+        "D) 18"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: This is a $30$-$60$-$90$ triangle, so the sides opposite $30^\\circ$, $60^\\circ$, and $90^\\circ$ are in the ratio $1:\\sqrt{3}:2$. Step 2: Since $\\angle A = 30^\\circ$, side $\\overline{BC}$ is opposite $A$ and is the short leg, so $\\overline{BC} = x = 12$. Step 3: The hypotenuse $\\overline{AB}$ equals $2x = 24$. Therefore, $\\overline{AB} = 24$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles - 30-60-90, right triangle properties",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Hypotenuse cannot equal the short leg in a 30-60-90 triangle; the hypotenuse is twice the short leg.",
+        "B": "This is the correct length; not a mistaken option.",
+        "C": "Confuses the hypotenuse with the short leg (divide by 2).",
+        "D": "Uses a misapplied ratio (1.5×BC) instead of the correct 2×BC."
+      },
+      "_batchId": "batch-1771478412741-geometry",
+      "_generatedAt": "2026-02-19T05:24:28.387Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Let $P(1,2)$ and $Q(5,8)$ in the coordinate plane. The perpendicular bisector of $\\overline{PQ}$ has which equation?",
+      "options": [
+        "A) $y = -\\frac{2}{3}x + 7$",
+        "B) $y = \\frac{2}{3}x + 1$",
+        "C) $x = 3$",
+        "D) $y = -\\frac{3}{2}x + 3$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Slope of $PQ = (8-2)/(5-1) = 6/4 = 3/2$. Midpoint $M = ((1+5)/2, (2+8)/2) = (3,5)$. Step 2: Perpendicular slope is $-2/3$. Step 3: Through $M$, equation is $y-5 = (-2/3)(x-3)$, which simplifies to $y = -\\frac{2}{3}x + 7$. Therefore, option A is correct.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate geometry - distance, slope, midpoint; perpendicular bisector",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct equation; no mistake.",
+        "B": "Uses the wrong slope sign (positive instead of negative).",
+        "C": "Claims the perpendicular bisector is vertical; only true if $PQ$ is horizontal.",
+        "D": "Uses the wrong slope, namely the slope of $PQ$, not its negative reciprocal."
+      },
+      "_batchId": "batch-1771478412741-geometry",
+      "_generatedAt": "2026-02-19T05:24:28.392Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a regular hexagon $ABCDEF$ with side length $6$ inscribed in a circle, what is its area?",
+      "options": [
+        "A) $54\\sqrt{3}$",
+        "B) $27\\sqrt{3}$",
+        "C) $54$",
+        "D) $9\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: For a regular hexagon with side length $a$, area $= \\frac{3\\sqrt{3}}{2} a^2$. Step 2: Here $a=6$, so area $= \\frac{3\\sqrt{3}}{2} \\cdot 36 = 54\\sqrt{3}$. Therefore the area is $54\\sqrt{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area of regular polygons",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct value for area; this is the right option.",
+        "B": "Halves the area incorrectly, forgetting a factor of 2 in the formula.",
+        "C": "Forgets the $\\\\sqrt{3}$ factor; uses a purely numeric result.",
+        "D": "Mistakes the hexagon area formula as that of an equilateral triangle or another shape."
+      },
+      "_batchId": "batch-1771478412741-geometry",
+      "_generatedAt": "2026-02-19T05:24:28.394Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

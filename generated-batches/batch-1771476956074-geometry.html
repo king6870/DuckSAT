@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review: batch-1771476956074-geometry</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+  <style>
+    body { font-family: Georgia, serif; max-width: 900px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
+    .header { background: #f0f4f8; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+    .header h1 { margin: 0 0 10px; color: #1a365d; }
+    .header .meta { color: #4a5568; font-size: 14px; }
+    .question { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 25px; margin-bottom: 25px; }
+    .question-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
+    .question-number { font-weight: bold; font-size: 18px; color: #2d3748; }
+    .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+    .badge.easy { background: #c6f6d5; color: #22543d; }
+    .badge.medium { background: #fed7d7; color: #742a2a; }
+    .badge.hard { background: #e2e8f0; color: #1a202c; }
+    .question-text { font-size: 16px; margin: 15px 0; }
+    .passage { background: #f7fafc; padding: 15px; border-left: 4px solid #4299e1; margin: 15px 0; font-size: 14px; }
+    .options { list-style: none; padding: 0; }
+    .options li { padding: 10px; margin: 8px 0; border-radius: 4px; background: #f7fafc; }
+    .options li.correct { background: #c6f6d5; border-left: 4px solid #38a169; }
+    .explanation { background: #fffaf0; padding: 15px; border-left: 4px solid #ed8936; margin-top: 15px; }
+    .explanation-title { font-weight: bold; color: #7c2d12; margin-bottom: 8px; }
+    footer { text-align: center; padding: 40px 0; color: #718096; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>batch-1771476956074-geometry</h1>
+    <div class="meta">
+      Generated: 2/18/2026, 8:57:47 PM | 
+      Topic: geometry | 
+      Module: math | 
+      Valid: 2/2
+    </div>
+  </div>
+
+  
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 1</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">In triangle $\triangle ABC$ with coordinates $A(0,0)$, $B(4,0)$, and $C(0,3)$, what is the area of $\triangle ABC$?</div>
+    
+    <ul class="options">
+      <li class="">A) 4</li><li class="">B) 12</li><li class="correct">C) 6</li><li class="">D) 9</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      The triangle is right at A because AB is along the x-axis and AC is along the y-axis. Base AB = 4 and height AC = 3. Therefore, area = $\frac{1}{2} \cdot AB \cdot AC = \frac{1}{2} \cdot 4 \cdot 3 = 6$. Using the determinant formula also yields $\frac{1}{2} | x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2) | = \frac{1}{2} | 0(0-3) + 4(3-0) + 0(0-0) | = 6$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 2</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Let $P(1,2)$ and $Q(5,6)$ lie on line $\\ell$. The line $\\ell$ intersects the x-axis at $R$. What is the distance $QR$?</div>
+    
+    <ul class="options">
+      <li class="">A) $4\sqrt{2}$</li><li class="correct">B) $6\sqrt{2}$</li><li class="">C) 12</li><li class="">D) 6</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Step 1: The slope of $PQ$ is $m = \frac{6-2}{5-1} = 1$. Step 2: The line through $P$ with slope 1 is $y-2 = 1(x-1)$, i.e. $y = x+1$. Step 3: Intersect with x-axis ($y=0$): $0 = x+1 \\Rightarrow x = -1$, so $R(-1,0)$. Step 4: The distance $QR$ is $\sqrt{(5-(-1))^2 + (6-0)^2} = \sqrt{6^2 + 6^2} = \sqrt{72} = 6\sqrt{2}$.
+    </div>
+  </div>
+
+
+  <footer>
+    <p>Review this batch and approve or reject questions before importing to the database.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "$", right: "$", display: false}
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+</html>

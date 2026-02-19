@@ -1,0 +1,303 @@
+{
+  "batchId": "batch-1771478962168-geometry",
+  "topic": "geometry",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T05:33:53.585Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 10,
+  "totalValid": 10,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In the right triangle $\\triangle ABC$ with right angle at $C$, $\\angle A = 30^\\circ$, $\\angle B = 60^\\circ$, and $\\overline{AB} = 10$. Find $\\overline{BC}$.",
+      "options": [
+        "A) $\\overline{BC} = 5$",
+        "B) $\\overline{BC} = 5\\sqrt{3}$",
+        "C) $\\overline{BC} = 10$",
+        "D) $\\overline{BC} = 5\\sqrt{2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: A 30-60-90 triangle has hypotenuse = 2 × shorter leg. The side opposite $\\angle A = 30^\\circ$ is $\\overline{BC}$, so $\\overline{BC}$ is the shorter leg. Step 2: $\\overline{AB} = 10$ is the hypotenuse, so $\\overline{BC} = \\frac{1}{2} \\overline{AB} = \\frac{1}{2}(10) = 5$. Therefore, $\\overline{BC} = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles: 30-60-90",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses the shorter leg with the longer leg; the longer leg should be $5\\sqrt{3}$, not $5$.",
+        "C": "Treats $\\overline{AB}$ as $\\overline{BC}$; the hypotenuse is not a leg.",
+        "D": "Uses an incorrect hypotenuse/leg ratio for a 30-60-90 triangle."
+      },
+      "_batchId": "batch-1771478962168-geometry",
+      "_generatedAt": "2026-02-19T05:32:15.307Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a circle with radius $4$, the arc subtended by a central angle of $60^\\circ$ has length What is its length?",
+      "options": [
+        "A) $\\frac{4\\pi}{3}$",
+        "B) $8\\pi$",
+        "C) $\\frac{2\\pi}{3}$",
+        "D) $\\frac{8\\pi}{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Arc length for central angle $\\theta$ in degrees is $s = \\frac{\\theta}{360^\\circ} \\cdot 2\\pi r$. Here $\\theta=60^\\circ$ and $r=4$. So $s = \\frac{60}{360} \\cdot 2\\pi\\cdot 4 = \\frac{1}{6} \\cdot 8\\pi = \\frac{4\\pi}{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles: Arc length",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Used the full circumference instead of the arc portion.",
+        "C": "Used half the angle (30°) by mistake.",
+        "D": "Used a radius of 8 or misapplied the fraction; arc would be $\\frac{8\\pi}{3}$ if radius were 8."
+      },
+      "_batchId": "batch-1771478962168-geometry",
+      "_generatedAt": "2026-02-19T05:32:15.309Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Let $A=(2,3)$ and $B=(7,11)$. Find the length of $\\overline{AB}$.",
+      "options": [
+        "A) $\\sqrt{89}$",
+        "B) $9$",
+        "C) $\\sqrt{80}$",
+        "D) $\\sqrt{106}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distance formula: $AB = \\sqrt{(7-2)^2 + (11-3)^2} = \\sqrt{5^2 + 8^2} = \\sqrt{25+64} = \\sqrt{89}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate geometry: Distance formula",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Treats distance as an integer, forgetting the square root of sums of squares.",
+        "C": "Uses $\\Delta y = 4$ instead of $8$ (incorrect vertical difference).",
+        "D": "Misuses the coordinates, effectively mixing the values."
+      },
+      "_batchId": "batch-1771478962168-geometry",
+      "_generatedAt": "2026-02-19T05:32:15.311Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A composite shape consists of a rectangle $8\\times 5$ with a right triangle of base $3$ and height $5$ attached to its left side. What is the area of the entire shape?",
+      "options": [
+        "A) $\\frac{95}{2}$",
+        "B) $40$",
+        "C) $43$",
+        "D) $52$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Rectangle area: $8\\times 5 = 40$. Triangle area: $\\tfrac{1}{2}\\times 3\\times 5 = \\tfrac{15}{2} = 7.5$. Total area: $40 + 7.5 = 47.5 = \\tfrac{95}{2}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-perimeter: Area of composite shapes",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Adds only the rectangle area, forgetting the attached triangle.",
+        "B": "Gives rectangle area only, ignores the triangle.",
+        "C": "Incorrect sum of rectangle and triangle areas.",
+        "D": "Miscomputes triangle area or adds an extra dimension."
+      },
+      "_batchId": "batch-1771478962168-geometry",
+      "_generatedAt": "2026-02-19T05:32:15.312Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two parallel lines are cut by a transversal. If the angle at the upper intersection on the left interior is $\\angle A = 65^\\circ$, what is $\\angle B$, the interior angle on the lower intersection on the same side of the transversal?",
+      "options": [
+        "A) $65^\\circ$",
+        "B) $115^\\circ$",
+        "C) $70^\\circ$",
+        "D) $180^\\circ$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Since the lines are parallel, the interior angles on the same side of the transversal are supplementary: $\\angle A + \\angle B = 180^\\circ$. Thus $\\angle B = 180^\\circ - 65^\\circ = 115^\\circ$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Angles: Parallel lines cut by transversal",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Confuses same-side interior with corresponding/alternate interior.",
+        "B": "",
+        "C": "Mistakenly uses complementary angles (sums to 90°).",
+        "D": "Treats as a reflex angle instead of interior angle."
+      },
+      "_batchId": "batch-1771478962168-geometry",
+      "_generatedAt": "2026-02-19T05:32:15.314Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A translation by vector $(3,2)$ is applied to $\\triangle ABC$, followed by a $90^\\circ$ rotation about the origin, giving $\\triangle A'B'C'$. Which statement about the lengths of corresponding sides is true?",
+      "options": [
+        "A) $\\overline{A'B'} = \\overline{AB}$",
+        "B) $\\overline{A'B'} > \\overline{AB}$",
+        "C) $\\overline{A'B'} < \\overline{AB}$",
+        "D) $\\overline{A'B'}$ depends on the coordinates of $A,B$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Translations and rotations are rigid motions; they preserve distances. Therefore, the length between corresponding points remains the same: $\\overline{A'B'} = \\overline{AB}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Transformations: Translations and rotations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Rigid motions do not change distances, so this is false.",
+        "C": "Rigid motions do not change distances, so this is false.",
+        "D": "The length does not depend on coordinates after a rigid motion; it is preserved."
+      },
+      "_batchId": "batch-1771478962168-geometry",
+      "_generatedAt": "2026-02-19T05:32:15.315Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The circle with center $(h,k)=(3,-2)$ and radius $r=4$ has equation",
+      "options": [
+        "A) $(x-3)^2+(y+2)^2=16$",
+        "B) $(x+3)^2+(y-2)^2=16$",
+        "C) $(x-3)^2+(y+2)^2=8$",
+        "D) $(x-3)^2+(y+2)^2=32$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The standard form is $(x-h)^2+(y-k)^2=r^2$. Here $h=3$, $k=-2$, $r=4$, so $(x-3)^2+(y+2)^2=16$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles: Equation of a circle",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect center coordinates (signs swapped).",
+        "B": "Uses wrong signs for $h,k$.",
+        "C": "Uses wrong radius squared.",
+        "D": "Uses wrong radius squared."
+      },
+      "_batchId": "batch-1771478962168-geometry",
+      "_generatedAt": "2026-02-19T05:32:15.317Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A regular hexagon has side length $s=4$. Its area is given by $A = \\frac{3\\sqrt{3}}{2} s^2$. What is the area?",
+      "options": [
+        "A) $24\\sqrt{3}$",
+        "B) $36$",
+        "C) $48$",
+        "D) $12\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Compute: $A = \\frac{3\\sqrt{3}}{2} \\cdot 4^2 = \\frac{3\\sqrt{3}}{2} \\cdot 16 = 24\\sqrt{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-perimeter: Regular polygons",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Missed the $\\sqrt{3}$ factor or used incorrect formula.",
+        "C": "Used $s^2$ but without the $\\frac{3\\sqrt{3}}{2}$ factor.",
+        "D": "Used half of the correct expression or confused coefficient."
+      },
+      "_batchId": "batch-1771478962168-geometry",
+      "_generatedAt": "2026-02-19T05:32:15.319Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Given $A=(1,4)$ and $B=(5,-2)$, the midpoint $M$ of $\\overline{AB}$ is",
+      "options": [
+        "A) $(3,1)$",
+        "B) $(2.5,1)$",
+        "C) $(3,-1)$",
+        "D) $(4,1)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Midpoint formula: $M = \\left(\\dfrac{1+5}{2}, \\dfrac{4+(-2)}{2}\\right) = (3,1)$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate geometry: Midpoint",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Used $\\dfrac{1+5}{2}=3$ correct but $y$-coordinate incorrectly averaged as $(4+0)/2$.",
+        "C": "Used wrong $y$-coordinate average giving $-1$.",
+        "D": "Used wrong $x$-coordinate average giving $4$."
+      },
+      "_batchId": "batch-1771478962168-geometry",
+      "_generatedAt": "2026-02-19T05:32:15.321Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": " ΔABC ∼ ΔA'B'C' with corresponding sides AB ↔ A'B', BC ↔ B'C', AC ↔ A'C'. If $AB=6$, $BC=8$, and $A'B'=9$, find $B'C'$.",
+      "options": [
+        "A) $12$",
+        "B) $10$",
+        "C) $14$",
+        "D) $16$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "If the triangles are similar with corresponding sides, the scale factor is $k = \\dfrac{A'B'}{AB} = \\dfrac{9}{6} = \\tfrac{3}{2}$. Then $B'C' = k\\cdot BC = \\tfrac{3}{2} \\cdot 8 = 12$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles: Similar triangles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Uses the scale factor but applies it to the wrong side.",
+        "B": "Misidentifies the scale factor or misapplies it to BC.",
+        "C": "Uses an incorrect scale factor or incorrect corresponding sides.",
+        "D": "Forgets to apply the scale factor altogether."
+      },
+      "_batchId": "batch-1771478962168-geometry",
+      "_generatedAt": "2026-02-19T05:32:15.322Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

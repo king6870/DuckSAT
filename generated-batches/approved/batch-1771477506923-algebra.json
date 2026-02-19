@@ -1,0 +1,414 @@
+{
+  "batchId": "batch-1771477506923-algebra",
+  "topic": "algebra",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T05:09:33.561Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 14,
+  "totalValid": 14,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Solve for x: $2x - 5 = 3x + 1$.",
+      "options": [
+        "A) $x = -6$",
+        "B) $x = 4$",
+        "C) $x = -\\frac{1}{2}$",
+        "D) $x = 3$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From $2x - 5 = 3x + 1$, subtract $2x$ from both sides to obtain $-5 = x + 1$. Then subtract 1 from both sides to get $-6 = x$, so $x = -6$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The option $x = 4$ results from a mis-step such as moving terms incorrectly; the correct steps yield $x = -6$.",
+        "C": "Treats the equation as if a fraction solution is needed, which is not the case here.",
+        "D": "A sign error or arithmetic mistake leads to an incorrect positive value."
+      },
+      "_batchId": "batch-1771477506923-algebra",
+      "_generatedAt": "2026-02-19T05:07:48.210Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the inequality $3x - 4 > 2x + 5$.",
+      "options": [
+        "A) $x > 9$",
+        "B) $x < 9$",
+        "C) $x \\ge 9$",
+        "D) $x \\le 9$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Subtract $2x$ from both sides: $x - 4 > 5$. Add 4: $x > 9$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "You flipped the relation or moved the x-term in the wrong direction.",
+        "C": "You treated the inequality as non-strict ($\\ge$) instead of strict ($>$).",
+        "D": "You reversed the inequality or combined terms incorrectly."
+      },
+      "_batchId": "batch-1771477506923-algebra",
+      "_generatedAt": "2026-02-19T05:07:48.213Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system: $2x + y = 7$ and $x - y = 1$.",
+      "options": [
+        "A) $x = \\frac{8}{3},\\; y = \\frac{5}{3}$",
+        "B) $x = 3,\\; y = 1$",
+        "C) $x = 4,\\; y = 3$",
+        "D) $x = \\frac{5}{2},\\; y = \\frac{1}{2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From the second equation, $y = x - 1$. Substitute into the first: $2x + (x - 1) = 7 \\Rightarrow 3x - 1 = 7 \\Rightarrow 3x = 8 \\Rightarrow x = \\frac{8}{3}$. Then $y = x - 1 = \\frac{8}{3} - \\frac{3}{3} = \\frac{5}{3}$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct substitution leads to the right values; others come from arithmetic errors in substitution.",
+        "B": "Plugging into equations does not satisfy both, e.g., $2(3) + 1 ≠ 7$.",
+        "C": "Choice reflects an incorrect system solution or mis-substitution.",
+        "D": "A rounding or fraction mistake in solving for x and y."
+      },
+      "_batchId": "batch-1771477506923-algebra",
+      "_generatedAt": "2026-02-19T05:07:48.216Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute the product: $(2x - 3)(x + 4)$.",
+      "options": [
+        "A) $2x^2 + 5x - 12$",
+        "B) $2x^2 - x - 12$",
+        "C) $2x^2 + 8x - 3$",
+        "D) $x^2 + 2x - 12$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distribute: $(2x - 3)(x + 4) = 2x(x+4) - 3(x+4) = (2x^2 + 8x) + (-3x - 12) = 2x^2 + 5x - 12$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Mistakes in combining the cross terms (wrongly adding 8x and −3x).",
+        "B": "Incorrectly distributing the −3 as −3x + 12 instead of −3x − 12.",
+        "C": "Misplaced one term leading to 8x instead of 5x."
+      },
+      "_batchId": "batch-1771477506923-algebra",
+      "_generatedAt": "2026-02-19T05:07:48.219Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the absolute value inequality $|2x - 5| \\le 7$.",
+      "options": [
+        "A) $-1 \\le x \\le 6$",
+        "B) $x \\le -1$ or $x \\ge 6$",
+        "C) $-1 < x < 6$",
+        "D) $-3 \\le x \\le 7$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An absolute value inequality $|A| \\le k$ corresponds to $-k \\le A \\le k$. Here, $-7 \\le 2x - 5 \\le 7$. Adding 5 gives $-2 \\le 2x \\le 12$, and dividing by 2 yields $-1 \\le x \\le 6$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Includes endpoints but uses incorrect bounds for x.",
+        "B": "Represents the solution to $|2x - 5| \\ge 7$ (or misinterprets the inequality).",
+        "C": "Uses strict inequalities, dropping the endpoints."
+      },
+      "_batchId": "batch-1771477506923-algebra",
+      "_generatedAt": "2026-02-19T05:07:48.221Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A rectangle has width $w$ and length $l$, and the length is 2 more than the width: $l = w + 2$. If the perimeter is 30 cm, what are the dimensions of the rectangle?",
+      "options": [
+        "A) width 6.5 cm, length 8.5 cm",
+        "B) width 5 cm, length 7 cm",
+        "C) width 6 cm, length 8 cm",
+        "D) width 7 cm, length 9 cm"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Perimeter $P = 2(l + w) = 30$ and $l = w + 2$. So $2((w+2) + w) = 30 \\Rightarrow 4w + 4 = 30 \\Rightarrow 4w = 26 \\Rightarrow w = 6.5$. Then $l = w + 2 = 8.5$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Chooses the correct values for w and l but with an arithmetic error in computing one of them.",
+        "B": "Assumes integers for a problem that yields a decimal width.",
+        "C": "Incorrect relationship between length and width; uses $l = w$ or a similar mistake."
+      },
+      "_batchId": "batch-1771477506923-algebra",
+      "_generatedAt": "2026-02-19T05:07:48.222Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the linear equation with distribution: $3(2x - 4) - 5 = 7x + 1$.",
+      "options": [
+        "A) $x = -18$",
+        "B) $x = -9$",
+        "C) $x = 6$",
+        "D) $x = -1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distribute: $3(2x - 4) - 5 = 6x - 12 - 5 = 6x - 17$. Set equal to $7x + 1$: $6x - 17 = 7x + 1$. Subtract $6x$: $-17 = x + 1$, so $x = -18$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A distribution or combining step was done correctly until the final isolation; the correct value is $-18$.",
+        "B": "You halved or otherwise divided incorrectly when isolating x.",
+        "C": "You added instead of subtracted on the x terms, leading to an incorrect positive value."
+      },
+      "_batchId": "batch-1771477506923-algebra",
+      "_generatedAt": "2026-02-19T05:07:48.224Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the compound inequality $-4 \\le 2x - 5 < 3$.",
+      "options": [
+        "A) $\\frac{1}{2} \\le x < 4$",
+        "B) $-1 \\le x < 4$",
+        "C) $\\frac{1}{2} < x \\le 4$",
+        "D) $x \\le \\frac{1}{2}$ or $x \\ge 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Add 5 to all parts: $1 \\le 2x < 8$. Divide by 2: $\\frac{1}{2} \\le x < 4$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct lower bound but misinterprets the strictness on the upper bound.",
+        "B": "Lower bound is incorrect; misses the exact lower bound $\\frac{1}{2}$.",
+        "C": "Uses a strict inequality on the left, which is incorrect."
+      },
+      "_batchId": "batch-1771477506923-algebra",
+      "_generatedAt": "2026-02-19T05:07:48.227Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system by substitution: $y = 3x + 2$ and $4x - y = 7$.",
+      "options": [
+        "A) $x = 9$, $y = 29$",
+        "B) $x = 3$, $y = 11$",
+        "C) $x = -9$, $y = -25$",
+        "D) $x = 0$, $y = 2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Substitute $y$ into $4x - y = 7$: $4x - (3x + 2) = 7 \\Rightarrow x - 2 = 7 \\Rightarrow x = 9$. Then $y = 3(9) + 2 = 29$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect substitution or calculation in solving for x.",
+        "B": "Used a wrong substitution value for y or arithmetic error.",
+        "C": "Sign error or incorrect rearrangement.",
+        "D": "Assumed a trivial solution not consistent with the equations."
+      },
+      "_batchId": "batch-1771477506923-algebra",
+      "_generatedAt": "2026-02-19T05:07:48.228Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the absolute value equation $|x - 4| = 7$.",
+      "options": [
+        "A) $x = 11$ or $x = -3$",
+        "B) $x = -3$ or $x = -7$",
+        "C) $x = 3$ or $x = 7$",
+        "D) $x = 4$ or $x = 7$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An absolute value equation $|A|=b$ gives $A=b$ or $A=-b$. So $x - 4 = 7$ or $x - 4 = -7$; thus $x = 11$ or $x = -3$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "One root is correct but the other is missing; the equation yields 11 and -3.",
+        "C": "Confuses the shift by 4 with root values.",
+        "D": "Includes an extraneous root not arising from the equation."
+      },
+      "_batchId": "batch-1771477506923-algebra",
+      "_generatedAt": "2026-02-19T05:07:48.230Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for $x$: $3(2x - 5) - (x + 4) = 2(3x - 1) + 7$.",
+      "options": [
+        "A) 3",
+        "B) -24",
+        "C) -5",
+        "D) 0"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Expand both sides: $3(2x - 5) - (x + 4) = (6x - 15) - x - 4 = 5x - 19$; Right side: $2(3x - 1) + 7 = (6x - 2) + 7 = 6x + 5$. Step 2: Set equal: $5x - 19 = 6x + 5$. Step 3: Subtract $5x$: $-19 = x + 5$. Step 4: Subtract 5: $-24 = x$, so $x = -24$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Mistake: misapplied distribution or sign, giving an incorrect value such as x = 3 instead of -24.",
+        "B": "Explanation of correct result; this is the right value -24.",
+        "C": "Mistake: moving constants incorrectly on the equation, ending with x = -5.",
+        "D": "Mistake: not combining like terms on the left side, giving x = 0."
+      },
+      "_batchId": "batch-1771477506923-algebra",
+      "_generatedAt": "2026-02-19T05:09:32.542Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A car's speed $s$ (in mph) is kept within 5 mph of the target speed 60 mph. This condition is written as $|s-60| \\le 5$. Which of the following is the set of all possible speeds s?",
+      "options": [
+        "A) 55 $\\le$ s $\\le$ 65",
+        "B) 55 < s $\\le$ 65",
+        "C) 60 $\\le$ s $\\le$ 65",
+        "D) s $\\le$ 55 $\\text{ or }$ s $\\ge$ 65"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From $|s-60| \\le 5$ we have $-5 \\le s-60 \\le 5$. Adding 60 to all parts yields $55 \\le s \\le 65$, which is option A. The endpoints are included because of the ≤ signs.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct statement; this is the right solution.",
+        "B": "Mistake: used < instead of ≤ on the right endpoint, missing s = 65.",
+        "C": "Mistake: only used the lower bound and forgot the left part of the interval.",
+        "D": "Mistake: treated the inequality as a disjunction, giving a union outside the interval."
+      },
+      "_batchId": "batch-1771477506923-algebra",
+      "_generatedAt": "2026-02-19T05:09:32.544Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system: $2x + 3y = 12$ and $4x - y = 5$.",
+      "options": [
+        "A) $(\\frac{27}{14},\\frac{19}{7})$",
+        "B) $(1, 2)$",
+        "C) $(0,12)$",
+        "D) $(\\tfrac{3}{2}, \\tfrac{3}{2})$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From the second equation, $y=4x-5$. Substitute into the first: $2x + 3(4x-5) = 12 \\Rightarrow 2x + 12x - 15 = 12 \\Rightarrow 14x = 27 \\Rightarrow x = \\tfrac{27}{14}$. Then $y = 4(\\tfrac{27}{14}) - 5 = \\tfrac{108}{14} - 5 = \\tfrac{54}{7} - \\tfrac{35}{7} = \\tfrac{19}{7}$. So the solution is $(x,y) = (\\tfrac{27}{14}, \\tfrac{19}{7})$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct solution; others are not satisfying both equations.",
+        "B": "Simple integers that do not satisfy the first equation.",
+        "C": "Arbitrary pair that does not satisfy the system.",
+        "D": "Incorrect substitution or algebraic error leading to equal coordinates."
+      },
+      "_batchId": "batch-1771477506923-algebra",
+      "_generatedAt": "2026-02-19T05:09:32.546Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A company sells a product with revenue modeled by $R(x) = -x^2 + 10x$, where $x$ is the number of units sold (with $0 \\le x \\le 10$). Which value of $x$ maximizes revenue?",
+      "options": [
+        "A) 5",
+        "B) 0",
+        "C) 10",
+        "D) 2"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Rewrite: $R(x) = -x^2 + 10x = -(x^2 - 10x) = -(x^2 - 10x + 25) + 25 = -(x-5)^2 + 25$. This is a downward-opening parabola with vertex at $x = 5$, giving maximum revenue $R(5) = 25$. Therefore, $x=5$ maximizes revenue.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer; x=5 yields the maximum, not the other options.",
+        "B": "Mistake: choosing a boundary value instead of the vertex; revenue is higher at x=5.",
+        "C": "Mistake: assuming symmetry around a different point; x=10 yields $R(10)=0$.",
+        "D": "Mistake: picking a non-vertex value, ignoring the parabola's vertex."
+      },
+      "_batchId": "batch-1771477506923-algebra",
+      "_generatedAt": "2026-02-19T05:09:32.548Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

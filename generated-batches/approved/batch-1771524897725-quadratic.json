@@ -1,0 +1,300 @@
+{
+  "batchId": "batch-1771524897725-quadratic",
+  "topic": "quadratic",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T18:21:28.000Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 10,
+  "totalGenerated": 10,
+  "totalValid": 10,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Factor and solve the quadratic equation $x^2 - 5x + 6 = 0$ by factoring.",
+      "options": [
+        "A) $x = 2$ or $x = 3$",
+        "B) $x = -2$ or $x = -3$",
+        "C) $x = 1$ or $x = 6$",
+        "D) $x = 0$ or $x = 5$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Identify $a=1$, $b=-5$, $c=6$. Step 2: Factor the quadratic: $x^2 - 5x + 6 = (x-2)(x-3)$. Step 3: Apply zero product property: $(x-2)=0$ or $(x-3)=0$, giving $x=2$ or $x=3$. Therefore, the solutions are $x=2$ and $x=3$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "factoring",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The factorization (x+2)(x+3)=x^2+5x+6 would produce +5x, not -5x, so this option is incorrect due to the wrong sign in the middle term.",
+        "C": "The pair (x-1)(x-6) gives $x^2-7x+6$, not $x^2-5x+6$, so the middle-term coefficient is wrong.",
+        "D": "Choosing x=0 or x=5 ignores the middle term and does not satisfy the equation; it misreads the constant term."
+      },
+      "_batchId": "batch-1771524897725-quadratic",
+      "_generatedAt": "2026-02-19T18:16:49.438Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A projectile's height after $t$ seconds is $h(t) = -5t^2 + 40t$ meters. Use completing the square to rewrite $h(t)$ in vertex form and then determine the times when the height is zero, i.e., when $h(t)=0$.",
+      "options": [
+        "A) $t=0$ or $t=8$",
+        "B) $t=4$ only",
+        "C) $t=-8$ or $t=0$",
+        "D) $t=0$ only"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Complete the square: $h(t) = -5t^2 + 40t = -5(t^2 - 8t) = -5[(t-4)^2 - 16] = -5(t-4)^2 + 80$. Step 2: Set $h(t)=0$: $-5(t-4)^2 + 80 = 0 \\\\Rightarrow (t-4)^2 = 16$. So $t-4 = \\pm 4$, giving $t = 0$ or $t = 8$. Hence the projectile is at ground level at $t=0$ and $t=8$ seconds.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "completing-square",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The option $t=4$ only ignores the second zero; completing the square shows there are two zeros: 0 and 8.",
+        "C": "The negative root $t=-8$ arises from a sign mistake in the completed square step; the correct zeros are 0 and 8.",
+        "D": "This ignores the second crossing and gives only the initial time; the height returns to zero again at 8 seconds."
+      },
+      "_batchId": "batch-1771524897725-quadratic",
+      "_generatedAt": "2026-02-19T18:16:49.452Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "For the quadratic equation $2x^2 - 4x + 3 = 0$, what is the discriminant $\\Delta$ and how many real solutions does it have?",
+      "options": [
+        "A) $\\Delta = -8$, 0 real solutions",
+        "B) $\\Delta = 0$, 1 real solution",
+        "C) $\\Delta = 8$, 2 real solutions",
+        "D) $\\Delta = -4$, 0 real solutions"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Compute the discriminant: $\\Delta = b^2 - 4ac = (-4)^2 - 4(2)(3) = 16 - 24 = -8$. Since $\\Delta < 0$, there are no real solutions.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "discriminant",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Mistakes sign/values for the discriminant, yielding $\\\\Delta = 0$ and implying one real solution.",
+        "C": "Miscomputes the discriminant as $+8$; the correct value is negative due to $16 - 24 = -8$.",
+        "D": "Miscalculates $4ac$ or signs, giving $\\\\Delta = -4$; the actual result is $-8$."
+      },
+      "_batchId": "batch-1771524897725-quadratic",
+      "_generatedAt": "2026-02-19T18:16:49.456Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve by factoring: $x^2 - 5x + 6 = 0$.",
+      "options": [
+        "A) x = 2 and x = 3",
+        "B) x = -2 and x = -3",
+        "C) x = 1 and x = 6",
+        "D) No real roots"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor the quadratic: $x^2 - 5x + 6 = (x-2)(x-3)$. Set each factor to zero: $(x-2)=0$ or $(x-3)=0$, giving $x=2$ or $x=3$. Therefore the roots are $2$ and $3$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Factoring",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B incorrectly uses negative roots, likely by assuming factors $(x+2)(x+3)$, sign error.",
+        "C": "C uses roots that would multiply to 6 but sum to 7 instead of 5, indicating incorrect factor pair.",
+        "D": "D claims no real roots; this ignores the discriminant $b^2 - 4ac = 25 - 24$."
+      },
+      "_batchId": "batch-1771524897725-quadratic",
+      "_generatedAt": "2026-02-19T18:18:48.680Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The quadratic $y = x^2 + 4x - 5$ can be written in vertex form by completing the square. Which is the vertex form, and what is the vertex?",
+      "options": [
+        "A) $y = (x+2)^2 - 9$; vertex $(-2,-9)$",
+        "B) $y = (x-2)^2 - 9$; vertex $(2,-9)$",
+        "C) $y = (x+2)^2 + 9$; vertex $(-2,9)$",
+        "D) $y = (x+2)^2 - 5$; vertex $(-2,-5)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Complete the square: $x^2 + 4x - 5 = (x+2)^2 - 9$ since $(x+2)^2 = x^2 + 4x + 4$. The vertex form is $y = (x+2)^2 - 9$, which has vertex $(-2,-9)$ (in $y = a(x-h)^2 + k$, the vertex is $(h,k)$).",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Completing the square",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B uses the wrong sign for h, giving a vertex at (2,-9), and incorrect factor choice.",
+        "C": "C has the wrong sign for k, giving a positive 9 instead of -9, changing the vertex.",
+        "D": "D uses the wrong constant term, giving a vertex at (-2,-5)."
+      },
+      "_batchId": "batch-1771524897725-quadratic",
+      "_generatedAt": "2026-02-19T18:18:48.682Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "For the equation $3x^2 - 12x + 7 = 0$, what is the discriminant and how many real solutions does it have?",
+      "options": [
+        "A) $\\Delta = 60$, two real solutions",
+        "B) $\\Delta = -60$, no real solutions",
+        "C) $\\Delta = 0$, one real solution",
+        "D) $\\Delta = 144$, two real solutions"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Identify coefficients: $a=3$, $b=-12$, $c=7$. The discriminant is $\\Delta = b^2 - 4ac = (-12)^2 - 4\\cdot 3\\cdot 7 = 144 - 84 = 60$. Since $\\Delta > 0$, there are two real solutions.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Quadratic formula",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B wrongly uses a negative discriminant, implying no real solutions.",
+        "C": "C sets the discriminant to 0, which would give a repeated real root.",
+        "D": "D incorrectly computes the discriminant as 144 instead of 60."
+      },
+      "_batchId": "batch-1771524897725-quadratic",
+      "_generatedAt": "2026-02-19T18:18:48.686Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The quadratic in vertex form $y = -2(x - 4)^2 + 5$ identifies certain features of the parabola. Which statement correctly describes the vertex, axis of symmetry, and whether it opens up or down?",
+      "options": [
+        "A) Vertex $(4,5)$, axis $x=4$, opens downward",
+        "B) Vertex $(4,-5)$, axis $x=-4$, opens upward",
+        "C) Vertex $(-4,5)$, axis $x=4$, opens downward",
+        "D) Vertex $(0,5)$, axis $x=0$, opens upward"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In vertex form $y = a(x-h)^2 + k$, the vertex is $(h,k)$. Here $h=4$ and $k=5$, so the vertex is $(4,5)$ and the axis is $x=h=4$. Since $a=-2<0$, the parabola opens downward (a maximum at the vertex).",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Vertex form",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B misplaces signs for both the vertex and axis, and asserts the wrong opening direction.",
+        "C": "C changes the vertex to (-4,5) and the axis to x=4, which is inconsistent with the given form.",
+        "D": "D places the vertex at the origin and ignores the shift h=4."
+      },
+      "_batchId": "batch-1771524897725-quadratic",
+      "_generatedAt": "2026-02-19T18:18:48.688Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A rectangular pen is built along a river, using fencing for three sides with a total length of 60 meters. Let the width be $w$ (perpendicular to the river) and the length be $l$ (parallel to the river). The fencing constraint is $2w + l = 60$ and the area is $A = w l$. Which width maximizes area, and what is the maximum area?",
+      "options": [
+        "A) $w = 15$, $A = 450$",
+        "B) $w = 20$, $A = 400$",
+        "C) $w = 18$, $A = 432$",
+        "D) $w = 9$, $A = 378$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Express $l$ as $l = 60 - 2w$, then $A$ = $w l$ = $w(60 - 2w) = -2w^2 + 60w$. The vertex occurs at $w = -\\dfrac{b}{2a} = -\\dfrac{60}{2(-2)} = 15$. Thus the maximum area is $A(15) = -2(15)^2 + 60(15) = -450 + 900 = 450$. So $w = 15$ maximizes area with $A_{\\\\max} = 450$.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "Area optimization",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B uses a wider width and yields a smaller area, showing a miscalculation of the vertex.",
+        "C": "C uses a width that does not maximize the parabola; it corresponds to a point left or right of the vertex.",
+        "D": "D uses a width yielding a smaller area; it represents an incorrect vertex or misapplication of the formula."
+      },
+      "_batchId": "batch-1771524897725-quadratic",
+      "_generatedAt": "2026-02-19T18:18:48.690Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Factor and solve the quadratic equation $6x^2 - 7x - 3 = 0$. It factors as $(3x + 1)(2x - 3) = 0$. What are the real solutions for $x$?",
+      "options": [
+        "A) $x = \\frac{3}{2}$ and $x = -\\frac{1}{3}$",
+        "B) $x = -\\frac{3}{2}$ and $x = \\frac{1}{3}$",
+        "C) $x = 2$ and $x = -\\frac{1}{3}$",
+        "D) $x = 3$ and $x = -\\frac{1}{2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Factor the quadratic: $6x^2 - 7x - 3 = (3x + 1)(2x - 3)$. Step 2: Apply the zero-product property: $(3x + 1) = 0$ or $(2x - 3) = 0$. Step 3: Solve each: $x = -\\frac{1}{3}$ or $x = \\frac{3}{2}$. Therefore, the real solutions are $x = -\\frac{1}{3}$ and $x = \\frac{3}{2}$. Option A lists exactly these solutions, so A is correct.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "factoring",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A",
+        "B": "Mistake: sign errors from using factors with incorrect signs, for example using $(3x - 1)(2x + 3)$ which expands to $6x^2 + 7x - 3$, not the original.",
+        "C": "Mistake: not solving after factoring; picking roots like 2 and -1/3 does not satisfy the equation.",
+        "D": "Mistake: misapplying the quadratic formula or miscomputing the discriminant, leading to an incorrect pair of roots."
+      },
+      "_batchId": "batch-1771524897725-quadratic",
+      "_generatedAt": "2026-02-19T18:21:26.985Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Let $h(t) = -2t^2 + 8t + 5$ be the height (in meters) of a ball $t$ seconds after it is thrown upward. What is the maximum height reached by the ball?",
+      "options": [
+        "A) 13 meters",
+        "B) 11 meters",
+        "C) 9 meters",
+        "D) 7 meters"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Complete the square to rewrite in vertex form: $h(t) = -2t^2 + 8t + 5 = -2(t^2 - 4t) + 5$.\nStep 2: Complete the square inside: $t^2 - 4t = (t - 2)^2 - 4$.\nStep 3: Substitute back: $h(t) = -2[(t - 2)^2 - 4] + 5 = -2(t - 2)^2 + 13$.\nStep 4: The vertex is at $(h, k) = (2, 13)$, and since $a = -2 < 0$, the maximum height occurs at $t = 2$ and equals $13$ meters.",
+      "moduleType": "math",
+      "category": "quadratic-equations",
+      "subtopic": "completing-square; vertex-form",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A",
+        "B": "Mistake: using the initial value $t=0$ to estimate maximum height; the maximum occurs at the vertex $t = -\\\\frac{b}{2a} = 2$.",
+        "C": "Mistake: miscomputing the completed square, yielding an incorrect vertex (e.g., $(2, 9)$).",
+        "D": "Mistake: confusing maximum height with evaluating at an incorrect time or misplacing the negative sign in front of the squared term."
+      },
+      "_batchId": "batch-1771524897725-quadratic",
+      "_generatedAt": "2026-02-19T18:21:26.990Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "batchId": "batch-1771475672867-vocabulary",
+  "topic": "vocabulary",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-02-19T04:37:21.379Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 10,
+  "totalGenerated": 10,
+  "totalValid": 10,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "As used in the passage, 'address' most nearly means...",
+      "options": [
+        "A) to speak to or address a group",
+        "B) to deal with or attend to a matter",
+        "C) a formal speech delivered to an audience",
+        "D) a residence or location where someone lives"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage says the council would address the concerns by allocating funds and coordinating volunteers, which means they will deal with or attend to the matters raised. The other senses do not fit the context: speaking to a group would require a direct speech, the passage does not present a stand-up speech, and the last option refers to a location, not an action. Therefore, the correct sense is to deal with a matter.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During a town council meeting, the mayor announced that the council would address the concerns of residents by allocating funds and coordinating volunteers. Several speakers urged action before seasonal storms arrive. One analyst noted that the problem was not a lack of money but a failure to coordinate schedules. After thoughtful discussion, the council agreed to address the most urgent issues within ninety days, with a public report to follow. The minutes emphasize that the next steps require clear communication and steady oversight.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect because the passage isn’t about delivering a speech to an audience.",
+        "C": "Incorrect because the sentence uses address as a verb meaning to deal with, not as a noun for a speech.",
+        "D": "Incorrect because the context is about handling concerns, not locating a residence."
+      },
+      "_batchId": "batch-1771475672867-vocabulary",
+      "_generatedAt": "2026-02-19T04:35:22.860Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'bear' most nearly means...",
+      "options": [
+        "A) to carry or support physically",
+        "B) to endure or tolerate",
+        "C) a large animal related to dogs",
+        "D) to give birth to; to produce offspring"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In the passage, the phrase mentions not wanting to quit and not wanting to bear the thought of turning back, which means to endure or tolerate. The other senses are not indicated: the passage does not describe carrying a load, the presence of an animal, or childbirth.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "On Saturday, the mountain trail offered a steep climb and a long switchback. Mia paced herself, focused on each step, and refused to quit. She reminded herself that she could not **bear** the thought of turning back now. The air grew thinner, yet she pressed on, and when she reached the ridge she felt a rush of relief. The others followed, surprised by how much steadiness and grit she showed. The journey had demanded not only strength but patience, and the group learned that true resolve often appears when the body wants to stop.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect because the context is mental endurance, not carrying a load.",
+        "C": "Incorrect because the passage does not reference the animal.",
+        "D": "Incorrect because the passage does not involve childbirth."
+      },
+      "_batchId": "batch-1771475672867-vocabulary",
+      "_generatedAt": "2026-02-19T04:35:22.861Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'grave' most nearly means...",
+      "options": [
+        "A) a burial place or tomb",
+        "B) serious or solemn in tone or meaning",
+        "C) to carve into; to engrave",
+        "D) a tempo marking in music meaning very slow and solemn"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage describes a warning as having grave importance, which means serious or solemn. The other senses are valid dictionary meanings of grave but are not the meaning intended in this context: A) refers to a burial place, C) is a verb sense not used here, and D) is a musical term unrelated to the context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "At the science club meeting, the mentor outlined several topics for discussion, noting that the first major **issue** for review would be the late bus schedule. Students debated effects on punctuality and morning routines. They suggested tracking arrival times and surveying peers to better understand the scope of the matter. A consensus emerged: the committee would examine options and report back at the next meeting. By focusing on the **issue** as a topic rather than a problem to be solved immediately, they kept the discussion constructive and forward-looking.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect because the passage does not describe a tomb or burial context.",
+        "C": "Incorrect because the context does not involve carving or engraving.",
+        "D": "Incorrect because the passage is not discussing music or tempo."
+      },
+      "_batchId": "batch-1771475672867-vocabulary",
+      "_generatedAt": "2026-02-19T04:35:22.861Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'address' most nearly means...",
+      "options": [
+        "A) to speak to or direct one's remarks to a person or audience.",
+        "B) to deal with or take care of; to manage.",
+        "C) to mail or direct a message to someone.",
+        "D) to confront or challenge openly."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage shows the council president standing at the podium and 'address[ing] the crowd,' which clearly signals giving a formal speech to the audience. The surrounding context emphasizes speaking to the audience rather than simply solving a problem, so the sense used here is 'to speak to or direct remarks to someone.' The other meanings exist in dictionary usage but do not fit this context: B refers to handling a task or problem, C to mailing a message, and D to confronting someone openly, which the passage does not depict.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "During the town hall, residents voiced a growing concern about how quickly housing prices were rising and what could be done to relieve the burden. When the time came, the council president stood at the podium and prepared to address the crowd. He spoke with careful phrasing, acknowledging the fear many families felt while outlining steps the city would take to stabilize rents, improve transit access, and expand nearby affordable units. After his remarks, a few audience members asked for specific timelines. The tone of his delivery suggested a commitment to clear information and steady progress.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The context is not about handling or solving an issue; it centers on giving remarks to the audience, so this sense does not fit.",
+        "C": "There is no mail or message being sent in the scene; the action is speaking to the crowd.",
+        "D": "The passage does not portray confrontation; it portrays a public address to the audience."
+      },
+      "_batchId": "batch-1771475672867-vocabulary",
+      "_generatedAt": "2026-02-19T04:36:30.954Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'bear' most nearly means...",
+      "options": [
+        "A) to endure or tolerate.",
+        "B) to carry or support.",
+        "C) to produce offspring.",
+        "D) a large wild mammal."
+      ],
+      "correctAnswer": 0,
+      "explanation": "In the passage, 'bear the wind' and 'bear the load' describe enduring hardship and carrying a burden, respectively. The sense most supported by the context is to endure or tolerate. The other options are valid dictionary senses of 'bear' in different contexts (B refers to carrying, C to reproduction, D to the animal as a noun), but they do not fit the verb usage in this passage.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "From the shelter’s door, the volunteers watched the storm clouds roll in, knowing the next hours would test their endurance. Jenny stood beside the railing, bearing the wind with a stubborn calm. The rain hammered the windows, and the city’s lights flickered as if resisting the pressure. She refused to abandon her post, even as a stray gust threatened the tent and the map it contained. When the red alarm sounded, neighbors gathered closer, grateful for the steadiness that allowed others to stay safe. They trusted that someone would bear the load until dawn.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "While 'bear' can mean to carry, the passage uses it to convey endurance against the wind, not merely physical carrying.",
+        "C": "Producing offspring is a valid meaning in another sense, but not used here.",
+        "D": "The noun form 'bear' as the animal is a valid meaning, but the context uses the verb form."
+      },
+      "_batchId": "batch-1771475672867-vocabulary",
+      "_generatedAt": "2026-02-19T04:36:30.955Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'issue' most nearly means...",
+      "options": [
+        "A) a topic or matter for discussion.",
+        "B) offspring of a plant or animal.",
+        "C) a publication or edition of a magazine.",
+        "D) to publish or release officially."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage centers on debate about how climate change should be covered, referring to 'the issue of climate change coverage' and to 'the issue at hand' as a topic for discussion. While 'issue' can also mean a magazine edition or something released, the context here most strongly aligns with the sense of a topic or matter for discussion. The other meanings are valid dictionary senses in different contexts but not the one being used in this passage.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "During the editorial meeting, the team debated the issue of climate change coverage. One editor argued that readers expect clear explanations and actionable takeaways, while another warned that presenting complex models without context could provoke confusion. After a long discussion, the editor-in-chief outlined the plan: the next feature would explain key concepts in climate science and include tips for readers to interpret data. The group recognized that the issue at hand was not merely a list of facts, but a topic shaping public understanding of a complex subject.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Offspring is a valid sense of 'issue,' but the passage does not discuss offspring.",
+        "C": "An edition or publication can be called an issue, but the focus here is on a topic for discussion, not a magazine edition in this moment.",
+        "D": "To issue can mean to publish, but the passage is about discussion of coverage, not a publication release."
+      },
+      "_batchId": "batch-1771475672867-vocabulary",
+      "_generatedAt": "2026-02-19T04:36:30.956Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'grave' most nearly means...",
+      "options": [
+        "A) serious or important.",
+        "B) relating to a tomb or burial.",
+        "C) to carve or engrave into a surface.",
+        "D) to cause someone to feel fear."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The author describes a 'grave tone' to convey solemn seriousness about risk and safety, indicating that 'grave' means serious or important in this context. The other senses are possible dictionary meanings but not supported by the context here: B would imply a tomb-related sense, C is about engraving (a verb form not implied by tone), and D suggests fear-provoking impact which is not the intended sense of the phrase in the passage.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "On the morning after the fire, the fire marshal spoke with a grave tone, noting that several neighborhoods faced substantial risk and that containment would require coordinated effort. The residents listened, knowing the stakes were high and the toll could be permanent if mistakes were made. Yet the team remained focused, drawing plans from past incidents and reinforcing safety protocols. The word in their report carried more weight than a simple notice; it signaled the seriousness of what lay ahead.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage uses 'grave' to describe tone, not something tomb-related.",
+        "C": "Grave as a verb meaning to engrave exists in some dictionaries, but the context uses it as an adjective for seriousness.",
+        "D": "The passage emphasizes seriousness, not fear-provoking impact."
+      },
+      "_batchId": "batch-1771475672867-vocabulary",
+      "_generatedAt": "2026-02-19T04:36:30.956Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'qualified' most nearly means...",
+      "options": [
+        "A) having the necessary credentials or meeting required standards.",
+        "B) limited or restricted in some way.",
+        "C) to enroll someone or make them eligible.",
+        "D) to modify or limit the meaning of something."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage describes Mara as being among the 'most qualified' for a competitive program, which means she has the necessary credentials and meets the required standards. The other options reflect other legitimate dictionary senses of 'qualify' in different contexts: B describes a restricted state, C describes becoming eligible or enrolling, and D describes qualifying a statement or claim by limiting its scope. Those senses are possible but not supported by the passage’s context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "After three years of study and a year in the field, Mara submitted her application for the fellow program. The committee noted her project, her publications, and the mentors who could attest to her skills. When the chair announced the list, Mara learned she was among the most qualified candidates of the cohort, yet she remained modest about the work still ahead. She adjusted her goals, knowing that the opportunity demanded both creativity and discipline. Still, her confident smile suggested that she understood the standards and could continue to grow as a researcher.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Qualify can mean limited or restricted, but the passage emphasizes credentials and suitability.",
+        "C": "To qualify can also mean to make someone eligible, but the passage speaks of Mara already being eligible due to qualifications.",
+        "D": "To qualify a statement is to modify its scope, which is a different usage not aligned with being 'most qualified' for a program."
+      },
+      "_batchId": "batch-1771475672867-vocabulary",
+      "_generatedAt": "2026-02-19T04:36:30.957Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'address' most nearly means...",
+      "options": [
+        "A) to speak to directly",
+        "B) to deal with or discuss",
+        "C) the place where a person lives",
+        "D) a formal speech"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In the passage, address is used as a verb meaning to tackle or handle a matter. The sentence about the council addressing disparities shows the sense of dealing with or discussing an issue. Option A, while also a valid sense of address as a verb, is not how it functions here. Option C corresponds to the noun meaning of address as a location. Option D is the noun meaning of a formal speech, which is not the usage in this context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Local historians and urban planners gathered to discuss how to revive the riverfront without sacrificing green space. The team argued that the city cannot simply build more lanes; they must address the underlying inequities in access to transit and housing. In their briefing, they noted that public confidence depends on transparent calculations and consistent action, not flashy announcements. When the mayor proposed a new tax incentive, the audience pressed for concrete steps and a timetable. The committee agreed that the plan should address both environmental concerns and the needs of residents who have long felt overlooked.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A describes the sense of address as speaking to someone directly, which would not fit the context of tackling a problem.",
+        "C": "C points to the noun meaning of address as a place of residence, which is irrelevant to the verb used here.",
+        "D": "D refers to a formal speech, a noun sense, not the action of dealing with a problem."
+      },
+      "_batchId": "batch-1771475672867-vocabulary",
+      "_generatedAt": "2026-02-19T04:37:20.364Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'bear' most nearly means...",
+      "options": [
+        "A) the animal known for strength",
+        "B) to carry or support physically",
+        "C) to endure or tolerate",
+        "D) to give birth to"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The passage uses bear in the sense of enduring or tolerating pressure and strain, as in bearing the strain of setbacks. The other senses are valid dictionary meanings of bear but are not the sense used here: A is the noun meaning the animal, B is to carry physically, and D is the verb meaning to give birth.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "During the field survey, the team encountered several unexpected setbacks, including a supply delay and a harsh weather window. Nevertheless, the researchers bore the strain with quiet resolve, maintaining meticulous records and supporting one another through late shifts. When the data finally arrived, the lead scientist warned that the preliminary findings carried grave implications for the current model. If confirmed, policy adjustments would be necessary to prevent cascading effects in downstream systems. The mood in the lab shifted from frustration to careful urgency, as everyone understood that even small errors could bear heavily on both funding and public trust.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is wrong because the passage uses bear as a verb about endurance, not as the animal.",
+        "B": "B is wrong because while bear can mean to carry, the passage emphasizes endurance rather than physical carrying.",
+        "D": "D is wrong because bear as a verb meaning to give birth is not the meaning conveyed in this context."
+      },
+      "_batchId": "batch-1771475672867-vocabulary",
+      "_generatedAt": "2026-02-19T04:37:20.365Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

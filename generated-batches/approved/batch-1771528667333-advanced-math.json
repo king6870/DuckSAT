@@ -1,0 +1,462 @@
+{
+  "batchId": "batch-1771528667333-advanced-math",
+  "topic": "advanced-math",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T19:23:07.993Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 16,
+  "totalValid": 16,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "The population of a town doubles every $5$ years. If the current population is $8{,}000$, what will be the population after $15$ years?",
+      "options": [
+        "A) 32{,}000",
+        "B) 64{,}000",
+        "C) 96{,}000",
+        "D) 128{,}000"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Doubling every 5 years means P = P0 · 2^{t/5}. Here P0 = 8{,}000 and t = 15, so exponent = 15/5 = 3. Step 2: Compute P = 8{,}000 · 2^{3} = 8{,}000 · 8 = 64{,}000. Therefore the answer is B. $P = 8{,}000 \\cdot 2^{15/5} = 8{,}000 \\cdot 2^{3} = 64{,}000$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential growth",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "32{,}000 — This would correspond to only two doubling periods (10 years) instead of three (15 years).",
+        "C": "96{,}000 — This would require an incorrect multiplier (e.g., applying three doublings but using a wrong base), not the correct 2^3.",
+        "D": "128{,}000 — This would be four doubling periods (20 years), not 15."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:19:38.323Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A radioactive substance decays by halving every $6$ years. If initially there were $100$ grams, how many grams remain after $18$ years?",
+      "options": [
+        "A) 6.25",
+        "B) 12.50",
+        "C) 25.00",
+        "D) 50.00"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Amount after time t is $N(t) = N_0\\left(\\tfrac12\\right)^{t/6}$. Here $N_0 = 100$, $t = 18$, so exponent $t/6 = 3$. Step 2: $N(18) = 100\\left(\\tfrac12\\right)^3 = 100 \\cdot \\tfrac{1}{8} = 12.5$ grams. Answer: B.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Radioactive decay",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "6.25 — this would be the amount after four half-lives (24 years).",
+        "C": "25.00 — this would be after two half-lives (12 years).",
+        "D": "50.00 — this would be after one half-life (6 years)."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:19:38.324Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "An investment earns a fixed annual rate $r$ and the amount with compound interest is $A(t) = P(1+r)^t$, while with simple interest it is $S(t) = P(1+rt)$. Which statement is true for $t > 0$?",
+      "options": [
+        "A) $A(t)$ grows exponentially while $S(t)$ grows linearly.",
+        "B) $A(t)$ grows linearly while $S(t)$ grows exponentially.",
+        "C) Both $A(t)$ and $S(t)$ grow exponentially.",
+        "D) Both stay constant as $t$ increases."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: $A(t) = P(1+r)^t$ is an exponential function of $t$, since the variable $t$ is in an exponent. Step 2: $S(t) = P(1+rt)$ is linear in $t$. Therefore, $A(t)$ grows exponentially while $S(t)$ grows linearly. Answer: A.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Compound interest",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct statement is that $A(t)$ is exponential; this option is actually the right description.",
+        "B": "$A(t)$ does not grow linearly; it grows exponentially.",
+        "D": "Both do not stay constant; they increase with $t$ (for $r>0$)."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:19:38.325Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Evaluate $\\log_2 8 + \\log_2 4$.",
+      "options": [
+        "A) 3",
+        "B) 5",
+        "C) 4",
+        "D) 6"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Use the product rule: $\\log_b x + \\log_b y = \\log_b(xy)$ (base $b=2$). Step 2: $\\log_2 8 + \\log_2 4 = \\log_2(8\\cdot 4) = \\log_2 32 = 5$. Answer: B.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "3 — This would be the value of $\\log_2 8$ alone, forgetting the second term.",
+        "C": "4 — This might arise if you misapplied the product rule or used an incorrect base.",
+        "D": "6 — This could result from adding $\\log_2 8$ and $\\log_2 4$ incorrectly or using a wrong argument."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:19:38.327Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify the rational expression $\\dfrac{x^2 - 9}{x^2 - 3x}$, with the restriction that $x \neq 0$ and $x \neq 3$.",
+      "options": [
+        "A) $\\dfrac{x+3}{x}$",
+        "B) $\\dfrac{x-3}{x}$",
+        "C) $\\dfrac{x+3}{x-3}$",
+        "D) $\\dfrac{x-3}{x+3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Factor numerator and denominator: $x^2 - 9 = (x-3)(x+3)$ and $x^2 - 3x = x(x-3)$. Step 2: Cancel the common factor $(x-3)$ (valid for $x \neq 3$), yielding $\\dfrac{x+3}{x}$. Answer: A.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct here; (x+3)/x is the simplified form after canceling (x-3).",
+        "B": "Cancels the wrong factor; would give (x-3)/x, which is not equivalent after factoring.",
+        "C": "Cancels the wrong pair; (x+3)/(x-3) leaves the common factor uncancelled.",
+        "D": "Cancels the wrong factors; (x-3)/(x+3) is not equivalent to the original."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:19:38.328Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $i^6 + i^3$, where $i^2 = -1$ and $i$ is the imaginary unit.",
+      "options": [
+        "A) -1 - i",
+        "B) 0",
+        "C) i",
+        "D) 1"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Use $i^4 = 1$ to reduce powers: $i^6 = i^4 \\cdot i^2 = 1 \\cdot (-1) = -1$. Step 2: $i^3 = i^2 \\cdot i = (-1) i = -i$. Step 3: Sum: $(-1) + (-i) = -1 - i$. Answer: A.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "0 — This would come from miscomputing $i^3$ as 0 or ignoring the imaginary part.",
+        "C": "i — This would occur if you forgot the $-1$ from $i^6$ or miscomputed $i^3$.",
+        "D": "1 — This would come from treating $i^6$ as 1 and miscomputing $i^3$."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:19:38.329Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A town's population grows according to $P = 12000(1.03)^t$, where $t$ is in years. What is the population after $t = 5$ years (rounded to the nearest person)?",
+      "options": [
+        "A) $13911$",
+        "B) $12000$",
+        "C) $15000$",
+        "D) $13200$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: The model gives $P = 12000(1.03)^t$. Step 2: Compute $(1.03)^5 \\approx 1.15927$. Step 3: $P \\approx 12000 \\cdot 1.15927 \\approx 13911$. Therefore the correct answer is A.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential growth",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrectly used $t=0$ or ignored growth, giving the initial population rather than growth over 5 years.",
+        "C": "Used a larger exponent, treating as if after 7 years of growth.",
+        "D": "Assumed linear growth instead of exponential growth."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:21:06.965Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A sample has 200 grams of a radioactive substance with half-life $6$ years. How many grams remain after 18 years?",
+      "options": [
+        "A) $25$",
+        "B) $12.5$",
+        "C) $50$",
+        "D) $100$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Over 18 years there are $18/6 = 3$ half-lives. Amount remaining is $200(\\tfrac{1}{2})^3 = 200/8 = 25$ grams.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential decay",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Miscounted half-lives (used one half-life instead of three).",
+        "C": "Incorrectly halved twice instead of three times.",
+        "D": "Assumed no decay (0 half-lives)."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:21:06.967Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following functions represents exponential growth? (Choose the exponential option.)",
+      "options": [
+        "A) $y = 50t$",
+        "B) $y = 60(1.04)^t$",
+        "C) $y = 100 + 3t$",
+        "D) $y = t^2$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A linear function has the form $y = mt + b$. Exponential growth has a variable in the exponent, like $y = k b^t$. Here B has the variable in the exponent, so it is exponential. A and C are linear, D is polynomial, not exponential.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential vs Linear Growth",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is linear with slope 50, not exponential growth.",
+        "C": "C is linear with slope 3, not exponential growth.",
+        "D": "D is quadratic, not exponential."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:21:06.968Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Evaluate $\\log_3(27) + \\log_3(81) - \\log_3(9)$.",
+      "options": [
+        "A) $5$",
+        "B) $4$",
+        "C) $6$",
+        "D) $2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Since $27=3^3$, $81=3^4$, and $9=3^2$, we have $\\log_3(27)=3$, $\\log_3(81)=4$, and $\\log_3(9)=2$. Therefore the expression is $3 + 4 - 2 = 5$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Misadded exponents or misremembered the powers.",
+        "C": "Lost track of a minus sign or used the wrong powers.",
+        "D": "Used wrong rules or omitted a term."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:21:06.969Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify the rational expression and state the restriction: $\\frac{x^2 - 9}{x - 3}$",
+      "options": [
+        "A) $x+3$, with $x \neq 3$",
+        "B) $x-3$, with $x \neq 3$",
+        "C) $\\frac{x+3}{x-3}$",
+        "D) $x+3$, with $x \neq -3$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor $x^2 - 9 = (x-3)(x+3)$. Cancel the common factor $x-3$ with the denominator, giving $x+3$, but the original fraction is undefined at $x=3$, so restriction $x \neq 3$ remains.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Canceled the wrong factor and kept a hole at $x=3$, but the restriction should exclude $x=3$.",
+        "C": "Keeps the fraction form; not simplified.",
+        "D": "Wrong restriction; should exclude $x=3$, not $x=-3$."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:21:06.970Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $(3 + 2i)(1 - i)$.",
+      "options": [
+        "A) $5 - i$",
+        "B) $3 + 5i$",
+        "C) $2 - i$",
+        "D) $-1 + 4i$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "FOIL: $(3+2i)(1-i) = 3 - 3i + 2i - 2i^2 = 3 - i + 2 = 5 - i$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect FOIL: signs or imaginary parts miscalculated.",
+        "C": "Arithmetic error in combining terms.",
+        "D": "Used wrong sign or missed $i^2=-1$ term."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:21:06.972Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $i^{10}$.",
+      "options": [
+        "A) $-1$",
+        "B) $i$",
+        "C) $1$",
+        "D) $-i$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Powers of i cycle every 4: $i^0=1$, $i^1=i$, $i^2=-1$, $i^3=-i$, then repeat. $10 \\bmod 4 = 2$, so $i^{10}=i^2=-1$. ",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Confuses cycle position; used $i^1$ instead of $i^2$.",
+        "C": "Gives the wrong sign or miscounts cycle length.",
+        "D": "Confuses with $i^3$."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:21:06.972Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Add the rational expressions: $\\frac{1}{x-1} + \\frac{2}{x+1}$ and state the restrictions.",
+      "options": [
+        "A) $\\dfrac{3x - 1}{(x-1)(x+1)}, x \neq \\pm 1$",
+        "B) $\\dfrac{3x + 1}{(x-1)(x+1)}, x \neq 1$",
+        "C) $\\dfrac{3x - 1}{(x-1)(x+1)}, x \neq 1$",
+        "D) $\\dfrac{3x - 1}{(x-1)(x+1)}, x \neq -1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Common denominator: $(x-1)(x+1)$. Numerator: $(x+1) + 2(x-1) = x+1 + 2x - 2 = 3x - 1$. Restrictions: $x \neq 1$ and $x \neq -1$, so answer matches $x \neq \\pm 1$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect numerator sign on the second term or wrong restriction.",
+        "C": "Forgot the restriction $x \\neq -1$; used only $x \\neq 1$.",
+        "D": "Forgot the $-1$ restriction or incorrectly swapped factors."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:21:06.975Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "An investment of 4000 dollars earns 6% annual interest compounded annually for 12 years. What is the amount after 12 years?",
+      "options": [
+        "A) 8048.79 dollars",
+        "B) 4000 dollars",
+        "C) 4800 dollars",
+        "D) 10000 dollars"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Future value is $4000(1.06)^{12}$. Using $1.06^{12} \\approx 2.012198$, $4000 \\times 2.012198 \\approx 8048.792$, which rounds to $8048.79$ dollars.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential growth (investment)",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Assumes no growth.",
+        "C": "Used simple interest or wrong rate/time.",
+        "D": "Overestimate; used compounding more or miscalculation."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:21:06.976Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Evaluate $\\log_2(32) + \\log_2(8)$.",
+      "options": [
+        "A) $8$",
+        "B) $5$",
+        "C) $32$",
+        "D) $2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Since $32=2^5$ and $8=2^3$, $\\log_2(32)=5$ and $\\log_2(8)=3$. Sum is $5+3=8$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Forgot to add the two logarithms.",
+        "C": "Took log of the product incorrectly as product of logs.",
+        "D": "Used an unrelated value or base misapplication."
+      },
+      "_batchId": "batch-1771528667333-advanced-math",
+      "_generatedAt": "2026-02-19T19:21:06.977Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

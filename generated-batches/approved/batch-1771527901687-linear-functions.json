@@ -1,0 +1,467 @@
+{
+  "batchId": "batch-1771527901687-linear-functions",
+  "topic": "linear-functions",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T19:11:53.098Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 16,
+  "totalValid": 16,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "A taxi company charges a base fare of 4 dollars plus 2 dollars per mile. The total cost $C$ (in dollars) as a function of miles $d$ traveled is given by which equation?",
+      "options": [
+        "A) $C = 2d + 4$",
+        "B) $C = \\frac{d}{2} + 4$",
+        "C) $C = 4d + 2$",
+        "D) $C = -2d + 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In slope-intercept form $y = mx + b$, $m$ is the rate per mile and $b$ is the base fare. The problem states a base fare of 4 dollars ($b = 4$) and a per-mile rate of 2 dollars ($m = 2$). Therefore $C = 2d + 4$. Option A matches this form. Options B, C, and D use incorrect values for the slope or sign.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "slope-intercept",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The slope is read as 1/2 instead of 2, which would imply a cheaper per-mile rate.",
+        "C": "The intercept and slope are swapped: it uses slope 4 with intercept 2 instead of slope 2 and intercept 4.",
+        "D": "The slope is negative, which would mean costs decrease as miles increase."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:08:10.066Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Using the point-slope form $y - y_1 = m(x - x_1)$, a line passes through $(3, -1)$ with slope $m = 4$. Which equation is the correct point-slope form?",
+      "options": [
+        "A) $y - (-1) = 4(x - 3)$",
+        "B) $y - (-2) = 4(x - 3)$",
+        "C) $y - 1 = 4(x - 3)$",
+        "D) $y - (-1) = 4(x - 2)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Since the line passes through $(x_1, y_1) = (3, -1)$ with slope $m = 4$, substitute into $y - y_1 = m(x - x_1)$ to obtain $y - (-1) = 4(x - 3)$. That is option A. The other options use the wrong $y_1$ or $x_1$ values.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "point-slope",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Uses $y_1 = -2$ instead of the given $-1$.",
+        "C": "Uses $y_1 = 1$ instead of -1.",
+        "D": "Uses $x_1 = 2$ instead of 3."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:08:10.067Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If a line has slope 5, which of the following lines is perpendicular to it?",
+      "options": [
+        "A) $y = 5x + 7$",
+        "B) $y = -\\frac{1}{5}x + 2$",
+        "C) $y = 5x - 3$",
+        "D) $y = \\frac{1}{5}x - 1$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Two lines are perpendicular if their slopes multiply to -1. With the given slope $m_1 = 5$, the required slope is $m_2 = -\\frac{1}{5}$, which in LaTeX is $-\\frac{1}{5}$. Therefore option B is perpendicular. The other lines have slopes 5 or +1/5, not the negative reciprocal.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "parallel-perpendicular",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Has the same slope as the given line; not perpendicular.",
+        "B": "",
+        "C": "Has slope 5; not perpendicular.",
+        "D": "Has positive reciprocal; not the negative reciprocal required for perpendicularity."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:08:10.069Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A line crosses the y-axis at -8 and the x-axis at 6. What is the slope of the line?",
+      "options": [
+        "A) $\\frac{4}{3}$",
+        "B) $-\\frac{4}{3}$",
+        "C) $\\frac{6}{8}$",
+        "D) $-\\frac{6}{8}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using the intercepts, the line passes through (0, -8) and (6, 0). The slope is $m = \\frac{0 - (-8)}{6 - 0} = \\frac{8}{6} = \\frac{4}{3}$. The line is increasing, so the slope is positive. Options B, C, D are incorrect.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "graphing",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Signs flipped; negative slope would occur if the line fell left to right.",
+        "C": "Uses 6/8 which equals 3/4, not the correct rise over run.",
+        "D": "Negative counterpart; incorrect sign."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:08:10.070Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A car-rental company charges a base fee of 22 dollars plus 0.35 dollars per mile driven. The total cost $C$ (in dollars) as a function of miles $d$ is $C = 0.35d + 22$. What is the slope of this linear relation?",
+      "options": [
+        "A) $0.35$",
+        "B) $22$",
+        "C) $0.053$",
+        "D) $-0.35$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In the standard form $C = md + b$, the slope $m$ is the rate of change of cost per mile. Here $m = 0.35$ dollars per mile, and the intercept $b$ is 22 dollars. Therefore the slope is 0.35.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "graphing",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses slope with intercept; 22 is the base fee, not the per-mile rate.",
+        "C": "Incorrect decimal; represents a much smaller rate.",
+        "D": "Sign error; slope should be positive 0.35."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:08:10.071Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which equation represents a line with slope -2 and y-intercept 5 in slope-intercept form?",
+      "options": [
+        "A) $y = -2x + 5$",
+        "B) $y = 2x + 5$",
+        "C) $y = -2x - 5$",
+        "D) $y = -2x$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Slope-intercept form is $y = mx + b$ with $m$ the slope and $b$ the y-intercept. Here $m = -2$ and $b = 5$, so the equation is $y = -2x + 5$, which is option A. The other options have the wrong slope or intercept.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "slope-intercept",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Uses the opposite slope (positive) than the given.",
+        "C": "Uses the wrong intercept; should be +5, not -5.",
+        "D": "Missing the intercept term; slope-only form."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:08:10.072Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Let $y$ be the total cost in dollars for renting a car for one day, and let $x$ be miles driven in a day. A car rental company charges a flat daily fee of $40$ dollars and $0.15$ dollars per mile. Which equation represents this relationship? If you drive $180$ miles, what is the total cost?",
+      "options": [
+        "A) $y = 0.15x + 40$",
+        "B) $y = 40x + 0.15$",
+        "C) $y = \\frac{x}{0.15} + 40$",
+        "D) $y = 0.15x - 40$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The total cost is the sum of the flat daily fee and the distance cost: cost per mile times miles plus the daily fee. Here cost per mile = 0.15 and daily fee = 40, so the equation is $y = 0.15x + 40$. Therefore option A is correct. For $x = 180$ miles, $y = 0.15(180) + 40 = 27 + 40 = 67$ dollars. This confirms the calculation of the total cost.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "slope-intercept: writing equations from real-world relationships",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This option incorrectly places the daily fee as a multiplier of miles; it uses 40x as the slope instead of 0.15.",
+        "C": "This option incorrectly divides by the rate, effectively mixing units and giving an incorrect slope.",
+        "D": "This option assigns the daily fee a negative intercept, which misrepresents the fixed cost."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:10:05.540Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Line L has equation $y = 2x + 5$. A line perpendicular to L has slope $-\\tfrac{1}{2}$. If this perpendicular line passes through $(4,-3)$, which equation could describe it in slope-intercept form?",
+      "options": [
+        "A) $y = 2x + 5$",
+        "B) $y = -2x - 5$",
+        "C) $y = -\\tfrac{1}{2}x - 1$",
+        "D) $y = -\\tfrac{1}{2}x + 4$"
+      ],
+      "correctAnswer": 2,
+      "explanation": "A line perpendicular to a line with slope 2 has slope $-\\tfrac{1}{2}$. Using point-slope form with point (4,-3): $y - (-3) = -\\tfrac{1}{2}(x - 4)$. This gives $y + 3 = -\\tfrac{1}{2}x + 2$, hence $y = -\\tfrac{1}{2}x - 1$. Therefore option C is correct. Option A is the original line; option B has the wrong slope; option D has the wrong intercept.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "parallel-perpendicular: identify parallel and perpendicular lines",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the original line, not the perpendicular through the given point.",
+        "B": "The slope is not the negative reciprocal of 2; it is -2, which is incorrect for perpendicular.",
+        "D": "The slope is correct as -1/2, but the intercept is incorrect for the line passing through (4,-3)."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:10:05.542Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Convert the line through point (4,-2) with slope $3$ into slope-intercept form.",
+      "options": [
+        "A) $y = 3x - 14$",
+        "B) $y = 3x + 10$",
+        "C) $y = -3x - 2$",
+        "D) $y = 3x - 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using point-slope form with $(x_1,y_1) = (4,-2)$ and $m=3$: $y - (-2) = 3(x - 4) \\Rightarrow y + 2 = 3x - 12 \\Rightarrow y = 3x - 14$. Thus A is correct. B has incorrect intercept; C has wrong slope; D has an incorrect intercept.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "point-slope: convert forms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Intercept is incorrect because it does not come from substituting the point (4,-2).",
+        "C": "Slope is negative in C, which contradicts the given slope 3.",
+        "D": "Intercept is incorrect due to an incorrect calculation after distributing."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:10:05.544Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A line has equation $y = -2x + 6$. What are its $x$- and $y$-intercepts?",
+      "options": [
+        "A) $x$-intercept 3, $y$-intercept 6",
+        "B) $x$-intercept -3, $y$-intercept 6",
+        "C) $x$-intercept 3, $y$-intercept -6",
+        "D) $x$-intercept 0, $y$-intercept 6"
+      ],
+      "correctAnswer": 0,
+      "explanation": "To find the intercepts: set $y=0$ to get the $x$-intercept: $0 = -2x + 6 \\Rightarrow x = 3$. The $y$-intercept is at $x=0$ which gives $y = 6$. So the intercepts are $(3,0)$ and $(0,6)$; option A is correct.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "graphing: intercepts from described graphs",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect $x$-intercept sign; arithmetic error when solving $0 = -2x + 6$.",
+        "C": "Incorrect $y$-intercept; sign error in the constant term.",
+        "D": "Incorrect $x$-intercept; this would imply the line passes through the y-axis at 6 and the x-axis at 0, which is not the case."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:10:05.545Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A tutoring service charges a flat setup fee of $15$ dollars and $8$ dollars per hour of tutoring. Let $x$ be hours and $y$ be total cost in dollars. Which equation describes this relationship?",
+      "options": [
+        "A) $y = 8x + 15$",
+        "B) $y = 15x + 8$",
+        "C) $y = 8x - 15$",
+        "D) $y = \\frac{x}{8} + 15$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The total cost is the setup fee plus the hourly charge times the hours: $y = 8x + 15$. Therefore A is correct. B reverses the order of the constants; C uses the wrong intercept; D misplaces the hourly rate as a fraction.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "slope-intercept: writing equations from real-world relationships",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Interprets the setup fee as a multiplier of hours, which is incorrect.",
+        "C": "Uses a negative intercept, which does not reflect a fixed setup fee.",
+        "D": "Treats the hourly rate as division by 8, which changes the unit interpretation."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:10:05.546Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A water utility charges a fixed service fee of $20$ dollars and $0.50$ dollars per gallon of water used. Let $x$ be gallons and $y$ be total cost in dollars. What is the total charge for using $60$ gallons?",
+      "options": [
+        "A) 50 dollars",
+        "B) 40 dollars",
+        "C) 60 dollars",
+        "D) 20 dollars"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Total cost is $y = 0.50x + 20$. For $x = 60$, $y = 0.50(60) + 20 = 30 + 20 = 50$ dollars. So A is correct.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "real-world: interpreting linear relationships",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Subtracting the fixed fee instead of adding the per-gallon charge.",
+        "C": "Using the per-gallon rate as the total instead of adding the fixed fee.",
+        "D": "Ignoring the per-gallon charge entirely."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:10:05.547Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A gym charges a $25 enrollment fee and $15 per month. Let x be months and y be total cost in dollars. What is y after 12 months?",
+      "options": [
+        "A) 205 dollars",
+        "B) 180 dollars",
+        "C) 160 dollars",
+        "D) 25 dollars"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The total after x months is $y = 15x + 25$. With x = 12, $y = 15(12) + 25 = 180 + 25 = 205$ dollars. Thus A is correct.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "real-world: writing equations and evaluating",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Only multiplies the monthly fee and ignores the enrollment fee.",
+        "C": "Uses an incorrect number of months or miscalculates the total.",
+        "D": "Treats the entire cost as just the enrollment fee, ignoring monthly charges."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:10:05.548Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Consider the function $y = 12x + 40$, where $x$ is hours of work and $y$ is dollars earned. Which statement correctly interprets the slope and intercept?",
+      "options": [
+        "A) The slope 12 represents the setup fee; intercept 40 is the cost per hour.",
+        "B) The slope 12 represents the cost per hour; intercept 40 is the setup fee.",
+        "C) The slope is negative, implying earnings decrease with more hours.",
+        "D) The intercept 40 represents the cost per hour."
+      ],
+      "correctAnswer": 1,
+      "explanation": "In $y = 12x + 40$, the slope 12 is the rate of change per hour (earnings per hour), and the intercept 40 is the fixed setup fee. Therefore option B is correct. A misinterprets the slope and intercept, C incorrectly cites a negative slope, and D confuses the intercept with the hourly rate.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "interpreting slope as rate of change",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Confuses the slope with the setup fee and the intercept with the hourly rate.",
+        "C": "The slope is positive here; not negative.",
+        "D": "Interprets the intercept as the per-hour rate, which is incorrect."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:10:05.549Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Convert the slope-intercept form $y = -3x + 9$ to standard form.",
+      "options": [
+        "A) $3x + y = 9$",
+        "B) $-3x + y = 9$",
+        "C) $y - 3x = 9$",
+        "D) $x + 3y = 9$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "To convert to standard form, bring all variables to one side: $y = -3x + 9$ becomes $3x + y = 9$ after adding $3x$ to both sides. Thus A is correct. B places the wrong sign on the $3x$ term; C is simply a rearrangement not in standard form; D is not equivalent to the original equation.",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "point-slope: convert forms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Sign of the $x$-term is incorrect in standard form.",
+        "C": "Not in standard form; uses a nonstandard arrangement.",
+        "D": "Not algebraically equivalent to $y = -3x + 9$."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:10:05.549Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A business revenue function is $R = -5x + 100$, where $x$ is the number of units sold and $R$ is revenue in dollars. If $x$ increases by 20 units, by how much does revenue change?",
+      "options": [
+        "A) Increases by 100 dollars",
+        "B) Decreases by 100 dollars",
+        "C) Increases by 5 dollars",
+        "D) Decreases by 5 dollars"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The slope is -5, which represents a change of -$5 per unit sold. If $x$ increases by 20, the revenue changes by $-5 $\\times$ 20 = -100$ dollars. Therefore revenue decreases by 100 dollars, so B is correct.$",
+      "moduleType": "math",
+      "category": "linear-functions",
+      "subtopic": "interpreting slope: rate of change",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct sign would be negative; revenue does not increase when x increases due to negative slope.",
+        "C": "Per-unit change is -5, not +5.",
+        "D": "Again, the per-unit change is dollars per unit; not 5 dollars per unit."
+      },
+      "_batchId": "batch-1771527901687-linear-functions",
+      "_generatedAt": "2026-02-19T19:10:05.551Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

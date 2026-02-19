@@ -1,0 +1,299 @@
+{
+  "batchId": "batch-1771523523416-geometry",
+  "topic": "geometry",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T17:58:42.839Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 10,
+  "totalValid": 10,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In triangle $\\triangle ABC$, $\\angle A = $ $30^\\circ$, $\\angle B = $ $60^\\circ$. What is $\\angle C$?",
+      "options": [
+        "A) $60^\\circ$",
+        "B) $90^\\circ$",
+        "C) $150^\\circ$",
+        "D) $120^\\circ$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: In any triangle, the sum of interior angles is $180^\\circ$. Step 2: $\\angle C = 180^\\circ - (\\angle A + \\angle B) = 180^\\circ - (30^\\circ + 60^\\circ) = 90^\\circ$. Therefore, $\\angle C = 90^\\circ$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) 60^\\circ: The mistake is assuming the third angle equals \\angle A; you must account for both \\angle A and \\angle B.",
+        "B": "B) 90^\\circ: Correct; no mistake.",
+        "C": "C) 150^\\circ: Subtracting only \\angle A from 180^\\circ, instead of subtracting both \\angle A and \\angle B.",
+        "D": "D) 120^\\circ: Subtracting only \\angle B from 180^\\circ instead of subtracting both \\angle A and \\angle B."
+      },
+      "_batchId": "batch-1771523523416-geometry",
+      "_generatedAt": "2026-02-19T17:54:26.787Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a circle with center $O$, radius $r = 4$, the arc AB subtends a central angle of $60^\\circ$. What is the length of arc AB?",
+      "options": [
+        "A) $8\\pi$",
+        "B) $4\\pi/3$",
+        "C) $2\\pi/3$",
+        "D) $4\\pi$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Arc length formula: $L = \\frac{\\theta}{360^\\circ} \\cdot 2\\pi r$. With $\\theta = 60^\\circ$ and $r = 4$, $L = \\frac{60}{360} \\cdot 2\\pi \\cdot 4 = \\frac{1}{6} \\cdot 8\\pi = \\frac{4\\pi}{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) $8\\pi$: Treated arc length as the full circumference instead of applying the $\\theta/360^\\circ$ proportion.",
+        "B": "B) Correct; this is the right arc length.",
+        "C": "C) $2\\pi/3$: Used the wrong fraction of the circle for the central angle (e.g., $\\theta/180^\\circ$).",
+        "D": "D) $4\\pi$: Used the circumference with a misread radius (e.g., treated r as 2) or applied the formula incorrectly."
+      },
+      "_batchId": "batch-1771523523416-geometry",
+      "_generatedAt": "2026-02-19T17:54:26.789Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the coordinate plane, the distance between $A(1,2)$ and $B(4,6)$ is:",
+      "options": [
+        "A) 3",
+        "B) 5",
+        "C) 7",
+        "D) 9"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Distance formula: $d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Here $dx = 4-1 = 3$, $dy = 6-2 = 4$. So $d = \\sqrt{3^2 + 4^2} = \\sqrt{9+16} = \\sqrt{25} = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate Geometry",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) 3: Distance along the x-axis only; ignores vertical change.",
+        "B": "B) 5: Correct; this is the Euclidean distance.",
+        "C": "C) 7: Manhattan distance (|dx| + |dy|) rather than Euclidean distance.",
+        "D": "D) 9: Forgot to take the square root; used dx^2 only."
+      },
+      "_batchId": "batch-1771523523416-geometry",
+      "_generatedAt": "2026-02-19T17:54:26.790Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a trapezoid with bases of lengths 6 and 4 and height 3, what is the area?",
+      "options": [
+        "A) 9",
+        "B) 15",
+        "C) 18",
+        "D) 30"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Area of a trapezoid: $A = \\frac{b_1 + b_2}{2} \\cdot h$. Here $b_1=6$, $b_2=4$, $h=3$: $A = \\frac{6+4}{2} \\cdot 3 = 5 \\cdot 3 = 15$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area & Perimeter",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) 9: Base-average computed incorrectly as $(6+0)/2$ instead of $(6+4)/2$.",
+        "B": "B) 15: Correct; this is the right area.",
+        "C": "C) 18: Multiplied one base by height (6×3) and ignored the other base.",
+        "D": "D) 30: Used $(b_1+b_2) \\times h$ instead of $\\frac{b_1+b_2}{2} \\times h$."
+      },
+      "_batchId": "batch-1771523523416-geometry",
+      "_generatedAt": "2026-02-19T17:54:26.792Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a straight line, angles $\\angle A$ and $\\angle B$ are supplementary. If $\\angle A = 110^\\circ$, what is $\\angle B$?",
+      "options": [
+        "A) $70^\\circ$",
+        "B) $110^\\circ$",
+        "C) $180^\\circ$",
+        "D) $90^\\circ$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Supplementary angles on a straight line sum to $180^\\circ$. So $\\angle B = 180^\\circ - \\angle A = 180^\\circ - 110^\\circ = 70^\\circ$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Angles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) 70°: Correct; no mistake.",
+        "B": "B) 110°: Mistake: treated supplementary angles as equal or misread the sum.",
+        "C": "C) 180°: Mistake: confused with a straight angle; not the supplementary pair.",
+        "D": "D) 90°: Mistake: confusing supplementary with complementary (sum to 90°)."
+      },
+      "_batchId": "batch-1771523523416-geometry",
+      "_generatedAt": "2026-02-19T17:54:26.793Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which transformation maps the point $(2,3)$ to $(-2,-3)$?",
+      "options": [
+        "A) Translation 4 units left",
+        "B) Reflection across the $y$-axis",
+        "C) Reflection across the $x$-axis",
+        "D) Rotation $180^\\circ$ about the origin"
+      ],
+      "correctAnswer": 3,
+      "explanation": "A rotation of $180^\\circ$ about the origin sends $(x,y)$ to $(-x,-y)$. Thus $(2,3) \\to (-2,-3)$. The other options do not send (2,3) to (-2,-3).",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Transformations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) Translation: Slips the point horizontally; does not change signs of coordinates.",
+        "B": "B) Reflection across the $y$-axis: $(2,3) \\to (-2,3)$, not $(-2,-3)$.",
+        "C": "C) Reflection across the $x$-axis: $(2,3) \\to (2,-3)$, not $(-2,-3)$.",
+        "D": "D) Rotation $180^\\circ$ about the origin: Correct; this is the intended mapping."
+      },
+      "_batchId": "batch-1771523523416-geometry",
+      "_generatedAt": "2026-02-19T17:54:26.794Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In triangle $\\triangle ABC$, $\\angle C = 90°$, $AB = 10$, and $\\angle A = 30°$. Let $D$ be the foot of the altitude from $C$ to $AB$. What is $AD$?",
+      "options": [
+        "A) 7.5",
+        "B) 2.5",
+        "C) 5",
+        "D) 3.75"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In a right triangle with hypotenuse AB = 10 and $\\angle A = 30°$, the side opposite $A$ is $BC = AB\\cdot \\sin 30° = 10 \\cdot \\frac{1}{2} = 5$, and the adjacent side is $AC = AB\\cos 30° = 10 \\cdot \\frac{\\sqrt{3}}{2} = 5\\sqrt{3}$. The altitude from the right angle to the hypotenuse divides AB into segments with $AD = \\dfrac{AC^{2}}{AB}$ and $DB = \\dfrac{BC^{2}}{AB}$ (a property of right triangles: the altitude to the hypotenuse yields these segment lengths). Thus $AD = \\dfrac{(5\\sqrt{3})^{2}}{10} = \\dfrac{75}{10} = 7.5$. So the correct answer is 7.5.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles - Right triangles, altitude to hypotenuse",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "2.5 comes from using $DB = \\dfrac{BC^{2}}{AB}$ instead of $AD$, i.e., confusing the two segments created on the hypotenuse by the altitude.",
+        "C": "5 is the length of $BC$ (the side opposite $A$) and not the length of $AD$; this confuses which side corresponds to which angle.",
+        "D": "3.75 is half of 7.5; the error is performing an extra halving or failing to square the adjacent side when using $AD = \\dfrac{AC^{2}}{AB}$."
+      },
+      "_batchId": "batch-1771523523416-geometry",
+      "_generatedAt": "2026-02-19T17:58:41.821Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In circle with center $O$ and radius $6$, the central angle $\\angle AOB = 120°$. What is the area of sector $AOB$?",
+      "options": [
+        "A) 12π",
+        "B) 36π",
+        "C) 9√3",
+        "D) 18π"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area of a sector with central angle $\\theta$ (in radians) is $\\tfrac{1}{2} r^{2} \\theta$. Here $r=6$ and $\\theta = 120° = \\tfrac{2\\pi}{3}$, so area = $\\tfrac{1}{2} \\cdot 6^{2} \\cdot \\tfrac{2\\pi}{3} = \\tfrac{1}{2} \\cdot 36 \\cdot \\tfrac{2\\pi}{3} = 12π$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Sector area, central angle",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "36π would be the area of the full circle, not the sector with angle 120°.",
+        "C": "9√3 is the area of triangle AOB with sides AO = BO = 6 and angle AOB = 120°, not the sector.",
+        "D": "18π would correspond to a sector with angle π (180°); the correct angle is 120°."
+      },
+      "_batchId": "batch-1771523523416-geometry",
+      "_generatedAt": "2026-02-19T17:58:41.824Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Given $A(1,2)$ and $B(5,-4)$, what is the equation of the perpendicular bisector of segment $\\overline{AB}$?",
+      "options": [
+        "A) $y = \\tfrac{2}{3}x - 3$",
+        "B) $y = -\\tfrac{2}{3}x + 3$",
+        "C) $y = \\tfrac{3}{2}x - 1$",
+        "D) $y = -\\tfrac{3}{2}x + 1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Midpoint $M$ of $AB$ is $\\left(\\dfrac{1+5}{2}, \\dfrac{2+(-4)}{2}\\right) = (3,-1)$. Slope of $AB$ is $m_{AB} = \\dfrac{-4-2}{5-1} = -\\dfrac{6}{4} = -\\dfrac{3}{2}$. The slope of the perpendicular bisector is $m_{perp} = -\\dfrac{1}{m_{AB}} = \\dfrac{2}{3}$. Using point-slope form with point $(3,-1)$: $y - (-1) = \\dfrac{2}{3}(x - 3)$, which simplifies to $y = \\dfrac{2}{3}x - 3$. Therefore, option A is correct.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry - Distance, midpoint, slope, line equations",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Sign error in slope; perpendicular slope is positive 2/3, not -2/3.",
+        "C": "Used the reciprocal 3/2 (instead of its negative reciprocal) for the slope, giving an incorrect line.",
+        "D": "Used the reciprocal with a sign error, producing an incorrect intercept as well."
+      },
+      "_batchId": "batch-1771523523416-geometry",
+      "_generatedAt": "2026-02-19T17:58:41.826Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Triangle with coordinates $A(0,0)$, $B(8,0)$, $C(0,6)$ undergoes two transformations: first a rotation of $90°$ clockwise about the origin, then a translation by the vector $(2,3)$. What are the coordinates of the image of point $B$ after these transformations?",
+      "options": [
+        "A) (2, -5)",
+        "B) (-2, 5)",
+        "C) (-5, -2)",
+        "D) (5, -2)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Rotate $B(8,0)$ clockwise by $90°$: $(x,y) \\to (y,-x)$ gives $(8,0) \\to (0,-8)$. Then translate by $(2,3)$: $(0,-8) \\to (2,-5)$. So the image of $B$ is $(2,-5)$, which is option A.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Transformations - rotations, translations",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Rotation in the wrong direction (counterclockwise instead of clockwise) would yield a different point.",
+        "C": "A sign-error in both coordinates after rotation, or applying incorrect transformation rules.",
+        "D": "Only applying translation and ignoring the rotation step."
+      },
+      "_batchId": "batch-1771523523416-geometry",
+      "_generatedAt": "2026-02-19T17:58:41.828Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

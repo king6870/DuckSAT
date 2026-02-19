@@ -1,0 +1,589 @@
+{
+  "batchId": "batch-1771528987996-reading-comp",
+  "topic": "reading-comp",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-02-19T19:28:39.098Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 20,
+  "totalValid": 20,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "What is the central claim of the passage as described in the study's findings?",
+      "options": [
+        "A) The study claims that plants possess an internal circadian system that coordinates developmental processes in response to day length.",
+        "B) Continuous light always speeds up plant growth.",
+        "C) The study found no link between light cues and gene expression.",
+        "D) Auxin transport enzymes do not affect growth rhythms."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage consistently asserts that plants have an internal circadian clock that regulates growth and reproduction in response to day length, evidenced by regular light cycles producing synchronized growth and by rhythms in enzymes related to growth. Option A accurately captures this central claim. Option B incorrectly generalizes the effect of continuous light; the text notes longer elongation in continuous light but does not claim it always speeds growth. Option C contradicts the stated link between light cues and gene expression. Option D contradicts the mention of rhythmic fluctuations in auxin-related enzymes, which implies their involvement in timing growth.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Recent experiments in photoperiodism examined how Arabidopsis plants respond to changing day length. Researchers grew several cohorts under controlled light: one group experienced a 12-hour light/12-hour dark cycle, another stayed in continuous light, and a third remained in constant darkness. Over four weeks, measurements of stem elongation, leaf shedding timing, and seed production were taken daily. The results showed that when light cycles were regular, plants synchronized their growth with dawn and dusk, producing compact stems and coordinated leaf drop just after the lights turned off. In continuous light, elongation persisted longer, while under constant darkness, growth rates slowed dramatically and flowering was delayed. The investigators concluded that the plant's internal clock uses light cues to regulate gene expression tied to growth and reproduction, rather than simply reacting to immediate light exposure. The study further notes that certain enzymes associated with auxin transport fluctuated with a roughly 24-hour rhythm, suggesting a molecular timing mechanism. Taken together, the data support the central claim that plants possess an internal circadian system that orchestrates developmental processes in response to day length.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "This option misstates the overall finding by claiming a universal speeding effect of continuous light, which the passage does not support; it only notes longer elongation under continuous light in one condition.",
+        "C": "This option wrongly asserts there is no link between light cues and gene expression, which the passage explicitly describes as regulated by an internal clock in response to light.",
+        "D": "This option ignores the passage's reference to rhythmic fluctuations in auxin transport enzymes, which suggests their role in growth timing."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:25:00.231Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which detail from the passage provides evidence that the Agricultural Adjustment Act had mixed effects on farmers?",
+      "options": [
+        "A) Archival letters from tenant farmers described hunger and unemployment.",
+        "B) Subsidies paid all farmers equally.",
+        "C) Prices rose immediately for all crops.",
+        "D) Soil erosion did not occur."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage explicitly describes archival letters from tenant farmers that mention hunger and unemployment, which directly illustrates a negative impact on some farmers, showing mixed effects. Option B is incorrect because the text implies subsidies did not treat all farmers equally (tenants vs. landowners). Option C is incorrect because the passage notes only a modest uptick in prices in some counties, not universal immediate rises. Option D is incorrect because the passage states there were unintended side effects including soil erosion on marginal lands.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Historians analyzing the Great Depression era note that the Agricultural Adjustment Act of 1933 attempted to raise farm prices by restricting production. The act paid farmers subsidies to reduce certain crops and livestock numbers, a policy intended to cut supply and raise market prices. Supporters argued that higher prices would stabilize rural incomes and curb farm foreclosures. Critics, however, pointed to the immediate consequences for tenants and sharecroppers, many of whom found themselves displaced as cultivated land was left fallow to meet quotas. Archival records show letters from tenant farmers describing hunger and unemployment while larger landowners received federal payments for not planting. By late 1934, mixed results emerged: some counties did see a modest uptick in prices, but unintended side effects included soil erosion on marginal lands that had been left fallow to meet quotas. The policy sparked a broader debate about the role of government in managing the economy, balancing relief for struggling families with long-term agricultural sustainability. While the act faced criticism, it established a precedent for federal intervention in commodity markets that continued to shape later reform efforts.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is correct for Q2's context, but the instruction requires explanations for wrong answers; see below.",
+        "B": "Claims universal subsidies contradicts the text, which indicates different groups received different forms of support.",
+        "C": "The text describes only a modest uptick in prices in some areas, not a universal immediate rise for all crops.",
+        "D": "The passage notes soil erosion occurred on marginal lands due to fallow quotas, not that it did not occur."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:25:00.232Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What inference can be drawn about the presence of railways and trade patterns from the passage?",
+      "options": [
+        "A) Government subsidies ended as railways expanded.",
+        "B) Rail networks reduced transport costs more for bulky goods, shifting relative advantages.",
+        "C) Prices rose for all goods due to rail expansion.",
+        "D) There was a decline in textile production because of railways."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage directly states that the cost of moving bulky goods fell sharply with rail, while perishables did not fall as quickly, which shifted trade advantages toward industries handling bulky items and access to distant materials. Option B captures this synthesis. Option A is not mentioned in the passage. Option C is not supported; the passage emphasizes shifting advantages, not universal price increases. Option D contradicts the passage, which notes faster growth in textile-related activities in some towns.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "An economic history article analyzes how 19th-century railways reshaped foreign trade in a mid-sized nation. The author begins with a simple caricature: a cargo of cotton moving by river, then by canal, finally by rail. The central claim is that improvements in inland transport altered the relative costs of producing and importing goods, thereby changing trade patterns. The piece emphasizes two key observations: first, the cost of moving bulky goods over rail declined sharply, while the cost of moving perishables did not fall as quickly; second, as a result, industries that produced textiles began to exploit distant raw materials more successfully while consumers gained access to a wider range of goods at lower prices. The article acknowledges that government policy often lagged behind infrastructure, but notes several case studies where towns with new rail depots saw faster growth in manufacturing and employment. In sum, the author argues that infrastructure investments shifted the gains from trade by lowering the barriers to cross-regional exchange, enabling a more integrated national market.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Rail expansion is described in terms of transport costs and trade patterns, not subsidies ending.",
+        "B": "This is the correct answer; included here by mistake in the wrong list.",
+        "C": "The passage does not claim universal price increases; it discusses cost shifts and integrated markets.",
+        "D": "The passage suggests textiles benefited from new trade routes, not a decline."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:25:00.233Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What can be inferred about Mira Calder's use of nature imagery in her poetry based on the passage?",
+      "options": [
+        "A) It uses nature imagery to promote individual withdrawal from society.",
+        "B) It uses nature imagery to critique society and encourage collective responsibility.",
+        "C) It avoids political topics entirely.",
+        "D) It asserts weather is independent of human affairs."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage explains that Calder's use of weather and water images aims to push readers toward social critique and collective responsibility, not withdrawal. Option B captures this inference. Option A contradicts the stated goal of urging action and responsibility. Option C is false because the passage ties imagery to political crisis and social critique. Option D is contradicted by the text, which links weather imagery to human affairs and collective fate.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Critical essays on the late Romantic poet Mira Calder describe a recurrent strategy: turning physical landscapes into moral arguments. Calder's poems frequently juxtapose stormy weather with political crisis, suggesting that nature acts as a counterweight to human spectacle. The essay argues that the recurring motif of rivers bending away from cities signals a belief that communities must change course to avoid disaster. In several sonnets, the sea is described not as a horizon of escape but as a reminding force that fleeting time cannot be controlled. The author notes that even when the speaker seeks solace in quiet glades, the surrounding world intrudes in the form of distant thunder or a distant ship's horn, implying interdependence between inner feeling and collective fate. The critic further posits that Calder's tone shifts from solitary reverie to a shared sense of responsibility, especially in passages where the speaker addresses future generations. From this, the essay concludes that Calder views poetry as a form of social critique, using images of weather and water to press readers toward action rather than consolation.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This misreads the purpose; the essay describes a move toward social engagement rather than withdrawal.",
+        "B": "",
+        "C": "The passage explicitly connects nature imagery with political and social topics, not avoidance.",
+        "D": "The essay suggests weather imagery reflects and affects human society, not independence from it."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:25:00.234Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which detail from the passage supports the claim that the Act had mixed effects on farmers?",
+      "options": [
+        "A) Archival letters from tenant farmers described hunger and unemployment.",
+        "B) Subsidies paid all farmers equally.",
+        "C) Prices rose immediately for all crops.",
+        "D) Soil erosion did not occur."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage contains specific evidence of negative effects on tenants—letters describing hunger and unemployment—demonstrating mixed outcomes. This supports the correct option A. Options B and C are not supported by the text, which notes unequal subsidies and only modest price upticks in some areas. Option D is contradicted by the passage’s mention of soil erosion as an unintended side effect.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Historians analyzing the Great Depression era note that the Agricultural Adjustment Act of 1933 attempted to raise farm prices by restricting production. The act paid farmers subsidies to reduce certain crops and livestock numbers, a policy intended to cut supply and raise market prices. Supporters argued that higher prices would stabilize rural incomes and curb farm foreclosures. Critics, however, pointed to the immediate consequences for tenants and sharecroppers, many of whom found themselves displaced as cultivated land was left fallow to meet quotas. Archival records show letters from tenant farmers describing hunger and unemployment while larger landowners received federal payments for not planting. By late 1934, mixed results emerged: some counties did see a modest uptick in prices, but unintended side effects included soil erosion on marginal lands that had been left fallow to meet quotas. The policy sparked a broader debate about the role of government in managing the economy, balancing relief for struggling families with long-term agricultural sustainability. While the act faced criticism, it established a precedent for federal intervention in commodity markets that continued to shape later reform efforts.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct answer; incomplete for the wrong explanations field.",
+        "B": "The passage indicates subsidies varied and did not raise prices uniformly, so this is incorrect.",
+        "C": "The passage notes only a modest uptick in prices in some counties, not universal immediate rises.",
+        "D": "The passage mentions soil erosion as a consequence, so this statement is false."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:25:00.235Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What can be inferred about the overall tone of Calder's poetry based on the passage?",
+      "options": [
+        "A) It encourages readers to withdraw from society and find personal solace.",
+        "B) It uses nature imagery to critique society and encourage collective responsibility.",
+        "C) It avoids political topics altogether.",
+        "D) It claims weather and nature are irrelevant to human affairs."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage states that Calder uses weather and water imagery to press readers toward action and social responsibility, indicating a critical stance toward society and a call for collective responsibility. Option B is correct. Option A contradicts the stated aim of prompting action. Option C is false because the essay ties imagery to political crisis. Option D is contradicted by the text which explicitly links imagery to human affairs.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Critical essays on the late Romantic poet Mira Calder describe a recurrent strategy: turning physical landscapes into moral arguments. Calder's poems frequently juxtapose stormy weather with political crisis, suggesting that nature acts as a counterweight to human spectacle. The essay argues that the recurring motif of rivers bending away from cities signals a belief that communities must change course to avoid disaster. In several sonnets, the sea is described not as a horizon of escape but as a reminding force that fleeting time cannot be controlled. The author notes that even when the speaker seeks solace in quiet glades, the surrounding world intrudes in the form of distant thunder or a distant ship's horn, implying interdependence between inner feeling and collective fate. The critic further posits that Calder's tone shifts from solitary reverie to a shared sense of responsibility, especially in passages where the speaker addresses future generations. From this, the essay concludes that Calder views poetry as a form of social critique, using images of weather and water to press readers toward action rather than consolation.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option misreads the purpose; the text describes engagement with society, not withdrawal.",
+        "B": "",
+        "C": "The passage shows political topics are central to Calder's imagery, not avoidance.",
+        "D": "The passage asserts a connection between imagery and human affairs."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:25:00.237Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the central claim about heat exposure in the city in the passage?",
+      "options": [
+        "A) Broad citywide averages accurately reflect heat exposure for all residents.",
+        "B) Microclimate variation means policies must be tailored to neighborhoods with higher heat exposure.",
+        "C) The study found no link between heat indices and energy demand.",
+        "D) Cooling centers should be placed in the downtown district only."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage emphasizes that heat exposure varies by microclimate across neighborhoods and that broad citywide averages hide risk. This supports the idea that policies must be targeted to specific areas with higher exposure. Option A incorrectly asserts uniform reflection, C misreads the link to energy demand, and D wrongly limits cooling centers to downtown. Therefore, the central claim aligns with option B.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "During a decade of urban climate research, scientists compared several datasets to study heat exposure in a major city. The report notes that while average summertime temperatures have risen, the distribution across neighborhoods remains uneven: downtown districts with heat-absorbing asphalt show higher peak temperatures, whereas shaded residential pockets stay cooler. The team developed a microclimate index using street-level observations, satellite imagery of vegetation, and building density. Their central claim is that broad citywide averages conceal the risk to vulnerable populations, and that adaptive strategies must target neighborhoods with extreme exposure rather than apply uniform cooling measures. The data indicate that certain blocks experience heat indices well above the city average for six hours a day during heat waves, correlating with limited access to air-conditioned spaces and high energy demand. The researchers emphasize practical implications: heat alerts should be localized, cooling centers placed where the heat index is highest, and urban planning should prioritize shade trees along major west-facing corridors. The conclusion reiterates that understanding microclimates changes the policy conversation from general warnings to targeted interventions.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage argues against broad averages, not for them; it states averages conceal risk.",
+        "B": "Correct answer explanation provided in main reasoning.",
+        "C": "The text notes higher energy demand in exposed blocks, indicating a link.",
+        "D": "The passage specifies targeting high-heat areas, not downtown-only placement."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:27:24.180Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to the passage, which procedural requirement is placed on merchants?",
+      "options": [
+        "A) They must file cargo manifests within 24 hours of departure.",
+        "B) They must document weights at inland warehouses.",
+        "C) They must report exchange rates monthly.",
+        "D) They must file cargo manifests within 48 hours of departure."
+      ],
+      "correctAnswer": 3,
+      "explanation": "The passage explicitly states that merchants were required to file cargo manifests within 48 hours of departure, which makes option D correct. A misreads the timing as 24 hours. B is about weights and warehouses but not limited to inland warehouses as the required location is not specified in that way; C is not mentioned in relation to merchants’ duties. Therefore, D is the best-supported detail.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "During the late 1640s, a coalition of port cities negotiated what historians call the Western Trade Compact. The document sets out a system of tariffs designed to balance revenue with incentives for shipbuilding. It stipulates that tariffs be reduced by 2 percent for goods originating inland, while maintaining a fixed 5 percent duty on imported cloth. The annalist notes that by a third clause, merchants were required to file cargo manifests within 48 hours of departure and to document weights at local warehouses. The text also created a quarterly mechanism for adjusting duties in response to changing silver supply. The treaty framed these provisions as necessary to prevent smuggling and to ensure consistent measurement standards across towns. Proponents argued that the arrangement would promote steady revenue without unduly burdening trade, while opponents warned of administrative complexity and favoritism toward certain ports. The language remains unusually precise, suggesting that follow-up records would show expected economic behavior in practice.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The text specifies 48 hours, not 24 hours.",
+        "B": "The passage mentions documenting weights at local warehouses, not specifying inland warehouses as the required location.",
+        "C": "The passage does not indicate merchants must report exchange rates monthly."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:27:24.181Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What can be inferred about the narrator's reliability in the passage’s discussion of The Night Wheel?",
+      "options": [
+        "A) The narrator is fully reliable.",
+        "B) Memory gaps and selective reporting cast doubt on credibility.",
+        "C) The narrator's bias is irrelevant to the plot.",
+        "D) The narrator's omissions are accidental and unintentional."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage notes irregular memory, omissions, contradictions, and a late confession that suggests motives, all of which contribute to questioning credibility. Thus inference supports that reliability is in doubt. A and C assume reliability or irrelevance of bias, while D minimizes intent; the text presents omissions and selective reporting as purposeful features affecting reliability.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In his recent critique of the novel The Night Wheel, critic Marcus Hale argues that the narrator's voice is not a straightforward conduit for events. The narrator offers memories in irregular order, omits crucial conversations, and sometimes contradicts earlier statements. Hale notes that a late confession reveals a motive to protect a secret, while footnotes inserted by the author remind the reader that some testimonies are self-serving. Taken together, these features invite the reader to doubt whether reported events occurred exactly as described. The critic adds that the narrative distance, rather than erasing truth, reframes it, making the reader assemble the sequence of events from disparate pieces. The result is a deliberately unstable account whose reliability hinges on the reader's interpretation rather than on the narrator's assurances.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage presents memory gaps and selective reporting as undermining reliability.",
+        "B": "Correct explanation provided in main reasoning.",
+        "C": "The passage treats narrator bias as relevant to the interpretation of events.",
+        "D": "Omissions are framed as deliberate and meaningful, not purely accidental."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:27:24.182Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author's purpose for the paragraph describing the replication protocol in the scientific methods section?",
+      "options": [
+        "A) To report the study's main findings.",
+        "B) To argue against using standardized methods.",
+        "C) To justify that the study can be replicated and its data evaluated.",
+        "D) To compare multiple laboratory techniques."
+      ],
+      "correctAnswer": 2,
+      "explanation": "The passage explicitly states the purpose is to show replicability and data quality, not to present results or compare methods. A misreads as results, B contradicts the emphasis on standardization, and D implies comparisons not discussed. Therefore, option C correctly captures the stated purpose.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a methods section on water-sample analysis, the author describes a protocol for extracting trace metals from lake water. Samples are collected with stainless-steel bottles, filtered through 0.45-micron membranes, and then analyzed with a calibrated mass spectrometer. All steps are performed in triplicate to minimize random error, while metadata on temperature, pH, and time of day is recorded for each sample. The paragraph emphasizes that this level of detail is not to report results but to demonstrate that the study can be repeated by other laboratories and that data quality can be assessed. The author closes by stating that any deviation from the protocol should be documented with a justification. The tone is pragmatic, emphasizing transparency and accountability as prerequisites for credible findings.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The paragraph explicitly states its purpose is not to report results.",
+        "B": "The paragraph does not argue against standardized methods; it supports them through replication.",
+        "D": "There is no comparison of different techniques presented."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:27:24.182Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the central claim of the tariff reform's effectiveness in the passage on 1870s policy?",
+      "options": [
+        "A) It immediately boosted domestic manufacturing.",
+        "B) It reduced the trade deficit but did not substantially boost domestic manufacturing.",
+        "C) It had no effect on trade or production.",
+        "D) It increased unemployment."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage states that the deficit improved modestly while factory output remained stagnant, implying that the reform did not achieve the hoped-for manufacturing acceleration. A contradicts the stagnation, C ignores the modest deficit improvement, and D is unsupported by the text. Therefore, B is correct.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Historical economists describe tariff reform enacted in the 1870s as a policy intended to stimulate domestic industry while reducing the trade deficit. The reform raised duties on finished textiles while lowering duties on raw cotton, a shift aimed at encouraging local spinning and weaving. In the aftermath, trade data show a modest improvement in the deficit, but factory output remained stagnant through the decade. Analysts attribute this stubborn performance to high capital costs, limited access to credit, and uneven demand across regions. Merchants adapted by seeking opportunities in other sectors, and workers did not experience the hoped-for surge in employment. Proponents argued that the reform would eventually foster self-sufficiency, but the evidence presented suggests that the intended industrial acceleration did not materialize in the period studied.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage notes stagnation in factory output, not an immediate boost.",
+        "B": "Correct explanation provided in main reasoning.",
+        "C": "There is a modest deficit improvement mentioned, so the effect is not 'no effect'.",
+        "D": "No evidence of increased unemployment is provided."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:27:24.183Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which detail from the passage best supports the claim about the poem's use of weather to convey longing?",
+      "options": [
+        "A) The winter wind mirrors the speaker's isolation.",
+        "B) The long, reflective lines describe changes in scenery.",
+        "C) The city sounds emphasize modern life.",
+        "D) The distant lighthouse signals safety."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage explicitly notes that the winter wind mirrors isolation, and frost reflects longing, making option A the best detail tying weather to emotion. B mentions lines of poetry but not the weather metaphor, C and D introduce unrelated imagery not tied to the weather-longing claim.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A recent literary essay on the poem Snowbound notes that the poet repeatedly uses weather as a register of feeling. A winter wind outside the window echoes the speaker's sense of isolation, while the frost on the glass is described as a remembered trace of a warmer day. The critic argues that these atmospheric details do not merely decorate the scene but actively map the inner state, turning external conditions into a mirror for longing and memory. The poem's structure—short, staccato lines interspersed with longer, reflective sections—further reinforces the contrast between abrupt external weather and slow, interior time. By attending to these cues, the reader understands that the poem treats weather not as background but as a language through which emotion is signaled and then measured against past experience.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct detail linking weather to emotion is the wind mirroring isolation.",
+        "B": "Describes structure, not the weather imagery linked to longing.",
+        "C": "Introduces city sounds, which are not part of the weather-longing claim.",
+        "D": "Distant lighthouse is not mentioned as part of the weather-longing analysis."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:27:24.183Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What inference about the enzyme study is best supported by the passage?",
+      "options": [
+        "A) It follows zero-order kinetics.",
+        "B) It has reached Vmax under these conditions.",
+        "C) Substrate inhibition occurs at high substrate.",
+        "D) Temperature was not controlled."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The plateau in velocity despite increasing substrate indicates that all enzyme active sites are saturated, i.e., the reaction has reached Vmax under the tested conditions. A would imply constant rate regardless of substrate which is not described here, C would require a decrease in rate due to high substrate, and D is contradicted by the statement that temperature was kept constant. Therefore, B is the correct inference.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a controlled study of an enzyme-catalyzed reaction, researchers measured reaction velocity at a series of substrate concentrations. As the substrate concentration increased from 0.1 to 0.8 millimolar, the rate rose proportionally. Beyond 0.8 millimolar, the rate plateaued, with little or no increase despite further increases in substrate. The authors note that temperature and pH were kept constant, and that the data align with a classic saturation curve. From these observations, one can infer that the system has approached its maximum velocity under the given conditions, implying that the enzyme's active sites are saturated and limiting the rate.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A zero-order kinetic model would show a flat rate regardless of substrate, which is not the described gradual rise then plateau.",
+        "B": "Correct explanation provided in main reasoning.",
+        "C": "The passage does not report a decrease in rate due to substrate inhibition.",
+        "D": "The passage states that temperature was kept constant."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:27:24.184Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author’s purpose for the historical manuscript's discussion of tariff reform's aims?",
+      "options": [
+        "A) To remind readers of background context.",
+        "B) To argue against the tariff policy.",
+        "C) To explain the historical context that justifies the reform's aims.",
+        "D) To criticize the administrative system."
+      ],
+      "correctAnswer": 2,
+      "explanation": "The paragraph presents multiple positions and frames the reform as a negotiation of priorities rather than a single rationale, which indicates the author's purpose is to explain the contextual justification and competing aims behind the reform. A is too general, B and D are not supported as the sole aim. Therefore, C best captures the intent.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "An economic history manuscript discusses the rationale behind a tariff reform in the late 19th century. The author argues that the policy's central aim was to shield nascent domestic industries from foreign competition while preserving revenue. The discussion emphasizes that the reform's designers sought a balance between encouraging local manufacture and maintaining affordable consumer goods. The author also notes that supporters framed the measure as a way to diversify the economy and reduce vulnerability to external shocks, whereas opponents warned about administrative complexity and potential favoritism toward certain ports. By presenting these positions, the author signals that the historical record should be read as a negotiation among competing economic priorities rather than a single, linear rationale.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "While it provides context, the passage also analyzes multiple competing aims, not just background.",
+        "B": "The author does not primarily argue against the policy.",
+        "C": "Correct explanation provided in main reasoning.",
+        "D": "The passage does not primarily criticize the administrative system."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:27:24.185Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What inference about the story's theme is most supported by the passage?",
+      "options": [
+        "A) The story's theme is about communal forgiveness.",
+        "B) Memory and truth in the story are straightforward and uncontested.",
+        "C) Memory is unreliable and selective as a theme.",
+        "D) The setting is more important than memory."
+      ],
+      "correctAnswer": 2,
+      "explanation": "The critic emphasizes memory’s instability and selective nature, and that truth emerges from gaps, indicating a theme about memory's unreliability. Options A and D misstate the focus, and B contradicts the text’s claim about unreliability.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A short story review discusses a narrative about a family dealing with memory and guilt after a long absence. The critic contends that the author uses a silenced past to expose how memory can be unstable and subject to reinterpretation. The protagonist recalls a childhood event with vivid sensory detail, but the surrounding scenes indicate that memory is selective, constructing urgency and meaning from what remains unsaid. The review concludes that the story's theme centers on how people cope with what cannot be fully retrieved, suggesting that truth in the story emerges from the tension between remembered moments and the gaps that memory leaves behind.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage centers on memory and guilt, not communal forgiveness as the main theme.",
+        "B": "The passage argues memory is unreliable, not straightforward or uncontested.",
+        "C": "Correct explanation provided in main reasoning.",
+        "D": "Memory is central to the theme; setting is not presented as dominant."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:27:24.186Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What can be inferred about the drought response model discussed in the cross-lab synthesis?",
+      "options": [
+        "A) The model fails to generalize across studies.",
+        "B) The meta-analysis supports a single, coherent model of drought response that applies broadly.",
+        "C) The studies contradict each other and no pattern emerges.",
+        "D) The results indicate that drought response is entirely species-specific."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage emphasizes a common signaling pathway identified across studies and a coherent model that predicts wilting timing across diverse species, which supports generalization. A and C contradict this coherence, D overstates species-specificity. Therefore, B is correct.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a cross-lab synthesis, scientists compare results from several independent studies of a plant's drought response. Although methods differ, all studies identify a common signaling pathway that spikes when soil moisture drops below a threshold. A meta-analysis combines data from gene expression, physiological measurements, and field observations, and finds that this pathway reliably predicts wilting timing across diverse species. The authors caution that there is still variability in the magnitude of response and in the thresholds used to define stress, but the overall pattern supports a single, coherent model of drought response. The conclusion suggests that future work should refine the pathway details and test the model in field conditions to improve predictive power.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage highlights consistency across studies, not a failure to generalize.",
+        "B": "Correct explanation provided in main reasoning.",
+        "C": "The passage indicates a pattern and coherence, not contradictory results.",
+        "D": "The passage mentions cross-species applicability, not strict species-specificity."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:27:24.186Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main point the author makes in the passage?",
+      "options": [
+        "A) Coral reef recovery is determined solely by water temperature.",
+        "B) Resilience depends on both local reef management and global warming.",
+        "C) Sedimentation never affects recovery.",
+        "D) Structural complexity has no influence on recovery."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage emphasizes that reef resilience depends on both local conditions (habitat structure, water quality, herbivore presence) and global climate factors (temperature stress). This is the central claim. Option A is incorrect because it ignores local factors; C and D exaggerate the negation of observed influences and are not supported by the passage.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Across field trials conducted on ten reef sites in two regions, researchers tracked recovery dynamics after shallow-water bleaching events. They compared plots that varied in rugosity—how rough the surface is—and in herbivore density, as grazers influence algal overgrowth. The data show that plots with higher structural complexity and lower sedimentation recovered more quickly than flatter, sediment-laden plots, even when the same degree of thermal stress affected all sites. The study argues that reef resilience is not a simple function of temperature exposure; local conditions can mediate outcomes by shaping habitat structure, water quality, and species interactions. Statistical models indicate that microhabitat diversity predicts juvenile coral survival, while shifts toward macroalgae correlate with slower recovery. Consequently, the authors conclude that resilience emerges from an interplay between global climate forcing and local management. If managers reduce runoff, limit sediment input, and protect herbivore populations, reefs can rebound more rapidly after disturbances, whereas neglect of local stressors can exacerbate damage. The implication is clear: safeguarding resilience requires attention to both global drivers and local stewardship.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is wrong because the passage argues against a sole-temperature explanation and highlights local management as well.",
+        "C": "C is wrong because the passage shows that sedimentation does affect recovery.",
+        "D": "D is wrong because the passage shows that structural complexity does matter."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:28:38.091Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What can be inferred about the author's stance on mercantilist policy from the passage?",
+      "options": [
+        "A) The author believes mercantilist policies greatly benefited colonial industry.",
+        "B) The author suggests mercantilist policies had drawbacks for colonial economies.",
+        "C) The author is indifferent to the policy's effects.",
+        "D) The author thinks colonists should accept trade restrictions indefinitely."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage notes both the claimed benefits for the metropole and the evident costs for colonial economies, such as suppressed entrepreneurship and higher transport costs, which supports the inference that the author views mercantilist policy as having drawbacks for the colonies.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "From 1651 to 1763 Parliament enacted a sequence of Navigation Acts intended to ensure that colonial trade served the metropole's commercial interests. Ships carrying colonial goods to Britain had to be English-built, owned, and crewed, and many enumerated commodities—tobacco and sugar—were restricted to sale within the empire. Proponents argued that the acts secured imperial revenue, protected domestic shipbuilding, and disciplined rivals. Critics, by contrast, argued that the edicts created a one-way ladder that suppressed colonial entrepreneurship and raised transport costs for planters and merchants. A provincial trader's diary described how these restrictions tightened margins and forced reliance on middlemen who could siphon value away from local producers. The author notes that officials sometimes granted temporary waivers during shortages, a sign of pragmatic adjustment but not a fundamental reform. Taken together, the passage suggests that the policy increased metropolitan control while dampening colonial market development, illustrating how a system designed to benefit the center could simultaneously constrain the periphery.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is wrong because the passage highlights negative effects on colonial economies, not only benefits.",
+        "C": "C is wrong because the text presents clear costs and limitations.",
+        "D": "D is wrong because the author notes pragmatic waivers and implies critique, not endorsement."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:28:38.092Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to the passage, which detail supports the claim that the author uses color imagery to map memory?",
+      "options": [
+        "A) The room is described as pale blue that would not stay.",
+        "B) The critic notes that sound imagery accompanies color imagery.",
+        "C) Memory is described as unreliable.",
+        "D) The narrative uses religious symbolism."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage provides the explicit example: the room described as 'pale blue that would not stay,' which ties color imagery directly to memory and how recall is shaped. The other options mention elements that are either not stated or only tangentially related to the specific claim about color imagery mapping memory.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Recent literary criticism of the late nineteenth-century novel argues that the author uses color to chart the movement of memory. The critic notes that the recurring image of blue dusk is not merely decorative but functions as a cue for inner retreat. When the narrator describes the room as 'pale blue that would not stay,' the phrase marks both transience and resistance to what is being remembered. The author also shows light and shadow not as simple opposites but as rhetorical devices that reveal how narration can fail to capture lived experience. Through these color-coded signals, memory becomes a landscape the protagonist traverses, sometimes stumbling over fading details and sometimes returning to a scene that refuses to stay in focus. In this reading, color is less about mood and more about epistemology—the way characters know what happened, and what they cannot bear to recall.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is correct and not wrong.",
+        "B": "B misattributes focus; the passage does not discuss sound imagery as a connector to memory in this context.",
+        "C": "C is vague and not tied to the specific color-memory link the passage makes.",
+        "D": "D introduces religious symbolism not present in the passage."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:28:38.092Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author's purpose for the paragraph describing the calibration step in the scientific study?",
+      "options": [
+        "A) To persuade readers that the study's claims are unreliable.",
+        "B) To illustrate that methodological rigor supports the validity of the conclusions.",
+        "C) To overburden the reader with technical detail.",
+        "D) To avoid discussing results."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage describes a calibration process and immediately explains its purpose: to establish trust in the methods and show that conclusions rest on reliable data, which reveals the author's intent to highlight methodological rigor and its role in supporting conclusions.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Environmental scientists describe a two-stage procedure to ensure that sensor readings reflect true moisture levels in a regional aquifer. First, the devices are calibrated against laboratory standards; second, they are cross-checked with independent manual probes across ten sites. The calibration yields a modest but consistent error margin, which the authors argue is enough to anchor every subsequent claim about drought risk to measurable reliability. They emphasize that such meticulous reporting matters because policy decisions and water allotments depend on the credibility of the data. The paragraph's purpose is not to astonish readers with technical detail but to establish trust in the study's methods, showing that results rest on deliberate checks rather than on assumptions. By foregrounding calibration, the authors invite readers to evaluate conclusions in light of the underlying methods, rather than accepting them at face value.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is wrong because the passage argues the calibration enhances reliability, not undermines it.",
+        "B": "B is correct and not wrong.",
+        "C": "C is a mischaracterization; the author presents details to support validity, not to overwhelm.",
+        "D": "D is wrong because the paragraph explicitly connects methods to conclusions."
+      },
+      "_batchId": "batch-1771528987996-reading-comp",
+      "_generatedAt": "2026-02-19T19:28:38.093Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "batchId": "batch-1771476668400-algebra",
+  "topic": "algebra",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T04:52:52.056Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 2,
+  "totalGenerated": 2,
+  "totalValid": 2,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "A tutor charges dollars according to the formula for total earnings: the total earnings for x hours of tutoring are $2x + 6$ dollars. If the total earnings are 14 dollars, how many hours did the tutoring last? (Let x be the number of hours.) Solve for x.",
+      "options": [
+        "A) 4",
+        "B) 7",
+        "C) 1",
+        "D) -4"
+      ],
+      "correctAnswer": 0,
+      "explanation": "We set up the equation representing total earnings: $2x + 6 = 14$. Subtract 6 from both sides to isolate the term with x: $2x = 8$. Then divide both sides by 2: $x = 4$. Therefore, the tutoring lasted 4 hours.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This answer comes from forgetting to subtract the 6 dollars, effectively solving $2x = 14$ instead of $2x + 6 = 14$.",
+        "C": "This answer arises from performing an incorrect operation order, e.g., dividing or simplifying wrongly (e.g., computing $14/2 - 6$).",
+        "D": "This answer reflects a sign error or incorrect isolation of x, yielding a negative value instead of the positive correct result."
+      },
+      "_batchId": "batch-1771476668400-algebra",
+      "_generatedAt": "2026-02-19T04:51:59.648Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "At a school fundraiser, two kinds of T-shirts are sold: a small shirt costs 3 dollars and a large shirt costs 5 dollars. The fundraiser collects a total of 45 dollars from selling some number of small shirts and some number of large shirts. There is exactly one more large shirt than small shirt. How many small shirts were sold?",
+      "options": [
+        "A) 4",
+        "B) 5",
+        "C) 6",
+        "D) 7"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let a be the number of small shirts and b be the number of large shirts. The equations are $3a + 5b = 45$ and $b = a + 1$. Substitute: $3a + 5(a + 1) = 45$ → $3a + 5a + 5 = 45$ → $8a + 5 = 45$ → $8a = 40$ → $a = 5$. Then $b = a + 1 = 6$. Therefore, the number of small shirts sold is $5$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Mistake: assumed a = 4 leads to b = 5; total would be $3(4) + 5(5) = 37$, not 45.",
+        "B": "N/A (option B is correct).",
+        "C": "Mistake: assumed a = 6 leads to b = 7; total would be $3(6) + 5(7) = 53$, not 45.",
+        "D": "Mistake: assumed a = 7 leads to b = 8; total would be $3(7) + 5(8) = 61$."
+      },
+      "_batchId": "batch-1771476668400-algebra",
+      "_generatedAt": "2026-02-19T04:52:47.948Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

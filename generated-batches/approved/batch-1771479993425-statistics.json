@@ -1,0 +1,297 @@
+{
+  "batchId": "batch-1771479993425-statistics",
+  "topic": "statistics",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T05:49:57.929Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 10,
+  "totalValid": 10,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "A survey of 4 students earned scores: 70, 75, 80, 85. What is the mean score? Use the definition $\\overline{x} = \\frac{70+75+80+85}{4}$.",
+      "options": [
+        "A) 77.5",
+        "B) 75",
+        "C) 80",
+        "D) 82.5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Compute the mean: first sum the scores: $70+75+80+85 = 310$; then divide by the number of scores (4): $\\frac{310}{4} = 77.5$. So the mean is 77.5.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "mean-median-mode",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect: you averaged only two of the four scores (for example, $(70+75)/2 = 72.5$), not the mean of all four.",
+        "C": "Incorrect: you computed the median, not the mean.",
+        "D": "Incorrect: you divided by the wrong count (divided by 3 instead of 4)."
+      },
+      "_batchId": "batch-1771479993425-statistics",
+      "_generatedAt": "2026-02-19T05:47:24.691Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A bag contains 30 red marbles and 20 blue marbles. One marble is drawn at random. What is the probability that it is red? $P(\\text{red}) = \\frac{30}{30+20} = \\frac{3}{5}$.",
+      "options": [
+        "A) $\\frac{3}{5}$",
+        "B) $\\frac{1}{2}$",
+        "C) $\\frac{2}{5}$",
+        "D) $\\frac{4}{5}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "There are 30 red marbles out of 50 total marbles. $P(\\text{red}) = \\frac{30}{50} = \\frac{3}{5}$, so the probability is $\\frac{3}{5}$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "probability",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect: you assumed red and blue counts are equal, but they are not.",
+        "C": "Incorrect: you used the wrong red probability, e.g., $30/60$ or mis-identified the numerator/denominator.",
+        "D": "Incorrect: you computed $\\\\frac{40}{50}$ or $\\\\frac{4}{5}$, which does not reflect the red proportion."
+      },
+      "_batchId": "batch-1771479993425-statistics",
+      "_generatedAt": "2026-02-19T05:47:24.692Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two fair coins are flipped. What is the probability that at least one heads appears? Use the complement: $P(\\text{at least one H}) = 1 - P(\\text{TT}) = 1 - (\\tfrac{1}{2})^2$.",
+      "options": [
+        "A) $\\tfrac{1}{4}$",
+        "B) $\\tfrac{1}{2}$",
+        "C) $\\tfrac{3}{4}$",
+        "D) $1$"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Possible outcomes: HH, HT, TH, TT (4 equally likely). At least one heads occurs in 3 outcomes, so $P(\\text{at least one H}) = \\frac{3}{4}$. Using the complement confirms: $1 - (\\tfrac{1}{2})^2 = 1 - \\tfrac{1}{4} = \\tfrac{3}{4}$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "probability",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect: only the event HH counts as 1/4; you forgot the other two favorable outcomes HT and TH.",
+        "B": "Incorrect: you counted only half the possibilities; HT and TH also count toward at least one head.",
+        "D": "Incorrect: not all outcomes are certain; TT is possible, so the probability is not 1."
+      },
+      "_batchId": "batch-1771479993425-statistics",
+      "_generatedAt": "2026-02-19T05:47:24.694Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A scatter plot described in words shows that as x increases from 0 to 6, y increases roughly from 1 to 7 along a straight line. What does this indicate about the correlation between x and y? ",
+      "options": [
+        "A) Positive correlation",
+        "B) Negative correlation",
+        "C) No correlation",
+        "D) Perfect correlation"
+      ],
+      "correctAnswer": 0,
+      "explanation": "When y increases as x increases along a roughly straight line, the variables x and y have a positive correlation. The description does not indicate a perfect line or exactly no variation, so the best choice is a positive correlation.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "scatter-plots",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect: a negative slope would indicate a negative correlation, not described here.",
+        "C": "Incorrect: the data move together in the same direction, indicating some correlation.",
+        "D": "Incorrect: 'perfect' would require all points lying exactly on a line; the description says 'roughly along a line,' so it’s not necessarily perfect."
+      },
+      "_batchId": "batch-1771479993425-statistics",
+      "_generatedAt": "2026-02-19T05:47:24.696Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A company's monthly revenue (in thousands) for January to May is: 20, 22, 24, 28, 32. What is the percent increase from January to May? $\\frac{\\text{May} - \\text{Jan}}{\\text{Jan}} \\times 100\\%$.",
+      "options": [
+        "A) 60%",
+        "B) 40%",
+        "C) 20%",
+        "D) 80%"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Percent change = (($32 - $20) / $20) x 100 = (12/20) x 100 = 0.60 x 100 = 60%. So the percent increase is 60%.$",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "trends",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect: you divided by the wrong base (40% would come from (32-20)/?); the base should be 20, not 32 or 40.",
+        "C": "Incorrect: this would be the percent of the increase relative to a smaller change; it ignores the actual increase from January to May.",
+        "D": "Incorrect: 80% would require a much larger increase than 12 is relative to 20."
+      },
+      "_batchId": "batch-1771479993425-statistics",
+      "_generatedAt": "2026-02-19T05:47:24.696Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two data sets are given: A = {2, 4, 6, 8} and B = {2, 2, 2, 10}. Which data set has the larger standard deviation (spread of the data) and why?",
+      "options": [
+        "A) Data set A",
+        "B) Data set B",
+        "C) They have the same standard deviation",
+        "D) Not enough information"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Compute SD: For A, mean = (2+4+6+8)/4 = 5; deviations are -3, -1, 1, 3; squared deviations sum to 20; variance = 20/4 = 5; SD = √5 ≈ 2.24. For B, mean = (2+2+2+10)/4 = 4; deviations are -2, -2, -2, 6; squared deviations sum to 48; variance = 48/4 = 12; SD = √12 ≈ 3.46. Since 3.46 > 2.24, data set B has the larger standard deviation.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "standard-deviation",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect: although A has spread, B includes a large outlier (10) which increases the spread more.",
+        "C": "Incorrect: the spreads are not the same; the outlier in B increases the SD.",
+        "D": "Incorrect: there is enough information to compare the spreads using the data given."
+      },
+      "_batchId": "batch-1771479993425-statistics",
+      "_generatedAt": "2026-02-19T05:47:24.697Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a statistics class of 12 students, the quiz scores (out of 100) were: 68, 72, 72, 76, 76, 76, 84, 84, 84, 88, 90, 92. After two sequential operations—first, a new score of 60 is added, and then the score 92 is removed—the mean, median, and mode may change. Which statement about these measures relative to their original values is true?",
+      "options": [
+        "A) The mean increases, the median increases, and the mode becomes unimodal.",
+        "B) The mean decreases, the median decreases, and the mode remains bimodal.",
+        "C) The mean remains unchanged, the median increases, and the mode becomes unimodal.",
+        "D) The mean decreases, the median decreases, and the mode remains bimodal."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Compute original statistics. Sum = 68+72+72+76+76+76+84+84+84+88+90+92 = 962, n = 12, so mean = 962/12 ≈ 80.17. Sort data to find median; the ordered list is 68, 72, 72, 76, 76, 76, 84, 84, 84, 88, 90, 92, so median = (6th + 7th)/2 = (76 + 84)/2 = 80. Mode: 76 and 84 both occur 3 times, so the data are bimodal. Step 2: Apply operations. New sum = 962 + 60 − 92 = 930, new n = 12, so new mean = 930/12 = 77.5. Step 3: New sorted data after adding 60 and removing 92: 60, 68, 72, 72, 76, 76, 76, 84, 84, 84, 88, 90. New median = average of 6th and 7th values = (76 + 76)/2 = 76. Step 4: New mode counts: 60(1), 68(1), 72(2), 76(3), 84(3), 88(1), 90(1). Modes remain 76 and 84 (bimodal). Conclusion: mean decreases, median decreases, and the mode remains bimodal. Correct choice: B. \n$$",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "mean-median-mode",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Mistakes: assumes the mean and median both increase after the operations; in fact, adding a 60 and removing a 92 lowers both the mean and the median, and the mode does not become unimodal.",
+        "B": "Correct reasoning is that the mean and median decrease and the mode remains bimodal; this option states that, so it is the right answer.",
+        "C": "Mistakes: assumes the mean stays the same and the median increases; neither is true after the given operations, and the mode does not become unimodal.",
+        "D": "Mistakes: claims the mode becomes unimodal; in truth, the mode remains bimodal (76 and 84) after the operations."
+      },
+      "_batchId": "batch-1771479993425-statistics",
+      "_generatedAt": "2026-02-19T05:49:56.925Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "From a standard deck of 52 cards, what is the probability of drawing at least one ace in two draws without replacement?",
+      "options": [
+        "A) 33/221",
+        "B) 1/6",
+        "C) 2/13",
+        "D) 0.130"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: It is easier to compute the complement: P(at least one ace) = 1 − P(no ace in both draws). Step 2: P(no ace) for two draws without replacement = (48/52) × (47/51). Step 3: This equals (12/13) × (47/51) = 564/663 = 188/221. Step 4: Therefore P(at least one ace) = 1 − 188/221 = 33/221 ≈ 0.1493. The correct option is A, 33/221. \n$$",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "probability",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct calculation and result.",
+        "B": "Incorrectly treats the draws as independent with replacement, giving 1/6, which overestimates the probability for without-replacement draws.",
+        "C": "Confuses the calculation by mixing up combinations without properly avoiding double counting; uses an incorrect fraction.",
+        "D": "Gives a rounded decimal that does not reflect the exact fraction, and is not the precise value."
+      },
+      "_batchId": "batch-1771479993425-statistics",
+      "_generatedAt": "2026-02-19T05:49:56.925Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Consider the six data points described by the coordinates (1, 2.0), (2, 3.8), (3, 5.6), (4, 7.2), (5, 8.9), (6, 10.0). The points lie close to a straight line with a positive slope. Which statement about the correlation and the line of best fit is best supported by this description?",
+      "options": [
+        "A) The correlation is negative and the slope of the line of best fit is negative.",
+        "B) The correlation is positive and strong; the line of best fit has slope about 1.6.",
+        "C) The correlation is zero; the slope of the line of best fit is zero.",
+        "D) The correlation is positive but weak; the slope of the line of best fit is near 5."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: All listed points increase as x increases, which indicates a positive correlation. Step 2: A rough line through the first and last points suggests slope ≈ (10.0 − 2.0)/(6 − 1) = 8/5 = 1.6. Since the points lie close to this line, the correlation is strong. Step 3: Therefore, the best-supported statement is that the correlation is positive and strong, with a line of best fit slope about 1.6. Correct choice: B. \n$$",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "scatter-plots",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect: the data rise with x, indicating a positive correlation, not negative.",
+        "B": "Correct: positive and strong correlation with approximate slope 1.6.",
+        "C": "Incorrect: a zero correlation would require no apparent linear pattern, which is not the case here.",
+        "D": "Incorrect: though positive, the correlation is not weak and the slope is not near 5."
+      },
+      "_batchId": "batch-1771479993425-statistics",
+      "_generatedAt": "2026-02-19T05:49:56.926Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A streaming service reports the number of subscribers (in thousands) at the end of four consecutive quarters: Q1 = 45, Q2 = 54, Q3 = 65, Q4 = 78. Which statement is best supported by this pattern of growth?",
+      "options": [
+        "A) Each quarter shows an exact constant absolute increase of 9 thousand subscribers.",
+        "B) The data follow a precisely linear trend with equal absolute increases each quarter.",
+        "C) The overall percent increase from Q1 to Q4 is about 73%, and the quarterly increases are roughly 20% each quarter.",
+        "D) The quarterly increases are decreasing."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Step 1: Compute quarter-to-quarter increases: Q2−Q1 = 9, Q3−Q2 = 11, Q4−Q3 = 13 (thousands). Step 2: Compute percent increases: 9/45 = 0.20 (20%), 11/54 ≈ 0.2037 (about 20.4%), 13/65 = 0.2 (20%). Step 3: Overall increase from Q1 to Q4: (78−45)/45 = 33/45 = 0.733... ≈ 73.3%. Step 4: The pattern shows increases that are roughly around 20% each quarter but not exactly constant; overall growth is about 73%. Therefore, option C is best supported. \n$$",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "trends",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect: the absolute increases are 9, 11, and 13—not constant.",
+        "B": "Incorrect: while growth is roughly exponential-looking, the increases are not an exact constant; the data are not a perfect linear trend.",
+        "C": "Correct: matches the computed 73.3% overall increase and ~20% per-quarter increases.",
+        "D": "Incorrect: increases are not decreasing; they are increasing (9, then 11, then 13)."
+      },
+      "_batchId": "batch-1771479993425-statistics",
+      "_generatedAt": "2026-02-19T05:49:56.927Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

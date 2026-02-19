@@ -1,0 +1,293 @@
+{
+  "batchId": "batch-1771523922850-geometry",
+  "topic": "geometry",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T18:05:49.866Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 10,
+  "totalValid": 10,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In triangle $\\triangle ABC$, with $\\angle A = 30^\\circ$, $\\angle B = 60^\\circ$, $\\angle C = 90^\\circ$ and $AB = 6$, what is $BC$?",
+      "options": [
+        "A) 3",
+        "B) 6",
+        "C) $3\\sqrt{3}$",
+        "D) $6\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Since $\\angle C = 90^\\circ$, $AB$ is the hypotenuse. In a $30^\\circ-60^\\circ-90^\\circ$ triangle, the sides opposite $30^\\circ$, $60^\\circ$, $90^\\circ$ are in the ratio $1:\\sqrt{3}:2$. Let the side opposite $30^\\circ$ be $x$; then $2x = AB = 6$, so $x = 3$. The side $BC$ is opposite $\\angle A = 30^\\circ$, so $BC = x = 3$. Therefore $BC = 3$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Confusing the hypotenuse with a leg; in a right triangle the side opposite 90° (AB) is the hypotenuse, not BC.",
+        "C": "Using the longer leg (opposite 60°) for BC; BC is opposite 30°, so it should be the shorter leg.",
+        "D": "Applying the factor $\\sqrt{3}/2$ to the hypotenuse incorrectly to get BC."
+      },
+      "_batchId": "batch-1771523922850-geometry",
+      "_generatedAt": "2026-02-19T18:01:27.986Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the coordinate plane, a circle has center $(2,-1)$ and radius $5$. Which of the following is the equation of the circle?",
+      "options": [
+        "A) $$(x-2)^2 + (y+1)^2 = 25$$",
+        "B) $$(x+2)^2 + (y-1)^2 = 25$$",
+        "C) $$(x-2)^2 + (y+1)^2 = 10$$",
+        "D) $$(x-2)^2 + (y-1)^2 = 25$$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The circle with center $(h,k)$ and radius $r$ has equation $(x-h)^2 + (y-k)^2 = r^2$. Here $(h,k)=(2,-1)$ and $r=5$, so the equation is $(x-2)^2 + (y+1)^2 = 25$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Center is incorrect: using $(-2,1)$ would place the center at $(-2,1)$, not $(2,-1)$.",
+        "C": "Radius squared is incorrect: $r^2$ should be $25$, not $10$.",
+        "D": "One coordinate's sign is wrong: center would be $(2,1)$, not $(2,-1)$."
+      },
+      "_batchId": "batch-1771523922850-geometry",
+      "_generatedAt": "2026-02-19T18:01:27.988Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the coordinate plane, points $P(1,2)$ and $Q(4,6)$. The distance $d$ between $P$ and $Q$ is which of the following?",
+      "options": [
+        "A) 5",
+        "B) $\\sqrt{34}$",
+        "C) 3",
+        "D) $\\sqrt{13}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The distance formula gives $d=\\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$. Here $(x_2-x_1)=4-1=3$ and $(y_2-y_1)=6-2=4$, so $d=\\sqrt{3^2+4^2}=\\sqrt{9+16}=\\sqrt{25}=5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate geometry",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Using $\\sqrt{34}$ comes from miscomputing the vertical difference as 5 instead of 4.",
+        "C": "Using only the horizontal difference $|x_2-x_1|=3$ ignores the vertical difference.",
+        "D": "Using $\\sqrt{13}$ would result from taking $|x_2-x_1|=3$ and $|y_2-y_1|=2$, which misreads the coordinates."
+      },
+      "_batchId": "batch-1771523922850-geometry",
+      "_generatedAt": "2026-02-19T18:01:27.990Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A composite shape consists of a $4$ by $3$ rectangle with a $2$ by $2$ square attached on top of the $3$-unit side. What is the total area?",
+      "options": [
+        "A) 16",
+        "B) 20",
+        "C) 12",
+        "D) 14"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area of rectangle: $4\\times 3 = 12$. Area of attached square: $2^2 = 4$. Total area $=12+4=16$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area & Perimeter",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Added the area of a $4\\times 2$ rectangle instead of a $2\\times 2$ square.",
+        "C": "Forgot to include the attached square's area.",
+        "D": "Double-counted or miscounted the overlapped edge, leading to an incorrect total."
+      },
+      "_batchId": "batch-1771523922850-geometry",
+      "_generatedAt": "2026-02-19T18:01:27.992Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a circle with radius $6$, the arc length corresponding to a central angle of $60^\\circ$ is which of the following?",
+      "options": [
+        "A) $2\\pi$",
+        "B) $6\\pi$",
+        "C) $4\\pi$",
+        "D) $12\\pi$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Arc length formula: $L=\\frac{\\theta}{360^\\circ}\\cdot 2\\pi r$. For $\\theta=60^\\circ$, $r=6$: $L=\\frac{60}{360}\\cdot 2\\pi\\cdot 6=\\frac{1}{6}\\cdot 12\\pi=2\\pi$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Used the full circumference $2\\pi r$ instead of the fractional arc.",
+        "C": "Used $180^\\circ$ instead of $60^\\circ$ for the central angle.",
+        "D": "Confused arc length with another circle measure (e.g., sector area) and used $12\\pi$."
+      },
+      "_batchId": "batch-1771523922850-geometry",
+      "_generatedAt": "2026-02-19T18:01:27.993Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A point $(3,-4)$ is rotated $90^\\circ$ counterclockwise about the origin. What are its coordinates after the rotation?",
+      "options": [
+        "A) (4, 3)",
+        "B) (-4, 3)",
+        "C) (-3, -4)",
+        "D) (-4, -3)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A $90^\\circ$ counterclockwise rotation about the origin sends $(x,y)$ to $(-y, x)$. Thus $(3,-4) \\to (-(-4), 3) = (4,3)$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Transformations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This is the result of a $90^\\circ$ clockwise rotation, not counterclockwise.",
+        "C": "This is a reflection across the x-axis (or a 180° rotation on the point's sign pattern).",
+        "D": "This is the result of a 180° rotation, not 90°."
+      },
+      "_batchId": "batch-1771523922850-geometry",
+      "_generatedAt": "2026-02-19T18:01:27.994Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In right triangle $\\triangle ABC$, $\\angle C = 90°$, $AB = 12$, and $\\angle A = 30°$. What is the length of $\\overline{BC}$?",
+      "options": [
+        "A) 6",
+        "B) $6\\sqrt{3}$",
+        "C) 12",
+        "D) $3\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Since $\\angle C = 90°$, $AB$ is the hypotenuse. In a $30°-60°-90°$ triangle, the side opposite $30°$ is half the hypotenuse. Here $\\angle A = 30°$, so $\\overline{BC}$ (opposite $30°$) has length $AB/2 = 12/2 = 6$. For reference, the other leg is $AC = AB\\cdot\\sin 60° = 12\\cdot(\\sqrt{3}/2) = 6\\sqrt{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles: 30-60-90, Pythagorean theorem",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "$6\\sqrt{3}$ is the length of the side opposite $60°$ (i.e., $AC$), not $BC$; confusing the roles of the two acute angles in a 30-60-90 triangle.",
+        "C": "12 is the length of the hypotenuse $AB$, not a leg; the question asks for a leg length.",
+        "D": "Dividing the hypotenuse by $2$ gives the short leg; dividing again or misapplying the ratio yields $3\\sqrt{3}$, which is incorrect for $BC$."
+      },
+      "_batchId": "batch-1771523922850-geometry",
+      "_generatedAt": "2026-02-19T18:05:48.851Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In coordinate geometry, let $A(1,2), B(5,8)$ and $C(-1,4)$. What is the area of $\\triangle ABC$?",
+      "options": [
+        "A) 10",
+        "B) 8",
+        "C) 12",
+        "D) 20"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Compute vectors $\\overrightarrow{AB}=(4,6)$ and $\\overrightarrow{AC}=(-2,2)$. The area equals $\\tfrac{1}{2}|\\overrightarrow{AB}_x\\cdot\\overrightarrow{AC}_y-\\overrightarrow{AB}_y\\cdot\\overrightarrow{AC}_x|=\\tfrac{1}{2}|(4)(2)-(6)(-2)|=\\tfrac{1}{2}(8+12)=10$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry: Distance formula, slope, area via coordinates",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Used the product of one component pair (e.g., $|AB_x|\\cdot|AC_y|$) and forgot the cross-term $AB_y\\cdot AC_x$, which is needed in the cross-product calculation.",
+        "C": "Added coordinates or used a rectangle-area approach instead of the correct cross-product method, giving an incorrect value.",
+        "D": "Took the cross-product magnitude as the area without applying the factor $\\tfrac{1}{2}$."
+      },
+      "_batchId": "batch-1771523922850-geometry",
+      "_generatedAt": "2026-02-19T18:05:48.853Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a circle with center $O$ and radius $6$, arc $AB$ subtends central angle $\\angle AOB=120°$. What is the length of arc $AB$?",
+      "options": [
+        "A) $4\\pi$",
+        "B) $6\\pi$",
+        "C) $\\tfrac{8\\pi}{3}$",
+        "D) $12\\pi$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Convert the angle to radians: $\\theta=120°=\\tfrac{2\\pi}{3}$. Arc length is $L=r\\theta=6\\cdot\\tfrac{2\\pi}{3}=4\\pi$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles: Arc length, central angles",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Used half-circle intuition (180°) instead of 120°, giving $6\\pi$ which corresponds to a semicircle.",
+        "C": "Converted angle incorrectly as $\\tfrac{4\\pi}{3}$, yielding $\\tfrac{8\\pi}{3}$; a misread of the central angle.",
+        "D": "Took the full circumference $2\\pi r=12\\pi$, treating arc $AB$ as the entire circle instead of a $120°$ arc."
+      },
+      "_batchId": "batch-1771523922850-geometry",
+      "_generatedAt": "2026-02-19T18:05:48.856Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A regular hexagon has side length $s=4$. What is its area?",
+      "options": [
+        "A) $24\\sqrt{3}$",
+        "B) $12\\sqrt{3}$",
+        "C) 48",
+        "D) $16\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A regular hexagon of side $s$ can be partitioned into 6 equilateral triangles of side $s$. Each triangle has area $\\tfrac{\\sqrt{3}}{4}s^2$, so total area is $6\\cdot\\tfrac{\\sqrt{3}}{4}s^2=\\tfrac{3\\sqrt{3}}{2}s^2$. With $s=4$, area $=\\tfrac{3\\sqrt{3}}{2}\\cdot16=24\\sqrt{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-perimeter: Area of regular polygons",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Used half of the correct factor, giving $12\\sqrt{3}$; failed to multiply by the proper geometric decomposition.",
+        "C": "Ignored the $\\sqrt{3}$ factor entirely and used a linear area formula, yielding 48.",
+        "D": "Used $6$ times an area with wrong base-height relation, producing $16\\sqrt{3}$."
+      },
+      "_batchId": "batch-1771523922850-geometry",
+      "_generatedAt": "2026-02-19T18:05:48.858Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

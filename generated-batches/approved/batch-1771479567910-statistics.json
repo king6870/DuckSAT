@@ -1,0 +1,583 @@
+{
+  "batchId": "batch-1771479567910-statistics",
+  "topic": "statistics",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T05:43:16.154Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 20,
+  "totalValid": 20,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "A data set lists the number of books read by eight students last month: 2, 3, 5, 3, 6, 2, 4, 3. What is the mean number of books read?",
+      "options": [
+        "A) 3",
+        "B) 3.5",
+        "C) 4",
+        "D) 3.25"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Add all values: $2+3+5+3+6+2+4+3 = 28$. Step 2: There are 8 numbers, so the mean is $\\frac{28}{8} = 3.5$. Therefore the mean number of books read is $3.5$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "mean-median-mode",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) 3 would result if you omitted a value or divided by the wrong count.",
+        "C": "C) 4 would come from using the maximum value or from misreading the data as having a different count.",
+        "D": "D) 3.25 would come from dividing a wrong numerator (e.g., 26) by 8."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:40:20.836Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a group of 40 students, 18 are girls and 22 are boys. The ratio of girls to boys is",
+      "options": [
+        "A) 9:11",
+        "B) 18:22",
+        "C) 3:4",
+        "D) 9:10"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Girls to boys = 18 : 22. Step 2: Simplify by dividing both terms by 2: 18/2 = 9, 22/2 = 11, so ratio becomes 9:11. Answer: A.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "ratio-proportion",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) 18:22 is not simplified; the ratio should be in lowest terms.",
+        "C": "C) 3:4 would imply 18:24, not 18:22.",
+        "D": "D) 9:10 would imply 18:20, not 18:22."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:40:20.836Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A fair six-sided die is rolled. What is the probability of rolling an even number?",
+      "options": [
+        "A) $\\frac{1}{6}$",
+        "B) $\\frac{1}{2}$",
+        "C) $\\frac{2}{3}$",
+        "D) $\\frac{3}{4}$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "There are three even outcomes: 2, 4, 6. Probability = number of favorable outcomes over total outcomes = $\\frac{3}{6} = \\frac{1}{2}$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "probability",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) Choosing a single specific even outcome (e.g., 2) out of 6, instead of the three favorable outcomes.",
+        "C": "C) $\\frac{2}{3}$ would be the result if two-thirds of outcomes were even, which is not the case.",
+        "D": "D) $\\frac{3}{4}$ would require four out of six outcomes, which is not correct here."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:40:20.837Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A scatter plot described by the points (1,2), (2,4), (3,6), (4,8) shows a strong linear relationship. Which statement best describes it?",
+      "options": [
+        "A) There is a strong positive linear relationship; the line of best fit would have slope about 2.",
+        "B) There is a strong negative linear relationship.",
+        "C) There is no relationship between the variables.",
+        "D) The data are random with no pattern."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: The points lie exactly on the line $y=2x$, so the relationship is linear and positive. Step 2: Slope $m = \\frac{\\Delta y}{\\Delta x} = \\frac{8-2}{4-1} = \\frac{6}{3} = 2$. Correlation is +1 (perfect positive).",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "scatter-plots",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) describes a negative relationship, which is incorrect since $y$ increases with $x$.",
+        "C": "C) claims no relationship; the points lie on a line, so there is a clear pattern.",
+        "D": "D) claims a random pattern; the points align on a line."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:40:20.838Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A store's weekly sales were 150 units last week and 195 units this week. What is the percent increase in weekly sales?",
+      "options": [
+        "A) 15%",
+        "B) 25%",
+        "C) 30%",
+        "D) 45%"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Step 1: Increase = 195 - 150 = 45. Step 2: Percent increase = (increase / original) × 100 = $\\frac{45}{150} \\times 100 = 0.3 \\times 100 = 30\\%$.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "trends",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) 15% would result from misplacing the decimal or dividing by 300.",
+        "B": "B) 25% would require an increase of 37.5 units (25% of 150).",
+        "D": "D) 45% would imply the increase is 0.45 of the original, which is not correct."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:40:20.839Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two data sets have the following values: Set A = {2, 4, 6} and Set B = {1, 4, 7}. Which set has the larger standard deviation?",
+      "options": [
+        "A) Set A",
+        "B) Set B",
+        "C) Both have the same",
+        "D) Cannot determine from the data"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Each set has mean 4. For Set A: deviations are (−2, 0, 2) so squared deviations sum to 8; variance = $\\frac{8}{3}$; SD = $\\sqrt{\\frac{8}{3}}$ ≈ 1.63. For Set B: deviations (−3, 0, 3) with squared deviations sum 18; variance = 6; SD = $\\sqrt{6}$ ≈ 2.45. Since $\\sqrt{6} > \\sqrt{\\frac{8}{3}}$, Set B has larger standard deviation.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "standard-deviation",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) Set A has smaller deviations from the mean, so its SD is smaller.",
+        "C": "C) Both have the same SD is false because the spreads differ.",
+        "D": "D) Cannot determine is incorrect because the SD can be computed from the data."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:40:20.840Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the data set $\\{72, 85, 90, 72, 88, 95\\}$, which of the following statements is true?",
+      "options": [
+        "A) The mean is $83.7$, the median is $86.5$, and the mode is $72$.",
+        "B) The mean is $86.5$, the median is $83.7$, and the mode is $85$.",
+        "C) The mean is $83.7$, the median is $88$, and the mode is $72$.",
+        "D) The mean is $80.0$, the median is $86.5$, and the mode is $72$."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sum the data: $72+85+90+72+88+95=502$. With 6 values, mean $=\\frac{502}{6}\\approx83.7$. Sort: 72,72,85,88,90,95; median is the average of 3rd and 4th values: $(85+88)/2=86.5$. The mode is the value that occurs most often: 72 appears twice while others appear once. Therefore, mean ≈ 83.7, median = 86.5, mode = 72.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "mean-median-mode",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B swaps the mean and median values and assigns an incorrect mode, confusing which statistic corresponds to which value.",
+        "C": "C misstates the median as 88 instead of 86.5; it also uses the correct mean but wrong median.",
+        "D": "D uses an incorrect mean (80.0) by miscalculating the total sum (502 vs 480)."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:41:54.935Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A bag contains 3 red balls and 2 blue balls. Two balls are drawn without replacement. What is the probability that at least one red ball is drawn?",
+      "options": [
+        "A) $1/10$",
+        "B) $1/2$",
+        "C) $9/10$",
+        "D) $3/5$"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Probability of at least one red = 1 − P(no red) = 1 − P(both blue) = 1 − (2/5)(1/4) = 1 − 2/20 = 18/20 = 9/10. So option C is correct. The other options come from common miscounts or misinterpretations of the 2-draw scenario.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "probability",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A miscounts by considering only a single event or misplacing the 'at least' condition.",
+        "B": "B understates the probability; there is a high chance of drawing at least one red across two draws.",
+        "C": "",
+        "D": "D confuses the ratio or treats the two draws independently as if without replacement."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:41:54.937Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A scatter-plot described by the data points (1, 60), (2, 65), (3, 75), (4, 85), (5, 90) shows an upward trend. Which statement best describes the correlation between study hours (x) and test score (y)?",
+      "options": [
+        "A) Negative",
+        "B) Zero",
+        "C) Positive and reasonably strong",
+        "D) Not enough information"
+      ],
+      "correctAnswer": 2,
+      "explanation": "As study hours increase from 1 to 5, scores increase from 60 to 90, indicating a positive relationship. The points rise consistently, suggesting a positive and reasonably strong correlation. A) and B) describe opposite or no relationship; D) is not correct because coordinates are given.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "scatter-plots",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A assumes a negative relationship, which is contradicted by the upward pattern.",
+        "B": "B claims no correlation, but the data show a clear increase in score with study hours.",
+        "C": "",
+        "D": "D disregards the provided data points and the observed trend."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:41:54.938Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A town's population grows from 12{,}000 to 15{,}600 over 5 years. Which statement about this growth is true?",
+      "options": [
+        "A) Total increase is $30\\%$ and the average annual growth rate is about $6.0\\%$ per year.",
+        "B) Total increase is $30\\%$ and the average annual growth rate is about $5.3\\%$ per year.",
+        "C) Total increase is $25\\%$ and the average annual growth rate is about $5.3\\%$ per year.",
+        "D) Total increase is $32\\%$ and the average annual growth rate is about $6.0\\%$ per year."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Total increase = (15600−12000)/12000 = 3600/12000 = 0.30 = 30%. For annual growth rate r with (1+r)^5 = 1.30, r ≈ 1.30^(1/5) − 1 ≈ 0.053 ≈ 5.3% per year. So option B is correct.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "trends",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A misstates the annual rate; compound growth over 5 years yields about 5.3%, not 6.0%.",
+        "B": "",
+        "C": "C misstates the total percent increase as 25% instead of 30%.",
+        "D": "D misstates both the total increase and the annual rate."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:41:54.938Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which dataset has greater standard deviation: A = {3,3,3,3,3} or B = {1,2,4,7,7}?",
+      "options": [
+        "A) Dataset A",
+        "B) Dataset B",
+        "C) Both have the same standard deviation",
+        "D) Not enough information"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Dataset A has no variation (all values equal), so SD = 0. Dataset B has variation; SD > 0. Therefore, Dataset B has greater standard deviation.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "standard-deviation",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is wrong because A has no spread (SD = 0) and thus cannot be greater than B's SD.",
+        "B": "",
+        "C": "C is wrong because the two datasets do not share the same spread.",
+        "D": "D is wrong because the data given are sufficient to compare spread."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:41:54.939Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A survey reports: mean daily time on social media is $2.4$ hours with standard deviation $0.8$ hours. If the distribution is roughly normal, what percent of students spend between $1.6$ and $3.2$ hours per day?",
+      "options": [
+        "A) About $34\\%$",
+        "B) About $68\\%$",
+        "C) About $95\\%$",
+        "D) About $99.7\\%$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The interval from $\\mu-\\sigma$ to $\\mu+\\sigma$ is $2.4\\pm 0.8$, i.e., $[1.6, 3.2]$. About 68% of data in a normal distribution lie within one standard deviation of the mean. Hence option B is correct.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "standard-deviation",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A corresponds to roughly a split of the data into tails, not the one-standard-deviation interval.",
+        "B": "",
+        "C": "C corresponds to two standard deviations from the mean (about 95%), not one.",
+        "D": "D corresponds to nearly all data (three standard deviations), not the interval given."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:41:54.940Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a survey of 300 people, 180 prefer Option A and 120 prefer Option B. What is the ratio of people who prefer A to those who prefer B?",
+      "options": [
+        "A) 3:2",
+        "B) 2:3",
+        "C) 3:4",
+        "D) 5:4"
+      ],
+      "correctAnswer": 0,
+      "explanation": "There are 180 preferring A and 120 preferring B. The ratio A:B = 180:120 = 3:2. So option A is correct. The proportion that prefer A is 180/300 = 3/5, but the question asks for the ratio.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "trends",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B reverses the order of A and B or treats the ratio incorrectly.",
+        "C": "C uses an incorrect simplification of 180:120.",
+        "D": "D adds the two groups instead of forming the ratio."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:41:54.941Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "For the data set {5, 6, 6, 7, 100}, which statistic best represents the center of the data?",
+      "options": [
+        "A) Mean",
+        "B) Median",
+        "C) Mode",
+        "D) Range"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The mean is (5 + 6 + 6 + 7 + 100)/5 = 124/5 = 24.8, which is pulled upward by the outlier 100. The median is the middle value when ordered, which is 6, a better center measure for this skewed data. The mode is 6 as well, but the median best represents the center when outliers are present.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "mean-median-mode",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is incorrect because the mean is greatly affected by the outlier 100.",
+        "B": "",
+        "C": "C is not the best single measure of center here; the median is more robust to outliers.",
+        "D": "D describes the range, not a measure of center."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:41:54.941Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the described scatter data with points (1,60), (2,65), (3,72), (4,78), (5,85), what is the approximate slope of the line of best fit (increase in score per additional hour work)?",
+      "options": [
+        "A) About 2 points per hour",
+        "B) About 4 points per hour",
+        "C) About 6 points per hour",
+        "D) About 8 points per hour"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Using end points (1,60) and (5,85), slope = (85−60)/(5−1) = 25/4 = 6.25. This is closest to 6 points per hour, so option C is correct.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "scatter-plots",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A underestimates the slope; the data show a steeper increase.",
+        "B": "B underestimates the slope; 4 points/hour is too small given the rise from 60 to 85 over 4 hours.",
+        "C": "",
+        "D": "D overestimates the slope; 8 points/hour is too large."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:41:54.942Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "For the data set $\\{1, 2, 2, 2, 3, 3, 3, 3, 100\\}$, which statistic best represents the center of the data?",
+      "options": [
+        "A) Mean",
+        "B) Median",
+        "C) Mode",
+        "D) Range"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The data have an extreme outlier 100 that inflates the mean to about 13.9, while the median remains 3. The mode is also 3. The median best represents the center for this skewed distribution.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "mean-median-mode",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is wrong because the mean is pulled upward by the outlier 100.",
+        "B": "",
+        "C": "C is true (mode is 3) but the question asks for the statistic that best centers the data; the median is typically more robust to outliers than the mode in this context.",
+        "D": "D refers to the range, not a measure of center."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:41:54.942Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Consider the data set {3,5,7,7,9,11}. After adding the values 1 and 13 to form {1,3,5,7,7,9,11,13}, which statement is true about the mean, median, and mode of the original and the new data sets?",
+      "options": [
+        "A) The original mean, median, and mode are all 7; after adding, the new mean and new median are both 7 (the mode remains 7).",
+        "B) The new median is 7.5.",
+        "C) The new data set has two modes.",
+        "D) The new mean is 8."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Original sum: $3+5+7+7+9+11=42$, $n=6$, so mean = $42/6=7$. The data in order are 3,5,7,7,9,11; for even $n$, median = $(x_{n/2}+x_{n/2+1})/2 = (7+7)/2=7$. The mode is 7, since it occurs twice and all other values occur once. After adding 1 and 13, the sum becomes $42+1+13=56$ and $n=8$, so new mean = $56/8=7$. The new sorted data are 1,3,5,7,7,9,11,13; median = $(x_4+x_5)/2 = (7+7)/2=7$. The number 7 still occurs most often (twice), so the mode remains 7. Therefore statement A is true; B, C, and D are false.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "mean-median-mode",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The error is assuming the new median would be 7.5; in this eight-point set, the 4th and 5th values are both 7, so the median is 7.",
+        "C": "The data do not have two modes; 7 is the only value that repeats, so the distribution is unimodal with a single mode.",
+        "D": "The mean does not increase to 8; the total sum increases by 14, giving a new mean of 56/8 = 7."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:43:15.149Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a survey of 200 students, 120 like apples, 80 like bananas, and 50 like both. What fraction of students like exactly one of the two fruits?",
+      "options": [
+        "A) 1/4",
+        "B) 1/2",
+        "C) 3/5",
+        "D) 3/8"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let A be the apples-likers and B be the banana-likers. Given |A|=120, |B|=80, |A∩B|=50. Exactly one equals (|A|−|A∩B|) + (|B|−|A∩B|) = (120−50) + (80−50) = 70 + 30 = 100. Fraction of exactly-one = 100/200 = 1/2. Therefore option B is correct.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "probability",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "1/4 is incorrect because it corresponds to miscounting exactly-one as 50 out of 200 or misusing the union, when the correct exactly-one count is 100.",
+        "C": "3/5 is incorrect because it misinterprets either the at-least-one or exact-one calculation; the correct at-least-one is 150, but the question asks for exactly one.",
+        "D": "3/8 is incorrect because it miscounts or misreads the proportion, not matching the correct exactly-one count of 100 out of 200."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:43:15.151Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A scatter plot describes five data points: (1,2), (2,3.9), (3,6.1), (4,7.8), (5,9.9). Which statement best describes the correlation and the line of best fit?",
+      "options": [
+        "A) Strong positive correlation; the line of best fit is approximately y = 2x.",
+        "B) Weak positive correlation; the line of best fit is approximately y = x.",
+        "C) No correlation; the line of best fit is horizontal.",
+        "D) Strong negative correlation; the line of best fit is approximately y = -2x."
+      ],
+      "correctAnswer": 0,
+      "explanation": "For each x, the corresponding y values are close to 2x: 2 ≈ 2(1), 3.9 ≈ 2(2), 6.1 ≈ 2(3), 7.8 ≈ 2(4), 9.9 ≈ 2(5). The residuals are small, so the points lie near the line y ≈ 2x, indicating a strong positive correlation with a line of best fit having slope near 2. The other options describe weaker or negative relationships that are inconsistent with the data.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "scatter-plots",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This would imply a weaker relationship and a slope around 1, which is inconsistent with the data where y ≈ 2x.",
+        "C": "No correlation would mean points are scattered without any linear trend; the given points show a clear upward pattern.",
+        "D": "A strong negative correlation would require y to decrease as x increases; the given data show y increasing with x."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:43:15.151Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The dataset {2,4,6,8,10} has population standard deviation s. If each value is transformed by x -> 2x + 3, what is the new population standard deviation? Express your answer in simplest radical form.",
+      "options": [
+        "A) $2\\sqrt{2}$",
+        "B) $4\\sqrt{2}$",
+        "C) $6\\sqrt{2}$",
+        "D) $\\sqrt{18}$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "First compute the original population standard deviation s for {2,4,6,8,10}. The mean is 6, deviations are -4,-2,0,2,4; squares are 16,4,0,4,16; sum = 40. Population variance = 40/5 = 8, so s = $\\sqrt{8} = 2\\sqrt{2}$. A linear transformation x -> a x + b scales the standard deviation by |a|; here a = 2, so new SD = 2s = 2(2$\\sqrt{2})$ = $4\\sqrt{2}$. Therefore option B is correct.",
+      "moduleType": "math",
+      "category": "statistics",
+      "subtopic": "standard-deviation",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the original SD, not the transformed SD; adding a constant does not change SD, but doubling the values doubles the SD.",
+        "C": "3 times the original SD would correspond to a transformation with a = 3, which is not the case.",
+        "D": "\\sqrt{18} equals 3\\sqrt{2}, which is not the correct transformed SD; it would correspond to a different scaling."
+      },
+      "_batchId": "batch-1771479567910-statistics",
+      "_generatedAt": "2026-02-19T05:43:15.152Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

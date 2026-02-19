@@ -1,0 +1,153 @@
+{
+  "batchId": "batch-1771475983766-synthesis",
+  "topic": "synthesis",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-02-19T04:40:58.771Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 5,
+  "totalGenerated": 5,
+  "totalValid": 5,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree on?",
+      "options": [
+        "A) Daily brisk walking lowers anxiety no matter the environment.",
+        "B) Walking improves mood due to both physiological effects and the impact of outdoor social contexts.",
+        "C) Mood improves only in parks with sunlight.",
+        "D) There is no link between walking and mood."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Identify Source 1 as a randomized trial showing mood improvements from brisk walking due to physiological effects measured in a controlled setting. Step 2: Identify Source 2 as a national survey showing mood benefits linked to outdoor time, with stronger effects when walking with others or in well-lit environments. Step 3: Find the common ground: both sources report mood improvement with walking, though for Source 2 context matters. Step 4: Choose the option that captures both the physiological benefit and the influence of social/outdoor context. Option B does this; A overstates that environment is irrelevant, C restricts to parks, and D denies any link. Therefore, B is correct.",
+      "moduleType": "reading-writing",
+      "category": "synthesis",
+      "subtopic": "compare-contrast",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Two researchers examined walking and mood. Source 1, from Sunridge University, conducted a randomized trial with 120 adults assigned to 30 minutes of brisk walking five days a week for eight weeks; mood was measured with standard scales and showed lower anxiety and higher daily mood scores compared with a control group. Source 2, the Wellness Data Project, conducted a national survey of 2,000 adults over a year, finding mood improvements were linked to time spent outdoors, and strongest when walking with others or in well-lit parks. A third data set from a city study tracked 50 residents whose routes included busy, polluted streets; these participants showed smaller mood gains, suggesting environment matters. Taken together, both sources argue that walking can improve mood, but the amount of benefit varies by duration, daylight exposure, and whether people walk with others. Each source used different methods: a controlled trial with physiological measures and a survey with self-reported mood diaries.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option wrongly claims environment never matters, which contradicts Source 2's emphasis on social and environmental context.",
+        "C": "This option incorrectly narrows the mood benefit to parks with sunlight, ignoring other outdoor contexts and the physiological findings from Source 1.",
+        "D": "This option incorrectly asserts there is no link between walking and mood, which both sources report."
+      },
+      "_batchId": "batch-1771475983766-synthesis",
+      "_generatedAt": "2026-02-19T04:40:14.556Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree on?",
+      "options": [
+        "A) Insulation reduces energy use only in very cold climates.",
+        "B) Insulation reduces energy use, with the amount of savings varying by climate and occupant behavior.",
+        "C) Actual savings are always exactly the same as the modeled savings.",
+        "D) Savings depend solely on the material quality, not on how residents use energy."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Identify Source 1 as modeling data showing that attic insulation reduces heating energy in cold regions, with larger gains in very cold zones, implying climate matters. Step 2: Identify Source 2 as a consumer panel reporting actual bill reductions across climates, with savings varying by factors such as keeping indoor temperatures steady and using programmable thermostats. Step 3: Note that both sources agree insulation lowers energy use, but the magnitude varies with climate and behavior. Step 4: Choose the option that reflects this shared conclusion. Option B states that insulation reduces energy use and that savings vary by climate and behavior, which aligns with both sources. Options A, C, and D overstate or misattribute the findings. Therefore, B is correct.",
+      "moduleType": "reading-writing",
+      "category": "synthesis",
+      "subtopic": "integrate-information",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1: A government energy bureau analyzed building energy models across dozens of homes and concluded that adding attic insulation reduces heating energy in cold regions, with larger gains when outside temperatures are very low. Source 2: A consumer panel surveyed five hundred households across mixed climates and reported bill reductions that ranged from modest to substantial, with the biggest savings seen in homes that kept indoor temperatures steady and used programmable thermostats. A field study of sixty homes tracked two winters and found that occupant behaviors such as opening windows or running space heaters could erode savings, sometimes by a sizable margin. All sources agree that insulation reduces energy use, but the degree of savings depends on climate and living habits. The modeling work provides a theoretical maximum achievable under controlled conditions, whereas the consumer and field data highlight how everyday choices and weather realities shape actual outcomes.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option wrongly claims savings occur only in very cold climates, which ignores Source 2's climate range and generalization.",
+        "C": "This option incorrectly asserts actual savings always equal modeled savings, which the field data show as variable.",
+        "D": "This option wrongly suggests savings depend only on material quality and ignore climate and occupant behavior."
+      },
+      "_batchId": "batch-1771475983766-synthesis",
+      "_generatedAt": "2026-02-19T04:40:14.556Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source A and Source B agree on?",
+      "options": [
+        "A) Price changes alone are enough to reduce water use in the long term.",
+        "B) Education campaigns are more effective than pricing in reducing consumption.",
+        "C) A combination of pricing, infrastructure upgrades, and information campaigns is necessary for durable savings.",
+        "D) Rebound effects after initial reductions invalidate conservation efforts."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Correct answer C is supported because the passage states that no single strategy fully solves demand and both sources advocate a mix of pricing, infrastructure upgrades, and ongoing information campaigns to sustain savings. Option A is incorrect because the passage notes price signals alone produced only modest reductions and does not claim long term sufficiency. Option B is incorrect because the passage indicates the strongest results come from combining strategies, not education alone. Option D is incorrect because rebound is mentioned but does not claim that conservation efforts are invalidated; the passage suggests continuing strategy rather than invalidation.",
+      "moduleType": "reading-writing",
+      "category": "synthesis",
+      "subtopic": "compare-contrast",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source A, the municipal Office of Water and Conservation, reports on a two year pilot of tiered pricing paired with rebates for low income households. The data show a twelve percent drop in overall residential water use in high price districts, with higher response among households with automatic meters. Source A notes that usage rebounded slightly after eighteen months as conservation habits did not persist without ongoing communication. Source B, the Environmental Policy Center at Metro University, conducted focus groups and a randomized trial in the same cities, and found that price signals alone reduced consumption only modestly. When Source B combined price with a public education campaign and free installation of low flow devices, the average reduction rose to twenty five percent and remained more durable across a year. Both sources concede that no single strategy fully solves demand; they advocate a mix of pricing, infrastructure upgrades, and ongoing information campaigns to sustain savings. They also emphasize that rebates and assistance programs must reach low income households to avoid inequities in outcomes.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This misreads the text, which says price signals alone had limited effect and that a combination is necessary.",
+        "B": "This wrongly assigns primary importance to education alone; the text presents a combined approach as more effective.",
+        "D": "Rebound is noted but the passage does not say it invalidates conservation efforts; it supports ongoing multi-part strategies."
+      },
+      "_batchId": "batch-1771475983766-synthesis",
+      "_generatedAt": "2026-02-19T04:40:54.963Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement best integrates information from Source A and Source B with the data described?",
+      "options": [
+        "A) Green roofs always pay for themselves quickly, regardless of scale or maintenance.",
+        "B) Green roofs can offer energy savings and climate benefits, but the financial payback depends on scale, design, and incentives.",
+        "C) City data disproves the idea that green roofs have any impact.",
+        "D) Green roofs are feasible only in new buildings."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Correct answer B reflects the integration of both sources: Source A notes high upfront costs and long payback in some cases, while Source B shows citywide benefits that depend on scale, design, and incentives. A falsely claims universal rapid payback, ignoring the long payback noted by Source A. C incorrectly says city data disproves impact, contradicting the six percent cooling reduction observed. D overstates feasibility to new buildings only, which is not supported by the pilots or simulations described.",
+      "moduleType": "reading-writing",
+      "category": "synthesis",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source A, the Green Infrastructure Office, argues that installing green roofs reduces the urban heat island effect and captures rain, but the upfront costs are high and payback can exceed a decade in some districts. Source A cites a two year pilot in three neighborhoods showing energy savings and cooler street temperatures, but notes maintenance is critical to performance. Source B, the Center for Sustainable Urbanism, presents city scale simulations indicating that when green roofs are adopted broadly, electricity use drops and air quality improves, with larger benefits in buildings with high cooling loads. In one dataset, the city pilot districts showed a six percent reduction in cooling demand during peak summer months. Both sources acknowledge that benefits depend on design, maintenance, and incentives, and that equitable access to incentives matters for widespread adoption.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Overstates the speed of payback and ignores variability by scale and maintenance.",
+        "C": " ignores the observed reductions and simulations that indicate impact.",
+        "D": "Limits feasibility to new buildings, which is not stated in the passage."
+      },
+      "_batchId": "batch-1771475983766-synthesis",
+      "_generatedAt": "2026-02-19T04:40:54.963Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source X and Source Y agree on?",
+      "options": [
+        "A) Misinformation cannot be countered effectively.",
+        "B) Trust and access are both important for public health outcomes.",
+        "C) Corrective messaging alone guarantees vaccine uptake.",
+        "D) Local messengers are unnecessary for public health campaigns."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Correct answer B aligns with both sources as described: credible messaging and accessible services both contribute to better health outcomes. A is incorrect because the passage notes countering misinformation through transparent updates. C is incorrect because the passage notes that messaging alone is not guaranteed to achieve uptake. D is incorrect because the passage highlights the importance of local professionals as effective messengers.",
+      "moduleType": "reading-writing",
+      "category": "synthesis",
+      "subtopic": "compare-contrast",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source X, a public health department, argues that clear, consistent messaging from trusted institutions improves vaccine acceptance, and that rapid spread of misinformation can be countered by transparent updates. Source Y, a communications research group, finds that misinformation travels quickly but notes that corrective messaging is more effective when delivered by local professionals and paired with convenient access to services. The two sources converge on a practical point: public health outcomes depend not only on what is said but on who can access the service and whether people trust the messenger. They disagree on emphasis: Source X stresses institutional credibility, while Source Y stresses local messengers and timely corrections. Still, both agree that effective uptake requires a combination of trustworthy communication and accessible services.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Denying countermeasures contradicts the passage which describes transparent updates as countermeasures.",
+        "C": "Overstates effectiveness by claiming messaging alone guarantees uptake, which the passage does not claim.",
+        "D": "Ignores the evidence that local messengers can improve outcomes."
+      },
+      "_batchId": "batch-1771475983766-synthesis",
+      "_generatedAt": "2026-02-19T04:40:54.964Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

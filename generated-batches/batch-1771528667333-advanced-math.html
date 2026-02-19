@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review: batch-1771528667333-advanced-math</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+  <style>
+    body { font-family: Georgia, serif; max-width: 900px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
+    .header { background: #f0f4f8; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+    .header h1 { margin: 0 0 10px; color: #1a365d; }
+    .header .meta { color: #4a5568; font-size: 14px; }
+    .question { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 25px; margin-bottom: 25px; }
+    .question-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
+    .question-number { font-weight: bold; font-size: 18px; color: #2d3748; }
+    .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+    .badge.easy { background: #c6f6d5; color: #22543d; }
+    .badge.medium { background: #fed7d7; color: #742a2a; }
+    .badge.hard { background: #e2e8f0; color: #1a202c; }
+    .question-text { font-size: 16px; margin: 15px 0; }
+    .passage { background: #f7fafc; padding: 15px; border-left: 4px solid #4299e1; margin: 15px 0; font-size: 14px; }
+    .options { list-style: none; padding: 0; }
+    .options li { padding: 10px; margin: 8px 0; border-radius: 4px; background: #f7fafc; }
+    .options li.correct { background: #c6f6d5; border-left: 4px solid #38a169; }
+    .explanation { background: #fffaf0; padding: 15px; border-left: 4px solid #ed8936; margin-top: 15px; }
+    .explanation-title { font-weight: bold; color: #7c2d12; margin-bottom: 8px; }
+    footer { text-align: center; padding: 40px 0; color: #718096; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>batch-1771528667333-advanced-math</h1>
+    <div class="meta">
+      Generated: 2/19/2026, 11:23:07 AM | 
+      Topic: advanced-math | 
+      Module: math | 
+      Valid: 16/16
+    </div>
+  </div>
+
+  
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 1</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">The population of a town doubles every $5$ years. If the current population is $8{,}000$, what will be the population after $15$ years?</div>
+    
+    <ul class="options">
+      <li class="">A) 32{,}000</li><li class="correct">B) 64{,}000</li><li class="">C) 96{,}000</li><li class="">D) 128{,}000</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Step 1: Doubling every 5 years means P = P0 · 2^{t/5}. Here P0 = 8{,}000 and t = 15, so exponent = 15/5 = 3. Step 2: Compute P = 8{,}000 · 2^{3} = 8{,}000 · 8 = 64{,}000. Therefore the answer is B. $P = 8{,}000 \cdot 2^{15/5} = 8{,}000 \cdot 2^{3} = 64{,}000$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 2</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">A radioactive substance decays by halving every $6$ years. If initially there were $100$ grams, how many grams remain after $18$ years?</div>
+    
+    <ul class="options">
+      <li class="">A) 6.25</li><li class="correct">B) 12.50</li><li class="">C) 25.00</li><li class="">D) 50.00</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Step 1: Amount after time t is $N(t) = N_0\left(\tfrac12\right)^{t/6}$. Here $N_0 = 100$, $t = 18$, so exponent $t/6 = 3$. Step 2: $N(18) = 100\left(\tfrac12\right)^3 = 100 \cdot \tfrac{1}{8} = 12.5$ grams. Answer: B.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 3</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">An investment earns a fixed annual rate $r$ and the amount with compound interest is $A(t) = P(1+r)^t$, while with simple interest it is $S(t) = P(1+rt)$. Which statement is true for $t > 0$?</div>
+    
+    <ul class="options">
+      <li class="correct">A) $A(t)$ grows exponentially while $S(t)$ grows linearly.</li><li class="">B) $A(t)$ grows linearly while $S(t)$ grows exponentially.</li><li class="">C) Both $A(t)$ and $S(t)$ grow exponentially.</li><li class="">D) Both stay constant as $t$ increases.</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Step 1: $A(t) = P(1+r)^t$ is an exponential function of $t$, since the variable $t$ is in an exponent. Step 2: $S(t) = P(1+rt)$ is linear in $t$. Therefore, $A(t)$ grows exponentially while $S(t)$ grows linearly. Answer: A.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 4</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">Evaluate $\log_2 8 + \log_2 4$.</div>
+    
+    <ul class="options">
+      <li class="">A) 3</li><li class="correct">B) 5</li><li class="">C) 4</li><li class="">D) 6</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Step 1: Use the product rule: $\log_b x + \log_b y = \log_b(xy)$ (base $b=2$). Step 2: $\log_2 8 + \log_2 4 = \log_2(8\cdot 4) = \log_2 32 = 5$. Answer: B.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 5</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">Simplify the rational expression $\dfrac{x^2 - 9}{x^2 - 3x}$, with the restriction that $x 
+eq 0$ and $x 
+eq 3$.</div>
+    
+    <ul class="options">
+      <li class="correct">A) $\dfrac{x+3}{x}$</li><li class="">B) $\dfrac{x-3}{x}$</li><li class="">C) $\dfrac{x+3}{x-3}$</li><li class="">D) $\dfrac{x-3}{x+3}$</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Step 1: Factor numerator and denominator: $x^2 - 9 = (x-3)(x+3)$ and $x^2 - 3x = x(x-3)$. Step 2: Cancel the common factor $(x-3)$ (valid for $x 
+eq 3$), yielding $\dfrac{x+3}{x}$. Answer: A.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 6</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">Compute $i^6 + i^3$, where $i^2 = -1$ and $i$ is the imaginary unit.</div>
+    
+    <ul class="options">
+      <li class="correct">A) -1 - i</li><li class="">B) 0</li><li class="">C) i</li><li class="">D) 1</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Step 1: Use $i^4 = 1$ to reduce powers: $i^6 = i^4 \cdot i^2 = 1 \cdot (-1) = -1$. Step 2: $i^3 = i^2 \cdot i = (-1) i = -i$. Step 3: Sum: $(-1) + (-i) = -1 - i$. Answer: A.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 7</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">A town's population grows according to $P = 12000(1.03)^t$, where $t$ is in years. What is the population after $t = 5$ years (rounded to the nearest person)?</div>
+    
+    <ul class="options">
+      <li class="correct">A) $13911$</li><li class="">B) $12000$</li><li class="">C) $15000$</li><li class="">D) $13200$</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Step 1: The model gives $P = 12000(1.03)^t$. Step 2: Compute $(1.03)^5 \approx 1.15927$. Step 3: $P \approx 12000 \cdot 1.15927 \approx 13911$. Therefore the correct answer is A.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 8</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">A sample has 200 grams of a radioactive substance with half-life $6$ years. How many grams remain after 18 years?</div>
+    
+    <ul class="options">
+      <li class="correct">A) $25$</li><li class="">B) $12.5$</li><li class="">C) $50$</li><li class="">D) $100$</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Over 18 years there are $18/6 = 3$ half-lives. Amount remaining is $200(\tfrac{1}{2})^3 = 200/8 = 25$ grams.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 9</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Which of the following functions represents exponential growth? (Choose the exponential option.)</div>
+    
+    <ul class="options">
+      <li class="">A) $y = 50t$</li><li class="correct">B) $y = 60(1.04)^t$</li><li class="">C) $y = 100 + 3t$</li><li class="">D) $y = t^2$</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      A linear function has the form $y = mt + b$. Exponential growth has a variable in the exponent, like $y = k b^t$. Here B has the variable in the exponent, so it is exponential. A and C are linear, D is polynomial, not exponential.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 10</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Evaluate $\log_3(27) + \log_3(81) - \log_3(9)$.</div>
+    
+    <ul class="options">
+      <li class="correct">A) $5$</li><li class="">B) $4$</li><li class="">C) $6$</li><li class="">D) $2$</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Since $27=3^3$, $81=3^4$, and $9=3^2$, we have $\log_3(27)=3$, $\log_3(81)=4$, and $\log_3(9)=2$. Therefore the expression is $3 + 4 - 2 = 5$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 11</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Simplify the rational expression and state the restriction: $\frac{x^2 - 9}{x - 3}$</div>
+    
+    <ul class="options">
+      <li class="correct">A) $x+3$, with $x 
+eq 3$</li><li class="">B) $x-3$, with $x 
+eq 3$</li><li class="">C) $\frac{x+3}{x-3}$</li><li class="">D) $x+3$, with $x 
+eq -3$</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Factor $x^2 - 9 = (x-3)(x+3)$. Cancel the common factor $x-3$ with the denominator, giving $x+3$, but the original fraction is undefined at $x=3$, so restriction $x 
+eq 3$ remains.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 12</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Compute $(3 + 2i)(1 - i)$.</div>
+    
+    <ul class="options">
+      <li class="correct">A) $5 - i$</li><li class="">B) $3 + 5i$</li><li class="">C) $2 - i$</li><li class="">D) $-1 + 4i$</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      FOIL: $(3+2i)(1-i) = 3 - 3i + 2i - 2i^2 = 3 - i + 2 = 5 - i$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 13</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Compute $i^{10}$.</div>
+    
+    <ul class="options">
+      <li class="correct">A) $-1$</li><li class="">B) $i$</li><li class="">C) $1$</li><li class="">D) $-i$</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Powers of i cycle every 4: $i^0=1$, $i^1=i$, $i^2=-1$, $i^3=-i$, then repeat. $10 \bmod 4 = 2$, so $i^{10}=i^2=-1$. 
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 14</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Add the rational expressions: $\frac{1}{x-1} + \frac{2}{x+1}$ and state the restrictions.</div>
+    
+    <ul class="options">
+      <li class="correct">A) $\dfrac{3x - 1}{(x-1)(x+1)}, x 
+eq \pm 1$</li><li class="">B) $\dfrac{3x + 1}{(x-1)(x+1)}, x 
+eq 1$</li><li class="">C) $\dfrac{3x - 1}{(x-1)(x+1)}, x 
+eq 1$</li><li class="">D) $\dfrac{3x - 1}{(x-1)(x+1)}, x 
+eq -1$</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Common denominator: $(x-1)(x+1)$. Numerator: $(x+1) + 2(x-1) = x+1 + 2x - 2 = 3x - 1$. Restrictions: $x 
+eq 1$ and $x 
+eq -1$, so answer matches $x 
+eq \pm 1$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 15</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">An investment of 4000 dollars earns 6% annual interest compounded annually for 12 years. What is the amount after 12 years?</div>
+    
+    <ul class="options">
+      <li class="correct">A) 8048.79 dollars</li><li class="">B) 4000 dollars</li><li class="">C) 4800 dollars</li><li class="">D) 10000 dollars</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Future value is $4000(1.06)^{12}$. Using $1.06^{12} \approx 2.012198$, $4000 \times 2.012198 \approx 8048.792$, which rounds to $8048.79$ dollars.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 16</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Evaluate $\log_2(32) + \log_2(8)$.</div>
+    
+    <ul class="options">
+      <li class="correct">A) $8$</li><li class="">B) $5$</li><li class="">C) $32$</li><li class="">D) $2$</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Since $32=2^5$ and $8=2^3$, $\log_2(32)=5$ and $\log_2(8)=3$. Sum is $5+3=8$.
+    </div>
+  </div>
+
+
+  <footer>
+    <p>Review this batch and approve or reject questions before importing to the database.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "$", right: "$", display: false}
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+</html>

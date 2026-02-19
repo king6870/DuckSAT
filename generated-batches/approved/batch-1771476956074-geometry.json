@@ -1,0 +1,70 @@
+{
+  "batchId": "batch-1771476956074-geometry",
+  "topic": "geometry",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T04:57:47.656Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 3,
+  "totalGenerated": 2,
+  "totalValid": 2,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In triangle $\\triangle ABC$ with coordinates $A(0,0)$, $B(4,0)$, and $C(0,3)$, what is the area of $\\triangle ABC$?",
+      "options": [
+        "A) 4",
+        "B) 12",
+        "C) 6",
+        "D) 9"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The triangle is right at A because AB is along the x-axis and AC is along the y-axis. Base AB = 4 and height AC = 3. Therefore, area = $\\frac{1}{2} \\cdot AB \\cdot AC = \\frac{1}{2} \\cdot 4 \\cdot 3 = 6$. Using the determinant formula also yields $\\frac{1}{2} | x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2) | = \\frac{1}{2} | 0(0-3) + 4(3-0) + 0(0-0) | = 6$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate geometry",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "4: This result comes from forgetting to multiply by the 1/2 factor and using an incorrect height (2) instead of the actual perpendicular distance (3).",
+        "B": "12: This would be obtained by using AB × AC = 4 × 3 and forgetting the 1/2 factor, effectively treating the triangle area as a rectangle.",
+        "D": "9: Treats the shape as a rectangle with sides 3 and 3 (base 3, height 3) and does not account for the triangle's 1/2 factor."
+      },
+      "_batchId": "batch-1771476956074-geometry",
+      "_generatedAt": "2026-02-19T04:56:43.875Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Let $P(1,2)$ and $Q(5,6)$ lie on line $\\\\ell$. The line $\\\\ell$ intersects the x-axis at $R$. What is the distance $QR$?",
+      "options": [
+        "A) $4\\sqrt{2}$",
+        "B) $6\\sqrt{2}$",
+        "C) 12",
+        "D) 6"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: The slope of $PQ$ is $m = \\frac{6-2}{5-1} = 1$. Step 2: The line through $P$ with slope 1 is $y-2 = 1(x-1)$, i.e. $y = x+1$. Step 3: Intersect with x-axis ($y=0$): $0 = x+1 \\\\Rightarrow x = -1$, so $R(-1,0)$. Step 4: The distance $QR$ is $\\sqrt{(5-(-1))^2 + (6-0)^2} = \\sqrt{6^2 + 6^2} = \\sqrt{72} = 6\\sqrt{2}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate geometry",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "$4\\\\sqrt{2}$ corresponds to using the distance $PQ$ instead of $QR$.",
+        "B": "Correct answer.",
+        "C": "12 reflects using Manhattan distance (sum of coordinate changes) rather than Euclidean distance.",
+        "D": "6 reflects using only the horizontal distance $|x_Q - x_R|$, ignoring the vertical change."
+      },
+      "_batchId": "batch-1771476956074-geometry",
+      "_generatedAt": "2026-02-19T04:57:44.214Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

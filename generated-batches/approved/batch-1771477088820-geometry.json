@@ -1,0 +1,100 @@
+{
+  "batchId": "batch-1771477088820-geometry",
+  "topic": "geometry",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T05:00:00.494Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 3,
+  "totalGenerated": 3,
+  "totalValid": 3,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In triangle $\\triangle ABC$, with coordinates $A(0,0)$, $B(4,0)$, and $C(0,3)$, what is the area of triangle $\\triangle ABC$?",
+      "options": [
+        "A) 5",
+        "B) 6",
+        "C) 12",
+        "D) 9"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Identify base $\\overline{AB}$ length. Since $A(0,0)$ and $B(4,0)$, $|\\overline{AB}| = 4$. Step 2: Determine the height from $C$ to $\\overline{AB}$. $\\overline{AB}$ lies on the $x$-axis, and $C$ has $y$-coordinate 3, so the height is 3. Step 3: Apply the triangle area formula: $\\text{Area} = \\frac{1}{2} \\times |\\overline{AB}| \\times \\text{height} = \\frac{1}{2} \\times 4 \\times 3 = 6$. Therefore, the area is $6$ square units.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate geometry",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "5 is the length of $\\overline{BC}$ (a side length), not the area. Area is not equal to a side length.",
+        "B": "This is the correct answer; area is 6, computed as $\\frac{1}{2}|\\overline{AB}|\\times\\text{height}$.",
+        "C": "12 would result from forgetting the $\\tfrac{1}{2}$ factor: $|\\overline{AB}| \\times \\text{height} = 4 \\times 3 = 12$.",
+        "D": "9 could come from using base 3 and height 3 (or a miscalculation) instead of base 4 and height 3; it does not reflect the correct base-height pair."
+      },
+      "_batchId": "batch-1771477088820-geometry",
+      "_generatedAt": "2026-02-19T04:58:41.819Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In triangle $\triangle ABC$, $AB = 6$, $AC = 8$, and $\\angle A = 90°$. The incircle radius $r$ of $\\triangle ABC$ is what?",
+      "options": [
+        "A) 1",
+        "B) 2",
+        "C) 3",
+        "D) 4"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let BC be the hypotenuse. By Pythagoras, $BC^2 = AB^2 + AC^2 = 6^2 + 8^2 = 100$, so $BC = 10$. The area $K$ of the right triangle is $K = \\frac{1}{2} AB \\cdot AC = \\frac{1}{2} \\cdot 6 \\cdot 8 = 24$. Semiperimeter $s = \\frac{AB + BC + AC}{2} = \\frac{6 + 10 + 8}{2} = 12$. The incircle radius is $r = \\frac{K}{s} = \\frac{24}{12} = 2$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect: r is not AB/2; using AB/2 would give 3, but that is not the incircle radius.",
+        "B": "Correct option; no wrong explanation needed, but placeholder provided.",
+        "C": "Incorrect: misapplied incircle formula or arithmetic leading to 3; semiperimeter method shows r = 2.",
+        "D": "Incorrect: used a wrong formula such as (AB + AC)/2; incircle radius depends on area and semiperimeter."
+      },
+      "_batchId": "batch-1771477088820-geometry",
+      "_generatedAt": "2026-02-19T04:59:55.917Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Let $A=(1,4)$ and $B=(7,-2)$ be two points. The line $AB$ has slope $m_{AB}$; Let $C=(4,2)$ be a point. What is the equation of the line through $C$ that is perpendicular to $AB$?",
+      "options": [
+        "A) $y = x - 2$",
+        "B) $y = -x + 6$",
+        "C) $y = x + 2$",
+        "D) $y = -x - 2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "First compute the slope of AB: $m_{AB} = \\frac{y_B - y_A}{x_B - x_A} = \\frac{-2 - 4}{7 - 1} = \\frac{-6}{6} = -1$. A line perpendicular to AB has slope $m_{\\perp} = -\\frac{1}{m_{AB}} = -\\frac{1}{-1} = 1$. Through $C(4,2)$ with slope 1: $y - 2 = 1\\cdot (x - 4)$, i.e. $y = x - 2$. So option A is correct.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate geometry",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct: this is the perpendicular line through C; no error in this context.",
+        "B": "Incorrect: slope -1 is parallel to AB, not perpendicular.",
+        "C": "Incorrect: line has wrong intercept; it does not pass through C.",
+        "D": "Incorrect: slope -1 again; not perpendicular to AB."
+      },
+      "_batchId": "batch-1771477088820-geometry",
+      "_generatedAt": "2026-02-19T04:59:55.921Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

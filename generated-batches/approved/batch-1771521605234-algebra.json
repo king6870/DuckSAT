@@ -1,0 +1,574 @@
+{
+  "batchId": "batch-1771521605234-algebra",
+  "topic": "algebra",
+  "moduleType": "math",
+  "generatedAt": "2026-02-19T17:26:55.405Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 20,
+  "totalValid": 20,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Solve for x: $2x + 3 = x - 4$.",
+      "options": [
+        "A) -7",
+        "B) 7",
+        "C) -3",
+        "D) 0"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Subtract x from both sides: $x + 3 = -4$. Subtract 3 from both sides: $x = -7$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "A sign error: flipping the sign of the x-term when moving terms across the equation can yield 7 instead of -7.",
+        "C": "Incorrectly handling the x-term; forgetting to move the x-term to the other side can lead to -3.",
+        "D": "Ignoring the x-term entirely and solving only with constants can yield 0."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:21:48.423Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the inequality: $3x - 4 > 2x + 5$.",
+      "options": [
+        "A) x > 9",
+        "B) x < 9",
+        "C) x > -9",
+        "D) x $\\ge$ 9"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Subtract $2x$ from both sides: $x - 4 > 5$. Add 4 to both sides: $x > 9$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "You reversed the inequality direction by comparing the wrong sides.",
+        "C": "You moved the constant incorrectly, changing the bound to -9.",
+        "D": "You used a non-strict inequality; the original is strict >."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:21:48.424Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system: $2x + y = 5$ and $x - y = 1$.",
+      "options": [
+        "A) $x=2, y=1$",
+        "B) $x=1, y=4$",
+        "C) $x=3, y=2$",
+        "D) $x=4, y=1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From $x - y = 1$, we get $y = x - 1$. Substitute into $2x + y = 5$: $2x + (x-1) = 5$ ⇒ $3x - 1 = 5$ ⇒ $3x = 6$ ⇒ $x = 2$. Then $y = 1$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The pair $(1,4)$ does not satisfy either equation; it’s not a solution to the system.",
+        "C": "The pair $(3,2)$ fails the first equation, indicating a calculation error when solving.",
+        "D": "The pair $(4,1)$ does not satisfy the first equation, showing a sign mistake or mis-solve."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:21:48.425Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Multiply the polynomials: $(x + 3)(x - 2)$.",
+      "options": [
+        "A) $x^2 + x - 6$",
+        "B) $x^2 - x - 6$",
+        "C) $x^2 + 3x - 6$",
+        "D) $x^2 + 5x + 6$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "FOIL: $(x + 3)(x - 2) = x\\cdot x + x\\cdot(-2) + 3\\cdot x + 3\\cdot(-2) = x^2 - 2x + 3x - 6 = x^2 + x - 6$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "You used $-x$ instead of $+x$ for the middle term, giving $x^2 - x - 6$.",
+        "C": "You forgot to combine the $-2x$ and $+3x$ terms, yielding $x^2 + 3x - 6$.",
+        "D": "You incorrectly added the constants: $-2$ and $3$ to give $+6$ instead of $-6$."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:21:48.428Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the absolute-value equation: $|x| = 0$.",
+      "options": [
+        "A) 0",
+        "B) 1",
+        "C) -1",
+        "D) 2"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The only number whose absolute value is 0 is 0 itself, since $|0| = 0$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "You might think both 1 and -1 satisfy $|x|$, which they do not when the right-hand side is 0.",
+        "C": "Confusion about sign of x; indeed both 1 and -1 would give 1, not 0.",
+        "D": "You chose a nonzero value; you forgot that only 0 has absolute value 0."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:21:48.430Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A rectangle has width $w$ and length $l = 2w$. If the perimeter is $30$, find the width.",
+      "options": [
+        "A) 5",
+        "B) 6",
+        "C) 10",
+        "D) 15"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let width be $w$ and length be $l = 2w$. Perimeter $P = 2(l + w) = 30$. Substituting: $2(2w + w) = 30$ → $2(3w) = 30$ → $6w = 30$ → $w = 5$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "You used $P = l + w = 30$, omitting the factor 2 in the perimeter formula.",
+        "C": "You assumed the length equals the width, giving $w = 5$ directly without using $l = 2w$.",
+        "D": "You divided the perimeter by 2 incorrectly or solved for w as 15."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:21:48.431Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for x: $3x - 5 = 2x + 7$.",
+      "options": [
+        "A) 12",
+        "B) 7",
+        "C) -12",
+        "D) 5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Start with $3x - 5 = 2x + 7$. Step 2: Subtract $2x$ from both sides: $(3x-2x) - 5 = 7$. Step 3: Simplify: $x - 5 = 7$. Step 4: Add 5 to both sides: $x = 12$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B is what you get if you drop the -5 when moving constants to the other side, solving $3x = 2x + 7$ instead of $3x - 5 = 2x + 7$.",
+        "C": "C reflects a sign error in handling the constants and would arise from solving $-5 = 7$ after an incorrect step.",
+        "D": "D could result from incorrectly isolating x, such as moving the terms around without properly balancing the equation."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:24:34.902Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the compound inequality $-4 \\le 3x - 5 < 11$.",
+      "options": [
+        "A) $x \\in [\\frac{1}{3}, \\frac{16}{3})$",
+        "B) $x \\in [\\frac{1}{3}, 5)$",
+        "C) $(-\\infty, \\frac{1}{3}) \\cup [\\frac{16}{3}, \\infty)$",
+        "D) $x \\in [0, \\frac{16}{3})$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Add 5 to all parts: $-4 \\le 3x - 5 < 11 \\Rightarrow 1 \\le 3x < 16$. Divide by 3: $\\frac{1}{3} \\le x < \\frac{16}{3}$. Thus the solution is $x \\in [\\frac{1}{3}, \\frac{16}{3})$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B incorrectly uses an upper bound 5 instead of 16/3, skipping the left bound after adding 5.",
+        "C": "C represents the union of two separate intervals, which would occur if the inequality were not a chained inequality.",
+        "D": "D uses an incorrect left endpoint, including 0 which is not allowed by the chain."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:24:34.903Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system: $2x + 3y = 6$ and $x - y = 1$.",
+      "options": [
+        "A) $x = \\frac{9}{5}, y = \\frac{4}{5}$",
+        "B) $x = \\frac{7}{2}, y = -\\frac{1}{2}$",
+        "C) $x = 3, y = 0$",
+        "D) $x = 1, y = 5$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From $x - y = 1$ we get $x = y + 1$. Substitute into $2x + 3y = 6$: $2(y+1) + 3y = 6 \\Rightarrow 5y + 2 = 6 \\Rightarrow 5y = 4 \\Rightarrow y = \\frac{4}{5}$. Then $x = y + 1 = \\frac{9}{5}$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B results from substituting incorrectly or miscalculating, giving wrong pair.",
+        "C": "C uses integer guesses that don't satisfy the system.",
+        "D": "D assigns unrelated values that don't satisfy either equation."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:24:34.906Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Multiply polynomials: $(2x+3)(x-4)$.",
+      "options": [
+        "A) $2x^{2} - 5x - 12$",
+        "B) $2x^{2} + x - 12$",
+        "C) $2x^{2} - x - 12$",
+        "D) $2x^{2} - 5x + 12$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Use distribution: $(2x+3)(x-4) = 2x(x-4) + 3(x-4) = (2x^2 - 8x) + (3x - 12) = 2x^2 - 5x - 12$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrectly adds the middle terms: signs wrong on the x-term.",
+        "C": "Mixes the sign of the linear term, giving $-x$ instead of $-5x$.",
+        "D": "Signs of the constant term are wrong."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:24:34.908Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve $|2x - 5| = 9$.",
+      "options": [
+        "A) $x = 7$ or $x = -2$",
+        "B) $x = 7$",
+        "C) $x = -2$",
+        "D) $x = 0$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Set up two cases: $2x - 5 = 9$ or $2x - 5 = -9$. If $2x - 5 = 9$, then $2x = 14$ and $x = 7$. If $2x - 5 = -9$, then $2x = -4$ and $x = -2$. So the solutions are $x = 7$ or $x = -2$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "If you ignore the negative branch, you get only the positive-solution case.",
+        "C": "If you ignore the positive branch, you get only the negative-solution case.",
+        "D": "A stray calculation leads to an incorrect value such as x = 0."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:24:34.910Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If a point x on the number line is within 4 units of 6, which range for x? (Solve $|x - 6| \\le 4$).",
+      "options": [
+        "A) $2 \\le x \\le 10$",
+        "B) $6 \\le x \\le 14$",
+        "C) $0 \\le x \\le 4$",
+        "D) $-2 \\le x \\le 8$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From $|x - 6| \\le 4$ we have $-4 \\le x - 6 \\le 4$. Adding 6 gives $2 \\le x \\le 10$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Only the upper bound is used; the interval is too narrow.",
+        "C": "Misinterprets the distance constraint, giving a range near 0.",
+        "D": "Shifts the interval incorrectly, producing an expanded range."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:24:34.911Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two numbers have sum 15 and difference 3. Find the numbers.",
+      "options": [
+        "A) 9 and 6",
+        "B) 8 and 7",
+        "C) 10 and 5",
+        "D) 12 and 3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let the numbers be x and y with x + y = 15 and x - y = 3. Adding gives 2x = 18, so x = 9; subtracting the equations gives 2y = 12, so y = 6.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "8 and 7 also add to 15 but do not satisfy the difference 3.",
+        "C": "10 and 5 sum to 15 but have difference 5, not 3.",
+        "D": "12 and 3 sum to 15 but have difference 9, not 3."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:24:34.913Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Factor $x^2 - 5x - 14$.",
+      "options": [
+        "A) $(x-7)(x+2)$",
+        "B) $(x-14)(x+1)$",
+        "C) $(x-2)(x-7)$",
+        "D) $(x-1)(x-14)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "We seek two numbers that multiply to $-14$ and add to $-5$. Those numbers are $-7$ and 2, so $x^2 -5x -14 = (x - 7)(x + 2)$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Uses incorrect pair multiplying to -14 and gives wrong factorization.",
+        "C": "Uses incorrect sign combination: factors give wrong middle term.",
+        "D": "Mistakes a factor pair, leading to incorrect linear terms."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:24:34.913Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve $|3x - 4| \\ge 5$.",
+      "options": [
+        "A) $x \\le -1$ or $x \\ge 3$",
+        "B) $-1 \\le x \\le 3$",
+        "C) $-3 \\le x \\le 1$",
+        "D) $x \\ge -1$ and $x \\le 3$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Set up two cases: $3x - 4 \\ge 5$ or $3x - 4 \\le -5$. From the first, $3x \\ge 9 \\Rightarrow x \\ge 3$. From the second, $3x \\le -1 \\Rightarrow x \\le -1$. The solution is $(-\\infty, -1] \\cup [3, \\infty)$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrectly narrows the interval; it incorrectly excludes regions where x ≤ -1 and x ≥ 3.",
+        "C": "Gives an interval centered near 0, which doesn't satisfy the inequality.",
+        "D": "Writes the solution as an intersection instead of a union."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:24:34.915Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve $4(2x - 3) - 3(x + 5) = 2x + 7$.",
+      "options": [
+        "A) $\\frac{34}{3}$",
+        "B) $\\frac{22}{3}$",
+        "C) $-\\frac{34}{3}$",
+        "D) $\\frac{17}{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distribute: $4(2x-3) - 3(x+5) = 8x - 12 - 3x - 15 = 5x - 27$. Set equal to $2x + 7$: $5x - 27 = 2x + 7 \\Rightarrow 3x = 34 \\Rightarrow x = \\frac{34}{3}$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrectly computes the left-hand side or combines terms incorrectly.",
+        "C": "Sign error when moving terms across the equation.",
+        "D": "Mistakes the distribution signs, leading to a different numerator."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:24:34.916Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A rectangle has perimeter $54$ cm. The length is $3$ cm more than twice the width. If the width is $w$ cm and the length is $L = 2w + 3$, solve for the dimensions. Which of the following gives the dimensions (width, length) in cm?",
+      "options": [
+        "A) width = 8 cm, length = 19 cm",
+        "B) width = 9 cm, length = 21 cm",
+        "C) width = 6 cm, length = 15 cm",
+        "D) width = 8 cm, length = 18 cm"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let width be w and length L = 2w + 3 (since length is 3 more than twice the width). The perimeter condition gives 2L + 2w = 54. Substitute L: 2(2w + 3) + 2w = 54 → 4w + 6 + 2w = 54 → 6w = 48 → w = 8. Then L = 2(8) + 3 = 19. Therefore the dimensions are width 8 cm and length 19 cm.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A (A is correct).",
+        "B": "B uses width 9 and length 21, which do not satisfy the relation L = 2w + 3 or the perimeter.",
+        "C": "C yields perimeter 2(6) + 2(15) = 12 + 30 = 42, not 54.",
+        "D": "D yields perimeter 2(18) + 2(8) = 36 + 16 = 52, not 54."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:26:54.388Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the compound inequality -3 ≤ (x - 1)/(x + 4) < 2. Select the correct solution set for x.",
+      "options": [
+        "A) $(-\\infty, -9) \\cup [-\\frac{11}{4}, \\infty)$",
+        "B) $(-\\infty, -\\frac{11}{4}] \\cup (-9, \\infty)$",
+        "C) [-9, $\\infty)$",
+        "D) (-$\\infty$, -9] $\\cup$ [-$\\frac{11}{4}$, $\\infty)$$$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Part 1: -3 ≤ (x-1)/(x+4) ⇒ $\\frac{4x+11}{x+4} \\ge 0$. Critical points: x = -4 (undefined) and x = -$\\frac{11}{4}$. Sign chart gives x ∈ (-$\\infty$, -4) ∪ [-$\\frac{11}{4}$, ∞). Part 2: (x-1)/(x+4) < 2 ⇒ $-\\frac{x+9}{x+4} < 0$ which is equivalent to $\\frac{x+9}{x+4} > 0$. Sign chart yields x ∈ (-$\\infty$, -9) ∪ (-4, ∞). Intersection: x ∈ (-$\\infty$, -9) ∪ [-$\\frac{11}{4}$, ∞).",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is correct; there is no wrong explanation (N/A).",
+        "B": "B inconsistently includes endpoints and ignores the domain restriction at x = -4.",
+        "C": "C ignores the left interval and incorrectly includes all x ≥ -9.",
+        "D": "D uses an incorrect combination of endpoints and includes -9 wrongly."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:26:54.389Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the system of equations: x + y = 7 and 3x - y = 5. What is the solution (x, y)?",
+      "options": [
+        "A) (3, 4)",
+        "B) (2, 5)",
+        "C) (4, 3)",
+        "D) No solution"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Add the two equations: (x + y) + (3x - y) = 7 + 5 → 4x = 12 → x = 3. Substitute into x + y = 7: 3 + y = 7 → y = 4. Therefore the unique solution is (x, y) = (3, 4).",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is correct; for a wrong option, see the other choices.",
+        "B": "B would give x = 2, which would not satisfy x + y = 7.",
+        "C": "C would give x = 4, y = 3, but 3x - y = 12 - 3 = 9 ≠ 5.",
+        "D": "D incorrectly claims no solution; the system is consistent and has a solution."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:26:54.391Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Divide the polynomial 6x^3 + x^2 - 10x + 3 by 3x - 1. What is the quotient?",
+      "options": [
+        "A) 2x^2 + x - 3",
+        "B) 2x^2 - x + 3",
+        "C) 2x^2 + 2x - 1",
+        "D) x^2 + 1"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Perform polynomial long division: (6x^3 + x^2 - 10x + 3) ÷ (3x - 1).\nFirst term: 6x^3 ÷ 3x = 2x^2. Multiply: (3x - 1)(2x^2) = 6x^3 - 2x^2. Subtract: (6x^3 + x^2) - (6x^3 - 2x^2) = 3x^2. Bring down -10x. Next term: 3x^2 ÷ 3x = x. Multiply: (3x - 1)(x) = 3x^2 - x. Subtract: (3x^2 - 10x) - (3x^2 - x) = -9x. Bring down +3. Next term: (-9x) ÷ (3x) = -3. Multiply: (3x - 1)(-3) = -9x + 3. Subtract: (-9x + 3) - (-9x + 3) = 0. So the quotient is 2x^2 + x - 3 and remainder 0.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is correct; B changes the middle term to -x, C uses a different middle and constant term, D is not the quotient."
+      },
+      "_batchId": "batch-1771521605234-algebra",
+      "_generatedAt": "2026-02-19T17:26:54.392Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}
