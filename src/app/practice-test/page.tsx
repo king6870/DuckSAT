@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { Coffee, BookOpen } from 'lucide-react';
 import { useTestState } from '../../hooks/useTestState';
@@ -15,6 +15,11 @@ import ChartRenderer from '../../components/ChartRenderer';
 export default function PracticeTestPage() {
   const router = useRouter();
   const { data: session } = useSession();
+  const searchParams = useSearchParams();
+  
+  // Epic #61: Get practiceTestId from URL params for fixed practice tests
+  const practiceTestId = searchParams.get('practiceTestId') || undefined;
+  
   const {
     hasStarted,
     moduleStarted,
@@ -41,7 +46,7 @@ export default function PracticeTestPage() {
     nextQuestion,
     previousQuestion,
     questionsAnswered
-  } = useTestState(session?.user?.email || '');
+  } = useTestState(session?.user?.email || '', practiceTestId);
 
   const submitModule = completeModule;
   const currentSelectedAnswer = selectedAnswer;

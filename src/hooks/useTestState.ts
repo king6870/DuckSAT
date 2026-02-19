@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import { TestState, TestResult, QuestionResult, Question } from '@/types/test'
 import { MODULE_CONFIGS } from '@/data/moduleConfigs'
 
-export function useTestState(userId: string) {
+export function useTestState(userId: string, practiceTestId?: string) {
   const [testState] = useState<TestState | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error] = useState<string | null>(null)
@@ -30,6 +30,9 @@ export function useTestState(userId: string) {
   const [currentModuleQuestions, setCurrentModuleQuestions] = useState<Question[]>([])
   const [usedQuestionIds, setUsedQuestionIds] = useState<string[]>([])
 
+  // Epic #61: For fixed practice tests, cache all modules at once
+  const [allPracticeTestModules, setAllPracticeTestModules] = useState<Question[][]>([])
+
   // Per-question time tracking (records are JSON-safe)
   const [questionStartTimes, setQuestionStartTimes] = useState<Record<number, number>>({})
   const [questionTimeSpent, setQuestionTimeSpent] = useState<Record<number, number>>({})
@@ -49,7 +52,46 @@ export function useTestState(userId: string) {
     try {
       setIsLoading(true)
       const limit = questionCount || (moduleType === 'math' ? 22 : 27)
-      console.log(`🔍 Fetching ${limit} questions for moduleType: ${moduleType}`)
+
+      // Epic #61: Fixed practice test mode
+      if (practiceTestId) {
+        // If all modules are already fetched, use cached data
+        if (allPracticeTestModules.length > 0) {
+          const moduleQuestions = allPracticeTestModules[currentModuleIndex]
+          setCurrentModuleQuestions(moduleQuestions)
+          setSelectedAnswers(new Array(moduleQuestions.length).fill(-1))
+          setIsLoading(false)
+          return moduleQuestions
+        }
+
+        // Fetch all modules at once for fixed practice tests
+        console.log(`🔍 Fetching fixed practice test: ${practiceTestId}`)
+        const response = await fetch(`/api/practice-tests/${practiceTestId}`)
+        if (!response.ok) {
+          throw new Error(`Failed to fetch practice test: ${response.statusText}`)
+        }
+
+        const data = await response.json()
+        if (!data.success || !data.test || !data.test.modules) {
+          throw new Error('Invalid practice test response')
+        }
+
+        // Cache all modules
+        const modules = data.test.modules as Array<{ questions: Question[] }>
+        const allModules = modules.map(m => m.questions)
+        setAllPracticeTestModules(allModules)
+
+        // Set current module questions
+        const moduleQuestions = allModules[currentModuleIndex]
+        setCurrentModuleQuestions(moduleQuestions)
+        setSelectedAnswers(new Array(moduleQuestions.length).fill(-1))
+
+        console.log(`✅ Loaded ${moduleQuestions.length} questions for module ${currentModuleIndex}`)
+        return moduleQuestions
+      }
+
+      // Random test mode (original behavior)
+      console.log(`🔍 Fetching ${limit} random questions for moduleType: ${moduleType}`)
 
       const response = await fetch(`/api/questions?moduleType=${moduleType}&limit=${limit * 2}`)
       if (!response.ok) {
@@ -94,7 +136,7 @@ export function useTestState(userId: string) {
     } finally {
       setIsLoading(false)
     }
-  }, [usedQuestionIds])
+  }, [usedQuestionIds, practiceTestId, allPracticeTestModules, currentModuleIndex])
 
   useEffect(() => {
     if (moduleStarted && !isTransitioning && currentQuestion) {
@@ -272,10 +314,16 @@ export function useTestState(userId: string) {
     setIsComplete(true)
 
     try {
+      // Epic #61: Include practiceTestId when saving test results
+      const requestBody: any = { testResults: finalResults }
+      if (practiceTestId) {
+        requestBody.practiceTestId = practiceTestId
+      }
+
       const response = await fetch('/api/test-results', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ testResults: finalResults })
+        body: JSON.stringify(requestBody)
       })
 
       if (!response.ok) {
@@ -287,7 +335,7 @@ export function useTestState(userId: string) {
     } catch (saveError) {
       console.error('Error saving test results:', saveError)
     }
-  }, [testStartTime, userId])
+  }, [testStartTime, userId, practiceTestId])
 
   useEffect(() => {
     if (moduleStarted && timeRemaining > 0 && !isTransitioning && !isComplete) {
