@@ -25,26 +25,31 @@ interface QuestionDistribution {
 // Define question distribution for SAT practice tests
 // Module 0 & 1: Reading-Writing (27 questions each)
 // Module 2 & 3: Math (22 questions each)
+// Based on actual database categories from check-categories.ts
 const DISTRIBUTION: QuestionDistribution[] = [
   // Module 0: Reading-Writing Module 1 (27 questions)
   { category: 'reading-comprehension', moduleType: 'reading-writing', moduleIndex: 0, targetCount: 15, easyCount: 5, mediumCount: 7, hardCount: 3 },
-  { category: 'grammar-and-usage', moduleType: 'reading-writing', moduleIndex: 0, targetCount: 12, easyCount: 4, mediumCount: 6, hardCount: 2 },
+  { category: 'vocabulary', moduleType: 'reading-writing', moduleIndex: 0, targetCount: 6, easyCount: 2, mediumCount: 3, hardCount: 1 },
+  { category: 'rhetoric', moduleType: 'reading-writing', moduleIndex: 0, targetCount: 4, easyCount: 1, mediumCount: 2, hardCount: 1 },
+  { category: 'synthesis', moduleType: 'reading-writing', moduleIndex: 0, targetCount: 2, easyCount: 1, mediumCount: 1, hardCount: 0 },
   
   // Module 1: Reading-Writing Module 2 (27 questions)
   { category: 'reading-comprehension', moduleType: 'reading-writing', moduleIndex: 1, targetCount: 15, easyCount: 5, mediumCount: 7, hardCount: 3 },
-  { category: 'grammar-and-usage', moduleType: 'reading-writing', moduleIndex: 1, targetCount: 12, easyCount: 4, mediumCount: 6, hardCount: 2 },
+  { category: 'vocabulary', moduleType: 'reading-writing', moduleIndex: 1, targetCount: 6, easyCount: 2, mediumCount: 3, hardCount: 1 },
+  { category: 'rhetoric', moduleType: 'reading-writing', moduleIndex: 1, targetCount: 4, easyCount: 1, mediumCount: 2, hardCount: 1 },
+  { category: 'synthesis', moduleType: 'reading-writing', moduleIndex: 1, targetCount: 2, easyCount: 1, mediumCount: 1, hardCount: 0 },
   
   // Module 2: Math Module 1 (22 questions)
   { category: 'algebra', moduleType: 'math', moduleIndex: 2, targetCount: 9, easyCount: 3, mediumCount: 5, hardCount: 1 },
   { category: 'advanced-math', moduleType: 'math', moduleIndex: 2, targetCount: 6, easyCount: 2, mediumCount: 3, hardCount: 1 },
   { category: 'geometry', moduleType: 'math', moduleIndex: 2, targetCount: 5, easyCount: 1, mediumCount: 3, hardCount: 1 },
-  { category: 'data-analysis', moduleType: 'math', moduleIndex: 2, targetCount: 2, easyCount: 1, mediumCount: 1, hardCount: 0 },
+  { category: 'statistics', moduleType: 'math', moduleIndex: 2, targetCount: 2, easyCount: 1, mediumCount: 1, hardCount: 0 },
   
   // Module 3: Math Module 2 (22 questions)
   { category: 'algebra', moduleType: 'math', moduleIndex: 3, targetCount: 9, easyCount: 3, mediumCount: 5, hardCount: 1 },
   { category: 'advanced-math', moduleType: 'math', moduleIndex: 3, targetCount: 6, easyCount: 2, mediumCount: 3, hardCount: 1 },
   { category: 'geometry', moduleType: 'math', moduleIndex: 3, targetCount: 5, easyCount: 1, mediumCount: 3, hardCount: 1 },
-  { category: 'data-analysis', moduleType: 'math', moduleIndex: 3, targetCount: 2, easyCount: 1, mediumCount: 1, hardCount: 0 },
+  { category: 'statistics', moduleType: 'math', moduleIndex: 3, targetCount: 2, easyCount: 1, mediumCount: 1, hardCount: 0 },
 ];
 
 async function selectQuestionsForDistribution(
