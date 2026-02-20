@@ -19,7 +19,8 @@
         "generate:images": "tsx scripts/generate-images-for-existing-questions.ts",
         "questions:organize": "tsx scripts/organize-export-questions.ts",
         "questions:import": "tsx scripts/import-organized-questions.ts",
-        "questions:verify": "tsx scripts/verify-imported-questions.ts"
+        "questions:verify": "tsx scripts/verify-imported-questions.ts",
+        "validate:latex": "tsx scripts/validate-latex-final.ts"
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.10.0",
@@ -28,6 +29,7 @@
         "@radix-ui/react-select": "^2.0.0",
         "@radix-ui/react-slot": "^1.0.2",
         "@types/pg": "^8.15.5",
+        "axios": "^1.13.5",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.0.0",
         "jupyter": "^0.0.0",
@@ -36,6 +38,7 @@
         "next": "15.5.11",
         "next-auth": "^4.24.11",
         "notebook": "^1.0.1",
+        "openai": "^6.22.0",
         "openssl": "^2.0.0",
         "pg": "^8.16.3",
         "react": "^18.3.1",
@@ -45,7 +48,8 @@
         "tailwind-merge": "^2.0.0",
         "vega": "^6.2.0",
         "vega-embed": "^7.1.0",
-        "vega-lite": "^6.4.1"
+        "vega-lite": "^6.4.1",
+        "zod": "^3.22.4"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3",
