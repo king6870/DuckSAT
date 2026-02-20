@@ -38,34 +38,56 @@ export default function Home() {
 
           {/* Hero CTAs */}
           {session ? (
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button
-                onClick={() => router.push('/practice-tests')}
-                variant="primary"
-                size="lg"
-                className="group min-h-[56px]"
-              >
-                <BookOpen className="mr-2 w-5 h-5" />
-                Practice Tests
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                onClick={() => router.push('/practice-test')}
-                variant="outline"
-                size="lg"
-                className="min-h-[56px]"
-              >
-                Random Test
-              </Button>
-              <Button
-                onClick={() => router.push('/progress')}
-                variant="outline"
-                size="lg"
-                className="min-h-[56px]"
-              >
-                <BarChart3 className="mr-2 w-5 h-5" />
-                View Progress
-              </Button>
+            <div className="space-y-8">
+              {/* Complete Practice Tests Section */}
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-indigo-200">
+                <div className="mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Complete Practice Tests</h3>
+                  <p className="text-sm text-gray-600">
+                    Take full-length SAT practice tests with fixed question sets. Track your attempts and see detailed score progression across multiple tries.
+                  </p>
+                </div>
+                <Button
+                  onClick={() => router.push('/practice-tests')}
+                  variant="primary"
+                  size="lg"
+                  className="group w-full sm:w-auto min-h-[56px]"
+                >
+                  <BookOpen className="mr-2 w-5 h-5" />
+                  View Practice Tests
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
+
+              {/* Random Practice Section */}
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow border border-purple-200">
+                <div className="mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Random Practice Mode</h3>
+                  <p className="text-sm text-gray-600">
+                    Practice with randomly selected questions from our database. Perfect for targeted practice on specific topics or question types.
+                  </p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    onClick={() => router.push('/practice-test')}
+                    variant="outline"
+                    size="lg"
+                    className="min-h-[56px]"
+                  >
+                    <Zap className="mr-2 w-5 h-5" />
+                    Start Random Practice
+                  </Button>
+                  <Button
+                    onClick={() => router.push('/progress')}
+                    variant="outline"
+                    size="lg"
+                    className="min-h-[56px]"
+                  >
+                    <BarChart3 className="mr-2 w-5 h-5" />
+                    View Progress
+                  </Button>
+                </div>
+              </div>
             </div>
           ) : (
             <div className="flex flex-col items-center gap-6">
