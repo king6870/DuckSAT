@@ -40,13 +40,22 @@ export default function Home() {
           {session ? (
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button
-                onClick={() => router.push('/practice-test')}
+                onClick={() => router.push('/practice-tests')}
                 variant="primary"
                 size="lg"
                 className="group min-h-[56px]"
               >
-                Start Practice Test
+                <BookOpen className="mr-2 w-5 h-5" />
+                Practice Tests
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button
+                onClick={() => router.push('/practice-test')}
+                variant="outline"
+                size="lg"
+                className="min-h-[56px]"
+              >
+                Random Test
               </Button>
               <Button
                 onClick={() => router.push('/progress')}
@@ -107,13 +116,13 @@ export default function Home() {
           {/* Feature Card 1 */}
           <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-indigo-200">
             <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <Target className="w-7 h-7 text-white" strokeWidth={2.5} />
+              <BookOpen className="w-7 h-7 text-white" strokeWidth={2.5} />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3">
-              Adaptive Testing
+              Fixed Practice Tests
             </h3>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Module 2 difficulty adjusts based on your Module 1 performance, just like the real SAT Digital test.
+              Take full-length SAT practice tests with the same questions every time. Track your improvement across multiple attempts.
             </p>
             <div className="flex items-center text-indigo-600 font-semibold text-sm group-hover:gap-2 transition-all">
               Learn more
@@ -124,13 +133,13 @@ export default function Home() {
           {/* Feature Card 2 */}
           <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-cyan-200">
             <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <Zap className="w-7 h-7 text-white" strokeWidth={2.5} />
+              <Target className="w-7 h-7 text-white" strokeWidth={2.5} />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3">
-              Real-time Feedback
+              Adaptive Testing
             </h3>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Get instant explanations for every question with detailed breakdowns of correct and incorrect answers.
+              Module 2 difficulty adjusts based on your Module 1 performance, just like the real SAT Digital test.
             </p>
             <div className="flex items-center text-cyan-600 font-semibold text-sm group-hover:gap-2 transition-all">
               Learn more
@@ -148,6 +157,13 @@ export default function Home() {
             </h3>
             <p className="text-gray-600 leading-relaxed mb-4">
               Monitor your improvement with detailed analytics, performance trends, and personalized recommendations.
+            </p>
+            <div className="flex items-center text-green-600 font-semibold text-sm group-hover:gap-2 transition-all">
+              Learn more
+              <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+        </div>
             </p>
             <div className="flex items-center text-green-600 font-semibold text-sm group-hover:gap-2 transition-all">
               Learn more
