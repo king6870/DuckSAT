@@ -120,6 +120,32 @@ export const authOptions: NextAuthOptions = {
       return session
     },
   },
+  logger: {
+    error(code, ...message) {
+      // Enhanced error logging for OAuth callback troubleshooting
+      // Logs error code, message, and environment context
+      console.error('[NextAuth][ERROR]', {
+        code,
+        message,
+        env: {
+          NODE_ENV: process.env.NODE_ENV,
+          NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+          VERCEL_URL: process.env.VERCEL_URL,
+          GOOGLE_CLIENT_ID_present: !!process.env.GOOGLE_CLIENT_ID,
+          GOOGLE_CLIENT_SECRET_present: !!process.env.GOOGLE_CLIENT_SECRET,
+        },
+        timestamp: new Date().toISOString(),
+      });
+    },
+    warn(code, ...message) {
+      console.warn('[NextAuth][WARN]', code, ...message);
+    },
+    debug(code, ...message) {
+      if (process.env.NODE_ENV !== 'production') {
+        console.debug('[NextAuth][DEBUG]', code, ...message);
+      }
+    },
+  },
   secret: getSecret(),
   debug: process.env.NODE_ENV === 'development',
 }
