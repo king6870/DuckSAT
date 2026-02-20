@@ -116,7 +116,8 @@ export async function GET(request: NextRequest) {
 
     // Build where clause
     const where: Prisma.QuestionWhereInput = {
-      isActive: true
+      isActive: true,
+      isReserved: false,
     };
 
     if (moduleType && (moduleType === 'math' || moduleType === 'reading-writing')) {

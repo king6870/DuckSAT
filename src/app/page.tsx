@@ -164,13 +164,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-            </p>
-            <div className="flex items-center text-green-600 font-semibold text-sm group-hover:gap-2 transition-all">
-              Learn more
-              <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Stats Section */}

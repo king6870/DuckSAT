@@ -6,7 +6,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
+import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
@@ -37,14 +37,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // TODO: Add proper admin role check when user roles are implemented
-    // For now, we'll allow any authenticated user
-    // if (session.user.role !== 'admin') {
-    //   return NextResponse.json(
-    //     { success: false, error: 'Admin access required' },
-    //     { status: 403 }
-    //   );
-    // }
+    // Admin authorization via email allowlist
+    const adminEmails = (process.env.ADMIN_EMAILS || '').split(',').map(e => e.trim()).filter(Boolean);
+    if (adminEmails.length > 0 && !adminEmails.includes(session.user.email)) {
+      return NextResponse.json(
+        { success: false, error: 'Admin access required' },
+        { status: 403 }
+      );
+    }
 
     const body = await request.json();
     const validationResult = createPracticeTestSchema.safeParse(body);
@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
         {
           success: false,
           error: 'Invalid request body',
-          details: validationResult.error.errors,
+          details: validationResult.error.issues,
         },
         { status: 400 }
       );
@@ -161,16 +161,16 @@ export async function POST(request: NextRequest) {
     }
 
     // Verify question moduleTypes match the module assignments
-    for (const module of modules) {
-      const moduleQuestions = questions.filter(q => module.questionIds.includes(q.id));
-      const wrongTypeQuestions = moduleQuestions.filter(q => q.moduleType !== module.moduleType);
+    for (const mod of modules) {
+      const moduleQuestions = questions.filter(q => mod.questionIds.includes(q.id));
+      const wrongTypeQuestions = moduleQuestions.filter(q => q.moduleType !== mod.moduleType);
       
       if (wrongTypeQuestions.length > 0) {
         return NextResponse.json(
           {
             success: false,
-            error: `Module ${module.moduleIndex} has questions with wrong moduleType`,
-            expectedType: module.moduleType,
+            error: `Module ${mod.moduleIndex} has questions with wrong moduleType`,
+            expectedType: mod.moduleType,
             wrongQuestionIds: wrongTypeQuestions.map(q => q.id),
           },
           { status: 400 }
@@ -204,13 +204,13 @@ export async function POST(request: NextRequest) {
 
       // Create practice test questions with ordering
       let globalOrderIndex = 0;
-      for (const module of modules) {
-        for (const questionId of module.questionIds) {
+      for (const mod of modules) {
+        for (const questionId of mod.questionIds) {
           await tx.practiceTestQuestion.create({
             data: {
               practiceTestId: test.id,
               questionId,
-              moduleIndex: module.moduleIndex,
+              moduleIndex: mod.moduleIndex,
               orderIndex: globalOrderIndex,
             },
           });

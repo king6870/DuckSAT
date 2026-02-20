@@ -6,7 +6,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
+import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 
@@ -29,13 +29,14 @@ export async function PUT(
       );
     }
 
-    // TODO: Add proper admin role check when user roles are implemented
-    // if (session.user.role !== 'admin') {
-    //   return NextResponse.json(
-    //     { success: false, error: 'Admin access required' },
-    //     { status: 403 }
-    //   );
-    // }
+    // Admin authorization via email allowlist
+    const adminEmails = (process.env.ADMIN_EMAILS || '').split(',').map(e => e.trim()).filter(Boolean);
+    if (adminEmails.length > 0 && !adminEmails.includes(session.user.email)) {
+      return NextResponse.json(
+        { success: false, error: 'Admin access required' },
+        { status: 403 }
+      );
+    }
 
     const { id } = await context.params;
 
