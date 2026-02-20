@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { Coffee, BookOpen } from 'lucide-react';
@@ -13,6 +13,21 @@ import MathRenderer from '../../components/MathRenderer';
 import ChartRenderer from '../../components/ChartRenderer';
 
 export default function PracticeTestPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading practice test...</p>
+        </div>
+      </div>
+    }>
+      <PracticeTestContent />
+    </Suspense>
+  );
+}
+
+function PracticeTestContent() {
   const router = useRouter();
   const { data: session } = useSession();
   const searchParams = useSearchParams();
@@ -450,3 +465,4 @@ export default function PracticeTestPage() {
     </div>
   );
 }
+
