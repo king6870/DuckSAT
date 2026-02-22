@@ -13,6 +13,7 @@ out/
 .env.test.local
 .env.production.local
 .env-donotlike
+.env.example
 
 # Debug logs
 npm-debug.log*
