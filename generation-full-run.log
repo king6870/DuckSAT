@@ -1,0 +1,303 @@
+
+≡ƒÜÇ Starting full generation plan (QG800)
+Target: 330 math + 41 reading = 371 questions
+
+
+≡ƒÄ» Topic: algebra (80 questions, 4 batches)
+
+≡ƒôª Generating batch: batch-1771477221236-algebra
+Topic: algebra, Module: math, Target: 20
+  Generating 6 easy questions for algebra...
+  Generating 10 medium questions for algebra...
+  Generating 4 hard questions for algebra...
+≡ƒôä HTML exported: generated-batches\batch-1771477221236-algebra.html
+Γ£à Batch complete: 20/20 valid questions
+
+≡ƒôª Generating batch: batch-1771477506923-algebra
+Topic: algebra, Module: math, Target: 20
+  Generating 6 easy questions for algebra...
+Failed to parse extracted objects: SyntaxError: Expected double-quoted property name in JSON at position 734 (line 14 column 7)
+    at JSON.parse (<anonymous>)
+    at parseResponse (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:200:25)
+    at generateQuestions (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:325:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async generateBatch (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:421:20)
+    at async cmdGenerateAll (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:692:21)
+    at async <anonymous> (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:872:9)
+Failed to parse LLM response. First 500 chars: [
+  {
+    "question": "Solve for $x$: $3x - 5 = 2x + 7$.",
+    "options": ["A) $x = 12$", "B) $x = -2$", "C) $x = 1$", "D) $x = 6$"],
+    "correctAnswer": 0,
+    "explanation": "Subtract $2x$ from both sides: $3x - 5 - 2x = 2x + 7 - 2x$ which simplifies to $x - 5 = 7$. Then add $5$ to both sides: $x = 12$.",
+    "difficulty": "easy",
+    "subtopic": "linear-equations",
+    "passage": null,
+    "wrongAnswerExplanations": {
+      "A": "N/A",
+      "B": "Incorrectly moving the terms: subtracting 7 
+  Generating 10 medium questions for algebra...
+  Generating 4 hard questions for algebra...
+≡ƒôä HTML exported: generated-batches\batch-1771477506923-algebra.html
+Γ£à Batch complete: 14/20 valid questions
+ΓÜá∩╕Å  1 errors: [ 'Failed to parse JSON: Failed to parse JSON from LLM response' ]
+
+≡ƒôª Generating batch: batch-1771477773563-algebra
+Topic: algebra, Module: math, Target: 20
+  Generating 6 easy questions for algebra...
+  Generating 10 medium questions for algebra...
+Failed to parse extracted objects: SyntaxError: Expected double-quoted property name in JSON at position 752 (line 12 column 7)
+    at JSON.parse (<anonymous>)
+    at parseResponse (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:200:25)
+    at generateQuestions (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:325:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async generateBatch (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:421:20)
+    at async cmdGenerateAll (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:692:21)
+    at async <anonymous> (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:872:9)
+Failed to parse LLM response. First 500 chars: [
+  {
+    "question": "Solve for $x$: $3x - 5 = 2x + 7$.",
+    "options": ["A) 4", "B) 12", "C) -2", "D) 5"],
+    "correctAnswer": 1,
+    "explanation": "Step 1: Subtract $2x$ from both sides to get $x - 5 = 7$. Step 2: Add 5 to both sides to obtain $x = 12$. Therefore, the correct solution is $x = 12$.",
+    "difficulty": "medium",
+    "subtopic": "linear-equations",
+    "wrongAnswerExplanations": {
+      "A": "Common sign-error: you moved the terms incorrectly and ended up with $x - 5 = 7$ but
+  Generating 4 hard questions for algebra...
+≡ƒôä HTML exported: generated-batches\batch-1771477773563-algebra.html
+Γ£à Batch complete: 10/20 valid questions
+ΓÜá∩╕Å  1 errors: [ 'Failed to parse JSON: Failed to parse JSON from LLM response' ]
+
+≡ƒôª Generating batch: batch-1771478092360-algebra
+Topic: algebra, Module: math, Target: 20
+  Generating 6 easy questions for algebra...
+  Generating 10 medium questions for algebra...
+  Generating 4 hard questions for algebra...
+≡ƒôä HTML exported: generated-batches\batch-1771478092360-algebra.html
+Γ£à Batch complete: 20/20 valid questions
+
+≡ƒÄ» Topic: geometry (70 questions, 4 batches)
+
+≡ƒôª Generating batch: batch-1771478412741-geometry
+Topic: geometry, Module: math, Target: 20
+  Generating 6 easy questions for geometry...
+  Generating 10 medium questions for geometry...
+Failed to parse extracted objects: SyntaxError: Bad control character in string literal in JSON at position 148 (line 2 column 146)
+    at JSON.parse (<anonymous>)
+    at parseResponse (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:200:25)
+    at generateQuestions (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:325:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async generateBatch (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:421:20)
+    at async cmdGenerateAll (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:692:21)
+    at async <anonymous> (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:872:9)
+Failed to parse LLM response. First 500 chars: [
+  {
+    "question": "In the right triangle $\\\\triangle ABC$ with $\\\\angle C = 90^{\\\\circ}$ and $\\\\angle A = 30^{\\\\circ}$, the hypotenuse $\\\\overline{AB}$ has length $14$. What is the length of $\\\\overline{BC}$?",
+    "options": [
+      "A) 7",
+      "B) $7\\\\sqrt{3}$",
+      "C) $14$",
+      "D) $3.5$"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Step 1: This is a 30-60-90 triangle because $\\\\angle A = 30^{\\\\circ}$ and $\\\\angle C = 90^{\\\\circ}$. In a 30-60-90 trian
+  Generating 4 hard questions for geometry...
+≡ƒôä HTML exported: generated-batches\batch-1771478412741-geometry.html
+Γ£à Batch complete: 9/20 valid questions
+ΓÜá∩╕Å  2 errors: [
+  'Failed to parse JSON: Failed to parse JSON from LLM response',
+  "LaTeX validation failed: explanation: KaTeX parse error: Invalid delimiter type 'genfrac'; explanation: KaTeX parse error: Invalid delimiter type 'genfrac'"
+]
+
+≡ƒôª Generating batch: batch-1771478669406-geometry
+Topic: geometry, Module: math, Target: 20
+  Generating 6 easy questions for geometry...
+  Generating 10 medium questions for geometry...
+Failed to parse extracted objects: SyntaxError: Bad control character in string literal in JSON at position 142 (line 2 column 140)
+    at JSON.parse (<anonymous>)
+    at parseResponse (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:200:25)
+    at generateQuestions (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:325:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async generateBatch (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:421:20)
+    at async cmdGenerateAll (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:692:21)
+    at async <anonymous> (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:872:9)
+Failed to parse LLM response. First 500 chars: [
+  {
+    "question": "In right triangle $\\\\triangle ABC$ with right angle at $C$, $\\\\angle A = 30^{\\\\circ}$ and hypotenuse $AB = 12$. Find the length of $BC$.",
+    "options": ["A) $6$", "B) $6\\\\sqrt{3}$", "C) $12$", "D) $3$"],
+    "correctAnswer": 0,
+    "explanation": "Since $\\\\triangle ABC$ is a 30-60-90 triangle with the right angle at $C$ and $\\\\angle A = 30^{\\\\circ}$, the side opposite 30┬░ (which is $BC$) is half the hypotenuse. Therefore $BC = AB/2 = 12/2 = 6$. In a 30-60-9
+  Generating 4 hard questions for geometry...
+≡ƒôä HTML exported: generated-batches\batch-1771478669406-geometry.html
+Γ£à Batch complete: 10/20 valid questions
+ΓÜá∩╕Å  1 errors: [ 'Failed to parse JSON: Failed to parse JSON from LLM response' ]
+
+≡ƒôª Generating batch: batch-1771478962168-geometry
+Topic: geometry, Module: math, Target: 20
+  Generating 6 easy questions for geometry...
+Failed to parse extracted objects: SyntaxError: Bad control character in string literal in JSON at position 138 (line 2 column 136)
+    at JSON.parse (<anonymous>)
+    at parseResponse (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:200:25)
+    at generateQuestions (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:325:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async generateBatch (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:421:20)
+    at async cmdGenerateAll (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:692:21)
+    at async <anonymous> (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:872:9)
+Failed to parse LLM response. First 500 chars: [
+  {
+    "question": "In triangle $\\triangle ABC$, right angle at $C$, $\\angle A = 30┬░$, and $\\overline{AB} = 10$. What is the length of $\\overline{BC}$?",
+    "options": [
+      "A) 5",
+      "B) $5\\\\sqrt{3}$",
+      "C) 10",
+      "D) $\\\\sqrt{3}$"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Step 1: In a $30┬░-60┬░-90┬░$ right triangle, the side opposite the $30┬░$ angle is half the hypotenuse. Here $\\angle A = 30┬░$, so $\\overline{BC}$ is opposite $A$ and equals $\\overline{AB}/2 
+  Generating 10 medium questions for geometry...
+  Generating 4 hard questions for geometry...
+Failed to parse extracted objects: SyntaxError: Bad control character in string literal in JSON at position 413 (line 4 column 214)
+    at JSON.parse (<anonymous>)
+    at parseResponse (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:200:25)
+    at generateQuestions (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:325:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async generateBatch (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:421:20)
+    at async cmdGenerateAll (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:692:21)
+    at async <anonymous> (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:872:9)
+Failed to parse LLM response. First 500 chars: [
+  {
+    "question": "In $\\\\triangle ABC$, $\\\\angle B = 90┬░$, $AB = 6$, $BC = 8$. Let $D$ be the foot of the altitude from $B$ to the hypotenuse $AC$. What is the length of $BD$?",
+    "options": [
+      "A) $\\\\frac{24}{5}$",
+      "B) $\\\\frac{12}{5}$",
+      "C) $\\\\frac{40}{9}$",
+      "D) $\\\\frac{6}{5}$"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Step 1: In a right triangle, the hypotenuse is $AC = \\sqrt{AB^2 + BC^2} = \\sqrt{6^2 + 8^2} = \\sqrt{100} = 10$. Step 2: The al
+≡ƒôä HTML exported: generated-batches\batch-1771478962168-geometry.html
+Γ£à Batch complete: 10/20 valid questions
+ΓÜá∩╕Å  2 errors: [
+  'Failed to parse JSON: Failed to parse JSON from LLM response',
+  'Failed to parse JSON: Failed to parse JSON from LLM response'
+]
+
+≡ƒôª Generating batch: batch-1771479233587-geometry
+Topic: geometry, Module: math, Target: 20
+  Generating 6 easy questions for geometry...
+  Generating 10 medium questions for geometry...
+  Generating 4 hard questions for geometry...
+≡ƒôä HTML exported: generated-batches\batch-1771479233587-geometry.html
+Γ£à Batch complete: 20/20 valid questions
+
+ΓÅ╕∩╕Å  CHECKPOINT: 113 questions generated
+
+≡ƒôè Exporting progress HTML...
+Γ£à Progress HTML exported: output\html\progress-1771479567909.html
+   Total: 0 questions (0 math, 0 reading)
+
+Γû╢∩╕Å  Resuming generation...
+
+
+≡ƒÄ» Topic: statistics (60 questions, 3 batches)
+
+≡ƒôª Generating batch: batch-1771479567910-statistics
+Topic: statistics, Module: math, Target: 20
+  Generating 6 easy questions for statistics...
+  Generating 10 medium questions for statistics...
+  Generating 4 hard questions for statistics...
+≡ƒôä HTML exported: generated-batches\batch-1771479567910-statistics.html
+Γ£à Batch complete: 20/20 valid questions
+
+≡ƒôª Generating batch: batch-1771479796157-statistics
+Topic: statistics, Module: math, Target: 20
+  Generating 6 easy questions for statistics...
+  Generating 10 medium questions for statistics...
+  Generating 4 hard questions for statistics...
+≡ƒôä HTML exported: generated-batches\batch-1771479796157-statistics.html
+Γ£à Batch complete: 20/20 valid questions
+
+≡ƒôª Generating batch: batch-1771479993425-statistics
+Topic: statistics, Module: math, Target: 20
+  Generating 6 easy questions for statistics...
+  Generating 10 medium questions for statistics...
+Failed to parse extracted objects: SyntaxError: Expected double-quoted property name in JSON at position 683 (line 13 column 7)
+    at JSON.parse (<anonymous>)
+    at parseResponse (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:200:25)
+    at generateQuestions (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:325:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async generateBatch (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:421:20)
+    at async cmdGenerateAll (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:692:21)
+    at async <anonymous> (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:872:9)
+Failed to parse LLM response. First 500 chars: [
+  {
+    "question": "A student took five quizzes with scores: 82, 87, 91, 76, and 87. What is the mean score of these quizzes?",
+    "options": ["A) 84.6", "B) 84", "C) 85", "D) 86"],
+    "correctAnswer": 0,
+    "explanation": "Sum the scores: 82 + 87 + 91 + 76 + 87 = 423. The mean is 423 divided by 5, which is 84.6. So the mean score is 84.6.",
+    "difficulty": "medium",
+    "subtopic": "mean-median-mode",
+    "wrongAnswerExplanations": {
+      "A": "",
+      "B": "B) 84 is not the mean; the
+  Generating 4 hard questions for statistics...
+≡ƒôä HTML exported: generated-batches\batch-1771479993425-statistics.html
+Γ£à Batch complete: 10/20 valid questions
+ΓÜá∩╕Å  1 errors: [ 'Failed to parse JSON: Failed to parse JSON from LLM response' ]
+
+≡ƒÄ» Topic: quadratic (40 questions, 2 batches)
+
+≡ƒôª Generating batch: batch-1771480197932-quadratic
+Topic: quadratic, Module: math, Target: 20
+  Generating 6 easy questions for quadratic...
+Failed to parse extracted objects: SyntaxError: Expected double-quoted property name in JSON at position 830 (line 18 column 7)
+    at JSON.parse (<anonymous>)
+    at parseResponse (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:200:25)
+    at generateQuestions (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:325:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async generateBatch (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:421:20)
+    at async cmdGenerateAll (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:692:21)
+    at async <anonymous> (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:872:9)
+Failed to parse LLM response. First 500 chars: [
+  {
+    "question": "Factor and solve: $x^2 - 5x + 6 = 0$. What are the roots?",
+    "options": [
+      "A) x = 2 and x = 3",
+      "B) x = -2 and x = -3",
+      "C) x = 1 and x = 6",
+      "D) x = 0 and x = 6"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Factor the quadratic: $x^2 - 5x + 6 = (x-2)(x-3) = 0$. By the zero-product property, the roots satisfy $x-2=0$ or $x-3=0$, giving $x=2$ or $x=3$.",
+    "difficulty": "easy",
+    "subtopic": "Factoring",
+    "wrongAnswerExplanations": {
+
+  Generating 10 medium questions for quadratic...
+  Generating 4 hard questions for quadratic...
+≡ƒôä HTML exported: generated-batches\batch-1771480197932-quadratic.html
+Γ£à Batch complete: 14/20 valid questions
+ΓÜá∩╕Å  1 errors: [ 'Failed to parse JSON: Failed to parse JSON from LLM response' ]
+
+≡ƒôª Generating batch: batch-1771480404782-quadratic
+Topic: quadratic, Module: math, Target: 20
+  Generating 6 easy questions for quadratic...
+  Generating 10 medium questions for quadratic...
+Failed to parse extracted objects: SyntaxError: Expected double-quoted property name in JSON at position 1076 (line 13 column 7)
+    at JSON.parse (<anonymous>)
+    at parseResponse (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:200:25)
+    at generateQuestions (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:325:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async generateBatch (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:421:20)
+    at async cmdGenerateAll (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:692:21)
+    at async <anonymous> (c:\Users\lionv\DuckSAT\Migration\DuckSAT\scripts\generate-sat-questions.ts:872:9)
+Failed to parse LLM response. First 500 chars: [
+  {
+    "question": "Solve the quadratic equation $x^2 - 5x + 6 = 0$ by factoring. What are the roots?",
+    "options": ["A) x = 2 or x = 3", "B) x = -2 or x = -3", "C) x = 1 or x = 6", "D) x = -1 or x = -6"],
+    "correctAnswer": 0,
+    "explanation": "Step-by-step: Factor $x^2 - 5x + 6$ as $(x-2)(x-3)$. By the zero-product property, set each factor to zero: $x-2=0$ or $x-3=0$, giving $x=2$ or $x=3$. Therefore the roots are $x=2$ and $x=3$.",
+    "difficulty": "medium",
+    "subtopic": "Facto
+  Generating 4 hard questions for quadratic...

@@ -68,6 +68,44 @@ npm run questions:verify     # Verify import succeeded
 - [Scripts Documentation](scripts/README.md) - Technical details
 - [Full Specification](SPECS/QUESTION_IMPORT_SPEC.md) - Complete system design
 
+## LaTeX Rendering System
+
+**Status:** ✅ **Production Ready** (100% validation pass - 173 expressions)
+
+DuckSAT uses a normalized LaTeX storage approach optimized for KaTeX browser rendering:
+
+**Core Principle:** "One backslash in, one backslash out"
+- Database stores: `$\frac{1}{2}$`
+- JSON.stringify doubles: `\\frac` (for JSON transport)
+- Browser parse halves: `\frac` (back to LaTeX)
+- KaTeX renders: Formatted math
+
+**Normalization Library:** `scripts/lib/normalize-latex.ts`
+- Remove control characters (TAB, CR, NULL, etc.)
+- Collapse multiple backslashes to single
+- Remove `\newline` commands
+- Validate with KaTeX parser
+
+**Implementation:**
+1. **Python Generators** (`azuredev-038d-main/sat_generator_v2.py`, `sat_generator_v3.py`)
+   - Normalize LaTeX at question generation time
+2. **Import Scripts** (`scripts/import-new-batch-questions.ts`)
+   - Normalize LaTeX before database write
+3. **HTML Export** (`scripts/export-all-questions-html.ts`)
+   - Use KaTeX auto-render only (no client-side wrapping)
+4. **Database Migration** (`scripts/migrate-latex-final.ts`)
+   - One-time migration completed (backup: `backup-pre-migration.json`)
+
+**Validation:** `npm run validate:latex` (runs `scripts/validate-latex-final.ts`)
+
+**Results:**
+```
+Questions checked: 450
+LaTeX expressions: 173
+Valid: 173 (100%)
+Invalid: 0
+```
+
 ## Available Scripts
 
 ### Development
