@@ -1,6 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Build and deploy Node.js app to Azure Web App - ducksatapp
 
 on:
@@ -12,54 +9,49 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read #This is required for actions/checkout
-
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js version
-        uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '20.x'
+          cache: 'npm'
 
-      - name: npm install, build, and test
+      - name: Install, Build, and Prepare Standalone
         run: |
           npm install
-          npm run build --if-present
-          npm run test --if-present
-          # 1. Copy static files to the standalone folder (Required for CSS/Images)
+          npm run build
+          # Move static and public into standalone so they are part of the deployment
           cp -r .next/static .next/standalone/.next/static
           cp -r public .next/standalone/public
-          # 2. Rename the standalone folder so we can upload its CONTENTS easily
-          mv .next/standalone deploy-package
         env:
-          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }} 
-          NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }} 
-          DATABASE_URL: ${{ secrets.DATABASE_URL }} 
-          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }} 
+          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+          NEXTAUTH_URL: https://www.ducksat.com
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          
 
-      - name: Upload artifact for deployment job
+      - name: Upload Standalone Artifact
         uses: actions/upload-artifact@v4
         with:
-         name: nextjs-app 
-         path: .next/standalone/
+          name: nextjs-app
+          path: .next/standalone/ # This uploads ONLY the content of the standalone folder
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
     permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
+      id-token: write
+      contents: read
 
-   steps:
-      - name: Download artifact
+    steps:
+      - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
           name: nextjs-app
-          path: ./temp-deploy # Download to a specific temp folder
-      
+          path: ./app-to-deploy
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -68,15 +60,7 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_BE9F8AF358FA4905A22AAA1F2329A887 }}
 
       - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'ducksatapp'
-          # Point the deployer exactly to the temp folder contents
-          package: ./temp-deploy
-          
-
-
-
-
-
+          package: ./app-to-deploy # Pointing specifically to the downloaded folder
