@@ -56,6 +56,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: nextjs-app
+          path: .  # Force it to extract to the current root
       
       - name: Login to Azure
         uses: azure/login@v2
@@ -70,7 +71,8 @@ jobs:
         with:
           app-name: 'ducksatapp'
           slot-name: 'Production'
-          package: .next/standalone
+          package: .
 
           
+
 
