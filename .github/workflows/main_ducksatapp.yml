@@ -28,6 +28,11 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
+          # Move static files into standalone for Next.js to find them
+          cp -rn .next/static .next/standalone/.next/static
+          cp -rn public .next/standalone/public
+          # Copy package.json into standalone so Azure knows it's Node
+          cp package.json .next/standalone/package.json
         env:
           NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }} 
           NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }} 
@@ -74,5 +79,6 @@ jobs:
           package: .
 
           
+
 
 
