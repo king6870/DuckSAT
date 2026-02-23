@@ -45,7 +45,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
          name: nextjs-app 
-         path: deploy-package/ # This uploads the CONTENTS of that folder
+         path: .next/standalone/
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -53,12 +53,12 @@ jobs:
       id-token: write #This is required for requesting the JWT
       contents: read #This is required for actions/checkout
 
-    steps:
-      - name: Download artifact from build job
+   steps:
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: nextjs-app
-          path: .  # Force it to extract to the current root
+          path: ./temp-deploy # Download to a specific temp folder
       
       - name: Login to Azure
         uses: azure/login@v2
@@ -72,10 +72,10 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'ducksatapp'
-          slot-name: 'Production'
-          package: .
-
+          # Point the deployer exactly to the temp folder contents
+          package: ./temp-deploy
           
+
 
 
 
