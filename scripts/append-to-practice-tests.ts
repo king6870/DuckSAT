@@ -4,8 +4,6 @@ import path from 'path';
 dotenv.config({ path: path.resolve(__dirname, '../.env.local') });
 import { PrismaClient } from '@prisma/client';
 import fs from 'fs';
-import path from 'path';
-
 const prisma = new PrismaClient();
 
 // Map of batch files to topics
@@ -26,7 +24,7 @@ const PRACTICE_TEST_IDS = [
 
 async function main() {
   // Gather all available questions from batches
-  const allQuestions: { [key: string]: any }[] = [];
+  const allQuestions: Question[] = [];
   for (const { file, topic, moduleType } of batchFiles) {
     const filePath = path.join(__dirname, '../../generated-batches', file);
     if (!fs.existsSync(filePath)) continue;
@@ -35,6 +33,22 @@ async function main() {
       allQuestions.push({ ...q, topic, moduleType });
     }
   }
+// Define the Question type for clarity
+type Question = {
+  question: string;
+  passage?: string;
+  options: string[];
+  correctAnswer: number;
+  explanation: string;
+  wrongAnswerExplanations?: Record<string, string>;
+  moduleType: string;
+  category: string;
+  topic?: string;
+  subtopic?: string;
+  difficulty?: string;
+  difficultyScore?: number;
+  visualType?: string;
+};
 
   // Remove duplicates by question text
   const uniqueQuestions = Array.from(new Map(allQuestions.map(q => [q.question, q])).values());
@@ -64,7 +78,11 @@ async function main() {
 
     // Insert questions and assign to modules
     for (let i = 0; i < 49; i++) {
-      for (const [moduleIndex, q] of [[0, module1Questions[i]], [1, module2Questions[i]]]) {
+      const modulePairs: [number, Question][] = [
+        [0, module1Questions[i]],
+        [1, module2Questions[i]]
+      ];
+      for (const [moduleIndex, q] of modulePairs) {
         // Insert question if not already in DB
         let dbQuestion = await prisma.question.findFirst({ where: { question: q.question } });
         if (!dbQuestion) {
@@ -77,9 +95,9 @@ async function main() {
               explanation: q.explanation,
               wrongAnswerExplanations: q.wrongAnswerExplanations ? JSON.stringify(q.wrongAnswerExplanations) : null,
               moduleType: q.moduleType,
-              category: q.category || q.topic,
+              category: q.category ?? q.topic ?? "",
               subtopic: q.subtopic,
-              difficulty: q.difficulty,
+              difficulty: q.difficulty ?? "",
               difficultyScore: q.difficultyScore,
               visualType: q.visualType,
               timeEstimate: 75,
