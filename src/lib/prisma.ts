@@ -21,5 +21,10 @@ logActiveEnvFile();
 
 
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
-export const prisma = globalForPrisma.prisma || new PrismaClient({ adapter: require('@prisma/client/adapter-sqlserver') });
+let adapter;
+if (typeof window === 'undefined') {
+  // Only require adapter in Node.js (not bundled by Next.js)
+  adapter = require('@prisma/client/adapter-sqlserver');
+}
+export const prisma = globalForPrisma.prisma || new PrismaClient(adapter ? { adapter } : {});
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
