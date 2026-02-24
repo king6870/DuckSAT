@@ -43,7 +43,7 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          PRISMA_CLI_BINARY_TARGETS: "native,debian-openssl-3.0.x"
+          PRISMA_CLI_BINARY_TARGETS: "debian-openssl-3.0.x"
           PRISMA_SCHEMA_PATH: "./prisma/schema.prisma"
 
 
