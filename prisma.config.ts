@@ -1,5 +1,15 @@
-// prisma.config.ts
-import { defineConfig } from '@prisma/config';
+import { defineConfig } from '@prisma/internals';
+
 export default defineConfig({
-  seed: 'tsx prisma/seed.ts',
+  generators: [
+    {
+      provider: 'prisma-client-js',
+      binaryTargets: [
+        'native',
+        'debian-openssl-3.0.x',
+        'linux-musl',
+        'linux-x64'
+      ],
+    },
+  ],
 });
