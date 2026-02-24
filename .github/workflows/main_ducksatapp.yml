@@ -33,10 +33,19 @@ jobs:
           cp -r src/generated/prisma .next/standalone/src/generated/
           
           # Step 3: Crucial for Prisma - Copy the generated client into the standalone node_modules
-          # Depending on your setup, it's usually in one of these two places:
           cp -r node_modules/.prisma .next/standalone/node_modules/ || true
           cp -r node_modules/@prisma .next/standalone/node_modules/ || true
           
+          # Verify Prisma client presence
+          echo "Verifying Prisma client in standalone node_modules..."
+          ls -l .next/standalone/node_modules/@prisma/client || echo "Prisma client missing!"
+          ls -l .next/standalone/node_modules/.prisma || echo ".prisma folder missing!"
+          
+          # If missing, install and generate directly in standalone
+          if [ ! -d ".next/standalone/node_modules/@prisma/client" ]; then
+            npm install --prefix .next/standalone @prisma/client
+            npx prisma generate --schema=./prisma/schema.prisma --generator-output=.next/standalone/node_modules/@prisma/client
+          fi
         env:
           NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
           NEXTAUTH_URL: https://www.ducksat.com
