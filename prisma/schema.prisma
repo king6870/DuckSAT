@@ -3,7 +3,7 @@
 
 generator client {
   provider      = "prisma-client-js"
-  output        = "../generated/prisma"  // Removes one 'src' layer
+  output        = "../src/generated/prisma"  // Removes one 'src' layer
   binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
