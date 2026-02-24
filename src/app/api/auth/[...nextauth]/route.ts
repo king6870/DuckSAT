@@ -101,6 +101,15 @@ const authConfig = {
   debug: process.env.NODE_ENV === 'development',
 }
 
-const handler = NextAuth(authConfig)
+import { NextResponse } from 'next/server'
+
+const handler = async (req: any, res: any) => {
+  try {
+    return await NextAuth(authConfig)(req, res)
+  } catch (error) {
+    console.error('[NextAuth API Error]', error)
+    return NextResponse.json({ error: 'Internal Server Error', details: error instanceof Error ? error.message : String(error) }, { status: 500 })
+  }
+}
 
 export { handler as GET, handler as POST }
