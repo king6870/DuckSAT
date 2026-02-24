@@ -1,0 +1,19 @@
+[Assignment] Processing practice test: SAT_PRACTICE_TEST_1_ID
+PrismaClientInitializationError: 
+Invalid `prisma.practiceTestQuestion.deleteMany()` invocation in
+D:\DuckSAT\scripts\append-to-practice-tests.js:40:39
+
+  37 for (const testId of PRACTICE_TEST_IDS) {
+  38   console.log(`[Assignment] Processing practice test: ${testId}`);
+  39   // Remove all previous assignments for this practice test
+ΓåÆ 40   await prisma.practiceTestQuestion.deleteMany(
+The provided database string is invalid. Error parsing connection string: Conversion error: invalid digit found in string in database URL. Please refer to the documentation in https://www.prisma.io/docs/reference/database-reference/connection-urls for constructing a correct connection string. In some cases, certain characters must be escaped. Please check the string for any illegal characters.
+    at ei.handleRequestError (D:\DuckSAT\node_modules\@prisma\client\runtime\library.js:121:7568)
+    at ei.handleAndLogRequestError (D:\DuckSAT\node_modules\@prisma\client\runtime\library.js:121:6593)
+    at ei.request (D:\DuckSAT\node_modules\@prisma\client\runtime\library.js:121:6300)
+    at async a (D:\DuckSAT\node_modules\@prisma\client\runtime\library.js:130:9551)
+    at async main (D:\DuckSAT\scripts\append-to-practice-tests.js:40:5) {
+  clientVersion: '6.19.1',
+  errorCode: undefined,
+  retryable: undefined
+}

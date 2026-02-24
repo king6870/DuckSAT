@@ -1,6 +1,10 @@
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+const prisma = new PrismaClient({
+  datasources: {
+    db: {
+      url: 'sqlserver://db-ducksat.database.windows.net:1433;initial catalog=DuckSAT_DB;user=lionvihaan;password=Microsoft757;encrypt=true;trustServerCertificate=false;loginTimeout=30'
+    }
+  }
+});
 
 const READING_CATEGORIES = new Set([
   'reading-comprehension',
@@ -16,6 +20,7 @@ const isReadingCategory = (category: string | null | undefined) => {
   if (READING_CATEGORIES.has(normalized)) return true
   return normalized.includes('reading') || normalized.includes('grammar') || normalized.includes('vocab') || normalized.includes('writing')
 }
+import { PrismaClient } from '@prisma/client';
 
 const inferModuleType = (q: {
   passage: string | null

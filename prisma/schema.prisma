@@ -8,7 +8,6 @@ generator client {
 
 datasource db {
   provider = "sqlserver"
-  url      = env("DATABASE_URL")
 }
 
 // NextAuth.js required models
@@ -115,7 +114,7 @@ model Question {
   // V3 Generator fields (Epic #34)
   visualType   String?  // 'bar-chart' | 'line-graph' | 'scatter-plot' | 'pie-chart' | 'table' | 'function-graph' | 'geometry' | 'system-of-equations' | 'none'
   difficultyScore Int?  // Numeric difficulty (easy=25, medium=50, hard=75) for fine-grained filtering
-  question     String   @db.Text
+  question     String   @db.NVarChar()
   passage      String?  @db.Text // Reading passages or context
   options      String   @db.Text // JSON array of answer options
   correctAnswer Int     // Index of correct answer (0-3)
