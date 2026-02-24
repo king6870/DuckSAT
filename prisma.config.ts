@@ -1,4 +1,4 @@
-import { defineConfig } from '@prisma/cli';
+import { defineConfig } from '@prisma/client';
 
 export default defineConfig({
   datasource: {
