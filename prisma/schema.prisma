@@ -2,9 +2,9 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider      = "prisma-client-js"
-  binaryTargets = ["native", "debian-openssl-3.0.x"]
-  // REMOVE THE OUTPUT LINE
+  provider = "prisma-client-js"
+  # Remove binaryTargets or specify supported platforms
+  # binaryTargets = ["linux-musl", "debian-openssl-3.0.x"]
 }
 
 datasource db {
