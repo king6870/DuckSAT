@@ -3,8 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "prisma": {
-          "schema": "prisma/schema.prisma"
-        },
+      "schema": "prisma/schema.prisma",
+      "disablePrismaClientGeneration": true
+    },
     "scripts": {
         "dev": "next dev --turbopack",
         "build": "next build",
