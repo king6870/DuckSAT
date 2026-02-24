@@ -1,0 +1,2341 @@
+{
+  "batchId": "batch-1771809088893-rhetoric",
+  "topic": "rhetoric",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-02-23T01:16:02.731Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 100,
+  "totalGenerated": 83,
+  "totalValid": 83,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "The author includes the anecdote about a volunteer who taught kids to plant tomatoes in the community garden in order to...",
+      "options": [
+        "A) illustrate the real-world impact on community cohesion",
+        "B) replace data from a formal study",
+        "C) create emotional appeal unrelated to argument",
+        "D) shift focus from policy to feelings"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The anecdote of a volunteer teaching kids demonstrates a tangible, real-world effect of community gardens on social cohesion and neighborhood resilience, supporting the central argument that such spaces are worthwhile investments. The other options misrepresent the anecdote’s role: it is not presented as mere emotional appeal without argument, nor as a substitute for data, nor as a diversion from policy details.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes and peppers after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported that the gardens provided more chances to talk with neighbors, reduced boredom among youth, and improved the neighborhood’s sense of pride. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and some funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. In light of these outcomes, the author argues that city leaders should allocate space and start-up funds for community gardens, framing the proposal as an investment in social capital, health, and long-term neighborhood resilience.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The anecdote is used to illustrate outcomes, not to replace formal data; the passage also mentions health lessons and community engagement as part of the argument.",
+        "C": "The anecdote serves a functional purpose in supporting the claim, not merely to evoke emotion without connection to the policy recommendation.",
+        "D": "The anecdote reinforces the argument for gardens, not distracting from policy discussions."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.698Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence “This program, while initially costly, yields long-term savings in health and social welfare” in order to...",
+      "options": [
+        "A) to acknowledge a potential downside to the plan",
+        "B) to forecast budget figures with precision",
+        "C) to emphasize a long-term return on investment",
+        "D) to propose a funding cut by the city council"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The sentence is used to argue that despite upfront costs, there are long-term benefits in health and welfare, highlighting a long-term return on investment. The other options misinterpret the sentence: it does not acknowledge a downside as its primary purpose, it does not provide precise forecast figures, and it does not advocate cutting funds.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. In light of these outcomes, the author argues that city leaders should allocate space and start-up funds for community gardens, framing the proposal as an investment in social capital and resilience.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The sentence is not presenting a downside; it reframes the costs as part of a larger, positive long-term effect.",
+        "B": "The sentence does not provide exact numbers or forecasts; it states a general claim about savings.",
+        "D": "The sentence supports continued funding, not a proposal to reduce funding."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.704Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the statistic about garden yields to...",
+      "options": [
+        "A) to demonstrate immediate community appreciation",
+        "B) to quantify the program’s ongoing impact",
+        "C) to illustrate a potential obstacle",
+        "D) to argue against expansion of the program"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The statistic serves to quantify ongoing impact and support the claim that the program has tangible benefits. The other options misrepresent the statistic: it is not merely about immediate appreciation, it is not shown as an obstacle, and it does not argue against expansion.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The statistic moves beyond appreciation and shows a measurable outcome rather than a sentiment.",
+        "C": "The statistic is not presented as an obstacle; it demonstrates productivity and impact.",
+        "D": "The statistic supports expansion, not opposition to it."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.705Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the phrase “neighbors who participated reported” in order to...",
+      "options": [
+        "A) to cite a neutral third-party source",
+        "B) to show evidence from participants",
+        "C) to describe a future event",
+        "D) to present a hypothetical scenario"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The phrase introduces evidence from actual participants, reinforcing the argument with firsthand accounts. The other options misrepresent the function: it’s not citing a neutral source, not describing a future event, and not presenting a hypothetical scenario.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The phrase indicates testimony from participants, not a neutral source.",
+        "C": "It references current participant reports, not a future event.",
+        "D": "It reports actual feedback, not a hypothetical scenario."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.706Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author uses the phrase “empty lots by turning them into community gardens” to... ",
+      "options": [
+        "A) to present the core policy proposal explicitly",
+        "B) to set the setting for a fictional narrative",
+        "C) to introduce a negative consequence",
+        "D) to present a historical overview"
+      ],
+      "correctAnswer": 0,
+      "explanation": "This phrase introduces the core policy proposal—the conversion of unused lots into gardens—as the central idea driving the argument. The other options misplace the function: it’s not setting fiction, not presenting a negative consequence, and not giving a historical overview.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage is non-fiction and aims to persuade, not tell a fictional tale.",
+        "C": "The sentence introduces the policy idea, not a negative consequence.",
+        "D": "The sentence is not a historical recounting; it presents a current proposal."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.707Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence that states ‘A volunteer named Maria began teaching local children to plant tomatoes after school’ in order to...",
+      "options": [
+        "A) to supply an example of practical engagement",
+        "B) to introduce a critical objection",
+        "C) to present a theoretical principle",
+        "D) to show a counterexample"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence provides a concrete example of engagement in action, illustrating how individuals participate and help the community. The other options mischaracterize its function: it is not an objection, a theoretical principle, or a counterexample.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The sentence presents an example of activity, not a formal objection.",
+        "C": "It is not a theoretical principle; it is a real-world example.",
+        "D": "It is not a counterexample; it supports the positive effect of the program."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.708Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence about ‘basic nutrition lessons’ to...",
+      "options": [
+        "A) to show a practical benefit of gardens beyond aesthetics",
+        "B) to argue that nutrition is unrelated to gardening",
+        "C) to indicate a need for medical research",
+        "D) to suggest that gardening is purely recreational"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence links gardening to health education, showing a practical benefit that goes beyond aesthetics. The other options misread the purpose: nutrition lessons are relevant to health, not unrelated, not a medical research need, and not recreational.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage shows nutrition lessons as a benefit, not unrelated.",
+        "C": "It is about program benefits, not a call for medical research.",
+        "D": "It frames gardening as having health-related benefits, not just recreation."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.709Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author uses the concession sentence ‘Although the initial setup required effort and funds’ in order to...",
+      "options": [
+        "A) to anticipate objections about ongoing maintenance",
+        "B) to question the validity of the evidence",
+        "C) to present an immediate problem without resolution",
+        "D) to critique existing urban planning policies"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The concession signals that there are upfront costs and challenges, which the rest of the paragraph then argues are outweighed by later benefits; this strengthens the argument by acknowledging a potential objection and addressing it. The other options mischaracterize the function: it does not doubt the evidence, it does not present an unresolved immediate problem, and it does not critique broader policies.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The sentence is not a critique of evidence; it acknowledges upfront costs.",
+        "C": "It does not present an unresolved problem; it acknowledges a hurdle that is later outweighed.",
+        "D": "It is not a policy critique; it supports the garden program’s viability."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.709Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the paragraph about “a neighborhood pantry” in order to...",
+      "options": [
+        "A) to show how gardens provide food security for the entire city",
+        "B) to illustrate a practical outcome that supports community support",
+        "C) to criticize reliance on volunteer labor",
+        "D) to shift focus toward agricultural policy reform"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The mention of a neighborhood pantry shows a concrete outcome that supports community support and sustainability, reinforcing the argument for funding. The other options misinterpret the aim: it’s not claiming city-wide food security, it’s not a critique of volunteer labor, and it’s not about broad policy reform.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage describes a local pantry, not city-wide security.",
+        "C": "There is no critique of volunteer labor; it highlights its effectiveness.",
+        "D": "It remains focused on the garden project rather than broader policy reform."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.710Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s purpose in describing the partnership with a local clinic is to...",
+      "options": [
+        "A) to show how partnerships can strengthen program outcomes",
+        "B) to present a purely idealized scenario without real-world constraints",
+        "C) to shift responsibility away from city officials",
+        "D) to illustrate that health outcomes are unrelated to gardening"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The clinic partnership demonstrates how collaboration broadens impact and sustains programs, aligning with the argument for funding. The other options misrepresent the role: it’s not an idealized scenario without constraints, not shifting responsibility, and not claiming health outcomes are unrelated to gardening.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage acknowledges costs and challenges; it is grounded in real-world collaboration.",
+        "C": "The partnership could involve city officials; it does not shift all responsibility away.",
+        "D": "It explicitly links health to gardening through nutrition lessons."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.711Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence ‘The program also partnered with a nearby clinic’ to...",
+      "options": [
+        "A) to introduce the role of external partners in the project",
+        "B) to argue that clinics should take over the program",
+        "C) to indicate a potential source of conflict",
+        "D) to present a counterexample to community involvement"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence introduces an external partner, showing how collaboration strengthens the program. The other options misinterpret the sentence: it does not claim clinics should take over, indicate conflict, or present a counterexample.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The sentence does not claim clinics should take over; it presents collaboration.",
+        "C": "No conflict is indicated by this sentence.",
+        "D": "It is not a counterexample; it describes collaboration."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.712Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author uses the phrase ‘transform a neglected space into a place for learning and shared responsibility’ to...",
+      "options": [
+        "A) to emphasize personal growth and collective responsibility",
+        "B) to describe an unrelated aesthetic transformation",
+        "C) to indicate a potential legal obstacle",
+        "D) to imply that gardens are a temporary fad"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The phrase highlights how gardens foster learning and shared responsibility, reinforcing the argument for support. The other options misinterpret the line as unrelated to learning, a legal issue, or a temporary trend.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The phrase ties transformation to learning and responsibility, not aesthetics alone.",
+        "C": "There is no legal obstacle mentioned here.",
+        "D": "There is no suggestion that gardening is a temporary fad."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.712Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s tone in the passage is best described as...",
+      "options": [
+        "A) hopeful and persuasive",
+        "B) cynical and doubtful",
+        "C) indifferent and factual",
+        "D) hostile and sarcastic"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The tone is hopeful and persuasive, aimed at encouraging support for the program while presenting evidence. The other tones contradict the supportive, constructive stance of the passage.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "tone",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage does not display doubt or cynicism; it advocates for the program.",
+        "C": "The language is actively advocating, not merely neutral.",
+        "D": "There is no sarcasm or hostility in the text."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.713Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the line about the gardens yielding ‘a dozen baskets per week’ in order to...",
+      "options": [
+        "A) to demonstrate the program’s scale and viability",
+        "B) to show that yields are unpredictable",
+        "C) to suggest that harvesting is unnecessary",
+        "D) to imply that the project is unsustainable"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The yield detail quantifies impact and supports the argument that funding leads to tangible benefits, showing scale and viability. The other options misread the data: yields are presented as a positive, not unpredictable, unnecessary, or unsustainable.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage presents yields as stable enough to stock markets and pantries, not unpredictable.",
+        "C": "Harvesting is central to the program’s value, not unnecessary.",
+        "D": "The text argues for funding, implying sustainability rather than suggesting unsustainability."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.714Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s purpose in including the line about meeting nutritional needs is to...",
+      "options": [
+        "A) to connect gardening to broader community health goals",
+        "B) to downplay health considerations",
+        "C) to argue that nutrition is irrelevant to gardens",
+        "D) to sidestep the health aspect of the plan"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The line explicitly ties gardening to health, strengthening the overall rationale for funding. The other options misrepresent this emphasis as neglectful or unrelated.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The sentence elevates health considerations, not downplays them.",
+        "C": "Nutrition is explicitly connected to gardening in the passage.",
+        "D": "It does not sidestep health; it foregrounds it."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.714Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author uses the word ‘neighborhood pantry’ to indicate...",
+      "options": [
+        "A) to imply a stable source of affordable groceries for residents",
+        "B) to suggest that gardens should replace all stores",
+        "C) to argue that food is not a priority for the city",
+        "D) to indicate that volunteers are an unnecessary part of the plan"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A neighborhood pantry connotes accessible food options for residents, aligning with the program’s goals of community support. The other options misinterpret the pantry’s purpose and the role of volunteers.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The pantry implies supplemental food access, not replacement of stores.",
+        "C": "Food access is presented as a priority, via nutrition lessons and pantry support.",
+        "D": "Volunteers are central to the program; the pantry underscores their importance."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.715Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s purpose in describing the costliness of the program is to...",
+      "options": [
+        "A) to acknowledge upfront costs while arguing for long-term benefits",
+        "B) to denigrate the value of investing in public spaces",
+        "C) to pretend that the program is free",
+        "D) to obscure the financial aspects of the plan"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence acknowledges initial costs but frames them as outweighed by long-term benefits, strengthening the persuasive aim. The other options misrepresent the purpose: the passage does not denigrate investment, pretend it’s free, or hide financial aspects.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage advocates for investment, not denigration.",
+        "C": "It clearly notes costs and funding needs.",
+        "D": "Financial details are acknowledged rather than hidden."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.716Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s tone in the following sentence is most likely intended to be: “The gardens matured, yields averaged a dozen baskets per week.”",
+      "options": [
+        "A) confident and encouraging",
+        "B) skeptical and doubtful",
+        "C) detached and analytical",
+        "D) hostile and condemnatory"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The tone communicates confidence in the program’s success and aims to persuade the reader to support it. The other tones would not align with the persuasive, hopeful end of the passage.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "tone",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage does not express doubt about the program’s success.",
+        "C": "The tone is more than analytical; it’s persuasive and hopeful.",
+        "D": "There is no hostility or condemnation."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.716Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the anecdote about the clinic partnership to illustrate...",
+      "options": [
+        "A) to demonstrate how partnerships can strengthen outcomes",
+        "B) to prove that gardens alone are sufficient without health components",
+        "C) to imply that clinics should replace schools in nutrition education",
+        "D) to suggest that partnerships complicate the project unnecessarily"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The clinic partnership is shown as expanding the program’s impact by linking health education with gardening, reinforcing the overall argument. The other options misinterpret the role of the partnership.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage shows nutrition lessons as part of the program, not that gardens alone suffice.",
+        "C": "It does not imply clinics should replace schools; it adds health education.",
+        "D": "It portrays partnerships as beneficial, not unnecessarily complicated."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.717Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s use of concrete details about baskets and market stock serves to...",
+      "options": [
+        "A) to demonstrate tangible, measurable impact",
+        "B) to overwhelm readers with numbers",
+        "C) to confuse readers about the program’s value",
+        "D) to indicate that only large-scale programs succeed"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Concrete figures such as baskets and market stock provide tangible evidence of impact, supporting the argument. The other options misread the effect of concrete details.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The numbers are simple and illustrative, not overwhelming.",
+        "C": "The details clarify value rather than confuse.",
+        "D": "The text presents a local program as viable, not only large-scale ones."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.718Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence ‘As the gardens matured, yields averaged a dozen baskets per week’ to emphasize...",
+      "options": [
+        "A) to demonstrate consistency and growing impact over time",
+        "B) to indicate that yield variability undermines success",
+        "C) to shift focus away from community involvement",
+        "D) to show that harvests are unreliable"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence demonstrates that the program’s impact grows over time, reinforcing the argument for continued funding. The other options misinterpret the meaning of a stable, increasing yield.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The sentence presents a stable average, not variability that undermines success.",
+        "C": "It emphasizes community involvement as part of the impact.",
+        "D": "It does not imply unreliability; it implies measurable productivity."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.718Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s use of the word ‘reclaim’ in the opening sentence signals...",
+      "options": [
+        "A) to suggest turning a problem into an opportunity",
+        "B) to propose that the space should remain unused",
+        "C) to imply that gardens cannot improve a neighborhood",
+        "D) to indicate a legal boundary change"
+      ],
+      "correctAnswer": 0,
+      "explanation": "‘Reclaim’ indicates converting neglected spaces into productive community assets, signaling opportunity rather than stagnation. The other options misinterpret the intention of repurposing unused land.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The text advocates action, not keeping space unused.",
+        "C": "It argues that gardens improve neighborhoods.",
+        "D": "There is no legal boundary discussion in this line."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.719Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s purpose in the sentence about the ‘simple acts of cultivation’ is to...",
+      "options": [
+        "A) to show that small actions can produce meaningful community benefits",
+        "B) to argue that large-scale projects are the only effective option",
+        "C) to suggest that cultivation is a passive activity",
+        "D) to imply that learning occurs only in formal settings"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The phrase highlights how everyday, simple actions contribute to significant community benefits, supporting the argument for the program. The other options misstate the message: it’s not about only large-scale projects, not passive activity, and not limited to formal learning.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage argues for community gardens as viable, not only large-scale projects.",
+        "C": "Cultivation is framed as an active, hands-on practice.",
+        "D": "Learning is presented in practical settings, not exclusively formal ones."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.720Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author uses the paragraph about youth engagement to support which aspect of the argument?",
+      "options": [
+        "A) to demonstrate how afterschool programs can yield community benefits",
+        "B) to argue that youth should not participate in community projects",
+        "C) to indicate that afterschool programs are insufficient for impact",
+        "D) to suggest that youth engagement has minimal effect on public policy"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The paragraph shows that engaging youth in afterschool garden activities leads to broader community benefits, supporting the policy argument for funding. The other options contradict the passage’s positive portrayal of youth involvement.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage supports youth engagement, not opposing it.",
+        "C": "It implies that youth involvement contributes to broader impact.",
+        "D": "It frames youth engagement as a component of public policy success."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.721Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s tone toward the city’s policy proposal can be described as...",
+      "options": [
+        "A) assertive and optimistic",
+        "B) skeptical and dismissive",
+        "C) irritated and hostile",
+        "D) indifferent and neutral"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The tone is hopeful and confident about the program’s benefits, aiming to persuade readers. The other tones would not fit the persuasive, constructive nature of the passage.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "tone",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage does not express doubt or dismissal.",
+        "C": "There is no hostility or irritation in the tone.",
+        "D": "The tone is not neutral; it advocates for funding."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.722Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the line about a ‘small local market’ to strengthen the claim that the program...",
+      "options": [
+        "A) to show how gardens can create small, sustainable economic benefits",
+        "B) to claim that gardens will replace all local businesses",
+        "C) to suggest that gardening has little economic value",
+        "D) to imply that markets should be avoided in favor of direct gardening"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A small local market illustrates a tangible economic benefit of the program, reinforcing the argument for funding. The other options misinterpret the economic impact: it does not imply replacement of businesses, little value, or avoidance of markets.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The text does not imply replacement of businesses; it suggests supplementary local markets.",
+        "C": "Economic benefits are suggested through market support and pantry stock.",
+        "D": "Markets are presented as a positive extension of the program, not something to avoid."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.722Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s purpose in this passage is best described as...",
+      "options": [
+        "A) to advocate for a neighborhood improvement project using gardening as a tool",
+        "B) to explain why gardens are a poor use of public funds",
+        "C) to present a purely technical manual for gardening",
+        "D) to describe a historical precedent for urban farming"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage uses gardening as a tool to advocate for a neighborhood improvement project and fund allocation. The other options misinterpret the purpose: it’s not a critique, not a technical manual, and not a historical description.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage defends the project, not critiques it.",
+        "C": "The passage is persuasive, not a technical manual.",
+        "D": "The passage is contemporary and policy-focused, not historical."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.723Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which sentence best serves as a concession to potential critics?",
+      "options": [
+        "A) ‘Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests.'",
+        "B) 'This program, while initially costly, yields long-term savings in health and social welfare.'",
+        "C) 'A volunteer named Maria began teaching local children to plant tomatoes after school.'",
+        "D) 'As the gardens matured, yields averaged a dozen baskets per week.'"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The concession is the first part of sentence B: it acknowledges upfront costs but then asserts long-term savings, addressing a likely critic’s concern about cost. The other sentences do not present a direct concession to critics.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This sentence states the costs but is not a concession; it introduces the cost issue without addressing it.",
+        "C": "This is an example sentence describing a person; it does not concede a point.",
+        "D": "This reports a result, not a concession to critics."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.724Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s function in introducing the anecdote about the clinic is to...",
+      "options": [
+        "A) to present a practical support for the main policy",
+        "B) to introduce a new, independent topic unrelated to the main argument",
+        "C) to undermine the credibility of gardening as a solution",
+        "D) to provide a summary of the entire argument"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The anecdote about the clinic shows how partnerships support the main policy, strengthening the overall argument. The other options misrepresent the anecdote’s purpose.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "It remains connected to the main policy; it is not unrelated.",
+        "C": "The anecdote supports, not undermines, gardening as a solution.",
+        "D": "It is not a summary; it is a supporting detail."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.724Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s use of the concession sentence about maintenance helps to:",
+      "options": [
+        "A) to acknowledge realistic maintenance challenges while arguing they are manageable",
+        "B) to dismiss maintenance concerns as irrelevant",
+        "C) to suggest that maintenance costs will escalate uncontrollably",
+        "D) to imply that maintenance will never be necessary"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The concession acknowledges that maintenance is a challenge but argues that the benefits justify the effort, making it a balanced, credible claim. The other options mischaracterize the concession as either dismissive, alarming, or irrelevant.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The concession does not dismiss maintenance as irrelevant; it acknowledges it.",
+        "C": "The sentence does not claim escalation; it hedges that benefits justify costs.",
+        "D": "Maintenance is acknowledged as necessary; the sentence does not imply it will never be needed."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.725Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author uses the concession sentence about cost to establish:",
+      "options": [
+        "A) to acknowledge upfront costs so readers see credibility",
+        "B) to claim that costs are irrelevant to the outcome",
+        "C) to suggest that costs will be the primary barrier to success",
+        "D) to propose cutting funding due to cost concerns"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The concession lends credibility by acknowledging costs upfront, which strengthens the overall argument by addressing potential objections. The other options misconstrue the role of cost in the argument.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Costs are not treated as irrelevant; they are acknowledged.",
+        "C": "The passage does not present costs as the primary barrier; it argues benefits justify costs.",
+        "D": "Funding is not proposed for cut; the opposite is argued."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.725Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s choice to include a concrete, local example (Maria and the children) primarily serves to:",
+      "options": [
+        "A) to ground the argument in relatable, real-world experience",
+        "B) to present a theoretical model without practical examples",
+        "C) to discourage readers from emulating the program",
+        "D) to illustrate a failure in community engagement"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A concrete, local example helps readers connect with the argument and see practical viability. The other options misrepresent the purpose of including such a narrative.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage is full of practical example; it is not just theory.",
+        "C": "The tone is persuasive and encouraging, not discouraging.",
+        "D": "The example shows engagement succeeding, not failing."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.726Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author uses the progression from ‘initial setup’ to ‘yields’ to show...",
+      "options": [
+        "A) to illustrate a cause-and-effect sequence supporting the proposal",
+        "B) to confuse readers about the sequence of events",
+        "C) to present a non sequitur that does not relate to the proposal",
+        "D) to imply that the program has no measurable outcomes"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage shows a causal chain: initial setup leads to harvests and benefits, which strengthens the proposal. The other options describe misreads of the sequence or outcomes.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The sequence is coherent and supports the proposal.",
+        "C": "All details relate to the program’s outcomes.",
+        "D": "The passage provides measurable outcomes (yields, pantry support)."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.726Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s use of the word ‘resilience’ in the conclusion functions to:",
+      "options": [
+        "A) to emphasize the program’s durability and long-term benefits",
+        "B) to suggest the program is fragile and temporary",
+        "C) to imply that only extreme events test the program’s viability",
+        "D) to minimize the importance of community networks"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Resilience highlights the program’s capacity to endure and adapt, reinforcing the argument for ongoing support. The other options mischaracterize resilience as fragility or insignificance.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The term implies durability, not fragility.",
+        "C": "Resilience speaks to ongoing adaptability, not just extreme events.",
+        "D": "It underscores the importance of community networks rather than minimizing them."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.727Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s choice to include the phrase ‘learning and shared responsibility’ is intended to:",
+      "options": [
+        "A) to highlight both educational value and communal accountability",
+        "B) to indicate that gardening education is unnecessary",
+        "C) to shift the focus to profits rather than learning",
+        "D) to argue that responsibility should fall on schools alone"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The phrase signals that education and collective responsibility are core benefits of the program, reinforcing the argument. The other options misinterpret the emphasis on education and shared duties.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage presents education as a key benefit, not unnecessary.",
+        "C": "The focus is on learning and responsibility, not profits alone.",
+        "D": "It involves the broader community, not schools alone."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.727Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author uses the sentence about the gardens’ maturity to convey:",
+      "options": [
+        "A) to show that benefits accrue gradually and justify continued support",
+        "B) to suggest that performance declines after initial success",
+        "C) to imply that early results are intentionally exaggerated",
+        "D) to disclaim the project’s relevance to urban policy"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence indicates a trend of increasing and stabilizing yields over time, supporting continued funding. The other options misread the emphasis on maturity and ongoing benefits.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "There is no suggestion of declining performance.",
+        "C": "No hint of exaggeration is present in this sentence.",
+        "D": "The project is clearly framed as relevant to urban policy."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.728Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s purpose in including the final line about a ‘neighborhood pantry’ is to:",
+      "options": [
+        "A) to show how the program can directly support vulnerable residents",
+        "B) to argue against distributing food beyond local households",
+        "C) to claim that gardens are primarily about aesthetics",
+        "D) to downplay charitable food programs"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The pantry detail demonstrates direct social support for residents who may lack access to food, reinforcing the program’s value. The other options misinterpret the pantry’s role as purely aesthetic or as diminishing charity.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The line supports food distribution as a community benefit, not against it.",
+        "C": "The pantry underscores practical food access rather than aesthetics.",
+        "D": "It portrays charity as a positive outcome, not something to be downplayed."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.729Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s use of the phrase ‘place for learning and shared responsibility’ primarily functions to:",
+      "options": [
+        "A) to appeal to readers’ values about community and education",
+        "B) to propose eliminating schools from youth education",
+        "C) to imply that learning is unnecessary for volunteers",
+        "D) to shift focus away from community responsibility"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The phrase appeals to shared values such as community education and responsibility, reinforcing the argument for support. The other options misread the intent.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage does not advocate removing schools; it emphasizes community learning.",
+        "C": "Learning is central to the narrative and purpose.",
+        "D": "The focus remains on community responsibility, not shifting away from it."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.729Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s use of a single, concrete example (Maria’s class) rather than a broad survey is intended to:",
+      "options": [
+        "A) to personalize the argument and make the benefits tangible",
+        "B) to undermine the credibility of the data",
+        "C) to present a hypothetical scenario",
+        "D) to suggest that one example is insufficient for a policy decision"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A concrete individual example makes the benefits more concrete and persuasive, supporting the policy argument. The other options misinterpret the purpose of using a personal anecdote.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "There is no data to undermine; it’s a narrative example used for persuasion.",
+        "C": "It is presented as a real example, not a hypothetical one.",
+        "D": "While one example may be illustrative, in this context it supports the policy through a relatable story."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.730Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s function in including the line about ‘healthy living’ is to...",
+      "options": [
+        "A) to connect the project to broader public health goals",
+        "B) to show that health is irrelevant to the project",
+        "C) to argue that nutrition is beyond the scope of community efforts",
+        "D) to indicate that health benefits are accidental"
+      ],
+      "correctAnswer": 0,
+      "explanation": "It anchors the project in public health, strengthening the rationale for funding by showing health benefits linked to the garden program. The other options misinterpret the connection to health.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Health is relevant and explicitly connected to gardening.",
+        "C": "Nutrition lessons are part of the program, showing scope within community efforts.",
+        "D": "Health benefits are presented as intentional, not accidental."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.730Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s overall strategy in this set of paragraphs is to...",
+      "options": [
+        "A) to build a persuasive case for public funding through a narrative of impact",
+        "B) to present a balanced view with equal emphasis on costs and drawbacks",
+        "C) to explain the legal framework for urban gardening",
+        "D) to argue that community gardens are inferior to other policies"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The text builds a persuasive argument for funding by narrating a clear chain of impact and benefits. The other options misrepresent the text’s focus on impact rather than legal frameworks, drawbacks, or comparisons with other policies.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage emphasizes benefits and supports funding rather than dwelling on drawbacks.",
+        "C": "There is no discussion of legal frameworks.",
+        "D": "There is no claim that gardens are inferior; the text argues for their value."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.731Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author uses the phrase ‘simple acts of cultivation’ to...",
+      "options": [
+        "A) to show that meaningful change can come from small, manageable actions",
+        "B) to imply that only complex, expensive programs work",
+        "C) to argue that gardening is inherently difficult and impractical",
+        "D) to suggest that cultivation is less important than policy rhetoric"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The phrase emphasizes how modest, simple actions can have substantial positive effects, supporting the case for the program. The other options misinterpret the significance of ‘simple acts’.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage argues for the effectiveness of simple actions, not only complex programs.",
+        "C": "The text frames cultivation as practical and beneficial.",
+        "D": "The passage prioritizes actual actions over rhetoric."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.731Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s function in concluding with a call to funding is to...",
+      "options": [
+        "A) to argue for continued financial support to expand the program",
+        "B) to sign off with a neutral note of uncertainty",
+        "C) to propose immediate termination of the program",
+        "D) to shift to a different policy area entirely"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The final line serves as a persuasive call for funding, aiming to broaden impact and scale the program. The other options misrepresent the goal of the conclusion.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The conclusion is not neutral; it advocates for funding.",
+        "C": "There is no suggestion to terminate the program.",
+        "D": "The focus remains on gardening and community funding, not a different policy."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.732Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which sentence most clearly functions as a counterargument to a potential critic’s concern about cost?",
+      "options": [
+        "A) ‘Although the initial setup required effort and funds for soil and tools’",
+        "B) 'A volunteer named Maria began teaching local children to plant tomatoes after school'",
+        "C) 'As the gardens matured, yields averaged a dozen baskets per week'",
+        "D) 'Residents who participated reported more dialogue with neighbors'"
+      ],
+      "correctAnswer": 0,
+      "explanation": "This concession sentence directly addresses a cost concern and is followed by a discussion of benefits, functioning as a counterargument that then supports funding. The other options are descriptive statements that do not address cost objections.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "It introduces an example rather than addressing cost concerns.",
+        "C": "It provides a result, not a cost-related counterargument.",
+        "D": "It describes social outcomes, not policy objections."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.732Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s use of the sentence ‘This program, while initially costly, yields long-term savings in health and social welfare’ is primarily:",
+      "options": [
+        "A) to summarize the overall argument in favor of funding",
+        "B) to present a factual report without a stance",
+        "C) to introduce a contradictory view about health benefits",
+        "D) to indicate that the program should be shortened or stopped"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence encapsulates the central argument and frames the discussion around cost-benefit, reinforcing the call for funding. The other options misrepresent the sentence’s purpose.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The sentence expresses a clear stance about funding.",
+        "C": "The sentence supports health benefits rather than contradicting them.",
+        "D": "It does not advocate stopping the program."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.733Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s choice to begin the passage with a concrete proposal (turn empty lots into gardens) serves to...",
+      "options": [
+        "A) to present a clear, actionable solution to the problem",
+        "B) to confuse readers with abstract ideas",
+        "C) to avoid addressing a real-world issue",
+        "D) to elicit sympathy without offering a plan"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Presenting a concrete policy proposal at the start grounds the discussion in a specific, workable solution, guiding the reader toward support. The other options misinterpret the function of a concrete proposal.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage uses concrete details, not abstract ideas.",
+        "C": "The issue is clearly real and addressed with a plan.",
+        "D": "It provides a concrete plan and rationale, not merely sympathy."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.734Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which sentence most clearly functions as a bridge between evidence and conclusion?",
+      "options": [
+        "A) 'This program, while initially costly, yields long-term savings in health and social welfare.'",
+        "B) 'Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community.'",
+        "C) 'The city could reclaim empty lots by turning them into community gardens.'",
+        "D) 'A volunteer named Maria began teaching local children to plant tomatoes after school'"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence about long-term savings acts as a conclusion-deduction bridge, linking the observed benefits to the overall argument for funding. The other options present evidence or setup lines but not the explicit bridge to conclusion.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The city could reclaim empty lots by turning them into community gardens. A volunteer named Maria began teaching local children to plant tomatoes after school, demonstrating how simple acts of cultivation can transform a neglected space into a place for learning and shared responsibility. Residents who participated reported more dialogue with neighbors, reduced boredom among youth, and an enhanced sense of community. The program also partnered with a nearby clinic to offer basic nutrition lessons, linking gardening to health. Although the initial setup required effort and funds for soil and tools, the benefits accumulated through volunteers’ time and recurring harvests. This program, while initially costly, yields long-term savings in health and social welfare. As the gardens matured, yields averaged a dozen baskets per week, enough to stock a small local market and support a neighborhood pantry, reinforcing the case for funding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This is evidence, not the bridge to the conclusion.",
+        "C": "This is the initial claim, not the bridge.",
+        "D": "This is an introductory detail, not the bridge."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:13:20.734Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the anecdote about a teacher who stays after school to grade papers in order to...",
+      "options": [
+        "A) to illustrate a general trend in education policy",
+        "B) to emphasize the author's belief in hard work and personal responsibility",
+        "C) to introduce a statistical analysis of test scores",
+        "D) to set up a comparison with another district"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The anecdote about a teacher who stays after school personalizes the issue and shows how dedication translates into outcomes, illustrating the author’s belief that individual effort complements policy. The other options misrepresent the purpose: the anecdote isn’t presented as statistical evidence, a broad policy trend, or a comparison with another district.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Many schools face long hours beyond the classroom, and a local teacher, Ms. Rivera, is known for staying after school to grade papers and plan lessons. She tells her students that improvement comes through consistent practice. This anecdote may seem small, but it serves as a hinge between the policy rhetoric and everyday effort. The district has introduced a new after-school tutoring program, yet resources remain thin. In response, parents volunteer, and teachers rearrange schedules to accommodate tutoring. The claim of the article is that meaningful education requires both systemic support and personal dedication. Evidence is offered when the author notes that test scores rose in schools where mentors regularly monitor progress and communicate with families. The conclusion argues that policy should not rely on a single reform but combine funding, mentorship, and accountability to sustain improvement. By foregrounding a single caregiver's routine, the author links large-scale policy with a tangible human effort, making the case that steadfast commitment is essential to any lasting change.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The anecdote is used to personalize effort, not to imply a broad trend in policy.",
+        "C": "No statistical data is presented in the anecdote itself; the passage uses an example rather than numbers.",
+        "D": "There is no comparison with another district in this anecdote; it focuses on a local teacher."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.885Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence that mentions a district tutoring program in order to...",
+      "options": [
+        "A) to acknowledge a potential policy solution for schools",
+        "B) to cast doubt on any form of after-school help",
+        "C) to present a counterargument against tutoring programs",
+        "D) to illustrate a failure of community volunteers"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence about the tutoring program is used to illustrate a potential policy solution and support the article’s claim that ongoing support matters. Distractors misread the stance: the passage does not doubt tutoring, present a counterargument against tutoring, or highlight a failure.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Cities across the country have debated how to improve public schools without increasing taxes. In city X, a modest tutoring program was launched using volunteers from local universities. The program assigns mentors to small groups after school and tracks their progress with simple quarterly reports. Critics worry about consistency, but supporters argue that even small, steady gains will add up over years. The article asserts that what matters most is not grand reforms but a reliable support system that keeps students engaged. The evidence here shows that even limited tutoring correlates with higher attendance and better homework completion. The conclusion urges policymakers to view tutoring as a core element of education rather than a supplemental service. The overall claim rests on the idea that ongoing support sustains motivation and helps bridge gaps in preparation for exams.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage uses tutoring as supportive evidence, not as a failed solution.",
+        "B": "The passage treats tutoring as potentially beneficial, not something to be dismissed.",
+        "D": "There is no emphasis on failure; the focus is on the potential positive impact."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.886Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence in the paragraph that says the data are inconsistent to...",
+      "options": [
+        "A) to dismiss contradictory findings as irrelevant",
+        "B) to show that all data clearly support the conclusion",
+        "C) to admit a complication that complicates the main claim",
+        "D) to introduce a new policy idea"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The sentence about data being inconsistent serves to acknowledge a complication that must be addressed, signaling that the main claim depends on addressing variability. The other options misrepresent the function: it does not dismiss data, claim uniform support, or introduce a new policy idea.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A recent study on urban schools reported mixed results: some neighborhoods showed progress in reading, others did not. Nevertheless, researchers caution that duration and intensity of programs varied, complicating interpretation. A teacher notes that students who attended tutoring twice a week showed gains, while others who attended once per week did not. The author argues that consistent effort is the key variable behind improvement. The conclusion claims that policymakers should fund long-term mentorship rather than one-off initiatives. The article closes by acknowledging that no single measure guarantees success, but a steady, well-supported approach holds the strongest promise for lasting change.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The sentence acknowledges inconsistency rather than dismissing it.",
+        "B": "The sentence explicitly notes inconsistency, not uniform support.",
+        "D": "The sentence is not introducing a policy idea but addressing data interpretation."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.887Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the clause that confers expertise to a local educator in order to...",
+      "options": [
+        "A) to present a personal endorsement of the principal's approach",
+        "B) to undermine the value of collaboration",
+        "C) to emphasize the importance of fancy technology",
+        "D) to criticize families for lacking involvement"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The clause about the veteran principal acts to establish ethos and credibility for the approach. The other options misframe the intent: the passage supports collaboration, not undermines it; it does not focus on fancy tech, nor criticizes families for involvement.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a district facing budget cuts, a veteran principal argues that small, reliable supports matter more than flashy programs. She recalls a year when teachers collaboratively designed a one-page plan for each student, outlining goals, methods, and checkpoints. Although the plan was simple, it created accountability and a shared language for teachers, students, and families. The district adopted this model as a pilot, and early indicators suggested improved engagement. The article contends that trust and continuity within schools yield more durable gains than rapid, costly experiments. The conclusion reinforces the idea that long-term relationships between staff and students empower learning, even under financial constraints.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The focus is on the principal's approach as credible, not on criticizing the person.",
+        "B": "The passage favors collaboration, not its dismissal.",
+        "D": "The passage highlights family involvement as part of accountability, not as a criticism."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.888Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the phrase that the policy yields durable gains to support a claim about...",
+      "options": [
+        "A) to argue that policy changes should be rapid and dramatic",
+        "B) to claim that investment in people creates lasting benefits",
+        "C) to suggest that mentorship programs are too expensive",
+        "D) to show that attendance alone proves success"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The phrase about durable gains supports the claim that sustained investment in people yields lasting benefits. The distractors misstate the argument: rapid changes are not advocated; cost concerns are not the main point; attendance is only one metric, not proof by itself.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A city council debate centers on how to improve schools without raising taxes. A supporter cites long-term gains from small, steady investments in teacher training and after-school programs. A critic warns about administrative bloat and uncertain outcomes. The discussion moves to a compromise: extend the funding for mentorship programs while tightening oversight. The author asserts that sustained investment in people, not quick fixes, builds resilience in the educational system. Data from pilot districts are referenced to show improved attendance, while concerns about scalability remain. The conclusion reiterates that durability comes from a steady hand and patient evaluation, not from a single dramatic reform.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage advocates patient, sustained investment, not rapid change.",
+        "C": "While cost is mentioned, the main point is durability from investment, not an outright claim that programs are too expensive.",
+        "D": "Attendance is one metric but not the sole proof of success."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.889Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence that opens the paragraph to present a claim about...",
+      "options": [
+        "A) to claim that consumer choices are unrelated to policy outcomes",
+        "B) to argue that efficiency upgrades yield long-term savings",
+        "C) to demonstrate that upfront costs are insurmountable",
+        "D) to suggest that public buildings should be exempt from upgrades"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The opening sentence of the paragraph sets up the argument that efficiency upgrades can reduce energy use, leading to long-term savings. The other options misstate the argument: the passage links policy to outcomes; it asserts savings outweigh costs; it does not advocate exemption for buildings.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "tone",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Consumer data show that small households now account for a growing share of energy use. The article argues that efficiency upgrades in schools and public buildings can reclaim a sizable portion of this energy waste. A city-wide retrofit program is described, including insulation improvements and more efficient lighting. Critics worry about upfront costs, but the author notes that long-term savings exceed initial expenses. By connecting household economics to public policy, the piece makes a broader claim: prudent investments today mean a stronger economy tomorrow. The conclusion urges officials to adopt a staged, transparent plan that demonstrates progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage explicitly connects consumer choices and policy outcomes through efficiency gains.",
+        "C": "The text argues that long-term savings outweigh upfront costs, not insurmountable costs.",
+        "D": "The passage argues for upgrades in public buildings, not exemptions."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.890Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence that signals a shift in perspective to emphasize a counterpoint in order to...",
+      "options": [
+        "A) to reject the counterargument as irrelevant",
+        "B) to present a contrasting approach that strengthens the main claim",
+        "C) to delay the main argument until more data are available",
+        "D) to concede a failure and withdraw the proposal"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The author presents a contrasting approach (neighborhood watches and lighting) to strengthen the main claim that a balanced strategy is best. The other choices misread the intent: the counterargument is not rejected outright, nor is the main argument delayed or withdrawn.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "tone",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The local council argues that improving safety requires more police presence. A neighboring community, however, has invested in neighborhood watch programs and better street lighting, with notable reductions in crime. The article contends that prevention and community involvement often yield greater long-term impact than policing alone. It confesses that enforcement is necessary, yet asserts that collaboration and design can reduce incidents before they start. The conclusion advocates a hybrid strategy combining policing, lighting, and community programs. By acknowledging the counterargument, the author strengthens the case for a balanced approach.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The counterargument is addressed, not dismissed entirely.",
+        "C": "The author does not delay the argument; they argue for a hybrid solution.",
+        "D": "The counterargument is used to bolster, not to withdraw the proposal."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.891Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the paragraph stating that a program created a shared language to indicate its function in order to...",
+      "options": [
+        "A) to show that structure can coexist with professional discretion",
+        "B) to claim that professional judgment should be abandoned",
+        "C) to prove that the program fails without strict oversight",
+        "D) to illustrate that templates alone guarantee success"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The paragraph shows that a shared language from the template supports collaboration while preserving professional discretion, indicating a complementary function. The other options misrepresent the outcome: the text does not advocate abandoning judgment, claim a failure without oversight, or assert templates alone guarantee success.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A district introduced a simple planning template for teachers, outlining goals, methods, and checkpoints. The template was adopted as a standard, creating a shared language across classrooms. Principals used it to monitor progress and hold teams accountable without micromanaging. Some educators feared it would replace professional judgment, but others argued that structure improves collaboration and clarity. Early feedback suggested better alignment between lessons and assessments. The conclusion maintains that clear communication and agreed metrics are essential to sustained improvement. The program is portrayed as a modest reform with outsized leverage when embedded in daily practice.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage supports both structure and discretion, showing coexistence.",
+        "B": "Professional judgment is not rejected; it is supported by structure.",
+        "C": "No claim that oversight is the only path to success is made.",
+        "D": "It suggests the template helps but does not guarantee success on its own."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.892Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence that connects the claim to the evidence to show a causal link in order to...",
+      "options": [
+        "A) to present a direct causal relationship between education and health outcomes",
+        "B) to concede that the program has no effect",
+        "C) to dispute the relevance of the evidence",
+        "D) to separate the program from its outcomes"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence linking four-session attendance to fewer hospital admissions implies a causal connection, supporting the claim. The other options misstate the text: the program is presented as effective, not without effect, not contested, and not detached from outcomes.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A community health initiative linked workshops on nutrition with lower hospital admissions for preventable conditions. The article notes that participants who attended at least four sessions reduced emergency visits by a noticeable margin. Critics argue that correlation is not causation, but the author emphasizes the structured nature of the program and the consistent follow-up by facilitators. The conclusion asserts that investing in education about health yields measurable improvements in well-being. The evidence presented suggests that change happens when knowledge is paired with ongoing practice and support.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "It presents evidence that supports a causal link, not merely correlation.",
+        "B": "The passage emphasizes positive outcomes, not a lack of effect.",
+        "C": "There is no dispute about the relevance; the evidence is used to support the claim.",
+        "D": "The outcomes are clearly connected to the program, not separated."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.893Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence that explicitly frames the problem to prepare the reader for the argument in order to...",
+      "options": [
+        "A) to motivate readers to oppose the proposed changes",
+        "B) to set up the argument for ongoing, comprehensive support",
+        "C) to present unrelated data for comparison",
+        "D) to suggest that equity is already achieved"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The opening framing of unequal preparation sets up the argument for ongoing, comprehensive support, establishing the problem that the rest of the passage addresses. The other options misread the purpose: the text does not urge opposition, present unrelated data, or claim equity is achieved.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In many urban schools, students arrive with unequal preparation. The article argues that this inequality can be addressed through early and continuous support—an approach that begins in elementary grades and follows students into high school. The author then presents evidence from districts that implemented tutoring, mentoring, and college counseling. Critics point to cost, but proponents argue that long-term gains justify upfront investments. The conclusion reiterates that equity requires persistent, targeted assistance rather than a one-time remedy. By stating the problem at the outset, the author frames the discussion around long-term, systemic change.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage argues for changes, not opposition.",
+        "C": "The data are relevant to the problem, not unrelated.",
+        "D": "Equity is presented as a problem to be solved, not as already achieved."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.893Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence that forecasts the outcome of the policy in order to...",
+      "options": [
+        "A) to suggest the policy will fail without more funding",
+        "B) to imply a positive, long-term impact from the program",
+        "C) to propose cutting other services to fund the program",
+        "D) to claim that current data prove the program's success"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The forecast of higher engagement and lower truancy implies a positive long-term impact, supporting the policy argument. The other options misrepresent the tone and evidence: the passage does not claim failure without funding, propose service cuts, or claim conclusive current data prove success.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A city program promised to expand access to recreational centers for teens, offering job training and digital literacy classes. The article notes that centers in other neighborhoods reported higher engagement and lower truancy after similar launches. While the city acknowledges upfront costs, supporters predict a cascade of benefits, including better academic performance and reduced crime rates. The conclusion asserts that early investment in youth programs yields dividends over time, underscoring the value of foresight in public policy.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The sentence projects a hopeful outcome rather than a failure without more funding.",
+        "C": "There is no proposal to cut other services in this sentence.",
+        "D": "The sentence forecasts future impact rather than stating current data prove success."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.894Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence that defines the central claim in order to...",
+      "options": [
+        "A) to prescribe a method for evaluating all information",
+        "B) to dismiss the importance of source credibility",
+        "C) to emphasize the beauty of storytelling over accuracy",
+        "D) to propose a new media policy for government funding"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The central claim is that accurate information requires careful sourcing and transparent methods, and the sentence introduces a practitioner’s checklist, which serves as a method for evaluating information. Other options misstate the purpose: the piece does not de-emphasize credibility, value storytelling over accuracy, or discuss government funding.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A newsroom column argues that accurate information requires careful sourcing and transparent methods. The author claims that misinformation spreads quickly when readers lack context and verification. The paragraph that follows presents a checklist for evaluating sources: check author credentials, read beyond headlines, verify numbers, and seek corroboration. The conclusion reiterates that journalism has a duty to be precise and accountable. By outlining the claim and a practical method, the article offers a framework readers can apply to any story.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage stresses credibility, not dismissing it.",
+        "C": "The focus is on accuracy and sources, not storytelling quality.",
+        "D": "Policy for government funding is not addressed."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.894Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence that asserts a close link between community support and educational outcomes to...",
+      "options": [
+        "A) to claim that schools alone determine success",
+        "B) to show that community support contributes to better outcomes",
+        "C) to argue that parental involvement is optional",
+        "D) to minimize the role of schools in education"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The sentence linking family engagement to outcomes supports the claim that community support matters. The distractors misstate the claim: the passage rejects the idea that schools alone determine success, and indicates parental involvement is beneficial, not optional, and that schools play a significant role.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A school district launched a family-engagement initiative, inviting parents to weekly math clinics and science fairs. Early results show higher homework completion rates and improved test scores in participating classrooms. Critics worry about parental burden, but the author argues that schools cannot succeed without strong family partnerships. The conclusion emphasizes shared responsibility: schools provide instruction, families reinforce routines, and communities sustain effort. The evidence suggests that when families and schools cooperate, students benefit in measurable ways.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage emphasizes shared responsibility, not schools alone.",
+        "B": "This is the correct interpretation; families matter.",
+        "C": "The passage argues parental involvement is not optional.",
+        "D": "The passage assigns a significant role to schools."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.895Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence that highlights a counterexample to sustain the argument about equity in order to...",
+      "options": [
+        "A) to dismiss the counterexample as irrelevant",
+        "B) to acknowledge a failure and refine the policy",
+        "C) to propose replacing tutoring with another strategy",
+        "D) to suggest equity cannot be achieved"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The sentence acknowledging a counterexample shows the author is strengthening the overall argument by refining the policy rather than dismissing it or giving up. The other options misstate the purpose: there is no suggestion to replace tutoring, or that equity is unreachable.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A district claims that universal tutoring would reduce gaps in achievement. However, a few schools that attempted universal tutoring found limited gains because attendance fluctuated and tutors were stretched thin. The author concedes that the first attempt did not work everywhere, but argues that the core idea remains valid if implemented with reliable attendance and targeted mentoring. The conclusion asserts that equity is achievable through sustained, well-supported programs, not one-off efforts. By acknowledging the counterexample, the author strengthens the claim that equity requires thoughtful, durable solutions.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The counterexample is acknowledged, not dismissed as irrelevant.",
+        "C": "The author does not propose replacing tutoring in this sentence.",
+        "D": "The author remains optimistic about achieving equity with proper implementation."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.895Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence that links a statistic to a claim to strengthen the argument about...",
+      "options": [
+        "A) to suggest that statistics prove the policy beyond doubt",
+        "B) to connect data to a broader claim about personalized instruction",
+        "C) to claim that funding is unnecessary",
+        "D) to refute the idea that smaller classes help students"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The statistic is used to support the broader claim that smaller class sizes enable personalized instruction, strengthening the overall argument. The other options misstate the purpose: statistics are not claimed to prove beyond doubt, funding is not deemed unnecessary, and the text does not refute the idea that smaller classes help.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A city reports that schools with smaller class sizes saw improved student engagement. The statistic is modest but consistent across several years. The author argues that reducing class density allows teachers to personalize instruction and monitor progress more effectively. Critics worry about the feasibility of cost, but the analysis shows that the benefits accumulate as students receive more individualized attention. The conclusion asserts that policy should favor targeted reductions in class size as part of a broader strategy for equity and quality.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Statistics support the claim but are not presented as absolute proof.",
+        "C": "Funding is discussed as a consideration, not dismissed.",
+        "D": "The passage supports, not refutes, the idea that smaller classes help."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.896Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes a paragraph about a district’s transparency to support the claim that accountability measures are...",
+      "options": [
+        "A) to present accountability as a punitive system",
+        "B) to show that transparency can foster trust and improvement",
+        "C) to claim that spending is unnecessary",
+        "D) to argue that metrics should be hidden from the public"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The paragraph argues that transparency builds trust and supports improvement, presenting accountability as a constructive framework. The distractors misinterpret the tone: it is not about punishment, unnecessary spending, or hiding data.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The district published a quarterly report detailing spending, progress toward goals, and teacher evaluation outcomes. Some residents criticized the document as dense, yet others praised its clarity and concrete metrics. The author argues that transparency builds trust, helps stakeholders understand trade-offs, and allows for informed feedback. The conclusion emphasizes that accountability is not punishment but a framework for continuous improvement. The article suggests that openness about failures is as important as reporting successes.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage frames accountability as a framework for improvement, not punishment.",
+        "C": "Spending is discussed as part of accountability, not dismissed.",
+        "D": "The text advocates public access to metrics, not hiding them."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.896Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence that signals a shift from problem to solution in order to...",
+      "options": [
+        "A) to present a pessimistic view of potential improvements",
+        "B) to illustrate a practical approach that addresses the problem",
+        "C) to propose a different problem unrelated to hunger",
+        "D) to avoid discussing any outcomes of the program"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The sentence signaling a shift to meal programs demonstrates the transition from problem to solution, guiding readers toward support. Distractors misrepresent the aim: it is not a pessimistic view, a different problem, or avoidance of outcomes.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A nonprofit notes that childhood hunger remains a barrier to learning. It then describes a program that offers free meals at schools, community centers, and during after-school programs. The organization collects feedback from students and families to adapt menus and hours. Early results show improved concentration and attendance during meals. The conclusion argues that feeding students is not merely charity but a strategic investment in education. By moving from the problem to a concrete solution, the author guides readers toward support for the initiative.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage moves toward solutions, not doom.",
+        "C": "The problem of hunger is the focus; the solution aligns with it.",
+        "D": "Outcomes are discussed, such as improved concentration."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.897Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence that frames a conclusion about long-term impact to...",
+      "options": [
+        "A) to imply that mentorship is temporary and not consequential",
+        "B) to suggest long-term positive effects on individuals and society",
+        "C) to claim that mentors are unnecessary for success",
+        "D) to present only short-term outcomes"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The conclusion forecasts lasting benefits for the economy and community, indicating long-term impact. The other options misinterpret the argument: the passage does not imply temporariness, unnecessary mentors, or solely short-term outcomes.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A university study tracked graduates who participated in a mentorship program. The researchers found higher rates of college persistence and early career advancement among mentees. The author argues that mentorship creates a supportive scaffold, helping students weather setbacks and stay engaged with their goals. The conclusion forecasts lasting benefits for the economy and community as graduates apply skills learned in college to their work. The article cautions that ongoing support is essential, not a one-time boost.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage emphasizes lasting benefits, not temporariness.",
+        "B": "This is the correct interpretation; long-term impact is central.",
+        "C": "Mentorship is presented as important, not unnecessary.",
+        "D": "The passage discusses long-term expectations, not only short-term results."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:14:28.898Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes a detail about a neighborhood library's quiet reading room being surveilled in order to...",
+      "options": [
+        "A) illustrate how surveillance reaches into ordinary life",
+        "B) accuse librarians of complicity",
+        "C) suggest libraries cannot protect privacy",
+        "D) show cameras deter crime"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The anecdote personalizes privacy concerns and demonstrates that data collection touches everyday spaces, supporting the claim that policy reform is needed.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Surveillance has grown from a criminal-justice concern into a routine backdrop for everyday decisions. Proponents argue that data collection enhances safety and efficiency; critics warn of a chilling effect on civic life. A telling anecdote from a neighborhood library, which recently installed cameras to monitor entrances and stacks, reveals the problem. A local teacher discovered that his reading list was displayed on a public screen during a demonstration of the system, exposing his private interests to the entire community. This is not simply about access to information; it is about how ordinary choices can be misread and weaponized. The argument, therefore, is not against technology but for control over how it is used. If we consent to blanket data collection, we risk surrendering autonomy. The conclusion is clear: we need transparent limits, independent oversight, and explicit consent to preserve the space where citizens can think freely.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The detail is not framed as librarians being complicit; it is used to illustrate privacy intrusion in daily life.",
+        "C": "The point is not to claim libraries cannot protect privacy in general, but to show intrusion can occur anywhere.",
+        "D": "The passage uses intrusion to argue for limits, not to claim cameras deter crime."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.719Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence 'This is not merely about policy; it is about who we want to be' in order to...",
+      "options": [
+        "A) frame the discussion in moral terms",
+        "B) present a data example",
+        "C) propose a mechanism",
+        "D) provide a summary"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence shifts the reader from a policy focus to ethical reflection, reframing the debate around shared values.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Policy discussions often prioritize cost and logistics, overshadowing the ethical ground on which we stand. The real measure of any framework is whether it preserves dignity and agency for all citizens. This is not merely about policy; it is about who we want to be. Data brokers may promise convenience, but the social costs—erosion of trust, unequal access to opportunity, chilling effects—are real. Studies show that as surveillance expands, marginalized communities retreat from public life. Yet reform advocates propose rights-based standards: consent, transparency, and meaningful redress. Critics argue that these measures are impractical; supporters insist they are essential for legitimacy. The argument succeeds when it ties technical details to shared values. Therefore, if policy is to be legitimate, it must be grounded in consent and accountability, not simply efficiency. The conclusion invites lawmakers to reframe debates around human dignity rather than dashboards and budgets.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The sentence moves beyond data; it does not provide an example but reframes the debate ethically.",
+        "C": "It does not propose a technical mechanism; it reframes the stakes as moral questions.",
+        "D": "It is not simply summarizing; it is reframing the purpose of the discussion."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.719Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the phrase 'cautious, measured diction' in order to...",
+      "options": [
+        "A) signal a sober, restrained tone",
+        "B) mock critics",
+        "C) claim expertise",
+        "D) imply certainty"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The phrase signals that the author is avoiding sensationalism and invites careful consideration, establishing a serious, restrained tone.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "tone",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Policy debates often center on cost and urgency, yet the ethical terrain is just as important. The author writes with cautious, measured diction to separate moral concern from panic, inviting readers to consider long-term consequences. The opening claim asserts that privacy is foundational to a functioning republic; the middle section documents data practices that erode trust; the conclusion outlines a rights-based reform. The tone remains steady as it links practical steps—clear consent processes, minimize data retention, independent oversight—with the broader aim of preserving democratic deliberation. The writer also notes that speed should not trump transparency, and that citizens deserve to know how their data is used. By choosing restrained language, the author signals seriousness and invites collaboration rather than confrontation. The argument rests on evidence of harm and a plausible path to improvement, with trust as the central value.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The diction is not mocking; it is deliberately restrained.",
+        "C": "It does not claim expertise; it emphasizes careful reasoning.",
+        "D": "It does not imply certainty; it invites deliberation."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.720Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence 'If data is a tool, consent is the handle' in order to...",
+      "options": [
+        "A) introduce a central metaphor",
+        "B) present evidence",
+        "C) conclude the argument",
+        "D) assess a cost"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence provides a memorable metaphor that organizes the reader's understanding of how consent should work, acting as the anchor for the argument.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "To illuminate power dynamics, the author uses a metaphor: 'If data is a tool, consent is the handle.' The sentence functions to anchor the policy argument in a vivid image, helping readers visualize how power should operate. The rest of the paragraph develops a framework of consent flows, opt-in versus opt-out, and the responsibilities of organizations to audit usage. Without this metaphor, the discussion risks becoming abstract. The evidence includes studies of consent failures and the social costs of opaque data practices. The conclusion calls for a rights-based standard that centers user agency.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The sentence is not primarily presenting data; it introduces a metaphor.",
+        "C": "It does not conclude the argument; it sets up a framework.",
+        "D": "It does not specifically assess a cost; it defines a mechanism (consent)."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.721Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the detail that anonymized data can still reveal identities in order to...",
+      "options": [
+        "A) argue for stronger governance",
+        "B) claim that data sharing should be banned",
+        "C) show that technology eliminates risk",
+        "D) suggest that patients have no recourse"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The point shows that protection is not automatic; governance must address re-identification risks.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Private hospitals routinely share de-identified patient data with device manufacturers for research and product development. The details of the acquisition are well published, but the author notes a troubling caveat: anonymization is not a shield against re-identification, and even seemingly anonymous data can reveal sensitive information when combined with other sources. This claim is used to argue for stronger governance, not a blanket ban on data sharing. The data-driven economy cannot be allowed to outrun ethical safeguards.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The author does not call for a blanket ban on data sharing.",
+        "C": "The passage asserts that risk remains, not that technology eliminates it.",
+        "D": "The text implies governance and recourse exist, not that patients have none."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.721Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the phrase 'market's self-correcting capacity' in order to...",
+      "options": [
+        "A) signal trust in market solutions",
+        "B) mock opponents",
+        "C) present a data case",
+        "D) underscore urgency"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The phrase is used to acknowledge market solutions while arguing that they are not sufficient on their own.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "tone",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Proponents of corporate data solutions argue that the market's self-correcting capacity will compel better practices. The author confronts this faith with a measured skepticism, noting that self-correction can be slow and uneven, especially for marginalized groups. The opening asserts privacy as a public good; the middle cites cases where market remedies failed to protect vulnerable communities; the conclusion urges a governance framework with enforceable standards. The tone remains calm but admonitory, balancing respect for innovation with insistence on accountability. The diction emphasizes process and rights, not slogans. By presenting both possibility and limitation, the author invites policymakers to pursue reforms that harness market incentives while preserving public trust.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The tone is not mocking; it is cautious and measured.",
+        "C": "It is not primarily presenting data here; it critiques a policy approach.",
+        "D": "It is not primarily about urgency; it weighs benefits against limitations."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.722Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence 'A monthly audit by an independent board, while modest, signals accountability' in order to...",
+      "options": [
+        "A) establish accountability mechanism",
+        "B) provide an example of data",
+        "C) present a consequence",
+        "D) introduce a definition"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence creates a concrete governance mechanism that supports the broader claim of accountability.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Digital privacy rules often read as paperwork; the author injects a concrete check: 'A monthly audit by an independent board, while modest, signals accountability.' This sentence functions to establish a tangible accountability mechanism within the broader framework. It shifts attention from abstract rights to operational practices. The evidence then details what the audit would review: data-access logs, consent records, and breach-response times. Without the sentence, readers might accept promises without evidence of action. The paragraph concludes that audits can build trust and deter misuse, while leaving room for refinement. The overall argument is that practical governance cannot be deferred to reputation alone.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "It is not merely providing data; it signals governance action.",
+        "C": "It does not present a consequence but a preventive measure.",
+        "D": "It does not define a term; it asserts an institutional practice."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.722Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the detail of a school district's concerns at a meeting to...",
+      "options": [
+        "A) show public anxiety about data-sharing",
+        "B) discredit the program",
+        "C) prove that consent is universal",
+        "D) demonstrate the program's success"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The details of parental concerns illustrate public anxiety and the need for stronger rights-based standards.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "A school district rolled out a new student-data platform designed to tailor learning experiences. While the program increased engagement metrics, several families expressed concern over consent and data sharing with third parties. The author uses this case to argue for a rights-based standard in education technology, emphasizing the need for meaningful parental consent and transparent data-exit options. The claim is that educational benefits do not justify privacy compromises when the data can be exploited beyond classrooms. The evidence cites community forums and researcher analyses; the conclusion calls for policymakers to set hard limits on data-sharing contracts and to require independent audits.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The purpose is not to discredit the program but to argue for protections.",
+        "C": "The passage does not claim universal consent; it argues for meaningful consent.",
+        "D": "It questions privacy safeguards, not the overall success."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.723Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence 'Thus, even as we gain efficiency, we must invest in privacy literacy' in order to...",
+      "options": [
+        "A) connect efficiency with education",
+        "B) deliver a data statistic",
+        "C) conclude the argument",
+        "D) criticize a policy"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence ties practical improvements to an ongoing need for public education about data rights.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Efficient services depend on data, yet the cost of privacy lapses is often unseen until a breach occurs. The author writes that 'Thus, even as we gain efficiency, we must invest in privacy literacy' to call for educating citizens about data practices. This sentence functions to link practical gains with civic education, bridging policy and everyday life. The paragraph then describes programs that train students and workers to understand consent, data flows, and rights. The evidence includes surveys showing gaps in public awareness; the conclusion asserts that an informed citizenry makes more responsible choices and supports stronger protections.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "It does not provide a statistic; it links concept to literacy.",
+        "C": "It does not wrap up the argument; it functions within the body.",
+        "D": "It does not criticize a policy; it supports informed participation."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.724Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence 'If transparency is the goal, audits must be ongoing' in order to...",
+      "options": [
+        "A) set a requirement for accountability",
+        "B) provide data",
+        "C) present a promise",
+        "D) propose an alternative"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence sets a concrete condition for accountability within the policy framework.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Transparency is the first step, but it requires action. The author writes: 'If transparency is the goal, audits must be ongoing' to establish a policy guardrail. It anchors the discussion in a specific operational requirement: ongoing audits. The paragraph then describes how audits would function and their limitations. The evidence includes examples of failed audits and the lessons learned. The conclusion argues that only continuous oversight can sustain trust.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "It does not present data; it specifies a governance action.",
+        "C": "It is not merely a promise; it specifies ongoing action.",
+        "D": "It does not propose an alternative; it reinforces ongoing oversight."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.724Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence 'Data is a river, and consent is the dam' in order to...",
+      "options": [
+        "A) present a central metaphor",
+        "B) describe data usage",
+        "C) conclude the argument",
+        "D) assess a risk"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The metaphor is the focal device that organizes the reader’s understanding of consent and data flow.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Data flows through society like a river: rapid, adaptive, and powerful. Some defenders argue that flow is inevitable and beneficial, yet the author counters with a vivid metaphor: 'Data is a river, and consent is the dam.' This sentence functions to foreground a central image that clarifies how power should be managed. It helps readers visualize that consent can and should regulate even beneficial currents. The paragraph then defines how such controls would work: limits on who accesses data, safeguards for usage, and explicit opt-in procedures. The evidence cites instances where unregulated access led to misuses and public distrust. The conclusion asserts that innovation can coexist with rights if governance sets boundaries. In short, the metaphor anchors the reader in a concrete image to anchor policy in everyday sense-making.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "It does more than describe usage; it frames governance.",
+        "C": "It does not conclude; it introduces a metaphor.",
+        "D": "It does not merely assess a risk; it shapes the framework for handling data."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.724Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the detail of a veteran privacy advocate to...",
+      "options": [
+        "A) strengthen credibility",
+        "B) attack a figure",
+        "C) confuse readers",
+        "D) propose a solution"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Referencing an experienced advocate enhances ethos and lends legitimacy to the proposed framework.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "To strengthen credibility, the author cites a veteran privacy advocate who has long argued for robust protections. The reference lends ethical weight to the discussion and helps reassure readers that the proposals rest on seasoned judgment. The passage then recounts a series of testimony and policy briefs that support a rights-based framework. The conclusion asserts that credibility matters when persuading diverse audiences. The overall aim is not to win a debate by force of argument alone but to align with established expertise.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The intent is not to attack a person, but to borrow credibility.",
+        "C": "It aims to persuade, not confuse, readers.",
+        "D": "It does not itself propose a concrete solution; it supports the framework."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.725Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence 'Trust is earned through transparent, accountable practice' in order to...",
+      "options": [
+        "A) summarize and reinforce the argument",
+        "B) introduce a counterpoint",
+        "C) present new data",
+        "D) propose a technical solution"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The final sentence restates the main point and ties together the argument about trust, reinforcing the overall claim.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "The final lines remind readers that trust is earned through consistent, transparent, and accountable practice. The author calls for ongoing oversight, clear reporting, and accessible channels for redress. The claim is that such practices will sustain public confidence even as technology evolves. The evidence touches on a handful of case studies where transparent governance avoided crises, and, conversely, where opacity led to loss of trust. The conclusion reiterates the central aim: to enable innovation while safeguarding civil rights. In tone and structure, the piece closes with a strong call to institutionalize norms that keep data use aligned with the public interest.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "It does not present a new counterpoint; it reinforces the argument.",
+        "C": "It does not add new data; it reinforces the conclusion.",
+        "D": "It does not propose a technical solution; it underscores governance principles."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.726Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes a description of a 'stern but hopeful tone' in order to...",
+      "options": [
+        "A) indicate seriousness while offering hope",
+        "B) patronize readers",
+        "C) attack opponents",
+        "D) minimize complexity"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The phrasing conveys gravity while maintaining an optimistic, collaborative outlook for reform.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "tone",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Throughout, the author writes in a stern but hopeful tone, balancing warnings about risks with a belief that policy can steer tech toward public good. The opening argues that privacy is a public trust, supported by data about surveillance's chilling effects. The middle acknowledges many actors have incentives to resist restrictions, citing political and corporate pressures. The concluding call invites collaboration across sectors to craft norms and enforceable standards. The diction remains formal, precise, and measured; even when presenting dire possibilities, the language emphasizes governance and collective responsibility. The tone signals seriousness but ends with a constructive invitation for dialog and reform. The claim remains consistent: privacy protections must be built into the architecture of digital life, not left to chance.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The tone is not patronizing; it is purposeful and respectful.",
+        "C": "It does not attack opponents; it analyzes incentives without hostility.",
+        "D": "It does not minimize complexity; it treats it with careful attention."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.726Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the phrase 'urgent without melodrama' to...",
+      "options": [
+        "A) signal balanced urgency",
+        "B) mock opponents",
+        "C) claim certainty",
+        "D) disclaim knowledge"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The phrase signals a pressing but calm urgency that invites thoughtful action rather than panic.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "tone",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "The piece closes with an appeal for timely action, yet the language resists melodrama. The author writes with an urgent but measured cadence, insisting that delay will deepen harm, but leaps and slogans will not suffice. The push for standards is paired with a respect for institutions and for public deliberation. The sentence choices—'we must act now, thoughtfully'—convey seriousness; the diction avoids sensationalism. The conclusion frames a step-by-step road map, inviting diverse stakeholders to participate in drafting reforms. The tone thus blends immediacy with deliberation, aiming to mobilize without panic.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The tone is not mocking; it is earnest and balanced.",
+        "C": "It does not claim absolute certainty; it advocates careful action.",
+        "D": "It does not disclaim knowledge; it asserts a plan for action."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.727Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the point about data-retention limits to...",
+      "options": [
+        "A) justify time-bound data storage",
+        "B) argue for indefinite retention",
+        "C) pressure for budget cuts",
+        "D) show that retention is unimportant"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage argues that finite retention limits risk and supports trust and practical analytics.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "In a final note, the author insists on concrete limits on how long data can be stored. The claim is that indefinite retention creates exposure to breaches and function creep. The example details a company that annually reviews its data holdings and deletes unused records. The author argues that regular purges protect privacy while preserving needed analytics. The conclusion asserts that retention policies are essential to risk management and public trust.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "It does not argue for indefinite retention; it argues for limits.",
+        "C": "Budget considerations are not the focus here.",
+        "D": "It treats retention as important for privacy and trust."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.727Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence 'Sunset clauses ensure privacy rights survive' in order to...",
+      "options": [
+        "A) institutionalize a safeguard",
+        "B) propose a new technology",
+        "C) give evidence",
+        "D) restate the claim"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence introduces a concrete governance tool that ensures protections are periodically reassessed.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "sentence-function",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "In a closing policy section, the author adds sunset clauses to privacy protections, ensuring that restrictive rules will be reviewed and renewed rather than assumed permanent. The sentence 'Sunset clauses ensure privacy rights survive' serves to provide a policy mechanism rather than a rhetorical flourish. It anchors the argument in a concrete governance tool and clarifies how protections can adapt to changing tech.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "It does not propose new technology; it proposes a policy mechanism.",
+        "C": "It is not presenting evidence; it proposes a governance tool.",
+        "D": "It does not merely restate a claim; it specifies a mechanism to keep protections alive."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.728Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the mention of a veteran privacy advocate to...",
+      "options": [
+        "A) strengthen credibility",
+        "B) attack a figure",
+        "C) confuse readers",
+        "D) propose a solution"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Ethos from a respected advocate bolsters trust in the proposed framework.",
+      "moduleType": "reading-writing",
+      "category": "rhetoric",
+      "subtopic": "author-purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "To strengthen credibility, the author cites a veteran privacy advocate who has long argued for robust protections. The reference lends ethical weight to the discussion and helps reassure readers that the proposals rest on seasoned judgment. The passage then recounts a series of testimony and policy briefs that support a rights-based framework. The conclusion asserts that credibility matters when persuading diverse audiences. The overall aim is not to win a debate by force of argument alone but to align with established expertise.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The aim is not to attack; it borrows credibility.",
+        "C": "It clarifies, not confuses readers.",
+        "D": "It supports the framework rather than proposing an unrelated solution."
+      },
+      "_batchId": "batch-1771809088893-rhetoric",
+      "_generatedAt": "2026-02-23T01:16:01.728Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

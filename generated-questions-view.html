@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generated SAT Questions</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    .question { margin-bottom: 2rem; padding: 1rem; border: 1px solid #ccc; border-radius: 8px; }
+    .module { font-weight: bold; color: #2a7ae2; }
+    .category { color: #555; }
+    .options { margin-top: 0.5rem; }
+    .option { margin-left: 1rem; }
+    .answer { color: #008000; font-weight: bold; }
+    .explanation { color: #444; margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+  <h1>Generated SAT Questions</h1>
+  <div id="questions"></div>
+
+  <script>
+      // Embedded questions from latest generated JSON
+      const questions = [
+        {"moduleType":"math","category":"Equations","subtopic":"algebraic-equations","question":"If 2x + 5 = 17, what is the value of x?","options":["6","7","8","9"],"correctAnswer":0,"explanation":"Starting with 2x + 5 = 17, subtract 5 from both sides to get 2x = 12. Divide both sides by 2 to get x = 6."},
+        {"moduleType":"math","category":"Geometry","subtopic":"geometric-properties","question":"In a right triangle, if one leg is 3 units and the hypotenuse is 5 units, what is the length of the other leg?","options":["2","3","4","5"],"correctAnswer":2,"explanation":"Using the Pythagorean theorem: a^2 + b^2 = c^2. If a = 3 and c = 5, then 9 + b^2 = 25, so b^2 = 16 and b = 4."},
+        {"moduleType":"math","category":"WordProblems","subtopic":"applied-math","question":"A train travels 120 miles in 2 hours. At this rate, how long will it take to travel 300 miles?","options":["3 hours","3.5 hours","4 hours","5 hours"],"correctAnswer":3,"explanation":"The train travels at 120/2 = 60 miles per hour. To travel 300 miles at 60 mph: 300/60 = 5 hours."},
+        {"moduleType":"math","category":"Functions","subtopic":"function-properties","question":"If f(x) = 2x + 3, what is f(5)?","options":["10","11","12","13"],"correctAnswer":3,"explanation":"Substitute x = 5 into f(x) = 2x + 3: f(5) = 2(5) + 3 = 10 + 3 = 13."},
+        {"moduleType":"math","category":"Data","subtopic":"data-analysis","question":"In a dataset with values 2, 4, 6, 8, 10, what is the mean?","options":["4","5","6","7"],"correctAnswer":2,"explanation":"The mean is the sum divided by the count: (2+4+6+8+10)/5 = 30/5 = 6."},
+        {"moduleType":"reading-writing","category":"ReadingVocabulary","subtopic":"vocabulary-context","question":"Despite the ___ weather, the team decided to proceed with their outdoor event.","options":["favorable","inclement","pleasant","mild"],"correctAnswer":1,"explanation":"The word \"despite\" indicates a contrast. The weather would normally stop an event, but the team proceeded anyway. \"Inclement\" means stormy or unfavorable weather."},
+        {"moduleType":"reading-writing","category":"ReadingComprehension","subtopic":"detail-comprehension","question":"According to the passage, what was the primary reason for the market decline?","options":["Government policy changes","Rising interest rates and declining consumer confidence","Supply chain disruptions","Employee shortages"],"correctAnswer":1,"explanation":"The passage explicitly states that the market decline was due to 'rising interest rates and declining consumer confidence.'"},
+        {"moduleType":"reading-writing","category":"ReadingComprehension","subtopic":"main-idea","question":"Which of the following best describes the main purpose of the passage?","options":["To criticize ancient timekeeping methods","To trace the evolution of timekeeping and its significance","To promote the use of atomic clocks","To explain how sundials work"],"correctAnswer":1,"explanation":"The passage discusses the evolution of timekeeping from ancient to modern methods, emphasizing how this reflects human needs and desires."},
+        {"moduleType":"reading-writing","category":"ReadingData","subtopic":"data-interpretation","question":"Based on the data shown, in which year did sales first exceed 100 million dollars?","options":["2020","2021","2022","2023"],"correctAnswer":2,"explanation":"The chart indicates that sales surpassed the 100 million dollar mark in 2022."},
+        {"moduleType":"reading-writing","category":"ReadingClaims","subtopic":"claims-evidence","question":"Which claim is best supported by the evidence presented in the passage?","options":["Claim A","Claim B","Claim C","Claim D"],"correctAnswer":0,"explanation":"The evidence in the passage most directly supports Claim A."}
+      ];
+      const container = document.getElementById('questions');
+      questions.forEach((q, idx) => {
+        const div = document.createElement('div');
+        div.className = 'question';
+        div.innerHTML = `
+          <div class="module">${q.moduleType.toUpperCase()} - ${q.category}</div>
+          <div class="category">Subtopic: ${q.subtopic}</div>
+          <div><strong>Q${idx + 1}:</strong> ${q.question}</div>
+          <div class="options">
+            ${q.options.map((opt, i) => `<div class="option">${String.fromCharCode(65 + i)}. ${opt}</div>`).join('')}
+          </div>
+          <div class="answer">Answer: ${String.fromCharCode(65 + q.correctAnswer)}</div>
+          <div class="explanation">Explanation: ${q.explanation}</div>
+        `;
+        container.appendChild(div);
+      });
+  </script>
+</body>
+</html>
