@@ -1,8 +1,9 @@
-import { defineConfig } from '@prisma/config'
+import { defineConfig } from '@prisma/cli';
 
 export default defineConfig({
-  schema: './prisma/schema.prisma',
-  client: {
-    generator: false, // disables auto-generation during npm install
+  datasource: {
+    provider: 'sqlserver',
+    url: process.env.DATABASE_URL,
+    // shadowDatabaseUrl: process.env.SHADOW_DATABASE_URL, // optional
   },
-})
+});
