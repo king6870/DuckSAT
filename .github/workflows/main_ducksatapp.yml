@@ -21,16 +21,31 @@ jobs:
       - name: Install, Build, and Prepare Standalone
         run: |
           npm install
+          npx prisma generate --schema=./prisma/schema.prisma
           npm run build
-          # Move static and public into standalone so they are part of the deployment
+          
+          # Move static/public
           cp -r .next/static .next/standalone/.next/static
           cp -r public .next/standalone/public
+          
+          # Mirror the generated prisma client into standalone
+          mkdir -p .next/standalone/src/generated
+          cp -r src/generated/prisma .next/standalone/src/generated/
+          
+          # Step 3: Crucial for Prisma - Copy the generated client into the standalone node_modules
+          # Depending on your setup, it's usually in one of these two places:
+          cp -r node_modules/.prisma .next/standalone/node_modules/ || true
+          cp -r node_modules/@prisma .next/standalone/node_modules/ || true
+          
         env:
           NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
           NEXTAUTH_URL: https://www.ducksat.com
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          PRISMA_CLI_BINARY_TARGETS: "native,debian-openssl-3.0.x"
+          PRISMA_SCHEMA_PATH: "./prisma/schema.prisma"
+
 
       - name: Upload Standalone Artifact
         uses: actions/upload-artifact@v4
@@ -64,3 +79,9 @@ jobs:
         with:
           app-name: 'ducksatapp'
           package: ./app-to-deploy # Pointing specifically to the downloaded folder
+
+
+
+
+
+

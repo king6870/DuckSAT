@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev --turbopack",
-        "build": "prisma generate && next build",
+        "build": "next build",
         "start": "next start",
         "lint": "next lint",
         "db:generate": "prisma generate",
@@ -14,7 +14,7 @@
         "db:seed-topics": "tsx prisma/seed-topics.ts",
         "db:import": "tsx scripts/import-generated-questions.ts",
         "db:studio": "prisma studio",
-        "postinstall": "prisma generate",
+        "postinstall": "",
         "generate:questions": "tsx scripts/generate-bulk-questions.ts",
         "generate:images": "tsx scripts/generate-images-for-existing-questions.ts",
         "questions:organize": "tsx scripts/organize-export-questions.ts",
@@ -66,8 +66,5 @@
         "tailwindcss": "^4",
         "tsx": "^4.19.2",
         "typescript": "^5.9.3"
-    },
-    "prisma": {
-        "seed": "tsx prisma/seed.ts"
     }
 }
