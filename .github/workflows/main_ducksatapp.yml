@@ -30,8 +30,8 @@ jobs:
 
           # 2. THE FIX: Copy your custom generated Prisma folder into the standalone app
           # This ensures the engine and the client code stay together.
-          mkdir -p .next/standalone/generated
-          cp -r generated/prisma .next/standalone/generated/
+          mkdir -p .next/standalone/src/generated
+          cp -r src/generated/prisma .next/standalone/src/generated/
           
           # Step 3: Crucial for Prisma - Copy the generated client into the standalone node_modules
           # Depending on your setup, it's usually in one of these two places:
@@ -77,6 +77,7 @@ jobs:
         with:
           app-name: 'ducksatapp'
           package: ./app-to-deploy # Pointing specifically to the downloaded folder
+
 
 
 
