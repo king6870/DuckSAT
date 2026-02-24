@@ -1,5 +1,5 @@
 
-import { PrismaClient } from '../src/generated/prisma'
+import { PrismaClient } from '@/generated/prisma';
 import path from 'path'
 import fs from 'fs'
 
