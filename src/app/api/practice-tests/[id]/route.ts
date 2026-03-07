@@ -35,6 +35,11 @@ export async function GET(
 
     // Validate module index if provided
     if (moduleIndex !== null && (moduleIndex < 0 || moduleIndex > 3)) {
+      console.warn('[practice-tests] Invalid module query parameter', {
+        practiceTestId: id,
+        userId: session.user.id,
+        moduleParam,
+      })
       return NextResponse.json(
         { success: false, error: 'Invalid module index. Must be 0-3' },
         { status: 400 }
@@ -54,6 +59,10 @@ export async function GET(
     });
 
     if (!practiceTest) {
+      console.warn('[practice-tests] Practice test not found', {
+        practiceTestId: id,
+        userId: session.user.id,
+      })
       return NextResponse.json(
         { success: false, error: 'Practice test not found' },
         { status: 404 }
@@ -61,6 +70,10 @@ export async function GET(
     }
 
     if (!practiceTest.isPublished) {
+      console.warn('[practice-tests] Attempt to access unpublished practice test', {
+        practiceTestId: id,
+        userId: session.user.id,
+      })
       return NextResponse.json(
         { success: false, error: 'Practice test not published' },
         { status: 403 }
@@ -118,19 +131,74 @@ export async function GET(
       ],
     });
 
+    if (practiceTestQuestions.length === 0) {
+      console.error('[practice-tests] Published test has zero assigned questions', {
+        practiceTestId: id,
+        userId: session.user.id,
+        requestedModuleIndex: moduleIndex,
+      })
+    }
+
     // Parse JSON fields and convert imageData to base64
     const questions = practiceTestQuestions.map((ptq) => {
       const q = ptq.question;
+      let parsedOptions: string[] = []
+      let parsedWrongAnswerExplanations: unknown = null
+      let parsedChartData: unknown = null
+      let parsedTags: string[] = []
+
+      try {
+        parsedOptions = JSON.parse(q.options)
+      } catch (error) {
+        console.error('[practice-tests] Failed to parse question options', {
+          practiceTestId: id,
+          questionId: q.id,
+          error,
+        })
+      }
+
+      if (q.wrongAnswerExplanations) {
+        try {
+          parsedWrongAnswerExplanations = JSON.parse(q.wrongAnswerExplanations)
+        } catch (error) {
+          console.error('[practice-tests] Failed to parse wrongAnswerExplanations', {
+            practiceTestId: id,
+            questionId: q.id,
+            error,
+          })
+        }
+      }
+
+      if (q.chartData) {
+        try {
+          parsedChartData = JSON.parse(q.chartData)
+        } catch (error) {
+          console.error('[practice-tests] Failed to parse chartData', {
+            practiceTestId: id,
+            questionId: q.id,
+            error,
+          })
+        }
+      }
+
+      try {
+        parsedTags = JSON.parse(q.tags)
+      } catch (error) {
+        console.error('[practice-tests] Failed to parse tags', {
+          practiceTestId: id,
+          questionId: q.id,
+          error,
+        })
+      }
+
       return {
         id: q.id,
         question: q.question,
         passage: q.passage,
-        options: JSON.parse(q.options),
+        options: parsedOptions,
         correctAnswer: q.correctAnswer,
         explanation: q.explanation,
-        wrongAnswerExplanations: q.wrongAnswerExplanations 
-          ? JSON.parse(q.wrongAnswerExplanations)
-          : null,
+        wrongAnswerExplanations: parsedWrongAnswerExplanations,
         moduleType: q.moduleType,
         category: q.category,
         subtopic: q.subtopic,
@@ -139,9 +207,9 @@ export async function GET(
           ? `data:${q.imageMimeType || 'image/svg+xml'};base64,${q.imageData.toString('base64')}`
           : null,
         imageAlt: q.imageAlt,
-        chartData: q.chartData ? JSON.parse(q.chartData) : null,
+        chartData: parsedChartData,
         timeEstimate: q.timeEstimate,
-        tags: JSON.parse(q.tags),
+        tags: parsedTags,
         moduleIndex: ptq.moduleIndex,
         orderIndex: ptq.orderIndex,
       };
@@ -207,7 +275,11 @@ export async function GET(
     });
 
   } catch (error) {
-    console.error('[practice-tests] Error fetching test:', error);
+    const params = await context.params.catch(() => ({ id: 'unknown' }))
+    console.error('[practice-tests] Error fetching test', {
+      practiceTestId: params.id,
+      error,
+    });
     return NextResponse.json(
       {
         success: false,

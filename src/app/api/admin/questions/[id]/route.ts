@@ -19,6 +19,7 @@ export async function GET(
       where: { id },
       select: {
         id: true,
+        questionIndex: true,
         question: true,
         passage: true,
         options: true,
@@ -136,5 +137,46 @@ export async function DELETE(
     return NextResponse.json({ 
       error: 'Failed to delete question' 
     }, { status: 500 })
+  }
+}
+
+export async function PATCH(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params
+    const session = await getServerSession(authOptions)
+
+    if (!session?.user?.email) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    const body = await request.json()
+    const { questionIndex } = body as { questionIndex?: number | null }
+
+    if (questionIndex !== null && questionIndex !== undefined) {
+      if (!Number.isInteger(questionIndex) || questionIndex < 1) {
+        return NextResponse.json({ error: 'questionIndex must be a positive integer or null' }, { status: 400 })
+      }
+    }
+
+    const updatedQuestion = await prisma.question.update({
+      where: { id },
+      data: {
+        questionIndex: questionIndex ?? null
+      }
+    })
+
+    return NextResponse.json({
+      success: true,
+      question: {
+        id: updatedQuestion.id,
+        questionIndex: updatedQuestion.questionIndex
+      }
+    })
+  } catch (error) {
+    console.error('Error updating question index:', error)
+    return NextResponse.json({ error: 'Failed to update question index' }, { status: 500 })
   }
 }

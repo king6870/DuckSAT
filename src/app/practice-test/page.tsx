@@ -36,6 +36,8 @@ function PracticeTestContent() {
   const practiceTestId = searchParams.get('practiceTestId') || undefined;
   
   const {
+    isLoading,
+    error,
     hasStarted,
     moduleStarted,
     currentModule,
@@ -71,8 +73,7 @@ function PracticeTestContent() {
     .map((answer, index) => answer !== -1 ? index : -1)
     .filter(index => index !== -1);
 
-  // Error state for loading and submission
-  const [fetchError, setFetchError] = useState<string | null>(null);
+  // Error state for submission
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   // Keyboard navigation event handler
@@ -167,6 +168,32 @@ function PracticeTestContent() {
         </div>
       </div>
     );
+  }
+
+  if (error && !hasStarted) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 p-4">
+        <div className="bg-white rounded-2xl shadow-xl border border-red-200 p-8 max-w-xl w-full">
+          <h2 className="text-2xl font-bold text-red-700 mb-3">Unable to start practice test</h2>
+          <p className="text-gray-700 mb-6">{error}</p>
+          <div className="flex gap-3">
+            <button
+              onClick={() => router.push('/practice-tests')}
+              className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold"
+            >
+              Back to Practice Tests
+            </button>
+            <button
+              onClick={startTest}
+              className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+              disabled={isLoading}
+            >
+              {isLoading ? 'Retrying...' : 'Retry'}
+            </button>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   // Test launcher screen
@@ -446,14 +473,14 @@ function PracticeTestContent() {
         <div className="w-4 h-4 bg-purple-600 rounded-full animate-bounce delay-100" aria-hidden="true"></div>
         <div className="w-4 h-4 bg-pink-600 rounded-full animate-bounce delay-200" aria-hidden="true"></div>
       </div>
-      {fetchError && (
+      {error && (
         <div className="bg-red-100 border border-red-300 text-red-700 px-6 py-4 rounded-xl text-center max-w-md w-full mb-2" role="alert">
-          {fetchError}
+          {error}
           <button
-            onClick={() => { setFetchError(null); /* re-trigger fetch/init here */ }}
+            onClick={() => router.push('/practice-tests')}
             className="ml-4 underline text-indigo-700 font-semibold hover:text-indigo-900"
           >
-            Retry
+            Back
           </button>
         </div>
       )}

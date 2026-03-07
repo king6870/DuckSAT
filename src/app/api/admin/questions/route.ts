@@ -19,6 +19,7 @@ export async function GET(request: NextRequest) {
     const reviewer = searchParams.get('reviewer') // 'me', 'others', 'none'
     const category = searchParams.get('category')
     const subtopic = searchParams.get('subtopic')
+    const hasDiagram = searchParams.get('hasDiagram')
 
     const skip = (page - 1) * limit
 
@@ -47,12 +48,19 @@ export async function GET(request: NextRequest) {
         mode: 'insensitive'
       }
     }
+    if (hasDiagram === 'true') {
+      where.OR = [
+        { imageData: { not: null } },
+        { imageUrl: { not: null } }
+      ]
+    }
 
     const [rawQuestions, total] = await Promise.all([
       prisma.question.findMany({
         where,
         select: {
           id: true,
+          questionIndex: true,
           subtopicId: true,
           moduleType: true,
           difficulty: true,
@@ -95,19 +103,22 @@ export async function GET(request: NextRequest) {
             }
           }
         },
-        orderBy: {
-          createdAt: 'desc'
-        },
+        orderBy: [
+          { questionIndex: 'asc' },
+          { createdAt: 'desc' }
+        ],
         skip,
         take: limit
       }),
       prisma.question.count({ where })
     ])
 
-    // Convert binary imageData to base64 strings
+    // Convert binary imageData to base64 strings; treat empty buffers as null
     const questions = rawQuestions.map(q => ({
       ...q,
-      imageData: q.imageData ? Buffer.from(q.imageData).toString('base64') : null
+      imageData: q.imageData && q.imageData.length > 0
+        ? Buffer.from(q.imageData).toString('base64')
+        : null
     }))
 
     return NextResponse.json({
@@ -208,6 +219,37 @@ export async function PATCH(request: NextRequest) {
 
   } catch (error) {
     console.error('Error updating question:', error)
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const session = await getServerSession(authOptions)
+
+    if (!session?.user?.email || !ADMIN_EMAILS.includes(session.user.email)) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    const { searchParams } = new URL(request.url)
+    const filter = searchParams.get('filter')
+
+    if (filter !== 'auto-generated') {
+      return NextResponse.json({ error: 'Invalid filter parameter' }, { status: 400 })
+    }
+
+    const result = await prisma.question.deleteMany({
+      where: {
+        question: {
+          contains: 'auto-generated',
+          mode: 'insensitive'
+        }
+      }
+    })
+
+    return NextResponse.json({ deleted: result.count })
+  } catch (error) {
+    console.error('Error deleting questions:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

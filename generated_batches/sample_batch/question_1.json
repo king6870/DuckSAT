@@ -1,0 +1,13 @@
+{
+  "question": "Sample Question 1: What is 19 + 6?",
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correctAnswer": 2,
+  "explanation": "The answer is the sum of the two numbers.",
+  "category": "Writing",
+  "moduleType": "reading-writing"
+}

@@ -40,19 +40,27 @@ export async function PUT(
 
     const { id } = await context.params;
 
-    // Fetch practice test with questions
+    // Fetch practice test with questions and module/question type metadata for validation
     const practiceTest = await prisma.practiceTest.findUnique({
       where: { id },
       include: {
         questions: {
-          select: {
-            questionId: true,
+          include: {
+            question: {
+              select: {
+                moduleType: true,
+              },
+            },
           },
         },
       },
     });
 
     if (!practiceTest) {
+      console.warn('[admin/practice-tests] Publish failed: test not found', {
+        practiceTestId: id,
+        adminEmail: session.user.email,
+      })
       return NextResponse.json(
         { success: false, error: 'Practice test not found' },
         { status: 404 }
@@ -60,6 +68,10 @@ export async function PUT(
     }
 
     if (practiceTest.isPublished) {
+      console.warn('[admin/practice-tests] Publish skipped: test already published', {
+        practiceTestId: id,
+        adminEmail: session.user.email,
+      })
       return NextResponse.json(
         { success: false, error: 'Practice test is already published' },
         { status: 400 }
@@ -69,10 +81,80 @@ export async function PUT(
     const questionIds = practiceTest.questions.map(q => q.questionId);
 
     if (questionIds.length === 0) {
+      console.warn('[admin/practice-tests] Publish failed: no questions linked', {
+        practiceTestId: id,
+        adminEmail: session.user.email,
+      })
       return NextResponse.json(
         { success: false, error: 'Practice test has no questions' },
         { status: 400 }
       );
+    }
+
+    // Publish-time validation guard (prevents incomplete tests from going live)
+    const expectedModuleIndexes = [0, 1, 2, 3]
+    const expectedModuleTypes: Record<number, 'reading-writing' | 'math'> = {
+      0: 'reading-writing',
+      1: 'reading-writing',
+      2: 'math',
+      3: 'math',
+    }
+
+    const moduleCounts = new Map<number, number>()
+    const unexpectedModuleIndexes = new Set<number>()
+    const moduleTypeIssues: string[] = []
+
+    for (const assignment of practiceTest.questions) {
+      moduleCounts.set(assignment.moduleIndex, (moduleCounts.get(assignment.moduleIndex) || 0) + 1)
+
+      if (!expectedModuleIndexes.includes(assignment.moduleIndex)) {
+        unexpectedModuleIndexes.add(assignment.moduleIndex)
+        continue
+      }
+
+      const expectedType = expectedModuleTypes[assignment.moduleIndex]
+      const actualType = assignment.question.moduleType as 'reading-writing' | 'math'
+      if (actualType !== expectedType) {
+        moduleTypeIssues.push(
+          `Module ${assignment.moduleIndex} expects ${expectedType} but found ${actualType} question ${assignment.questionId}`
+        )
+      }
+    }
+
+    const missingModuleIndexes = expectedModuleIndexes.filter(index => !moduleCounts.has(index))
+    const emptyModuleIndexes = expectedModuleIndexes.filter(index => (moduleCounts.get(index) || 0) === 0)
+
+    const issues: string[] = [
+      ...missingModuleIndexes.map(index => `Missing module index ${index}`),
+      ...emptyModuleIndexes.map(index => `Module ${index} has 0 questions`),
+      ...[...unexpectedModuleIndexes].map(index => `Unexpected module index ${index}`),
+      ...moduleTypeIssues,
+    ]
+
+    if (issues.length > 0) {
+      const moduleCountsObject = Object.fromEntries(
+        [...moduleCounts.entries()].sort((a, b) => a[0] - b[0]).map(([index, count]) => [String(index), count])
+      )
+
+      console.warn('[admin/practice-tests] Publish blocked by validation guard', {
+        practiceTestId: id,
+        adminEmail: session.user.email,
+        moduleCounts: moduleCountsObject,
+        issues,
+      })
+
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Practice test is incomplete and cannot be published',
+          validation: {
+            passed: false,
+            issues,
+            moduleCounts: moduleCountsObject,
+          },
+        },
+        { status: 400 }
+      )
     }
 
     // Publish test and reserve questions in a transaction
@@ -112,10 +194,30 @@ export async function PUT(
       success: true,
       published: true,
       reservedQuestionCount: result.reservedCount,
+      validation: {
+        passed: true,
+        moduleCounts: {
+          '0': moduleCounts.get(0) || 0,
+          '1': moduleCounts.get(1) || 0,
+          '2': moduleCounts.get(2) || 0,
+          '3': moduleCounts.get(3) || 0,
+        },
+      },
     });
 
   } catch (error) {
-    console.error('[admin/practice-tests] Error publishing test:', error);
+    let testId = 'unknown'
+    try {
+      const params = await context.params
+      testId = params.id
+    } catch {
+      testId = 'unknown'
+    }
+
+    console.error('[admin/practice-tests] Error publishing test', {
+      practiceTestId: testId,
+      error,
+    });
     return NextResponse.json(
       {
         success: false,

@@ -1,6 +1,6 @@
-const { PrismaClient } = require('@prisma/client');
-const fs = require('fs');
-const path = require('path');
+import { PrismaClient } from '@prisma/client';
+import fs from 'fs';
+import path from 'path';
 
 const prisma = new PrismaClient({
   datasources: {
@@ -68,7 +68,7 @@ async function main() {
       throw new Error('Insufficient questions for module-type separation.');
     }
 
-    // Assign 49 math questions to module 1, 49 reading-writing questions to module 2
+    // Assign 49 math questions to module 2, 49 reading-writing questions to module 0
     const module1Questions = shuffle(mathQuestions).slice(0, 49);
     const module2Questions = shuffle(readingQuestions).slice(0, 49);
 
@@ -83,7 +83,7 @@ async function main() {
 
     // Assign questions to modules
     for (let i = 0; i < 49; i++) {
-      // Module 1 (math)
+      // Module 2 (math)
       try {
         const dbResult = await prisma.$queryRaw`SELECT TOP 1 * FROM [questions] WHERE CAST([question] AS NVARCHAR(MAX)) = ${module1Questions[i].question}`;
         let dbQuestion = null;
@@ -123,14 +123,14 @@ async function main() {
           data: {
             practiceTestId: testId,
             questionId: dbQuestion.id,
-            moduleIndex: 0,
+            moduleIndex: 2,
             orderIndex: i + 1
           }
         });
       } catch (err) {
-        console.error(`[Assignment] Error assigning math question to test ${testId} (module 0, order ${i + 1}):`, err);
+        console.error(`[Assignment] Error assigning math question to test ${testId} (module 2, order ${i + 1}):`, err);
       }
-      // Module 2 (reading-writing)
+      // Module 0 (reading-writing)
       try {
         const dbResult = await prisma.$queryRaw`SELECT TOP 1 * FROM [questions] WHERE CAST([question] AS NVARCHAR(MAX)) = ${module2Questions[i].question}`;
         let dbQuestion = null;
@@ -170,12 +170,12 @@ async function main() {
           data: {
             practiceTestId: testId,
             questionId: dbQuestion.id,
-            moduleIndex: 1,
-            orderIndex: i + 1
+            moduleIndex: 0,
+            orderIndex: i + 50
           }
         });
       } catch (err) {
-        console.error(`[Assignment] Error assigning reading-writing question to test ${testId} (module 1, order ${i + 1}):`, err);
+        console.error(`[Assignment] Error assigning reading-writing question to test ${testId} (module 0, order ${i + 50}):`, err);
       }
     }
     // Mark these questions as assigned globally
@@ -189,8 +189,8 @@ async function main() {
       include: { question: true },
       orderBy: [{ moduleIndex: 'asc' }, { orderIndex: 'asc' }],
     });
-    const mathAssigned = assigned.filter(q => q.moduleIndex === 0 && q.question.moduleType !== 'math');
-    const readingAssigned = assigned.filter(q => q.moduleIndex === 1 && q.question.moduleType !== 'reading-writing');
+    const mathAssigned = assigned.filter(q => q.moduleIndex === 2 && q.question.moduleType !== 'math');
+    const readingAssigned = assigned.filter(q => q.moduleIndex === 0 && q.question.moduleType !== 'reading-writing');
     if (mathAssigned.length > 0 || readingAssigned.length > 0) {
       console.error(`[Validation] Module-type mismatch detected for test ${testId}. Math mismatches: ${mathAssigned.length}, Reading mismatches: ${readingAssigned.length}`);
       if (mathAssigned.length > 0) {

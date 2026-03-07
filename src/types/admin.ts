@@ -27,6 +27,9 @@ export interface GenerationSettings {
   includePassages: boolean
   topicId?: string
   subtopicId?: string
+  specializedMode?: boolean
+  specificTopics?: string[]
+  specificSubtopics?: string[]
   moduleType?: 'math' | 'reading-writing'
   difficulty?: 'easy' | 'medium' | 'hard'
 }

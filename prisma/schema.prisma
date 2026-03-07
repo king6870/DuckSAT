@@ -3,12 +3,13 @@
 
 generator client {
   provider      = "prisma-client-js"
-  binaryTargets = ["debian-openssl-3.0.x", "linux-musl"]
+  binaryTargets = ["native", "debian-openssl-3.0.x", "linux-musl"]
 }
 
 
 datasource db {
   provider = "sqlserver"
+  url      = env("DATABASE_URL")
 }
 
 // NextAuth.js required models
@@ -107,6 +108,7 @@ model Subtopic {
 // Enhanced SAT Questions Model
 model Question {
   id           String   @id @default(cuid())
+  questionIndex Int?    // Editable index for admin question management/order
   subtopicId   String?  // Link to subtopic
   moduleType   String   // 'reading-writing' | 'math'
   difficulty   String   // 'easy' | 'medium' | 'hard'

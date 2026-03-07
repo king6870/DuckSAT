@@ -3,9 +3,14 @@ import { TestState, TestResult, QuestionResult, Question } from '@/types/test'
 import { MODULE_CONFIGS } from '@/data/moduleConfigs'
 
 export function useTestState(userId: string, practiceTestId?: string) {
+  const logContext = {
+    userId,
+    practiceTestId: practiceTestId || null,
+  }
+
   const [testState] = useState<TestState | null>(null)
   const [isLoading, setIsLoading] = useState(true)
-  const [error] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
   const [hasStarted, setHasStarted] = useState(false)
   const [currentModuleIndex, setCurrentModuleIndex] = useState(0)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
@@ -51,13 +56,32 @@ export function useTestState(userId: string, practiceTestId?: string) {
   const fetchQuestions = useCallback(async (moduleType: string, questionCount?: number) => {
     try {
       setIsLoading(true)
+      setError(null)
       const limit = questionCount || (moduleType === 'math' ? 22 : 27)
 
       // Epic #61: Fixed practice test mode
       if (practiceTestId) {
         // If all modules are already fetched, use cached data
         if (allPracticeTestModules.length > 0) {
-          const moduleQuestions = allPracticeTestModules[currentModuleIndex]
+          let resolvedModuleIndex = currentModuleIndex
+          let moduleQuestions = allPracticeTestModules[resolvedModuleIndex] || []
+
+          if (moduleQuestions.length === 0) {
+            const firstNonEmptyModuleIndex = allPracticeTestModules.findIndex((questions) => (questions?.length || 0) > 0)
+            if (firstNonEmptyModuleIndex === -1) {
+              console.error('[useTestState] Fixed test cache has no populated modules', {
+                ...logContext,
+                allPracticeTestModulesCount: allPracticeTestModules.length,
+              })
+              throw new Error('This practice test has no questions assigned yet.')
+            }
+            resolvedModuleIndex = firstNonEmptyModuleIndex
+            moduleQuestions = allPracticeTestModules[resolvedModuleIndex] || []
+            if (resolvedModuleIndex !== currentModuleIndex) {
+              setCurrentModuleIndex(resolvedModuleIndex)
+            }
+          }
+
           setCurrentModuleQuestions(moduleQuestions)
           setSelectedAnswers(new Array(moduleQuestions.length).fill(-1))
           setIsLoading(false)
@@ -68,11 +92,20 @@ export function useTestState(userId: string, practiceTestId?: string) {
         console.log(`🔍 Fetching fixed practice test: ${practiceTestId}`)
         const response = await fetch(`/api/practice-tests/${practiceTestId}`)
         if (!response.ok) {
+          console.error('[useTestState] Failed fixed test fetch', {
+            ...logContext,
+            status: response.status,
+            statusText: response.statusText,
+          })
           throw new Error(`Failed to fetch practice test: ${response.statusText}`)
         }
 
         const data = await response.json()
         if (!data.success || !data.test || !data.test.modules) {
+          console.error('[useTestState] Invalid fixed test API response shape', {
+            ...logContext,
+            responseData: data,
+          })
           throw new Error('Invalid practice test response')
         }
 
@@ -81,12 +114,29 @@ export function useTestState(userId: string, practiceTestId?: string) {
         const allModules = modules.map(m => m.questions)
         setAllPracticeTestModules(allModules)
 
-        // Set current module questions
-        const moduleQuestions = allModules[currentModuleIndex]
+        // Set current module questions, or jump to first non-empty module
+        let resolvedModuleIndex = currentModuleIndex
+        let moduleQuestions = allModules[resolvedModuleIndex] || []
+        if (moduleQuestions.length === 0) {
+          const firstNonEmptyModuleIndex = allModules.findIndex((questions) => (questions?.length || 0) > 0)
+          if (firstNonEmptyModuleIndex === -1) {
+            console.error('[useTestState] Fixed test API returned no populated modules', {
+              ...logContext,
+              moduleCount: allModules.length,
+            })
+            throw new Error('This practice test has no questions assigned yet.')
+          }
+          resolvedModuleIndex = firstNonEmptyModuleIndex
+          moduleQuestions = allModules[resolvedModuleIndex] || []
+          if (resolvedModuleIndex !== currentModuleIndex) {
+            setCurrentModuleIndex(resolvedModuleIndex)
+          }
+        }
+
         setCurrentModuleQuestions(moduleQuestions)
         setSelectedAnswers(new Array(moduleQuestions.length).fill(-1))
 
-        console.log(`✅ Loaded ${moduleQuestions.length} questions for module ${currentModuleIndex}`)
+        console.log(`✅ Loaded ${moduleQuestions.length} questions for module ${resolvedModuleIndex}`)
         return moduleQuestions
       }
 
@@ -95,6 +145,13 @@ export function useTestState(userId: string, practiceTestId?: string) {
 
       const response = await fetch(`/api/questions?moduleType=${moduleType}&limit=${limit * 2}`)
       if (!response.ok) {
+        console.error('[useTestState] Random question fetch failed', {
+          ...logContext,
+          moduleType,
+          limit,
+          status: response.status,
+          statusText: response.statusText,
+        })
         throw new Error(`Failed to fetch questions: ${response.statusText}`)
       }
 
@@ -131,7 +188,14 @@ export function useTestState(userId: string, practiceTestId?: string) {
       console.log(`✅ Set ${selectedQuestions.length} questions for current module`)
       return selectedQuestions
     } catch (fetchError) {
-      console.error('❌ Error fetching questions:', fetchError)
+      console.error('[useTestState] Error fetching questions', {
+        ...logContext,
+        moduleType,
+        questionCount,
+        currentModuleIndex,
+        error: fetchError,
+      })
+      setError(fetchError instanceof Error ? fetchError.message : 'Failed to fetch questions')
       throw fetchError
     } finally {
       setIsLoading(false)
@@ -168,23 +232,45 @@ export function useTestState(userId: string, practiceTestId?: string) {
   const startTest = useCallback(async () => {
     try {
       setIsLoading(true)
+      setError(null)
       setTestStartTime(new Date())
-      setHasStarted(true)
       setCurrentModuleIndex(0)
       setCurrentQuestionIndex(0)
 
-      await fetchQuestions('reading-writing', 27)
+      const loadedQuestions = await fetchQuestions('reading-writing', 27)
+      if (!loadedQuestions || loadedQuestions.length === 0) {
+        throw new Error('No questions available for this practice test.')
+      }
+
+      setHasStarted(true)
 
       setIsTransitioning(false)
       setModuleStarted(false)
     } catch (startError) {
-      console.error('Error starting test:', startError)
+      console.error('[useTestState] Error starting test', {
+        ...logContext,
+        currentModuleIndex,
+        error: startError,
+      })
+      setError(startError instanceof Error ? startError.message : 'Failed to start test')
+      setHasStarted(false)
       setIsLoading(false)
     }
-  }, [fetchQuestions])
+  }, [fetchQuestions, currentModuleIndex, logContext])
 
   const startModule = useCallback(() => {
     if (!currentModule) return
+
+    if (currentModuleQuestions.length === 0) {
+      console.error('[useTestState] Cannot start module with zero questions', {
+        ...logContext,
+        currentModuleIndex,
+        moduleTitle: currentModule.title,
+      })
+      setError(`No questions are available for ${currentModule.title}.`)
+      setModuleStarted(false)
+      return
+    }
 
     console.log('🚀 Starting module:', currentModule.title)
     setModuleStartTime(new Date())
@@ -197,7 +283,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
     setQuestionTimeSpent({})
 
     console.log('✅ Module started successfully')
-  }, [currentModule])
+  }, [currentModule, currentModuleQuestions.length, currentModuleIndex, logContext])
 
   useEffect(() => {
     if (!isTransitioning || moduleStarted || isBreakTime) return

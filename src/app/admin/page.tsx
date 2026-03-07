@@ -49,6 +49,15 @@ export default function AdminDashboard() {
               </div>
             </Link>
 
+            {/* Practice Test Publishing */}
+            <Link href="/admin/practice-tests" className="group">
+              <div className="p-6 bg-gradient-to-br from-indigo-50 to-violet-50 rounded-2xl border-2 border-indigo-200 hover:border-indigo-400 transition-all hover:shadow-lg">
+                <div className="text-4xl mb-4">🧪</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Practice Tests</h3>
+                <p className="text-gray-600">Publish tests and view validation issues</p>
+              </div>
+            </Link>
+
             {/* Back to Main */}
             <Link href="/" className="group">
               <div className="p-6 bg-gradient-to-br from-gray-50 to-slate-50 rounded-2xl border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-lg">

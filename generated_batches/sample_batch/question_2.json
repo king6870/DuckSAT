@@ -1,0 +1,13 @@
+{
+  "question": "Sample Question 2: What is 11 + 9?",
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correctAnswer": 3,
+  "explanation": "The answer is the sum of the two numbers.",
+  "category": "Writing",
+  "moduleType": "reading-writing"
+}

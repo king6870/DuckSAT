@@ -20,7 +20,8 @@ const DEFAULT_SETTINGS: GenerationSettings = {
   temperature: 0.7,
   maxTokens: 4000,
   includeCharts: true,
-  includePassages: true
+  includePassages: true,
+  specializedMode: false
 }
 
 interface GenerationStep {
@@ -133,12 +134,22 @@ export default function EnhancedQuestionGeneration() {
 
       // Step 2: Generate
       updateStep(2, 'in-progress', `Generating ${settings.questionCount} questions...`)
+
+      const selectedTopicName = settings.topicId
+        ? topics.find(t => t.id === settings.topicId)?.name
+        : undefined
+
+      const selectedSubtopicName = settings.subtopicId
+        ? selectedTopic?.subtopics.find(s => s.id === settings.subtopicId)?.name
+        : undefined
       
       const response = await fetch('/api/admin/enhanced-generate-questions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...settings,
+          specificTopics: selectedTopicName ? [selectedTopicName] : [],
+          specificSubtopics: selectedSubtopicName ? [selectedSubtopicName] : [],
           moduleType: settings.moduleType || 'math',
           difficulty: settings.difficulty || 'medium',
         })
@@ -349,6 +360,44 @@ export default function EnhancedQuestionGeneration() {
                       </option>
                     ))}
                   </select>
+                </div>
+
+                {/* Subtopic Selection */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Subtopic (Optional)</label>
+                  <select
+                    value={settings.subtopicId || ''}
+                    onChange={(e) => setSettings(prev => ({ ...prev, subtopicId: e.target.value || undefined }))}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    disabled={generating || !selectedTopic}
+                  >
+                    <option value="">All Subtopics</option>
+                    {(selectedTopic?.subtopics || []).map(subtopic => (
+                      <option key={subtopic.id} value={subtopic.id}>
+                        {subtopic.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Specialized Mode */}
+                <div className="flex items-start gap-3">
+                  <input
+                    id="specialized-mode"
+                    type="checkbox"
+                    checked={settings.specializedMode || false}
+                    onChange={(e) => setSettings(prev => ({ ...prev, specializedMode: e.target.checked }))}
+                    className="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    disabled={generating}
+                  />
+                  <div>
+                    <label htmlFor="specialized-mode" className="block text-sm font-medium text-gray-700">
+                      Specialized Mode
+                    </label>
+                    <p className="text-xs text-gray-500 mt-1">
+                      Focus generation in a narrower topic scope. Topic/subtopic filters are applied when selected.
+                    </p>
+                  </div>
                 </div>
 
                 {/* Question Count */}

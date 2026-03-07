@@ -40,6 +40,9 @@ interface GenerationSettings {
   // New parameters for topic/subtopic filtering
   topicId?: string
   subtopicId?: string
+  specializedMode?: boolean
+  specificTopics?: string[]
+  specificSubtopics?: string[]
   moduleType?: 'math' | 'reading-writing'
   difficulty?: 'easy' | 'medium' | 'hard'
 }
@@ -132,6 +135,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate topic/subtopic if provided
+    let selectedTopicName: string | null = null
+    let selectedSubtopicName: string | null = null
+
     if (settings.topicId) {
       try {
         const topic = await prisma.topic.findUnique({ where: { id: settings.topicId } })
@@ -142,6 +148,7 @@ export async function POST(request: NextRequest) {
             { status: 400 }
           )
         }
+        selectedTopicName = topic.name
         console.log('✅ Valid topic:', topic.name)
       } catch (topicError) {
         console.error('❌ Error validating topic:', topicError)
@@ -162,6 +169,7 @@ export async function POST(request: NextRequest) {
             { status: 400 }
           )
         }
+        selectedSubtopicName = subtopic.name
         console.log('✅ Valid subtopic:', subtopic.name)
       } catch (subtopicError) {
         console.error('❌ Error validating subtopic:', subtopicError)
@@ -172,6 +180,33 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    if (settings.specificTopics && !Array.isArray(settings.specificTopics)) {
+      return NextResponse.json(
+        { error: 'specificTopics must be an array of strings' },
+        { status: 400 }
+      )
+    }
+
+    if (settings.specificSubtopics && !Array.isArray(settings.specificSubtopics)) {
+      return NextResponse.json(
+        { error: 'specificSubtopics must be an array of strings' },
+        { status: 400 }
+      )
+    }
+
+    const specificTopics = [
+      ...(settings.specificTopics || []),
+      ...(selectedTopicName ? [selectedTopicName] : [])
+    ]
+
+    const specificSubtopics = [
+      ...(settings.specificSubtopics || []),
+      ...(selectedSubtopicName ? [selectedSubtopicName] : [])
+    ]
+
+    const normalizedSpecificTopics = [...new Set(specificTopics.map(t => t.trim()).filter(Boolean))]
+    const normalizedSpecificSubtopics = [...new Set(specificSubtopics.map(s => s.trim()).filter(Boolean))]
+
     console.log('🚀 Starting enhanced AI question generation...')
     console.log('Settings:', settings)
 
@@ -181,6 +216,9 @@ export async function POST(request: NextRequest) {
       result = await unifiedQuestionGenerator.generateQuestions({
         mathCount: settings.mathCount,
         readingCount: settings.readingCount,
+        specializedMode: settings.specializedMode ?? false,
+        specificTopics: normalizedSpecificTopics,
+        specificSubtopics: normalizedSpecificSubtopics,
         includeImages: settings.includeCharts,
         includePassages: settings.includePassages,
         storeInDatabase: true,

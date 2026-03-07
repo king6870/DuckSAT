@@ -1,0 +1,13 @@
+{
+  "question": "Sample Question 5: What is 17 + 18?",
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correctAnswer": 1,
+  "explanation": "The answer is the sum of the two numbers.",
+  "category": "Reading",
+  "moduleType": "reading-writing"
+}

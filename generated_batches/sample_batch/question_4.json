@@ -1,0 +1,13 @@
+{
+  "question": "Sample Question 4: What is 10 + 13?",
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correctAnswer": 0,
+  "explanation": "The answer is the sum of the two numbers.",
+  "category": "Reading",
+  "moduleType": "reading-writing"
+}

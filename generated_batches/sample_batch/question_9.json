@@ -1,0 +1,13 @@
+{
+  "question": "Sample Question 9: What is 18 + 20?",
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "correctAnswer": 3,
+  "explanation": "The answer is the sum of the two numbers.",
+  "category": "Algebra",
+  "moduleType": "math"
+}

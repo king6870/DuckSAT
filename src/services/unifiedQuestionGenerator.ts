@@ -75,6 +75,7 @@ export interface GenerationOptions {
   readingCount?: number
   specificTopics?: string[]
   specificSubtopics?: string[]
+  specializedMode?: boolean
   moduleType?: 'math' | 'reading-writing' | 'both'
   difficulty?: 'easy' | 'medium' | 'hard' | 'mixed'
   includeImages?: boolean
@@ -101,6 +102,39 @@ export interface GenerationResult {
     retryCount: number
     validationErrors: number
   }
+}
+
+/**
+ * Deterministic generation plan used before LLM calls
+ */
+export interface GenerationPlan {
+  options: Required<Pick<GenerationOptions,
+    'mathCount' |
+    'readingCount' |
+    'moduleType' |
+    'specializedMode' |
+    'includeImages' |
+    'includePassages' |
+    'storeInDatabase' |
+    'temperature' |
+    'maxTokens' |
+    'enableRetry' |
+    'enableValidation'
+  >> & Omit<GenerationOptions,
+    'mathCount' |
+    'readingCount' |
+    'moduleType' |
+    'specializedMode' |
+    'includeImages' |
+    'includePassages' |
+    'storeInDatabase' |
+    'temperature' |
+    'maxTokens' |
+    'enableRetry' |
+    'enableValidation'
+  >
+  mathSubtopics: EnrichedSubtopic[]
+  readingSubtopics: EnrichedSubtopic[]
 }
 
 // ============================================================================
@@ -171,6 +205,7 @@ export class UnifiedQuestionGenerator {
     const defaults: GenerationOptions = {
       mathCount: 5,
       readingCount: 5,
+      specializedMode: false,
       moduleType: 'both',
       difficulty: 'mixed',
       includeImages: true,
@@ -186,7 +221,8 @@ export class UnifiedQuestionGenerator {
     try {
       // Step 1: Initialize - Select subtopics
       console.log('\n📋 Step 1/6: Initialize - Selecting subtopics...')
-      const { mathSubtopics, readingSubtopics } = this.selectSubtopics(defaults)
+      const plan = this.buildGenerationPlan(defaults)
+      const { mathSubtopics, readingSubtopics } = plan
 
       // Step 2: Generate - Create raw questions
       console.log('\n🤖 Step 2/6: Generate - Creating questions with LLM...')
@@ -274,6 +310,36 @@ export class UnifiedQuestionGenerator {
   // ==========================================================================
 
   /**
+   * Public helper for testing/planning specialized generation without invoking LLM
+   */
+  buildGenerationPlan(options: GenerationOptions = {}): GenerationPlan {
+    const normalized: GenerationPlan['options'] = {
+      mathCount: options.mathCount ?? 5,
+      readingCount: options.readingCount ?? 5,
+      specializedMode: options.specializedMode ?? false,
+      moduleType: options.moduleType ?? 'both',
+      difficulty: options.difficulty ?? 'mixed',
+      includeImages: options.includeImages ?? true,
+      includePassages: options.includePassages ?? true,
+      storeInDatabase: options.storeInDatabase ?? true,
+      temperature: options.temperature ?? 0.7,
+      maxTokens: options.maxTokens ?? 16000,
+      enableRetry: options.enableRetry ?? true,
+      enableValidation: options.enableValidation ?? true,
+      specificTopics: options.specificTopics,
+      specificSubtopics: options.specificSubtopics
+    }
+
+    const { mathSubtopics, readingSubtopics } = this.selectSubtopics(normalized)
+
+    return {
+      options: normalized,
+      mathSubtopics,
+      readingSubtopics
+    }
+  }
+
+  /**
    * Select random subtopics for generation
    */
   private selectSubtopics(options: GenerationOptions): {
@@ -281,17 +347,43 @@ export class UnifiedQuestionGenerator {
     readingSubtopics: EnrichedSubtopic[]
   } {
     const allSubtopics = getAllSubtopics()
+    const normalizedTopicFilters = (options.specificTopics || []).map(t => t.trim().toLowerCase())
+    const normalizedSubtopicFilters = (options.specificSubtopics || []).map(s => s.trim().toLowerCase())
+
+    const filteredByTopic = normalizedTopicFilters.length > 0
+      ? allSubtopics.filter(s =>
+        normalizedTopicFilters.includes(s.topicId.toLowerCase()) ||
+        normalizedTopicFilters.includes(s.topicName.toLowerCase())
+      )
+      : allSubtopics
+
+    const filteredSubtopics = normalizedSubtopicFilters.length > 0
+      ? filteredByTopic.filter(s =>
+        normalizedSubtopicFilters.includes(s.id.toLowerCase()) ||
+        normalizedSubtopicFilters.includes(s.name.toLowerCase())
+      )
+      : filteredByTopic
 
     let mathSubtopics: EnrichedSubtopic[] = []
     let readingSubtopics: EnrichedSubtopic[] = []
 
     if (options.moduleType === 'math' || options.moduleType === 'both') {
-      const mathPool = allSubtopics.filter(s => s.moduleType === 'math')
+      let mathPool = filteredSubtopics.filter(s => s.moduleType === 'math')
+      if (options.specializedMode && mathPool.length > 0 && normalizedTopicFilters.length === 0 && normalizedSubtopicFilters.length === 0) {
+        const uniqueTopics = [...new Set(mathPool.map(s => s.topicId))]
+        const selectedTopicId = uniqueTopics[Math.floor(Math.random() * uniqueTopics.length)]
+        mathPool = mathPool.filter(s => s.topicId === selectedTopicId)
+      }
       mathSubtopics = this.selectRandomSubtopics(mathPool, options.mathCount || 5)
     }
 
     if (options.moduleType === 'reading-writing' || options.moduleType === 'both') {
-      const readingPool = allSubtopics.filter(s => s.moduleType === 'reading-writing')
+      let readingPool = filteredSubtopics.filter(s => s.moduleType === 'reading-writing')
+      if (options.specializedMode && readingPool.length > 0 && normalizedTopicFilters.length === 0 && normalizedSubtopicFilters.length === 0) {
+        const uniqueTopics = [...new Set(readingPool.map(s => s.topicId))]
+        const selectedTopicId = uniqueTopics[Math.floor(Math.random() * uniqueTopics.length)]
+        readingPool = readingPool.filter(s => s.topicId === selectedTopicId)
+      }
       readingSubtopics = this.selectRandomSubtopics(readingPool, options.readingCount || 5)
     }
 
@@ -415,13 +507,63 @@ export class UnifiedQuestionGenerator {
 
     const data = await response.json()
 
-    if (!data.choices?.[0]?.message?.content) {
-      throw new Error('Invalid LLM response structure')
+    const content = this.extractTextFromModelResponse(data)
+    if (!content) {
+      const responseKeys = data && typeof data === 'object' ? Object.keys(data).join(', ') : typeof data
+      throw new Error(`Invalid LLM response structure (keys: ${responseKeys})`)
     }
 
-    const content = data.choices[0].message.content
     console.log(`✅ LLM response: ${content.length} characters`)
     return content
+  }
+
+  /**
+   * Extract text from chat completions or responses-style payloads
+   */
+  private extractTextFromModelResponse(data: unknown): string | null {
+    if (!data || typeof data !== 'object') return null
+    const payload = data as Record<string, any>
+
+    const messageContent = payload.choices?.[0]?.message?.content
+    if (typeof messageContent === 'string' && messageContent.trim()) {
+      return messageContent
+    }
+
+    if (Array.isArray(messageContent)) {
+      const combined = messageContent
+        .map((item) => {
+          if (typeof item === 'string') return item
+          if (!item || typeof item !== 'object') return ''
+          return item.text || item.output_text || item.content || ''
+        })
+        .join('')
+        .trim()
+      if (combined) return combined
+    }
+
+    const completionText = payload.choices?.[0]?.text
+    if (typeof completionText === 'string' && completionText.trim()) {
+      return completionText
+    }
+
+    if (typeof payload.output_text === 'string' && payload.output_text.trim()) {
+      return payload.output_text
+    }
+
+    if (Array.isArray(payload.output)) {
+      const outputText = payload.output
+        .flatMap((item: any) => Array.isArray(item?.content) ? item.content : [])
+        .map((item: any) => {
+          if (typeof item === 'string') return item
+          if (!item || typeof item !== 'object') return ''
+          return item.text || item.output_text || item.content || ''
+        })
+        .join('')
+        .trim()
+      if (outputText) return outputText
+    }
+
+    return null
   }
 
   /**
@@ -503,29 +645,14 @@ export class UnifiedQuestionGenerator {
         return this.fallbackEvaluation(question)
       }
 
-      const evaluationPrompt = `Evaluate this SAT question on a scale of 0-100:
-
+      const evaluationPrompt = `Evaluate this SAT question and return ONLY one-line JSON.
 Question: ${question.question}
-Options: ${question.options.join(', ')}
-Correct Answer: ${question.correctAnswer}
+Options: ${question.options.join(' | ')}
+CorrectAnswerIndex: ${question.correctAnswer}
 Explanation: ${question.explanation}
+Required JSON keys: difficulty, qualityScore, isAccepted, evaluationFeedback`
 
-Criteria:
-1. Clarity and precision of question wording
-2. Quality and plausibility of incorrect options
-3. Accuracy and completeness of explanation
-4. Alignment with SAT difficulty and format
-5. Absence of errors or ambiguity
-
-Respond in JSON format:
-{
-  "difficulty": "easy|medium|hard",
-  "qualityScore": 85,
-  "isAccepted": true,
-  "evaluationFeedback": "Brief feedback"
-}`
-
-      const response = await fetch(endpoint, {
+      const firstAttempt = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'api-key': apiKey,
@@ -536,29 +663,61 @@ Respond in JSON format:
           messages: [
             {
               role: 'system',
-              content: SYSTEM_ROLES.EVALUATOR
+              content: `${SYSTEM_ROLES.EVALUATOR}\nReturn compact JSON only. No markdown, no prose.`
             },
             {
               role: 'user',
               content: evaluationPrompt
             }
           ],
-          max_completion_tokens: 1000  // Increased from 500 - evaluation responses need more tokens for complete JSON
-          // Note: temperature removed - some models only support default value
+          response_format: { type: 'json_object' },
+          max_completion_tokens: 500
         })
       })
 
-      if (!response.ok) {
-        const errorText = await response.text()
-        console.warn(`⚠️  Grok evaluation failed (${response.status}): ${errorText.substring(0, 200)}`)
+      if (!firstAttempt.ok) {
+        const errorText = await firstAttempt.text()
+        console.warn(`⚠️  Grok evaluation failed (${firstAttempt.status}): ${errorText.substring(0, 200)}`)
         return this.fallbackEvaluation(question)
       }
 
-      const data = await response.json()
-      const content = data.choices?.[0]?.message?.content
+      const firstData = await firstAttempt.json()
+      let content = this.extractTextFromModelResponse(firstData)
+
+      if (!content && firstData?.choices?.[0]?.finish_reason === 'length') {
+        console.warn('⚠️  Grok response hit token limit with empty content, retrying with shorter prompt...')
+
+        const retryResponse = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'api-key': apiKey,
+            'Authorization': `Bearer ${apiKey}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            messages: [
+              {
+                role: 'system',
+                content: 'Return only minified JSON with keys difficulty,qualityScore,isAccepted,evaluationFeedback.'
+              },
+              {
+                role: 'user',
+                content: `Evaluate SAT quality 0-100. q=${question.question.slice(0, 700)} opts=${question.options.join(' | ').slice(0, 500)} ans=${question.correctAnswer} exp=${question.explanation.slice(0, 800)}`
+              }
+            ],
+            response_format: { type: 'json_object' },
+            max_completion_tokens: 250
+          })
+        })
+
+        if (retryResponse.ok) {
+          const retryData = await retryResponse.json()
+          content = this.extractTextFromModelResponse(retryData)
+        }
+      }
 
       if (!content) {
-        console.warn(`⚠️  Grok response missing content. Response structure:`, JSON.stringify(data).substring(0, 200))
+        console.warn(`⚠️  Grok response missing content. Response structure:`, JSON.stringify(firstData).substring(0, 200))
         return this.fallbackEvaluation(question)
       }
 
@@ -618,13 +777,42 @@ Respond in JSON format:
    */
   private fallbackEvaluation(question: GeneratedQuestion): EvaluatedQuestion {
     console.log('📋 Using fallback evaluation')
+
+    const optionsCount = Array.isArray(question.options) ? question.options.length : 0
+    const hasValidAnswerIndex = question.correctAnswer >= 0 && question.correctAnswer < optionsCount
+    const questionLengthOk = (question.question || '').trim().length >= 30
+    const explanationLengthOk = (question.explanation || '').trim().length >= 40
+    const hasPassageIfReading = question.moduleType === 'reading-writing'
+      ? (question.passage || '').trim().length >= 40
+      : true
+
+    const structuralScoreParts = [
+      optionsCount === 4,
+      hasValidAnswerIndex,
+      questionLengthOk,
+      explanationLengthOk,
+      hasPassageIfReading
+    ]
+
+    const passedParts = structuralScoreParts.filter(Boolean).length
+    const qualityScore = 0.55 + (passedParts / structuralScoreParts.length) * 0.3
+
     return {
       ...question,
       difficulty: 'medium',
-      qualityScore: 0.75,
-      isAccepted: true,
-      evaluationFeedback: 'Fallback evaluation - Grok unavailable'
+      qualityScore,
+      isAccepted: qualityScore >= QUALITY_THRESHOLDS.MIN_ACCEPTABLE_QUALITY,
+      evaluationFeedback: `Fallback evaluation - structural heuristic (${Math.round(qualityScore * 100)}%)`
     }
+  }
+
+  private normalizeSubtopicKey(value: string): string {
+    return value
+      .toLowerCase()
+      .replace(/&/g, 'and')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim()
+      .replace(/\s+/g, ' ')
   }
 
   // ==========================================================================
@@ -853,16 +1041,80 @@ Respond in JSON format:
     // First, generate images for questions that need them
     const questionsWithImages = await this.generateAndStoreImages(questions)
 
+    const dbSubtopics = await this.prisma.subtopic.findMany({
+      select: {
+        id: true,
+        name: true,
+        topic: {
+          select: {
+            name: true
+          }
+        }
+      }
+    })
+
+    const dbTopics = await this.prisma.topic.findMany({
+      where: { isActive: true },
+      select: {
+        id: true,
+        name: true,
+        moduleType: true
+      }
+    })
+
+    const subtopicMap = new Map(
+      dbSubtopics.map((subtopic) => [this.normalizeSubtopicKey(subtopic.name), subtopic])
+    )
+
     // Then store in database
     for (const question of questionsWithImages) {
       try {
-        const subtopic = getAllSubtopics().find(
-          s => s.name.toLowerCase() === question.subtopic.toLowerCase()
-        )
+        const questionSubtopicKey = this.normalizeSubtopicKey(question.subtopic)
 
-        if (!subtopic) {
-          console.warn(`  ⚠️  Subtopic not found: ${question.subtopic}, skipping`)
-          continue
+        let matchedSubtopic = subtopicMap.get(questionSubtopicKey)
+
+        if (!matchedSubtopic) {
+          matchedSubtopic = dbSubtopics.find((subtopic) => {
+            const dbKey = this.normalizeSubtopicKey(subtopic.name)
+            return dbKey.includes(questionSubtopicKey) || questionSubtopicKey.includes(dbKey)
+          })
+        }
+
+        if (!matchedSubtopic) {
+          const normalizedCategory = this.normalizeSubtopicKey(question.moduleType === 'reading-writing' ? (question.category || '') : (question.category || ''))
+          const moduleTopics = dbTopics.filter(topic => topic.moduleType === question.moduleType)
+
+          const matchedTopic = moduleTopics.find(topic => this.normalizeSubtopicKey(topic.name) === normalizedCategory)
+            || moduleTopics.find(topic => this.normalizeSubtopicKey(topic.name).includes(normalizedCategory) || normalizedCategory.includes(this.normalizeSubtopicKey(topic.name)))
+            || moduleTopics[0]
+
+          if (matchedTopic) {
+            const created = await this.prisma.subtopic.create({
+              data: {
+                topicId: matchedTopic.id,
+                name: question.subtopic,
+                description: `Auto-created from unified generator (${question.moduleType})`,
+                targetQuestions: 100,
+                currentCount: 0,
+                isActive: true
+              },
+              select: {
+                id: true,
+                name: true,
+                topic: {
+                  select: {
+                    name: true
+                  }
+                }
+              }
+            })
+
+            matchedSubtopic = created
+            subtopicMap.set(questionSubtopicKey, created)
+            console.log(`  🆕 Created missing subtopic in DB: ${question.subtopic} (topic: ${matchedTopic.name})`)
+          } else {
+            console.warn(`  ⚠️  Subtopic not found in DB and no topic available: ${question.subtopic}, storing with null subtopicId`)
+          }
         }
 
         await this.prisma.question.create({
@@ -873,8 +1125,8 @@ Respond in JSON format:
             explanation: question.explanation,
             moduleType: question.moduleType,
             difficulty: question.difficulty,
-            subtopicId: subtopic.id,
-            category: subtopic.topicName || '',
+            subtopicId: matchedSubtopic?.id || null,
+            category: matchedSubtopic?.topic.name || question.moduleType,
             subtopic: question.subtopic,
             chartData: question.hasChart ? JSON.stringify({
               description: question.chartDescription,

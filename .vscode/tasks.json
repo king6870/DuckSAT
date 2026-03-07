@@ -4,7 +4,13 @@
 		{
 			"label": "dev-server",
 			"type": "shell",
-			"command": "npm run dev -- --port 3001",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev",
+				"--",
+				"--port=3001"
+			],
 			"isBackground": true
 		}
 	]

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Generated SAT Questions with Diagrams</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 0; }
+        .container { max-width: 900px; margin: 40px auto; background: #fff; padding: 32px 40px 40px 40px; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+        h1 { text-align: center; margin-bottom: 32px; }
+        .question-block { border-bottom: 1px solid #eee; padding: 28px 0; display: flex; gap: 32px; align-items: flex-start; }
+        .diagram { min-width: 220px; max-width: 220px; }
+        .diagram img { width: 220px; height: auto; border: 1px solid #ccc; border-radius: 6px; background: #fafafa; }
+        .q-content { flex: 1; }
+        .q-text { font-size: 1.1em; margin-bottom: 12px; }
+        .choices { margin-bottom: 10px; }
+        .choices li { margin-bottom: 4px; }
+        .diagram-desc { color: #888; font-size: 0.97em; margin-bottom: 8px; }
+        .answer { color: #0a7a0a; font-weight: bold; margin-top: 8px; }
+        .passage { background: #f3f3f3; border-left: 4px solid #b3b3b3; padding: 10px 16px; margin-bottom: 12px; font-size: 1em; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>All Generated SAT Questions with Diagrams</h1>
+    <div id="questions"></div>
+</div>
+<script src="reading_questions_with_diagrams_data.js"></script>
+<script>
+// Render all questions from the loaded questions array
+if (typeof questions === 'undefined') {
+    document.getElementById('questions').innerHTML = '<div style="color:red">Error: Questions data not loaded.</div>';
+} else {
+    const container = document.getElementById('questions');
+    questions.forEach((q, idx) => {
+        const block = document.createElement('div');
+        block.className = 'question-block';
+        block.innerHTML = `
+            <div class="diagram">
+                <img src="data:image/png;base64,${q.diagram_img}" alt="Diagram for question ${idx+1}">
+                <div class="diagram-desc">${q.diagram_description || ''}</div>
+            </div>
+            <div class="q-content">
+                <div class="q-text"><b>Q${idx+1}:</b> ${q.question}</div>
+                ${q.passage ? `<div class="passage">${q.passage}</div>` : ''}
+                <ul class="choices">
+                    ${(q.choices||[]).map(c => `<li>${c}</li>`).join('')}
+                </ul>
+                ${q.answer ? `<div class="answer">Answer: ${q.answer}</div>` : ''}
+            </div>
+        `;
+        container.appendChild(block);
+    });
+}
+</script>
