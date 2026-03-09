@@ -1,0 +1,9 @@
+
+      <svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100%" height="100%" fill="white"/>
+        <circle cx="133.33333333333331" cy="275" r="4" fill="#ef4444"/><circle cx="216.66666666666666" cy="200" r="4" fill="#ef4444"/><circle cx="300" cy="237.5" r="4" fill="#ef4444"/><circle cx="383.3333333333333" cy="125" r="4" fill="#ef4444"/><circle cx="466.6666666666667" cy="162.5" r="4" fill="#ef4444"/>
+        <!-- Axes -->
+        <line x1="50" y1="350" x2="550" y2="350" stroke="#333" stroke-width="2"/>
+        <line x1="50" y1="50" x2="50" y2="350" stroke="#333" stroke-width="2"/>
+      </svg>
+    

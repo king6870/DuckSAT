@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { TestState, TestResult, QuestionResult, Question } from '@/types/test'
 import { MODULE_CONFIGS } from '@/data/moduleConfigs'
+import { computeSATScores } from '@/lib/satScoring'
 
 export function useTestState(userId: string, practiceTestId?: string) {
   const logContext = {
@@ -382,6 +383,15 @@ export function useTestState(userId: string, practiceTestId?: string) {
       }
     })
 
+    // SAT 400–1600 scoring
+    const readingModules = finalModuleResults.slice(0, 2)
+    const mathModules = finalModuleResults.slice(2, 4)
+    const ebrwRaw = readingModules.flat().filter(r => r.isCorrect).length
+    const ebrwTotal = readingModules.flat().length
+    const mathRaw = mathModules.flat().filter(r => r.isCorrect).length
+    const mathTotal = mathModules.flat().length
+    const satScores = computeSATScores(ebrwRaw, ebrwTotal, mathRaw, mathTotal)
+
     const finalResults: TestResult = {
       id: `test-${Date.now()}`,
       userId,
@@ -391,6 +401,9 @@ export function useTestState(userId: string, practiceTestId?: string) {
       totalQuestions,
       correctAnswers,
       score: Math.round((correctAnswers / totalQuestions) * 100),
+      satScore: satScores.composite,
+      ebrwScore: satScores.ebrw,
+      mathScore: satScores.math,
       moduleResults: finalModuleResults,
       categoryPerformance,
       completedAt: endTime
@@ -477,6 +490,30 @@ export function useTestState(userId: string, practiceTestId?: string) {
     setCurrentModuleIndex(2)
   }, [isBreakTime])
 
+  const abandonTest = useCallback(() => {
+    setHasStarted(false)
+    setModuleStarted(false)
+    setCurrentModuleIndex(0)
+    setCurrentQuestionIndex(0)
+    setIsTransitioning(false)
+    setIsComplete(false)
+    setIsBreakTime(false)
+    setBreakTimeRemaining(0)
+    setShowReview(false)
+    setTimeRemaining(0)
+    setSelectedAnswers([])
+    setModuleStartTime(null)
+    setTestStartTime(null)
+    setTestResults(null)
+    setModuleResults([])
+    setCurrentModuleQuestions([])
+    setUsedQuestionIds([])
+    setAllPracticeTestModules([])
+    setQuestionStartTimes({})
+    setQuestionTimeSpent({})
+    setError(null)
+  }, [])
+
   useEffect(() => {
     if (!isTransitioning || isBreakTime) return
     if (!currentModule || currentModuleQuestions.length > 0) return
@@ -514,6 +551,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
     goToQuestion,
     setShowReview,
     skipBreak,
+    abandonTest,
 
     progress: currentModuleQuestions.length > 0
       ? Math.round(((currentQuestionIndex + 1) / currentModuleQuestions.length) * 100)

@@ -49,6 +49,9 @@ export interface TestResult {
   totalQuestions: number
   correctAnswers: number
   score: number // percentage
+  satScore?: number    // 400–1600 composite
+  ebrwScore?: number   // 200–800 Evidence-Based Reading & Writing
+  mathScore?: number   // 200–800 Math
   moduleResults: QuestionResult[][] // results for each module
   categoryPerformance: Record<string, { correct: number; total: number }>
   subtopicPerformance?: Record<string, { correct: number; total: number }>

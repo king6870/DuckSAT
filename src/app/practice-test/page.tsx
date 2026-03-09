@@ -9,6 +9,7 @@ import ModuleStart from '../../components/test/ModuleStart';
 import TestAnalytics from '../../components/test/TestAnalytics';
 import ReviewPage from '../../components/test/ReviewPage';
 import QuestionNavigator from '../../components/test/QuestionNavigator';
+import AbandonTestDialog from '../../components/test/AbandonTestDialog';
 import MathRenderer from '../../components/MathRenderer';
 import ChartRenderer from '../../components/ChartRenderer';
 
@@ -62,11 +63,15 @@ function PracticeTestContent() {
     selectAnswer,
     nextQuestion,
     previousQuestion,
-    questionsAnswered
+    questionsAnswered,
+    abandonTest
   } = useTestState(session?.user?.email || '', practiceTestId);
 
   const submitModule = completeModule;
   const currentSelectedAnswer = selectedAnswer;
+
+  // Abandon dialog state
+  const [showAbandonDialog, setShowAbandonDialog] = useState(false);
 
   // Track answered questions for navigator
   const answeredQuestions = selectedAnswers
@@ -144,6 +149,17 @@ function PracticeTestContent() {
       router.push('/');
     }
   }, [session, router]);
+
+  // Lockdown: warn on browser navigation while test is active
+  useEffect(() => {
+    if (!hasStarted || isComplete) return;
+    const handler = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+      e.returnValue = '';
+    };
+    window.addEventListener('beforeunload', handler);
+    return () => window.removeEventListener('beforeunload', handler);
+  }, [hasStarted, isComplete]);
 
   // Debug logging
   useEffect(() => {
@@ -293,13 +309,24 @@ function PracticeTestContent() {
 
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+        {/* Abandon Test Dialog */}
+        <AbandonTestDialog
+          isOpen={showAbandonDialog}
+          onConfirmAbandon={() => {
+            setShowAbandonDialog(false);
+            abandonTest();
+            router.push('/practice-tests');
+          }}
+          onCancel={() => setShowAbandonDialog(false)}
+        />
+
         <div className="p-4 flex justify-between items-center">
           <button
-            onClick={() => router.push('/')}
-            className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
-            aria-label="Exit test and return to home page"
+            onClick={() => setShowAbandonDialog(true)}
+            className="text-red-400 hover:text-red-600 text-sm font-medium underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+            aria-label="Abandon test and delete progress"
           >
-            ← Back to Home
+            ⚠️ Abandon Test
           </button>
         </div>
         {/* Question Navigator */}

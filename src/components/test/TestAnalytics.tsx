@@ -45,14 +45,33 @@ export default function TestAnalytics({ testResults }: TestAnalyticsProps) {
             </p>
           </div>
 
-          {/* Overall Score */}
+          {/* Overall Score – SAT 400–1600 */}
           <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl p-8 mb-8 border-2 border-blue-200 text-center">
-            <div className="text-6xl font-bold text-blue-600 mb-2">
-              {percentage}%
+            <div className="text-7xl font-black text-blue-700 mb-1">
+              {testResults.satScore ?? '—'}
             </div>
-            <div className="text-xl text-gray-700">
-              {totalCorrect} out of {totalQuestions} correct
+            <div className="text-2xl font-semibold text-gray-500 mb-4">
+              out of 1600
             </div>
+
+            <div className="flex justify-center gap-8 mt-2">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-indigo-600">{testResults.ebrwScore ?? '—'}</div>
+                <div className="text-sm text-gray-500">Reading &amp; Writing</div>
+              </div>
+              <div className="w-px bg-gray-300"></div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-emerald-600">{testResults.mathScore ?? '—'}</div>
+                <div className="text-sm text-gray-500">Math</div>
+              </div>
+            </div>
+
+            <div className="text-sm text-gray-400 mt-5">
+              {totalCorrect} / {totalQuestions} correct ({percentage}%)
+            </div>
+            <p className="text-xs text-gray-400 mt-1 italic">
+              Estimated SAT score based on practice test performance
+            </p>
           </div>
 
           {/* Module Breakdown */}
