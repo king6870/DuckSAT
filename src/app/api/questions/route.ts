@@ -120,6 +120,15 @@ export async function GET(request: NextRequest) {
       isReserved: false,
     };
 
+    // Exclude already-used question IDs (comma-separated)
+    const excludeParam = searchParams.get('exclude');
+    if (excludeParam) {
+      const excludeIds = excludeParam.split(',').map(id => id.trim()).filter(Boolean);
+      if (excludeIds.length > 0) {
+        where.id = { notIn: excludeIds };
+      }
+    }
+
     if (moduleType && (moduleType === 'math' || moduleType === 'reading-writing')) {
       where.moduleType = moduleType;
     }

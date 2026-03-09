@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { TestState, TestResult, QuestionResult, Question } from '@/types/test'
 import { MODULE_CONFIGS } from '@/data/moduleConfigs'
 import { computeSATScores } from '@/lib/satScoring'
@@ -35,6 +35,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
   // Questions from database with no-repeat tracking
   const [currentModuleQuestions, setCurrentModuleQuestions] = useState<Question[]>([])
   const [usedQuestionIds, setUsedQuestionIds] = useState<string[]>([])
+  const usedQuestionIdsRef = useRef<string[]>([])
 
   // Epic #61: For fixed practice tests, cache all modules at once
   const [allPracticeTestModules, setAllPracticeTestModules] = useState<Question[][]>([])
@@ -141,10 +142,17 @@ export function useTestState(userId: string, practiceTestId?: string) {
         return moduleQuestions
       }
 
-      // Random test mode (original behavior)
+      // Random test mode – fetch with server-side exclusion + client shuffle
       console.log(`🔍 Fetching ${limit} random questions for moduleType: ${moduleType}`)
 
-      const response = await fetch(`/api/questions?moduleType=${moduleType}&limit=${limit * 2}`)
+      // Build URL with exclude param so API filters out already-used IDs
+      const currentUsedIds = usedQuestionIdsRef.current
+      let fetchUrl = `/api/questions?moduleType=${moduleType}&limit=${limit * 3}`
+      if (currentUsedIds.length > 0) {
+        fetchUrl += `&exclude=${encodeURIComponent(currentUsedIds.join(','))}`
+      }
+
+      const response = await fetch(fetchUrl)
       if (!response.ok) {
         console.error('[useTestState] Random question fetch failed', {
           ...logContext,
@@ -168,20 +176,26 @@ export function useTestState(userId: string, practiceTestId?: string) {
         return []
       }
 
-      const availableQuestions = questions.filter((q: Question) => !usedQuestionIds.includes(q.id))
+      const availableQuestions = questions.filter((q: Question) => !currentUsedIds.includes(q.id))
       let questionsToUse = availableQuestions
       if (availableQuestions.length < limit) {
         console.log('⚠️ Not enough unused questions, allowing some repeats')
         questionsToUse = questions
-        setUsedQuestionIds([])
+      }
+
+      // Shuffle to avoid deterministic ordering across modules
+      for (let i = questionsToUse.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questionsToUse[i], questionsToUse[j]] = [questionsToUse[j], questionsToUse[i]]
       }
 
       const selectedQuestions = questionsToUse.slice(0, limit)
-      const newUsedIds = [...usedQuestionIds]
+      const newUsedIds = [...currentUsedIds]
       selectedQuestions.forEach((q: Question) => {
         if (!newUsedIds.includes(q.id)) newUsedIds.push(q.id)
       })
       setUsedQuestionIds(newUsedIds)
+      usedQuestionIdsRef.current = newUsedIds
 
       setCurrentModuleQuestions(selectedQuestions)
       setSelectedAnswers(new Array(selectedQuestions.length).fill(-1))
@@ -201,7 +215,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
     } finally {
       setIsLoading(false)
     }
-  }, [usedQuestionIds, practiceTestId, allPracticeTestModules, currentModuleIndex])
+  }, [practiceTestId, allPracticeTestModules, currentModuleIndex])
 
   useEffect(() => {
     if (moduleStarted && !isTransitioning && currentQuestion) {
@@ -508,6 +522,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
     setModuleResults([])
     setCurrentModuleQuestions([])
     setUsedQuestionIds([])
+    usedQuestionIdsRef.current = []
     setAllPracticeTestModules([])
     setQuestionStartTimes({})
     setQuestionTimeSpent({})
