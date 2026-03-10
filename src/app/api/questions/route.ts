@@ -436,6 +436,8 @@ export async function GET(request: NextRequest) {
           correctAnswer: q.correctAnswer,
           tags: Array.isArray(q.tags) ? q.tags : [],
           imageUrl: q.imageUrl,
+          imageData: q.imageData || null,
+          imageMimeType: q.imageMimeType || null,
           imageAlt: cleanOptionalText(q.imageAlt),
           source: cleanOptionalText(q.source),
           difficulty: q.difficulty,

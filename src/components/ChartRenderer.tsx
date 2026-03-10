@@ -112,18 +112,26 @@ export default function ChartRenderer({ chartData, imageUrl, imageData, imageMim
   let src: string | undefined;
   if (imageData) {
     // Use binary imageData if available
-    const mimeType = imageMimeType || 'image/png';
-    src = `data:${mimeType};base64,${imageData}`;
+    if (imageData.startsWith('data:')) {
+      // Already a complete data URI (from practice-tests API)
+      src = imageData;
+    } else {
+      // Raw base64 string (from questions API)
+      const mimeType = imageMimeType || 'image/png';
+      src = `data:${mimeType};base64,${imageData}`;
+    }
   } else if (imageUrl) {
     // Always use imageUrl if provided
     src = imageUrl;
   } else if (chartData && typeof chartData === 'object' && 'imageUrl' in chartData && (chartData as Record<string, unknown>).imageUrl) {
     // Check chartData for imageUrl
     src = (chartData as Record<string, unknown>).imageUrl as string;
-  } else {
-    // Fallback to placeholder if nothing else
+  } else if (!chartData || (typeof chartData === 'object' && !resolveType(chartData as ChartData))) {
+    // Fallback to placeholder ONLY if there's no chartData with a renderable type
     src = '/assets/diagram-placeholder.svg';
   }
+  // If chartData has a renderable type (bar, scatter, geometry, etc.), src stays undefined
+  // and we fall through to the DynamicChart renderer below
 
 
   if (src && !isVegaSpec) {
@@ -132,8 +140,8 @@ export default function ChartRenderer({ chartData, imageUrl, imageData, imageMim
         <img
           src={src}
           alt={imageAlt}
-          className="max-w-full h-auto rounded border shadow-sm"
-          style={{ maxHeight: '400px' }}
+          className="max-w-full h-auto rounded border shadow-sm mx-auto"
+          style={{ maxHeight: '600px' }}
           onError={(e) => {
             // If image fails to load, show placeholder
             const img = e.target as HTMLImageElement;
@@ -251,14 +259,14 @@ function isGeometry(cd: ChartData): cd is GeometryChartData {
 }
 
 function ScatterPlot({ data }: { data: ScatterChartData }) {
-  const width = 300
-  const height = 300
-  const padding = 40
+  const width = 500
+  const height = 400
+  const padding = 50
 
   return (
     <div className="bg-white p-4 rounded border shadow-sm">
       <div className="text-sm font-semibold text-gray-700 mb-2">📈 Coordinate Plane</div>
-      <svg width={width} height={height} className="border border-gray-300">
+      <svg viewBox={`0 0 ${width} ${height}`} className="w-full max-w-2xl border border-gray-300">
         {/* Grid */}
         <defs>
           <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -319,9 +327,9 @@ function ScatterPlot({ data }: { data: ScatterChartData }) {
 }
 
 function BarChart({ data }: { data: BarChartData }) {
-  const width = 300
-  const height = 200
-  const padding = 40
+  const width = 500
+  const height = 320
+  const padding = 50
 
   const values = data.data ?? []
 
@@ -343,7 +351,7 @@ function BarChart({ data }: { data: BarChartData }) {
   return (
     <div className="bg-white p-4 rounded border shadow-sm">
       <div className="text-sm font-semibold text-gray-700 mb-2">📊 Bar Chart</div>
-      <svg width={width} height={height} className="border border-gray-300">
+      <svg viewBox={`0 0 ${width} ${height}`} className="w-full max-w-2xl border border-gray-300">
         {values.map((item, index) => {
           const value = item.score ?? item.value ?? 0
           const barHeight = Math.max(0, (value / maxValue) * (height - 2 * padding))
@@ -391,15 +399,15 @@ function BarChart({ data }: { data: BarChartData }) {
 }
 
 function GeometryDiagram({ data }: { data: GeometryChartData }) {
-  const width = 400
-  const height = 350
+  const width = 550
+  const height = 450
   const centerX = width / 2
   const centerY = height / 2
 
   return (
     <div className="bg-white p-4 rounded border shadow-sm">
       <div className="text-sm font-semibold text-gray-700 mb-2">🔺 Geometry Diagram</div>
-      <svg width={width} height={height} className="border border-gray-200">
+      <svg viewBox={`0 0 ${width} ${height}`} className="w-full max-w-2xl border border-gray-200">
         {/* Always show a triangle by default for geometry questions */}
         <TriangleShape data={data} centerX={centerX} centerY={centerY} />
       </svg>

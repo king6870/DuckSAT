@@ -405,11 +405,13 @@ function PracticeTestContent() {
               )}
 
               {/* Chart/Diagram */}
-              {(currentQuestion.chartData || currentQuestion.imageUrl) && (
+              {(currentQuestion.chartData || currentQuestion.imageUrl || currentQuestion.imageData) && (
                 <div className="mb-6">
                   <ChartRenderer
                     chartData={currentQuestion.chartData}
                     imageUrl={currentQuestion.imageUrl}
+                    imageData={currentQuestion.imageData}
+                    imageMimeType={currentQuestion.imageMimeType}
                     imageAlt={currentQuestion.imageAlt || 'Question diagram'}
                   />
                 </div>

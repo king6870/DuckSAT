@@ -116,6 +116,7 @@ export async function GET(
             category: true,
             subtopic: true,
             difficulty: true,
+            imageUrl: true,
             imageData: true,
             imageMimeType: true,
             imageAlt: true,
@@ -203,9 +204,11 @@ export async function GET(
         category: q.category,
         subtopic: q.subtopic,
         difficulty: q.difficulty,
+        imageUrl: q.imageUrl,
         imageData: q.imageData 
           ? `data:${q.imageMimeType || 'image/svg+xml'};base64,${q.imageData.toString('base64')}`
           : null,
+        imageMimeType: q.imageMimeType,
         imageAlt: q.imageAlt,
         chartData: parsedChartData,
         timeEstimate: q.timeEstimate,

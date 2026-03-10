@@ -55,17 +55,19 @@ export function useTestState(userId: string, practiceTestId?: string) {
     return currentModuleQuestions[currentQuestionIndex]
   }, [currentModule, currentModuleQuestions, currentQuestionIndex])
 
-  const fetchQuestions = useCallback(async (moduleType: string, questionCount?: number) => {
+  const fetchQuestions = useCallback(async (moduleType: string, questionCount?: number, targetModuleIndex?: number) => {
     try {
       setIsLoading(true)
       setError(null)
       const limit = questionCount || (moduleType === 'math' ? 22 : 27)
+      // Use explicit targetModuleIndex if provided, otherwise fall back to state
+      const effectiveModuleIndex = targetModuleIndex ?? currentModuleIndex
 
       // Epic #61: Fixed practice test mode
       if (practiceTestId) {
         // If all modules are already fetched, use cached data
         if (allPracticeTestModules.length > 0) {
-          let resolvedModuleIndex = currentModuleIndex
+          let resolvedModuleIndex = effectiveModuleIndex
           let moduleQuestions = allPracticeTestModules[resolvedModuleIndex] || []
 
           if (moduleQuestions.length === 0) {
@@ -79,7 +81,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
             }
             resolvedModuleIndex = firstNonEmptyModuleIndex
             moduleQuestions = allPracticeTestModules[resolvedModuleIndex] || []
-            if (resolvedModuleIndex !== currentModuleIndex) {
+            if (resolvedModuleIndex !== effectiveModuleIndex) {
               setCurrentModuleIndex(resolvedModuleIndex)
             }
           }
@@ -117,7 +119,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
         setAllPracticeTestModules(allModules)
 
         // Set current module questions, or jump to first non-empty module
-        let resolvedModuleIndex = currentModuleIndex
+        let resolvedModuleIndex = effectiveModuleIndex
         let moduleQuestions = allModules[resolvedModuleIndex] || []
         if (moduleQuestions.length === 0) {
           const firstNonEmptyModuleIndex = allModules.findIndex((questions) => (questions?.length || 0) > 0)
@@ -130,7 +132,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
           }
           resolvedModuleIndex = firstNonEmptyModuleIndex
           moduleQuestions = allModules[resolvedModuleIndex] || []
-          if (resolvedModuleIndex !== currentModuleIndex) {
+          if (resolvedModuleIndex !== effectiveModuleIndex) {
             setCurrentModuleIndex(resolvedModuleIndex)
           }
         }
@@ -366,9 +368,10 @@ export function useTestState(userId: string, practiceTestId?: string) {
       setModuleStarted(false)
       setCurrentModuleQuestions([])
 
-      const nextModule = MODULE_CONFIGS[currentModuleIndex + 1]
+      const nextModuleIdx = currentModuleIndex + 1
+      const nextModule = MODULE_CONFIGS[nextModuleIdx]
       if (nextModule) {
-        await fetchQuestions(nextModule.type, nextModule.questionCount)
+        await fetchQuestions(nextModule.type, nextModule.questionCount, nextModuleIdx)
       }
       return
     }
@@ -534,8 +537,8 @@ export function useTestState(userId: string, practiceTestId?: string) {
     if (!currentModule || currentModuleQuestions.length > 0) return
     if (isLoading) return
 
-    fetchQuestions(currentModule.type, currentModule.questionCount)
-  }, [isTransitioning, isBreakTime, currentModule, currentModuleQuestions.length, isLoading, fetchQuestions])
+    fetchQuestions(currentModule.type, currentModule.questionCount, currentModuleIndex)
+  }, [isTransitioning, isBreakTime, currentModule, currentModuleIndex, currentModuleQuestions.length, isLoading, fetchQuestions])
 
   return {
     testState,
