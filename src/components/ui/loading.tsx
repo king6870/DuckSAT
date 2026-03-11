@@ -13,6 +13,7 @@ import { Loader2 } from "lucide-react"
  * - skeleton: Skeleton screens (for content placeholders)
  */
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const loadingVariants = cva("", {
   variants: {
     variant: {

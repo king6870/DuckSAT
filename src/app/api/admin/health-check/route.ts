@@ -16,7 +16,7 @@ import { authOptions } from '@/lib/auth'
 import { ADMIN_EMAILS } from '@/constants/adminEmails'
 import { prisma } from '@/lib/prisma'
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     // Check admin authentication
     const session = await getServerSession(authOptions)
@@ -84,7 +84,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Test Azure OpenAI endpoint accessibility (without making actual call)
-    let azureOpenAIStatus = { 
+    const azureOpenAIStatus = { 
       configured: false, 
       endpointAccessible: false, 
       error: null as string | null 

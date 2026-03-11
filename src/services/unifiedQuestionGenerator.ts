@@ -468,8 +468,7 @@ export class UnifiedQuestionGenerator {
 
     console.log(`🌐 Calling LLM at ${endpoint.substring(0, 50)}...`)
 
-    // Build request body - some Azure OpenAI models have strict parameter requirements
-    const requestBody: any = {
+    const requestBody: Record<string, unknown> = {
       messages: [
         {
           role: 'system',
@@ -522,7 +521,7 @@ export class UnifiedQuestionGenerator {
    */
   private extractTextFromModelResponse(data: unknown): string | null {
     if (!data || typeof data !== 'object') return null
-    const payload = data as Record<string, any>
+    const payload = data as Record<string, unknown>
 
     const messageContent = payload.choices?.[0]?.message?.content
     if (typeof messageContent === 'string' && messageContent.trim()) {
@@ -552,11 +551,12 @@ export class UnifiedQuestionGenerator {
 
     if (Array.isArray(payload.output)) {
       const outputText = payload.output
-        .flatMap((item: any) => Array.isArray(item?.content) ? item.content : [])
-        .map((item: any) => {
+        .flatMap((item: Record<string, unknown>) => Array.isArray(item?.content) ? item.content : [])
+        .map((item: unknown) => {
           if (typeof item === 'string') return item
           if (!item || typeof item !== 'object') return ''
-          return item.text || item.output_text || item.content || ''
+          const obj = item as Record<string, unknown>
+          return obj.text || obj.output_text || obj.content || ''
         })
         .join('')
         .trim()
@@ -841,7 +841,7 @@ Required JSON keys: difficulty, qualityScore, isAccepted, evaluationFeedback`
         
         let currentQuestion = question
         let attempts = 0
-        let previousScores: number[] = []
+        const previousScores: number[] = []
 
         while (attempts < maxAttempts && currentQuestion.qualityScore <= threshold) {
           attempts++

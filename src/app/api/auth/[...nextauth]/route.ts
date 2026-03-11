@@ -1,4 +1,5 @@
 import NextAuth from "next-auth/next"
+import type { NextRequest } from 'next/server'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { prisma } from '@/lib/prisma'
 import { getProviders, getSecret } from '@/lib/auth'
@@ -103,7 +104,7 @@ const authConfig = {
 
 import { NextResponse } from 'next/server'
 
-const handler = async (req: any, res: any) => {
+const handler = async (req: NextRequest, res: unknown) => {
   try {
     return await NextAuth(authConfig)(req, res)
   } catch (error) {

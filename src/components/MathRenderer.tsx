@@ -151,7 +151,7 @@ export default function MathRenderer({ children, block = false, className = '' }
             </InlineMath>
           </span>
         )
-      } catch (error) {
+      } catch {
         // If LaTeX parsing fails, show as regular text
         parts.push(
           <span key={`fallback-${match.index}`} className="font-mono bg-gray-100 px-1 rounded">
@@ -195,7 +195,7 @@ export default function MathRenderer({ children, block = false, className = '' }
           <BlockMath>{latexExpression}</BlockMath>
         </div>
       )
-    } catch (error) {
+    } catch {
       return (
         <div className={`font-mono bg-gray-100 p-2 rounded ${className}`}>
           {children}

@@ -79,7 +79,7 @@ function PracticeTestContent() {
     .filter(index => index !== -1);
 
   // Error state for submission
-  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [, setSubmitError] = useState<string | null>(null);
 
   // Keyboard navigation event handler
   useEffect(() => {
@@ -115,7 +115,6 @@ function PracticeTestContent() {
 
       // A, B, C, D keys: Select answer
       const answerKeys = ['a', 'b', 'c', 'd'];
-      const upperAnswerKeys = ['A', 'B', 'C', 'D'];
       const keyIndex = answerKeys.indexOf(e.key.toLowerCase());
       
       if (keyIndex !== -1 && currentQuestion && keyIndex < currentQuestion.options.length) {

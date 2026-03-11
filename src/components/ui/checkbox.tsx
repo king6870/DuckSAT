@@ -24,11 +24,12 @@ export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputE
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   ({ className, label, description, error, indeterminate, id, checked, ...props }, ref) => {
     const checkboxRef = React.useRef<HTMLInputElement>(null)
-    const checkboxId = id || `checkbox-${React.useId()}`
+    const generatedId = React.useId()
+    const checkboxId = id || `checkbox-${generatedId}`
 
     // Handle indeterminate state
     React.useEffect(() => {
-      const checkbox = checkboxRef.current || (ref as any)?.current
+      const checkbox = checkboxRef.current || (ref as React.RefObject<HTMLInputElement | null>)?.current
       if (checkbox) {
         checkbox.indeterminate = indeterminate || false
       }
@@ -41,7 +42,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         if (typeof ref === 'function') {
           ref(node)
         } else if (ref) {
-          (ref as any).current = node
+          (ref as React.MutableRefObject<HTMLInputElement | null>).current = node
         }
       },
       [ref]

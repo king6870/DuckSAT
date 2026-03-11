@@ -59,7 +59,7 @@ export default function ReviewCard({
   className,
 }: ReviewCardProps) {
   const [rating, setRating] = useState(0);
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const isAuthenticated = !!session?.user?.email;
   const [description, setDescription] = useState('');
   const [diagramIsAccurate, setDiagramIsAccurate] = useState(false);
@@ -389,7 +389,7 @@ export default function ReviewCard({
               </button>
             </div>
           ) : null}
-          <form onSubmit={handleSubmit} className="space-y-4" aria-disabled={!isAuthenticated}>
+          <form onSubmit={handleSubmit} className="space-y-4">
             {/* Star Rating */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">

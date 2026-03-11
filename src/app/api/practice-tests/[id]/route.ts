@@ -91,7 +91,7 @@ export async function GET(
     const attemptNumber = existingAttempts + 1;
 
     // Build where clause for questions
-    const whereClause: any = {
+    const whereClause: Record<string, unknown> = {
       practiceTestId: id,
     };
 

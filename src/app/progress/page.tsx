@@ -299,7 +299,6 @@ export default function Progress() {
             <div className="overflow-x-auto">
               <div className="min-w-[600px] h-64 flex items-end justify-around gap-2 px-4">
                 {progressData.scoreProgression.map((test, index) => {
-                  const maxScore = Math.max(...progressData.scoreProgression.map(t => t.score))
                   const height = (test.score / 100) * 200
                   return (
                     <div key={index} className="flex flex-col items-center flex-1">

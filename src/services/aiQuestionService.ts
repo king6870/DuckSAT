@@ -198,7 +198,7 @@ export class AIQuestionService {
         // Try regenerating for next attempt
         try {
           currentQuestion = await this.regenerateSingleQuestion(currentQuestion)
-        } catch (regenError) {
+        } catch {
           // If regeneration fails, return with fallback evaluation
           return {
             ...currentQuestion,
@@ -491,7 +491,7 @@ export class AIQuestionService {
       
       console.log(`🤖 Model type: ${isReasoningModel ? 'Reasoning' : 'Standard'}, Token limit: ${tokenLimit}`)
 
-      const requestBody: any = {
+      const requestBody: Record<string, unknown> = {
         messages: isReasoningModel 
           ? [
               // Reasoning models work better with single user message
@@ -834,10 +834,10 @@ export class AIQuestionService {
       if (Array.isArray(direct)) {
         return direct as Array<Record<string, unknown>>
       }
-      if (direct && typeof direct === 'object' && Array.isArray((direct as any).questions)) {
-        return (direct as any).questions as Array<Record<string, unknown>>
+      if (direct && typeof direct === 'object' && Array.isArray((direct as Record<string, unknown>).questions)) {
+        return (direct as Record<string, unknown>).questions as Array<Record<string, unknown>>
       }
-    } catch (error) {
+    } catch {
       // fall through to extraction
     }
 

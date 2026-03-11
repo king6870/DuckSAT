@@ -63,7 +63,7 @@ export default function EnhancedQuestionGeneration() {
   
   // Step-by-step tracking
   const [generationSteps, setGenerationSteps] = useState<GenerationStep[]>([])
-  const [currentQuestion, setCurrentQuestion] = useState(0)
+  const [, setCurrentQuestion] = useState(0)
   
   // Questions with answer tracking
   const [questions, setQuestions] = useState<QuestionWithAnswer[]>([])
@@ -231,7 +231,7 @@ export default function EnhancedQuestionGeneration() {
             const latestData = await latestResponse.json()
             const latestQuestions = (latestData.questions || []).slice(0, settings.questionCount)
             if (latestQuestions.length > 0) {
-              setQuestions(latestQuestions.map((q: any) => {
+              setQuestions(latestQuestions.map((q: Record<string, unknown>) => {
                 // Ensure options is always an array
                 let parsedOptions: string[] = []
                 if (Array.isArray(q.options)) {
@@ -746,7 +746,7 @@ export default function EnhancedQuestionGeneration() {
                 <div className="text-6xl mb-4">🎯</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Ready to Generate</h3>
                 <p className="text-gray-600 mb-6">
-                  Configure your settings on the left and click "Generate Questions" to begin.
+                  Configure your settings on the left and click &quot;Generate Questions&quot; to begin.
                 </p>
                 <div className="text-sm text-gray-500 space-y-1">
                   <p>✨ Real-time progress tracking</p>

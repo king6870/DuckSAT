@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import InteractiveGraph, { GraphPoint } from './InteractiveGraph'
 import { GraphGeneratorService } from '@/services/graphGenerator'
 import type { GraphData } from '@/services/graphGenerator'
-import MathRenderer, { MathEquation, InlineMathRenderer } from './MathRenderer'
+import MathRenderer, { InlineMathRenderer } from './MathRenderer'
 
 interface InteractiveMathQuestionProps {
   question: {

@@ -5,7 +5,6 @@ import React from 'react'
 import { VegaEmbed } from 'react-vega';
 
 // Types
-type ChartType = 'scatter' | 'coordinate-plane' | 'scatter-plot' | 'bar' | 'bar-chart' | 'geometry' | 'geometric-diagram' | 'image' | string
 
 interface ChartDataCommon {
   type?: string
@@ -66,8 +65,6 @@ interface ChartRendererProps {
 }
 
 const resolveType = (cd: ChartData): string | undefined => cd.type || cd.graphType || cd.diagramType
-
-const allowedTypes = ['scatter', 'coordinate-plane', 'scatter-plot', 'bar', 'bar-chart', 'geometry', 'geometric-diagram', 'image'];
 
 export default function ChartRenderer({ chartData, imageUrl, imageData, imageMimeType, imageAlt = "Question diagram", className = "" }: ChartRendererProps) {
   // Check if imageUrl is a Vega spec (starts with data:image/svg+xml;base64 and contains Vega schema)

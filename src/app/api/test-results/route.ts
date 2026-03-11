@@ -43,8 +43,8 @@ export async function POST(request: NextRequest) {
 
     const satScore = calculateSATScore(rwCorrect, rwQuestions.length, mathCorrect, mathQuestions.length)
 
-    // Determine primary module type
-    const moduleType = mathQuestions.length > rwQuestions.length ? 'math' : 'reading-writing'
+    // Determine primary module type (used by downstream analytics)
+    const _moduleType = mathQuestions.length > rwQuestions.length ? 'math' : 'reading-writing'
 
     // Epic #61: Calculate attempt number if this is a fixed practice test
     let attemptNumber: number | null = null;

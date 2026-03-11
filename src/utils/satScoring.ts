@@ -210,8 +210,8 @@ export function generateDetailedAnalytics(
   
   // Improvement areas
   const improvementAreas = Object.entries(categoryStats)
-    .filter(([_, stats]) => stats.strength === 'weak')
-    .map(([category, _]) => category)
+    .filter(([, stats]) => stats.strength === 'weak')
+    .map(([category]) => category)
     .slice(0, 3)
   
   // Target score (next milestone)
@@ -253,8 +253,8 @@ function generateRecommendations(
   
   // Category-specific recommendations
   const weakCategories = Object.entries(categoryStats)
-    .filter(([_, stats]) => stats.strength === 'weak')
-    .map(([category, _]) => category)
+    .filter(([, stats]) => stats.strength === 'weak')
+    .map(([category]) => category)
   
   if (weakCategories.length > 0) {
     recommendations.push(`Focus additional study time on: ${weakCategories.join(', ')}`)

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Script from 'next/script'
-import { Check, X, ChevronRight, ChevronLeft, Info, RefreshCw, ChevronUp, ChevronDown, Star } from 'lucide-react'
+import { Check, X, ChevronRight, Info, RefreshCw, ChevronUp, ChevronDown, Star } from 'lucide-react'
 
 interface Question {
     id: string
@@ -208,7 +208,7 @@ export default function ReviewPage() {
     }
 
     // Show error if review submission fails
-    const renderSubmitError = () => submitError ? (
+    const _renderSubmitError = () => submitError ? (
         <div className="bg-red-100 border border-red-300 text-red-700 px-6 py-4 rounded-xl text-center max-w-md w-full mb-4" role="alert">
             {submitError}
         </div>

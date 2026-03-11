@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { aiQuestionService } from '@/services/aiQuestionService'
 import { prisma } from '@/lib/prisma'
 
-export async function POST(request: NextRequest) {
+export async function POST(_request: NextRequest) {
   try {
     console.log('🚀 Starting AI question generation...')
     

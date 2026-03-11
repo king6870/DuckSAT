@@ -4,10 +4,10 @@ import { MODULE_CONFIGS } from '@/data/moduleConfigs'
 import { computeSATScores } from '@/lib/satScoring'
 
 export function useTestState(userId: string, practiceTestId?: string) {
-  const logContext = {
+  const logContext = useMemo(() => ({
     userId,
     practiceTestId: practiceTestId || null,
-  }
+  }), [userId, practiceTestId])
 
   const [testState] = useState<TestState | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -34,7 +34,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
 
   // Questions from database with no-repeat tracking
   const [currentModuleQuestions, setCurrentModuleQuestions] = useState<Question[]>([])
-  const [usedQuestionIds, setUsedQuestionIds] = useState<string[]>([])
+  const [, setUsedQuestionIds] = useState<string[]>([])
   const usedQuestionIdsRef = useRef<string[]>([])
 
   // Epic #61: For fixed practice tests, cache all modules at once
@@ -410,7 +410,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
         difficultyPerformance[diff].correct++
       }
 
-      const sub = (result as any).subtopic || result.category
+      const sub = (result as unknown as { subtopic?: string }).subtopic || result.category
       if (!subtopicPerformance[sub]) {
         subtopicPerformance[sub] = { correct: 0, total: 0 }
       }
@@ -453,7 +453,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
 
     try {
       // Epic #61: Include practiceTestId when saving test results
-      const requestBody: any = { testResults: finalResults }
+      const requestBody: Record<string, unknown> = { testResults: finalResults }
       if (practiceTestId) {
         requestBody.practiceTestId = practiceTestId
       }

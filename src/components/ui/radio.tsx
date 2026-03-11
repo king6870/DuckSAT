@@ -21,7 +21,8 @@ export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
 
 const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
   ({ className, label, description, error, id, ...props }, ref) => {
-    const radioId = id || `radio-${React.useId()}`
+    const generatedId = React.useId()
+    const radioId = id || `radio-${generatedId}`
 
     return (
       <div className="flex items-start gap-3">
@@ -181,7 +182,7 @@ export function RadioGroup({
           "space-y-3",
           orientation === 'horizontal' && "flex flex-wrap gap-6 space-y-0"
         )}
-        onChange={handleChange as any}
+        onChange={handleChange as React.FormEventHandler<HTMLDivElement>}
       >
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child) && child.type === Radio) {

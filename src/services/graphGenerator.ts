@@ -47,7 +47,7 @@ export class GraphGeneratorService {
   /**
    * Determine graph type from description
    */
-  private static determineGraphType(description: string, questionType: string): string {
+  private static determineGraphType(description: string, _questionType: string): string {
     const desc = description.toLowerCase()
     
     if (desc.includes('coordinate') || desc.includes('point') || desc.includes('line')) {
@@ -180,7 +180,7 @@ export class GraphGeneratorService {
   /**
    * Generate unit circle for trigonometry
    */
-  private static generateUnitCircle(description: string): GraphData {
+  private static generateUnitCircle(_description: string): GraphData {
     const circlePoints: GraphPoint[] = []
     
     // Generate unit circle points
@@ -320,7 +320,7 @@ export class GraphGeneratorService {
   private static generateFunctionPoints(functions: GraphFunction[]): GraphPoint[] {
     const points: GraphPoint[] = []
     
-    functions.forEach((func, index) => {
+    functions.forEach((func, _index) => {
       // Generate sample points for the function
       for (let x = -5; x <= 5; x += 0.5) {
         let y = 0
@@ -396,7 +396,7 @@ export class GraphGeneratorService {
   /**
    * Generate bar chart
    */
-  private static generateBarChart(description: string): GraphData {
+  private static generateBarChart(_description: string): GraphData {
     const categories = ['A', 'B', 'C', 'D', 'E']
     const values = [12, 19, 8, 15, 22]
     
@@ -433,7 +433,7 @@ export class GraphGeneratorService {
   /**
    * Generate line graph
    */
-  private static generateLineGraph(description: string): GraphData {
+  private static generateLineGraph(_description: string): GraphData {
     const dataPoints: GraphPoint[] = [
       { x: 1, y: 5, color: '#ef4444' },
       { x: 2, y: 8, color: '#ef4444' },
@@ -471,7 +471,7 @@ export class GraphGeneratorService {
   /**
    * Generate pie chart (represented as points on a circle)
    */
-  private static generatePieChart(description: string): GraphData {
+  private static generatePieChart(_description: string): GraphData {
     const segments = [
       { label: 'A (30%)', angle: 0, color: '#3b82f6' },
       { label: 'B (25%)', angle: 108, color: '#ef4444' },
@@ -511,7 +511,7 @@ export class GraphGeneratorService {
   /**
    * Extract data points for statistics
    */
-  private static extractDataPoints(description: string): GraphPoint[] {
+  private static extractDataPoints(_description: string): GraphPoint[] {
     const points: GraphPoint[] = []
     
     // Generate sample data points

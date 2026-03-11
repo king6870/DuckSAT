@@ -4,7 +4,7 @@ import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 import { ADMIN_EMAILS } from '@/constants/adminEmails'
 
-export async function isAdmin(request: NextRequest): Promise<boolean> {
+export async function isAdmin(_request: NextRequest): Promise<boolean> {
   try {
     const session = await getServerSession(authOptions)
     

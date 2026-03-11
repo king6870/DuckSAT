@@ -60,7 +60,7 @@ export default function InteractiveGraph({
   config,
   points = [],
   lines = [],
-  functions = [],
+  functions: _functions = [],
   onPointClick,
   onPointDrag,
   allowPointPlacement = false,
@@ -133,7 +133,7 @@ export default function InteractiveGraph({
   }
 
   // Handle point click for selection mode
-  const handlePointClick = (point: GraphPoint, isUserPoint = false) => {
+  const handlePointClick = (point: GraphPoint, _isUserPoint = false) => {
     if (selectionMode) {
       // In selection mode, select the clicked point
       onPointSelect?.(point)
