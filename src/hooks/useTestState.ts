@@ -390,6 +390,8 @@ export function useTestState(userId: string, practiceTestId?: string) {
     const totalQuestions = allResults.length
 
     const categoryPerformance: Record<string, { correct: number; total: number }> = {}
+    const difficultyPerformance: Record<string, { correct: number; total: number }> = {}
+    const subtopicPerformance: Record<string, { correct: number; total: number }> = {}
     allResults.forEach(result => {
       if (!categoryPerformance[result.category]) {
         categoryPerformance[result.category] = { correct: 0, total: 0 }
@@ -397,6 +399,24 @@ export function useTestState(userId: string, practiceTestId?: string) {
       categoryPerformance[result.category].total++
       if (result.isCorrect) {
         categoryPerformance[result.category].correct++
+      }
+
+      const diff = result.difficulty || 'medium'
+      if (!difficultyPerformance[diff]) {
+        difficultyPerformance[diff] = { correct: 0, total: 0 }
+      }
+      difficultyPerformance[diff].total++
+      if (result.isCorrect) {
+        difficultyPerformance[diff].correct++
+      }
+
+      const sub = (result as any).subtopic || result.category
+      if (!subtopicPerformance[sub]) {
+        subtopicPerformance[sub] = { correct: 0, total: 0 }
+      }
+      subtopicPerformance[sub].total++
+      if (result.isCorrect) {
+        subtopicPerformance[sub].correct++
       }
     })
 
@@ -423,6 +443,8 @@ export function useTestState(userId: string, practiceTestId?: string) {
       mathScore: satScores.math,
       moduleResults: finalModuleResults,
       categoryPerformance,
+      difficultyPerformance,
+      subtopicPerformance,
       completedAt: endTime
     }
 

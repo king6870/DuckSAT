@@ -73,9 +73,9 @@ export async function POST(request: NextRequest) {
         satReadingScore: satScore.readingWritingScore,
         satMathScore: satScore.mathScore,
         satTotalScore: satScore.totalScore,
-        categoryPerformance: testResults.categoryPerformance || {},
-        subtopicPerformance: testResults.subtopicPerformance || {},
-        difficultyPerformance: testResults.difficultyPerformance || {}
+        categoryPerformance: JSON.stringify(testResults.categoryPerformance || {}),
+        subtopicPerformance: JSON.stringify(testResults.subtopicPerformance || {}),
+        difficultyPerformance: JSON.stringify(testResults.difficultyPerformance || {})
       }
     })
 
