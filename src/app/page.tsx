@@ -2,12 +2,46 @@
 
 import { useSession, signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
-import { Target, Zap, TrendingUp, ArrowRight, BookOpen, BarChart3 } from "lucide-react"
+import Link from "next/link"
+import { useEffect, useState } from "react"
+import { Target, Zap, TrendingUp, ArrowRight, BookOpen, BarChart3, Search, GraduationCap } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ADMIN_EMAILS } from "@/constants/adminEmails"
 
 export default function Home() {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
+  const [onboardingChecked, setOnboardingChecked] = useState(false)
+
+  useEffect(() => {
+    if (status === 'authenticated' && session?.user) {
+      fetch('/api/onboarding')
+        .then(res => {
+          if (!res.ok) {
+            setOnboardingChecked(true)
+            return null
+          }
+          return res.json()
+        })
+        .then(data => {
+          if (!data) return
+          if (data.onboardingCompleted === false) {
+            router.push('/onboarding')
+          } else {
+            setOnboardingChecked(true)
+          }
+        })
+        .catch(() => setOnboardingChecked(true))
+    }
+  }, [status, session, router])
+
+  if (status === 'authenticated' && !onboardingChecked) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600" />
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
@@ -86,6 +120,38 @@ export default function Home() {
                     <BarChart3 className="mr-2 w-5 h-5" />
                     View Progress
                   </Button>
+                </div>
+              </div>
+
+              {/* Quick Practice Section */}
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow border border-emerald-200">
+                <div className="mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Quick Practice</h3>
+                  <p className="text-sm text-gray-600">
+                    Drill specific topics with 10 focused questions and instant feedback. Browse our full question bank to find exactly what you need.
+                  </p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    onClick={() => router.push('/practice')}
+                    variant="outline"
+                    size="lg"
+                    className="min-h-[56px]"
+                  >
+                    <GraduationCap className="mr-2 w-5 h-5" />
+                    Topic Drills
+                  </Button>
+                  {ADMIN_EMAILS.includes(session?.user?.email || '') && (
+                    <Button
+                      onClick={() => router.push('/questions')}
+                      variant="outline"
+                      size="lg"
+                      className="min-h-[56px]"
+                    >
+                      <Search className="mr-2 w-5 h-5" />
+                      Question Bank
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
@@ -195,7 +261,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white">
               <div>
                 <BookOpen className="w-10 h-10 mx-auto mb-3 opacity-90" />
-                <div className="text-4xl font-bold mb-2">2,500+</div>
+                <div className="text-4xl font-bold mb-2">5,400+</div>
                 <div className="text-indigo-200 font-medium">Practice Questions</div>
               </div>
               <div>
@@ -212,6 +278,20 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* Footer */}
+      <footer className="border-t border-gray-200 bg-white/60 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-6 text-sm text-gray-500">
+              <Link href="/about" className="hover:text-indigo-600 transition-colors">About</Link>
+              <Link href="/how-it-works" className="hover:text-indigo-600 transition-colors">How It Works</Link>
+              <Link href="/our-goal" className="hover:text-indigo-600 transition-colors">Our Goal</Link>
+            </div>
+            <p className="text-sm text-gray-400">&copy; {new Date().getFullYear()} DuckSAT. Free SAT prep for everyone.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

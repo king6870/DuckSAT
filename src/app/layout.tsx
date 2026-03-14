@@ -64,16 +64,23 @@ export default function RootLayout({
           {/* Global header with duck logo and user menu - ARIA landmark */}
           <header role="banner" className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-background)]/95 backdrop-blur-sm border-b border-[var(--color-border)] shadow-sm">
             <nav role="navigation" aria-label="Main navigation" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-              <Link 
-                href="/" 
-                className="inline-flex items-center gap-3 hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 rounded-lg"
-                aria-label="DuckSAT Home"
-              >
-                <Image src="/duck-logo.svg" alt="" width={40} height={40} className="w-10 h-10" aria-hidden="true" />
-                <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                  DuckSAT
-                </span>
-              </Link>
+              <div className="flex items-center gap-6">
+                <Link 
+                  href="/" 
+                  className="inline-flex items-center gap-3 hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 rounded-lg"
+                  aria-label="DuckSAT Home"
+                >
+                  <Image src="/duck-logo.svg" alt="" width={40} height={40} className="w-10 h-10" aria-hidden="true" />
+                  <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                    DuckSAT
+                  </span>
+                </Link>
+                <div className="hidden sm:flex items-center gap-4 text-sm font-medium">
+                  <Link href="/about" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">About</Link>
+                  <Link href="/how-it-works" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">How It Works</Link>
+                  <Link href="/our-goal" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Our Goal</Link>
+                </div>
+              </div>
               {/* User menu in top right */}
               <UserMenu />
             </nav>

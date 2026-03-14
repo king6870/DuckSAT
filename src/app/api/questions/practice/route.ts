@@ -87,16 +87,17 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     
     // Parse and validate query parameters
+    // Use ?? undefined to convert null to undefined (zod .optional() rejects null)
     const rawQuery = {
-      moduleType: searchParams.get('moduleType'),
-      visualType: searchParams.get('visualType'),
-      category: searchParams.get('category'),
-      subtopic: searchParams.get('subtopic'),
-      difficulty: searchParams.get('difficulty'),
-      difficultyMin: searchParams.get('difficultyMin'),
-      difficultyMax: searchParams.get('difficultyMax'),
+      moduleType: searchParams.get('moduleType') ?? undefined,
+      visualType: searchParams.get('visualType') ?? undefined,
+      category: searchParams.get('category') ?? undefined,
+      subtopic: searchParams.get('subtopic') ?? undefined,
+      difficulty: searchParams.get('difficulty') ?? undefined,
+      difficultyMin: searchParams.get('difficultyMin') ?? undefined,
+      difficultyMax: searchParams.get('difficultyMax') ?? undefined,
       count: searchParams.get('count') || '10',
-      excludeIds: searchParams.get('excludeIds'),
+      excludeIds: searchParams.get('excludeIds') ?? undefined,
       includeExplanations: searchParams.get('includeExplanations') || 'false'
     };
     
