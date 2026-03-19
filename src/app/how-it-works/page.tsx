@@ -162,6 +162,7 @@ export default function HowItWorksPage() {
           <Link href="/about" className="hover:text-indigo-600 transition-colors">About</Link>
           <Link href="/how-it-works" className="text-indigo-600 font-semibold">How It Works</Link>
           <Link href="/our-goal" className="hover:text-indigo-600 transition-colors">Our Goal</Link>
+          <Link href="/progress" className="hover:text-indigo-600 transition-colors">Progress</Link>
         </div>
       </footer>
     </div>

@@ -177,6 +177,7 @@ export default function OurGoalPage() {
           <Link href="/about" className="hover:text-indigo-600 transition-colors">About</Link>
           <Link href="/how-it-works" className="hover:text-indigo-600 transition-colors">How It Works</Link>
           <Link href="/our-goal" className="text-indigo-600 font-semibold">Our Goal</Link>
+          <Link href="/progress" className="hover:text-indigo-600 transition-colors">Progress</Link>
         </div>
       </footer>
     </div>

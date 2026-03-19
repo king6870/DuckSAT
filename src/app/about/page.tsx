@@ -117,6 +117,7 @@ export default function AboutPage() {
           <Link href="/about" className="text-indigo-600 font-semibold">About</Link>
           <Link href="/how-it-works" className="hover:text-indigo-600 transition-colors">How It Works</Link>
           <Link href="/our-goal" className="hover:text-indigo-600 transition-colors">Our Goal</Link>
+          <Link href="/progress" className="hover:text-indigo-600 transition-colors">Progress</Link>
         </div>
       </footer>
     </div>

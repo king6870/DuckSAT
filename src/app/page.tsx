@@ -287,6 +287,7 @@ export default function Home() {
               <Link href="/about" className="hover:text-indigo-600 transition-colors">About</Link>
               <Link href="/how-it-works" className="hover:text-indigo-600 transition-colors">How It Works</Link>
               <Link href="/our-goal" className="hover:text-indigo-600 transition-colors">Our Goal</Link>
+              <Link href="/progress" className="hover:text-indigo-600 transition-colors">Progress</Link>
             </div>
             <p className="text-sm text-gray-400">&copy; {new Date().getFullYear()} DuckSAT. Affordable SAT prep for everyone.</p>
           </div>
