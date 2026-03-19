@@ -212,10 +212,10 @@ export default function Home() {
             <p className="text-gray-600 leading-relaxed mb-4">
               Take full-length SAT practice tests with the same questions every time. Track your improvement across multiple attempts.
             </p>
-            <div className="flex items-center text-indigo-600 font-semibold text-sm group-hover:gap-2 transition-all">
+            <Link href="/practice-tests" className="flex items-center text-indigo-600 font-semibold text-sm group-hover:gap-2 transition-all">
               Learn more
               <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
+            </Link>
           </div>
 
           {/* Feature Card 2 */}
@@ -229,10 +229,10 @@ export default function Home() {
             <p className="text-gray-600 leading-relaxed mb-4">
               Module 2 difficulty adjusts based on your Module 1 performance, just like the real SAT Digital test.
             </p>
-            <div className="flex items-center text-cyan-600 font-semibold text-sm group-hover:gap-2 transition-all">
+            <Link href="/practice" className="flex items-center text-cyan-600 font-semibold text-sm group-hover:gap-2 transition-all">
               Learn more
               <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
+            </Link>
           </div>
 
           {/* Feature Card 3 */}
@@ -246,10 +246,10 @@ export default function Home() {
             <p className="text-gray-600 leading-relaxed mb-4">
               Monitor your improvement with detailed analytics, performance trends, and personalized recommendations.
             </p>
-            <div className="flex items-center text-green-600 font-semibold text-sm group-hover:gap-2 transition-all">
+            <Link href="/progress" className="flex items-center text-green-600 font-semibold text-sm group-hover:gap-2 transition-all">
               Learn more
               <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
+            </Link>
           </div>
         </div>
       </section>
