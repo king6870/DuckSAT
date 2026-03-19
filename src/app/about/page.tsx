@@ -20,7 +20,7 @@ export default function AboutPage() {
         </h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
           DuckSAT started as a side project by two high school students who were frustrated with 
-          expensive SAT prep tools that didn&apos;t actually help. We decided to build something better — and free.
+          expensive SAT prep tools that didn&apos;t actually help. We decided to build something better — and affordable.
         </p>
       </section>
 
@@ -55,10 +55,10 @@ export default function AboutPage() {
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-4">
               <Heart className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Free for Everyone</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Affordable for Everyone</h3>
             <p className="text-gray-600 text-sm">
-              SAT prep shouldn&apos;t be a luxury. DuckSAT is completely free — no hidden fees, 
-              no premium tiers, no paywalls.
+              SAT prep shouldn&apos;t be a luxury. DuckSAT is incredibly affordable — no hidden fees, 
+              no overpriced tiers, no paywalls.
             </p>
           </div>
           <div className="bg-white rounded-2xl p-6 shadow-lg border border-transparent hover:border-cyan-200 transition-all">

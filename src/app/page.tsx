@@ -163,11 +163,11 @@ export default function Home() {
                 size="lg"
                 className="group min-h-[56px] px-10"
               >
-                Get Started Free
+                Get Started Now
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <p className="text-sm text-gray-500">
-                No credit card required • Start practicing in 30 seconds
+                Affordable SAT prep • Start practicing in 30 seconds
               </p>
             </div>
           )}
@@ -288,7 +288,7 @@ export default function Home() {
               <Link href="/how-it-works" className="hover:text-indigo-600 transition-colors">How It Works</Link>
               <Link href="/our-goal" className="hover:text-indigo-600 transition-colors">Our Goal</Link>
             </div>
-            <p className="text-sm text-gray-400">&copy; {new Date().getFullYear()} DuckSAT. Free SAT prep for everyone.</p>
+            <p className="text-sm text-gray-400">&copy; {new Date().getFullYear()} DuckSAT. Affordable SAT prep for everyone.</p>
           </div>
         </div>
       </footer>
