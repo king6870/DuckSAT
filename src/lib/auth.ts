@@ -68,6 +68,11 @@ function getProviders() {
       GoogleProvider({
         clientId: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        authorization: {
+          params: {
+            prompt: 'select_account',
+          },
+        },
       })
     );
   }
@@ -113,6 +118,19 @@ export const authOptions: NextAuthOptions = {
     error: '/auth/error',
   },
   callbacks: {
+    async signIn() {
+      return true
+    },
+    async redirect({ url, baseUrl }) {
+      // Allow relative URLs
+      if (url.startsWith('/')) return `${baseUrl}${url}`
+      // Allow URLs on the same origin
+      try {
+        const urlOrigin = new URL(url).origin
+        if (urlOrigin === baseUrl) return url
+      } catch { /* invalid URL, fall through */ }
+      return baseUrl
+    },
     async session({ session, user }) {
       if (session?.user) {
         (session.user as Session['user'] & { id?: string }).id = user.id
