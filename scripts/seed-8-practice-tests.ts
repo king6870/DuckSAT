@@ -1,8 +1,8 @@
 /**
- * Seed 8 Fixed SAT Practice Tests
+ * Seed 10 Fixed SAT Practice Tests
  * 
- * Creates 8 practice tests with 98 unique questions each (784 total).
- * Preserves existing tests 1-2 and their assignments.
+ * Creates 10 practice tests with 98 unique questions each (980 total).
+ * Wipes all existing assignments and re-seeds from scratch.
  * 
  * Run: npx dotenv -e .env.local -- npx tsx scripts/seed-8-practice-tests.ts
  */
@@ -79,7 +79,7 @@ function pickFromPool(
 }
 
 async function main() {
-  console.log('=== Seed 8 Practice Tests ===\n')
+  console.log('=== Seed 10 Practice Tests ===\n')
 
   // 1. Load all active questions
   const allQuestions = await prisma.question.findMany({
@@ -91,8 +91,8 @@ async function main() {
   const mathPool = allQuestions.filter(q => q.moduleType === 'math')
   console.log(`Question pool: ${rwPool.length} R&W, ${mathPool.length} Math (${allQuestions.length} total)`)
 
-  // 2. Find or create all 8 practice tests
-  const testNames = Array.from({ length: 8 }, (_, i) => `SAT Practice Test ${i + 1}`)
+  // 2. Find or create all 10 practice tests
+  const testNames = Array.from({ length: 10 }, (_, i) => `SAT Practice Test ${i + 1}`)
   const tests: Array<{ id: string; name: string; isNew: boolean; questionCount: number }> = []
 
   for (const name of testNames) {
@@ -222,8 +222,8 @@ async function main() {
   console.log(`  Unique question IDs: ${uniqueQIds.size}`)
   console.log(`  Duplicates: ${allQIds.length - uniqueQIds.size}`)
 
-  if (allQIds.length === 784 && uniqueQIds.size === 784 && allPass) {
-    console.log('\n✅ All 8 practice tests seeded successfully — 784 unique questions, zero duplicates!')
+  if (allQIds.length === 980 && uniqueQIds.size === 980 && allPass) {
+    console.log('\n✅ All 10 practice tests seeded successfully — 980 unique questions, zero duplicates!')
   } else {
     console.log('\n❌ Verification FAILED — check output above')
   }
