@@ -213,7 +213,7 @@ function PracticeTestContent() {
 
   // Test launcher screen
   if (!hasStarted) {
-    return <TestLauncher onStartTest={startTest} />;
+    return <TestLauncher onStartTest={startTest} isLoading={isLoading} />;
   }
 
   // Break time screen
