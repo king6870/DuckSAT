@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { Users, Heart, Sparkles, BookOpen } from "lucide-react"
 
 export default function AboutPage() {
@@ -81,40 +80,6 @@ export default function AboutPage() {
               Our question bank is carefully curated and reviewed. Every question is aligned 
               with the official Digital SAT format and difficulty.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pb-20">
-        <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-3xl p-8 sm:p-12 shadow-2xl text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">Meet the Team</h2>
-          <p className="text-indigo-200 mb-8 max-w-lg mx-auto">
-            Just two students with a laptop, some coffee, and a mission to make SAT prep accessible to all.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-md mx-auto">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-              <Image
-                src="/founder1.jpg"
-                alt="Co-Founder & Developer"
-                width={80}
-                height={80}
-                className="w-20 h-20 rounded-full object-cover mx-auto mb-3 ring-2 ring-white/30"
-              />
-              <h3 className="text-lg font-bold text-white">Vihaan</h3>
-              <p className="text-indigo-200 text-sm">Co-Founder & Developer</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-              <Image
-                src="/founder2.jpg"
-                alt="Jacob — Co-Founder & Content Lead"
-                width={80}
-                height={80}
-                className="w-20 h-20 rounded-full object-cover mx-auto mb-3 ring-2 ring-white/30"
-              />
-              <h3 className="text-lg font-bold text-white">Jacob</h3>
-              <p className="text-indigo-200 text-sm">Co-Founder & Content Lead</p>
-            </div>
           </div>
         </div>
       </section>
