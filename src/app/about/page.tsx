@@ -101,18 +101,18 @@ export default function AboutPage() {
                 height={80}
                 className="w-20 h-20 rounded-full object-cover mx-auto mb-3 ring-2 ring-white/30"
               />
-              <h3 className="text-lg font-bold text-white">Founder 1</h3>
+              <h3 className="text-lg font-bold text-white">Vihaan</h3>
               <p className="text-indigo-200 text-sm">Co-Founder & Developer</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
               <Image
                 src="/founder2.jpg"
-                alt="Co-Founder & Content Lead"
+                alt="Jacob — Co-Founder & Content Lead"
                 width={80}
                 height={80}
                 className="w-20 h-20 rounded-full object-cover mx-auto mb-3 ring-2 ring-white/30"
               />
-              <h3 className="text-lg font-bold text-white">Founder 2</h3>
+              <h3 className="text-lg font-bold text-white">Jacob</h3>
               <p className="text-indigo-200 text-sm">Co-Founder & Content Lead</p>
             </div>
           </div>
