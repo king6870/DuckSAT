@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Users, Heart, Sparkles, BookOpen } from "lucide-react"
 
 export default function AboutPage() {
@@ -93,16 +94,24 @@ export default function AboutPage() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-md mx-auto">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-orange-400 mx-auto mb-3 flex items-center justify-center text-2xl">
-                🦆
-              </div>
+              <Image
+                src="/founder1.jpg"
+                alt="Co-Founder & Developer"
+                width={80}
+                height={80}
+                className="w-20 h-20 rounded-full object-cover mx-auto mb-3 ring-2 ring-white/30"
+              />
               <h3 className="text-lg font-bold text-white">Founder 1</h3>
               <p className="text-indigo-200 text-sm">Co-Founder & Developer</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 mx-auto mb-3 flex items-center justify-center text-2xl">
-                🦆
-              </div>
+              <Image
+                src="/founder2.jpg"
+                alt="Co-Founder & Content Lead"
+                width={80}
+                height={80}
+                className="w-20 h-20 rounded-full object-cover mx-auto mb-3 ring-2 ring-white/30"
+              />
               <h3 className="text-lg font-bold text-white">Founder 2</h3>
               <p className="text-indigo-200 text-sm">Co-Founder & Content Lead</p>
             </div>
