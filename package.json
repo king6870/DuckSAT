@@ -51,6 +51,7 @@
         "react-dom": "^18.3.1",
         "react-katex": "^3.1.0",
         "react-vega": "^8.0.0",
+        "stripe": "^20.4.1",
         "tailwind-merge": "^2.0.0",
         "ts-node": "^10.9.2",
         "vega": "^6.2.0",

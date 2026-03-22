@@ -52,6 +52,25 @@ model User {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
+  // Onboarding survey fields
+  onboardingCompleted Boolean  @default(false)
+  highestSATScore     Int?
+  bluebookTestsTaken  Int?
+  otherPrepApps       String?  @db.Text // JSON array of app names
+  strongCategories    String?  @db.Text // JSON array of categories user is good at
+  weakCategories      String?  @db.Text // JSON array of categories user struggles with
+  targetScore         Int?
+  gradeLevel          String?  // e.g., "freshman", "sophomore", "junior", "senior"
+
+  // Stripe subscription fields
+  stripeCustomerId     String?   // Stripe Customer ID (cus_xxx)
+  subscriptionPlan     String    @default("free")  // 'free' | 'monthly' | 'yearly'
+  subscriptionStatus   String    @default("none")  // 'none' | 'trialing' | 'active' | 'past_due' | 'canceled' | 'unpaid'
+  stripeSubscriptionId String?   // Stripe Subscription ID (sub_xxx)
+  currentPeriodEnd     DateTime? // When the current billing period ends
+  trialEnd             DateTime? // When the trial period ends
+  cancelAtPeriodEnd    Boolean   @default(false) // Whether subscription will cancel at period end
+
   // Relations
   accounts    Account[]
   sessions    Session[]
@@ -117,7 +136,7 @@ model Question {
   // V3 Generator fields (Epic #34)
   visualType   String?  // 'bar-chart' | 'line-graph' | 'scatter-plot' | 'pie-chart' | 'table' | 'function-graph' | 'geometry' | 'system-of-equations' | 'none'
   difficultyScore Int?  // Numeric difficulty (easy=25, medium=50, hard=75) for fine-grained filtering
-  question     String   @db.NVarChar()
+  question     String   @db.Text
   passage      String?  @db.Text // Reading passages or context
   options      String   @db.Text // JSON array of answer options
   correctAnswer Int     // Index of correct answer (0-3)
@@ -385,4 +404,19 @@ model UsageAnalytics {
   @@index([action, createdAt])
   @@index([userId, createdAt])
   @@map("usage_analytics")
+}
+
+// Stripe usage tracking per month
+model UsageRecord {
+  id        String   @id @default(cuid())
+  userId    String
+  type      String   // 'practice_test' | 'drill'
+  year      Int      // e.g., 2026
+  month     Int      // 1-12
+  count     Int      @default(0)
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, type, year, month])
+  @@index([userId])
+  @@map("usage_records")
 }
