@@ -26,3 +26,5 @@ Thumbs.db
 
 # Agent tooling
 .agentx/
+deploy-temp/
+deploy.zip

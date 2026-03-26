@@ -230,6 +230,68 @@
   }
 }
 
+/* Scroll reveal base state */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-2rem);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.scroll-reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(2rem);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.scroll-reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Countdown timer digits */
+.countdown-digit {
+  font-variant-numeric: tabular-nums;
+  min-width: 2.5rem;
+}
+
+/* Testimonial carousel scroll-snap */
+.testimonial-track {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.testimonial-card {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Comparison table strikethrough */
+.price-original {
+  text-decoration: line-through;
+  text-decoration-color: var(--color-error, #ef4444);
+  text-decoration-thickness: 2px;
+}
+
+/* Pulsing CTA glow */
+.cta-glow {
+  animation: glow 2s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+.cta-glow:hover {
+  animation: none;
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+}
+
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   .glass,
