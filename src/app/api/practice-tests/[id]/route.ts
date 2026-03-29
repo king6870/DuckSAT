@@ -100,6 +100,8 @@ export async function GET(
     }
 
     // Fetch questions with deterministic ordering
+    // Note: imageData is excluded from the bulk response to reduce payload size.
+    // Images are lazy-loaded via /api/questions/[id]/image when each question is displayed.
     const practiceTestQuestions = await prisma.practiceTestQuestion.findMany({
       where: whereClause,
       include: {
@@ -117,7 +119,6 @@ export async function GET(
             subtopic: true,
             difficulty: true,
             imageUrl: true,
-            imageData: true,
             imageMimeType: true,
             imageAlt: true,
             chartData: true,
@@ -192,6 +193,13 @@ export async function GET(
         })
       }
 
+      // Images are lazy-loaded via /api/questions/[id]/image instead of inlined as base64
+      let resolvedImageUrl: string | null = q.imageUrl || null;
+      if (!resolvedImageUrl && q.imageMimeType) {
+        // Question has stored image data — point to the image API for lazy loading
+        resolvedImageUrl = `/api/questions/${q.id}/image`;
+      }
+
       return {
         id: q.id,
         question: q.question,
@@ -204,10 +212,8 @@ export async function GET(
         category: q.category,
         subtopic: q.subtopic,
         difficulty: q.difficulty,
-        imageUrl: q.imageUrl,
-        imageData: q.imageData 
-          ? `data:${q.imageMimeType || 'image/svg+xml'};base64,${q.imageData.toString('base64')}`
-          : null,
+        imageUrl: resolvedImageUrl,
+        imageData: null,
         imageMimeType: q.imageMimeType,
         imageAlt: q.imageAlt,
         chartData: parsedChartData,

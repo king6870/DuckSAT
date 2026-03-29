@@ -1,0 +1,20 @@
+<step title="Incoming Request" date="2026-02-27T04:05:17.348" instance="631727" url="/api/zipdeploy?isAsync=true" method="POST" type="request" pid="831,1,34" Accept="*/*" Host="ducksatapp.scm.azurewebsites.net" User-Agent="AZURECLI/2.83.0 (MSI)" Accept-Encoding="gzip, deflate" Authorization="Bas..." Cache-Control="no-cache" Content-Type="application/octet-stream" Content-Length="42647970" x-ms-client-request-id="834cf80c-1391-11f1-b78b-58961d9b7075" x-ms-artifact-checksum="fbe2d05709d4f84eceecbc550cdb44f0a6c10699733a73678070b15622aee89a" X-ARR-LOG-ID="834cf80c-1391-11f1-b78b-58961d9b7075" CLIENT-IP="50.47.225.138:52136" X-SITE-DEPLOYMENT-ID="ducksatapp" WAS-DEFAULT-HOSTNAME="ducksatapp.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/zipdeploy?isAsync=true" X-Client-IP="50.47.225.138" X-Client-Port="52136" >
+  <step title="Cleanup Xml Logs" date="2026-02-27T04:05:17.350" >
+    <step title="Cleanup Infos" date="2026-02-27T04:05:17.357" totalFiles="315" totalCleanup="155" /><!-- duration: 4ms -->
+  </step><!-- duration: 12ms -->
+  <step title="ZipPushDeploy" date="2026-02-27T04:05:18.022" >
+    <step title="ZipDeploy. Run from package." date="2026-02-27T04:05:18.027" /><!-- duration: 2ms -->
+    <step title="None repository commit" date="2026-02-27T04:05:18.034" >
+      <step title="Commit id: baee14c8-7482-4984-a46a-18a2e6055785" date="2026-02-27T04:05:18.037" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 2ms -->
+    </step><!-- duration: 7ms -->
+    <step title="Starting PushDeployAsync" date="2026-02-27T04:05:18.043" /><!-- duration: 2ms -->
+    <step title="WEBSITE_RUN_FROM_PACKAGE is set to 1. Writing zip to SitePackagesPath" date="2026-02-27T04:05:18.057" /><!-- duration: 2ms -->
+    <step title="Copying zip to SitePackages /home/data/SitePackages/20260227040518.zip from request body" date="2026-02-27T04:05:18.064" /><!-- duration: 3ms -->
+    <step title="Writing multipart request body to /home/data/SitePackages/20260227040518.zip" date="2026-02-27T04:05:18.069" /><!-- duration: 2ms -->
+    <step title="Start deployment in the background" date="2026-02-27T04:05:21.300" >
+      <step title="Acquiring Deployment Lock" date="2026-02-27T04:05:21.327" /><!-- duration: 2ms -->
+      <step title="Acquired Deployment Lock" date="2026-02-27T04:05:21.450" /><!-- duration: 2ms -->
+    </step><!-- duration: 301ms -->
+  </step><!-- duration: 3593ms -->
+  <step title="Outgoing response" date="2026-02-27T04:05:21.681" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 20ms -->
+</step><!-- duration: 4380ms -->

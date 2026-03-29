@@ -420,3 +420,139 @@ model UsageRecord {
   @@index([userId])
   @@map("usage_records")
 }
+
+// ─────────────────────────────────────────────
+// COMPREHENSIVE ANALYTICS TABLES
+// ─────────────────────────────────────────────
+
+// Survey/Onboarding: tracks each answer + time spent per question
+model SurveyResponse {
+  id             String   @id @default(cuid())
+  userId         String
+  surveyType     String   // 'onboarding' | 'feedback' | 'exit'
+  stepNumber     Int      // Which step/question (1-indexed)
+  stepName       String   // e.g., 'grade_level', 'sat_score', 'strengths'
+  answer         String?  @db.Text // JSON-encoded answer value
+  timeSpentMs    Int      // Milliseconds spent on this step
+  skipped        Boolean  @default(false)
+  createdAt      DateTime @default(now())
+
+  @@index([userId, surveyType])
+  @@index([surveyType, stepNumber])
+  @@map("survey_responses")
+}
+
+// Page/Section time tracking
+model PageView {
+  id              String   @id @default(cuid())
+  userId          String?  // Nullable for anonymous visitors
+  sessionId       String   // Browser session ID (generated client-side)
+  pagePath        String   // e.g., '/practice', '/pricing', '/onboarding'
+  pageSection     String?  // Optional section within page (e.g., 'hero', 'pricing-cards')
+  enteredAt       DateTime // When user entered the page/section
+  dwellTimeMs     Int      // How long they stayed (milliseconds)
+  scrollDepthPct  Int?     // How far they scrolled (0-100)
+  referrer        String?  // Previous page path
+  userAgent       String?
+  deviceType      String?  // 'mobile' | 'tablet' | 'desktop'
+  createdAt       DateTime @default(now())
+
+  @@index([userId, pagePath])
+  @@index([pagePath, createdAt])
+  @@index([sessionId])
+  @@map("page_views")
+}
+
+// Drill/Practice session-level tracking
+model DrillAttempt {
+  id              String   @id @default(cuid())
+  userId          String
+  category        String   // e.g., 'algebra', 'reading-comprehension', 'mixed'
+  moduleType      String?  // 'reading-writing' | 'math' | null for mixed
+  difficulty      String?  // 'easy' | 'medium' | 'hard' | null for mixed
+  totalQuestions  Int
+  correctAnswers  Int
+  score           Int      // percentage
+  totalTimeMs     Int      // Total time for entire drill in ms
+  avgTimePerQ     Int      // Average ms per question
+  fastestTimeMs   Int?     // Fastest question answer time
+  slowestTimeMs   Int?     // Slowest question answer time
+  streakCorrect   Int      @default(0) // Longest correct streak in this drill
+  streakWrong     Int      @default(0) // Longest wrong streak
+  startedAt       DateTime
+  completedAt     DateTime
+  abandoned       Boolean  @default(false) // Did they quit early?
+  questionsLeft   Int      @default(0) // How many left if abandoned
+  createdAt       DateTime @default(now())
+
+  // Relations
+  questionResults DrillQuestionResult[]
+
+  @@index([userId, category])
+  @@index([userId, createdAt])
+  @@index([category, difficulty])
+  @@map("drill_attempts")
+}
+
+// Per-question result within a drill
+model DrillQuestionResult {
+  id              String   @id @default(cuid())
+  drillAttemptId  String
+  questionId      String
+  questionIndex   Int      // Order within the drill (0-indexed)
+  category        String   // Question's category
+  difficulty      String   // Question's difficulty
+  moduleType      String   // Question's module type
+  userAnswer      Int      // Selected answer index
+  correctAnswer   Int      // Correct answer index
+  isCorrect       Boolean
+  timeSpentMs     Int      // Ms spent on this question
+  changedAnswer   Boolean  @default(false) // Did they change their answer?
+  initialAnswer   Int?     // First answer if changed
+  createdAt       DateTime @default(now())
+
+  // Relations
+  drillAttempt DrillAttempt @relation(fields: [drillAttemptId], references: [id], onDelete: Cascade)
+
+  @@index([drillAttemptId])
+  @@index([questionId])
+  @@index([category, difficulty, isCorrect])
+  @@map("drill_question_results")
+}
+
+// Generic user events for behavior tracking
+model UserEvent {
+  id          String   @id @default(cuid())
+  userId      String?  // Nullable for anonymous
+  sessionId   String?  // Browser session ID
+  eventType   String   // 'click', 'signup', 'subscription_start', 'milestone', 'feature_use', etc.
+  eventName   String   // e.g., 'start_practice_test', 'view_explanation', 'toggle_theme'
+  metadata    String?  @db.Text // JSON payload with event-specific data
+  pagePath    String?  // Which page this happened on
+  createdAt   DateTime @default(now())
+
+  @@index([userId, eventType])
+  @@index([eventType, eventName])
+  @@index([createdAt])
+  @@map("user_events")
+}
+
+// Daily aggregated activity per user
+model UserDailyActivity {
+  id                  String   @id @default(cuid())
+  userId              String
+  date                DateTime @db.Date // The calendar date
+  totalTimeMs         Int      @default(0) // Total time on site (ms)
+  questionsAnswered   Int      @default(0)
+  questionsCorrect    Int      @default(0)
+  drillsCompleted     Int      @default(0)
+  testsCompleted      Int      @default(0)
+  pagesVisited        Int      @default(0)
+  loginCount          Int      @default(0)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@unique([userId, date])
+  @@index([userId, date])
+  @@map("user_daily_activity")
+}

@@ -1,0 +1,7 @@
+<step title="Incoming Request" date="2026-03-01T21:42:43.027" instance="662702" url="/diagnostics/runtime" method="GET" type="request" pid="831,1,35" Host="ducksatapp.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_198d5db6bea147499600be068cd4424398406bba9034d46acb148e7e3c756461_v3.0.7" Authorization="Bas..." Content-Type="application/json; charset=utf-8" Content-Length="0" X-ARR-LOG-ID="f1573edb-2c75-4b2c-ac6b-5bf6255df88a" CLIENT-IP="172.182.192.147:36888" X-SITE-DEPLOYMENT-ID="ducksatapp" WAS-DEFAULT-HOSTNAME="ducksatapp.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/diagnostics/runtime" X-Client-IP="172.182.192.147" X-Client-Port="36888" >
+  <step title="Cleanup Xml Logs" date="2026-03-01T21:42:43.029" >
+    <step title="Cleanup Infos" date="2026-03-01T21:42:43.042" totalFiles="392" totalCleanup="232" /><!-- duration: 4ms -->
+  </step><!-- duration: 20ms -->
+  <step title="RuntimeController.GetRuntimeVersions" date="2026-03-01T21:42:43.071" /><!-- duration: 7ms -->
+  <step title="Outgoing response" date="2026-03-01T21:42:43.111" type="response" statusCode="200" statusText="OK" /><!-- duration: 4ms -->
+</step><!-- duration: 91ms -->

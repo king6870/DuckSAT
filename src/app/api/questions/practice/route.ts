@@ -29,7 +29,7 @@ import { z } from 'zod';
 
 // Zod validation schema
 const practiceQuerySchema = z.object({
-  moduleType: z.enum(['math', 'reading-writing']),
+  moduleType: z.enum(['math', 'reading-writing']).optional(),
   visualType: z.enum([
     'bar-chart', 'line-graph', 'scatter-plot', 'pie-chart', 'table',
     'function-graph', 'geometry', 'system-of-equations', 'none'
@@ -117,8 +117,12 @@ export async function GET(request: NextRequest) {
     const where: Prisma.QuestionWhereInput = {
       isActive: true,
       isReserved: false, // Epic #61: Exclude questions reserved for fixed practice tests
-      moduleType: query.moduleType
     };
+
+    // Module type filter (optional for mixed mode)
+    if (query.moduleType) {
+      where.moduleType = query.moduleType;
+    }
     
     // Visual type filter (V3 feature)
     if (query.visualType) {

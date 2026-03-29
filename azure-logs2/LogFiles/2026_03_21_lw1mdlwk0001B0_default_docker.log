@@ -1,0 +1,516 @@
+2026-03-21T17:39:33.0108708Z    _____                               
+2026-03-21T17:39:33.0146680Z   /  _  \ __________ _________   ____  
+2026-03-21T17:39:33.0146784Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-21T17:39:33.0146813Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-21T17:39:33.0146840Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-21T17:39:33.0146865Z         \/      \/                  \/ 
+2026-03-21T17:39:33.0146901Z A P P   S E R V I C E   O N   L I N U X
+2026-03-21T17:39:33.0146926Z 
+2026-03-21T17:39:33.0146989Z Documentation    : http://aka.ms/webapp-linux
+2026-03-21T17:39:33.0147017Z NodeJS quickstart: https://aka.ms/node-qs
+2026-03-21T17:39:33.0147047Z NodeJS Version   : v22.22.0
+2026-03-21T17:39:33.0147073Z Instance Name    : lw1mdlwk0001B0
+2026-03-21T17:39:33.0147105Z Instance Id      : 6627028c5a6ac01c144d8a4b83d1cf5d3ba4bfcc95368f6b86f5ffacda9438b3
+2026-03-21T17:39:33.0147130Z 
+2026-03-21T17:39:33.0147175Z Note: Any data outside '/home' is not persisted
+2026-03-21T17:39:34.5417905Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-21T17:39:34.5602740Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-21T17:39:34.5992610Z Updating certificates in /etc/ssl/certs...
+2026-03-21T17:39:44.8440017Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-21T17:39:44.8444803Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-21T17:39:45.0416410Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-21T17:39:45.0829393Z 4 added, 0 removed; done.
+2026-03-21T17:39:45.0830272Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-21T17:39:45.0920772Z done.
+2026-03-21T17:39:45.1157742Z CA certificates copied and updated successfully.
+2026-03-21T17:39:45.2938980Z Starting periodic command scheduler: cron.
+2026-03-21T17:39:45.4143147Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2026-03-21T17:39:45.4213413Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-21T17:39:45.4222904Z Build Operation ID: 29bdc825-71dd-448a-b925-0977e48dcd98
+2026-03-21T17:39:45.8523885Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2026-03-21T17:39:45.8608807Z Writing output script to '/opt/startup/startup.sh'
+2026-03-21T17:39:45.9581112Z Running #!/bin/sh
+2026-03-21T17:39:45.9581499Z 
+2026-03-21T17:39:45.9581536Z # Enter the source directory to make sure the script runs where the user expects
+2026-03-21T17:39:45.9581557Z cd "/home/site/wwwroot"
+2026-03-21T17:39:45.9581746Z 
+2026-03-21T17:39:45.9581775Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2026-03-21T17:39:45.9581800Z if [ -z "$PORT" ]; then
+2026-03-21T17:39:45.9581821Z 		export PORT=8080
+2026-03-21T17:39:45.9581839Z fi
+2026-03-21T17:39:45.9581857Z 
+2026-03-21T17:39:45.9581878Z echo Found tar.gz based node_modules.
+2026-03-21T17:39:45.9581957Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2026-03-21T17:39:45.9582144Z echo "Removing existing modules directory from root..."
+2026-03-21T17:39:45.9582165Z rm -fr /node_modules
+2026-03-21T17:39:45.9582184Z mkdir -p /node_modules
+2026-03-21T17:39:45.9582204Z echo Extracting modules...
+2026-03-21T17:39:45.9582398Z $extractionCommand
+2026-03-21T17:39:45.9582435Z export NODE_PATH="/node_modules":$NODE_PATH
+2026-03-21T17:39:45.9582454Z export PATH=/node_modules/.bin:$PATH
+2026-03-21T17:39:45.9582473Z if [ -d node_modules ]; then
+2026-03-21T17:39:45.9582492Z     mv -f node_modules _del_node_modules || true
+2026-03-21T17:39:45.9582532Z fi
+2026-03-21T17:39:45.9582550Z 
+2026-03-21T17:39:45.9582569Z if [ -d /node_modules ]; then
+2026-03-21T17:39:45.9582588Z     ln -sfn /node_modules ./node_modules 
+2026-03-21T17:39:45.9582605Z fi
+2026-03-21T17:39:45.9582621Z 
+2026-03-21T17:39:45.9582639Z echo "Done."
+2026-03-21T17:39:45.9582659Z PATH="$PATH:/home/site/wwwroot" node server.js
+2026-03-21T17:39:45.9582677Z Found tar.gz based node_modules.
+2026-03-21T17:39:45.9582696Z Removing existing modules directory from root...
+2026-03-21T17:39:46.0105379Z Extracting modules...
+2026-03-21T17:39:51.3023779Z mv: cannot overwrite directory '_del_node_modules/node_modules' with non-directory
+2026-03-21T17:39:51.3201288Z Done.
+2026-03-21T17:40:43.1461781Z    _____                               
+2026-03-21T17:40:43.1463343Z   /  _  \ __________ _________   ____  
+2026-03-21T17:40:43.1463419Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-21T17:40:43.1463450Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-21T17:40:43.1463478Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-21T17:40:43.1463513Z         \/      \/                  \/ 
+2026-03-21T17:40:43.1463544Z A P P   S E R V I C E   O N   L I N U X
+2026-03-21T17:40:43.1463570Z 
+2026-03-21T17:40:43.1463625Z Documentation    : http://aka.ms/webapp-linux
+2026-03-21T17:40:43.1463656Z NodeJS quickstart: https://aka.ms/node-qs
+2026-03-21T17:40:43.1463685Z NodeJS Version   : v22.22.0
+2026-03-21T17:40:43.1463713Z Instance Name    : lw1mdlwk0001B0
+2026-03-21T17:40:43.1463745Z Instance Id      : 6627028c5a6ac01c144d8a4b83d1cf5d3ba4bfcc95368f6b86f5ffacda9438b3
+2026-03-21T17:40:43.1463932Z 
+2026-03-21T17:40:43.1463966Z Note: Any data outside '/home' is not persisted
+2026-03-21T17:40:46.4826799Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-21T17:40:46.4994131Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-21T17:40:46.5257551Z Updating certificates in /etc/ssl/certs...
+2026-03-21T17:40:56.2563354Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-21T17:40:56.2567431Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-21T17:40:56.4452508Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-21T17:40:56.4869223Z 4 added, 0 removed; done.
+2026-03-21T17:40:56.4869718Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-21T17:40:56.4939490Z done.
+2026-03-21T17:40:56.5061287Z CA certificates copied and updated successfully.
+2026-03-21T17:40:56.7321554Z Starting periodic command scheduler: cron.
+2026-03-21T17:40:56.9840786Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2026-03-21T17:40:56.9849257Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-21T17:40:56.9978312Z Build Operation ID: 9434cfd6-0c3c-4ffd-ad48-7e1b776bcbdb
+2026-03-21T17:40:57.1977096Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2026-03-21T17:40:57.2495061Z Writing output script to '/opt/startup/startup.sh'
+2026-03-21T17:40:57.2718123Z Running #!/bin/sh
+2026-03-21T17:40:57.2718472Z 
+2026-03-21T17:40:57.2718518Z # Enter the source directory to make sure the script runs where the user expects
+2026-03-21T17:40:57.2718562Z cd "/home/site/wwwroot"
+2026-03-21T17:40:57.2718586Z 
+2026-03-21T17:40:57.2718612Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2026-03-21T17:40:57.2718639Z if [ -z "$PORT" ]; then
+2026-03-21T17:40:57.2718707Z 		export PORT=8080
+2026-03-21T17:40:57.2718735Z fi
+2026-03-21T17:40:57.2718760Z 
+2026-03-21T17:40:57.2718786Z echo Found tar.gz based node_modules.
+2026-03-21T17:40:57.2718814Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2026-03-21T17:40:57.2718841Z echo "Removing existing modules directory from root..."
+2026-03-21T17:40:57.2718866Z rm -fr /node_modules
+2026-03-21T17:40:57.2718916Z mkdir -p /node_modules
+2026-03-21T17:40:57.2718944Z echo Extracting modules...
+2026-03-21T17:40:57.2718969Z $extractionCommand
+2026-03-21T17:40:57.2719016Z export NODE_PATH="/node_modules":$NODE_PATH
+2026-03-21T17:40:57.2719044Z export PATH=/node_modules/.bin:$PATH
+2026-03-21T17:40:57.2719069Z if [ -d node_modules ]; then
+2026-03-21T17:40:57.2719117Z     mv -f node_modules _del_node_modules || true
+2026-03-21T17:40:57.2719141Z fi
+2026-03-21T17:40:57.2719165Z 
+2026-03-21T17:40:57.2719189Z if [ -d /node_modules ]; then
+2026-03-21T17:40:57.2719215Z     ln -sfn /node_modules ./node_modules 
+2026-03-21T17:40:57.2719239Z fi
+2026-03-21T17:40:57.2719262Z 
+2026-03-21T17:40:57.2719286Z echo "Done."
+2026-03-21T17:40:57.2720189Z PATH="$PATH:/home/site/wwwroot" node server.js
+2026-03-21T17:40:57.2819234Z Found tar.gz based node_modules.
+2026-03-21T17:40:57.2824585Z Removing existing modules directory from root...
+2026-03-21T17:40:57.3027676Z Extracting modules...
+2026-03-21T17:41:01.2798014Z mv: cannot overwrite directory '_del_node_modules/node_modules' with non-directory
+2026-03-21T17:41:01.2957501Z Done.
+2026-03-21T17:41:02.8119263Z    ▲ Next.js 15.5.7
+2026-03-21T17:41:02.8120115Z    - Local:        http://d9c69b9e7762:8080
+2026-03-21T17:41:02.8120187Z    - Network:      http://d9c69b9e7762:8080
+2026-03-21T17:41:02.8120215Z 
+2026-03-21T17:41:02.8120248Z  ✓ Starting...
+2026-03-21T17:41:03.5225199Z  ✓ Ready in 760ms
+2026-03-21T17:47:54.5404768Z    _____                               
+2026-03-21T17:47:54.5416941Z   /  _  \ __________ _________   ____  
+2026-03-21T17:47:54.5417051Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-21T17:47:54.5417083Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-21T17:47:54.5417110Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-21T17:47:54.5417173Z         \/      \/                  \/ 
+2026-03-21T17:47:54.5417206Z A P P   S E R V I C E   O N   L I N U X
+2026-03-21T17:47:54.5417232Z 
+2026-03-21T17:47:54.5417262Z Documentation    : http://aka.ms/webapp-linux
+2026-03-21T17:47:54.5417293Z NodeJS quickstart: https://aka.ms/node-qs
+2026-03-21T17:47:54.5417321Z NodeJS Version   : v22.22.0
+2026-03-21T17:47:54.5417348Z Instance Name    : lw1mdlwk0001B0
+2026-03-21T17:47:54.5417403Z Instance Id      : 6627028c5a6ac01c144d8a4b83d1cf5d3ba4bfcc95368f6b86f5ffacda9438b3
+2026-03-21T17:47:54.5417430Z 
+2026-03-21T17:47:54.5417457Z Note: Any data outside '/home' is not persisted
+2026-03-21T17:47:55.9420389Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-21T17:47:55.9525907Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-21T17:47:55.9930581Z Updating certificates in /etc/ssl/certs...
+2026-03-21T17:48:09.6975562Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-21T17:48:09.6975739Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-21T17:48:10.1360481Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-21T17:48:10.2043576Z 4 added, 0 removed; done.
+2026-03-21T17:48:10.2050208Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-21T17:48:10.2315967Z done.
+2026-03-21T17:48:10.2446756Z CA certificates copied and updated successfully.
+2026-03-21T17:48:10.3904138Z Starting periodic command scheduler: cron.
+2026-03-21T17:48:10.8538919Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2026-03-21T17:48:10.8554711Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-21T17:48:10.8558803Z Build Operation ID: 660e22e5-a44e-4a11-8a8b-d55a40387b28
+2026-03-21T17:48:11.3680463Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2026-03-21T17:48:11.3878739Z Writing output script to '/opt/startup/startup.sh'
+2026-03-21T17:48:11.4276996Z Running #!/bin/sh
+2026-03-21T17:48:11.4277206Z 
+2026-03-21T17:48:11.4277238Z # Enter the source directory to make sure the script runs where the user expects
+2026-03-21T17:48:11.4277377Z cd "/home/site/wwwroot"
+2026-03-21T17:48:11.4277403Z 
+2026-03-21T17:48:11.4277436Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2026-03-21T17:48:11.4277459Z if [ -z "$PORT" ]; then
+2026-03-21T17:48:11.4277580Z 		export PORT=8080
+2026-03-21T17:48:11.4277601Z fi
+2026-03-21T17:48:11.4277619Z 
+2026-03-21T17:48:11.4277639Z echo Found tar.gz based node_modules.
+2026-03-21T17:48:11.4277660Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2026-03-21T17:48:11.4277681Z echo "Removing existing modules directory from root..."
+2026-03-21T17:48:11.4277700Z rm -fr /node_modules
+2026-03-21T17:48:11.4277719Z mkdir -p /node_modules
+2026-03-21T17:48:11.4277766Z echo Extracting modules...
+2026-03-21T17:48:11.4277805Z $extractionCommand
+2026-03-21T17:48:11.4277844Z export NODE_PATH="/node_modules":$NODE_PATH
+2026-03-21T17:48:11.4277865Z export PATH=/node_modules/.bin:$PATH
+2026-03-21T17:48:11.4277884Z if [ -d node_modules ]; then
+2026-03-21T17:48:11.4277904Z     mv -f node_modules _del_node_modules || true
+2026-03-21T17:48:11.4277922Z fi
+2026-03-21T17:48:11.4277939Z 
+2026-03-21T17:48:11.4277958Z if [ -d /node_modules ]; then
+2026-03-21T17:48:11.4277978Z     ln -sfn /node_modules ./node_modules 
+2026-03-21T17:48:11.4277996Z fi
+2026-03-21T17:48:11.4278014Z 
+2026-03-21T17:48:11.4278033Z echo "Done."
+2026-03-21T17:48:11.4278053Z PATH="$PATH:/home/site/wwwroot" node server.js
+2026-03-21T17:48:11.4472644Z Found tar.gz based node_modules.
+2026-03-21T17:48:11.4472752Z Removing existing modules directory from root...
+2026-03-21T17:48:11.4802161Z Extracting modules...
+2026-03-21T17:49:02.6758960Z    _____                               
+2026-03-21T17:49:02.6760940Z   /  _  \ __________ _________   ____  
+2026-03-21T17:49:02.6761013Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-21T17:49:02.6761107Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-21T17:49:02.6761134Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-21T17:49:02.6761174Z         \/      \/                  \/ 
+2026-03-21T17:49:02.6761201Z A P P   S E R V I C E   O N   L I N U X
+2026-03-21T17:49:02.6761225Z 
+2026-03-21T17:49:02.6761256Z Documentation    : http://aka.ms/webapp-linux
+2026-03-21T17:49:02.6762402Z NodeJS quickstart: https://aka.ms/node-qs
+2026-03-21T17:49:02.6762457Z NodeJS Version   : v22.22.0
+2026-03-21T17:49:02.6762485Z Instance Name    : lw1mdlwk0001B0
+2026-03-21T17:49:02.6762518Z Instance Id      : 6627028c5a6ac01c144d8a4b83d1cf5d3ba4bfcc95368f6b86f5ffacda9438b3
+2026-03-21T17:49:02.6762546Z 
+2026-03-21T17:49:02.6762573Z Note: Any data outside '/home' is not persisted
+2026-03-21T17:49:05.6984654Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-21T17:49:05.7151151Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-21T17:49:05.7525702Z Updating certificates in /etc/ssl/certs...
+2026-03-21T17:49:15.5624572Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-21T17:49:15.5626427Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-21T17:49:15.7735123Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-21T17:49:15.8035450Z 4 added, 0 removed; done.
+2026-03-21T17:49:15.8040747Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-21T17:49:15.8118295Z done.
+2026-03-21T17:49:15.8232493Z CA certificates copied and updated successfully.
+2026-03-21T17:49:15.9075124Z Starting periodic command scheduler: cron.
+2026-03-21T17:49:15.9794432Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2026-03-21T17:49:15.9859980Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-21T17:49:15.9866576Z Build Operation ID: ad526bec-3f6c-4847-8e65-156d8b0fb1c0
+2026-03-21T17:49:16.1746191Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2026-03-21T17:49:16.1841642Z Writing output script to '/opt/startup/startup.sh'
+2026-03-21T17:49:16.1992282Z Running #!/bin/sh
+2026-03-21T17:49:16.1993068Z 
+2026-03-21T17:49:16.1993124Z # Enter the source directory to make sure the script runs where the user expects
+2026-03-21T17:49:16.1993164Z cd "/home/site/wwwroot"
+2026-03-21T17:49:16.1993189Z 
+2026-03-21T17:49:16.1993273Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2026-03-21T17:49:16.1993301Z if [ -z "$PORT" ]; then
+2026-03-21T17:49:16.1993325Z 		export PORT=8080
+2026-03-21T17:49:16.1993349Z fi
+2026-03-21T17:49:16.1993373Z 
+2026-03-21T17:49:16.1993399Z echo Found tar.gz based node_modules.
+2026-03-21T17:49:16.1993426Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2026-03-21T17:49:16.1993471Z echo "Removing existing modules directory from root..."
+2026-03-21T17:49:16.1993498Z rm -fr /node_modules
+2026-03-21T17:49:16.1993523Z mkdir -p /node_modules
+2026-03-21T17:49:16.1993547Z echo Extracting modules...
+2026-03-21T17:49:16.1993571Z $extractionCommand
+2026-03-21T17:49:16.1993621Z export NODE_PATH="/node_modules":$NODE_PATH
+2026-03-21T17:49:16.1993648Z export PATH=/node_modules/.bin:$PATH
+2026-03-21T17:49:16.1993698Z if [ -d node_modules ]; then
+2026-03-21T17:49:16.1993724Z     mv -f node_modules _del_node_modules || true
+2026-03-21T17:49:16.1993749Z fi
+2026-03-21T17:49:16.1993772Z 
+2026-03-21T17:49:16.1993796Z if [ -d /node_modules ]; then
+2026-03-21T17:49:16.1993822Z     ln -sfn /node_modules ./node_modules 
+2026-03-21T17:49:16.1993846Z fi
+2026-03-21T17:49:16.1993889Z 
+2026-03-21T17:49:16.1993913Z echo "Done."
+2026-03-21T17:49:16.2150662Z PATH="$PATH:/home/site/wwwroot" node server.js
+2026-03-21T17:49:16.2150844Z Found tar.gz based node_modules.
+2026-03-21T17:49:16.2157702Z Removing existing modules directory from root...
+2026-03-21T17:49:16.2331605Z Extracting modules...
+2026-03-21T17:49:20.1441854Z mv: cannot overwrite directory '_del_node_modules/node_modules' with non-directory
+2026-03-21T17:49:20.1546859Z Done.
+2026-03-21T17:49:21.7817307Z    ▲ Next.js 15.5.7
+2026-03-21T17:49:21.7823540Z    - Local:        http://c2479906abf6:8080
+2026-03-21T17:49:21.7823882Z    - Network:      http://c2479906abf6:8080
+2026-03-21T17:49:21.7828183Z 
+2026-03-21T17:49:21.7828821Z  ✓ Starting...
+2026-03-21T17:49:22.3881673Z  ✓ Ready in 653ms
+2026-03-21T17:54:24.0202209Z    _____                               
+2026-03-21T17:54:24.0211258Z   /  _  \ __________ _________   ____  
+2026-03-21T17:54:24.0211365Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-21T17:54:24.0211401Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-21T17:54:24.0211429Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-21T17:54:24.0211490Z         \/      \/                  \/ 
+2026-03-21T17:54:24.0211525Z A P P   S E R V I C E   O N   L I N U X
+2026-03-21T17:54:24.0211552Z 
+2026-03-21T17:54:24.0211582Z Documentation    : http://aka.ms/webapp-linux
+2026-03-21T17:54:24.0211612Z NodeJS quickstart: https://aka.ms/node-qs
+2026-03-21T17:54:24.0211642Z NodeJS Version   : v22.22.0
+2026-03-21T17:54:24.0211669Z Instance Name    : lw1mdlwk0001B0
+2026-03-21T17:54:24.0211723Z Instance Id      : 6627028c5a6ac01c144d8a4b83d1cf5d3ba4bfcc95368f6b86f5ffacda9438b3
+2026-03-21T17:54:24.0211750Z 
+2026-03-21T17:54:24.0211776Z Note: Any data outside '/home' is not persisted
+2026-03-21T17:54:27.2765160Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-21T17:54:27.2873642Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-21T17:54:27.3313392Z Updating certificates in /etc/ssl/certs...
+2026-03-21T17:54:38.1310748Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-21T17:54:38.1316169Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-21T17:54:38.3870458Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-21T17:54:38.4367277Z 4 added, 0 removed; done.
+2026-03-21T17:54:38.4367527Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-21T17:54:38.4367552Z done.
+2026-03-21T17:54:38.6124723Z CA certificates copied and updated successfully.
+2026-03-21T17:54:38.9086933Z Starting periodic command scheduler: cron.
+2026-03-21T17:54:39.0615109Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2026-03-21T17:54:39.0689766Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-21T17:54:39.0691905Z Build Operation ID: 86afba99-76a4-4246-af1c-454670e9bd49
+2026-03-21T17:55:34.5039794Z    _____                               
+2026-03-21T17:55:34.5041741Z   /  _  \ __________ _________   ____  
+2026-03-21T17:55:34.5041818Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-21T17:55:34.5041852Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-21T17:55:34.5041944Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-21T17:55:34.5041982Z         \/      \/                  \/ 
+2026-03-21T17:55:34.5042009Z A P P   S E R V I C E   O N   L I N U X
+2026-03-21T17:55:34.5042032Z 
+2026-03-21T17:55:34.5042062Z Documentation    : http://aka.ms/webapp-linux
+2026-03-21T17:55:34.5042091Z NodeJS quickstart: https://aka.ms/node-qs
+2026-03-21T17:55:34.5042139Z NodeJS Version   : v22.22.0
+2026-03-21T17:55:34.5042166Z Instance Name    : lw1mdlwk0001B0
+2026-03-21T17:55:34.5042197Z Instance Id      : 6627028c5a6ac01c144d8a4b83d1cf5d3ba4bfcc95368f6b86f5ffacda9438b3
+2026-03-21T17:55:34.5042223Z 
+2026-03-21T17:55:34.5042248Z Note: Any data outside '/home' is not persisted
+2026-03-21T17:55:38.9743346Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-21T17:55:38.9892168Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-21T17:55:39.0226951Z Updating certificates in /etc/ssl/certs...
+2026-03-21T17:55:49.2526591Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-21T17:55:49.2532152Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-21T17:55:49.4909615Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-21T17:55:49.5239808Z 4 added, 0 removed; done.
+2026-03-21T17:55:49.5240798Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-21T17:55:49.5324977Z done.
+2026-03-21T17:55:49.5422093Z CA certificates copied and updated successfully.
+2026-03-21T17:55:49.6300090Z Starting periodic command scheduler: cron.
+2026-03-21T17:55:49.7078765Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2026-03-21T17:55:49.7107270Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-21T17:55:49.7109334Z Build Operation ID: 7b24a52e-6f91-450a-b024-581e1a146af3
+2026-03-21T17:55:49.9244802Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2026-03-21T17:55:49.9436483Z Writing output script to '/opt/startup/startup.sh'
+2026-03-21T17:55:49.9594825Z Running #!/bin/sh
+2026-03-21T17:55:49.9595280Z 
+2026-03-21T17:55:49.9595329Z # Enter the source directory to make sure the script runs where the user expects
+2026-03-21T17:55:49.9595373Z cd "/home/site/wwwroot"
+2026-03-21T17:55:49.9595397Z 
+2026-03-21T17:55:49.9595424Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2026-03-21T17:55:49.9595509Z if [ -z "$PORT" ]; then
+2026-03-21T17:55:49.9595538Z 		export PORT=8080
+2026-03-21T17:55:49.9595563Z fi
+2026-03-21T17:55:49.9595587Z 
+2026-03-21T17:55:49.9595615Z echo Found tar.gz based node_modules.
+2026-03-21T17:55:49.9595647Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2026-03-21T17:55:49.9595674Z echo "Removing existing modules directory from root..."
+2026-03-21T17:55:49.9595701Z rm -fr /node_modules
+2026-03-21T17:55:49.9595754Z mkdir -p /node_modules
+2026-03-21T17:55:49.9595779Z echo Extracting modules...
+2026-03-21T17:55:49.9595805Z $extractionCommand
+2026-03-21T17:55:49.9595854Z export NODE_PATH="/node_modules":$NODE_PATH
+2026-03-21T17:55:49.9595882Z export PATH=/node_modules/.bin:$PATH
+2026-03-21T17:55:49.9595908Z if [ -d node_modules ]; then
+2026-03-21T17:55:49.9595966Z     mv -f node_modules _del_node_modules || true
+2026-03-21T17:55:49.9595992Z fi
+2026-03-21T17:55:49.9596015Z 
+2026-03-21T17:55:49.9596041Z if [ -d /node_modules ]; then
+2026-03-21T17:55:49.9596068Z     ln -sfn /node_modules ./node_modules 
+2026-03-21T17:55:49.9596093Z fi
+2026-03-21T17:55:49.9596116Z 
+2026-03-21T17:55:49.9596161Z echo "Done."
+2026-03-21T17:55:49.9614845Z PATH="$PATH:/home/site/wwwroot" node server.js
+2026-03-21T17:55:49.9695207Z Found tar.gz based node_modules.
+2026-03-21T17:55:49.9698278Z Removing existing modules directory from root...
+2026-03-21T17:55:49.9902615Z Extracting modules...
+2026-03-21T17:55:53.8765278Z mv: cannot overwrite directory '_del_node_modules/node_modules' with non-directory
+2026-03-21T17:55:53.8975848Z Done.
+2026-03-21T17:55:55.0994707Z    ▲ Next.js 15.5.7
+2026-03-21T17:55:55.1054531Z    - Local:        http://ab8d13917123:8080
+2026-03-21T17:55:55.1054877Z    - Network:      http://ab8d13917123:8080
+2026-03-21T17:55:55.1058601Z 
+2026-03-21T17:55:55.1058730Z  ✓ Starting...
+2026-03-21T17:55:55.7375859Z  ✓ Ready in 674ms
+2026-03-21T17:59:45.9120253Z    _____                               
+2026-03-21T17:59:45.9129395Z   /  _  \ __________ _________   ____  
+2026-03-21T17:59:45.9129496Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-21T17:59:45.9129533Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-21T17:59:45.9129574Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-21T17:59:45.9129668Z         \/      \/                  \/ 
+2026-03-21T17:59:45.9129703Z A P P   S E R V I C E   O N   L I N U X
+2026-03-21T17:59:45.9129729Z 
+2026-03-21T17:59:45.9129758Z Documentation    : http://aka.ms/webapp-linux
+2026-03-21T17:59:45.9129788Z NodeJS quickstart: https://aka.ms/node-qs
+2026-03-21T17:59:45.9129818Z NodeJS Version   : v22.22.0
+2026-03-21T17:59:45.9129922Z Instance Name    : lw1mdlwk0001B0
+2026-03-21T17:59:45.9129958Z Instance Id      : 6627028c5a6ac01c144d8a4b83d1cf5d3ba4bfcc95368f6b86f5ffacda9438b3
+2026-03-21T17:59:45.9129984Z 
+2026-03-21T17:59:45.9130011Z Note: Any data outside '/home' is not persisted
+2026-03-21T17:59:48.1389335Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-21T17:59:48.1518613Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-21T17:59:48.1854243Z Updating certificates in /etc/ssl/certs...
+2026-03-21T18:00:00.0288615Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-21T18:00:00.0288996Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-21T18:00:00.3307149Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-21T18:00:00.3682090Z 4 added, 0 removed; done.
+2026-03-21T18:00:00.3682493Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-21T18:00:00.3767835Z done.
+2026-03-21T18:00:00.4000754Z CA certificates copied and updated successfully.
+2026-03-21T18:00:00.6030204Z Starting periodic command scheduler: cron.
+2026-03-21T18:00:00.8634241Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2026-03-21T18:00:00.8852529Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-21T18:00:00.8852997Z Build Operation ID: 61fadbc5-4f29-4ed8-854f-7612353500e4
+2026-03-21T18:00:01.1682155Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2026-03-21T18:00:01.1971967Z Writing output script to '/opt/startup/startup.sh'
+2026-03-21T18:00:01.2849657Z Running #!/bin/sh
+2026-03-21T18:00:01.2850207Z 
+2026-03-21T18:00:01.2850251Z # Enter the source directory to make sure the script runs where the user expects
+2026-03-21T18:00:01.2850276Z cd "/home/site/wwwroot"
+2026-03-21T18:00:01.2850298Z 
+2026-03-21T18:00:01.2850328Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2026-03-21T18:00:01.2850379Z if [ -z "$PORT" ]; then
+2026-03-21T18:00:01.2850402Z 		export PORT=8080
+2026-03-21T18:00:01.2850520Z fi
+2026-03-21T18:00:01.2850542Z 
+2026-03-21T18:00:01.2850565Z echo Found tar.gz based node_modules.
+2026-03-21T18:00:01.2850588Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2026-03-21T18:00:01.2850610Z echo "Removing existing modules directory from root..."
+2026-03-21T18:00:01.2850631Z rm -fr /node_modules
+2026-03-21T18:00:01.2850651Z mkdir -p /node_modules
+2026-03-21T18:00:01.2850673Z echo Extracting modules...
+2026-03-21T18:00:01.2850693Z $extractionCommand
+2026-03-21T18:00:01.2850715Z export NODE_PATH="/node_modules":$NODE_PATH
+2026-03-21T18:00:01.2850736Z export PATH=/node_modules/.bin:$PATH
+2026-03-21T18:00:01.2850778Z if [ -d node_modules ]; then
+2026-03-21T18:00:01.2850801Z     mv -f node_modules _del_node_modules || true
+2026-03-21T18:00:01.2850822Z fi
+2026-03-21T18:00:01.2850847Z 
+2026-03-21T18:00:01.2850869Z if [ -d /node_modules ]; then
+2026-03-21T18:00:01.2850890Z     ln -sfn /node_modules ./node_modules 
+2026-03-21T18:00:01.2850910Z fi
+2026-03-21T18:00:01.2850929Z 
+2026-03-21T18:00:01.2850949Z echo "Done."
+2026-03-21T18:00:01.2852078Z PATH="$PATH:/home/site/wwwroot" node server.js
+2026-03-21T18:00:01.2951460Z Found tar.gz based node_modules.
+2026-03-21T18:00:01.2951571Z Removing existing modules directory from root...
+2026-03-21T18:00:01.3732491Z Extracting modules...
+2026-03-21T18:00:53.2310978Z    _____                               
+2026-03-21T18:00:53.2313140Z   /  _  \ __________ _________   ____  
+2026-03-21T18:00:53.2313216Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-21T18:00:53.2313254Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-21T18:00:53.2313343Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-21T18:00:53.2313381Z         \/      \/                  \/ 
+2026-03-21T18:00:53.2313409Z A P P   S E R V I C E   O N   L I N U X
+2026-03-21T18:00:53.2313433Z 
+2026-03-21T18:00:53.2313463Z Documentation    : http://aka.ms/webapp-linux
+2026-03-21T18:00:53.2313494Z NodeJS quickstart: https://aka.ms/node-qs
+2026-03-21T18:00:53.2313541Z NodeJS Version   : v22.22.0
+2026-03-21T18:00:53.2313570Z Instance Name    : lw1mdlwk0001B0
+2026-03-21T18:00:53.2313603Z Instance Id      : 6627028c5a6ac01c144d8a4b83d1cf5d3ba4bfcc95368f6b86f5ffacda9438b3
+2026-03-21T18:00:53.2313657Z 
+2026-03-21T18:00:53.2313684Z Note: Any data outside '/home' is not persisted
+2026-03-21T18:00:55.5003832Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-21T18:00:55.5147446Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-21T18:00:55.5403271Z Updating certificates in /etc/ssl/certs...
+2026-03-21T18:01:05.7186062Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-21T18:01:05.7189496Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-21T18:01:05.8999284Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-21T18:01:05.9306135Z 4 added, 0 removed; done.
+2026-03-21T18:01:05.9306506Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-21T18:01:05.9380944Z done.
+2026-03-21T18:01:05.9498118Z CA certificates copied and updated successfully.
+2026-03-21T18:01:06.0379277Z Starting periodic command scheduler: cron.
+2026-03-21T18:01:06.1398076Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2026-03-21T18:01:06.1458998Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-21T18:01:06.1459219Z Build Operation ID: 7306103e-0cdf-4fa0-890d-cce311749a63
+2026-03-21T18:01:06.3466368Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2026-03-21T18:01:06.3541204Z Writing output script to '/opt/startup/startup.sh'
+2026-03-21T18:01:06.3770454Z Running #!/bin/sh
+2026-03-21T18:01:06.3771245Z 
+2026-03-21T18:01:06.3771382Z # Enter the source directory to make sure the script runs where the user expects
+2026-03-21T18:01:06.3771438Z cd "/home/site/wwwroot"
+2026-03-21T18:01:06.3771463Z 
+2026-03-21T18:01:06.3771490Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2026-03-21T18:01:06.3771519Z if [ -z "$PORT" ]; then
+2026-03-21T18:01:06.3771546Z 		export PORT=8080
+2026-03-21T18:01:06.3771572Z fi
+2026-03-21T18:01:06.3771617Z 
+2026-03-21T18:01:06.3771644Z echo Found tar.gz based node_modules.
+2026-03-21T18:01:06.3771673Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2026-03-21T18:01:06.3771701Z echo "Removing existing modules directory from root..."
+2026-03-21T18:01:06.3771727Z rm -fr /node_modules
+2026-03-21T18:01:06.3771752Z mkdir -p /node_modules
+2026-03-21T18:01:06.3771780Z echo Extracting modules...
+2026-03-21T18:01:06.3771833Z $extractionCommand
+2026-03-21T18:01:06.3771885Z export NODE_PATH="/node_modules":$NODE_PATH
+2026-03-21T18:01:06.3771914Z export PATH=/node_modules/.bin:$PATH
+2026-03-21T18:01:06.3771940Z if [ -d node_modules ]; then
+2026-03-21T18:01:06.3771967Z     mv -f node_modules _del_node_modules || true
+2026-03-21T18:01:06.3771992Z fi
+2026-03-21T18:01:06.3772015Z 
+2026-03-21T18:01:06.3772063Z if [ -d /node_modules ]; then
+2026-03-21T18:01:06.3772090Z     ln -sfn /node_modules ./node_modules 
+2026-03-21T18:01:06.3772115Z fi
+2026-03-21T18:01:06.3772138Z 
+2026-03-21T18:01:06.3772163Z echo "Done."
+2026-03-21T18:01:06.3844200Z PATH="$PATH:/home/site/wwwroot" node server.js
+2026-03-21T18:01:06.3880005Z Found tar.gz based node_modules.
+2026-03-21T18:01:06.3880260Z Removing existing modules directory from root...
+2026-03-21T18:01:06.4166381Z Extracting modules...
+2026-03-21T18:01:10.1686001Z mv: cannot overwrite directory '_del_node_modules/node_modules' with non-directory
+2026-03-21T18:01:10.1903161Z Done.
+2026-03-21T18:01:11.8198899Z    ▲ Next.js 15.5.7
+2026-03-21T18:01:11.8203966Z    - Local:        http://9b00bf25e1f1:8080
+2026-03-21T18:01:11.8206471Z    - Network:      http://9b00bf25e1f1:8080
+2026-03-21T18:01:11.8208663Z 
+2026-03-21T18:01:11.8208842Z  ✓ Starting...
+2026-03-21T18:01:12.4731728Z  ✓ Ready in 692ms
+2026-03-21T18:55:33.7704745Z [/api/questions/practice] Success: 10 questions returned in 550ms {
+2026-03-21T18:55:33.7705373Z   filters: {
+2026-03-21T18:55:33.7705402Z     moduleType: 'math',
+2026-03-21T18:55:33.7705423Z     visualType: undefined,
+2026-03-21T18:55:33.7705444Z     category: 'advanced-math',
+2026-03-21T18:55:33.7705464Z     subtopic: undefined,
+2026-03-21T18:55:33.7705484Z     difficulty: 'hard',
+2026-03-21T18:55:33.7705503Z     difficultyRange: null
+2026-03-21T18:55:33.7705524Z   },
+2026-03-21T18:55:33.7705544Z   excludedCount: 0,
+2026-03-21T18:55:33.7705564Z   totalAvailable: 118
+2026-03-21T18:55:33.7705584Z }

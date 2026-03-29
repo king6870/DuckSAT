@@ -247,6 +247,51 @@ Return a JSON array of ${count} question objects. Each object must have:
 };
 
 /**
+ * Grammar & Standard English Conventions Prompt Builder
+ */
+export const grammarPrompt: PromptBuilder = (subtopic: string, difficulty: Difficulty, count: number) => {
+  return {
+    system: READING_SYSTEM_PROMPT,
+    user: `Generate ${count} SAT Reading & Writing questions about GRAMMAR & STANDARD ENGLISH CONVENTIONS.
+
+TOPIC: Standard English Conventions
+SUBTOPICS (distribute evenly):
+- subject-verb-agreement: Ensuring subjects and verbs agree in number and person
+- pronoun-clarity: Pronoun-antecedent agreement, ambiguous pronouns, pronoun case
+- punctuation: Commas, semicolons, colons, dashes, apostrophes used correctly
+- sentence-structure: Run-on sentences, fragments, parallel structure, modifiers
+- verb-tense: Consistent and correct verb tense usage within and across sentences
+
+For EACH question, generate a SHORT passage (60-120 words) that contains an underlined or bracketed portion. The question asks which choice best completes or corrects the sentence.
+
+DIFFICULTY: ${difficulty}
+${DIFFICULTY_GUIDANCE[difficulty]}
+
+REQUIREMENTS:
+- Each question tests a SPECIFIC grammar rule from the SAT
+- The passage should feel like an SAT excerpt (academic, informational, or literary)
+- One option is grammatically correct; the other three contain common grammar errors
+- Wrong answers should represent COMMON student mistakes
+- NO math or LaTeX — all plain English
+- The question stem should reference a specific numbered or underlined portion of the passage
+
+QUESTION FORMAT: "Which choice completes the text so that it conforms to the conventions of Standard English?"
+
+Return a JSON array of ${count} question objects. Each object must have:
+{
+  "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+  "options": ["A) option with grammar choice", "B) option", "C) option", "D) option"],
+  "correctAnswer": 0-3,
+  "explanation": "The specific grammar rule and why the correct answer follows it",
+  "wrongAnswerExplanations": {"A": "specific grammar error", "B": "error", ...},
+  "difficulty": "${difficulty}",
+  "subtopic": "one of: subject-verb-agreement, pronoun-clarity, punctuation, sentence-structure, verb-tense",
+  "passage": "60-120 word passage with bracketed portion (REQUIRED)"
+}`,
+  };
+};
+
+/**
  * Prompt Registry (maps topic ID to prompt builder)
  */
 export const READING_PROMPT_BUILDERS: Record<string, PromptBuilder> = {
@@ -254,4 +299,5 @@ export const READING_PROMPT_BUILDERS: Record<string, PromptBuilder> = {
   'vocabulary': vocabularyPrompt,
   'rhetoric': rhetoricPrompt,
   'synthesis': synthesisPrompt,
+  'grammar': grammarPrompt,
 };

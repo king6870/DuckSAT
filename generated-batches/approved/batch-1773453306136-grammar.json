@@ -1,0 +1,593 @@
+{
+  "batchId": "batch-1773453306136-grammar",
+  "topic": "grammar",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-03-14T02:00:27.614Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 20,
+  "totalValid": 20,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) is",
+        "B) are",
+        "C) were",
+        "D) be"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The subject of the sentence is 'the list,' which is singular. Therefore, the correct verb is 'is.' The other options would create a disagreement: 'are' would treat the subject as plural, 'were' as past tense, and 'be' as the base form not matching a singular subject.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "subject-verb-agreement",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During the afternoon science seminar, a presenter outlines the steps of the investigation. The class reviews the daily notes and discusses how the results will be evaluated. The group recognizes that data collection is ongoing, and the team emphasizes careful recording of each observation. The lab manual states that consistent documentation supports later conclusions, and the lead researcher adds that the next phase depends on whether the evidence remains consistent across trials. The list of data [is/are] ready for analysis, although some samples may still be pending final verification.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Using 'are' would incorrectly treat the singular 'list' as plural.",
+        "C": "Using 'were' uses past tense and plural form, which mismatches the singular subject.",
+        "D": "Using 'be' provides only the base form, not matching a present singular subject."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:56:44.125Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) their",
+        "B) his or her",
+        "C) its",
+        "D) them"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The sentence has a singular antecedent ('Each participant'), so the pronoun must agree in number. 'His or her' is the standard singular pronoun form for gender neutrality. 'Their' is plural, 'its' refers to inanimate objects, and 'them' is an object pronoun, all mismatching the subject.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "pronoun-clarity",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Editors in a university pamphlet discuss guidelines for clear writing. In a sample sentence, a student writes, 'Each participant will present [their/his or her] findings to the committee.' The editor flags this as a place where pronoun clarity matters. The instruction stresses that the pronoun must match the singular antecedent to avoid confusion about who is responsible. The guidance then shows several revision options and asks writers to select the form that preserves both meaning and grammatical agreement.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The pronoun 'their' is plural and does not agree with the singular 'participant'.",
+        "B": "",
+        "C": "'Its' is a possessive pronoun for nonhuman nouns and does not refer to a singular human subject here.",
+        "D": "'Them' is an object pronoun, not suitable as a subject pronoun."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:56:44.130Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) including budgets, schedules, and research plans",
+        "B) including budgets, schedules and research plans",
+        "C) including budgets; schedules, and research plans",
+        "D) including budgets; schedules; and research plans"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The correct option uses a serial comma before the final 'and' in a three-item list, which is the conventional punctuation in Standard English. Option B omits the serial comma; C and D use semicolons inappropriately for a simple list.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "punctuation",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "At the staff meeting, the facilitator explains the agenda for the day. The outline lists the topics for discussion: [including budgets, schedules, and research plans]. The group notes that a comma before the conjunction helps readability in lists. The chair adds that precise punctuation prevents misreading, and everyone agrees to maintain consistency across documents.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Omitting the serial comma in a three-item list is a common punctuation error.",
+        "C": "Using a semicolon to separate items in a simple list is incorrect here.",
+        "D": "Using semicolons with a simple list is inconsistent and incorrect."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:56:44.131Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) summarizes",
+        "B) summarizing",
+        "C) summarized",
+        "D) summarize"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence lists actions using parallel verbs: 'records' and 'notes' are present tense and finite; the third item must also be a finite verb, 'summarizes,' to maintain parallel structure. The other forms break parallelism or tense consistency.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "sentence-structure",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During a field trip, a field biologist records observations, notes patterns, and [summarizes] the data to prepare a short report. The audience notices the cadence of the verbs and sees how parallel structure makes the description clear. The presenter adds that consistency across sections helps readers track the methods, results, and implications. The team is encouraged to revise any sentence that disrupts flow, especially those that mix tenses or voices.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Gerund form 'summarizing' breaks the parallel structure with the finite verbs 'records' and 'notes'.",
+        "C": "Past tense 'summarized' mismatches the present tense sequence.",
+        "D": "Non-finite infinitive 'summarize' does not fit with the prior list of finite verbs."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:56:44.132Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) has",
+        "B) have",
+        "C) had",
+        "D) having"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The noun 'evidence' is singular, so the present perfect form 'has revealed' is correct. 'Have' would be incorrect with singular subject; 'had' would be past perfect; 'having' is a participial form that does not fit the tense needed here.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "verb-tense",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Experts debate the impact of a revolution in political thought. For years, researchers describe the event as a turning point in the era's development. Recent evidence [has/have] revealed documents that add context to the narrative. The new material suggests multiple factors converged to drive change, and scholars now reassess earlier conclusions. The report concludes with a cautious note about gaps in the archive while inviting further study.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Treats 'evidence' as plural; incorrect for the singular subject.",
+        "C": "Past perfect 'had revealed' shifts the time reference improperly for the context.",
+        "D": "Present participle 'having' does not provide a finite verb to complete the clause."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:56:44.133Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) is",
+        "B) are",
+        "C) am",
+        "D) were"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The noun phrase 'team' is a collective noun treated as singular in American English, so the verb should be 'is' to maintain subject-verb agreement. 'Are' would treat the team as plural, which is incorrect here; 'am' and 'were' are not appropriate for the subject and tense.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "subject-verb-agreement",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During a press briefing, researchers summarize their findings and discuss implications for policy. The lead scientist explains that the team of researchers [is/are] ready to publish. The audience nods, recognizing that clear reporting requires careful framing. The group then outlines the next steps and assigns responsibilities to individual members.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Treats 'team' as plural; this is incorrect in Standard American English usage for a collective noun.",
+        "C": "First-person singular form 'am' does not agree with the subject.",
+        "D": "Past tense 'were' does not match the present context of readiness."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:56:44.133Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) is",
+        "B) are",
+        "C) was",
+        "D) were"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Subject-verb agreement requires a plural subject 'data' to take a plural verb 'are' in present progressive tense. The other options either use singular past forms or do not match the present progressive construction.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "subject-verb-agreement",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Researchers collected surveys from several departments to gauge shifts in policy support. The data [is/are] being compiled into a single report, and the team plans to publish preliminary findings next month. Each table lists results by program, and the accompanying notes emphasize the trend toward greater engagement in the sciences. Despite variations between campuses, the overall pattern suggests a growing interest in experimental coursework. The project team believes that the methodology favors clear comparisons across cohorts, though some members caution that external factors have influenced responses.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "is is incorrect because data is a plural noun and should take a plural verb.",
+        "B": "are is correct; the others do not reflect the required tense.",
+        "C": "was is past tense and does not fit the present progressive context.",
+        "D": "were is past plural; not appropriate here."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:58:56.427Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) is",
+        "B) are",
+        "C) am",
+        "D) were"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A 'group' is a collective noun that is treated as singular in American English, so the correct verb is 'is preparing'. The other options treat the subject as plural or incorrect tense.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "subject-verb-agreement",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Faculty notes that a group of students [is/are] preparing a presentation on local ecology. Each member contributes to its outline, and the director praises how the team has coordinated their slides. Given the diverse backgrounds, the committee expects that the final report reflects a range of perspectives. If the team adheres to the schedule, the draft appears polished by next Thursday, though some members worry about last-minute data additions. The project will determine whether the study can be shared with other departments before the semester ends.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "are would treat 'group' as plural, which is incorrect for American usage.",
+        "C": "am is not possible with 'group' as subject.",
+        "D": "were would require past tense and plural agreement."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:58:56.427Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) they",
+        "B) he",
+        "C) she",
+        "D) it"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The antecedent is 'two managers,' a plural subject; the pronoun must be plural ('they') to avoid ambiguity. The other options refer to a single manager or an inanimate referent, which would be incorrect.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "pronoun-clarity",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "At the board meeting, two managers submitted a joint report; [they/he/she] argued that the changes would reduce delays and improve coordination. The discussion then shifted to budgeting, where the managers explained how the new schedules would impact staffing. Several staff members noted that the plan required training for new software, and they asked for a timeline with milestones. The chair reminded everyone to avoid ambiguity in the minutes, so the language clearly references the two managers rather than potentially confusing others.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "he refers to a single manager, creating a mismatch with 'two managers'.",
+        "C": "she refers to a single manager, creating a mismatch with 'two managers'.",
+        "D": "it is an inanimate or nonspecific pronoun, not referring to the managers."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:58:56.428Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) its",
+        "B) it's",
+        "C) their",
+        "D) its'"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The possessive pronoun must agree with the singular antecedent 'the committee' and indicate possession: 'its' is correct. 'it's' would be a contraction of 'it is'; 'their' would disagree with the singular subject; 'its'' is an incorrect possessive form.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "pronoun-clarity",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The committee announced that it would release the report tomorrow, and the staff welcomed the news; [its/it's] significance was not lost on anyone. Members then debated whether the data should be anonymized, a decision that spawned questions about their responsibilities to participants. The chair noted that accuracy and privacy must both be prioritized, and the team agreed to draft a policy accordingly.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "it's is a contraction, not the possessive form needed here.",
+        "C": "their would mismatch the singular subject 'the committee'.",
+        "D": "its' is not a valid possessive form."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:58:56.429Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) ;",
+        "B) ,",
+        "C) .",
+        "D) :"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A semicolon correctly joins two independent clauses that are closely related. The other punctuation marks would create a run-on (comma), fragment (colon), or an incomplete pause (colon) in this context.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "punctuation",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "During the meeting, the data showed a clear trend [;] it supported the hypothesis. The facilitator then asked the group to consider alternative explanations, and several analysts offered additional data.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "A comma here would create a comma splice without a coordinating conjunction.",
+        "C": "A period would split into two sentences, which alters the original close connection.",
+        "D": "A colon is not appropriate between two independent clauses here."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:58:56.429Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) presenting",
+        "B) to present",
+        "C) presents",
+        "D) present"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The list includes two gerunds 'collecting' and 'analyzing'; to maintain parallel structure, the next item should be a gerund 'presenting'. The other options disrupt parallelism or are grammatically incorrect in this position.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "sentence-structure",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The plan includes collecting data, analyzing results, and [to present] the findings to stakeholders. The proposal notes that every phase should be documented, that peer review will be conducted, and that results will be reported promptly to ensure transparency.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "to present creates an unnecessary shift in form from the prior gerunds.",
+        "C": "presents is a finite verb, not parallel with the earlier gerunds.",
+        "D": "present is a base form not parallel with the gerunds."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:58:56.430Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) observed",
+        "B) observes",
+        "C) observing",
+        "D) observe"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence begins with 'Last year, the same team', which is past tense; thus the past-tense verb 'observed' correctly agrees with the time frame. The other forms misalign tense or subject-verb agreement.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "verb-tense",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "During the field season, a team records temperatures daily. Last year, the same team recorded similar patterns and [observed] a steady rise in peak readings. This year, they continue using the same equipment, and the researchers explain that consistent procedures are essential for reliable comparisons across sites. Although some sites show minor deviations, the overall trend remains clear. The advisory panel asked for a long-term plan to monitor variability, ensuring the conclusions are based on stable data rather than unusual events.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "observes is present tense and conflicts with 'Last year'.",
+        "C": "observing is a participle and does not fit the main verb slot here.",
+        "D": "observe is base form and does not match the past-tense context."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:58:56.431Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) outcomes",
+        "B) outcome",
+        "C) outcomes'",
+        "D) outputs"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence lists plural components and requires the plural noun 'outcomes' to maintain parallel structure with 'literature review' and 'data collection'. The other options do not match the plural form.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "sentence-structure",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The committee outlines three components of the proposal: literature review, data collection, and [outcomes] that will be used to measure success. The chair explains how each part supports the overarching objective and how results will be interpreted in light of established benchmarks. Stakeholders will assess progress at quarterly intervals, while the team documents any deviations from the protocol. The minutes note that transparent reporting is essential, and the group agrees to publish periodic updates that highlight both advances and remaining uncertainties.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "outcome is singular and would disrupt parallelism with the other items.",
+        "C": "outcomes' is possessive and incorrect here.",
+        "D": "outputs is a different noun and does not fit the intended items."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:58:56.432Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) remedies",
+        "B) remedy",
+        "C) remedies'",
+        "D) remedying"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence lists three items in parallel: causes, consequences, and remedies. The plural noun 'remedies' correctly matches the parallel structure. The other options disrupt number or form for parallelism.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "sentence-structure",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The report aims to discuss the causes, consequences, and [remedies] of the problem. The writing emphasizes careful language and a balanced tone, avoiding sensational claims while presenting data. The editors urge the authors to maintain parallel structure across sections and to ensure every conclusion follows from the evidence.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "remedy is singular and breaks parallelism with 'causes' and 'consequences'.",
+        "C": "remedies' is a possessive form and wrong in this context.",
+        "D": "remedying is a gerund/participle form and does not fit the list."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:58:56.432Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) was",
+        "B) were",
+        "C) is",
+        "D) are"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Data is a plural noun; when referring to how the data were collected, the plural verb 'were' is required to maintain agreement with the plural subject. The other options use singular forms that mismatch with 'data'.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "verb-tense",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "At the conference, the lead researcher explains the results, then reports on how the data [was/were] collected. The presentation highlights the field methods, calibration procedures, and the steps taken to minimize bias. Attendees ask about the reliability of measurements and how the team plans to test predictions in a follow-up study.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "was mismatches the plural subject 'data'.",
+        "B": "",
+        "C": "is is present tense and mismatches with the plural subject.",
+        "D": "are would be acceptable with present context but the sentence uses past context; the best fit is 'were'."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T01:58:56.433Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) indicate",
+        "B) indicates",
+        "C) indicating",
+        "D) indication"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct answer A) indicate. The subject is data, which is plural, so the verb must be indicate. B) indicates is wrong because it does not agree with the plural subject. C) indicating is a participial form that does not fit the verb slot here. D) indication is a noun and does not function as a verb in this sentence.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "subject-verb-agreement",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Policy analysts track changes in social programs by examining data gathered over multiple years. In the most recent national survey, the research team drew responses from thousands of participants across diverse regions, aiming to map how benefits reach different households. Although many observers focus on single indicators, the overall pattern emerges only when one considers the data collectively rather than in isolation. The authors emphasize that exact phrasing can influence conclusions, and they present a concise summary of their results with three leading findings: [indicate] a wide range of outcomes. The first finding points to correlations between locality resources and employment rates; the second highlights age-related differences in program uptake; the third cautions that measurement error, though small, may distort some minor effects. Throughout the report, caveats remind readers that models are simplifications and that policy recommendations must be weighed against real-world constraints. The tone remains measured, inviting policymakers to balance ambition with practicality while acknowledging uncertainty in the observational record.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct choice: indicate correctly matches the plural subject data.",
+        "B": "Incorrect because indicates would require a singular subject, which data is not.",
+        "C": "Incorrect because indicating is a participle and cannot serve as the main verb here.",
+        "D": "Incorrect because indication is a noun, not a verb."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T02:00:26.607Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) it",
+        "B) they",
+        "C) their",
+        "D) his"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct answer A) it. The antecedent is the singular noun phrase The final section, so the pronoun should be singular to avoid ambiguity. B) they would refer to a plural antecedent which does not match. C) their is possessive, not a subject pronoun. D) his assigns gender and is inappropriate for a collective noun like committee.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "pronoun-clarity",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Urban researchers compiled a decade of zoning changes, housing data, and mobility metrics to assess how neighborhoods evolve under new policies. The study, conducted by a consortium of universities, maps shifts in household stability, school attendance, and access to resources. They describe sources of data, the statistical models used, and the implications for city leadership. The final section distills practical recommendations for municipal planners, and [it] presents a series of policy recommendations designed to stabilize neighborhoods while encouraging investment. The authors stress the importance of transparent methods so that other cities can replicate the work. They acknowledge limitations in the data, such as incomplete records in older neighborhoods and the challenge of isolating causal effects from concurrent changes. Nevertheless, the report offers a framework that city officials can adapt to local circumstances, balancing efficiency with equity and inviting communities to participate in the implementation process.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct choice: it clearly refers to the singular antecedent The final section.",
+        "B": "Incorrect because they would imply a plural antecedent, creating ambiguity.",
+        "C": "Incorrect because their is possessive, not a subject pronoun here.",
+        "D": "Incorrect because his is gender-specific and does not fit a collective singular antecedent."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T02:00:26.608Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) ;",
+        "B) .",
+        "C) ,",
+        "D) —"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct answer A) ;. A semicolon correctly links two closely related independent clauses without creating a run-on or comma splice. B) Period would inappropriately end the sentence and disrupt flow. C) Comma would create a comma splice since both sides are independent clauses. D) Dash is acceptable in some contexts but here would create an abrupt break and is not the standard choice for this construction.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "punctuation",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Archaeological methods have evolved to integrate digital mapping with field notes, improving the resolution at which past settlements can be understood. The new protocol records spatial coordinates, artifact types, and stratigraphic context to a high degree of precision, and it relies on standardized metadata to facilitate cross-site comparisons. The authors caution that contextual interpretation remains inherently interpretive; it has begun to yield credible cross-regional insights only when accompanied by independent replication.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct choice: semicolon properly joins two independent clauses.",
+        "B": "Incorrect because a period would break into a new sentence and require capitalization after the period.",
+        "C": "Incorrect because a comma cannot join two independent clauses without a coordinating conjunction.",
+        "D": "Incorrect because the dash creates a different, more abrupt break than the smooth link a semicolon provides."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T02:00:26.610Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) the analyst",
+        "B) data",
+        "C) dataset",
+        "D) reviewing"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct answer A) the analyst. The sentence requires a singular subject to coordinate with the verb notes. B) data would force a plural subject, clashing with notes. C) dataset would similarly conflict with notes. D) reviewing is a participial form that cannot serve as the subject here.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "sentence-structure",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Statisticians caution that correlation does not imply causation, a principle that guides many experimental designs. In recent simulations, researchers attempted to isolate an effect while controlling for confounds. The dataset includes multiple covariates, and [the analyst] notes that any residual bias could skew the interpretation of results. The authors further explain that replication across laboratories strengthens conclusions and that transparency in reporting helps others assess robustness.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct choice: 'the analyst' is the proper singular subject for 'notes' in this context.",
+        "B": "Incorrect because 'data' would require a plural verb form, producing a subject-verb mismatch with 'notes'.",
+        "C": "Incorrect because 'dataset' is singular but would still clash with the plural verb 'notes'.",
+        "D": "Incorrect because 'reviewing' is a participle and cannot act as the subject for the verb 'notes'."
+      },
+      "_batchId": "batch-1773453306136-grammar",
+      "_generatedAt": "2026-03-14T02:00:26.612Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

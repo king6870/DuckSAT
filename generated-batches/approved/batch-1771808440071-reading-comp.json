@@ -1,0 +1,2710 @@
+{
+  "batchId": "batch-1771808440071-reading-comp",
+  "topic": "reading-comp",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-02-23T01:04:45.024Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 100,
+  "totalGenerated": 93,
+  "totalValid": 93,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "What is the central claim the passage makes about environmental change and ecological effects?",
+      "options": [
+        "A) Small, cumulative shifts in physical conditions can ripple through ecosystems.",
+        "B) Wind-driven mixing has no effect on the depth distribution of plankton.",
+        "C) Warmer surface water will always benefit all marine species.",
+        "D) Plankton changes are too random to be studied scientifically."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage argues that small, gradual changes in physical conditions can have broad ecological effects, including shifts in habitat and predator-prey dynamics. Options B, C, and D contradict specific details or the overall claim of the passage: B denies any effect, C claims universal benefit which is not supported, and D claims randomness contrary to the study’s call for monitoring and pattern recognition.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Over the past decade, oceanographers have documented a surprising shift in the distribution of plankton around northern seas. A team at the Coastal Research Institute conducted monthly sampling along a transect from 40 to 60 degrees north. They found that certain phytoplankton species that thrived in warmer surface water had grown more abundant at depths once considered too cold for them. The researchers propose that changes in wind-driven mixing have altered the vertical habitat, allowing warmer water to extend deeper in the water column during late spring. These shifts correlate with a modest rise in surface temperatures, but the team notes that the ecological impact is nuanced: some small fish species appear to rely on plankton blooms that now occur earlier in the season, while other organisms struggle to adapt to the different timing. The study emphasizes that small, cumulative shifts in physical conditions can ripple through an ecosystem, altering predator-prey dynamics and competition among species, sometimes in unexpected ways. The researchers caution that long-term monitoring is needed to determine whether these patterns persist or simply reflect short-term variability.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect because it is the correct answer and not a wrong option.",
+        "B": "Wrong because the passage asserts that wind-driven mixing changes habitat, indicating an effect.",
+        "C": "Wrong because the passage notes nuanced and sometimes negative or different effects, not universal benefit.",
+        "D": "Wrong because the passage calls for long-term monitoring, implying it is studyable and not purely random."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:01:40.951Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which detail from the passage supports the claim that changes in wind-driven mixing affect deeper water life?",
+      "options": [
+        "A) Tariffs can attract foreign investment.",
+        "B) Tariffs have to be limited in time and matched to infrastructure needs.",
+        "C) Tariffs guarantee lower consumer prices.",
+        "D) Tariffs remove the need for infrastructure development."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage explicitly states that tariffs should be temporary and balanced with infrastructure development, linking policy duration to its broader economic goals. Options A, C, and D are not supported by the text: A is not discussed, C is contradicted by the idea that tariffs raise prices, and D wrongly asserts tariffs replace infrastructure needs.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "In 1892, a memo from the Department of Trade noted that tariffs could protect domestic industries but also raise prices for consumers. The memo argued that such policies should be temporary and carefully balanced with infrastructure development. It observed that when tariffs are used to nurture a nascent industry, the resulting growth can feed demand for roads, ports, and rail to connect production with markets. The authors warned that if tariffs linger too long, they may create dependency or slow innovation by shielding firms from competition. The document concluded with a caution: policy should be flexible, revisiting goals as conditions change and new data become available. The historical record thus portrays tariffs not as fixed tools but as instruments whose effects depend on timing, scope, and the surrounding economic environment. The writers emphasize measurement and periodic review to ensure that protective aims align with broader national development.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Wrong because the passage does not discuss foreign investment as a direct outcome of tariffs.",
+        "B": "Correct choice re-states the idea that tariffs should be time-limited and tied to infrastructure, so not wrong.",
+        "C": "Wrong because the passage implies tariffs can raise prices, not guarantee lower prices.",
+        "D": "Wrong because the passage argues tariffs must be complemented by infrastructure, not replace it."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:01:40.957Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "From the passage, what does the author imply about the role of monitoring in scientific work?",
+      "options": [
+        "A) Monitoring exhibitions over time helps distinguish personal taste from enduring themes.",
+        "B) A single viewing is sufficient to understand a sculpture's meaning.",
+        "C) Viewers should avoid comparing different periods of an artist's work.",
+        "D) Color alone determines how an artwork is understood."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage argues that long sequences of exhibitions reveal patterns not visible in a single viewing, helping to separate personal response from enduring artistic concerns. Options B and C misrepresent this emphasis on longitudinal observation and comparison; D introduces an unsupported claim about color, which the passage does not privilege.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The sculpture study focused on three works created during a single decade in a coastal city. The researchers documented the repetitive use of a central motif, noting how the artist returns to it with variations in scale and texture. A close reading suggests that the motif serves as a hinge between memory and interpretation, inviting viewers to revisit familiar scenes with fresh perspective. The authors stress that a long sequence of exhibitions is essential to understand how perception shifts over time, as audiences respond differently to color, form, and arrangement. They caution that initial reactions may mislead if not checked against a broader record of reception. In conclusion, the study argues that careful documentation across multiple showings reveals patterns not visible in a single viewing, helping to separate personal response from enduring artistic concerns.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Wrong because it accurately captures the main point of the passage and is therefore not a wrong choice.",
+        "B": "Wrong because it contradicts the passage which states that multiple views are necessary.",
+        "C": "Wrong because it contradicts the idea of comparing across periods to find enduring concerns.",
+        "D": "Wrong because it introduces color as the sole determinant, which the passage does not claim."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:01:40.958Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What inference can be drawn about the author’s stance on reader interpretation in the passage?",
+      "options": [
+        "A) The narrator’s unreliability actually deepens the reader’s engagement with the truth.",
+        "B) Readers should passively accept the narrator’s version of events.",
+        "C) The novel rewards certainty and discourages revision of opinions.",
+        "D) Memory is irrelevant to understanding the plot."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage argues that unreliability deepens engagement by inviting reconstruction and testing of assumptions, suggesting active reader participation. Options B, C, and D promote passive or erroneous approaches not supported by the passage.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The study of a late 19th century novel notes that the narrator lies at least twice in the early chapters, creating doubt about what actually happened. Yet the critic argues that such unreliability enhances the novel by inviting readers to reconstruct truth from fragments and to test assumptions against later events. The author suggests that readers should treat each retelling as a clue rather than a final statement. By foregrounding memory’s fragility, the critic contends that the work becomes less about external facts and more about how a reader assembles meaning from the textual cues provided by the narrator. The conclusion asserts that a responsible reader remains active, revisiting scenes and testing hypotheses as new information emerges through the narrative structure.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct choice indicates the proper inference, not a wrong option.",
+        "B": "Wrong because it contradicts the idea of active reconstruction.",
+        "C": "Wrong because it implies certainty is rewarded, which the passage rejects.",
+        "D": "Wrong because it minimizes memory’s role, which the passage elevates."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:01:40.959Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which detail from the passage best supports the author’s claim about reader engagement?",
+      "options": [
+        "A) Calibration under real field conditions improves accuracy across soil types.",
+        "B) Laboratory tests are sufficient to validate the sensor’s usefulness.",
+        "C) User instructions have little effect on device performance.",
+        "D) The sensor works perfectly in controlled environments."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage asserts that calibration in real field conditions improves accuracy across soil types, a concrete detail. Options B and D overstate lab-only validation or perfection, and C minimizes the impact of user instructions, which the passage says helps reduce errors.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "A science journal article reports on a series of field tests for a new sensor that measures soil moisture. The tests show that accuracy improves when the device is calibrated under real field conditions rather than in a laboratory. The authors note that calibration avoids systematic bias and increases reliability across different soil types. They also document how users interact with the device, emphasizing that straightforward instructions reduce setup errors. The article closes with a call for wider testing in varied climates to confirm the sensor’s robustness. Taken together, the findings argue that practical validation cannot be separated from theoretical development, since real-world data reveal hidden factors that labs alone cannot predict.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer; no error in reasoning.",
+        "B": "Wrong because it contradicts the emphasis on real-field calibration.",
+        "C": "Wrong because it underplays the role of user instructions which the passage supports.",
+        "D": "Wrong because the passage does not claim perfect performance in controlled environments."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:01:40.960Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author’s purpose in this paragraph about a short historical treatise on farming?",
+      "options": [
+        "A) The treatise shows that crop rotation was driven by broader social and economic changes, not just soil needs.",
+        "B) Crop rotation existed purely as a technical method with no social influence.",
+        "C) The treatise claims rotation was invented in one region and copied elsewhere.",
+        "D) The author dismisses the role of markets in changing farming practices."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage argues that crop rotation reflected both soil needs and evolving social and economic factors, showing a multi-dimensional purpose for rotation. Options B, C, and D misrepresent the influence of social factors, regional origin, and markets.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "A brief historical treatise on farming argues that crop rotation emerged not only as a practical technique but as a reflection of evolving ideas about land stewardship. Early records describe alternating crops to restore soil fertility, yet the treatise also notes that social organization and labor practices shaped how farmers implemented rotation. The author uses examples from three regions to show that rotation systems adapted when markets demanded different crops or when new tools changed the labor required. The conclusion suggests that agricultural knowledge travels across cultures and time, picking up preferences and constraints along the way, until a sustainable approach becomes a widely accepted standard.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct.",
+        "B": "Wrong because it denies social influence which the passage emphasizes.",
+        "C": "Wrong because the passage suggests adaptation across regions rather than a single origin.",
+        "D": "Wrong because markets are described as shaping rotation practices."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:01:40.961Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which inference about the narrator’s reliability is best supported by the passage?",
+      "options": [
+        "A) The study relies on multiple data sources to avoid a skewed view of progress.",
+        "B) A single test score provides a full picture of learning.",
+        "C) Peer feedback consistently harms student performance.",
+        "D) Abstract tasks are more effective than real-world problems."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage states that mixed methods provide the clearest picture and warns against relying on a single measure, supporting the inference that multiple sources reduce bias. Options B, C, and D are contradicted by the text.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The report on a classroom intervention describes how a teacher used a series of short tasks to measure progress. The authors note that students performed consistently better when tasks were linked to real-world problems rather than abstract theory. They also report that some students showed improvement after peer feedback, while others did not respond as strongly. The researchers emphasize that results varied by setting and by how closely tasks matched students' prior experiences. They conclude that mixed methods, including observations and test scores, provide the clearest picture of learning outcomes, suggesting that any single measure may misrepresent a student’s abilities.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct option; it highlights the use of multiple data sources.",
+        "B": "Wrong because the passage warns against relying on a single measure.",
+        "C": "Wrong because the passage says some benefited from peer feedback, not that it consistently harms.",
+        "D": "Wrong because the passage favors real-world problems over abstract tasks."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:01:40.961Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main idea of the passage about an ancient trade route’s impact on culture?",
+      "options": [
+        "A) Trade routes act as channels for both goods and ideas, shaping culture.",
+        "B) Economics alone determined the growth of coastal cities.",
+        "C) Cultural exchange happened only through religious practices.",
+        "D) Archaeological finds rarely reveal information about trade."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage presents a central claim that trade routes transmitted both goods and ideas, shaping culture, which is the main idea. Options B, C, and D are narrower or incorrect interpretations not supported by the passage.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "A study of an ancient trade route shows how merchants carried not only goods but ideas across deserts and seas. The route linked coastal cities to inland markets, enabling artisans to exchange textiles, pottery, and metals while also spreading culinary techniques and religious practices. The researchers note that cities near the route prospered as hubs of information, where travelers shared news and gossip that shaped political alliances. Archaeological finds include inscriptions that blend languages, suggesting conversations between diverse communities. The study concludes that the route functioned like a conduit for cultural transmission, where economic exchange amplified social and intellectual exchange. The result was a composite culture that retained local flavors while absorbing innovations from distant regions.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; it captures the main idea.",
+        "B": "Wrong because it limits growth to economics, ignoring cultural exchange highlighted in the passage.",
+        "C": "Wrong because it overemphasizes religion as the sole conduit of cultural exchange.",
+        "D": "Wrong because archaeological finds are described as revealing information about trade and exchange."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:01:40.962Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What detail from the passage would best support a conclusion about the route’s economic impact?",
+      "options": [
+        "A) The description of market stalls and imported goods shows the economic vitality of the town.",
+        "B) The critic claims that literature should avoid discussions of commerce.",
+        "C) The town lacks diversity in goods and people.",
+        "D) Weather reports are the only useful information for merchants."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage describes market stalls and imported goods, illustrating economic vitality. The other options misstate the focus: B contradicts the analysis, C is false given the mentions of diversity, and D ignores broader economic content.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "A literary critic analyzes a novel set in a fictional port town during the early 1800s. The critic notes how merchants store inventories in wooden crates and how market stalls line the quay with goods from distant lands. The town’s weekly assembly includes sailors who report on weather, shipping lanes, and opportunities for new ventures. The critic argues that these commercial interactions create a social fabric in which families gain access to markets and ideas, accelerating urban growth and diversification. The analysis emphasizes that economic life and social life intertwine, with commerce shaping cultural practices as surely as literature reflects them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; it supports the economic impact.",
+        "B": "Wrong because it contradicts the critic’s emphasis on commerce.",
+        "C": "Wrong because the passage implies diversity via imported goods and people.",
+        "D": "Wrong because it reduces information to weather, which is not the focus."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:01:40.963Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main purpose of the paragraph about the new wind-energy policy?",
+      "options": [
+        "A) The policy aims to boost local manufacturing and energy resilience, despite upfront costs.",
+        "B) The policy seeks to ban wind energy due to high maintenance needs.",
+        "C) Local manufacturing is unnecessary for wind energy projects.",
+        "D) The brief asserts that energy policy should be fixed without community input."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The paragraph states that the policy prioritizes local manufacturing and resilience, acknowledging upfront costs but arguing for long-term benefits. The other options contradict or misstate the text: B denies wind energy, C minimizes local manufacturing, and D dismisses community input.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "A paragraph from a government brief explains why a new wind-energy policy prioritizes local manufacturing. The authors argue that domestic production reduces reliance on imported parts and creates skilled jobs nearby. They note that supporting local suppliers also stabilizes the power grid, since maintenance and repair crews are readily available. The paragraph concedes that initial costs are higher and that permitting processes can slow deployment. However, it emphasizes that long-term savings and resilience justify the investment. The brief ends with a reminder that policy should be evaluated by concrete outcomes, not promises, and that ongoing feedback from communities is essential to refine implementation.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; matches the stated purpose.",
+        "B": "Wrong because it contradicts the policy’s aims.",
+        "C": "Wrong because it denies the local manufacturing rationale given.",
+        "D": "Wrong because it claims no community input is needed, which the passage opposes."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:01:40.964Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What can be inferred about the author’s view on the relationship between science and policy?",
+      "options": [
+        "A) Scientific findings should guide practical policy choices to improve urban air quality.",
+        "B) Policy decisions should ignore scientific data and rely on public opinion.",
+        "C) Weather alone determines pollutant levels, so traffic has no effect.",
+        "D) Urban air quality cannot be improved through policy changes."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage argues that scientific data should inform policy to improve air quality, indicating a direct link between science and policy. Options B, C, and D misrepresent the emphasis on traffic as a driver and the potential for policy to improve conditions.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "A science briefing about urban air quality describes a study that links traffic patterns to pollutant levels. The researchers assert that measuring pollutants at multiple sites over several months reveals a clear pattern: rush hour corresponds with spikes in particulates, while calm periods show reductions. They acknowledge variables such as weather and industrial activity but argue that the main driver is vehicle emissions. The briefing concludes by recommending targeted policies that reduce peak-hour traffic and encourage electric transit options, suggesting that scientific data should directly inform policy design without delay.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; it aligns with the passage.",
+        "B": "Wrong because it rejects data-driven policy.",
+        "C": "Wrong because it incorrectly attributes pollutant levels solely to weather.",
+        "D": "Wrong because it ignores the policy recommendations based on the data."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:01:40.964Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main idea of the passage about a poet’s treatment of memory?",
+      "options": [
+        "A) Memory in the poems is a flexible instrument for exploring identity.",
+        "B) Memory is depicted as a flawless record of the past.",
+        "C) The poems deny any connection between memory and selfhood.",
+        "D) The sequence demonstrates that memory loses meaning over time."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage argues memory is a flexible tool to explore identity, showing how it changes across poems. The other options contradict the idea of memory influencing selfhood or claim distortions that are not presented as negative in a blanket sense.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "A critical essay examines a poet who revisits a single memory across three different poems. The critic argues that memory here is not a fixed event but a malleable source that reshapes itself with each reimagining. The first poem presents memory as a vivid, almost tactile scene. The second reframes it through irony, highlighting distance and doubt. The final poem blends memory with present emotion, suggesting that the past continues to influence the speaker. The essay concludes that the poet uses memory as a dynamic tool to probe identity, rather than as a simple record of events. By threading together variations, the poems reveal how memory can both illuminate and distort the self.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; describes the main idea.",
+        "B": "Wrong because it treats memory as flawless, which the critic disputes.",
+        "C": "Wrong because the essay ties memory to identity, not negates it.",
+        "D": "Wrong because it claims memory loses meaning, which is not the essay’s stance."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:01:40.965Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which detail supports the claim that the center’s study found a consistent pattern across sites?",
+      "options": [
+        "A) Consistency between lower noise, natural light, and improved attention across all sites.",
+        "B) Mindfulness breaks were the only effective intervention.",
+        "C) Cortisol levels rose when windows were open.",
+        "D) There was no differential effect across schools."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage states that natural light and lower noise levels consistently correlated with lower stress and higher attention across five schools. Options B, C, D misstate the findings or contradict the reported consistency.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "An environmental psychology report examines how different classrooms impact student stress and attention. Across five schools, researchers measured cortisol levels and observed on-task behavior during two weeks of routine instruction. They found that rooms with natural light and lower noise levels consistently correlated with lower stress markers and higher attention spans. The report notes that while some teachers implemented mindfulness breaks, the physical environment appeared to have a stronger and more reliable effect on outcomes. The discussion suggests that future work should explore design choices that promote calmer, more focused learning spaces for a broad range of students.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; it captures the reported pattern.",
+        "B": "Wrong because the passage credits physical design as stronger, not mindfulness alone.",
+        "C": "Wrong because it reverses the cortisol result and mentions an unsupported condition.",
+        "D": "Wrong because the passage reports a consistent pattern across sites."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:01:40.966Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the central claim of the passage?",
+      "options": [
+        "A) Local microclimates in cities create distinct weather patterns that interact with broader climate trends.",
+        "B) Global warming is the only driver of urban weather patterns.",
+        "C) Rainfall in cities is entirely unpredictable and unrelated to urban surfaces.",
+        "D) Urban planning has no impact on local weather phenomena."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage presents the central idea that urban microclimates create local weather variations that work with broader climate trends, not replace them. Options B, C, and D misstate the relationship or dismiss the role of urban surfaces entirely. The correct answer aligns with the passage’s claim about the importance of microclimates for planning and health, and the implied potential of mitigation strategies.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Scientists studying urban heat islands have long noted that cities create local weather patterns distinct from surrounding countryside. In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds. The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently. Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them. The central claim is not that cities override global warming, but that microclimates add a layer of variation that matters for planning and public health. The report emphasizes that mitigation strategies, such as reflective surfaces and green infrastructure, can moderate some effects. The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct answer and should not be labeled as wrong.",
+        "B": "Implies that global warming alone drives urban weather, which the passage denies by stressing local microclimates work with broader trends.",
+        "C": "Suggests rainfall is wholly unpredictable from urban surfaces, contrary to the described link between surfaces and weather patterns.",
+        "D": "Claims urban planning has no impact, which contradicts the discussion of mitigation strategies."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.466Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to the passage, which detail supports the idea that microclimates matter for public health planning?",
+      "options": [
+        "A) The absorption of heat by urban surfaces shifts daytime temperatures.",
+        "B) Wind corridors near tall buildings reduce rainfall.",
+        "C) The study unambiguously proves rainfall patterns are random.",
+        "D) Urban microclimates replace global climate trends."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Option A directly references the text mentioning that asphalt and concrete absorb heat and shift daytime temperatures, which supports the idea that microclimates matter for planning. Options B and D contradict the text, and C misstates rainfall as random, which the passage does not claim.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds. The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently. Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct answer and should not be labeled as wrong.",
+        "B": "The passage says wind corridors can intensify rainfall under some conditions; it does not claim rainfall is reduced.",
+        "C": "The passage does not claim rainfall patterns are random; it notes inconsistencies but not randomness.",
+        "D": "The passage emphasizes conjunction with broader trends, not replacement."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.467Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What can be reasonably inferred about mitigation strategies from the passage?",
+      "options": [
+        "A) They are likely to reduce some local weather effects without eliminating them.",
+        "B) They will completely eradicate urban microclimates.",
+        "C) They are unnecessary because microclimates are harmless.",
+        "D) They will worsen pollution in most cases."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage states mitigation strategies can moderate effects, implying a reduction but not elimination. The other options make extreme or unsupported claims contrary to the cautious tone of mitigation efforts.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Mitigation strategies, such as reflective surfaces and green infrastructure, can moderate some effects. The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer should not be labeled as wrong.",
+        "B": "The text does not claim complete eradication of microclimates.",
+        "C": "The passage treats microclimates as a concern for planning, not harmlessly ignored.",
+        "D": "There is no suggestion that mitigation would worsen pollution."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.468Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which statement best expresses the author’s main purpose in the passage?",
+      "options": [
+        "A) To argue for policy changes that address urban microclimates",
+        "B) To claim that cities are the sole cause of weather change",
+        "C) To dismiss concerns about urban planning",
+        "D) To provide a sensory description of city heat without policy implications"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage emphasizes policy relevance, mitigation, and standardized measurements, indicating a purpose to argue for policy changes. The other options misrepresent the focus, either by overstating or minimizing policy implications.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Scientists studying urban heat islands have long noted that cities create local weather patterns distinct from surrounding countryside. In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds. The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently. Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them. The central claim is not that cities override global warming, but that microclimates add a layer of variation that matters for planning and public health. The report emphasizes that mitigation strategies, such as reflective surfaces and green infrastructure, can moderate some effects. The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong; it should be the correct choice.",
+        "B": "The passage does not claim cities cause all weather changes, only influence microclimates.",
+        "C": "The passage does not dismiss concerns; it argues for mitigation.",
+        "D": "The passage includes policy implications beyond sensory description."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.469Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which detail from the passage would most strongly support a claim that microclimates interact with broader climate trends rather than replace them?",
+      "options": [
+        "A) The observation that local temperature shifts occur alongside global warming trends.",
+        "B) The statement that cities completely override regional weather patterns.",
+        "C) The claim that rainfall events are entirely caused by city architecture.",
+        "D) The suggestion that natural ground responds the same as asphalt."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Option A directly references the phrase that local changes operate in concert with broader trends, which supports the interaction hypothesis. The other options misstate the relationship or oversimplify causation.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds. The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently. Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The passage denies this by saying local changes do not eclipse broader trends.",
+        "C": "The passage ties rainfall to urban features but does not claim it's entirely caused by architecture alone.",
+        "D": "The passage compares apartments to asphalt but does not claim identical response."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.470Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the passage, what is the implied consequence of underestimating microclimates for city planning?",
+      "options": [
+        "A) Policy makers may fail to compare impacts across cities.",
+        "B) Microclimates will disappear with proper planning.",
+        "C) All cities will experience identical weather changes.",
+        "D) Global trends will render local microclimates irrelevant."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage emphasizes standardized measurements to compare impacts, so failing to standardize would hinder comparison. The other options imply outcomes not supported by the text.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Mitigation strategies, such as reflective surfaces and green infrastructure, can moderate some effects. The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The passage does not claim microclimates will disappear.",
+        "C": "There is no suggestion that all cities will have identical changes.",
+        "D": "The passage argues for understanding microclimates rather than rendering them irrelevant."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.471Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What would be most accurate about the relationship between urban surfaces and local winds, according to the passage?",
+      "options": [
+        "A) Urban surfaces can influence the direction and intensity of local winds.",
+        "B) Urban surfaces have no effect on wind patterns.",
+        "C) Wind patterns in cities are entirely determined by global climate cycles.",
+        "D) Natural ground absorbs heat more than asphalt in cities."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage states that urban surfaces alter the formation of boundary layer winds, implying an influence on wind direction and intensity. The other options contradict this claim.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the claim that surfaces alter winds.",
+        "C": "Overstates the role of global cycles and ignores local surfaces.",
+        "D": "Opposite of what the passage asserts about asphalt and heat absorption."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.472Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the likely purpose of including the note about standardized measurements across cities?",
+      "options": [
+        "A) To enable consistent policy evaluation and comparison.",
+        "B) To promote a single universal climate policy for all cities.",
+        "C) To argue against collecting local weather data.",
+        "D) To highlight the impossibility of comparing cities."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Standardized measurements would allow consistent evaluation and comparison across cities, aligning with the stated purpose of tracking progress. The other options misrepresent the intent or practicality.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The passage does not argue for one universal policy; it argues for comparable measurements.",
+        "C": "The passage supports data collection, not opposition to it.",
+        "D": "The passage endorses the possibility of comparison, not its impossibility."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.473Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which inference about policy implications is most supported by the passage?",
+      "options": [
+        "A) Policies that reduce heat absorption could lessen urban climate effects.",
+        "B) Policies will not affect urban microclimates at all.",
+        "C) Only technological fixes can address microclimate issues.",
+        "D) Microclimate issues are too small to justify policy action."
+      ],
+      "correctAnswer": 0,
+      "explanation": "If reflective surfaces and green infrastructure can moderate effects, then policies implementing such strategies are likely to reduce urban climate effects. The other options contradict the potential policy impact implied by mitigation.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Mitigation strategies, such as reflective surfaces and green infrastructure, can moderate some effects.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicted by the claim that mitigation can moderate effects.",
+        "C": "The passage mentions specific nontechnical strategies, not only tech fixes.",
+        "D": "The text suggests there is policy relevance by calling for measurements."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.473Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the central idea of the passage about local weather changes in cities?",
+      "options": [
+        "A) Local weather in cities is shaped by urban surfaces and building layouts, but still interacts with broad climate trends.",
+        "B) Urban surfaces completely replace broader climate trends in determining local weather.",
+        "C) Local rainfall is unaffected by city structures and is entirely climate-driven.",
+        "D) Climate trends are irrelevant to city planning decisions regarding weather."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage emphasizes interaction with broader climate trends, not replacement. The other options overstate independence or disregard of urban features.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds. The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently. Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The passage denies replacement by broad trends; it says interaction.",
+        "C": "The passage links rainfall to urban features, not all climate-driven exclusively.",
+        "D": "The passage argues for policy and planning relevance, not irrelevance."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.474Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What would be the best summary of the passage’s argument about microclimates and public health?",
+      "options": [
+        "A) Microclimates create additional variability that affects planning and health, alongside global warming.",
+        "B) Microclimates are the sole factor in health outcomes in cities.",
+        "C) Global warming eliminates the need to consider city design for health.",
+        "D) Public health is unaffected by urban surface choices."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage emphasizes that microclimates add variation relevant to planning and health in addition to global trends. The other options overstate or misstate the relationship.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds. The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently. Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them. The central claim is not that cities override global warming, but that microclimates add a layer of variation that matters for planning and public health.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The passage does not claim microclimates are the sole health determinant.",
+        "C": "The passage argues for considering microclimates, not disregarding them.",
+        "D": "The passage implies health is affected by urban surfaces and microclimates."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.475Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following best captures the article s claim about measurement and policy?",
+      "options": [
+        "A) Standardized measurements are essential for comparing city impacts and tracking improvement.",
+        "B) Measurements should be unique to each city with no standardization.",
+        "C) Policy should ignore local measurements in favor of national averages.",
+        "D) Tracking progress is unnecessary in urban climate research."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage advocates standardized measurements to enable comparison and evaluation over time, aligning with option A. Other options conflict with this stance.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the call for standardization.",
+        "C": "Misses the emphasis on local measures for policy assessment.",
+        "D": "Directly contradicts the stated aim of tracking progress."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.475Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "From the passage, which sentence most clearly expresses the central thesis that local climate variation coexists with broader climate trends?",
+      "options": [
+        "A) These local changes operate in concert with broader climate trends, rather than eclipsing them.",
+        "B) Local changes completely eclipse broader climate trends.",
+        "C) Urban surfaces have no effect on the local climate.",
+        "D) Broader climate trends are the only factor in urban weather."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence explicitly states that local changes operate in concert with broader trends, which is the thesis of coexistence. The other options misstate the relationship.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds. The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently. Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The passage denies eclipse, stating coexistence.",
+        "C": "The passage asserts urban surfaces do affect local climate.",
+        "D": "The passage asserts both local changes and broader trends matter."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.476Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What evidence does the passage provide to support the claim that urban surfaces absorb heat more than natural ground?",
+      "options": [
+        "A) The observed shift in daytime temperatures by several degrees.",
+        "B) The claim that rainfall patterns are random.",
+        "C) The assertion that all cities experience identical weather changes.",
+        "D) The suggestion that natural ground warms faster than asphalt."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage cites the shift in daytime temperatures as evidence that asphalt and concrete absorb heat more readily than natural ground. The other options either misstate results or contradict the claim.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The passage does not mention rainfall as random in this sentence.",
+        "C": "The passage does not claim identical changes across all cities.",
+        "D": "The passage states the opposite regarding heat absorption."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.477Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the context of the passage, what does the phrase boundary layer winds refer to?",
+      "options": [
+        "A) Winds formed near the ground that are affected by surface temperatures.",
+        "B) Winds that occur only at the top of the atmosphere.",
+        "C) Winds that are not influenced by urban development.",
+        "D) Winds that cannot be measured by standard weather instruments."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Boundary layer winds occur close to the surface and are influenced by surface heating, which aligns with the described heat absorption by urban materials. The other options describe unrelated or incorrect concepts.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Describes high altitude winds, not boundary layer winds.",
+        "C": "The passage shows urban development affects winds.",
+        "D": "The passage does not claim measurement impossibility."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.477Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which inference best follows from the passage about the role of green infrastructure in urban areas?",
+      "options": [
+        "A) Implementing green infrastructure is likely to reduce some adverse local climate effects.",
+        "B) Green infrastructure will completely eliminate all microclimate differences.",
+        "C) Reflective surfaces have no impact on urban heat.",
+        "D) Standardized measurements are unnecessary if green infrastructure is used."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage states that mitigation strategies can moderate some effects, which supports the inference that green infrastructure can reduce some adverse effects. The other options oversell or negate the claimed benefits.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time. The passage also notes that mitigation strategies, such as reflective surfaces and green infrastructure, can moderate some effects.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The passage uses moderation but not elimination of microclimates.",
+        "C": "The passage suggests reflective surfaces influence heat, not that they have no impact.",
+        "D": "The passage supports data collection to track progress, not negating it."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.478Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which sentence would best complete the idea that microclimates add a layer of variation important for planning?",
+      "options": [
+        "A) This variation means planners must consider local conditions when designing heat mitigation.",
+        "B) Microclimates render national climate policies irrelevant.",
+        "C) Planning should ignore local weather data and focus on global models.",
+        "D) Public health concerns are unaffected by local weather variations."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Option A extends the idea to a practical implication for planning, which is consistent with the passage. The other options misinterpret or downplay the relevance of local variation.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The central claim is not that cities override global warming, but that microclimates add a layer of variation that matters for planning and public health.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Overstates the effect, implying irrelevance of national policies.",
+        "C": "Contradicts the call to consider local conditions.",
+        "D": "Contradicts the stated concern for public health."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.478Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following best characterizes the passage s stance on the relationship between microclimates and standard weather models?",
+      "options": [
+        "A) Microclimates are integrated with broad climate trends to shape local weather, not separate from them.",
+        "B) Microclimates replace broad climate models for urban weather prediction.",
+        "C) Urban weather can be predicted solely by national climate statistics.",
+        "D) Microclimates have no measurable effect on rainfall or wind patterns."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage asserts that local changes operate in concert with broader climate trends, not in isolation. The other options misrepresent the relationship or imply exclusion or irrelevance.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds. The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently. Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The passage denies replacement of broad models by microclimates.",
+        "C": "The passage emphasizes local factors in addition to broad statistics.",
+        "D": "The passage mentions measurable effects on winds and rainfall."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.479Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the likely source type of the passage based on its style and content?",
+      "options": [
+        "A) A scientific research synthesis or journal article",
+        "B) A fictional narrative about cities",
+        "C) A travel diary describing weather experiences",
+        "D) A personal opinion blog on urban planning"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The formal tone, references to datasets, and discussion of measured effects align with a scientific research synthesis or journal article.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds. The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently. Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Fiction would not present data synthesis and measured effects.",
+        "C": "A travel diary would be personal and descriptive, not data driven.",
+        "D": "A blog would typically be less formal and omit precise data synthesis."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.480Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following best describes the rhetorical purpose of the concluding sentence that calls for measurements across cities?",
+      "options": [
+        "A) To advocate for a systematic, comparative approach to policy evaluation",
+        "B) To emphasize that measurement is unnecessary for policy decisions",
+        "C) To retreat from policy recommendations and focus on theory",
+        "D) To suggest that measurements are too difficult to implement across cities"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The concluding sentence advocates standardized measurements to enable comparisons and track progress, which is a call for systematic policy evaluation. The distractors undermine or contradict this purpose.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the call for standardized measurements.",
+        "C": "Does not reflect policy emphasis; keeps focus on measurement and policy impact.",
+        "D": "Implies impracticability, which is not stated."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.480Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What can be inferred about the variability of the local rainfall effects mentioned in the passage?",
+      "options": [
+        "A) Local rainfall effects from urban structures are irregular and not uniform across cities.",
+        "B) Rainfall is consistently intensified in all urban areas with tall buildings.",
+        "C) There is no relationship between urban structures and rainfall.",
+        "D) Rainfall patterns in cities are entirely predictable based on surface material alone."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The phrase albeit inconsistently indicates variability; thus rainfall effects are irregular across contexts. The other options claim uniformity or no relationship, which the passage does not support.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The passage uses the word inconsistently, not uniform intensity.",
+        "C": "The passage asserts a relationship with urban structure.",
+        "D": "The passage shows variability and multifactor influences."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.481Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which option best captures the overall logic of the passage’s argument about microclimates and planning?",
+      "options": [
+        "A) Identify local climate effects, assess them with standardized data, and implement targeted mitigation.",
+        "B) Abandon local measures in favor of global averages, since microclimates are insignificant.",
+        "C) Focus solely on large scale climate models without city level data.",
+        "D) Ignore microclimates and rely on natural adaptation without intervention."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The logic implies identifying effects, measuring them consistently, and using mitigation to address them, which matches option A. The other options downplay or ignore the practical policy steps described.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Mitigation strategies, such as reflective surfaces and green infrastructure, can moderate some effects. The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the emphasis on city level data and mitigation.",
+        "C": "Overlooks the city scale data emphasized in the passage.",
+        "D": "Contradicts the call for intervention and measurement."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.481Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the primary claim about urban heat absorbing materials in the passage?",
+      "options": [
+        "A) Urban materials absorb heat more than natural ground, affecting local temperatures.",
+        "B) Natural ground absorbs more heat than asphalt and concrete.",
+        "C) Heat absorption by materials has no effect on temperatures.",
+        "D) All materials absorb heat equally regardless of type."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage states that asphalt and concrete absorb heat more readily than natural ground, which shifts daytime temperatures. The other options contradict this claim or misstate it.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Opposite of what the passage states.",
+        "C": "Contradicts the stated temperature shift due to heat absorption.",
+        "D": "The passage implies differences among materials."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.482Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which sentence in the passage most directly ties local microclimates to health policy considerations?",
+      "options": [
+        "A) Microclimates add a layer of variation that matters for planning and public health.",
+        "B) Microclimates override all other health considerations.",
+        "C) Public health is independent of local weather variations.",
+        "D) Global warming is irrelevant to urban health concerns."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence directly links microclimates to planning and public health, supporting the health policy tie. The other options misstate the relationship or emphasize irrelevance.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The central claim is not that cities override global warming, but that microclimates add a layer of variation that matters for planning and public health.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The passage does not claim microclimates override all health considerations.",
+        "C": "The passage makes microclimate relevant to health.",
+        "D": "The passage links urban climate to health in the context of global warming."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.482Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following best summarizes the passage s overall stance on urban surfaces and climate trends?",
+      "options": [
+        "A) Urban surfaces contribute to local climate changes while still aligning with global trends.",
+        "B) Urban surfaces are the sole determinant of local climate, independent of global trends.",
+        "C) Global trends make local microclimates irrelevant.",
+        "D) Local rain is entirely caused by building design alone."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage argues that local changes operate in concert with broader climate trends, not independently or irrelevantly. The other options misstate the relationship or attribution.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds. The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently. Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Overstates independence from global trends.",
+        "C": "Incorrectly minimizes local significance.",
+        "D": "Overemphasizes building design as sole cause."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.483Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main idea of the passage about the role of urban materials in climate dynamics?",
+      "options": [
+        "A) Urban materials significantly influence local climate features such as temperature and wind.",
+        "B) Urban materials have no impact on local climate features.",
+        "C) Only natural ground should be used in cities to avoid climate effects.",
+        "D) The effect of urban materials on climate is completely unpredictable."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage conveys that urban materials influence local climate features like temperature and wind, which is captured by option A. The other options contradict or overstate uncertainty.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Incorrect given the stated effects on heat and wind.",
+        "C": "The passage does not advocate removing urban materials entirely.",
+        "D": "The passage presents the effects as measurable rather than completely unpredictable."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.483Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which statement would be a reasonable extension of the passage s argument for city planning practice?",
+      "options": [
+        "A) City planners should incorporate heat reflective materials and vegetation to reduce microclimate effects.",
+        "B) City planning should ignore microclimate effects and focus on aesthetics.",
+        "C) Green infrastructure is ineffective and should be avoided.",
+        "D) Standardized measurements hinder local innovation."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reflective surfaces and green infrastructure are given as mitigation strategies, so applying these in planning is a direct extension. The other options contradict the stated evidence and purpose.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Mitigation strategies, such as reflective surfaces and green infrastructure, can moderate some effects. The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the stated goal of mitigating microclimate effects.",
+        "C": "Contradicts the suggested benefit of green infrastructure.",
+        "D": "Counteracts the call for standardization to track progress."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.484Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the passage s discussion of rainfall effects, which inference is best supported?",
+      "options": [
+        "A) Urban design can influence rainfall intensity in some situations.",
+        "B) Urban design always increases rainfall in every case.",
+        "C) There is no effect of urban design on rainfall.",
+        "D) Rainfall is solely determined by global atmospheric patterns."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The text suggests urban design can intensify rainfall in some cases, implying a conditional effect. The other options claim universal or nonexistent effects not supported by the text.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The word inconsistently implies not always true.",
+        "C": "Contradicts the stated possibility of intensified rainfall.",
+        "D": "Ignores the local factors described."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.484Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which best describes the evidence cited for the link between surface materials and heat absorption?",
+      "options": [
+        "A) A comparative observation of heat absorption between manmade surfaces and natural ground.",
+        "B) A claim that natural ground absorbs heat more than asphalt.",
+        "C) An assertion without any comparative data.",
+        "D) An overview of rainfall patterns without temperature data."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence describes a comparison showing higher heat absorption in asphalt and concrete versus natural ground. The other options either invert the comparison or deny data that is presented.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Opposite of the stated finding.",
+        "C": "The statement is based on comparative data, not mere assertion.",
+        "D": "The evidence concerns heat absorption, not rainfall patterns alone."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.485Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In light of the passage, which option best captures the role of urbanization in local weather patterns?",
+      "options": [
+        "A) Urbanization introduces local weather variation that complements global trends.",
+        "B) Urbanization is the sole cause of all weather variation.",
+        "C) Global warming makes local weather irrelevant to city planning.",
+        "D) Urbanization has no impact on local weather patterns."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage frames urbanization as adding local variation that is important for planning, while not dismissing global trends. The other options overstate or misstate the relationship.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The central claim is not that cities override global warming, but that microclimates add a layer of variation that matters for planning and public health.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The passage does not claim sole causation.",
+        "C": "The passage argues for planning relevance, not irrelevance.",
+        "D": "The passage asserts there is an impact."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.485Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following best expresses the passage s stance on rainfall and urban structure?",
+      "options": [
+        "A) Urban structures can modulate rainfall intensity in some cases, though not uniformly.",
+        "B) Urban structures universally amplify rainfall in all cities.",
+        "C) Urban structures have no effect on rainfall patterns.",
+        "D) Rainfall is solely determined by city height and not by other factors."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The text indicates modulation of rainfall is possible and inconsistent, not universal or nonexistent. The other options misstate the conditional and uneven nature.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The policy says inconsistent effects, not universal amplification.",
+        "C": "There is some effect noted.",
+        "D": "The text mentions humidity and other factors, not height alone."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.486Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which statement most clearly reflects the passage s claim about measurement in urban climate research?",
+      "options": [
+        "A) Consistent measurement across cities is essential for meaningful comparisons and tracking progress.",
+        "B) Measurement across cities is unnecessary and impractical.",
+        "C) City by city measurement should be kept entirely separate to preserve diversity.",
+        "D) Only global data should be considered in climate policy."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage calls for standardized measurements to enable comparisons and tracking progress, aligning with option A. The other options contradict the stated goal.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the explicit call for standardization.",
+        "C": "Contradicts the idea of cross city comparability.",
+        "D": "Misses the stated emphasis on city level measurements."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.488Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Considering the passage, what is the best interpretation of the phrase green infrastructure as a mitigation strategy?",
+      "options": [
+        "A) Practices that reduce heat absorption and improve urban cooling through vegetation.",
+        "B) Techniques that eliminate all microclimate effects immediately.",
+        "C) Approaches that ignore energy balance and heat retention.",
+        "D) Infrastructure that increases urban heat retention."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Green infrastructure typically includes vegetation and surface designs that reduce heat retention, aligning with the idea of moderation of effects. The other options mischaracterize or exaggerate impacts.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Mitigation strategies, such as reflective surfaces and green infrastructure, can moderate some effects.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Overstates elimination of microclimates.",
+        "C": "Contradicts the purpose of mitigation strategies.",
+        "D": "Contradicts the cooling role implied by green infrastructure."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.489Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following best captures the passage s stance on the relationship between local and global climate effects?",
+      "options": [
+        "A) Local changes and global trends operate together, not at odds with each other.",
+        "B) Local changes completely replace global climate trends.",
+        "C) Global trends render local changes irrelevant.",
+        "D) Local changes are purely random and unpredictable."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence states that local changes operate in concert with broader trends, not replacing or being irrelevant. The other options misstate the relationship.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the stated relationship.",
+        "C": "Misstates the interaction between scales.",
+        "D": "No suggestion of randomness is made."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.490Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the primary function of the opening sentence of the passage?",
+      "options": [
+        "A) To introduce the topic and establish that cities create distinct local weather patterns.",
+        "B) To claim that cities have no unique weather patterns.",
+        "C) To argue that weather in cities is identical to the countryside.",
+        "D) To present a policy recommendation about urban planning."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The opening sentence establishes the topic and asserts that cities create distinct local weather patterns. The other options contradict this claim or imply a policy focus not in the opening sentence.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Scientists studying urban heat islands have long noted that cities create local weather patterns distinct from surrounding countryside.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the opening claim.",
+        "C": "Contradicts the opening claim.",
+        "D": "Policy recommendations appear later, not in the opening sentence."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.490Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following best describes the tone of the passage?",
+      "options": [
+        "A) Analytical and cautious about interactions between local and global factors.",
+        "B) Alarmist about the danger of microclimates.",
+        "C) Indifferent to data and evidence.",
+        "D) Aggressive in urging immediate drastic policy changes."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage presents findings with nuance and caution about the interaction of local and global factors. The other tones imply excessive urgency or disregard for data.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds. The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently. Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The tone is not alarmist, but measured.",
+        "C": "The passage is data driven.",
+        "D": "The passage stops short of demanding drastic actions; it calls for measurements."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.491Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which detail from the passage would best help you support a claim about the importance of urban planning in climate resilience?",
+      "options": [
+        "A) Microclimates add a layer of variation that matters for planning and public health.",
+        "B) Microclimates oversimplify planning challenges.",
+        "C) Global warming makes local planning unnecessary.",
+        "D) Public health is unaffected by microclimate variation."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Option A directly ties microclimates to planning and health, supporting the claim about planning importance. The other options contradict or minimize the link.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The central claim is not that cities override global warming, but that microclimates add a layer of variation that matters for planning and public health. The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The passage does not present microclimates as oversimplifications.",
+        "C": "Incorrect; global warming is discussed as part of the context, not a reason to ignore planning.",
+        "D": "Contradicts the claim that microclimates matter for health."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.491Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which option would most accurately rephrase the passage s conclusion about microclimates and policy?",
+      "options": [
+        "A) Policy should be informed by comparable citylevel data to monitor and improve outcomes.",
+        "B) Policy should ignore citylevel differences and focus on national data only.",
+        "C) City differences are too variable to inform policy decisions.",
+        "D) Measurements are unnecessary for policy evaluation."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Option A captures the essence of using comparable data to inform policy and monitor progress. The other options run counter to the call for standardization and data-driven policy.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the emphasis on citylevel standardized measurements.",
+        "C": "Negates the purpose of standardization.",
+        "D": "Contradicts the stated need for measurements."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.492Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If you were to test the passage s claims, which approach would be most direct given the text?",
+      "options": [
+        "A) Compare citylevel climate data before and after implementing reflective surfaces and green infrastructure.",
+        "B) Compare weather data from cities with no mitigation to those with any mitigation, without a baseline.",
+        "C) Only study rainfall without any temperature data.",
+        "D) Use a single city as a model for all cities."
+      ],
+      "correctAnswer": 0,
+      "explanation": "A direct test would be to compare data before and after mitigation implementations to assess moderation of effects. The other options fail to establish controlled comparisons or ignore relevant data.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Mitigation strategies, such as reflective surfaces and green infrastructure, can moderate some effects. The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Lacks a clear baseline for comparison and may introduce confounding variables.",
+        "C": "Irrelevant to testing mitigation effects on climate metrics.",
+        "D": "Assumes one model fits all, which is not supported by the text."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.492Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which statement best reflects the passage s view of the interaction between local and global scales?",
+      "options": [
+        "A) Local changes interact with global trends rather than dominate them.",
+        "B) Local changes dominate global trends entirely.",
+        "C) Global trends are irrelevant to local weather in cities.",
+        "D) Local changes are random and independent of global trends."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage explicitly states that local changes operate in concert with, not eclipsing, broader trends. The other options contradict this stated interaction.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the idea of concerted operation.",
+        "C": "Ignores the described interaction with global trends.",
+        "D": "Contradicts the stated connection."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.493Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which detail would most strongly support the claim that urban heat islands can influence daily temperature ranges?",
+      "options": [
+        "A) The reported shift in daytime temperatures by several degrees linked to surface materials.",
+        "B) The statement that nights are warmer than days in all regions.",
+        "C) The claim that natural ground warms faster than asphalt.",
+        "D) The assertion that heat has no impact on shade structures."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence about daytime temperature shifts directly supports the claim about urban heat islands influencing daily temperature ranges. The distractors misstate or misattribute the effect.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Not addressed by the given detail about daytime temperatures.",
+        "C": "Opposite of the stated heat absorption behavior.",
+        "D": "Unrelated to the described temperature shifts."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.493Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the implied significance of the phrase standardized measurements across cities for policy makers?",
+      "options": [
+        "A) It enables fair comparisons and credible tracking of improvements across different cities.",
+        "B) It ensures every city will implement identical policies.",
+        "C) It eliminates the need for citylevel data.",
+        "D) It guarantees uniform outcomes in all cities."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Standardized measurements allow comparison and tracking of progress, supporting policy evaluation. The other options misstate the outcome or imply certainty that the passage does not claim.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Standardization does not imply identical policies; it enables comparison.",
+        "C": "The text does not suggest eliminating citylevel data.",
+        "D": "Uniform outcomes are not guaranteed; only comparability and tracking are implied."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.494Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which detail would best serve as evidence for the claim that urban microclimates have public health relevance?",
+      "options": [
+        "A) Variation in microclimates affects planning decisions with health implications.",
+        "B) Public health is entirely determined by national policies, not local climate.",
+        "C) Microclimates have no bearing on public health outcomes.",
+        "D) Health concerns should be addressed solely by medical interventions."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Option A links microclimate variation to health planning, aligning with the passage. The other options dismiss or misattribute health determinants.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The central claim is not that cities override global warming, but that microclimates add a layer of variation that matters for planning and public health.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Overemphasizes national policies over local climate impact.",
+        "C": "Disagrees with the stated public health relevance.",
+        "D": "Ignores environmental factors in health planning."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.494Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What does the passage imply about the relationship between urban heat and rainfall events?",
+      "options": [
+        "A) Urban heat and humidity can influence rainfall intensity in complex ways.",
+        "B) Rainfall intensity in cities is entirely independent of urban heat.",
+        "C) Urban heat decreases rainfall in all cases.",
+        "D) There is no connection between humidity and rainfall in cities."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage indicates a potential intensification of rainfall due to urban features, suggesting a complex relation. The other options contradict or oversimplify this link.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the stated potential for intensification.",
+        "C": "Overstates a universal negative effect.",
+        "D": "Ignores the humidity factor noted in the text."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.495Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which sentence from the passage would best support a claim about the nonuniform nature of microclimate effects across different cities?",
+      "options": [
+        "A) The effects occur albeit inconsistently, indicating variability across settings.",
+        "B) Effects occur uniformly across all cities.",
+        "C) Effects are completely predictable in every city.",
+        "D) There are no effects outside of one city."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The phrase albeit inconsistently signals nonuniform effects, supporting the claim. The other options misstate consistency or universality.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the word inconsistent.",
+        "C": "Suggests predictability not stated.",
+        "D": "Too narrow and not supported by the passage."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.496Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main idea of the paragraph describing the data synthesis from five metropolitan regions?",
+      "options": [
+        "A) Urban materials absorb heat more than natural ground and affect local wind patterns.",
+        "B) Natural ground absorbs more heat than urban materials.",
+        "C) Daytime temperatures are unchanged by material type.",
+        "D) Boundary layer winds are unaffected by urban design."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Option A accurately reflects the content: urban materials absorb more heat and affect winds. The other options contradict the stated findings.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Incorrect according to the passage.",
+        "C": "Directly contradicts the reported temperature shifts.",
+        "D": "Contradicts the claim about altering winds."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.496Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which option best captures the passage s stance on the relationship between urban microclimates and planning?",
+      "options": [
+        "A) Microclimates introduce important variation that should inform planning decisions.",
+        "B) Microclimates override all broader climate trends in planning.",
+        "C) Planning should ignore microclimate variation and focus on general climate data.",
+        "D) Microclimates have no relevance to public health."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Option A aligns with the idea that variation from microclimates matters for planning and health. The other options misstate the relationship or relevance.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The central claim is not that cities override global warming, but that microclimates add a layer of variation that matters for planning and public health.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Overstates dominance of microclimates over broader trends.",
+        "C": "Undermines the stated relevance to planning.",
+        "D": "Directly contradicts the stated health relevance."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.497Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which part of the passage is most central to its argument about local and global climate dynamics?",
+      "options": [
+        "A) The notion that local changes work with but do not replace global trends.",
+        "B) The claim that local changes eclipse global climate trends.",
+        "C) The assertion that global trends are completely separate from local changes.",
+        "D) The claim that local changes are irrelevant to global climate policy."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The central idea is the cooperative relationship between local and global changes. The other options misstate the relationship or de-emphasize the local contributions.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Directly contradicts the passage.",
+        "C": "Separates the scales incorrectly.",
+        "D": "Ignores relevance to policy and planning."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.497Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following would be an appropriate title for the passage?",
+      "options": [
+        "A) Microclimates in Cities: Local Effects within a Global Framework",
+        "B) The Irrelevance of City Rain in Urban Areas",
+        "C) A Policy-Free View of Urban Weather",
+        "D) The Sole Role of Global Warming in City Climates"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Option A captures the idea of local microclimates operating within a broader global framework. The other options misstate the emphasis or conclusions.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds. The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently. Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Misstates relevance of rainfall and microclimates.",
+        "C": "Suggests policy is irrelevant, which is not supported.",
+        "D": "Undervalues local microclimate contributions."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.498Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the primary evidence used to argue that microclimates matter for planning?",
+      "options": [
+        "A) The assertion that microclimates influence planning and public health, not the total climate picture.",
+        "B) The claim that microclimates are irrelevant to planning.",
+        "C) The idea that planning should ignore microclimatic data.",
+        "D) The emphasis on global warming as the sole concern for policy."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Option A captures the core evidence that microclimates add variation with practical implications for planning and health. The other options contradict or minimize this.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The central claim is not that cities override global warming, but that microclimates add a layer of variation that matters for planning and public health. The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the stated relevance to planning.",
+        "C": "Opposes the stated recommendation to use microclimate data.",
+        "D": "Ignores the stated role of microclimates in policy considerations."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.498Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The passage implies that addressing microclimate effects could involve which of the following actions?",
+      "options": [
+        "A) Implementing reflective surfaces and increasing green spaces to moderate heat and wind effects.",
+        "B) Removing all asphalt and concrete from urban areas, which is impractical.",
+        "C) Doing nothing and accepting microclimate effects as inevitable.",
+        "D) Relying solely on climate engineering in distant regions."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reflective surfaces and green infrastructure are listed as mitigation strategies, so their implementation is a plausible action. The other options are either impractical, defeatist, or irrelevant to the stated strategies.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Mitigation strategies, such as reflective surfaces and green infrastructure, can moderate some effects.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "The passage does not advocate removing all materials; it suggests reflectivity and greenery as mitigations.",
+        "C": "Contradicts the call for mitigation.",
+        "D": "Unrelated to the discussed local mitigation approaches."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.499Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which option would best support a claim that urban design can influence local weather phenomena without negating global trends?",
+      "options": [
+        "A) Urban design can influence local weather while still operating within global climate trends.",
+        "B) Local changes completely replace global climate trends.",
+        "C) Global trends dictate all local weather, leaving no room for design influence.",
+        "D) Urban design cannot influence weather at all."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Option A captures the described coexistence. The other options contradict the notion of concert with global trends or deny any influence.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the concert relationship.",
+        "C": "Overstates the dominance of global trends.",
+        "D": "Claims no influence despite the discussion of microclimates."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.499Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which statement best captures the meaning of the phrase boundary layer winds in this context?",
+      "options": [
+        "A) Winds that form near the ground and are shaped by urban surfaces",
+        "B) High altitude winds unaffected by city structures",
+        "C) Winds outside of the planet s atmosphere",
+        "D) Winds that occur only in rural areas"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Boundary layer winds are the near surface winds influenced by surface conditions like buildings and pavement. The other options describe different, unrelated wind regimes.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Describes high altitude winds, not boundary layer winds.",
+        "C": "Misplaces the boundary layer concept entirely.",
+        "D": "Contradicts the urban focus of the passage."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.500Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the passage s nucleus, what is the relationship between microclimates and public health?",
+      "options": [
+        "A) Microclimate variation has practical implications for public health planning.",
+        "B) Microclimate variation has no impact on public health.",
+        "C) Public health decisions should ignore climate considerations.",
+        "D) Global warming alone determines public health outcomes."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage asserts that microclimate variation matters for planning and public health, indicating practical health relevance. The other options deny or minimize this relevance.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The central claim is not that cities override global warming, but that microclimates add a layer of variation that matters for planning and public health.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the stated relevance to health planning.",
+        "C": "Ignorance of climate considerations is not supported.",
+        "D": "Overemphasizes global warming as sole determinant."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.500Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following best describes the passage s use of evidence about heat absorption and wind formation?",
+      "options": [
+        "A) It uses comparative data to show how urban materials influence local climate features.",
+        "B) It provides anecdotal stories about weather in several cities.",
+        "C) It argues that heat absorption is identical across all materials.",
+        "D) It suggests there is no measurable effect on wind formation."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage uses comparative data to demonstrate how urban materials influence temperature and winds. The other options misrepresent the nature of the evidence.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures by several degrees and altering the formation of boundary layer winds.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Describes anecdotes rather than data synthesis.",
+        "C": "Contradicts the stated difference among materials.",
+        "D": "Contradicts the claim that wind formation is altered."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.501Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which best captures the article s overall argument about the usefulness of microclimate knowledge for cities?",
+      "options": [
+        "A) A nuanced understanding of microclimates is valuable for practical planning and public health outcomes.",
+        "B) Microclimate knowledge is a theoretical curiosity with little practical use.",
+        "C) Global warming fully dictates city outcomes and microclimate knowledge is redundant.",
+        "D) Microclimates should guide policy at the expense of all other climate data."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Option A captures the practical value of understanding microclimates for planning and health. The other options minimize or overstate their importance.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The central claim is not that cities override global warming, but that microclimates add a layer of variation that matters for planning and public health. The conclusion calls for standardized measurements across cities so policy makers can compare impacts and track progress over time.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Underplays practical relevance asserted in the passage.",
+        "C": "Ignores the coexistence of microclimate effects with global trends.",
+        "D": "Suggests exclusivity to microclimates, which the passage does not advocate."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.501Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which statement about the data sources in the passage is most accurate?",
+      "options": [
+        "A) The conclusions are drawn from multiple regional datasets.",
+        "B) The conclusions come from a single city s data only.",
+        "C) Data were collected only during winter months.",
+        "D) Data were obtained from a laboratory experiment."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage specifies datasets from five metropolitan regions, indicating multiple sources. The other options misstate the breadth or setting of data collection.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a recent synthesis of datasets from five metropolitan regions, researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground...",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Contradicts the text which mentions five regions.",
+        "C": "No seasonal limitation is stated.",
+        "D": "The data are described as regional datasets, not a laboratory experiment."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.502Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following statements is least supported by the passage?",
+      "options": [
+        "A) Urban design can influence rainfall intensity in some cases.",
+        "B) Local changes completely eclipse global climate trends.",
+        "C) Local changes can interact with global trends.",
+        "D) Local weather is influenced by building configurations."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Option B asserts that local changes eclipse global trends, which the passage denies. The other options are consistent with the passage s content about influence and interaction.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The study also notes that wind corridors near tall buildings funnel pollutants and humidity in ways that can intensify localized rainfall events, albeit inconsistently. Importantly, the authors argue that these local changes operate in concert with broader climate trends, rather than eclipsing them.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Consistent with the passage about rainfall intensification in some cases.",
+        "B": "Not supported; the passage says local changes operate in concert with, not eclipse, global trends.",
+        "C": "Supported by the passage's claim of interaction.",
+        "D": "Aligned with the idea that urban form influences weather features."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.502Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following best reflects the intended audience of the passage?",
+      "options": [
+        "A) Policy makers and urban planners",
+        "B) Fiction writers looking for city imagery",
+        "C) Children learning climate basics",
+        "D) Tourists planning a visit to cities"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage discusses policy relevant topics and urban planning implications, indicating an audience of policymakers and planners. The other audiences are outside the scope of the content.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Researchers find that surface materials such as asphalt and concrete absorb heat more readily than natural ground, shifting daytime temperatures...",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Not the targeted audience for policy and planning content.",
+        "C": "Too young and not aligned with the data-focused discussion.",
+        "D": "Tourists would not be the primary audience for this analysis."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.504Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following statements is an accurate paraphrase of the passage s main idea?",
+      "options": [
+        "A) City specific climate differences add practical variation for planners and health authorities, in addition to global warming effects.",
+        "B) City climate differences are irrelevant to planning and health.",
+        "C) Global warming is the only factor planners should consider.",
+        "D) Microclimates will replace global warming in policy discussions."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Option A accurately paraphrases the main idea that microclimates add variation with policy relevance while coexisting with global warming. The other options misstate the balance and relevance.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The central claim is not that cities override global warming, but that microclimates add a layer of variation that matters for planning and public health.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer is not wrong.",
+        "B": "Incorrect; contradicts the stated relevance.",
+        "C": "Overstates the sole factor consideration.",
+        "D": "Unlikely given the emphasis on concert with broad trends."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:03:31.504Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main idea of the passage?",
+      "options": [
+        "A) Climate warming has not affected migration.",
+        "B) Migration timing has shifted in response to warming, with regional reproductive consequences.",
+        "C) Swallow populations have increased due to climate change.",
+        "D) The study proved birds adjust only their feeding patterns."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage explains that warming springs have advanced migration timing and that this shift leads to regionally different breeding outcomes, including mismatches with prey abundance. It emphasizes phenology as a response to climate signals and notes regional consequences, which aligns with option B. The other options misstate the findings: A denies any effect, C asserts population growth without evidence, and D limits adaptation to feeding patterns, which the passage does not claim.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Over twenty-five years, researchers tracked the spring migration of arctic swallows across five latitudinal zones. They compiled arrival dates, breeding success, prey availability, and local temperatures. The central finding is that warming springs have advanced arrival by an average of roughly five days per decade, a shift that has not occurred uniformly across zones. In southern zones, earlier arrivals increased breeding opportunities, but in northern zones the timing now often mismatches the peak abundance of flying insects, reducing hatch success. The authors argue that phenology, the timing of life cycle events, responds to climate signals, and that mismatches between prey peaks and bird movements have tangible consequences for population dynamics. The study cautions that adaptive responses may mitigate some losses, but those responses appear constrained by geographic and ecological factors, including habitat fragmentation and long migratory routes. The paper concludes that understanding the timing signal is essential for predicting future population trends in migratory birds under ongoing climate change.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage presents clear effects of warming on migration timing, so saying there is no effect contradicts the main findings.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The passage discusses potential declines and mismatches, not a population increase.",
+        "D": "The passage mentions broader phenology and breeding outcomes, not only feeding patterns."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.000Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the central claim about tariffs in the passage?",
+      "options": [
+        "A) Tariffs had little impact on industrial development.",
+        "B) Tariffs functioned as a political instrument shaping coalitions as much as economic policy.",
+        "C) Tariffs were adopted solely to protect industry in the North with no political side effects.",
+        "D) Tariffs caused a uniform rise in prices across all regions."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage argues that tariffs shaped political coalitions and had distributional effects beyond simple protection of industry, making option B the central claim. Options A, C, and D misstate the political and economic breadth of tariff effects described.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "During the long nineteenth century, tariff policy did more than raise revenue; it structured the political landscape. Policy makers used tariffs to protect infant industries in growing urban centers and to secure support from labor groups sensitive to rising import competition. As political coalitions shifted, the same tariffs that sheltered factories also distributed costs among consumers, farmers, and regional merchants. The central claim of this analysis is that tariff design functioned as a bargaining mechanism, aligning the interests of economic actors with the strategic goals of political parties. Economic outcomes varied by region, and the relative profitability of producing at home changed the campaigns and votes that decided elections. In this light, tariffs were not merely tools of protection but devices that wired together interests in ways that left a durable imprint on the policy process and the party system.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage emphasizes political and economic effects, not the claim of no impact.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The passage describes political side effects and regional costs, not only Northern protection.",
+        "D": "The passage discusses distribution of costs, not a uniform price rise."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.001Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main idea of the passage on memory in the novel?",
+      "options": [
+        "A) The author argues memory is the sole engine of plot.",
+        "B) The critic claims memory in the novel shapes moral responsibility and social memory more than mere narrative drive.",
+        "C) The passage says the novel relies on chaotic structure without purpose.",
+        "D) The critic believes memory is unreliable and irrelevant to ethics."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage emphasizes memory as an ethical and social force that influences moral responsibility and communal memory, which matches option B. Option A exaggerates the role of memory, C misreads structure as the central claim, and D contradicts the argument presented about memory's ethical significance.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Critic Rosa Marin argues that in the novel, memory functions as an ethical instrument rather than a nostalgic souvenir. The essay contends that the author deliberately foregrounds memory as a social act that binds chance and responsibility. Through scenes in which characters recall past failures, the text reveals how memory obligates present decisions by moral reminders rather than by plot momentum. The central claim is that memory operates as a public language, shaping communal memory and political identity as much as personal emotion. The critic notes that the narrative structure collapses chronology, forcing readers to infer connections between events that are not immediately sequential. By treating memory as contested territory, the author of the book invites readers to weigh competing versions of history and to consider how testimony can empower marginalized voices. In this view, the novel's greatness rests not on dazzling action but on how memory creates ethical accountability within a fragile community.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage stresses memory as ethical and social, not the sole engine of plot.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The critique focuses on memory's ethical role, not merely structure.",
+        "D": "The passage argues memory is ethically relevant, not irrelevant."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.001Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main claim of the science passage about microclimates in cities?",
+      "options": [
+        "A) Urban microclimates are too variable to influence policy.",
+        "B) Local environmental features create cooler or hotter pockets that affect energy use and health.",
+        "C) Citywide temperatures perfectly predict energy demand.",
+        "D) Reflective roofs have no measurable effect on local climate."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage centers on how local microclimates created by features like reflective roofs and tree cover affect energy use and health, which corresponds to option B. Options A, C, and D contradict the stated emphasis on local variation and its consequences.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Researchers studying urban heat islands compare two coastal cities and their neighborhoods. They describe how microclimate variations within a city can produce different patterns of surface temperature, wind flow, and humidity, even when the broader climate is similar. The analysis argues that neighborhoods with reflective roofs and more tree cover experience cooler microclimates, while densely built areas with dark surfaces trap heat. The central claim is that these local differences drive residential energy demand, health outcomes, and daily comfort in ways that citywide averages can obscure. The paper emphasizes that acknowledging microclimates is essential for designing equitable adaptation strategies, since some communities will bear greater burdens from heat if their local environments lack mitigating features. The conclusion calls for targeted urban planning that recognizes microclimate diversity rather than treating the city as a uniform heat bath.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage argues microclimates are policy relevant, not irrelevant.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The text says citywide averages can obscure local effects, so C is false.",
+        "D": "The passage asserts a measurable effect from features like reflective roofs."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.002Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the central claim about urban reform in the early twentieth century?",
+      "options": [
+        "A) Reform efforts eliminated class tensions in cities.",
+        "B) Reform aimed at efficiency but also redistributed political power toward administrators and business coalitions.",
+        "C) Zoning policies failed to change urban life in any meaningful way.",
+        "D) Public schooling declined as a result of reform."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage asserts that reforms sought efficiency and social control, and that power shifted toward city administrators and business interests, which is option B. The other options misstate the outcomes or the effects of reform.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "An historian analyzes municipal reform in the early twentieth century and argues that attempts to modernize urban life were driven by a coalition of business leaders, reformers, and middle-class residents. The author contends that the goal was efficiency and social control. Reforms in zoning, sanitation, and public schooling produced a new form of urban governance emphasizing standardized procedures and measurable outcomes. However, the discourse reveals tensions: workers and immigrant communities faced new rules and taxes, while political power shifted toward city administrators and business interests. Reform brought better services to some neighborhoods but also entrenched a managerial class that could shape policy for years to come. The focus is on how ideas about order and progress translated into concrete institutions that reorganized city life and redistributed influence across classes.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage indicates reform altered power dynamics, not that tensions disappeared.",
+        "B": "Correct answer explanation goes here.",
+        "C": "Zoning likely changed urban life; the passage argues it did, with tensions as well.",
+        "D": "The passage does not claim public schooling declined; it references reform in schooling as part of governance."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.002Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What can be reasonably inferred about light pollution from the study of moths?",
+      "options": [
+        "A) Light pollution will not affect ecological roles of moths in the future.",
+        "B) Increasing artificial light may favor a small number of adaptable moth species that can alter ecological services.",
+        "C) Specialist moths will thrive under brighter nights.",
+        "D) Light pollution only affects moths during the day."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage implies that continued light pollution will favor adaptable generalists and alter ecological services, which corresponds to option B. Options A and D contradict the nocturnal focus, and C contradicts the observed decline of specialists.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Researchers studied nocturnal moth populations in two forests with differing light regimes over several seasons. In both sites, traps collected data on species richness and abundance. The results show that species with narrow habitat specialization declined more sharply where illumination was bright and constant, while generalist species persisted, albeit with reduced diversity. The authors conclude that artificial light alters predator prey interactions and cascades through the ecosystem. They suggest that continued rise in light pollution could shift moth mediated pollination and night time food webs toward a few adaptable species.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The text suggests future ecological consequences, not no effect.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The passage states specialists declined under bright light, not thrived.",
+        "D": "The study concerns nocturnal moths, not daytime effects."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.003Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the most reasonable inference about the policymakers from the 1920s reform passage?",
+      "options": [
+        "A) Policymakers neither cared about efficiency nor safety.",
+        "B) Reforms were primarily about shifting power to administrators and business interests.",
+        "C) Reforms had no lasting impact on governance.",
+        "D) Taxation did not change under reform."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage indicates reforms shifted power toward administrators and business coalitions, so option B is the inference. The other options contradict the described motives and effects.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "An analysis of municipal budgets and reform debates from the 1920s shows that reformers framed changes as improving efficiency and safety, yet opponents argued reforms redistributed power toward city managers and business coalitions. The text suggests that while reforms produced tangible benefits, they also created a political class capable of sustaining policy changes through fiscal constraints and long term taxation.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage asserts concern with efficiency and safety, not indifference.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The text implies there were lasting governance effects.",
+        "D": "The discussion of taxation changes is implied, not absent."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.003Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What can be inferred about the poem from the modernist criticism passage?",
+      "options": [
+        "A) The poem presents a single clear voice throughout.",
+        "B) The poem uses contrasting modes to complicate truth and memory.",
+        "C) The critic argues the poem relies solely on emotional confession.",
+        "D) The poem avoids any references to scientific knowledge."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage emphasizes the use of contrasting modes and fragmentation to undermine a single authoritative voice, aligning with option B. The other options misstate the presence of multiple voices and the use of contrasting modes.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "An essay on a modernist poet argues that the speaker's voice alternates between intimate confession and public record. The critic notes sections where the poet cites statistics and appends notes to personal memory, creating tension between emotion and evidence. The inference is that the author uses contrasting modes to undermine the credibility of subjective experience and challenge readers to question truth in art. The piece also highlights fragmented narratives and shifts in tense as strategies to destabilize a single authoritative voice. Together, these features suggest the poem invites readers to assemble meaning rather than receive it.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage describes shifts in voice, not a single voice throughout.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The critic notes inclusion of public record style, not only confession.",
+        "D": "No discussion of scientific references is stated."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.004Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What can be inferred about reef recovery from the science passage?",
+      "options": [
+        "A) Algal diversity has no effect on reef recovery.",
+        "B) Higher diversity of symbiotic algae increases the likelihood of rebound after stress.",
+        "C) Reef recovery is solely determined by water temperature.",
+        "D) Reefs with diverse algae always recover instantly."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage explicitly links algal diversity to higher chances of rebound, which makes option B correct. The other options contradict or oversimplify the claim.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "An article on coral reef resilience notes that recovery after bleaching depends on diversity of symbiotic algae. The inference is that reefs hosting a wider variety of algal partners are more likely to rebound under repeated thermal stress, whereas reefs with limited symbiont diversity may deteriorate after successive events.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The text asserts a link between diversity and recovery.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The passage attributes recovery to more than temperature alone.",
+        "D": "The passage does not claim instant recovery for diverse algae."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.004Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the implied cause of urban growth in the history passage about industrial policy?",
+      "options": [
+        "A) Economic expansion caused reforms without influencing policy.",
+        "B) Legal and financial reforms enabled investment that spurred growth.",
+        "C) Urban growth occurred independently of policy changes.",
+        "D) Property rights were not important to urban development."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage attributes urban growth to reforms that enabled investment, so option B is correct. The other options reverse causality or deny influence.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "An essay describes how improvements in property rights and access to credit contributed to urban growth in the nineteenth century. The author argues that legal and financial reforms enabled capital investment in cities, with infrastructure and new businesses expanding as a result. The inference is that policy changes were a prerequisite to economic expansion, not merely a response to it.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage presents reforms as enabling growth, not merely responding to it.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The passage asserts policy changes were prerequisite.",
+        "D": "It states property rights were important."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.005Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the literary detail passage, which device does the critic say appears in chapter two?",
+      "options": [
+        "A) A consistent omniscient narrator",
+        "B) Free indirect discourse blending memory and perception",
+        "C) Direct quotes from other texts",
+        "D) A strictly linear timeline"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage states that the author uses free indirect discourse blending memory and perception, which matches option B. The other options do not reflect the described technique.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "A prominent literary critic examines a contemporary novel, noting that in chapter two the narrator frequently shifts from intimate first person to a more analytic tone. The critic points out that the author uses free indirect discourse to blend memory and perception, making the character feel both within and outside the action. The critic concludes that this technique deepens the sense of uncertainty about the narrator's reliability and enhances the novel's exploration of subjective truth.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The critic describes shifts and blending, not a consistent omniscient voice.",
+        "B": "Correct answer explanation goes here.",
+        "C": "There is no mention of direct quotes from other texts in chapter two.",
+        "D": "The description indicates nonlinearity, not a strictly linear timeline."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.005Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "How many latitudinal zones were tracked in the science detail passage?",
+      "options": [
+        "A) Three",
+        "B) Four",
+        "C) Five",
+        "D) Six"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The passage explicitly states that five latitudinal zones were tracked, so option C is correct.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "A long-term field study followed migratory birds across multiple zones, noting arrival dates and breeding outcomes in each. The researchers documented that five distinct latitudinal zones were tracked, with data gathered on climate, food availability, and population changes in each zone.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage mentions five zones, not three.",
+        "B": "The passage mentions five zones, not four.",
+        "C": "Correct answer explanation goes here.",
+        "D": "The passage mentions five zones, not six."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.006Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which program is named in the detail passage about New Deal era reforms?",
+      "options": [
+        "A) Works Progress Administration",
+        "B) Public Works Administration",
+        "C) National Recovery Administration",
+        "D) Federal Housing Administration"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage names the Public Works Administration as central to the era, making option B correct. The other programs are real but not the ones highlighted in this passage.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "An examination of 1930s public works highlights several federal initiatives. The author notes the Public Works Administration and the Civilian Conservation Corps as central to the era's investment in infrastructure and employment. The passage emphasizes these programs as pivotal in stimulating economic activity and shaping regional development.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage specifically mentions Public Works Administration, not Works Progress Administration.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The passage does not mention the National Recovery Administration in this context.",
+        "D": "The passage does not mention the Federal Housing Administration here."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.007Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which symbol does the literature detail passage say the critic identifies as recurring in the novel?",
+      "options": [
+        "A) The clock only",
+        "B) The river only",
+        "C) The ladder only",
+        "D) The clock, the river, and the ladder"
+      ],
+      "correctAnswer": 3,
+      "explanation": "The passage explicitly lists three symbols: clock, river, and ladder, thus option D is correct. The other options mention only one symbol each, which misses the stated triad.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "A close study of a recent novel notes that the critic identifies recurring symbols used to track memory. The critic highlights a clock, a river, and a ladder as emblematic images that recur across chapters, signaling shifting time, flow of life, and ascent toward moral clarity. The author argues that these symbols reinforce the work's central concerns about time and moral ascent.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage mentions multiple symbols, not just the clock.",
+        "B": "The river is included, but not alone.",
+        "C": "The ladder is included, but not alone.",
+        "D": "Correct answer explanation goes here."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.009Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What categories of habitat complexity are used to classify reefs in the science detail passage?",
+      "options": [
+        "A) Simple, moderate, and complex",
+        "B) Flat, undulating, and rugged",
+        "C) Low, medium, and high density",
+        "D) Shallow, intermediate, and deep"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage specifies the three categories as simple, moderate, and complex. The other options describe different ways of classifying habitat not used here.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "The reef resilience study classifies habitat into simple, moderate, and complex categories based on structural features, coral density, and availability of niches for fish and invertebrates. The researchers relate these categories to observed recovery rates following bleaching events, noting that reefs with higher structural complexity tended to recover more quickly and maintain greater biodiversity.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer explanation goes here.",
+        "B": "These terms do not match the described categories.",
+        "C": "Density labels do not align with the described scheme.",
+        "D": "Depth categories are not used in this classification."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.009Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author’s purpose in the final paragraph of the policy passage about adapting to climate change?",
+      "options": [
+        "A) To argue for a fixed set of policies that will not change.",
+        "B) To advocate for flexible, adaptive management in policy design.",
+        "C) To criticize all forms of local experimentation.",
+        "D) To promote delaying action until more data are available."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage advocates flexible, adaptive management rather than fixed plans, aligning with option B. The other options oppose or misstate the call for adaptive approaches.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "In summarizing a broad review of climate adaptation strategies, the author quotes several city managers and scientists. The final paragraph emphasizes an urgent call for adaptive management, local experimentation, and continuous monitoring to adjust policies as conditions change. The purpose is to persuade policymakers to adopt flexible plans that can adjust to uncertain future climates rather than rely on rigid blueprints.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The text urges adaptability, not fixed rigidity.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The passage supports experimentation, not its criticism.",
+        "D": "The passage argues for action with adaptability, not delaying action."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.010Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author trying to persuade policymakers to do in the purpose passage about urban budgeting?",
+      "options": [
+        "A) Increase centralized decision making",
+        "B) Adopt participatory budgeting to increase transparency",
+        "C) Eliminate public input from budgeting",
+        "D) Maintain status quo budgeting procedures"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage clearly advocates participatory budgeting to improve transparency and legitimacy, making option B correct. The other options run counter to the stated goal.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "A policy brief for city governments argues that participatory budgeting can improve transparency and legitimacy by involving residents in spending decisions. The author presents case examples where community input led to reallocation of funds toward parks, public transit, and safety programs. The final aim is to persuade officials to adopt participatory budgeting as a standard practice to enhance accountability and local buy-in.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The text favors decentralization and participation, not centralization.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The passage promotes public input, not its elimination.",
+        "D": "The passage advocates changing procedures, not keeping them unchanged."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.011Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author's purpose in discussing the diction of the poem?",
+      "options": [
+        "A) To show that diction has no effect on mood",
+        "B) To explain how word choice builds mood and memory",
+        "C) To prove the poem is irrelevant to memory",
+        "D) To argue that syntax alone determines meaning"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage explains that diction creates mood and memory, which is option B. The other options misstate the role of diction or the poem's relevance.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "A literary critic analyzes a contemporary poem, arguing that the author chooses precise nouns and tactile adjectives to evoke memory and mood. The critic demonstrates how word choice creates a somber, reflective atmosphere and instills a sense of time suspended between past and present. The purpose is to illustrate how diction shapes readers emotional response and interpretation of the poem's themes.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The critic argues that diction does influence mood.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The passage treats memory as central, not irrelevant.",
+        "D": "The focus is on diction, not solely syntax."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.011Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author trying to explain about rail expansion in the nineteenth century?",
+      "options": [
+        "A) Rail expansion occurred independently of economic needs.",
+        "B) Rail expansion caused regional economic integration by lowering costs.",
+        "C) Rail expansion only reflected preexisting economic trends.",
+        "D) Rail expansion hindered industrial growth by concentrating markets."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage argues that rail expansion caused regional economic integration by lowering transport costs, which matches option B. Other options misstate the causal direction or effects.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "A historical study argues that the expansion of the railway network catalyzed regional economic integration by lowering transport costs and linking remote markets to urban centers. The author emphasizes cause and effect, showing how improved infrastructure supported manufacturing, trade, and labor mobility. The piece aims to demonstrate that transport improvements were a prerequisite for rapid industrialization as much as a consequence of economic growth.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage presents rail expansion as a response to and driver of economic needs, not independent of them.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The text asserts a causal role for transport improvements, not only as a reflection.",
+        "D": "The passage describes growth, not hindrance."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.012Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the aim of the final paragraph in the literature purpose passage?",
+      "options": [
+        "A) To argue that perspective has no impact on ethics",
+        "B) To claim that narrative point of view guides moral judgments",
+        "C) To show that the narrator is always reliable",
+        "D) To dismiss the role of interpretation in literature"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage posits that narrative perspective shapes moral judgments, which matches option B. The other options deny perspective effects or reliability, which contradicts the passage.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "A close critical essay on a short story argues that the narrative perspective is essential to its moral argument. The final paragraph reiterates that the choice of point of view shapes how readers judge characters and events, and it urges readers to recognize the limits of objectivity in storytelling. The aim is to prompt readers to consider how perspective influences ethical judgment.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The paragraph asserts perspective influences ethics.",
+        "B": "Correct answer explanation goes here.",
+        "C": "The assertion is that perspective can undermine reliability, not guarantee it.",
+        "D": "The passage emphasizes interpretation, not its dismissal."
+      },
+      "_batchId": "batch-1771808440071-reading-comp",
+      "_generatedAt": "2026-02-23T01:04:44.012Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

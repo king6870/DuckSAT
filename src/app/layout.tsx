@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 // Use the UserMenu client component
 import UserMenu from "@/components/UserMenu";
+import AnalyticsProvider from "@/components/AnalyticsProvider";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "../styles/enhanced-ui.css";
@@ -61,6 +62,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <AuthSessionProvider>
+          <AnalyticsProvider>
           {/* Global header with duck logo and user menu - ARIA landmark */}
           <header role="banner" className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-background)]/95 backdrop-blur-sm border-b border-[var(--color-border)] shadow-sm">
             <nav role="navigation" aria-label="Main navigation" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
@@ -91,6 +93,7 @@ export default function RootLayout({
           <main role="main" className="pt-16">
             {children}
           </main>
+          </AnalyticsProvider>
         </AuthSessionProvider>
       </body>
     </html>

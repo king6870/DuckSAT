@@ -62,7 +62,7 @@ export const MATH_TOPICS: TopicConfig[] = [
   {
     id: 'statistics',
     moduleType: 'math',
-    category: 'statistics',
+    category: 'problem-solving-data-analysis',
     subtopics: ['mean-median-mode', 'probability', 'scatter-plots', 'trends', 'standard-deviation'],
     target: 60,
     difficulty: DIFFICULTY_DISTRIBUTION,
@@ -71,7 +71,7 @@ export const MATH_TOPICS: TopicConfig[] = [
   {
     id: 'quadratic',
     moduleType: 'math',
-    category: 'quadratic-equations',
+    category: 'advanced-math',
     subtopics: ['factoring', 'completing-square', 'quadratic-formula', 'vertex-form'],
     target: 40,
     difficulty: DIFFICULTY_DISTRIBUTION,
@@ -80,7 +80,7 @@ export const MATH_TOPICS: TopicConfig[] = [
   {
     id: 'linear-functions',
     moduleType: 'math',
-    category: 'linear-functions',
+    category: 'algebra',
     subtopics: ['slope-intercept', 'point-slope', 'parallel-perpendicular', 'graphing'],
     target: 40,
     difficulty: DIFFICULTY_DISTRIBUTION,
@@ -122,7 +122,7 @@ export const READING_TOPICS: TopicConfig[] = [
   {
     id: 'rhetoric',
     moduleType: 'reading-writing',
-    category: 'rhetoric',
+    category: 'writing-language',
     subtopics: ['author-purpose', 'tone', 'sentence-function'],
     target: 6,
     difficulty: DIFFICULTY_DISTRIBUTION,
@@ -131,11 +131,20 @@ export const READING_TOPICS: TopicConfig[] = [
   {
     id: 'synthesis',
     moduleType: 'reading-writing',
-    category: 'synthesis',
+    category: 'writing-language',
     subtopics: ['compare-contrast', 'integrate-information'],
     target: 5,
     difficulty: DIFFICULTY_DISTRIBUTION,
     batchSize: 5,
+  },
+  {
+    id: 'grammar',
+    moduleType: 'reading-writing',
+    category: 'grammar',
+    subtopics: ['subject-verb-agreement', 'pronoun-clarity', 'punctuation', 'sentence-structure', 'verb-tense'],
+    target: 60,
+    difficulty: DIFFICULTY_DISTRIBUTION,
+    batchSize: 20,
   },
 ];
 

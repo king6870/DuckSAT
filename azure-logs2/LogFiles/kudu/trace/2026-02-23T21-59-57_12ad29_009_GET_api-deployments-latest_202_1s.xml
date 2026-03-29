@@ -1,0 +1,9 @@
+<step title="Incoming Request" date="2026-02-23T21:59:57.772" instance="12ad29" url="/api/deployments/latest?deployer=OneDeploy&amp;time=2026-02-23_21-59-34Z" method="GET" type="request" pid="831,1,20" Host="ducksatapp.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_30a15067cb3b10cc463e18b09323c7fdc054db3902717a38ddac276b7c96a69b" Authorization="Bea..." Content-Type="application/json; charset=utf-8" Cookie="ARRAffinity=12ad29c2d83712da2c90b5274d009bf95b7bd6acdbd60d3c5b256e877c2970a4;Path=/;HttpOnly;Secure;Domain=ducksatapp.scm.azurewebsites.net; ARRAffinitySameSite=12ad29c2d83712da2c90b5274d009bf95b7bd6acdbd60d3c5b256e877c2970a4;Path=/;HttpOnly;SameSite=None;Secure;Domain=ducksatapp.scm.azurewebsites.net" Content-Length="0" X-ARR-LOG-ID="82943a83-4053-4b73-b8ac-61141111196f" CLIENT-IP="20.55.222.91:18432" X-SITE-DEPLOYMENT-ID="ducksatapp" WAS-DEFAULT-HOSTNAME="ducksatapp.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/deployments/latest?deployer=OneDeploy&amp;time=2026-02-23_21-59-34Z" X-Client-IP="20.55.222.91" X-Client-Port="18432" >
+  <step title="Cleanup Xml Logs" date="2026-02-23T21:59:57.777" /><!-- duration: 32ms -->
+  <step title="DeploymentService.GetResult" date="2026-02-23T21:59:57.817" >
+    <step title="DeploymentService.GetLatestDeployment" date="2026-02-23T21:59:57.819" >
+      <step title="DeploymentManager.GetResults" date="2026-02-23T21:59:57.822" /><!-- duration: 486ms -->
+    </step><!-- duration: 517ms -->
+  </step><!-- duration: 529ms -->
+  <step title="Outgoing response" date="2026-02-23T21:59:58.363" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 23ms -->
+</step><!-- duration: 633ms -->

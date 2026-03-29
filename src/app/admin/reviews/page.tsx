@@ -213,7 +213,14 @@ export default function AdminReviewsPage() {
                                 <div className="md:w-1/4 flex flex-col gap-3 border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 md:pr-6">
                                     <div className="flex items-center gap-3">
                                         {review.user.image ? (
-                                            <img className="h-10 w-10 rounded-full ring-2 ring-gray-50" src={review.user.image} alt="" />
+                                            <Image
+                                              src={review.user.image}
+                                              alt={review.user.name || "User profile"}
+                                              width={40}
+                                              height={40}
+                                              className="h-10 w-10 rounded-full ring-2 ring-gray-50"
+                                              unoptimized
+                                            />
                                         ) : (
                                             <div className="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center">
                                                 <User className="h-5 w-5 text-gray-500" />

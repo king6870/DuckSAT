@@ -1,0 +1,107 @@
+2026-03-10T01:23:56.8880624Z State: Starting, Action: EstablishingSiteNetworks, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-03-10T01:23:57.6516637Z State: Starting, Action: StartingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-03-10T01:23:57.6518307Z Container start method called.
+2026-03-10T01:23:57.6518802Z State: Starting, Action: PullingImage, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pulling image 10.1.0.6:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-10T01:23:57.6520098Z Establishing network.
+2026-03-10T01:23:57.6522736Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-10T01:23:57.8896218Z Container is starting.
+2026-03-10T01:23:57.8897747Z State: Starting, Action: MountingVolumes, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-10T01:23:57.8899367Z Establishing user namespace if not established already.
+2026-03-10T01:23:57.8901030Z Establishing network if not established already.
+2026-03-10T01:23:57.8902752Z Mounting volumes.
+2026-03-10T01:23:57.8905019Z Nested mountpoint site/wwwroot
+2026-03-10T01:23:57.8921051Z Nested mountpoint volatile/logs
+2026-03-10T01:23:57.9115531Z Nested mountpoint 
+2026-03-10T01:23:57.9204039Z Nested mountpoint 
+2026-03-10T01:23:57.9530853Z Nested mountpoint 
+2026-03-10T01:23:58.0086151Z Nested mountpoint 
+2026-03-10T01:24:04.2478387Z Volume: Package cannot be mounted at /home/site/wwwroot during container: ducksatapp startup. The volume mount is required. Terminate.
+2026-03-10T01:24:04.2584141Z Container start up failed with reason: VolumeMountFailure. Revert by terminate.
+2026-03-10T01:24:04.2645375Z Container is terminating. Grace period: 5 seconds.
+2026-03-10T01:24:04.2648727Z Container spec TerminationMessagePolicy  path 
+2026-03-10T01:24:04.2650295Z Container is terminated. Total time elapsed: 0 ms.
+2026-03-10T01:24:04.2651412Z Site container: ducksatapp terminated during site startup.
+2026-03-10T01:24:04.2652615Z State: Stopping, Action: CancellingStartup, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:24:04.2879104Z State: Stopping, Action: CancellingStartup, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:04, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:24:04.3062478Z Failed to start site. Revert by stopping site.
+2026-03-10T01:24:04.3063844Z State: Stopping, Action: StoppingSite, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:04, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:24:04.3066005Z State: Stopping, Action: StoppingSiteContainers, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:04, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:24:04.3066187Z Site: ducksatapp stopped.
+2026-03-10T01:24:24.7860661Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 03/08/2026 20:19:17, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site started at 03/09/2026 13:14:10 (UTC), DetailsLevel: INFO
+2026-03-10T01:24:24.7864266Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/08/2026 20:19:17, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site started at 03/09/2026 13:14:10 (UTC), DetailsLevel: INFO
+2026-03-10T01:24:24.7866220Z Container is terminating. Grace period: 5 seconds.
+2026-03-10T01:24:24.8055379Z Stop and delete container. Retry count = 0
+2026-03-10T01:24:24.8066416Z Stopping container: 367525bbc85e_ducksatapp.
+2026-03-10T01:24:29.8878602Z Deleting container: 367525bbc85e_ducksatapp. Retry count = 0
+2026-03-10T01:24:30.0501044Z Container spec TerminationMessagePolicy  path 
+2026-03-10T01:24:30.0510961Z Container is terminated. Total time elapsed: 5264 ms.
+2026-03-10T01:24:30.0512265Z Site: ducksatapp stopped.
+2026-03-10T01:24:04.3170571Z State: Stopping, Action: UnmountingVolumes, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:04, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:24:04.5661661Z State: Stopping, Action: StoppingSiteNetworks, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:04, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:24:04.7069747Z State: Stopped, Action: None, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:04, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site stopped at 03/10/2026 01:24:04 (UTC), DetailsLevel: ERR
+2026-03-10T01:24:04.7167184Z State: Stopped, Action: None, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:04, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site stopped at 03/10/2026 01:24:04 (UTC), DetailsLevel: ERR
+2026-03-10T01:24:30.5260542Z State: Starting, Action: EstablishingSiteNetworks, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:04, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site stopped at 03/10/2026 01:24:04 (UTC), DetailsLevel: ERR
+2026-03-10T01:24:31.3284066Z State: Starting, Action: StartingSiteContainers, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:04, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site stopped at 03/10/2026 01:24:04 (UTC), DetailsLevel: ERR
+2026-03-10T01:24:31.3373720Z Container start method called.
+2026-03-10T01:24:31.3477307Z State: Starting, Action: PullingImage, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:04, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Pulling image 10.1.0.6:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-10T01:24:31.3491093Z Establishing network.
+2026-03-10T01:24:31.3505531Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-10T01:24:31.5594024Z Container is starting.
+2026-03-10T01:24:31.5596881Z State: Starting, Action: MountingVolumes, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:04, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-10T01:24:31.5598192Z Establishing user namespace if not established already.
+2026-03-10T01:24:31.5599545Z Establishing network if not established already.
+2026-03-10T01:24:31.5600846Z Mounting volumes.
+2026-03-10T01:24:31.5602866Z Nested mountpoint site/wwwroot
+2026-03-10T01:24:31.5722517Z Nested mountpoint volatile/logs
+2026-03-10T01:24:31.5899505Z Nested mountpoint 
+2026-03-10T01:24:31.5907240Z Nested mountpoint 
+2026-03-10T01:24:31.6293351Z Nested mountpoint 
+2026-03-10T01:24:31.6309629Z Nested mountpoint 
+2026-03-10T01:24:37.1586439Z Volume: Package cannot be mounted at /home/site/wwwroot during container: ducksatapp startup. The volume mount is required. Terminate.
+2026-03-10T01:24:37.1661149Z Container start up failed with reason: VolumeMountFailure. Revert by terminate.
+2026-03-10T01:24:37.1662669Z Container is terminating. Grace period: 5 seconds.
+2026-03-10T01:24:37.1663824Z Container spec TerminationMessagePolicy  path 
+2026-03-10T01:24:37.1665171Z Container is terminated. Total time elapsed: 0 ms.
+2026-03-10T01:24:37.1666180Z Site container: ducksatapp terminated during site startup.
+2026-03-10T01:24:37.1666970Z State: Stopping, Action: CancellingStartup, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:04, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:24:37.2753576Z State: Stopping, Action: CancellingStartup, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:37, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:24:37.2861032Z Failed to start site. Revert by stopping site.
+2026-03-10T01:24:37.2867052Z State: Stopping, Action: StoppingSite, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:37, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:24:37.2872109Z State: Stopping, Action: StoppingSiteContainers, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:37, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:24:37.2875233Z Site: ducksatapp stopped.
+2026-03-10T01:24:37.2970875Z State: Stopping, Action: UnmountingVolumes, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:37, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:24:37.5061011Z State: Stopping, Action: StoppingSiteNetworks, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:37, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:24:37.6106348Z Site: ducksatapp will be blocked for 1 minutes till 03/10/2026 01:25:37
+2026-03-10T01:24:37.6165127Z State: Blocked, Action: StoppingSiteNetworks, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:37, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site: ducksatapp will be blocked for 1 minutes till 03/10/2026 01:25:37, DetailsLevel: WARN
+2026-03-10T01:24:37.6175812Z State: Stopped, Action: None, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:37, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site stopped at 03/10/2026 01:24:37 (UTC), DetailsLevel: WARN
+2026-03-10T01:24:37.7108653Z State: Stopped, Action: None, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:37, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site stopped at 03/10/2026 01:24:37 (UTC), DetailsLevel: WARN
+2026-03-10T01:25:37.6145408Z Site: ducksatapp is unblocked.
+2026-03-10T01:25:42.4709577Z State: Starting, Action: EstablishingSiteNetworks, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:37, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site stopped at 03/10/2026 01:24:37 (UTC), DetailsLevel: WARN
+2026-03-10T01:25:43.2584994Z State: Starting, Action: StartingSiteContainers, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:37, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site stopped at 03/10/2026 01:24:37 (UTC), DetailsLevel: WARN
+2026-03-10T01:25:43.2586740Z Container start method called.
+2026-03-10T01:25:43.2594978Z State: Starting, Action: PullingImage, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:37, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Pulling image 10.1.0.6:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-10T01:25:43.2602727Z Establishing network.
+2026-03-10T01:25:43.2604781Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-10T01:25:43.4401966Z Container is starting.
+2026-03-10T01:25:43.4403036Z State: Starting, Action: MountingVolumes, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:37, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-10T01:25:43.4404095Z Establishing user namespace if not established already.
+2026-03-10T01:25:43.4405098Z Establishing network if not established already.
+2026-03-10T01:25:43.4407348Z Mounting volumes.
+2026-03-10T01:25:43.4451873Z Nested mountpoint site/wwwroot
+2026-03-10T01:25:43.4497390Z Nested mountpoint volatile/logs
+2026-03-10T01:25:43.4606215Z Nested mountpoint 
+2026-03-10T01:25:43.4715111Z Nested mountpoint 
+2026-03-10T01:25:43.4912173Z Nested mountpoint 
+2026-03-10T01:25:43.4995728Z Nested mountpoint 
+2026-03-10T01:25:49.0810297Z Volume: Package cannot be mounted at /home/site/wwwroot during container: ducksatapp startup. The volume mount is required. Terminate.
+2026-03-10T01:25:49.0822866Z Container start up failed with reason: VolumeMountFailure. Revert by terminate.
+2026-03-10T01:25:49.0824845Z Container is terminating. Grace period: 5 seconds.
+2026-03-10T01:25:49.0826330Z Container spec TerminationMessagePolicy  path 
+2026-03-10T01:25:49.0827742Z Container is terminated. Total time elapsed: 0 ms.
+2026-03-10T01:25:49.0828798Z Site container: ducksatapp terminated during site startup.
+2026-03-10T01:25:49.0829847Z State: Stopping, Action: CancellingStartup, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:24:37, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:25:49.1327872Z State: Stopping, Action: CancellingStartup, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:25:49, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:25:49.1739721Z Failed to start site. Revert by stopping site.
+2026-03-10T01:25:49.1746492Z State: Stopping, Action: StoppingSite, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:25:49, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:25:49.1759877Z State: Stopping, Action: StoppingSiteContainers, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 03/10/2026 01:25:49, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-10T01:25:49.2018157Z Site: ducksatapp stopped.

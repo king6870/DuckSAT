@@ -1,0 +1,7 @@
+<step title="Incoming Request" date="2026-02-28T07:14:24.973" instance="662702" url="/api/command" method="POST" type="request" pid="833,1,23" Accept="*/*" Host="ducksatapp.scm.azurewebsites.net" User-Agent="curl/8.14.1" Authorization="Bas..." Content-Type="application/json" Content-Length="55" X-ARR-LOG-ID="0e83a138-8e3e-41b7-b5ad-78efdab12d20" CLIENT-IP="50.47.225.138:55677" X-SITE-DEPLOYMENT-ID="ducksatapp" WAS-DEFAULT-HOSTNAME="ducksatapp.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/command" X-Client-IP="50.47.225.138" X-Client-Port="55677" >
+  <step title="Cleanup Xml Logs" date="2026-02-28T07:14:24.976" >
+    <step title="Cleanup Infos" date="2026-02-28T07:14:24.987" totalFiles="352" totalCleanup="192" /><!-- duration: 5ms -->
+  </step><!-- duration: 19ms -->
+  <step title="Executing user command. " date="2026-02-28T07:14:25.000" CWD="/" /><!-- duration: 59ms -->
+  <step title="Outgoing response" date="2026-02-28T07:14:25.065" type="response" statusCode="200" statusText="OK" /><!-- duration: 5ms -->
+</step><!-- duration: 100ms -->

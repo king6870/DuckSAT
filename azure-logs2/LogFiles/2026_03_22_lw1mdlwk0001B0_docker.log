@@ -1,0 +1,508 @@
+2026-03-22T22:36:38.9098033Z State: Starting, Action: EstablishingSiteNetworks, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-03-22T22:36:40.9266724Z State: Starting, Action: StartingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-03-22T22:36:40.9269759Z Container start method called.
+2026-03-22T22:36:40.9271826Z State: Starting, Action: PullingImage, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pulling image 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:36:40.9274427Z Establishing network.
+2026-03-22T22:36:40.9276492Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-22T22:36:41.5375449Z Container is starting.
+2026-03-22T22:36:41.5381276Z State: Starting, Action: MountingVolumes, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:36:41.5383613Z Establishing user namespace if not established already.
+2026-03-22T22:36:41.5385798Z Establishing network if not established already.
+2026-03-22T22:36:41.5387759Z Mounting volumes.
+2026-03-22T22:36:41.5390251Z Nested mountpoint 
+2026-03-22T22:36:41.5579657Z Nested mountpoint volatile/logs
+2026-03-22T22:36:41.5697741Z Nested mountpoint 
+2026-03-22T22:36:41.5770248Z Nested mountpoint 
+2026-03-22T22:36:41.5798950Z Nested mountpoint 
+2026-03-22T22:36:41.9701174Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Finished pulling container image and mounting volumes for ducksatapp. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-22T22:36:41.9706159Z Creating container.
+2026-03-22T22:36:41.9710267Z Creating pipes for streaming container io.
+2026-03-22T22:36:41.9711485Z Creating stdout named pipe at /podr/container/pipe/5af74cb2474b_ducksatapp/stdout_1ac89c2e166747a98c56b3b0e50e108c.
+2026-03-22T22:36:41.9773031Z Successfully created stdout named pipe at: /podr/container/pipe/5af74cb2474b_ducksatapp/stdout_1ac89c2e166747a98c56b3b0e50e108c.
+2026-03-22T22:36:41.9781387Z Opening named pipe /podr/container/pipe/5af74cb2474b_ducksatapp/stdout_1ac89c2e166747a98c56b3b0e50e108c for reading in non-blocking mode.
+2026-03-22T22:36:41.9786188Z Successfully opened named pipe: /podr/container/pipe/5af74cb2474b_ducksatapp/stdout_1ac89c2e166747a98c56b3b0e50e108c.
+2026-03-22T22:36:41.9791872Z Successfully removed non-blocking flag from /podr/container/pipe/5af74cb2474b_ducksatapp/stdout_1ac89c2e166747a98c56b3b0e50e108c.
+2026-03-22T22:36:41.9795044Z Creating stderr named pipe at /podr/container/pipe/5af74cb2474b_ducksatapp/stderr_223eece179f645a7ac4851ef9656d232.
+2026-03-22T22:36:41.9802486Z Successfully created stderr named pipe at: /podr/container/pipe/5af74cb2474b_ducksatapp/stderr_223eece179f645a7ac4851ef9656d232.
+2026-03-22T22:36:41.9811576Z Opening named pipe /podr/container/pipe/5af74cb2474b_ducksatapp/stderr_223eece179f645a7ac4851ef9656d232 for reading in non-blocking mode.
+2026-03-22T22:36:41.9873224Z Successfully opened named pipe: /podr/container/pipe/5af74cb2474b_ducksatapp/stderr_223eece179f645a7ac4851ef9656d232.
+2026-03-22T22:36:42.0015161Z Successfully removed non-blocking flag from /podr/container/pipe/5af74cb2474b_ducksatapp/stderr_223eece179f645a7ac4851ef9656d232.
+2026-03-22T22:36:42.0185961Z Creating container with image: appsvc/node:22-lts_20260115.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod
+2026-03-22T22:36:42.6553395Z Starting container: 5af74cb2474b_ducksatapp.
+2026-03-22T22:36:42.7827578Z Starting watchers and probes.
+2026-03-22T22:36:42.7890095Z Starting metrics collection.
+2026-03-22T22:36:42.7904515Z Container is running.
+2026-03-22T22:36:42.7905202Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:36:42.8593481Z Container start method finished after 1930 ms.
+2026-03-22T22:36:42.8675327Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:36:42.8677692Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-22T22:37:34.0705581Z Site startup probe succeeded after 51.2021412 seconds.
+2026-03-22T22:37:34.1877441Z State: Starting, Action: WarmUpProbeSucceeded, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site startup probe succeeded after 51.2021412 seconds., DetailsLevel: INFO
+2026-03-22T22:37:34.2214987Z Site is running with deployment version: 0e542344-0512-48ea-871c-fc3c088a4b3e
+2026-03-22T22:37:34.2224046Z Site started.
+2026-03-22T22:37:34.2225490Z State: Started, Action: None, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site started at 03/22/2026 22:37:34 (UTC), DetailsLevel: INFO
+2026-03-22T22:37:34.2227867Z Site is running with patch version NODE 22.22.0
+2026-03-22T22:37:54.2480933Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 03/21/2026 17:59:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site started at 03/21/2026 18:01:15 (UTC), DetailsLevel: INFO
+2026-03-22T22:37:54.2492630Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/21/2026 17:59:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site started at 03/21/2026 18:01:15 (UTC), DetailsLevel: INFO
+2026-03-22T22:37:54.2494838Z Container is terminating. Grace period: 5 seconds.
+2026-03-22T22:37:54.2573631Z Stop and delete container. Retry count = 0
+2026-03-22T22:37:54.2574975Z Stopping container: 3a9f9914e007_ducksatapp.
+2026-03-22T22:37:59.3582162Z Deleting container: 3a9f9914e007_ducksatapp. Retry count = 0
+2026-03-22T22:37:59.7039904Z Container spec TerminationMessagePolicy  path 
+2026-03-22T22:37:59.7041540Z Container is terminated. Total time elapsed: 5454 ms.
+2026-03-22T22:37:59.7043203Z Site: ducksatapp stopped.
+2026-03-22T22:39:50.9837283Z State: Starting, Action: EstablishingSiteNetworks, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-03-22T22:39:51.9232485Z State: Starting, Action: StartingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-03-22T22:39:51.9234626Z Container start method called.
+2026-03-22T22:39:51.9235650Z State: Starting, Action: PullingImage, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pulling image 10.1.0.6:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:39:51.9237212Z Establishing network.
+2026-03-22T22:39:51.9238471Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-22T22:39:52.2491017Z Container is starting.
+2026-03-22T22:39:52.2553091Z State: Starting, Action: MountingVolumes, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:39:52.2555079Z Establishing user namespace if not established already.
+2026-03-22T22:39:52.2556357Z Establishing network if not established already.
+2026-03-22T22:39:52.2557598Z Mounting volumes.
+2026-03-22T22:39:52.2559222Z Nested mountpoint 
+2026-03-22T22:39:52.2721882Z Nested mountpoint volatile/logs
+2026-03-22T22:39:52.2784718Z Nested mountpoint 
+2026-03-22T22:39:52.3054558Z Nested mountpoint 
+2026-03-22T22:39:52.3080664Z Nested mountpoint 
+2026-03-22T22:39:52.6954722Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Finished pulling container image and mounting volumes for ducksatapp. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-22T22:39:52.6956454Z Creating container.
+2026-03-22T22:39:52.6957796Z Creating pipes for streaming container io.
+2026-03-22T22:39:52.6958857Z Creating stdout named pipe at /podr/container/pipe/fe0fbd484ae4_ducksatapp/stdout_3067c36843ec4b4ba29f2c11cce797ef.
+2026-03-22T22:39:52.6975697Z Successfully created stdout named pipe at: /podr/container/pipe/fe0fbd484ae4_ducksatapp/stdout_3067c36843ec4b4ba29f2c11cce797ef.
+2026-03-22T22:39:52.6977591Z Opening named pipe /podr/container/pipe/fe0fbd484ae4_ducksatapp/stdout_3067c36843ec4b4ba29f2c11cce797ef for reading in non-blocking mode.
+2026-03-22T22:39:52.6979112Z Successfully opened named pipe: /podr/container/pipe/fe0fbd484ae4_ducksatapp/stdout_3067c36843ec4b4ba29f2c11cce797ef.
+2026-03-22T22:39:52.6980167Z Successfully removed non-blocking flag from /podr/container/pipe/fe0fbd484ae4_ducksatapp/stdout_3067c36843ec4b4ba29f2c11cce797ef.
+2026-03-22T22:39:52.6989570Z Creating stderr named pipe at /podr/container/pipe/fe0fbd484ae4_ducksatapp/stderr_b2cf61414d074d43b2b32f0c027e26d8.
+2026-03-22T22:39:52.7054312Z Successfully created stderr named pipe at: /podr/container/pipe/fe0fbd484ae4_ducksatapp/stderr_b2cf61414d074d43b2b32f0c027e26d8.
+2026-03-22T22:39:52.7058813Z Opening named pipe /podr/container/pipe/fe0fbd484ae4_ducksatapp/stderr_b2cf61414d074d43b2b32f0c027e26d8 for reading in non-blocking mode.
+2026-03-22T22:39:52.7064636Z Successfully opened named pipe: /podr/container/pipe/fe0fbd484ae4_ducksatapp/stderr_b2cf61414d074d43b2b32f0c027e26d8.
+2026-03-22T22:39:52.7069008Z Successfully removed non-blocking flag from /podr/container/pipe/fe0fbd484ae4_ducksatapp/stderr_b2cf61414d074d43b2b32f0c027e26d8.
+2026-03-22T22:39:52.7073933Z Creating container with image: appsvc/node:22-lts_20260115.4.tuxprod from registry: 10.1.0.6:13209 and fully qualified image name: 10.1.0.6:13209/appsvc/node:22-lts_20260115.4.tuxprod
+2026-03-22T22:39:53.2389281Z Starting container: fe0fbd484ae4_ducksatapp.
+2026-03-22T22:39:53.3098022Z Starting watchers and probes.
+2026-03-22T22:39:53.3138932Z Starting metrics collection.
+2026-03-22T22:39:53.3141036Z Container is running.
+2026-03-22T22:39:53.3142138Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:39:53.4253604Z Container start method finished after 1501 ms.
+2026-03-22T22:39:53.4340228Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:39:53.4342095Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-22T22:40:05.7472743Z Site startup probe failed after 12.3117012 seconds.
+2026-03-22T22:40:06.0110780Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:40:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: ERR
+2026-03-22T22:40:06.0197848Z Failed to start site. Revert by stopping site.
+2026-03-22T22:40:06.0198795Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:40:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: ERR
+2026-03-22T22:40:06.0201069Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:40:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: ERR
+2026-03-22T22:40:06.0202652Z Container is terminating. Grace period: 5 seconds.
+2026-03-22T22:40:06.1126281Z Stop and delete container. Retry count = 0
+2026-03-22T22:40:06.1129833Z Stopping container: fe0fbd484ae4_ducksatapp.
+2026-03-22T22:40:11.9701257Z Deleting container: fe0fbd484ae4_ducksatapp. Retry count = 0
+2026-03-22T22:40:12.2902278Z Container spec TerminationMessagePolicy  path 
+2026-03-22T22:40:12.2912091Z Container is terminated. Total time elapsed: 6270 ms.
+2026-03-22T22:40:12.2915040Z Site container: ducksatapp terminated during site startup.
+2026-03-22T22:40:12.2921297Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:40:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:40:12.2936619Z Site: ducksatapp stopped.
+2026-03-22T22:40:33.0875139Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 03/21/2026 17:59:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site started at 03/22/2026 22:37:34 (UTC), DetailsLevel: INFO
+2026-03-22T22:40:33.0887763Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/21/2026 17:59:55, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site started at 03/22/2026 22:37:34 (UTC), DetailsLevel: INFO
+2026-03-22T22:40:33.0890488Z Container is terminating. Grace period: 5 seconds.
+2026-03-22T22:40:33.0942430Z Stop and delete container. Retry count = 0
+2026-03-22T22:40:33.0996199Z Stopping container: 5af74cb2474b_ducksatapp.
+2026-03-22T22:40:38.1721818Z Deleting container: 5af74cb2474b_ducksatapp. Retry count = 0
+2026-03-22T22:40:38.5513466Z Container spec TerminationMessagePolicy  path 
+2026-03-22T22:40:38.5517890Z Container is terminated. Total time elapsed: 5462 ms.
+2026-03-22T22:40:38.5519466Z Site: ducksatapp stopped.
+2026-03-22T22:40:59.4368223Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:40:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:40:12 (UTC), DetailsLevel: ERR
+2026-03-22T22:41:00.1264527Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:40:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:40:12 (UTC), DetailsLevel: ERR
+2026-03-22T22:41:00.1270401Z Container start method called.
+2026-03-22T22:41:00.1336510Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:40:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:41:00.1342997Z Establishing network.
+2026-03-22T22:41:00.1345251Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-22T22:41:00.3572998Z Container is starting.
+2026-03-22T22:41:00.3574092Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:40:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:41:00.3575200Z Establishing user namespace if not established already.
+2026-03-22T22:41:00.3576473Z Establishing network if not established already.
+2026-03-22T22:41:00.3578219Z Mounting volumes.
+2026-03-22T22:41:00.3579684Z Nested mountpoint 
+2026-03-22T22:41:00.3659623Z Nested mountpoint volatile/logs
+2026-03-22T22:41:00.3865519Z Nested mountpoint 
+2026-03-22T22:41:00.3875078Z Nested mountpoint 
+2026-03-22T22:41:00.3883655Z Nested mountpoint 
+2026-03-22T22:41:00.6693573Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:40:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for ducksatapp. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-22T22:41:00.6700485Z Creating container.
+2026-03-22T22:41:00.6861695Z Creating pipes for streaming container io.
+2026-03-22T22:41:00.6863422Z Creating stdout named pipe at /podr/container/pipe/e18306440972_ducksatapp/stdout_856086b69f824f0d996a84c7c8374b3e.
+2026-03-22T22:41:00.6866010Z Successfully created stdout named pipe at: /podr/container/pipe/e18306440972_ducksatapp/stdout_856086b69f824f0d996a84c7c8374b3e.
+2026-03-22T22:41:00.6867194Z Opening named pipe /podr/container/pipe/e18306440972_ducksatapp/stdout_856086b69f824f0d996a84c7c8374b3e for reading in non-blocking mode.
+2026-03-22T22:41:00.6868426Z Successfully opened named pipe: /podr/container/pipe/e18306440972_ducksatapp/stdout_856086b69f824f0d996a84c7c8374b3e.
+2026-03-22T22:41:00.6869674Z Successfully removed non-blocking flag from /podr/container/pipe/e18306440972_ducksatapp/stdout_856086b69f824f0d996a84c7c8374b3e.
+2026-03-22T22:41:00.6871257Z Creating stderr named pipe at /podr/container/pipe/e18306440972_ducksatapp/stderr_289244099f804ad5aa4cfb4048bed649.
+2026-03-22T22:41:00.6872893Z Successfully created stderr named pipe at: /podr/container/pipe/e18306440972_ducksatapp/stderr_289244099f804ad5aa4cfb4048bed649.
+2026-03-22T22:41:00.6873953Z Opening named pipe /podr/container/pipe/e18306440972_ducksatapp/stderr_289244099f804ad5aa4cfb4048bed649 for reading in non-blocking mode.
+2026-03-22T22:41:00.6876347Z Successfully opened named pipe: /podr/container/pipe/e18306440972_ducksatapp/stderr_289244099f804ad5aa4cfb4048bed649.
+2026-03-22T22:41:00.6877477Z Successfully removed non-blocking flag from /podr/container/pipe/e18306440972_ducksatapp/stderr_289244099f804ad5aa4cfb4048bed649.
+2026-03-22T22:41:00.6878770Z Creating container with image: appsvc/node:22-lts_20260115.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod
+2026-03-22T22:41:01.0751076Z Starting container: e18306440972_ducksatapp.
+2026-03-22T22:41:01.1230654Z Starting watchers and probes.
+2026-03-22T22:41:01.1232943Z Starting metrics collection.
+2026-03-22T22:41:01.1235713Z Container is running.
+2026-03-22T22:41:01.1236470Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:40:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:41:01.2053878Z Container start method finished after 1077 ms.
+2026-03-22T22:41:01.2056454Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:40:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:41:01.2058718Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:40:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-22T22:41:20.6839907Z Container has finished running with exit code: 1.
+2026-03-22T22:41:20.6847210Z Container is terminating. Grace period: 5 seconds.
+2026-03-22T22:41:20.7000021Z Stop and delete container. Retry count = 0
+2026-03-22T22:41:20.7001203Z Stopping container: e18306440972_ducksatapp.
+2026-03-22T22:41:20.7592465Z Deleting container: e18306440972_ducksatapp. Retry count = 0
+2026-03-22T22:41:21.1067603Z Container spec TerminationMessagePolicy  path 
+2026-03-22T22:41:21.1130527Z Container is terminated. Total time elapsed: 422 ms.
+2026-03-22T22:41:21.1133793Z Site container: ducksatapp terminated during site startup.
+2026-03-22T22:41:21.1135026Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:40:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:41:21.1444602Z Site startup probe failed after 19.9375811 seconds.
+2026-03-22T22:41:21.3758089Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:41:21.3834629Z Failed to start site. Revert by stopping site.
+2026-03-22T22:41:21.3837900Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:41:21.3843068Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:41:21.3844345Z Site: ducksatapp stopped.
+2026-03-22T22:41:21.3956693Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:41:21.6993965Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:41:21.9960857Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:41:21 (UTC), DetailsLevel: ERR
+2026-03-22T22:41:22.1735458Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:41:21 (UTC), DetailsLevel: ERR
+2026-03-22T22:41:25.9187507Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:41:21 (UTC), DetailsLevel: ERR
+2026-03-22T22:41:26.6065590Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:41:21 (UTC), DetailsLevel: ERR
+2026-03-22T22:41:26.6067019Z Container start method called.
+2026-03-22T22:41:26.6067455Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:41:26.6068842Z Establishing network.
+2026-03-22T22:41:26.6070051Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-22T22:41:26.8010392Z Container is starting.
+2026-03-22T22:41:26.8017329Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:41:26.8021846Z Establishing user namespace if not established already.
+2026-03-22T22:41:26.8023553Z Establishing network if not established already.
+2026-03-22T22:41:26.8032120Z Mounting volumes.
+2026-03-22T22:41:26.8037594Z Nested mountpoint 
+2026-03-22T22:41:26.8119542Z Nested mountpoint volatile/logs
+2026-03-22T22:41:26.8203655Z Nested mountpoint 
+2026-03-22T22:41:26.8211950Z Nested mountpoint 
+2026-03-22T22:41:26.8220003Z Nested mountpoint 
+2026-03-22T22:41:27.1975013Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for ducksatapp. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-22T22:41:27.1981546Z Creating container.
+2026-03-22T22:41:27.1989103Z Creating pipes for streaming container io.
+2026-03-22T22:41:27.1995110Z Creating stdout named pipe at /podr/container/pipe/1fcefc8a3b5e_ducksatapp/stdout_2da089c5bdf7401a83840bd0a4cfd9d4.
+2026-03-22T22:41:27.2064443Z Successfully created stdout named pipe at: /podr/container/pipe/1fcefc8a3b5e_ducksatapp/stdout_2da089c5bdf7401a83840bd0a4cfd9d4.
+2026-03-22T22:41:27.2068957Z Opening named pipe /podr/container/pipe/1fcefc8a3b5e_ducksatapp/stdout_2da089c5bdf7401a83840bd0a4cfd9d4 for reading in non-blocking mode.
+2026-03-22T22:41:27.2075626Z Successfully opened named pipe: /podr/container/pipe/1fcefc8a3b5e_ducksatapp/stdout_2da089c5bdf7401a83840bd0a4cfd9d4.
+2026-03-22T22:41:27.2078884Z Successfully removed non-blocking flag from /podr/container/pipe/1fcefc8a3b5e_ducksatapp/stdout_2da089c5bdf7401a83840bd0a4cfd9d4.
+2026-03-22T22:41:27.2086081Z Creating stderr named pipe at /podr/container/pipe/1fcefc8a3b5e_ducksatapp/stderr_32ed85c0d12c4907ac7d166aaf77ed76.
+2026-03-22T22:41:27.2171371Z Successfully created stderr named pipe at: /podr/container/pipe/1fcefc8a3b5e_ducksatapp/stderr_32ed85c0d12c4907ac7d166aaf77ed76.
+2026-03-22T22:41:27.2173179Z Opening named pipe /podr/container/pipe/1fcefc8a3b5e_ducksatapp/stderr_32ed85c0d12c4907ac7d166aaf77ed76 for reading in non-blocking mode.
+2026-03-22T22:41:27.2174699Z Successfully opened named pipe: /podr/container/pipe/1fcefc8a3b5e_ducksatapp/stderr_32ed85c0d12c4907ac7d166aaf77ed76.
+2026-03-22T22:41:27.2189303Z Successfully removed non-blocking flag from /podr/container/pipe/1fcefc8a3b5e_ducksatapp/stderr_32ed85c0d12c4907ac7d166aaf77ed76.
+2026-03-22T22:41:27.2264131Z Creating container with image: appsvc/node:22-lts_20260115.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod
+2026-03-22T22:41:27.7053170Z Starting container: 1fcefc8a3b5e_ducksatapp.
+2026-03-22T22:41:27.7950866Z Starting watchers and probes.
+2026-03-22T22:41:27.8050134Z Starting metrics collection.
+2026-03-22T22:41:27.8058685Z Container is running.
+2026-03-22T22:41:27.8066711Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:41:27.9071019Z Container start method finished after 1299 ms.
+2026-03-22T22:41:27.9090409Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:41:27.9251912Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-22T22:41:44.7503594Z Container has finished running with exit code: 1.
+2026-03-22T22:41:44.7530946Z Container is terminating. Grace period: 5 seconds.
+2026-03-22T22:41:44.7540753Z Stop and delete container. Retry count = 0
+2026-03-22T22:41:44.7544704Z Stopping container: 1fcefc8a3b5e_ducksatapp.
+2026-03-22T22:41:44.8039365Z Deleting container: 1fcefc8a3b5e_ducksatapp. Retry count = 0
+2026-03-22T22:41:45.4588996Z Container spec TerminationMessagePolicy  path 
+2026-03-22T22:41:45.4592073Z Container is terminated. Total time elapsed: 705 ms.
+2026-03-22T22:41:45.4593998Z Site container: ducksatapp terminated during site startup.
+2026-03-22T22:41:45.4636055Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:21, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:41:45.5316002Z Site startup probe failed after 17.5663361 seconds.
+2026-03-22T22:41:45.8972487Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:41:45.8987545Z Failed to start site. Revert by stopping site.
+2026-03-22T22:41:45.9079639Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:41:45.9092418Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:41:45.9100107Z Site: ducksatapp stopped.
+2026-03-22T22:41:45.9472733Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:41:46.3025057Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:41:46.5504283Z Site: ducksatapp will be blocked for 1 minutes till 03/22/2026 22:42:46
+2026-03-22T22:41:46.5508282Z State: Blocked, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site: ducksatapp will be blocked for 1 minutes till 03/22/2026 22:42:46, DetailsLevel: WARN
+2026-03-22T22:41:46.5581879Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:41:46 (UTC), DetailsLevel: WARN
+2026-03-22T22:41:46.6426991Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:41:46 (UTC), DetailsLevel: WARN
+2026-03-22T22:41:47.5277285Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 03/22/2026 22:42:46, DetailsLevel: WARN
+2026-03-22T22:41:47.5278600Z Start site prohibitted because the site is being blocked.
+2026-03-22T22:42:37.9561901Z State: Blocked, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 03/22/2026 22:42:46, DetailsLevel: WARN
+2026-03-22T22:42:37.9562290Z Start site prohibitted because the site is being blocked.
+2026-03-22T22:42:46.5422355Z Site: ducksatapp is unblocked.
+2026-03-22T22:43:57.6314684Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 03/22/2026 22:42:46, DetailsLevel: WARN
+2026-03-22T22:43:58.3024001Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site is blocked due to multiple, consecutive cold start failures. Site scheduled to be unblocked at 03/22/2026 22:42:46, DetailsLevel: WARN
+2026-03-22T22:43:58.3027461Z Container start method called.
+2026-03-22T22:43:58.3029620Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:43:58.3033006Z Establishing network.
+2026-03-22T22:43:58.3036049Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-22T22:43:58.5236444Z Container is starting.
+2026-03-22T22:43:58.5240026Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:43:58.5263286Z Establishing user namespace if not established already.
+2026-03-22T22:43:58.5267916Z Establishing network if not established already.
+2026-03-22T22:43:58.5287557Z Mounting volumes.
+2026-03-22T22:43:58.5292373Z Nested mountpoint 
+2026-03-22T22:43:58.5300409Z Nested mountpoint volatile/logs
+2026-03-22T22:43:58.5390681Z Nested mountpoint 
+2026-03-22T22:43:58.5397221Z Nested mountpoint 
+2026-03-22T22:43:58.5403844Z Nested mountpoint 
+2026-03-22T22:43:58.8415094Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for ducksatapp. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-22T22:43:58.8417891Z Creating container.
+2026-03-22T22:43:58.8421807Z Creating pipes for streaming container io.
+2026-03-22T22:43:58.8426034Z Creating stdout named pipe at /podr/container/pipe/7c421763dbe2_ducksatapp/stdout_12cc89a009cd4e45842b34548b5b1801.
+2026-03-22T22:43:58.8431040Z Successfully created stdout named pipe at: /podr/container/pipe/7c421763dbe2_ducksatapp/stdout_12cc89a009cd4e45842b34548b5b1801.
+2026-03-22T22:43:58.8699757Z Opening named pipe /podr/container/pipe/7c421763dbe2_ducksatapp/stdout_12cc89a009cd4e45842b34548b5b1801 for reading in non-blocking mode.
+2026-03-22T22:43:58.8707304Z Successfully opened named pipe: /podr/container/pipe/7c421763dbe2_ducksatapp/stdout_12cc89a009cd4e45842b34548b5b1801.
+2026-03-22T22:43:58.8710111Z Successfully removed non-blocking flag from /podr/container/pipe/7c421763dbe2_ducksatapp/stdout_12cc89a009cd4e45842b34548b5b1801.
+2026-03-22T22:43:58.8732839Z Creating stderr named pipe at /podr/container/pipe/7c421763dbe2_ducksatapp/stderr_7ed9590ccc9045ebac66fac12279eb73.
+2026-03-22T22:43:58.8735163Z Successfully created stderr named pipe at: /podr/container/pipe/7c421763dbe2_ducksatapp/stderr_7ed9590ccc9045ebac66fac12279eb73.
+2026-03-22T22:43:58.8736364Z Opening named pipe /podr/container/pipe/7c421763dbe2_ducksatapp/stderr_7ed9590ccc9045ebac66fac12279eb73 for reading in non-blocking mode.
+2026-03-22T22:43:58.8738054Z Successfully opened named pipe: /podr/container/pipe/7c421763dbe2_ducksatapp/stderr_7ed9590ccc9045ebac66fac12279eb73.
+2026-03-22T22:43:58.8748970Z Successfully removed non-blocking flag from /podr/container/pipe/7c421763dbe2_ducksatapp/stderr_7ed9590ccc9045ebac66fac12279eb73.
+2026-03-22T22:43:58.8757868Z Creating container with image: appsvc/node:22-lts_20260115.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod
+2026-03-22T22:43:59.2796621Z Starting container: 7c421763dbe2_ducksatapp.
+2026-03-22T22:43:59.3360996Z Starting watchers and probes.
+2026-03-22T22:43:59.3365528Z Starting metrics collection.
+2026-03-22T22:43:59.3367172Z Container is running.
+2026-03-22T22:43:59.3368220Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:43:59.4511734Z Container start method finished after 1148 ms.
+2026-03-22T22:43:59.4514077Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:43:59.4514407Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-22T22:44:24.3031427Z Container has finished running with exit code: 1.
+2026-03-22T22:44:24.3032762Z Container is terminating. Grace period: 5 seconds.
+2026-03-22T22:44:24.3035797Z Stop and delete container. Retry count = 0
+2026-03-22T22:44:24.3036778Z Stopping container: 7c421763dbe2_ducksatapp.
+2026-03-22T22:44:24.3892641Z Deleting container: 7c421763dbe2_ducksatapp. Retry count = 0
+2026-03-22T22:44:24.7782854Z Container spec TerminationMessagePolicy  path 
+2026-03-22T22:44:24.7790753Z Container is terminated. Total time elapsed: 475 ms.
+2026-03-22T22:44:24.7793821Z Site container: ducksatapp terminated during site startup.
+2026-03-22T22:44:24.7866613Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:41:45, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:44:24.8465015Z Site startup probe failed after 25.3875043 seconds.
+2026-03-22T22:44:25.1258649Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:44:25, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:44:25.1270379Z Failed to start site. Revert by stopping site.
+2026-03-22T22:44:25.1272741Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:44:25, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:44:25.1342818Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:44:25, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:44:25.1343079Z Site: ducksatapp stopped.
+2026-03-22T22:45:36.8288345Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:44:25, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:44:25 (UTC), DetailsLevel: WARN
+2026-03-22T22:45:37.5974518Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:44:25, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:44:25 (UTC), DetailsLevel: WARN
+2026-03-22T22:45:37.5976013Z Container start method called.
+2026-03-22T22:45:37.5976456Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:44:25, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:45:37.5977515Z Establishing network.
+2026-03-22T22:45:37.5978739Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-22T22:45:37.9312901Z Container is starting.
+2026-03-22T22:45:37.9321373Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:44:25, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:45:37.9331387Z Establishing user namespace if not established already.
+2026-03-22T22:45:37.9341795Z Establishing network if not established already.
+2026-03-22T22:45:37.9405084Z Mounting volumes.
+2026-03-22T22:45:37.9407462Z Nested mountpoint 
+2026-03-22T22:45:37.9437778Z Nested mountpoint volatile/logs
+2026-03-22T22:45:37.9516042Z Nested mountpoint 
+2026-03-22T22:45:37.9737913Z Nested mountpoint 
+2026-03-22T22:45:38.0099408Z Nested mountpoint 
+2026-03-22T22:45:38.3040289Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:44:25, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for ducksatapp. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-22T22:45:38.3041714Z Creating container.
+2026-03-22T22:45:38.3043007Z Creating pipes for streaming container io.
+2026-03-22T22:45:38.3044585Z Creating stdout named pipe at /podr/container/pipe/315c8d981c48_ducksatapp/stdout_79c147da1fb04f85b2b0cef1e503a29a.
+2026-03-22T22:45:38.3132304Z Successfully created stdout named pipe at: /podr/container/pipe/315c8d981c48_ducksatapp/stdout_79c147da1fb04f85b2b0cef1e503a29a.
+2026-03-22T22:45:38.3150663Z Opening named pipe /podr/container/pipe/315c8d981c48_ducksatapp/stdout_79c147da1fb04f85b2b0cef1e503a29a for reading in non-blocking mode.
+2026-03-22T22:45:38.3220415Z Successfully opened named pipe: /podr/container/pipe/315c8d981c48_ducksatapp/stdout_79c147da1fb04f85b2b0cef1e503a29a.
+2026-03-22T22:45:38.3225013Z Successfully removed non-blocking flag from /podr/container/pipe/315c8d981c48_ducksatapp/stdout_79c147da1fb04f85b2b0cef1e503a29a.
+2026-03-22T22:45:38.3230541Z Creating stderr named pipe at /podr/container/pipe/315c8d981c48_ducksatapp/stderr_53d1ffe9cb7f4024a5e4de67fb2d8c57.
+2026-03-22T22:45:38.3235398Z Successfully created stderr named pipe at: /podr/container/pipe/315c8d981c48_ducksatapp/stderr_53d1ffe9cb7f4024a5e4de67fb2d8c57.
+2026-03-22T22:45:38.3248837Z Opening named pipe /podr/container/pipe/315c8d981c48_ducksatapp/stderr_53d1ffe9cb7f4024a5e4de67fb2d8c57 for reading in non-blocking mode.
+2026-03-22T22:45:38.3294695Z Successfully opened named pipe: /podr/container/pipe/315c8d981c48_ducksatapp/stderr_53d1ffe9cb7f4024a5e4de67fb2d8c57.
+2026-03-22T22:45:38.3296743Z Successfully removed non-blocking flag from /podr/container/pipe/315c8d981c48_ducksatapp/stderr_53d1ffe9cb7f4024a5e4de67fb2d8c57.
+2026-03-22T22:45:38.3298730Z Creating container with image: appsvc/node:22-lts_20260115.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod
+2026-03-22T22:45:39.5249817Z Starting container: 315c8d981c48_ducksatapp.
+2026-03-22T22:45:39.5643999Z Starting watchers and probes.
+2026-03-22T22:45:39.5651306Z Starting metrics collection.
+2026-03-22T22:45:39.5653402Z Container is running.
+2026-03-22T22:45:39.5654403Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:44:25, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:45:39.6306103Z Container start method finished after 2032 ms.
+2026-03-22T22:45:39.6308273Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:44:25, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:45:39.6308567Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:44:25, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-22T22:45:56.1815847Z Container has finished running with exit code: 1.
+2026-03-22T22:45:56.1818037Z Container is terminating. Grace period: 5 seconds.
+2026-03-22T22:45:56.1825215Z Stop and delete container. Retry count = 0
+2026-03-22T22:45:56.1826564Z Stopping container: 315c8d981c48_ducksatapp.
+2026-03-22T22:45:56.2319606Z Deleting container: 315c8d981c48_ducksatapp. Retry count = 0
+2026-03-22T22:45:56.5470639Z Container get mounts received unexpected exception.
+2026-03-22T22:45:56.5482867Z Container get mounts received unexpected exception.
+2026-03-22T22:45:56.5662403Z Container get processes received unexpected exception.
+2026-03-22T22:45:56.5695634Z Container get processes received unexpected exception.
+2026-03-22T22:45:56.7186241Z Container spec TerminationMessagePolicy  path 
+2026-03-22T22:45:56.7193656Z Container is terminated. Total time elapsed: 536 ms.
+2026-03-22T22:45:56.7390402Z Site container: ducksatapp terminated during site startup.
+2026-03-22T22:45:56.7582902Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:44:25, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:45:56.8286839Z Site startup probe failed after 17.1974434 seconds.
+2026-03-22T22:45:57.1238232Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:45:57, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:45:57.1523566Z Failed to start site. Revert by stopping site.
+2026-03-22T22:45:57.1596601Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:45:57, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:45:57.1602694Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:45:57, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:45:57.1602853Z Site: ducksatapp stopped.
+2026-03-22T22:46:39.5433700Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:45:57, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:45:57 (UTC), DetailsLevel: ERR
+2026-03-22T22:46:41.0839392Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:45:57, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:45:57 (UTC), DetailsLevel: ERR
+2026-03-22T22:46:41.0841265Z Container start method called.
+2026-03-22T22:46:41.0841745Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:45:57, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.6:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:46:41.0842982Z Establishing network.
+2026-03-22T22:46:41.0844890Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-22T22:46:42.2038381Z Container is starting.
+2026-03-22T22:46:42.2039441Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:45:57, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:46:42.2040534Z Establishing user namespace if not established already.
+2026-03-22T22:46:42.2041583Z Establishing network if not established already.
+2026-03-22T22:46:42.2057350Z Mounting volumes.
+2026-03-22T22:46:42.2061738Z Nested mountpoint 
+2026-03-22T22:46:42.2268733Z Nested mountpoint volatile/logs
+2026-03-22T22:46:42.2462563Z Nested mountpoint 
+2026-03-22T22:46:42.2737270Z Nested mountpoint 
+2026-03-22T22:46:42.2749031Z Nested mountpoint 
+2026-03-22T22:46:42.7866925Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:45:57, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for ducksatapp. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-22T22:46:42.7871164Z Creating container.
+2026-03-22T22:46:42.7873898Z Creating pipes for streaming container io.
+2026-03-22T22:46:42.8050442Z Creating stdout named pipe at /podr/container/pipe/6ba09fd1b19e_ducksatapp/stdout_561d057e4ec34c2398294589e5b44a2f.
+2026-03-22T22:46:42.8062624Z Successfully created stdout named pipe at: /podr/container/pipe/6ba09fd1b19e_ducksatapp/stdout_561d057e4ec34c2398294589e5b44a2f.
+2026-03-22T22:46:42.8065751Z Opening named pipe /podr/container/pipe/6ba09fd1b19e_ducksatapp/stdout_561d057e4ec34c2398294589e5b44a2f for reading in non-blocking mode.
+2026-03-22T22:46:42.8069634Z Successfully opened named pipe: /podr/container/pipe/6ba09fd1b19e_ducksatapp/stdout_561d057e4ec34c2398294589e5b44a2f.
+2026-03-22T22:46:42.8073226Z Successfully removed non-blocking flag from /podr/container/pipe/6ba09fd1b19e_ducksatapp/stdout_561d057e4ec34c2398294589e5b44a2f.
+2026-03-22T22:46:42.8249919Z Creating stderr named pipe at /podr/container/pipe/6ba09fd1b19e_ducksatapp/stderr_085aa2339fd84ff9a6b32e4a3a3bb498.
+2026-03-22T22:46:42.8257065Z Successfully created stderr named pipe at: /podr/container/pipe/6ba09fd1b19e_ducksatapp/stderr_085aa2339fd84ff9a6b32e4a3a3bb498.
+2026-03-22T22:46:42.8262420Z Opening named pipe /podr/container/pipe/6ba09fd1b19e_ducksatapp/stderr_085aa2339fd84ff9a6b32e4a3a3bb498 for reading in non-blocking mode.
+2026-03-22T22:46:42.8268468Z Successfully opened named pipe: /podr/container/pipe/6ba09fd1b19e_ducksatapp/stderr_085aa2339fd84ff9a6b32e4a3a3bb498.
+2026-03-22T22:46:42.8271566Z Successfully removed non-blocking flag from /podr/container/pipe/6ba09fd1b19e_ducksatapp/stderr_085aa2339fd84ff9a6b32e4a3a3bb498.
+2026-03-22T22:46:42.8274071Z Creating container with image: appsvc/node:22-lts_20260115.4.tuxprod from registry: 10.1.0.6:13209 and fully qualified image name: 10.1.0.6:13209/appsvc/node:22-lts_20260115.4.tuxprod
+2026-03-22T22:46:43.9911656Z Starting container: 6ba09fd1b19e_ducksatapp.
+2026-03-22T22:46:44.0794870Z Starting watchers and probes.
+2026-03-22T22:46:44.0797121Z Starting metrics collection.
+2026-03-22T22:46:44.0798616Z Container is running.
+2026-03-22T22:46:44.0799744Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:45:57, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:46:44.2168679Z Container start method finished after 3132 ms.
+2026-03-22T22:46:44.2178597Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:45:57, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:46:44.2186095Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:45:57, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-22T22:47:06.2083046Z Container has finished running with exit code: 1.
+2026-03-22T22:47:06.2085299Z Container is terminating. Grace period: 5 seconds.
+2026-03-22T22:47:06.2094003Z Stop and delete container. Retry count = 0
+2026-03-22T22:47:06.2095693Z Stopping container: 6ba09fd1b19e_ducksatapp.
+2026-03-22T22:47:06.2678818Z Deleting container: 6ba09fd1b19e_ducksatapp. Retry count = 0
+2026-03-22T22:47:06.3815619Z Container spec TerminationMessagePolicy  path 
+2026-03-22T22:47:06.3817408Z Container is terminated. Total time elapsed: 173 ms.
+2026-03-22T22:47:06.3818577Z Site container: ducksatapp terminated during site startup.
+2026-03-22T22:47:06.3819942Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:45:57, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:47:06.4102381Z Site startup probe failed after 22.1911804 seconds.
+2026-03-22T22:47:06.5925445Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:47:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:47:06.5985341Z Failed to start site. Revert by stopping site.
+2026-03-22T22:47:06.5993869Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:47:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:47:06.6103598Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:47:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:47:06.6103766Z Site: ducksatapp stopped.
+2026-03-22T22:50:13.0009700Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:47:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:47:07 (UTC), DetailsLevel: ERR
+2026-03-22T22:50:13.7173238Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:47:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:47:07 (UTC), DetailsLevel: ERR
+2026-03-22T22:50:13.7237900Z Container start method called.
+2026-03-22T22:50:13.7243178Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:47:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.6:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:50:13.7256050Z Establishing network.
+2026-03-22T22:50:13.7264644Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-22T22:50:14.0837366Z Container is starting.
+2026-03-22T22:50:14.0838503Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:47:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-22T22:50:14.0841030Z Establishing user namespace if not established already.
+2026-03-22T22:50:14.0842465Z Establishing network if not established already.
+2026-03-22T22:50:14.0843685Z Mounting volumes.
+2026-03-22T22:50:14.0845201Z Nested mountpoint 
+2026-03-22T22:50:14.0924548Z Nested mountpoint volatile/logs
+2026-03-22T22:50:14.1027651Z Nested mountpoint 
+2026-03-22T22:50:14.1034366Z Nested mountpoint 
+2026-03-22T22:50:14.1043508Z Nested mountpoint 
+2026-03-22T22:50:14.5340519Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:47:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for ducksatapp. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-22T22:50:14.5345644Z Creating container.
+2026-03-22T22:50:14.5347218Z Creating pipes for streaming container io.
+2026-03-22T22:50:14.5348453Z Creating stdout named pipe at /podr/container/pipe/6d7ed56d8b40_ducksatapp/stdout_5d86baf0632448d39db29f27a16a7d5c.
+2026-03-22T22:50:14.5424209Z Successfully created stdout named pipe at: /podr/container/pipe/6d7ed56d8b40_ducksatapp/stdout_5d86baf0632448d39db29f27a16a7d5c.
+2026-03-22T22:50:14.5426144Z Opening named pipe /podr/container/pipe/6d7ed56d8b40_ducksatapp/stdout_5d86baf0632448d39db29f27a16a7d5c for reading in non-blocking mode.
+2026-03-22T22:50:14.5428918Z Successfully opened named pipe: /podr/container/pipe/6d7ed56d8b40_ducksatapp/stdout_5d86baf0632448d39db29f27a16a7d5c.
+2026-03-22T22:50:14.5432447Z Successfully removed non-blocking flag from /podr/container/pipe/6d7ed56d8b40_ducksatapp/stdout_5d86baf0632448d39db29f27a16a7d5c.
+2026-03-22T22:50:14.5434492Z Creating stderr named pipe at /podr/container/pipe/6d7ed56d8b40_ducksatapp/stderr_5676483a13ac4d99ac5060f7c29bf6b0.
+2026-03-22T22:50:14.5438101Z Successfully created stderr named pipe at: /podr/container/pipe/6d7ed56d8b40_ducksatapp/stderr_5676483a13ac4d99ac5060f7c29bf6b0.
+2026-03-22T22:50:14.5439307Z Opening named pipe /podr/container/pipe/6d7ed56d8b40_ducksatapp/stderr_5676483a13ac4d99ac5060f7c29bf6b0 for reading in non-blocking mode.
+2026-03-22T22:50:14.5440791Z Successfully opened named pipe: /podr/container/pipe/6d7ed56d8b40_ducksatapp/stderr_5676483a13ac4d99ac5060f7c29bf6b0.
+2026-03-22T22:50:14.5441835Z Successfully removed non-blocking flag from /podr/container/pipe/6d7ed56d8b40_ducksatapp/stderr_5676483a13ac4d99ac5060f7c29bf6b0.
+2026-03-22T22:50:14.5443466Z Creating container with image: appsvc/node:22-lts_20260115.4.tuxprod from registry: 10.1.0.6:13209 and fully qualified image name: 10.1.0.6:13209/appsvc/node:22-lts_20260115.4.tuxprod
+2026-03-22T22:50:14.9636498Z Starting container: 6d7ed56d8b40_ducksatapp.
+2026-03-22T22:50:15.0054931Z Starting watchers and probes.
+2026-03-22T22:50:15.0065241Z Starting metrics collection.
+2026-03-22T22:50:15.0069063Z Container is running.
+2026-03-22T22:50:15.0072868Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:47:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:50:15.0847601Z Container start method finished after 1360 ms.
+2026-03-22T22:50:15.0850011Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:47:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T22:50:15.0850293Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:47:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-22T22:50:33.0929629Z Container has finished running with exit code: 1.
+2026-03-22T22:50:33.0936553Z Container is terminating. Grace period: 5 seconds.
+2026-03-22T22:50:33.0946845Z Stop and delete container. Retry count = 0
+2026-03-22T22:50:33.0950184Z Stopping container: 6d7ed56d8b40_ducksatapp.
+2026-03-22T22:50:33.1898013Z Deleting container: 6d7ed56d8b40_ducksatapp. Retry count = 0
+2026-03-22T22:50:33.5713282Z Container spec TerminationMessagePolicy  path 
+2026-03-22T22:50:33.5722183Z Container is terminated. Total time elapsed: 478 ms.
+2026-03-22T22:50:33.5727431Z Site container: ducksatapp terminated during site startup.
+2026-03-22T22:50:33.5731817Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:47:06, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:50:33.6417722Z Site startup probe failed after 18.5500023 seconds.
+2026-03-22T22:50:34.0319706Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:50:34.0431107Z Failed to start site. Revert by stopping site.
+2026-03-22T22:50:34.0432292Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:50:34.0435040Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:50:34.0435183Z Site: ducksatapp stopped.
+2026-03-22T22:50:34.1050254Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:50:34.6789231Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T22:50:34.8320535Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:50:34 (UTC), DetailsLevel: ERR
+2026-03-22T22:50:34.9301832Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:50:34 (UTC), DetailsLevel: ERR
+2026-03-22T23:00:20.7052344Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:50:34 (UTC), DetailsLevel: ERR
+2026-03-22T23:00:21.7864343Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/22/2026 22:50:34 (UTC), DetailsLevel: ERR
+2026-03-22T23:00:21.7878037Z Container start method called.
+2026-03-22T23:00:21.7878679Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image 10.1.0.6:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-22T23:00:21.7880710Z Establishing network.
+2026-03-22T23:00:21.7973200Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-22T23:00:22.1346008Z Container is starting.
+2026-03-22T23:00:22.1348477Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-22T23:00:22.1349819Z Establishing user namespace if not established already.
+2026-03-22T23:00:22.1351878Z Establishing network if not established already.
+2026-03-22T23:00:22.1353590Z Mounting volumes.
+2026-03-22T23:00:22.1357388Z Nested mountpoint 
+2026-03-22T23:00:22.1455479Z Nested mountpoint volatile/logs
+2026-03-22T23:00:22.1740153Z Nested mountpoint 
+2026-03-22T23:00:22.1747987Z Nested mountpoint 
+2026-03-22T23:00:22.1757259Z Nested mountpoint 
+2026-03-22T23:00:22.6193467Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for ducksatapp. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-22T23:00:22.6194930Z Creating container.
+2026-03-22T23:00:22.6195941Z Creating pipes for streaming container io.
+2026-03-22T23:00:22.6196906Z Creating stdout named pipe at /podr/container/pipe/b4dec9151132_ducksatapp/stdout_6af5233e6b214d36b1007b1118463e36.
+2026-03-22T23:00:22.6222284Z Successfully created stdout named pipe at: /podr/container/pipe/b4dec9151132_ducksatapp/stdout_6af5233e6b214d36b1007b1118463e36.
+2026-03-22T23:00:22.6226496Z Opening named pipe /podr/container/pipe/b4dec9151132_ducksatapp/stdout_6af5233e6b214d36b1007b1118463e36 for reading in non-blocking mode.
+2026-03-22T23:00:22.6290048Z Successfully opened named pipe: /podr/container/pipe/b4dec9151132_ducksatapp/stdout_6af5233e6b214d36b1007b1118463e36.
+2026-03-22T23:00:22.6295465Z Successfully removed non-blocking flag from /podr/container/pipe/b4dec9151132_ducksatapp/stdout_6af5233e6b214d36b1007b1118463e36.
+2026-03-22T23:00:22.6299621Z Creating stderr named pipe at /podr/container/pipe/b4dec9151132_ducksatapp/stderr_d0d981590c0349adbca1dad40e979d53.
+2026-03-22T23:00:22.6307610Z Successfully created stderr named pipe at: /podr/container/pipe/b4dec9151132_ducksatapp/stderr_d0d981590c0349adbca1dad40e979d53.
+2026-03-22T23:00:22.6315001Z Opening named pipe /podr/container/pipe/b4dec9151132_ducksatapp/stderr_d0d981590c0349adbca1dad40e979d53 for reading in non-blocking mode.
+2026-03-22T23:00:22.6322591Z Successfully opened named pipe: /podr/container/pipe/b4dec9151132_ducksatapp/stderr_d0d981590c0349adbca1dad40e979d53.
+2026-03-22T23:00:22.6384189Z Successfully removed non-blocking flag from /podr/container/pipe/b4dec9151132_ducksatapp/stderr_d0d981590c0349adbca1dad40e979d53.
+2026-03-22T23:00:22.6386003Z Creating container with image: appsvc/node:22-lts_20260115.4.tuxprod from registry: 10.1.0.6:13209 and fully qualified image name: 10.1.0.6:13209/appsvc/node:22-lts_20260115.4.tuxprod
+2026-03-22T23:00:23.1255470Z Starting container: b4dec9151132_ducksatapp.
+2026-03-22T23:00:23.1658382Z Starting watchers and probes.
+2026-03-22T23:00:23.1758969Z Starting metrics collection.
+2026-03-22T23:00:23.1769849Z Container is running.
+2026-03-22T23:00:23.1772330Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T23:00:23.2353442Z Container start method finished after 1447 ms.
+2026-03-22T23:00:23.2365091Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-22T23:00:23.2373806Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-22T23:00:44.3472467Z Container has finished running with exit code: 1.
+2026-03-22T23:00:44.3474896Z Container is terminating. Grace period: 5 seconds.
+2026-03-22T23:00:44.3482590Z Stop and delete container. Retry count = 0
+2026-03-22T23:00:44.3516967Z Stopping container: b4dec9151132_ducksatapp.
+2026-03-22T23:00:44.4287055Z Deleting container: b4dec9151132_ducksatapp. Retry count = 0
+2026-03-22T23:00:44.6908614Z Container spec TerminationMessagePolicy  path 
+2026-03-22T23:00:44.6910398Z Container is terminated. Total time elapsed: 343 ms.
+2026-03-22T23:00:44.6911618Z Site container: ducksatapp terminated during site startup.
+2026-03-22T23:00:44.6912546Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 22:50:34, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T23:00:44.7300306Z Site startup probe failed after 21.4915267 seconds.
+2026-03-22T23:00:44.9668759Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 23:00:44, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T23:00:44.9952884Z Failed to start site. Revert by stopping site.
+2026-03-22T23:00:44.9954294Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 23:00:44, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T23:00:44.9956486Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/22/2026 23:00:44, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: ducksatapp terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-22T23:00:44.9956615Z Site: ducksatapp stopped.

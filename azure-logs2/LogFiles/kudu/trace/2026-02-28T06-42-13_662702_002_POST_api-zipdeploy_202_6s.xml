@@ -1,0 +1,21 @@
+<step title="Incoming Request" date="2026-02-28T06:42:13.806" instance="662702" url="/api/zipdeploy?isAsync=true" method="POST" type="request" pid="831,1,22" Accept="*/*" Host="ducksatapp.scm.azurewebsites.net" User-Agent="AZURECLI/2.83.0 (MSI)" Accept-Encoding="gzip, deflate" Authorization="Bas..." Cache-Control="no-cache" Content-Type="application/octet-stream" Content-Length="55861233" x-ms-client-request-id="99c2d81f-1470-11f1-9256-58961d9b7075" x-ms-artifact-checksum="b5b2507990508cc4de82bbfd553fd8d348beb4c2fce4b76f917b99034796c523" X-ARR-LOG-ID="99c2d81f-1470-11f1-9256-58961d9b7075" CLIENT-IP="50.47.225.138:61008" X-SITE-DEPLOYMENT-ID="ducksatapp" WAS-DEFAULT-HOSTNAME="ducksatapp.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/zipdeploy?isAsync=true" X-Client-IP="50.47.225.138" X-Client-Port="61008" >
+  <step title="Cleanup Xml Logs" date="2026-02-28T06:42:13.828" >
+    <step title="Cleanup Infos" date="2026-02-28T06:42:13.853" totalFiles="336" totalCleanup="176" /><!-- duration: 5ms -->
+  </step><!-- duration: 32ms -->
+  <step title="ZipPushDeploy" date="2026-02-28T06:42:13.905" >
+    <step title="ZipDeploy. Run from package." date="2026-02-28T06:42:13.922" /><!-- duration: 9ms -->
+    <step title="None repository commit" date="2026-02-28T06:42:13.951" >
+      <step title="Commit id: 7a69084e-3e78-4aed-ad5c-34e118630285" date="2026-02-28T06:42:13.961" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 3ms -->
+    </step><!-- duration: 16ms -->
+    <step title="Starting PushDeployAsync" date="2026-02-28T06:42:13.971" /><!-- duration: 3ms -->
+    <step title="WEBSITE_RUN_FROM_PACKAGE is set to 1. Writing zip to SitePackagesPath" date="2026-02-28T06:42:14.031" /><!-- duration: 19ms -->
+    <step title="Copying zip to SitePackages /home/data/SitePackages/20260228064213.zip from request body" date="2026-02-28T06:42:14.069" /><!-- duration: 18ms -->
+    <step title="Writing multipart request body to /home/data/SitePackages/20260228064213.zip" date="2026-02-28T06:42:14.120" /><!-- duration: 16ms -->
+    <step title="Deleting outdated zip file /home/data/SitePackages/20260227035420.zip" date="2026-02-28T06:42:19.709" /><!-- duration: 20ms -->
+    <step title="Start deployment in the background" date="2026-02-28T06:42:19.756" >
+      <step title="Acquiring Deployment Lock" date="2026-02-28T06:42:19.858" /><!-- duration: 17ms -->
+      <step title="Acquired Deployment Lock" date="2026-02-28T06:42:19.922" /><!-- duration: 3ms -->
+    </step><!-- duration: 315ms -->
+  </step><!-- duration: 6179ms -->
+  <step title="Outgoing response" date="2026-02-28T06:42:20.119" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 3ms -->
+</step><!-- duration: 6318ms -->

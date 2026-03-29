@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { TestState, TestResult, QuestionResult, Question } from '@/types/test'
 import { MODULE_CONFIGS } from '@/data/moduleConfigs'
 import { computeSATScores } from '@/lib/satScoring'
+import { trackEvent } from '@/lib/tracking'
 
 export function useTestState(userId: string, practiceTestId?: string) {
   const logContext = useMemo(() => ({
@@ -10,7 +11,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
   }), [userId, practiceTestId])
 
   const [testState] = useState<TestState | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [hasStarted, setHasStarted] = useState(false)
   const [currentModuleIndex, setCurrentModuleIndex] = useState(0)
@@ -43,6 +44,9 @@ export function useTestState(userId: string, practiceTestId?: string) {
   // Per-question time tracking (records are JSON-safe)
   const [questionStartTimes, setQuestionStartTimes] = useState<Record<number, number>>({})
   const [questionTimeSpent, setQuestionTimeSpent] = useState<Record<number, number>>({})
+
+  // Guard against double-calling completeModule
+  const isCompletingRef = useRef(false)
 
   const currentModule = useMemo(() => {
     if (currentModuleIndex >= MODULE_CONFIGS.length) return null
@@ -94,7 +98,40 @@ export function useTestState(userId: string, practiceTestId?: string) {
 
         // Fetch all modules at once for fixed practice tests
         console.log(`🔍 Fetching fixed practice test: ${practiceTestId}`)
-        const response = await fetch(`/api/practice-tests/${practiceTestId}`)
+
+        // Fetch with timeout and retry
+        const FETCH_TIMEOUT_MS = 30000
+        let response: Response | null = null
+        let lastFetchError: Error | null = null
+
+        for (let attempt = 1; attempt <= 2; attempt++) {
+          const controller = new AbortController()
+          const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS)
+          try {
+            response = await fetch(`/api/practice-tests/${practiceTestId}`, {
+              signal: controller.signal,
+            })
+            clearTimeout(timeoutId)
+            break
+          } catch (fetchErr) {
+            clearTimeout(timeoutId)
+            lastFetchError = fetchErr instanceof Error ? fetchErr : new Error(String(fetchErr))
+            if (attempt < 2) {
+              console.warn(`[useTestState] Fetch attempt ${attempt} failed, retrying...`, lastFetchError.message)
+              await new Promise(r => setTimeout(r, 1000))
+            }
+          }
+        }
+
+        if (!response) {
+          const isTimeout = lastFetchError?.name === 'AbortError'
+          throw new Error(
+            isTimeout
+              ? 'Request timed out loading the practice test. Please check your connection and try again.'
+              : `Failed to load practice test: ${lastFetchError?.message || 'Network error'}`
+          )
+        }
+
         if (!response.ok) {
           console.error('[useTestState] Failed fixed test fetch', {
             ...logContext,
@@ -154,7 +191,9 @@ export function useTestState(userId: string, practiceTestId?: string) {
         fetchUrl += `&exclude=${encodeURIComponent(currentUsedIds.join(','))}`
       }
 
-      const response = await fetch(fetchUrl)
+      const response = await fetch(fetchUrl, {
+        signal: AbortSignal.timeout(30000),
+      })
       if (!response.ok) {
         console.error('[useTestState] Random question fetch failed', {
           ...logContext,
@@ -260,6 +299,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
       }
 
       setHasStarted(true)
+      trackEvent('test', 'practice_test_started', { practiceTestId: practiceTestId || null })
 
       setIsTransitioning(false)
       setModuleStarted(false)
@@ -329,6 +369,8 @@ export function useTestState(userId: string, practiceTestId?: string) {
 
   const completeModule = useCallback(async () => {
     if (!currentModule || !moduleStartTime) return
+    if (isCompletingRef.current) return
+    isCompletingRef.current = true
 
     recordQuestionTime()
 
@@ -359,6 +401,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
       setSelectedAnswers([])
       setCurrentQuestionIndex(0)
       setShowReview(false)
+      isCompletingRef.current = false
       return
     }
 
@@ -373,9 +416,11 @@ export function useTestState(userId: string, practiceTestId?: string) {
       if (nextModule) {
         await fetchQuestions(nextModule.type, nextModule.questionCount, nextModuleIdx)
       }
+      isCompletingRef.current = false
       return
     }
 
+    setModuleStarted(false)
     completeTest(newModuleResults)
   }, [currentModule, moduleStartTime, currentModuleQuestions, selectedAnswers, moduleResults, currentModuleIndex, fetchQuestions, recordQuestionTime, questionTimeSpent])
 
@@ -469,6 +514,15 @@ export function useTestState(userId: string, practiceTestId?: string) {
       } else {
         const data = await response.json()
         console.log('✅ Test results saved successfully:', data)
+        trackEvent('test', 'practice_test_completed', {
+          practiceTestId: practiceTestId || null,
+          satScore: satScores.composite,
+          ebrwScore: satScores.ebrw,
+          mathScore: satScores.math,
+          totalQuestions,
+          correctAnswers,
+          totalTimeSpent,
+        })
       }
     } catch (saveError) {
       console.error('Error saving test results:', saveError)
@@ -484,7 +538,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
       return () => clearTimeout(timer)
     }
 
-    if (moduleStarted && timeRemaining === 0) {
+    if (moduleStarted && timeRemaining === 0 && !isComplete) {
       completeModule()
     }
   }, [moduleStarted, timeRemaining, isTransitioning, isComplete, completeModule])
@@ -548,6 +602,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
     setCurrentModuleQuestions([])
     setUsedQuestionIds([])
     usedQuestionIdsRef.current = []
+    isCompletingRef.current = false
     setAllPracticeTestModules([])
     setQuestionStartTimes({})
     setQuestionTimeSpent({})

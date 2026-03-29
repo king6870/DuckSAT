@@ -1,0 +1,16 @@
+<step title="Incoming Request" date="2026-02-27T02:08:55.991" instance="631727" url="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%2280d8c654fbe3c53fbd3909f5debc1159d60358d7%22%2C%22repoName%22%3A%22king6870%2Fducksatweb%22%2C%22actor%22%3A%22mkspwr12%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22Merge%20branch%20%27main%27%20of%20https%3A%2F%2Fgithub.com%2Fking6870%2Fducksatweb%22%7D" method="POST" type="request" pid="830,1,18" Host="ducksatapp.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_198d5db6bea147499600be068cd4424398406bba9034d46acb148e7e3c756461_v3.0.7" Authorization="Bas..." Content-Type="application/octet-stream" Cookie="ARRAffinity=6317270e5753efe5e8104ffc03ed0e9403e5d56d364d8b49a2f4041a215c5ca1;Path=/;HttpOnly;Secure;Domain=ducksatapp.scm.azurewebsites.net; ARRAffinitySameSite=6317270e5753efe5e8104ffc03ed0e9403e5d56d364d8b49a2f4041a215c5ca1;Path=/;HttpOnly;SameSite=None;Secure;Domain=ducksatapp.scm.azurewebsites.net" Transfer-Encoding="chunked" X-ARR-LOG-ID="1d88c6ae-314c-41d2-8545-80cfc8582d5a" CLIENT-IP="20.161.70.178:15360" X-SITE-DEPLOYMENT-ID="ducksatapp" WAS-DEFAULT-HOSTNAME="ducksatapp.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%2280d8c654fbe3c53fbd3909f5debc1159d60358d7%22%2C%22repoName%22%3A%22king6870%2Fducksatweb%22%2C%22actor%22%3A%22mkspwr12%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22Merge%20branch%20%27main%27%20of%20https%3A%2F%2Fgithub.com%2Fking6870%2Fducksatweb%22%7D" X-Client-IP="20.161.70.178" X-Client-Port="15360" >
+  <step title="OneDeploy" date="2026-02-27T02:08:56.061" >
+    <step title="None repository commit" date="2026-02-27T02:08:56.102" >
+      <step title="Commit id: 1744ca4a-2f9d-40e9-a2d3-d37989103a1e" date="2026-02-27T02:08:56.105" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 2ms -->
+    </step><!-- duration: 7ms -->
+    <step title="Starting PushDeployAsync" date="2026-02-27T02:08:56.112" /><!-- duration: 2ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/cd9ae8c0-2079-4bc2-9b3d-7080291cd998.zip" date="2026-02-27T02:08:56.156" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/cd9ae8c0-2079-4bc2-9b3d-7080291cd998.zip" date="2026-02-27T02:08:56.161" /><!-- duration: 2ms -->
+    </step><!-- duration: 960ms -->
+    <step title="Start deployment in the background" date="2026-02-27T02:08:57.139" >
+      <step title="Acquiring Deployment Lock" date="2026-02-27T02:08:57.159" /><!-- duration: 3ms -->
+      <step title="Acquired Deployment Lock" date="2026-02-27T02:08:57.187" /><!-- duration: 2ms -->
+    </step><!-- duration: 120ms -->
+  </step><!-- duration: 1205ms -->
+  <step title="Outgoing response" date="2026-02-27T02:08:57.275" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 2ms -->
+</step><!-- duration: 1289ms -->

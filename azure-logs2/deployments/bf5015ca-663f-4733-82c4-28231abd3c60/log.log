@@ -1,0 +1,9 @@
+2026-03-22T22:46:34.1548215Z,Updating submodules.,1f1e55a8-b428-446d-8f0d-2a66dd3d4784,0
+2026-03-22T22:46:35.3128802Z,Preparing deployment for commit id 'bf5015ca-6'.,4c7a5b3c-3d6b-464b-b181-0614e788e02d,0
+2026-03-22T22:46:35.6292105Z,PreDeployment: context.CleanOutputPath False,b2e40a36-1b02-4856-96ae-bfe7d29a021d,0
+2026-03-22T22:46:35.7595373Z,PreDeployment: context.OutputPath /home/site/wwwroot,7614e774-e4fc-4423-9526-b1f270928a8a,0
+2026-03-22T22:46:35.8708121Z,Generating deployment script.,d2200efa-419d-425d-a669-3e0c140bcf8d,0
+2026-03-22T22:46:35.9762084Z,NodeProjectOptimizer Initialized with repository path: /tmp/zipdeploy/extracted and output path: /home/site/wwwroot ,f1682677-9435-4cd0-8b8d-388fb0b9c744,0
+2026-03-22T22:46:36.0793182Z,Optimizing build...,bdf6ac6b-f187-44bb-a329-804a3ef44232,0
+2026-03-22T22:46:36.1845241Z,Zipping node_modules...,539f2122-fd91-42ae-9fa9-b17310ab428c,0
+	2026-03-22T22:46:36.1938125Z,Command: /opt/Kudu/Scripts/absoluteTar.sh /tmp/zipdeploy/extracted/node_modules /tmp/zipdeploy/extracted/node_modules.tar.gz,,0

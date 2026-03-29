@@ -2,9 +2,10 @@
 
 import { useSession } from "next-auth/react"
 import { useRouter, useParams } from "next/navigation"
-import { useEffect, useState, useCallback } from "react"
+import { useEffect, useState, useCallback, useRef } from "react"
 import { ArrowLeft, ArrowRight, CheckCircle2, XCircle, RotateCcw, Home, Trophy } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { trackDrill, trackEvent } from "@/lib/tracking"
 import MathRenderer from "@/components/MathRenderer"
 import ChartRenderer from "@/components/ChartRenderer"
 
@@ -28,6 +29,7 @@ interface Question {
 }
 
 const CATEGORY_LABELS: Record<string, string> = {
+  "mixed": "Mixed Quiz",
   "reading-comprehension": "Reading Comprehension",
   "grammar": "Grammar & Usage",
   "vocabulary": "Vocabulary",
@@ -54,7 +56,7 @@ const CATEGORY_MODULE: Record<string, string> = {
 const DRILL_COUNT = 10
 
 export default function DrillPage() {
-  const { data: session, status } = useSession()
+  const { status } = useSession()
   const router = useRouter()
   const params = useParams()
   const categorySlug = params.category as string
@@ -70,18 +72,26 @@ export default function DrillPage() {
   const [difficulty, setDifficulty] = useState<string>("") // empty = mixed
   const [drillStarted, setDrillStarted] = useState(false)
 
+  // Analytics timing
+  const drillStartTime = useRef<string>('')
+  const questionStartTime = useRef<number>(0)
+  const questionTimes = useRef<number[]>([])
+
   const categoryLabel = CATEGORY_LABELS[categorySlug] || categorySlug
-  const moduleType = CATEGORY_MODULE[categorySlug] || "math"
+  const moduleType = categorySlug === 'mixed' ? '' : (CATEGORY_MODULE[categorySlug] || "math")
+  const isMixed = categorySlug === 'mixed'
 
   const fetchQuestions = useCallback(async (diff: string) => {
     setLoading(true)
     setError(null)
     const params = new URLSearchParams({
-      moduleType,
-      category: categorySlug,
       count: String(DRILL_COUNT),
       includeExplanations: "true",
     })
+    if (!isMixed) {
+      params.set("moduleType", moduleType)
+      params.set("category", categorySlug)
+    }
     if (diff) params.set("difficulty", diff)
 
     try {
@@ -119,7 +129,7 @@ export default function DrillPage() {
     } finally {
       setLoading(false)
     }
-  }, [moduleType, categorySlug])
+  }, [moduleType, categorySlug, isMixed])
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -135,6 +145,10 @@ export default function DrillPage() {
     setIsRevealed(false)
     setResults([])
     setIsComplete(false)
+    drillStartTime.current = new Date().toISOString()
+    questionStartTime.current = Date.now()
+    questionTimes.current = []
+    trackEvent('drill', 'drill_started', { category: categorySlug, difficulty: diff || 'mixed' })
     fetchQuestions(diff)
   }
 
@@ -147,6 +161,9 @@ export default function DrillPage() {
     if (selectedAnswer === null) return
     setIsRevealed(true)
     const q = questions[currentIndex]
+    // Record question time
+    const elapsed = Date.now() - questionStartTime.current
+    questionTimes.current[currentIndex] = elapsed
     setResults(prev => [...prev, {
       questionId: q.id,
       selected: selectedAnswer,
@@ -158,16 +175,25 @@ export default function DrillPage() {
   const handleNext = () => {
     if (currentIndex + 1 >= questions.length) {
       setIsComplete(true)
-      // Save results
       saveDrillResults()
     } else {
       setCurrentIndex(prev => prev + 1)
       setSelectedAnswer(null)
       setIsRevealed(false)
+      questionStartTime.current = Date.now()
     }
   }
 
   const saveDrillResults = async () => {
+    // Build final results including current question
+    const finalResults = results.concat(selectedAnswer !== null ? [{
+      questionId: questions[currentIndex]?.id,
+      selected: selectedAnswer,
+      correct: questions[currentIndex]?.correctAnswer,
+      isCorrect: selectedAnswer === questions[currentIndex]?.correctAnswer,
+    }] : [])
+
+    // Send to existing drill-results API
     try {
       await fetch("/api/practice/drill-results", {
         method: "POST",
@@ -176,17 +202,47 @@ export default function DrillPage() {
           category: categorySlug,
           moduleType,
           difficulty: difficulty || "mixed",
-          results: results.concat(selectedAnswer !== null ? [{
-            questionId: questions[currentIndex]?.id,
-            selected: selectedAnswer,
-            correct: questions[currentIndex]?.correctAnswer,
-            isCorrect: selectedAnswer === questions[currentIndex]?.correctAnswer,
-          }] : []),
+          results: finalResults,
         }),
       })
     } catch {
       // Silent failure — drill results are best-effort
     }
+
+    // Send detailed analytics to tracking API
+    const completedAt = new Date().toISOString()
+    const totalTimeMs = questionTimes.current.reduce((a, b) => a + b, 0)
+    const questionResults = finalResults.map((r, i) => ({
+      questionId: r.questionId,
+      questionIndex: i,
+      category: questions[i]?.category || categorySlug,
+      difficulty: questions[i]?.difficulty || difficulty || 'mixed',
+      moduleType: questions[i]?.moduleType || moduleType || 'mixed',
+      userAnswer: r.selected,
+      correctAnswer: r.correct,
+      isCorrect: r.isCorrect,
+      timeSpentMs: questionTimes.current[i] || 0,
+    }))
+
+    trackDrill({
+      category: categorySlug,
+      moduleType: moduleType || undefined,
+      difficulty: difficulty || undefined,
+      totalQuestions: finalResults.length,
+      correctAnswers: finalResults.filter(r => r.isCorrect).length,
+      score: Math.round((finalResults.filter(r => r.isCorrect).length / finalResults.length) * 100),
+      totalTimeMs,
+      startedAt: drillStartTime.current,
+      completedAt,
+      questionResults,
+    })
+
+    trackEvent('drill', 'drill_completed', {
+      category: categorySlug,
+      difficulty: difficulty || 'mixed',
+      score: Math.round((finalResults.filter(r => r.isCorrect).length / finalResults.length) * 100),
+      totalQuestions: finalResults.length,
+    })
   }
 
   const getDifficultyColor = (diff: string) => {

@@ -1,3 +1,5 @@
+export {}
+
 declare module "next-auth" {
   interface Session {
     user: {
@@ -10,23 +12,25 @@ declare module "next-auth" {
 }
 
 // MathJax type declarations
-interface MathJaxConfig {
-  tex?: {
-    inlineMath?: string[][]
-    displayMath?: string[][]
-    processEscapes?: boolean
-    processEnvironments?: boolean
+declare global {
+  interface MathJaxConfig {
+    tex?: {
+      inlineMath?: string[][]
+      displayMath?: string[][]
+      processEscapes?: boolean
+      processEnvironments?: boolean
+    }
+    options?: {
+      skipHtmlTags?: string[]
+    }
   }
-  options?: {
-    skipHtmlTags?: string[]
+
+  interface MathJax {
+    typesetPromise?: () => Promise<void>
+    typeset?: () => void
   }
-}
 
-interface MathJax {
-  typesetPromise?: () => Promise<void>
-  typeset?: () => void
-}
-
-interface Window {
-  MathJax?: MathJax & MathJaxConfig
+  interface Window {
+    MathJax?: MathJax & MathJaxConfig
+  }
 }

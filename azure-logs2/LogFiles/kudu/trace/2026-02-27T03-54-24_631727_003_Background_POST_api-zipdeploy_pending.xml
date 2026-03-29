@@ -1,0 +1,33 @@
+<step title="BackgroundTrace" date="2026-02-27T03:54:24.210" instance="631727" url="/api/zipdeploy" method="POST" >
+  <step title="Cleanup Xml Logs" date="2026-02-27T03:54:24.217" >
+    <step title="Cleanup Infos" date="2026-02-27T03:54:24.228" totalFiles="310" totalCleanup="150" /><!-- duration: 3ms -->
+  </step><!-- duration: 19ms -->
+  <step title="Creating temporary deployment - FetchDeploymentManager" date="2026-02-27T03:54:24.295" /><!-- duration: 2ms -->
+  <step title="Creating temporary deployment" date="2026-02-27T03:54:24.300" /><!-- duration: 43ms -->
+  <step title="Performing fetch based deployment" date="2026-02-27T03:54:24.378" >
+    <step title="Deployment timer started" date="2026-02-27T03:54:27.564" >
+      <step title="DeploymentManager.Deploy(id:712ce0c1-5a14-49d5-ac9c-20f9c2cf1723)" date="2026-02-27T03:54:27.569" >
+        <step title="Collecting changeset information" date="2026-02-27T03:54:27.596" /><!-- duration: 115ms -->
+        <step title="Updating submodules" date="2026-02-27T03:54:27.715" /><!-- duration: 1134ms -->
+        <step title="Determining deployment builder" date="2026-02-27T03:54:29.637" >
+          <step title="Builder is RunFromZipSiteBuilder" date="2026-02-27T03:54:29.646" /><!-- duration: 2ms -->
+        </step><!-- duration: 15ms -->
+        <step title="PreDeployment: context.CleanOutputPath False" date="2026-02-27T03:54:29.701" >
+          <step title="PreDeployment: context.OutputPath /home/site/wwwroot" date="2026-02-27T03:54:29.837" >
+            <step title="Building" date="2026-02-27T03:54:30.031" >
+              <step title="Triggering recycle (preview mode disabled)." date="2026-02-27T03:54:30.669" /><!-- duration: 18ms -->
+              <step title="Modified file to trigger a restart of the app container." date="2026-02-27T03:54:30.710" /><!-- duration: 2ms -->
+              <step title="Skip function trigger and logicapp sync because function is not enabled." date="2026-02-27T03:54:30.715" /><!-- duration: 4ms -->
+              <step title="Purge deployment items" date="2026-02-27T03:54:32.690" >
+                <step title="Remove e1588b50-, Success, received at 02/24/2026 01:46:25" date="2026-02-27T03:54:32.860" /><!-- duration: 7ms -->
+              </step><!-- duration: 182ms -->
+            </step><!-- duration: 2900ms -->
+          </step><!-- duration: 3098ms -->
+          <step title="Cleaning up temp files" date="2026-02-27T03:54:32.936" /><!-- duration: 3ms -->
+          <step title="Cleaning up temp files" date="2026-02-27T03:54:32.941" /><!-- duration: 503ms -->
+          <step title="Reloading status file with latest updates" date="2026-02-27T03:54:33.474" >
+            <step title="WebHooksManager.PublishEventAsync: PostDeployment" date="2026-02-27T03:54:33.478" /><!-- duration: 71ms -->
+          </step><!-- duration: 76ms -->
+          <step title="Cleaning up temporary deployment - fetch deployment was successful" date="2026-02-27T03:54:33.554" /><!-- duration: 2ms -->
+        </step><!-- duration: 3931ms -->
+      </step><!-- duration: 6073ms -->

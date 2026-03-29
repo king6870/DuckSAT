@@ -1,0 +1,4 @@
+<step title="Incoming Request" date="2026-03-22T23:00:59.397" instance="662702" url="/dump" method="GET" type="request" pid="831,1,27" Host="ducksatapp.scm.azurewebsites.net" User-Agent="AZURECLI/2.83.0 (MSI)" Accept-Encoding="identity" Authorization="Bas..." x-ms-client-request-id="fb6d069e-2642-11f1-9825-107c6132cf95" X-ARR-LOG-ID="fb6d069e-2642-11f1-9825-107c6132cf95" CLIENT-IP="50.47.217.43:49929" X-SITE-DEPLOYMENT-ID="ducksatapp" WAS-DEFAULT-HOSTNAME="ducksatapp.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/dump" X-Client-IP="50.47.217.43" X-Client-Port="49929" >
+  <step title="Cleanup Xml Logs" date="2026-03-22T23:00:59.399" >
+    <step title="Cleanup Infos" date="2026-03-22T23:00:59.412" totalFiles="466" totalCleanup="306" /><!-- duration: 14ms -->
+  </step><!-- duration: 31ms -->

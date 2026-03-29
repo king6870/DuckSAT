@@ -1,0 +1,212 @@
+2026-03-01T19:25:56.0690517Z State: Blocked, Action: None, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-03-01T19:26:16.4044901Z State: Stopping, Action: StoppingSite, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site started at 02/28/2026 08:18:28 (UTC), DetailsLevel: INFO
+2026-03-01T19:26:16.4324524Z State: Stopping, Action: StoppingSiteContainers, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site started at 02/28/2026 08:18:28 (UTC), DetailsLevel: INFO
+2026-03-01T19:26:21.9118237Z Site: ducksatapp stopped.
+2026-03-01T19:43:57.1930002Z State: Starting, Action: EstablishingSiteNetworks, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: , DetailsLevel: INFO
+2026-03-01T19:43:57.9279463Z State: Starting, Action: StartingSiteContainers, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: , DetailsLevel: INFO
+2026-03-01T19:43:57.9284708Z Container start method called.
+2026-03-01T19:43:57.9285399Z State: Starting, Action: PullingImage, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Pulling image 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-01T19:43:57.9287153Z Establishing network.
+2026-03-01T19:43:57.9288765Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-01T19:43:58.3218659Z Container is starting.
+2026-03-01T19:43:58.3219890Z State: Starting, Action: MountingVolumes, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-01T19:43:58.3221514Z Establishing user namespace if not established already.
+2026-03-01T19:43:58.3222775Z Establishing network if not established already.
+2026-03-01T19:43:58.3224044Z Mounting volumes.
+2026-03-01T19:43:58.3226660Z Nested mountpoint site/wwwroot
+2026-03-01T19:43:58.3315902Z Nested mountpoint volatile/logs
+2026-03-01T19:43:58.3541114Z Nested mountpoint 
+2026-03-01T19:43:58.4477377Z Nested mountpoint 
+2026-03-01T19:43:58.5190084Z Nested mountpoint 
+2026-03-01T19:43:58.5377590Z Nested mountpoint 
+2026-03-01T19:44:00.1467441Z State: Starting, Action: CreatingContainer, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Finished pulling container image and mounting volumes for ducksatapp. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-01T19:44:00.1499063Z Creating container.
+2026-03-01T19:44:00.1507888Z Creating pipes for streaming container io.
+2026-03-01T19:44:00.1571707Z Creating stdout named pipe at /podr/container/pipe/2a31de149e0e_ducksatapp/stdout_5b50471438904ec7b6ecae14f7e56368.
+2026-03-01T19:44:00.1582075Z Successfully created stdout named pipe at: /podr/container/pipe/2a31de149e0e_ducksatapp/stdout_5b50471438904ec7b6ecae14f7e56368.
+2026-03-01T19:44:00.1592462Z Opening named pipe /podr/container/pipe/2a31de149e0e_ducksatapp/stdout_5b50471438904ec7b6ecae14f7e56368 for reading in non-blocking mode.
+2026-03-01T19:44:00.1600873Z Successfully opened named pipe: /podr/container/pipe/2a31de149e0e_ducksatapp/stdout_5b50471438904ec7b6ecae14f7e56368.
+2026-03-01T19:44:00.1668838Z Successfully removed non-blocking flag from /podr/container/pipe/2a31de149e0e_ducksatapp/stdout_5b50471438904ec7b6ecae14f7e56368.
+2026-03-01T19:44:00.1677989Z Creating stderr named pipe at /podr/container/pipe/2a31de149e0e_ducksatapp/stderr_2679ae66167d49dea9522450a4835589.
+2026-03-01T19:44:00.1680601Z Successfully created stderr named pipe at: /podr/container/pipe/2a31de149e0e_ducksatapp/stderr_2679ae66167d49dea9522450a4835589.
+2026-03-01T19:44:00.1682397Z Opening named pipe /podr/container/pipe/2a31de149e0e_ducksatapp/stderr_2679ae66167d49dea9522450a4835589 for reading in non-blocking mode.
+2026-03-01T19:44:00.1684217Z Successfully opened named pipe: /podr/container/pipe/2a31de149e0e_ducksatapp/stderr_2679ae66167d49dea9522450a4835589.
+2026-03-01T19:44:00.1685776Z Successfully removed non-blocking flag from /podr/container/pipe/2a31de149e0e_ducksatapp/stderr_2679ae66167d49dea9522450a4835589.
+2026-03-01T19:44:00.1688686Z Creating container with image: appsvc/node:22-lts_20260115.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod
+2026-03-01T19:44:00.6129328Z Starting container: 2a31de149e0e_ducksatapp.
+2026-03-01T19:44:00.6772019Z Starting watchers and probes.
+2026-03-01T19:44:00.6800166Z Starting metrics collection.
+2026-03-01T19:44:00.6872168Z Container is running.
+2026-03-01T19:44:00.6911448Z State: Starting, Action: CreatingContainer, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-01T19:44:00.7900636Z Container start method finished after 2861 ms.
+2026-03-01T19:44:00.7903025Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-01T19:44:00.8399853Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-01T19:44:24.6937980Z Site startup probe succeeded after 23.823935 seconds.
+2026-03-01T19:44:24.8875913Z State: Starting, Action: WarmUpProbeSucceeded, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site startup probe succeeded after 23.823935 seconds., DetailsLevel: INFO
+2026-03-01T19:44:24.9475290Z Site is running with deployment version: f5264793-7d71-41b9-b740-3435238370d6
+2026-03-01T19:44:24.9497310Z Site started.
+2026-03-01T19:44:24.9525935Z State: Started, Action: None, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site started at 03/01/2026 19:44:24 (UTC), DetailsLevel: INFO
+2026-03-01T19:44:24.9721777Z Site is running with patch version NODE 22.22.0
+2026-03-01T21:17:03.5304667Z State: Blocked, Action: None, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-03-01T21:17:23.6152624Z State: Stopping, Action: StoppingSite, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site started at 03/01/2026 19:44:24 (UTC), DetailsLevel: INFO
+2026-03-01T21:17:23.6156609Z State: Stopping, Action: StoppingSiteContainers, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site started at 03/01/2026 19:44:24 (UTC), DetailsLevel: INFO
+2026-03-01T21:17:23.6158621Z Container is terminating. Grace period: 5 seconds.
+2026-03-01T21:17:23.6245380Z Stop and delete container. Retry count = 0
+2026-03-01T21:17:23.6247230Z Stopping container: 2a31de149e0e_ducksatapp.
+2026-03-01T21:17:28.7098278Z Deleting container: 2a31de149e0e_ducksatapp. Retry count = 0
+2026-03-01T21:17:28.8684612Z Container spec TerminationMessagePolicy  path 
+2026-03-01T21:17:28.8690113Z Container is terminated. Total time elapsed: 5252 ms.
+2026-03-01T21:17:28.8691368Z Site: ducksatapp stopped.
+2026-03-01T21:31:10.5982726Z State: Starting, Action: EstablishingSiteNetworks, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: , DetailsLevel: INFO
+2026-03-01T21:31:11.7309642Z State: Starting, Action: StartingSiteContainers, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: , DetailsLevel: INFO
+2026-03-01T21:31:11.7311106Z Container start method called.
+2026-03-01T21:31:11.7311761Z State: Starting, Action: PullingImage, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Pulling image 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-01T21:31:11.7313126Z Establishing network.
+2026-03-01T21:31:11.7314516Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-01T21:31:11.9256150Z Container is starting.
+2026-03-01T21:31:11.9258012Z State: Starting, Action: MountingVolumes, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-01T21:31:11.9259242Z Establishing user namespace if not established already.
+2026-03-01T21:31:11.9260938Z Establishing network if not established already.
+2026-03-01T21:31:11.9294958Z Mounting volumes.
+2026-03-01T21:31:11.9298645Z Nested mountpoint site/wwwroot
+2026-03-01T21:31:11.9404581Z Nested mountpoint volatile/logs
+2026-03-01T21:31:11.9533057Z Nested mountpoint 
+2026-03-01T21:31:11.9554128Z Nested mountpoint 
+2026-03-01T21:31:11.9852255Z Nested mountpoint 
+2026-03-01T21:31:12.0469997Z Nested mountpoint 
+2026-03-01T21:31:13.0116200Z State: Starting, Action: CreatingContainer, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Finished pulling container image and mounting volumes for ducksatapp. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-01T21:31:13.0118159Z Creating container.
+2026-03-01T21:31:13.0130588Z Creating pipes for streaming container io.
+2026-03-01T21:31:13.0137504Z Creating stdout named pipe at /podr/container/pipe/cd8a1b21dfb3_ducksatapp/stdout_f2245bb0743049ad9f94b99c0afdf06d.
+2026-03-01T21:31:13.0316405Z Successfully created stdout named pipe at: /podr/container/pipe/cd8a1b21dfb3_ducksatapp/stdout_f2245bb0743049ad9f94b99c0afdf06d.
+2026-03-01T21:31:13.0330808Z Opening named pipe /podr/container/pipe/cd8a1b21dfb3_ducksatapp/stdout_f2245bb0743049ad9f94b99c0afdf06d for reading in non-blocking mode.
+2026-03-01T21:31:13.0333484Z Successfully opened named pipe: /podr/container/pipe/cd8a1b21dfb3_ducksatapp/stdout_f2245bb0743049ad9f94b99c0afdf06d.
+2026-03-01T21:31:13.0335002Z Successfully removed non-blocking flag from /podr/container/pipe/cd8a1b21dfb3_ducksatapp/stdout_f2245bb0743049ad9f94b99c0afdf06d.
+2026-03-01T21:31:13.0337267Z Creating stderr named pipe at /podr/container/pipe/cd8a1b21dfb3_ducksatapp/stderr_e4fdba4d8c634e3095e83088b08f9661.
+2026-03-01T21:31:13.0338915Z Successfully created stderr named pipe at: /podr/container/pipe/cd8a1b21dfb3_ducksatapp/stderr_e4fdba4d8c634e3095e83088b08f9661.
+2026-03-01T21:31:13.0339917Z Opening named pipe /podr/container/pipe/cd8a1b21dfb3_ducksatapp/stderr_e4fdba4d8c634e3095e83088b08f9661 for reading in non-blocking mode.
+2026-03-01T21:31:13.0341071Z Successfully opened named pipe: /podr/container/pipe/cd8a1b21dfb3_ducksatapp/stderr_e4fdba4d8c634e3095e83088b08f9661.
+2026-03-01T21:31:13.0342012Z Successfully removed non-blocking flag from /podr/container/pipe/cd8a1b21dfb3_ducksatapp/stderr_e4fdba4d8c634e3095e83088b08f9661.
+2026-03-01T21:31:13.0343451Z Creating container with image: appsvc/node:22-lts_20260115.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod
+2026-03-01T21:31:13.5097682Z Starting container: cd8a1b21dfb3_ducksatapp.
+2026-03-01T21:31:13.6210698Z Starting watchers and probes.
+2026-03-01T21:31:13.6219362Z Starting metrics collection.
+2026-03-01T21:31:13.6221185Z Container is running.
+2026-03-01T21:31:13.6221943Z State: Starting, Action: CreatingContainer, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-01T21:31:13.7887529Z Container start method finished after 2029 ms.
+2026-03-01T21:31:13.8070668Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-01T21:31:13.8074309Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-01T21:31:37.0917488Z Site startup probe succeeded after 23.2635101 seconds.
+2026-03-01T21:31:37.2114176Z State: Starting, Action: WarmUpProbeSucceeded, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site startup probe succeeded after 23.2635101 seconds., DetailsLevel: INFO
+2026-03-01T21:31:37.2449853Z Site is running with deployment version: f5ec37bb-7b23-493d-8334-bf1c4ec489c6
+2026-03-01T21:31:37.2452889Z Site started.
+2026-03-01T21:31:37.2453887Z State: Started, Action: None, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site started at 03/01/2026 21:31:37 (UTC), DetailsLevel: INFO
+2026-03-01T21:31:37.2537918Z Site is running with patch version NODE 22.22.0
+2026-03-01T21:43:01.8365751Z State: Starting, Action: EstablishingSiteNetworks, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-03-01T21:43:02.7395907Z State: Starting, Action: StartingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: , DetailsLevel: INFO
+2026-03-01T21:43:02.7426383Z Container start method called.
+2026-03-01T21:43:02.7427517Z State: Starting, Action: PullingImage, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pulling image 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-01T21:43:02.7428842Z Establishing network.
+2026-03-01T21:43:02.7430136Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-01T21:43:02.9824038Z Container is starting.
+2026-03-01T21:43:02.9825476Z State: Starting, Action: MountingVolumes, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-01T21:43:02.9831886Z Establishing user namespace if not established already.
+2026-03-01T21:43:02.9833766Z Establishing network if not established already.
+2026-03-01T21:43:02.9835521Z Mounting volumes.
+2026-03-01T21:43:02.9845214Z Nested mountpoint site/wwwroot
+2026-03-01T21:43:02.9950153Z Nested mountpoint volatile/logs
+2026-03-01T21:43:03.0158439Z Nested mountpoint 
+2026-03-01T21:43:03.0166933Z Nested mountpoint 
+2026-03-01T21:43:03.0519009Z Nested mountpoint 
+2026-03-01T21:43:03.0708978Z Nested mountpoint 
+2026-03-01T21:43:04.4497997Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Finished pulling container image and mounting volumes for ducksatapp. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-01T21:43:04.4502602Z Creating container.
+2026-03-01T21:43:04.4514350Z Creating pipes for streaming container io.
+2026-03-01T21:43:04.4615258Z Creating stdout named pipe at /podr/container/pipe/5708fb26bdc0_ducksatapp/stdout_a43ba9e14c6f4c83b412333f239db074.
+2026-03-01T21:43:04.4688048Z Successfully created stdout named pipe at: /podr/container/pipe/5708fb26bdc0_ducksatapp/stdout_a43ba9e14c6f4c83b412333f239db074.
+2026-03-01T21:43:04.4693804Z Opening named pipe /podr/container/pipe/5708fb26bdc0_ducksatapp/stdout_a43ba9e14c6f4c83b412333f239db074 for reading in non-blocking mode.
+2026-03-01T21:43:04.4695981Z Successfully opened named pipe: /podr/container/pipe/5708fb26bdc0_ducksatapp/stdout_a43ba9e14c6f4c83b412333f239db074.
+2026-03-01T21:43:04.4700775Z Successfully removed non-blocking flag from /podr/container/pipe/5708fb26bdc0_ducksatapp/stdout_a43ba9e14c6f4c83b412333f239db074.
+2026-03-01T21:43:04.4704875Z Creating stderr named pipe at /podr/container/pipe/5708fb26bdc0_ducksatapp/stderr_1681a3b372224bb9b5f6b7faebb5ade1.
+2026-03-01T21:43:04.4707078Z Successfully created stderr named pipe at: /podr/container/pipe/5708fb26bdc0_ducksatapp/stderr_1681a3b372224bb9b5f6b7faebb5ade1.
+2026-03-01T21:43:04.4708382Z Opening named pipe /podr/container/pipe/5708fb26bdc0_ducksatapp/stderr_1681a3b372224bb9b5f6b7faebb5ade1 for reading in non-blocking mode.
+2026-03-01T21:43:04.4768602Z Successfully opened named pipe: /podr/container/pipe/5708fb26bdc0_ducksatapp/stderr_1681a3b372224bb9b5f6b7faebb5ade1.
+2026-03-01T21:43:04.4770892Z Successfully removed non-blocking flag from /podr/container/pipe/5708fb26bdc0_ducksatapp/stderr_1681a3b372224bb9b5f6b7faebb5ade1.
+2026-03-01T21:43:04.4774783Z Creating container with image: appsvc/node:22-lts_20260115.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod
+2026-03-01T21:43:04.9577607Z Starting container: 5708fb26bdc0_ducksatapp.
+2026-03-01T21:43:05.0083182Z Starting watchers and probes.
+2026-03-01T21:43:05.0085770Z Starting metrics collection.
+2026-03-01T21:43:05.0087442Z Container is running.
+2026-03-01T21:43:05.0143720Z State: Starting, Action: CreatingContainer, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-01T21:43:05.0561223Z Container start method finished after 2313 ms.
+2026-03-01T21:43:05.0630134Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-01T21:43:05.0630534Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-01T21:43:29.0616593Z Site startup probe succeeded after 23.9981591 seconds.
+2026-03-01T21:43:29.1966396Z State: Starting, Action: WarmUpProbeSucceeded, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site startup probe succeeded after 23.9981591 seconds., DetailsLevel: INFO
+2026-03-01T21:43:29.2636242Z Site is running with deployment version: 5321c940-a37a-4630-ad4c-eeedae3f1595
+2026-03-01T21:43:29.2653198Z Site started.
+2026-03-01T21:43:29.2660237Z State: Started, Action: None, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site started at 03/01/2026 21:43:29 (UTC), DetailsLevel: INFO
+2026-03-01T21:43:29.2678620Z Site is running with patch version NODE 22.22.0
+2026-03-01T21:43:49.2784908Z State: Stopping, Action: StoppingSite, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site started at 03/01/2026 21:31:37 (UTC), DetailsLevel: INFO
+2026-03-01T21:43:49.2788842Z State: Stopping, Action: StoppingSiteContainers, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site started at 03/01/2026 21:31:37 (UTC), DetailsLevel: INFO
+2026-03-01T21:43:49.2824921Z Container is terminating. Grace period: 5 seconds.
+2026-03-01T21:43:49.2938577Z Stop and delete container. Retry count = 0
+2026-03-01T21:43:49.2940689Z Stopping container: cd8a1b21dfb3_ducksatapp.
+2026-03-01T21:43:54.3822833Z Deleting container: cd8a1b21dfb3_ducksatapp. Retry count = 0
+2026-03-01T21:43:54.5285439Z Container spec TerminationMessagePolicy  path 
+2026-03-01T21:43:54.5287666Z Container is terminated. Total time elapsed: 5246 ms.
+2026-03-01T21:43:54.5289370Z Site: ducksatapp stopped.
+2026-03-01T22:10:38.8385221Z State: Stopping, Action: StoppingSite, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site started at 03/01/2026 21:43:29 (UTC), DetailsLevel: INFO
+2026-03-01T22:10:38.8446048Z State: Stopping, Action: StoppingSiteContainers, LastError: , LastErrorTimestamp: 01/01/0001 00:00:00, LastErrorDetails: , Details: Site started at 03/01/2026 21:43:29 (UTC), DetailsLevel: INFO
+2026-03-01T22:10:38.8464054Z Container is terminating. Grace period: 5 seconds.
+2026-03-01T22:10:38.8832627Z Stop and delete container. Retry count = 0
+2026-03-01T22:10:38.8834403Z Stopping container: 5708fb26bdc0_ducksatapp.
+2026-03-01T22:10:43.9378063Z Deleting container: 5708fb26bdc0_ducksatapp. Retry count = 0
+2026-03-01T22:10:44.0766155Z Container spec TerminationMessagePolicy  path 
+2026-03-01T22:10:44.0777214Z Container is terminated. Total time elapsed: 5230 ms.
+2026-03-01T22:10:44.0778376Z Site: ducksatapp stopped.
+2026-03-01T22:29:57.4654724Z State: Starting, Action: EstablishingSiteNetworks, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site stopped at 03/01/2026 22:10:44 (UTC), DetailsLevel: INFO
+2026-03-01T22:29:58.2348692Z State: Starting, Action: StartingSiteContainers, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site stopped at 03/01/2026 22:10:44 (UTC), DetailsLevel: INFO
+2026-03-01T22:29:58.2355136Z Container start method called.
+2026-03-01T22:29:58.2358808Z State: Starting, Action: PullingImage, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Pulling image 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod for ducksatapp., DetailsLevel: INFO
+2026-03-01T22:29:58.2363159Z Establishing network.
+2026-03-01T22:29:58.2366895Z Pulling image: appsvc/node:22-lts_20260115.4.tuxprod.
+2026-03-01T22:29:58.5111099Z Container is starting.
+2026-03-01T22:29:58.5112446Z State: Starting, Action: MountingVolumes, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Mounting volumes for ducksatapp., DetailsLevel: INFO
+2026-03-01T22:29:58.5113723Z Establishing user namespace if not established already.
+2026-03-01T22:29:58.5115025Z Establishing network if not established already.
+2026-03-01T22:29:58.5116374Z Mounting volumes.
+2026-03-01T22:29:58.5118316Z Nested mountpoint site/wwwroot
+2026-03-01T22:29:58.5572088Z Nested mountpoint volatile/logs
+2026-03-01T22:29:58.5675244Z Nested mountpoint 
+2026-03-01T22:29:58.5685381Z Nested mountpoint 
+2026-03-01T22:29:58.6099711Z Nested mountpoint 
+2026-03-01T22:29:58.6133398Z Nested mountpoint 
+2026-03-01T22:29:59.6307012Z State: Starting, Action: CreatingContainer, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Finished pulling container image and mounting volumes for ducksatapp. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-01T22:29:59.6312393Z Creating container.
+2026-03-01T22:29:59.6314197Z Creating pipes for streaming container io.
+2026-03-01T22:29:59.6315988Z Creating stdout named pipe at /podr/container/pipe/941485974621_ducksatapp/stdout_fd173b96d8d545c080ccb7fae223d448.
+2026-03-01T22:29:59.6323687Z Successfully created stdout named pipe at: /podr/container/pipe/941485974621_ducksatapp/stdout_fd173b96d8d545c080ccb7fae223d448.
+2026-03-01T22:29:59.6325592Z Opening named pipe /podr/container/pipe/941485974621_ducksatapp/stdout_fd173b96d8d545c080ccb7fae223d448 for reading in non-blocking mode.
+2026-03-01T22:29:59.6326857Z Successfully opened named pipe: /podr/container/pipe/941485974621_ducksatapp/stdout_fd173b96d8d545c080ccb7fae223d448.
+2026-03-01T22:29:59.6327970Z Successfully removed non-blocking flag from /podr/container/pipe/941485974621_ducksatapp/stdout_fd173b96d8d545c080ccb7fae223d448.
+2026-03-01T22:29:59.6329926Z Creating stderr named pipe at /podr/container/pipe/941485974621_ducksatapp/stderr_51c2e8b9e7214247b11d77860c1ecdad.
+2026-03-01T22:29:59.6338069Z Successfully created stderr named pipe at: /podr/container/pipe/941485974621_ducksatapp/stderr_51c2e8b9e7214247b11d77860c1ecdad.
+2026-03-01T22:29:59.6339162Z Opening named pipe /podr/container/pipe/941485974621_ducksatapp/stderr_51c2e8b9e7214247b11d77860c1ecdad for reading in non-blocking mode.
+2026-03-01T22:29:59.6340473Z Successfully opened named pipe: /podr/container/pipe/941485974621_ducksatapp/stderr_51c2e8b9e7214247b11d77860c1ecdad.
+2026-03-01T22:29:59.6547128Z Successfully removed non-blocking flag from /podr/container/pipe/941485974621_ducksatapp/stderr_51c2e8b9e7214247b11d77860c1ecdad.
+2026-03-01T22:29:59.6559768Z Creating container with image: appsvc/node:22-lts_20260115.4.tuxprod from registry: 10.1.0.4:13209 and fully qualified image name: 10.1.0.4:13209/appsvc/node:22-lts_20260115.4.tuxprod
+2026-03-01T22:30:00.2696404Z Starting container: 941485974621_ducksatapp.
+2026-03-01T22:30:00.3582409Z Starting watchers and probes.
+2026-03-01T22:30:00.3591261Z Starting metrics collection.
+2026-03-01T22:30:00.3752645Z Container is running.
+2026-03-01T22:30:00.3757491Z State: Starting, Action: CreatingContainer, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-01T22:30:00.4447974Z Container start method finished after 2209 ms.
+2026-03-01T22:30:00.4452344Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Container ducksatapp successfully created and is running., DetailsLevel: INFO
+2026-03-01T22:30:00.4452713Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-01T22:30:24.2395662Z Site startup probe succeeded after 23.7938464 seconds.
+2026-03-01T22:30:24.3505072Z State: Starting, Action: WarmUpProbeSucceeded, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site startup probe succeeded after 23.7938464 seconds., DetailsLevel: INFO
+2026-03-01T22:30:24.3896542Z Site is running with deployment version: 76825063-677a-496b-a6d4-893f0a321726
+2026-03-01T22:30:24.3901518Z Site started.
+2026-03-01T22:30:24.3902633Z State: Started, Action: None, LastError: BadRunFromPackageConfig, LastErrorTimestamp: 02/28/2026 07:40:19, LastErrorDetails: RunFromPackage issue. Please check your package configuration., Details: Site started at 03/01/2026 22:30:24 (UTC), DetailsLevel: INFO
+2026-03-01T22:30:24.4085581Z Site is running with patch version NODE 22.22.0

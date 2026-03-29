@@ -1,0 +1,8 @@
+<step title="Incoming Request" date="2026-03-08T20:05:23.934" instance="662702" url="/logstream" method="GET" type="request" pid="833,1,76" Host="ducksatapp.scm.azurewebsites.net" User-Agent="AZURECLI/2.83.0 (MSI)" Accept-Encoding="identity" Authorization="Bas..." x-ms-client-request-id="19d02ea1-1b2a-11f1-8246-107c6132cf95" X-ARR-LOG-ID="19d02ea1-1b2a-11f1-8246-107c6132cf95" CLIENT-IP="50.47.113.150:49425" X-SITE-DEPLOYMENT-ID="ducksatapp" WAS-DEFAULT-HOSTNAME="ducksatapp.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/logstream" X-Client-IP="50.47.113.150" X-Client-Port="49425" >
+  <step title="Cleanup Xml Logs" date="2026-03-08T20:05:23.936" >
+    <step title="Cleanup Infos" date="2026-03-08T20:05:23.959" totalFiles="405" totalCleanup="245" /><!-- duration: 9ms -->
+  </step><!-- duration: 36ms -->
+  <step title="LogStreamHandlerMiddleware.Invoke" date="2026-03-08T20:05:23.977" /><!-- duration: 26ms -->
+  <step title="Error occurred" date="2026-03-08T20:07:24.005" type="error" text="LogStreamManager: ProcessRequest end" /><!-- duration: 6ms -->
+  <step title="Outgoing response" date="2026-03-08T20:07:24.017" type="response" statusCode="200" statusText="OK" /><!-- duration: 3ms -->
+</step><!-- duration: 120089ms -->

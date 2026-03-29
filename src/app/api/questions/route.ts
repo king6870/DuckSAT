@@ -94,6 +94,7 @@ export async function GET(request: NextRequest) {
     const source = searchParams.get('source');
     const search = searchParams.get('search');
     const moduleType = searchParams.get('moduleType');
+    const difficulty = searchParams.get('difficulty');
     const sortOrderParam = searchParams.get('sortOrder');
     const sortOrder: 'asc' | 'desc' = sortOrderParam === 'asc' ? 'asc' : 'desc';
     
@@ -143,6 +144,10 @@ export async function GET(request: NextRequest) {
 
     if (source) {
       where.source = source;
+    }
+
+    if (difficulty && ['easy', 'medium', 'hard'].includes(difficulty)) {
+      where.difficulty = difficulty;
     }
 
     if (search) {

@@ -1,0 +1,17 @@
+Γ£à Loaded .env.local
+≡ƒÄ¿ Bulk SVG Diagram Generator
+================================
+
+Current: 28/5467 (0.5%) have diagrams
+Target 25%: 1367 | Need: 1339 more
+  geometry: 23/822 have diagrams ΓåÆ target 576 (70%) ΓåÆ generate 553
+
+≡ƒôè Total to generate: 553
+
+≡ƒöº Processing geometry: generating 553 diagrams
+  Found 553 questions without diagrams
+  [1/553] geometry/medium cmlqx5g2... Γ£à (1800 bytes)
+  [2/553] geometry/medium cmlqx5g4... Γ£à (3718 bytes)
+  [3/553] geometry/medium cmlqx5g5... Γ£à (2265 bytes)
+  [4/553] geometry/medium cmlqx5g6...   Γ¥î API error for cmlqx5g6w0004iuioo5syvhah: Request was aborted.
+

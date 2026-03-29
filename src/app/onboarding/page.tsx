@@ -2,7 +2,8 @@
 
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { useSurveyTracking, trackEvent } from '@/lib/tracking'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, ArrowLeft, CheckCircle, GraduationCap, Target, BarChart3, BookOpen, Sparkles } from 'lucide-react'
 
@@ -47,6 +48,10 @@ export default function OnboardingPage() {
   const [step, setStep] = useState(1)
   const [submitting, setSubmitting] = useState(false)
 
+  // Survey tracking
+  const { startStep, recordStep, flush: flushSurvey } = useSurveyTracking('onboarding')
+  const prevStep = useRef(step)
+
   // Form state
   const [gradeLevel, setGradeLevel] = useState('')
   const [highestSATScore, setHighestSATScore] = useState('')
@@ -56,6 +61,31 @@ export default function OnboardingPage() {
   const [strongCategories, setStrongCategories] = useState<string[]>([])
   const [weakCategories, setWeakCategories] = useState<string[]>([])
   const [targetScore, setTargetScore] = useState('')
+
+  // Track step timing
+  const STEP_NAMES = ['grade_and_score', 'test_experience', 'strengths', 'weaknesses', 'target_score']
+
+  useEffect(() => {
+    startStep(step, STEP_NAMES[step - 1])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step])
+
+  useEffect(() => {
+    if (prevStep.current !== step && prevStep.current >= 1 && prevStep.current <= TOTAL_STEPS) {
+      // Record the answer for the step we just left
+      const s = prevStep.current
+      const answers: Record<number, unknown> = {
+        1: { gradeLevel, highestSATScore },
+        2: { bluebookTestsTaken, otherPrepApps },
+        3: { strongCategories },
+        4: { weakCategories },
+        5: { targetScore },
+      }
+      recordStep(s, answers[s])
+      prevStep.current = step
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step])
 
   if (status === 'loading') {
     return (
@@ -88,6 +118,10 @@ export default function OnboardingPage() {
 
   const handleSubmit = async () => {
     setSubmitting(true)
+    // Record final step + flush survey tracking
+    recordStep(step, { targetScore })
+    flushSurvey()
+    trackEvent('survey', 'onboarding_completed', { steps: TOTAL_STEPS })
     try {
       const res = await fetch('/api/onboarding', {
         method: 'POST',
@@ -112,6 +146,10 @@ export default function OnboardingPage() {
 
   const handleSkip = async () => {
     setSubmitting(true)
+    // Record current step as skipped + flush
+    recordStep(step, null, true)
+    flushSurvey()
+    trackEvent('survey', 'onboarding_skipped', { skippedAtStep: step })
     try {
       const res = await fetch('/api/onboarding', {
         method: 'POST',

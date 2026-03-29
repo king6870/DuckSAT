@@ -1,7 +1,9 @@
 "use client";
 
 import { useSession, signIn, signOut } from "next-auth/react";
+
 import Link from "next/link";
+import Image from "next/image";
 import { ThemeToggle } from "./ui/theme-toggle";
 
 export default function UserMenu() {
@@ -21,10 +23,13 @@ export default function UserMenu() {
         <>
           {/* Profile Image */}
           {session.user.image && (
-            <img 
-              src={session.user.image} 
+            <Image
+              src={session.user.image}
               alt={`${session.user.name || 'User'} profile picture`}
-              className="w-9 h-9 rounded-full border-2 border-indigo-200 shadow" 
+              width={36}
+              height={36}
+              className="w-9 h-9 rounded-full border-2 border-indigo-200 shadow"
+              unoptimized
             />
           )}
           

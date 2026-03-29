@@ -1,0 +1,15 @@
+<step title="Incoming Request" date="2026-02-23T20:53:26.649" instance="12ad29" url="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%220981998ded3537676cf0e9bba10ac3f4744c8fea%22%2C%22repoName%22%3A%22king6870%2FDuckSAT%22%2C%22actor%22%3A%22king6870%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22Add%20standalone%20output%20configuration%20to%20next.config.js%22%7D" method="POST" type="request" pid="831,1,33" Host="ducksatapp.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_30a15067cb3b10cc463e18b09323c7fdc054db3902717a38ddac276b7c96a69b" Authorization="Bea..." Content-Type="application/octet-stream" Cookie="ARRAffinity=12ad29c2d83712da2c90b5274d009bf95b7bd6acdbd60d3c5b256e877c2970a4;Path=/;HttpOnly;Secure;Domain=ducksatapp.scm.azurewebsites.net; ARRAffinitySameSite=12ad29c2d83712da2c90b5274d009bf95b7bd6acdbd60d3c5b256e877c2970a4;Path=/;HttpOnly;SameSite=None;Secure;Domain=ducksatapp.scm.azurewebsites.net" Transfer-Encoding="chunked" X-ARR-LOG-ID="065c6123-40cf-46e7-92ea-6217f5fc1b0b" CLIENT-IP="172.182.194.217:18504" X-SITE-DEPLOYMENT-ID="ducksatapp" WAS-DEFAULT-HOSTNAME="ducksatapp.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%220981998ded3537676cf0e9bba10ac3f4744c8fea%22%2C%22repoName%22%3A%22king6870%2FDuckSAT%22%2C%22actor%22%3A%22king6870%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22Add%20standalone%20output%20configuration%20to%20next.config.js%22%7D" X-Client-IP="172.182.194.217" X-Client-Port="18504" >
+  <step title="Cleanup Xml Logs" date="2026-02-23T20:53:26.664" /><!-- duration: 4ms -->
+  <step title="OneDeploy" date="2026-02-23T20:53:26.675" >
+    <step title="Starting PushDeployAsync" date="2026-02-23T20:53:26.680" /><!-- duration: 2ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/1b12b32b-a234-48ce-b83c-0697e0d45c4c.zip" date="2026-02-23T20:53:26.691" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/1b12b32b-a234-48ce-b83c-0697e0d45c4c.zip" date="2026-02-23T20:53:26.693" /><!-- duration: 3ms -->
+    </step><!-- duration: 5649ms -->
+    <step title="Removing previous build artifact&apos;s manifest file" date="2026-02-23T20:53:32.347" >
+      <step title="Start deployment in the background" date="2026-02-23T20:53:32.352" >
+        <step title="Acquiring Deployment Lock" date="2026-02-23T20:53:32.365" /><!-- duration: 2ms -->
+        <step title="Acquired Deployment Lock" date="2026-02-23T20:53:32.388" /><!-- duration: 2ms -->
+      </step><!-- duration: 80ms -->
+    </step><!-- duration: 87ms -->
+    <step title="Outgoing response" date="2026-02-23T20:53:32.436" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 2ms -->
+  </step><!-- duration: 5764ms -->

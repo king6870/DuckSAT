@@ -1,12 +1,13 @@
 'use client'
 
 import { Suspense, useEffect, useState } from 'react'
-import { useSession, signIn } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import { useSearchParams } from 'next/navigation'
 import { Check, Sparkles, Crown, Zap, Loader2, Shield } from 'lucide-react'
 import { PRICING, SALE } from '@/constants/pricing'
 import CountdownTimer from '@/components/landing/CountdownTimer'
 import SocialProofBar from '@/components/landing/SocialProofBar'
+import { trackEvent } from '@/lib/tracking'
 
 interface SubscriptionData {
   plan: string
@@ -54,9 +55,11 @@ function PricingContent() {
 
   async function handleCheckout(plan: 'monthly' | 'yearly') {
     if (!session) {
+      trackEvent('conversion', 'pricing_signin_redirect', { plan })
       window.location.href = '/auth/signin?callbackUrl=/pricing'
       return
     }
+    trackEvent('conversion', 'checkout_started', { plan })
     setCheckoutLoading(plan)
     try {
       const res = await fetch('/api/stripe/checkout', {
@@ -92,6 +95,12 @@ function PricingContent() {
 
   const currentPlan = subscription?.plan || 'free'
   const isActive = subscription?.status === 'active' || subscription?.status === 'trialing'
+
+  // Track checkout outcomes
+  useEffect(() => {
+    if (success) trackEvent('conversion', 'checkout_success')
+    if (canceled) trackEvent('conversion', 'checkout_canceled')
+  }, [success, canceled])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-16 px-4">

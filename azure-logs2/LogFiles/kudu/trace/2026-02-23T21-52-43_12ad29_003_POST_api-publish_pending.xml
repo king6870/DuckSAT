@@ -1,0 +1,18 @@
+<step title="Incoming Request" date="2026-02-23T21:52:43.163" instance="12ad29" url="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%22c5afee3c89b02a2a02e7866dbfaa17a51d2e27f0%22%2C%22repoName%22%3A%22king6870%2FDuckSAT%22%2C%22actor%22%3A%22king6870%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22Refactor%20Azure%20deployment%20workflow%20for%20ducksatapp%5Cn%5CnUpdated%20the%20Azure%20Web%20Apps%20deployment%20workflow%20to%20ensure%20proper%20artifact%20handling%20and%20deployment.%22%7D" method="POST" type="request" pid="831,1,23" Host="ducksatapp.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_30a15067cb3b10cc463e18b09323c7fdc054db3902717a38ddac276b7c96a69b" Authorization="Bea..." Content-Type="application/octet-stream" Cookie="ARRAffinity=12ad29c2d83712da2c90b5274d009bf95b7bd6acdbd60d3c5b256e877c2970a4;Path=/;HttpOnly;Secure;Domain=ducksatapp.scm.azurewebsites.net; ARRAffinitySameSite=12ad29c2d83712da2c90b5274d009bf95b7bd6acdbd60d3c5b256e877c2970a4;Path=/;HttpOnly;SameSite=None;Secure;Domain=ducksatapp.scm.azurewebsites.net" Transfer-Encoding="chunked" X-ARR-LOG-ID="de302b3f-4c6f-4b3f-8459-dcc81c2464a0" CLIENT-IP="130.131.55.229:53248" X-SITE-DEPLOYMENT-ID="ducksatapp" WAS-DEFAULT-HOSTNAME="ducksatapp.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%22c5afee3c89b02a2a02e7866dbfaa17a51d2e27f0%22%2C%22repoName%22%3A%22king6870%2FDuckSAT%22%2C%22actor%22%3A%22king6870%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22Refactor%20Azure%20deployment%20workflow%20for%20ducksatapp%5Cn%5CnUpdated%20the%20Azure%20Web%20Apps%20deployment%20workflow%20to%20ensure%20proper%20artifact%20handling%20and%20deployment.%22%7D" X-Client-IP="130.131.55.229" X-Client-Port="53248" >
+  <step title="OneDeploy" date="2026-02-23T21:52:43.246" >
+    <step title="None repository commit" date="2026-02-23T21:52:43.267" >
+      <step title="Commit id: 499cdc25-9ede-489d-8f9f-077a2004efdf" date="2026-02-23T21:52:43.296" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 6ms -->
+    </step><!-- duration: 39ms -->
+    <step title="Starting PushDeployAsync" date="2026-02-23T21:52:43.310" /><!-- duration: 4ms -->
+    <step title="Removing _del_node_modules symlink" date="2026-02-23T21:52:43.358" >
+      <step title="Writing artifact to /tmp/zipdeploy/376a8c52-7e94-4f3c-8d93-3bc9bec42457.zip" date="2026-02-23T21:52:43.407" >
+        <step title="Writing multipart request body to /tmp/zipdeploy/376a8c52-7e94-4f3c-8d93-3bc9bec42457.zip" date="2026-02-23T21:52:43.417" /><!-- duration: 8ms -->
+      </step><!-- duration: 241ms -->
+      <step title="Removing previous build artifact&apos;s manifest file" date="2026-02-23T21:52:43.656" >
+        <step title="Start deployment in the background" date="2026-02-23T21:52:43.672" >
+          <step title="Acquiring Deployment Lock" date="2026-02-23T21:52:43.709" /><!-- duration: 11ms -->
+          <step title="Acquired Deployment Lock" date="2026-02-23T21:52:43.769" /><!-- duration: 6ms -->
+        </step><!-- duration: 192ms -->
+      </step><!-- duration: 214ms -->
+      <step title="Outgoing response" date="2026-02-23T21:52:43.880" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 12ms -->
+    </step><!-- duration: 542ms -->

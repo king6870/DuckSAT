@@ -1,0 +1,17 @@
+<step title="Incoming Request" date="2026-02-28T05:58:14.128" instance="631727" url="/api/zipdeploy?isAsync=true" method="POST" type="request" pid="831,1,54" Accept="*/*" Host="ducksatapp.scm.azurewebsites.net" User-Agent="AZURECLI/2.83.0 (MSI)" Accept-Encoding="gzip, deflate" Authorization="Bas..." Cache-Control="no-cache" Content-Type="application/octet-stream" Content-Length="41662455" x-ms-client-request-id="74cd8212-146a-11f1-ab7c-58961d9b7075" x-ms-artifact-checksum="f3f55092df41d1ff8d12cb6859fae541d69fa6b6aac6f2b8f343059fe8e43260" X-ARR-LOG-ID="74cd8212-146a-11f1-ab7c-58961d9b7075" CLIENT-IP="50.47.225.138:58923" X-SITE-DEPLOYMENT-ID="ducksatapp" WAS-DEFAULT-HOSTNAME="ducksatapp.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/zipdeploy?isAsync=true" X-Client-IP="50.47.225.138" X-Client-Port="58923" >
+  <step title="Cleanup Xml Logs" date="2026-02-28T05:58:14.130" >
+    <step title="Cleanup Infos" date="2026-02-28T05:58:14.136" totalFiles="326" totalCleanup="166" /><!-- duration: 4ms -->
+  </step><!-- duration: 13ms -->
+  <step title="ZipPushDeploy" date="2026-02-28T05:58:14.154" >
+    <step title="ZipDeploy. Run from package." date="2026-02-28T05:58:14.158" /><!-- duration: 2ms -->
+    <step title="Starting PushDeployAsync" date="2026-02-28T05:58:14.163" /><!-- duration: 2ms -->
+    <step title="WEBSITE_RUN_FROM_PACKAGE is set to 1. Writing zip to SitePackagesPath" date="2026-02-28T05:58:14.169" /><!-- duration: 2ms -->
+    <step title="Copying zip to SitePackages /home/data/SitePackages/20260228055814.zip from request body" date="2026-02-28T05:58:14.178" /><!-- duration: 3ms -->
+    <step title="Writing multipart request body to /home/data/SitePackages/20260228055814.zip" date="2026-02-28T05:58:14.190" /><!-- duration: 18ms -->
+    <step title="Start deployment in the background" date="2026-02-28T05:58:18.352" >
+      <step title="Acquiring Deployment Lock" date="2026-02-28T05:58:18.384" /><!-- duration: 2ms -->
+      <step title="Acquired Deployment Lock" date="2026-02-28T05:58:18.407" /><!-- duration: 2ms -->
+    </step><!-- duration: 117ms -->
+  </step><!-- duration: 4326ms -->
+  <step title="Outgoing response" date="2026-02-28T05:58:18.488" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 9ms -->
+</step><!-- duration: 4371ms -->

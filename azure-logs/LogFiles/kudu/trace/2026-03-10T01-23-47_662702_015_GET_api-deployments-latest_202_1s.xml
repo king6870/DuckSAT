@@ -1,0 +1,11 @@
+<step title="Incoming Request" date="2026-03-10T01:23:47.900" instance="662702" url="/api/deployments/latest" method="GET" type="request" pid="831,1,76" Accept="*/*" Host="ducksatapp.scm.azurewebsites.net" User-Agent="AZURECLI/2.83.0 (MSI)" Accept-Encoding="gzip, deflate" Authorization="Bas..." x-ms-client-request-id="bd8ae935-1c1f-11f1-aad0-107c6132cf95" X-ARR-LOG-ID="bd8ae935-1c1f-11f1-aad0-107c6132cf95" CLIENT-IP="50.47.113.150:54677" X-SITE-DEPLOYMENT-ID="ducksatapp" WAS-DEFAULT-HOSTNAME="ducksatapp.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/deployments/latest" X-Client-IP="50.47.113.150" X-Client-Port="54677" >
+  <step title="Cleanup Xml Logs" date="2026-03-10T01:23:47.902" >
+    <step title="Cleanup Infos" date="2026-03-10T01:23:47.916" totalFiles="419" totalCleanup="259" /><!-- duration: 5ms -->
+  </step><!-- duration: 21ms -->
+  <step title="DeploymentService.GetResult" date="2026-03-10T01:23:47.932" >
+    <step title="DeploymentService.GetLatestDeployment" date="2026-03-10T01:23:47.934" >
+      <step title="DeploymentManager.GetResults" date="2026-03-10T01:23:47.937" /><!-- duration: 659ms -->
+    </step><!-- duration: 667ms -->
+  </step><!-- duration: 676ms -->
+  <step title="Outgoing response" date="2026-03-10T01:23:48.610" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 6ms -->
+</step><!-- duration: 719ms -->

@@ -92,6 +92,31 @@ export async function POST(request: NextRequest) {
       })
     }
 
+    // Update daily activity
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+    try {
+      await prisma.userDailyActivity.upsert({
+        where: { userId_date: { userId: user.id, date: today } },
+        update: {
+          questionsAnswered: { increment: flatResults.length },
+          questionsCorrect: { increment: flatResults.filter(r => r.isCorrect).length },
+          testsCompleted: { increment: 1 },
+          totalTimeMs: { increment: (testResults.totalTimeSpent || 0) * 1000 },
+        },
+        create: {
+          userId: user.id,
+          date: today,
+          questionsAnswered: flatResults.length,
+          questionsCorrect: flatResults.filter(r => r.isCorrect).length,
+          testsCompleted: 1,
+          totalTimeMs: (testResults.totalTimeSpent || 0) * 1000,
+        },
+      })
+    } catch {
+      // Non-critical — don't fail the request
+    }
+
     return NextResponse.json({
       success: true,
       testResultId: testResult.id,

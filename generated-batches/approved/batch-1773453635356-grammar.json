@@ -1,0 +1,583 @@
+{
+  "batchId": "batch-1773453635356-grammar",
+  "topic": "grammar",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-03-14T02:05:35.636Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 20,
+  "totalGenerated": 20,
+  "totalValid": 20,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) has begun",
+        "B) have begun",
+        "C) has began",
+        "D) having begun"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The subject 'The committee' is singular, so the verb must be singular as well. 'has begun' correctly agrees in number and tense. 'have begun' would mismatch the singular subject; 'has began' uses an incorrect past participle form; 'having begun' does not fit the sentence structure here.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "subject-verb-agreement",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Researchers at the university prepared a short report on the latest findings from the clinical trial. The committee of scientists [has begun] its review of the data, and the final report is expected soon. The chair notes that the process will be thorough and transparent, inviting comments from outside observers. In early notes, the team records that progress is steady, and the group remains hopeful about the results. The campus community awaits the conclusions with careful, but cautious, attention.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A",
+        "B": "This uses a plural verb with a singular subject, creating a subject-verb disagreement.",
+        "C": "This uses the wrong verb form; after 'has' you need the past participle 'begun', not 'began'.",
+        "D": "This is a participial phrase that does not correctly complete the sentence here."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:01:55.352Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) his or her",
+        "B) their",
+        "C) hers",
+        "D) its"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The antecedent is singular ('Each researcher'), so the pronoun should be singular and gender-neutral: 'his or her'. 'Their' is commonly used in speech but is considered incorrect for strict Standard English with a clearly singular antecedent; 'hers' mismatches gender; 'its' refers to a nonhuman noun or object.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "pronoun-clarity",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During a wide survey on classroom use of technology, researchers collected reports from many students and instructors. Each researcher submitted [his or her] results to the group for review, and the data soon formed a clear pattern across sites. The team stressed that precision mattered for later comparison, and they reminded readers to avoid assumption about motive or outcome.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct for the pronoun-antecedent, but marked wrong here to illustrate typical student errors.",
+        "B": "Using 'their' with a singular antecedent creates pronoun-antecedent mismatch in formal English.",
+        "C": "'hers' presumes a female antecedent; the generic singular 'researcher' does not specify gender.",
+        "D": "'its' would refer to a nonhuman noun or object, not to a person."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:01:55.357Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) which",
+        "B) that",
+        "C) who",
+        "D) whom"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The clause is nonrestrictive and introduces extra information, so 'which' is correct and should be preceded by a comma. 'That' would require no comma and would restrict the clause; 'who' and 'whom' are not fitting pronouns for introducing a clause about a memo.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "punctuation",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "An interim memo circulated among staff members, [which] outlined the plan for next steps and highlighted potential risks. The writer described the rationale for the proposed changes, and the team added a schedule for testing and review. The inclusion of this detail helps readers understand why certain decisions were made.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A",
+        "B": "'that' would typically introduce a restrictive clause and would not be preceded by a comma here.",
+        "C": "'who' is a subject pronoun; it does not fit for introducing a nonrestrictive clause about a memo.",
+        "D": "'whom' is an object pronoun; not appropriate in this context."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:01:55.358Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) ;",
+        "B) ,",
+        "C) .",
+        "D) :"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Two independent clauses are joined properly with a semicolon; a comma would create a comma splice between independent clauses; a period would end the first sentence, leaving a second sentence that may not flow as intended; a colon is not appropriate here because it does not introduce an explanation or list in this construction.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "punctuation",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "To illustrate the challenge of data collection, researchers compiled a dataset from multiple sites [;] the aim was to capture regional variation. The sentence demonstrates how proper punctuation can prevent run-on ideas and maintain clarity for readers.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A",
+        "B": "Using a comma here creates a comma splice between two independent clauses.",
+        "C": "A period would separate the clauses into two sentences, disrupting the intended flow.",
+        "D": "A colon would be used to introduce an explanation or list, which is not appropriate in this link between these two clauses."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:01:55.359Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) shows",
+        "B) show",
+        "C) showing",
+        "D) showed"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The subject 'The results' is plural, so the verb must be plural: 'show'. 'shows' would mismatch, 'showing' is a non-finite form not appropriate here, and 'showed' is past tense inconsistent with the present context.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "verb-tense",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "After months of analysis, the team released a preliminary report. The results [show] a consistent pattern across sites, suggesting that the methods are robust and the data reliable.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Uses a singular verb with a plural subject, creating a subject-verb mismatch.",
+        "B": "Correct form of the verb for this sentence is the plural 'show'.",
+        "C": "Gerund form 'showing' cannot serve as the finite verb here.",
+        "D": "Past tense 'showed' misaligns with the present context of the sentence."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:01:55.359Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) the researchers'",
+        "B) the researcherss'",
+        "C) the researchers's",
+        "D) researchers'"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The correct possessive form for a plural noun ending in -s is 'the researchers'' with the apostrophe after the s. The other options show incorrect possessive forms or missing the determiner 'the'.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "punctuation",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During the editorial meeting, staff reviewed the final draft and discussed the attribution of ideas across the report. The group published the annual report, and [the researchers'] conclusions emphasized cross-disciplinary work, pointing to collaborations among physics, chemistry, and biology. Readers will notice how the sections mirror each other in tone and emphasis, a deliberate choice by the editors to present a unified project.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A",
+        "B": "Adds an extra s; incorrect possessive form for a plural noun.",
+        "C": "Uses an incorrect possessive construction for a plural noun.",
+        "D": "Lacks the definite article 'the', which makes the phrase grammatically off in this sentence."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:01:55.360Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) is",
+        "B) are",
+        "C) was",
+        "D) were"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct is A) is because the subject is 'the list' (singular). The phrase 'list of items' is a singular subject, so it takes a singular verb. B) 'are' would treat the subject as plural. C) 'was' would shift to past tense, which is inconsistent with the present-tense narrative. D) 'were' is plural and also inconsistent.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "subject-verb-agreement",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In the university archive, researchers cataloged old correspondence and placed each item beside a brief description. In the catalog, the list of items [_____] on display near the entrance. A careful reader will notice dates ranging from the late nineteenth century to the early twentieth, with notes about provenance and ownership. Although most letters are fragile, protective sleeves and careful handling instructions remain visible along the row of shelves. The display aims to show how communication practices evolved and to invite students to consider how context shapes interpretation.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Treats 'list' as plural, but the subject is singular ('the list').",
+        "C": "Shifts to past tense, which clashes with the current description in the passage.",
+        "D": "Plural form that does not agree with the singular subject."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:04:03.294Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) their",
+        "B) its",
+        "C) our",
+        "D) whose"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Correct is B) its because 'committee' is a singular noun, so the pronoun must be singular possessive. A) 'their' would be plural and potentially ambiguous. C) 'our' incorrectly includes the speaker. D) 'whose' is awkward in this construction.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "pronoun-clarity",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "During a late afternoon session, the university's ethics board weighed several controversial recommendations. The committee released [_____] report after the members discussed the findings, but the room still buzzed with questions about implementation and oversight. Some members argued for rapid action, while others urged caution. The chair summarized the debate, reminding everyone that the goals must align with the institution's values and legal responsibilities.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Uses a plural pronoun for a singular committee, causing ambiguity.",
+        "C": "Inappropriately shifts perspective to the speaker's group.",
+        "D": "Unnecessarily awkward and incorrect possessive reference."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:04:03.294Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) it",
+        "B) these",
+        "C) which",
+        "D) that"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct is A) it because the semicolon joins two independent clauses, the second beginning with a pronoun that refers to the policy. B) 'these' would refer to multiple items, not the single policy. C) 'which' would start a nonessential clause and not form a complete clause after the semicolon. D) 'that' would also fail to create a proper independent clause after the semicolon.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "punctuation",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The policy was released yesterday; [_____] outlines new guidelines for campus facilities, including safety drills and equipment checks. The policy addresses maintenance, access, and emergency procedures, and it invites faculty and students to participate in ongoing reviews. The administration emphasizes that adherence will require vigilance and shared responsibility.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Refers to a plural antecedent, which is incorrect for a single policy.",
+        "C": "Creates a dependent clause after a semicolon, which is not grammatical here.",
+        "D": "Fails to form a complete independent clause following the semicolon."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:04:03.295Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) allocations",
+        "B) allocation",
+        "C) allocate",
+        "D) allocating"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct is A) allocations because the sentence lists multiple items and needs a plural noun to maintain parallel structure with 'materials' and 'schedules.' B) 'allocation' is singular and would disrupt parallelism. C) 'allocate' is a verb, not a noun. D) 'allocating' is a participle, not matching the list format.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "sentence-structure",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "To finish the project on time, the team must coordinate materials, schedules, and [_____]. In planning sessions, managers stress the importance of clear roles, reliable suppliers, and open communication across departments. The list of tasks is long, but deadlines are visible on a shared calendar, and each member understands how their work affects others. A steady pace and careful tracking help prevent costly delays.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Uses a singular noun that breaks the parallel list.",
+        "C": "Uses a verb rather than a noun to complete the list.",
+        "D": "Uses a participle, which does not fit the parallel structure of the items listed."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:04:03.296Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) will have finished",
+        "B) has finished",
+        "C) finished",
+        "D) had finished"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct is A) will have finished because 'By tomorrow' indicates a future perfect tense. B) 'has finished' describes a present perfect that does not align with 'By tomorrow.' C) 'finished' is simple past, not compatible with the future reference. D) 'had finished' is past perfect, which also misaligns with the time frame.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "verb-tense",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "By tomorrow the team [will have finished] the project, provided there are no additional obstacles. The supervisor has asked for a concise briefing that summarizes what remains and what has already been completed. Project milestones are posted in the workspace, and daily updates help keep stakeholders informed. The mood among researchers is focused, not hurried, as everyone hopes to present solid results at the upcoming meeting.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Presents a present-tense implication that clashes with a future time marker.",
+        "C": "Uses simple past, not appropriate for a deadline one day away.",
+        "D": "Past perfect places the action before another past reference, not fitting the context."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:04:03.297Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) are",
+        "B) is",
+        "C) were",
+        "D) am"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Correct is B) is because 'committee' is singular, so the verb must be singular. A) 'are' and C) 'were' would treat the subject as plural, which is incorrect here. D) 'am' is not compatible with the subject.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "subject-verb-agreement",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "During the community meeting, residents debated the new zoning proposal. The committee [_____] ready to vote on the proposal. Several speakers stressed the importance of orderly procedure, while others urged a cautious approach to avoid appeals and delays. The chair reminded attendees that decisions must balance growth with safeguards, and that documentation would be provided for public review.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Treats the singular 'committee' as plural.",
+        "C": "Past tense plural form does not match the singular subject in this context.",
+        "D": "Incorrect first-person singular verb for the subject."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:04:03.298Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) their",
+        "B) its",
+        "C) our",
+        "D) whose"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Correct is B) its because the committee is singular; 'their' would incorrectly suggest a plural possessive. A) 'their' refers to multiple subjects and would be ambiguous here. C) 'our' shifts the perspective. D) 'whose' is not a correct pronoun here.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "pronoun-clarity",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Despite the clear intentions, the report's language risks ambiguity in places. The committee released [their] report after the members discussed the findings. Some sections refer to 'the project' in ways that could apply to multiple teams, while others consistently use singular terms. Editors suggested revising pronouns to improve clarity and to avoid misinterpretation by readers outside the core group.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Uses a plural possessive for a singular committee, causing ambiguity.",
+        "C": "Unnecessarily shifts the viewpoint to the authors.",
+        "D": "Incorrect possessive relative pronoun for this construction."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:04:03.298Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) first, second, and third",
+        "B) first second, and third",
+        "C) first, second and third",
+        "D) first, second, third"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct is A) first, second, and third because it uses the serial (Oxford) comma before the final 'and' in a three-item list. B) Lacks a comma after the first item. C) Omits the Oxford comma. D) Lacks the comma before 'and' and is inconsistent with standard enumerations.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "punctuation",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Public notices stated a visitor's guide would be updated. The guide lists three rules: [first, second, and third] ensure safety and awareness during events. Each rule is illustrated with a short example and a reminder about common exceptions. Staff training sessions reinforce these points, and students are encouraged to ask questions if anything is unclear.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Misses the comma after the first item in the list.",
+        "C": "Omits the serial (Oxford) comma before the final item.",
+        "D": "Lacks the comma before 'and' in a three-item list."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:04:03.299Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) a risk assessment",
+        "B) risk assessments",
+        "C) a risks assessment",
+        "D) the risk assessment"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct is A) a risk assessment because the phrase requires the singular article 'a' to introduce one assessment. B) 'risk assessments' is plural and mismatches the singular list item. C) 'a risks assessment' is grammatically incorrect. D) 'the risk assessment' uses a definite article that would imply a specific assessment not introduced in the sentence.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "punctuation",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Funding decisions followed a standard protocol. The budget committee prepared documents, then reviewed the plan with department heads. The final report includes a summary, a timeline, and [a risk assessment] that identifies potential obstacles and proposed mitigations. The aim is to present a balanced view that helps leadership allocate resources wisely, while avoiding unnecessary exposure to risk.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect plural form for a single item in the list.",
+        "C": "Incorrect article usage and plural noun form.",
+        "D": "Incorrect article; the sentence does not refer to a specific previously identified assessment."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:04:03.300Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) will fund",
+        "B) funds",
+        "C) funded",
+        "D) funding"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct is A) will fund because the sentence speaks about a future action. B) 'funds' would be present tense and not aligned with the future event. C) 'funded' is past tense and inconsistent with the future plan. D) 'funding' is a noun or participle, not a verb here.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "verb-tense",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The council announced that it [will fund] the project next year after reviewing the proposals and considering available resources. Meeting minutes note that the decision depends on continued favorable forecasts and community support. Officials emphasize careful planning and accountability, and citizens are invited to comment on the plan at the next public session. The outcome will shape campus development for years to come.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Presents a present-tense verb that does not fit the future plan.",
+        "C": "Past tense that conflicts with the stated future action.",
+        "D": "Uses a noun form rather than the required verb form."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:04:03.300Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) is",
+        "B) are",
+        "C) was",
+        "D) were"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct is A) is because the subject phrase 'the panel of experts' is a singular noun phrase, so the verb should be third-person singular to match. The options B) 'are' would treat the subject as plural, while C) 'was' and D) 'were' place the clause in past tense and do not align with the present-tense construction.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "subject-verb-agreement",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "During the town hall, the panel of experts [is/are] expected to review the housing ordinance tonight. The group has debated the issue for weeks, gathering testimony from residents and researchers. Each member brings a different perspective, and the chair emphasizes that consensus will require careful listening. If the committee fails to agree, progress can stall, producing delays that many fear will worsen the problem rather than solve it.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option is correct; no error here.",
+        "B": "Treats the singular 'panel' as plural, creating a subject-verb disagreement.",
+        "C": "Past tense does not match the present-tense context of 'is/are expected'.",
+        "D": "Past tense and plural form both conflict with the intended singular, present-tense agreement."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:05:34.627Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) his or her",
+        "B) their",
+        "C) his",
+        "D) hers"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct answer is A) his or her. With 'each participant' as the antecedent, a singular possessive pronoun is appropriate in formal Standard English. 'Their' is commonly used as a gender-neutral singular nowadays but is considered less formal here, while 'his' is gender-specific and 'hers' cannot modify 'remarks' alone.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "pronoun-clarity",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "During the workshop on scholarly writing, each participant will present a draft to the group. The instructor warns that unclear pronouns can cloud argument. If a reader misinterprets [his or her] remarks, the author may misunderstand the point, and the overall tone of the review could become accusatory rather than constructive. The goal is precise referents and consistent case throughout the analysis.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option is the correct answer; no error here.",
+        "B": "Using 'their' treats the singular antecedent as plural, which can create ambiguity in formal writing.",
+        "C": "Using 'his' makes the pronoun gender-specific and does not accommodate all participants.",
+        "D": "Using 'hers' is incorrect here because it cannot possess 'remarks' in this construction."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:05:34.628Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) ;",
+        "B) ,",
+        "C) :",
+        "D) –"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct answer is A) ; The semicolon properly joins two closely related independent clauses when there is a clear connection between them. A comma would create a comma splice, a colon is not appropriate here to join these clauses, and a dash would create a different kind of abrupt break that does not convey the intended linking of ideas.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "punctuation",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Scholars describe a narrative technique that uses interruptions to reveal character: the narrator breaks off, creating dramatic tension [;] which deepens the reader's engagement. In close readings, editors note how such devices can transform pace and emphasize contrast. The technique requires careful punctuation so that readers sense the pause without losing the thread of the argument. Scholars debate its effect across genres.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option is the correct answer; no error here.",
+        "B": "A comma here would incorrectly splice two independent clauses.",
+        "C": "A colon would be used to introduce a list or explanation, not to join these two clauses.",
+        "D": "A dash would create a stronger interruption and is not the suitable choice for linking these two clauses."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:05:34.629Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) ;",
+        "B) ,",
+        "C) .",
+        "D) –"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct answer is A) ; The semicolon properly links two related independent clauses. A comma would create a run-on, a period would require capitalizing the next clause, and a dash would create a different type of interruption not suited here.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "sentence-structure",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "During fieldwork researchers collect data from multiple sites and analyze patterns across seasons [;] the team records observations and measurements, which are later cross-checked for accuracy. The report emphasizes that clear division of tasks reduces redundancy and mistakes, and it highlights how careful sequencing improves the readability of complex findings. Readers are invited to evaluate the methods section with a critical eye.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option is the correct answer; no error here.",
+        "B": "A comma would splice two independent clauses into a run-on sentence.",
+        "C": "A period would end the first sentence and require capitalization of the next clause.",
+        "D": "A dash would create a stronger break that is not appropriate for the intended connection."
+      },
+      "_batchId": "batch-1773453635356-grammar",
+      "_generatedAt": "2026-03-14T02:05:34.632Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

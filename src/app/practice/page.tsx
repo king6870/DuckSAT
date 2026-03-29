@@ -3,8 +3,9 @@
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
-import { ArrowLeft, BookOpen, Calculator, Brain, PenLine, BarChart3, Sigma, Triangle, TrendingUp } from "lucide-react"
+import { ArrowLeft, BookOpen, Calculator, Brain, PenLine, BarChart3, Sigma, Triangle, Shuffle, Target, Timer, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { trackEvent } from "@/lib/tracking"
 
 interface CategoryCard {
   slug: string
@@ -38,7 +39,7 @@ const CATEGORIES: CategoryCard[] = [
 ]
 
 export default function PracticePage() {
-  const { data: session, status } = useSession()
+  const { status } = useSession()
   const router = useRouter()
   const [categoryStats, setCategoryStats] = useState<CategoryPerformance[]>([])
   const [questionCounts, setQuestionCounts] = useState<Record<string, number>>({})
@@ -131,6 +132,65 @@ export default function PracticePage() {
           </div>
         ) : (
           <>
+            {/* Quick Practice Modes */}
+            <div className="mb-12">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+                  <Zap className="w-5 h-5 text-white" />
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900">Quick Practice</h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <button
+                  onClick={() => { trackEvent('navigation', 'quick_practice_mixed'); router.push('/practice/mixed') }}
+                  className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow border-2 border-transparent hover:border-amber-300 transition-all text-left hover:shadow-lg"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white">
+                    <Shuffle className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">Mixed Quiz</h3>
+                  <p className="text-sm text-gray-500">10 random questions from all topics</p>
+                </button>
+
+                <button
+                  onClick={() => {
+                    const weakest = categoryStats
+                      .filter(c => c.totalQuestions >= 3)
+                      .sort((a, b) => a.percentage - b.percentage)[0]
+                    if (weakest) {
+                      trackEvent('navigation', 'quick_practice_weak_areas', { category: weakest.category })
+                      router.push(`/practice/${weakest.category}`)
+                    } else {
+                      trackEvent('navigation', 'quick_practice_weak_areas_fallback')
+                      router.push('/practice/mixed')
+                    }
+                  }}
+                  className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow border-2 border-transparent hover:border-red-300 transition-all text-left hover:shadow-lg"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white">
+                    <Target className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">Weak Areas</h3>
+                  <p className="text-sm text-gray-500">
+                    {categoryStats.filter(c => c.totalQuestions >= 3).sort((a, b) => a.percentage - b.percentage)[0]
+                      ? `Focus on ${CATEGORIES.find(c => c.slug === categoryStats.filter(c => c.totalQuestions >= 3).sort((a, b) => a.percentage - b.percentage)[0]?.category)?.label || 'your weakest topic'}`
+                      : 'Practice first to unlock'}
+                  </p>
+                </button>
+
+                <button
+                  onClick={() => { trackEvent('navigation', 'quick_practice_full_test'); router.push('/practice-tests') }}
+                  className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow border-2 border-transparent hover:border-emerald-300 transition-all text-left hover:shadow-lg"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white">
+                    <Timer className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">Full Practice Test</h3>
+                  <p className="text-sm text-gray-500">98 questions — timed SAT simulation</p>
+                </button>
+              </div>
+            </div>
+
             {/* Reading & Writing */}
             <div className="mb-10">
               <div className="flex items-center gap-3 mb-4">
