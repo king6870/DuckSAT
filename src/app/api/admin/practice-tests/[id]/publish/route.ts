@@ -127,13 +127,13 @@ export async function PUT(
     const issues: string[] = [
       ...missingModuleIndexes.map(index => `Missing module index ${index}`),
       ...emptyModuleIndexes.map(index => `Module ${index} has 0 questions`),
-      ...[...unexpectedModuleIndexes].map(index => `Unexpected module index ${index}`),
+      ...Array.from(unexpectedModuleIndexes).map(index => `Unexpected module index ${index}`),
       ...moduleTypeIssues,
     ]
 
     if (issues.length > 0) {
       const moduleCountsObject = Object.fromEntries(
-        [...moduleCounts.entries()].sort((a, b) => a[0] - b[0]).map(([index, count]) => [String(index), count])
+        Array.from(moduleCounts.entries()).sort((a, b) => a[0] - b[0]).map(([index, count]) => [String(index), count])
       )
 
       console.warn('[admin/practice-tests] Publish blocked by validation guard', {
@@ -196,12 +196,7 @@ export async function PUT(
       reservedQuestionCount: result.reservedCount,
       validation: {
         passed: true,
-        moduleCounts: {
-          '0': moduleCounts.get(0) || 0,
-          '1': moduleCounts.get(1) || 0,
-          '2': moduleCounts.get(2) || 0,
-          '3': moduleCounts.get(3) || 0,
-        },
+        moduleCounts: Object.fromEntries(Array.from(moduleCounts.entries()).sort((a, b) => a[0] - b[0]).map(([index, count]) => [String(index), count])),
       },
     });
 

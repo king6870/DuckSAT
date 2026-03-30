@@ -1,4 +1,4 @@
-'use client'
+  'use client'
 
 import { BookOpen, BarChart3, RefreshCcw } from 'lucide-react'
 import ScrollReveal from './ScrollReveal'

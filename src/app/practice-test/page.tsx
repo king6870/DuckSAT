@@ -79,7 +79,7 @@ function PracticeTestContent() {
     .filter(index => index !== -1);
 
   // Error state for submission
-  const [, setSubmitError] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   // Keyboard navigation event handler
   useEffect(() => {
@@ -248,7 +248,7 @@ function PracticeTestContent() {
   }
 
   // Module start screen (before starting each module)
-  if (currentModule && hasStarted && !moduleStarted && !isTransitioning) {
+  if (currentModule && hasStarted && !moduleStarted && !isTransitioning && !isComplete) {
     return (
       <ModuleStart
         module={currentModule}

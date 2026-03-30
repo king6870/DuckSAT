@@ -85,7 +85,9 @@ export async function POST(request: NextRequest) {
         data: {
           testResultId: testResult.id,
           questionId: result.questionId,
-          userAnswer: result.selectedAnswer,
+          userAnswer: typeof result.selectedAnswer === 'number' && Number.isInteger(result.selectedAnswer)
+            ? result.selectedAnswer
+            : -1, // Use -1 for unanswered
           isCorrect: result.isCorrect,
           timeSpent: result.timeSpent || 0
         }
@@ -125,8 +127,10 @@ export async function POST(request: NextRequest) {
 
   } catch (error: unknown) {
     console.error('Test Results API Error:', error)
+    // Return error details for debugging (remove in production)
     return NextResponse.json({ 
-      error: 'Failed to save test results' 
+      error: 'Failed to save test results',
+      details: error instanceof Error ? error.message : String(error)
     }, { status: 500 })
   }
 }

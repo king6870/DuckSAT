@@ -420,7 +420,11 @@ export function useTestState(userId: string, practiceTestId?: string) {
       return
     }
 
+    // Last module completed: mark test as complete and prevent module start screen
     setModuleStarted(false)
+    setIsTransitioning(true)
+    setIsComplete(true)
+    setCurrentModuleQuestions([])
     completeTest(newModuleResults)
   }, [currentModule, moduleStartTime, currentModuleQuestions, selectedAnswers, moduleResults, currentModuleIndex, fetchQuestions, recordQuestionTime, questionTimeSpent])
 

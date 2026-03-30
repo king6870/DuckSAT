@@ -56,7 +56,12 @@ export async function POST(request: NextRequest) {
       today.setHours(0, 0, 0, 0)
 
       await prisma.userDailyActivity.upsert({
-        where: { userId_date: { userId, date: today } },
+        where: {
+          userId_date: {
+            userId,
+            date: today
+          }
+        },
         update: {
           pagesVisited: { increment: 1 },
           totalTimeMs: { increment: cappedDwell },
