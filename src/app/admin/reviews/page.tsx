@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { useSession } from 'next-auth/react'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { Star, User, Calendar, BookOpen, AlertCircle, Clock } from 'lucide-react'
 
