@@ -2,6 +2,7 @@
 
 import { useSession } from "next-auth/react"
 import { useRouter, useParams } from "next/navigation"
+import Image from 'next/image'
 import { useEffect, useState, useCallback, useRef } from "react"
 import { ArrowLeft, ArrowRight, CheckCircle2, XCircle, RotateCcw, Home, Trophy } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -493,17 +494,23 @@ export default function DrillPage() {
                     }}
                   />
                 ) : (
-                  <img
+                  <Image
                     src={`data:${q.imageMimeType};base64,${q.imageData}`}
                     alt={q.imageAlt || "Question diagram"}
-                    className="max-w-md rounded-lg"
+                    width={640}
+                    height={360}
+                    unoptimized
+                    className="h-auto max-w-md rounded-lg"
                   />
                 )
               ) : q.imageUrl ? (
-                <img
+                <Image
                   src={q.imageUrl}
                   alt={q.imageAlt || "Question diagram"}
-                  className="max-w-md rounded-lg"
+                  width={640}
+                  height={360}
+                  unoptimized
+                  className="h-auto max-w-md rounded-lg"
                 />
               ) : null}
             </div>

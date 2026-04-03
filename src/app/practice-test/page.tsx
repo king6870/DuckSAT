@@ -78,9 +78,6 @@ function PracticeTestContent() {
     .map((answer, index) => answer !== -1 ? index : -1)
     .filter(index => index !== -1);
 
-  // Error state for submission
-  const [submitError, setSubmitError] = useState<string | null>(null);
-
   // Keyboard navigation event handler
   useEffect(() => {
     // Only enable keyboard navigation when actively taking a test (not on launcher, break, or results screens)
@@ -510,11 +507,6 @@ function PracticeTestContent() {
           >
             Back
           </button>
-        </div>
-      )}
-      {submitError && (
-        <div className="bg-red-100 border border-red-300 text-red-700 px-6 py-4 rounded-xl text-center max-w-md w-full mb-2" role="alert">
-          {submitError}
         </div>
       )}
     </div>
