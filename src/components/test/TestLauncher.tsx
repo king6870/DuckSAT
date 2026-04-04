@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { BookOpen, Target, Zap, Clock3 } from 'lucide-react'
 
 interface TestLauncherProps {
   onStartTest: () => void
@@ -8,69 +10,75 @@ interface TestLauncherProps {
 }
 
 export default function TestLauncher({ onStartTest, isLoading }: TestLauncherProps) {
+  const router = useRouter()
   const [clicked, setClicked] = useState(false)
   const busy = isLoading || clicked
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center p-4">
-      <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-12 max-w-2xl w-full border border-white/20 relative">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 flex items-center justify-center p-4">
+      <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-8 sm:p-10 max-w-3xl w-full border border-white/20">
         <div className="text-center mb-8">
-          <div className="text-6xl mb-4">🎓</div>
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-            SAT Practice Test
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">
+            Practice Center
           </h1>
           <p className="text-gray-600 text-lg">
-            Complete digital SAT practice test with real-time scoring
+            Choose a full SAT simulation or focused topic drills.
           </p>
         </div>
 
-        <div className="space-y-4 mb-8">
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border-2 border-blue-200">
-            <h3 className="font-bold text-blue-900 mb-2">📚 Reading & Writing</h3>
-            <p className="text-sm text-blue-700">2 modules • 27 questions each • 32 minutes per module</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+          <div className="rounded-2xl border border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <BookOpen className="w-5 h-5 text-blue-700" />
+              <h3 className="font-bold text-blue-900">Full Practice Test</h3>
+            </div>
+            <p className="text-sm text-blue-700 mb-4">4 timed modules, 98 questions, full SAT-style scoring.</p>
+            <button
+              onClick={() => {
+                if (busy) return
+                setClicked(true)
+                onStartTest()
+              }}
+              disabled={busy}
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {busy ? 'Loading Test...' : 'Start Full Test'}
+            </button>
           </div>
-          
-          <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-200">
-            <h3 className="font-bold text-purple-900 mb-2">🔢 Math</h3>
-            <p className="text-sm text-purple-700">2 modules • 22 questions each • 35 minutes per module</p>
+
+          <div className="rounded-2xl border border-purple-200 bg-gradient-to-r from-purple-50 to-pink-50 p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Target className="w-5 h-5 text-purple-700" />
+              <h3 className="font-bold text-purple-900">Topic Practice Drills</h3>
+            </div>
+            <p className="text-sm text-purple-700 mb-4">Pick a topic and drill length with instant explanations.</p>
+            <button
+              onClick={() => router.push('/practice')}
+              className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
+            >
+              Open Topic Drills
+            </button>
           </div>
         </div>
 
-        <div className="bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 mb-8">
+        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 mb-6">
           <div className="text-sm text-amber-900">
-            <p className="font-bold mb-2">⏱️ Before you begin:</p>
+            <p className="font-semibold mb-2 flex items-center gap-2">
+              <Clock3 className="w-4 h-4" /> Before you begin
+            </p>
             <ul className="space-y-1.5">
-              <li>• <strong>4 modules, 98 questions, ~2 hours 14 minutes</strong></li>
-              <li>• Each module is individually timed — you <strong>cannot pause</strong></li>
-              <li>• Navigate between questions freely & review before submitting</li>
-              <li>• 10-minute break between Reading & Math sections</li>
-              <li>• Leaving early will <strong>permanently delete all progress</strong></li>
+              <li>• Full test: 4 modules, about 2h 14m, SAT 400–1600 scoring</li>
+              <li>• Topic drills: 1, 3, 5, 10, 20, or 30 question focused sessions</li>
+              <li>• You can review answers and explanations immediately in drills</li>
             </ul>
           </div>
         </div>
 
-        <button
-          onClick={() => {
-            if (busy) return
-            setClicked(true)
-            onStartTest()
-          }}
-          disabled={busy}
-          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-6 rounded-2xl font-bold text-xl hover:shadow-2xl transition-all transform hover:scale-105 disabled:opacity-60 disabled:hover:scale-100 disabled:cursor-not-allowed"
-        >
-          {busy ? (
-            <span className="flex items-center justify-center gap-3">
-              <span className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full" />
-              Loading Test…
-            </span>
-          ) : (
-            'Start Practice Test →'
-          )}
-        </button>
-
-        <p className="text-center text-sm text-gray-500 mt-6">
-          Score reported on the SAT scale: 400–1600
-        </p>
+        <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
+          <span className="inline-flex items-center gap-1"><Zap className="w-4 h-4" /> Adaptive practice</span>
+          <span>•</span>
+          <span>Progress tracked automatically</span>
+        </div>
       </div>
     </div>
   )
