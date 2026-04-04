@@ -1,9 +1,9 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 
-export async function GET() {
+export async function GET(_request: NextRequest) {
   try {
     const session = await getServerSession(authOptions)
     
@@ -46,53 +46,26 @@ export async function GET() {
       })
     }
 
-    // Parse drill metadata stored in subtopicPerformance
-    const drillMetaById: Record<string, { isDrill: boolean; drillCategory?: string; drillLength?: number }> = {}
-    for (const result of testResults) {
-      let isDrill = false
-      let drillCategory: string | undefined
-      let drillLength: number | undefined
-
-      if (result.subtopicPerformance) {
-        try {
-          const parsed = JSON.parse(result.subtopicPerformance) as { mode?: string; drillCategory?: string; drillLength?: number }
-          if (parsed.mode === 'drill' || parsed.drillCategory) {
-            isDrill = true
-            drillCategory = parsed.drillCategory
-            drillLength = typeof parsed.drillLength === 'number' ? parsed.drillLength : undefined
-          }
-        } catch {
-          // Ignore malformed metadata
-        }
-      }
-
-      drillMetaById[result.id] = { isDrill, drillCategory, drillLength }
-    }
-
-    const drillResults = testResults.filter(r => drillMetaById[r.id]?.isDrill)
-    const fullTestResults = testResults.filter(r => !drillMetaById[r.id]?.isDrill)
-    const overviewSource = fullTestResults.length > 0 ? fullTestResults : testResults
-
     // === OVERVIEW METRICS ===
-    const testsCompleted = fullTestResults.length
-    const scores = overviewSource.map(r => r.score)
-    const satScores = fullTestResults.map(r => r.satTotalScore).filter(Boolean) as number[]
+    const testsCompleted = testResults.length
+    const scores = testResults.map(r => r.score)
+    const satScores = testResults.map(r => r.satTotalScore).filter(Boolean) as number[]
     
     const averageScore = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length)
     const bestScore = Math.max(...scores)
-    const totalStudyTime = Math.round(overviewSource.reduce((total, r) => total + (r.totalTimeSpent || 0), 0) / 60)
+    const totalStudyTime = Math.round(testResults.reduce((total, r) => total + (r.totalTimeSpent || 0), 0) / 60)
     
     const averageSATScore = satScores.length > 0 
       ? Math.round(satScores.reduce((a, b) => a + b, 0) / satScores.length) 
       : 0
     const bestSATScore = satScores.length > 0 ? Math.max(...satScores) : 0
-    const latestSATScore = fullTestResults[0]?.satTotalScore || 0
+    const latestSATScore = testResults[0]?.satTotalScore || 0
 
     // Calculate improvement rate (last 3 tests vs first 3 tests)
     let improvementRate = 0
-    if (overviewSource.length >= 6) {
-      const firstThree = overviewSource.slice(-3).map(r => r.score)
-      const lastThree = overviewSource.slice(0, 3).map(r => r.score)
+    if (testsCompleted >= 6) {
+      const firstThree = testResults.slice(-3).map(r => r.score)
+      const lastThree = testResults.slice(0, 3).map(r => r.score)
       const firstAvg = firstThree.reduce((a, b) => a + b, 0) / 3
       const lastAvg = lastThree.reduce((a, b) => a + b, 0) / 3
       
@@ -243,13 +216,13 @@ export async function GET() {
       .map(item => item.category)
 
     // === SCORE PROGRESSION ===
-    const scoreProgression = overviewSource
+    const scoreProgression = testResults
       .slice(0, 10)
       .reverse()
       .map((result, index) => {
         // Calculate the actual test number from the beginning
-        const displayCount = Math.min(10, overviewSource.length)
-        const actualTestNumber = overviewSource.length - displayCount + index + 1
+        const displayCount = Math.min(10, testsCompleted)
+        const actualTestNumber = testsCompleted - displayCount + index + 1
         return {
           testNumber: actualTestNumber,
           score: result.score,
@@ -260,14 +233,11 @@ export async function GET() {
 
     // === TEST HISTORY ===
     const testHistory = testResults.map(result => {
-      const drillMeta = drillMetaById[result.id]
       const rwCount = result.questionResults.filter(qr => qr.question.moduleType === 'reading-writing').length
       const mathCount = result.questionResults.filter(qr => qr.question.moduleType === 'math').length
       
       let moduleFocus = 'Mixed'
-      if (drillMeta?.isDrill) {
-        moduleFocus = `Drill${drillMeta.drillLength ? ` (${drillMeta.drillLength}Q)` : ''}`
-      } else if (rwCount > mathCount * 2) moduleFocus = 'Reading & Writing'
+      if (rwCount > mathCount * 2) moduleFocus = 'Reading & Writing'
       else if (mathCount > rwCount * 2) moduleFocus = 'Math'
 
       return {
@@ -280,23 +250,9 @@ export async function GET() {
         totalTimeSpent: result.totalTimeSpent,
         totalQuestions: result.totalQuestions,
         correctAnswers: result.correctAnswers,
-        moduleFocus,
-        isDrill: !!drillMeta?.isDrill,
-        drillCategory: drillMeta?.drillCategory || null,
-        drillLength: drillMeta?.drillLength || null,
+        moduleFocus
       }
     })
-
-    const drillTotal = drillResults.length
-    const drillAccuracy = drillTotal > 0
-      ? Math.round((drillResults.reduce((sum, r) => sum + r.correctAnswers, 0) / Math.max(drillResults.reduce((sum, r) => sum + r.totalQuestions, 0), 1)) * 100)
-      : 0
-    const drillQuestions = drillResults.reduce((sum, r) => sum + r.totalQuestions, 0)
-    const drillTimeMinutes = Math.round(drillResults.reduce((sum, r) => sum + (r.totalTimeSpent || 0), 0) / 60)
-    const drillByLength = [1, 3, 5, 10, 20, 30].map((len) => ({
-      length: len,
-      count: drillResults.filter(r => drillMetaById[r.id]?.drillLength === len).length,
-    }))
 
     return NextResponse.json({
       success: true,
@@ -316,13 +272,6 @@ export async function GET() {
         difficultyPerformance,
         strongAreas,
         weakAreas,
-        drillOverview: {
-          drillsCompleted: drillTotal,
-          averageAccuracy: drillAccuracy,
-          questionsAnswered: drillQuestions,
-          totalTimeMinutes: drillTimeMinutes,
-          byLength: drillByLength,
-        },
         scoreProgression,
         testHistory
       }
