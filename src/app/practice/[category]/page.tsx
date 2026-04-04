@@ -1,7 +1,7 @@
 "use client"
 
 import { useSession } from "next-auth/react"
-import { useRouter, useParams, useSearchParams } from "next/navigation"
+import { useRouter, useParams } from "next/navigation"
 import { useEffect, useState, useCallback, useRef } from "react"
 import { ArrowLeft, ArrowRight, CheckCircle2, XCircle, RotateCcw, Home, Trophy } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -53,24 +53,13 @@ const CATEGORY_MODULE: Record<string, string> = {
   "statistics": "math",
 }
 
-const DEFAULT_DRILL_COUNT = 10
-const ALLOWED_DRILL_COUNTS = [1, 3, 5, 10, 20, 30] as const
-
-function sanitizeDrillCount(raw: string | null): number {
-  const parsed = Number(raw)
-  if (!Number.isFinite(parsed)) return DEFAULT_DRILL_COUNT
-  return ALLOWED_DRILL_COUNTS.includes(parsed as (typeof ALLOWED_DRILL_COUNTS)[number])
-    ? parsed
-    : DEFAULT_DRILL_COUNT
-}
+const DRILL_COUNT = 10
 
 export default function DrillPage() {
   const { status } = useSession()
   const router = useRouter()
   const params = useParams()
-  const searchParams = useSearchParams()
   const categorySlug = params.category as string
-  const initialDrillCount = sanitizeDrillCount(searchParams.get('count'))
 
   const [questions, setQuestions] = useState<Question[]>([])
   const [loading, setLoading] = useState(true)
@@ -82,7 +71,6 @@ export default function DrillPage() {
   const [isComplete, setIsComplete] = useState(false)
   const [difficulty, setDifficulty] = useState<string>("") // empty = mixed
   const [drillStarted, setDrillStarted] = useState(false)
-  const [drillCount, setDrillCount] = useState<number>(initialDrillCount)
 
   // Analytics timing
   const drillStartTime = useRef<string>('')
@@ -93,11 +81,11 @@ export default function DrillPage() {
   const moduleType = categorySlug === 'mixed' ? '' : (CATEGORY_MODULE[categorySlug] || "math")
   const isMixed = categorySlug === 'mixed'
 
-  const fetchQuestions = useCallback(async (diff: string, count: number) => {
+  const fetchQuestions = useCallback(async (diff: string) => {
     setLoading(true)
     setError(null)
     const params = new URLSearchParams({
-      count: String(count),
+      count: String(DRILL_COUNT),
       includeExplanations: "true",
     })
     if (!isMixed) {
@@ -118,7 +106,7 @@ export default function DrillPage() {
         // Shuffle the questions for variety
         const shuffled = [...questionsData].sort(() => Math.random() - 0.5)
         // Shuffle answer options per question so correct answer isn't always A
-        const withShuffledOptions = shuffled.slice(0, count).map((q: Question) => {
+        const withShuffledOptions = shuffled.slice(0, DRILL_COUNT).map((q: Question) => {
           const indices = q.options.map((_: string, i: number) => i)
           for (let i = indices.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -160,8 +148,8 @@ export default function DrillPage() {
     drillStartTime.current = new Date().toISOString()
     questionStartTime.current = Date.now()
     questionTimes.current = []
-    trackEvent('drill', 'drill_started', { category: categorySlug, difficulty: diff || 'mixed', drillLength: drillCount })
-    fetchQuestions(diff, drillCount)
+    trackEvent('drill', 'drill_started', { category: categorySlug, difficulty: diff || 'mixed' })
+    fetchQuestions(diff)
   }
 
   const handleSelectAnswer = (index: number) => {
@@ -214,7 +202,6 @@ export default function DrillPage() {
           category: categorySlug,
           moduleType,
           difficulty: difficulty || "mixed",
-          drillLength: drillCount,
           results: finalResults,
         }),
       })
@@ -253,7 +240,6 @@ export default function DrillPage() {
     trackEvent('drill', 'drill_completed', {
       category: categorySlug,
       difficulty: difficulty || 'mixed',
-      drillLength: drillCount,
       score: Math.round((finalResults.filter(r => r.isCorrect).length / finalResults.length) * 100),
       totalQuestions: finalResults.length,
     })
@@ -289,27 +275,7 @@ export default function DrillPage() {
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-indigo-100 p-8 text-center">
             <h1 className="text-3xl font-extrabold text-gray-900 mb-2">{categoryLabel}</h1>
-            <p className="text-gray-600 mb-4">Choose drill length and difficulty</p>
-
-            <div className="mb-6">
-              <p className="mb-2 text-sm font-semibold text-gray-700">Drill Length</p>
-              <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
-                {ALLOWED_DRILL_COUNTS.map((count) => (
-                  <button
-                    key={count}
-                    onClick={() => setDrillCount(count)}
-                    className={`rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
-                      drillCount === count
-                        ? 'bg-indigo-600 text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
-                    aria-pressed={drillCount === count}
-                  >
-                    {count}
-                  </button>
-                ))}
-              </div>
-            </div>
+            <p className="text-gray-600 mb-8">Choose a difficulty level for your {DRILL_COUNT}-question drill</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <button

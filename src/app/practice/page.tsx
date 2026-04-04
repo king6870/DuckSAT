@@ -44,9 +44,6 @@ export default function PracticePage() {
   const [categoryStats, setCategoryStats] = useState<CategoryPerformance[]>([])
   const [questionCounts, setQuestionCounts] = useState<Record<string, number>>({})
   const [loading, setLoading] = useState(true)
-  const [drillCount, setDrillCount] = useState<number>(10)
-
-  const DRILL_LENGTHS = [1, 3, 5, 10, 20, 30] as const
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -123,28 +120,8 @@ export default function PracticePage() {
             </span>
           </h1>
           <p className="text-lg text-gray-600">
-            Choose a topic and drill length with instant feedback on every question
+            Choose a topic to drill — 10 focused questions with instant feedback
           </p>
-        </div>
-
-        <div className="max-w-2xl mx-auto mb-8 rounded-2xl border border-indigo-100 bg-white/80 p-5 shadow-sm">
-          <div className="mb-3 text-sm font-semibold text-gray-700">Drill Length</div>
-          <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
-            {DRILL_LENGTHS.map((count) => (
-              <button
-                key={count}
-                onClick={() => setDrillCount(count)}
-                className={`rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
-                  drillCount === count
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-                aria-pressed={drillCount === count}
-              >
-                {count}
-              </button>
-            ))}
-          </div>
         </div>
       </div>
 
@@ -165,17 +142,14 @@ export default function PracticePage() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <button
-                  onClick={() => {
-                    trackEvent('navigation', 'quick_practice_mixed', { drillLength: drillCount })
-                    router.push(`/practice/mixed?count=${drillCount}`)
-                  }}
+                  onClick={() => { trackEvent('navigation', 'quick_practice_mixed'); router.push('/practice/mixed') }}
                   className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow border-2 border-transparent hover:border-amber-300 transition-all text-left hover:shadow-lg"
                 >
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white">
                     <Shuffle className="w-7 h-7" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-1">Mixed Quiz</h3>
-                  <p className="text-sm text-gray-500">{drillCount} random questions from all topics</p>
+                  <p className="text-sm text-gray-500">10 random questions from all topics</p>
                 </button>
 
                 <button
@@ -184,11 +158,11 @@ export default function PracticePage() {
                       .filter(c => c.totalQuestions >= 3)
                       .sort((a, b) => a.percentage - b.percentage)[0]
                     if (weakest) {
-                      trackEvent('navigation', 'quick_practice_weak_areas', { category: weakest.category, drillLength: drillCount })
-                      router.push(`/practice/${weakest.category}?count=${drillCount}`)
+                      trackEvent('navigation', 'quick_practice_weak_areas', { category: weakest.category })
+                      router.push(`/practice/${weakest.category}`)
                     } else {
                       trackEvent('navigation', 'quick_practice_weak_areas_fallback')
-                      router.push(`/practice/mixed?count=${drillCount}`)
+                      router.push('/practice/mixed')
                     }
                   }}
                   className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow border-2 border-transparent hover:border-red-300 transition-all text-left hover:shadow-lg"
@@ -232,7 +206,7 @@ export default function PracticePage() {
                   return (
                     <button
                       key={cat.slug}
-                      onClick={() => router.push(`/practice/${cat.slug}?count=${drillCount}`)}
+                      onClick={() => router.push(`/practice/${cat.slug}`)}
                       className={`group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow border-2 border-transparent ${cat.borderColor} transition-all text-left hover:shadow-lg`}
                     >
                       <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${cat.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white`}>
@@ -274,7 +248,7 @@ export default function PracticePage() {
                   return (
                     <button
                       key={cat.slug}
-                      onClick={() => router.push(`/practice/${cat.slug}?count=${drillCount}`)}
+                      onClick={() => router.push(`/practice/${cat.slug}`)}
                       className={`group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow border-2 border-transparent ${cat.borderColor} transition-all text-left hover:shadow-lg`}
                     >
                       <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${cat.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white`}>

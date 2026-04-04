@@ -20,14 +20,11 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json()
-    const { category, moduleType, difficulty, drillLength, results } = body
+    const { category, moduleType, difficulty, results } = body
 
-    if (!category || !Array.isArray(results) || results.length === 0) {
+    if (!category || !moduleType || !Array.isArray(results) || results.length === 0) {
       return NextResponse.json({ error: 'Invalid request body' }, { status: 400 })
     }
-
-    const normalizedModuleType = moduleType || 'mixed'
-    const normalizedDrillLength = Number(drillLength) || results.length
 
     const correctCount = results.filter((r: { isCorrect: boolean }) => r.isCorrect).length
     const totalQuestions = results.length
@@ -56,13 +53,7 @@ export async function POST(request: NextRequest) {
         startTime: now,
         endTime: now,
         categoryPerformance: JSON.stringify(categoryPerformance),
-        subtopicPerformance: JSON.stringify({
-          mode: 'drill',
-          drillCategory: category,
-          moduleType: normalizedModuleType,
-          difficulty,
-          drillLength: normalizedDrillLength,
-        }),
+        subtopicPerformance: JSON.stringify({ drillCategory: category, difficulty }),
         questionResults: {
           create: results.map((r: { questionId: string; selected: number; isCorrect: boolean }) => ({
             questionId: r.questionId,

@@ -50,13 +50,6 @@ interface ProgressData {
   }
   strongAreas: string[]
   weakAreas: string[]
-  drillOverview: {
-    drillsCompleted: number
-    averageAccuracy: number
-    questionsAnswered: number
-    totalTimeMinutes: number
-    byLength: Array<{ length: number; count: number }>
-  }
   scoreProgression: Array<{
     testNumber: number
     score: number
@@ -74,9 +67,6 @@ interface ProgressData {
     totalQuestions: number
     correctAnswers: number
     moduleFocus: string
-    isDrill?: boolean
-    drillCategory?: string | null
-    drillLength?: number | null
   }>
 }
 
@@ -364,7 +354,7 @@ export default function Progress() {
     return <EmptyState onStart={() => router.push('/practice-test')} />
   }
 
-  const { overview, modulePerformance, categoryPerformance, difficultyPerformance, strongAreas, weakAreas, drillOverview, scoreProgression, testHistory } = progressData
+  const { overview, modulePerformance, categoryPerformance, difficultyPerformance, strongAreas, weakAreas, scoreProgression, testHistory } = progressData
   const satPct = Math.round(((overview.latestSATScore - 400) / 1200) * 100)
   const rwPct = modulePerformance.readingWriting.averageScore
   const mathPct = modulePerformance.math.averageScore
@@ -428,45 +418,6 @@ export default function Progress() {
             </AnimatedCard>
           ))}
         </div>
-
-        {/* ═══ Drill Progress ═══ */}
-        <AnimatedCard delay={360} className="mb-10">
-          <div className="bg-white rounded-2xl shadow-md p-6 sm:p-8">
-            <div className="flex items-center gap-2 mb-5">
-              <Target className="w-6 h-6 text-indigo-600" />
-              <h2 className="text-xl font-bold text-gray-900">Practice Drill Progress</h2>
-            </div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <div className="rounded-xl bg-indigo-50 p-4">
-                <div className="text-xs text-indigo-700">Drills Completed</div>
-                <div className="text-2xl font-extrabold text-indigo-700">{drillOverview.drillsCompleted}</div>
-              </div>
-              <div className="rounded-xl bg-emerald-50 p-4">
-                <div className="text-xs text-emerald-700">Avg Drill Accuracy</div>
-                <div className="text-2xl font-extrabold text-emerald-700">{drillOverview.averageAccuracy}%</div>
-              </div>
-              <div className="rounded-xl bg-blue-50 p-4">
-                <div className="text-xs text-blue-700">Drill Questions</div>
-                <div className="text-2xl font-extrabold text-blue-700">{drillOverview.questionsAnswered}</div>
-              </div>
-              <div className="rounded-xl bg-amber-50 p-4">
-                <div className="text-xs text-amber-700">Drill Time</div>
-                <div className="text-2xl font-extrabold text-amber-700">{formatTime(drillOverview.totalTimeMinutes, 'minutes')}</div>
-              </div>
-            </div>
-            <div>
-              <div className="mb-2 text-sm font-semibold text-gray-700">Drills By Length</div>
-              <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
-                {drillOverview.byLength.map((item) => (
-                  <div key={item.length} className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-center">
-                    <div className="text-xs text-gray-500">{item.length}Q</div>
-                    <div className="text-sm font-bold text-gray-800">{item.count}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </AnimatedCard>
 
         {/* ═══ Module Comparison ═══ */}
         <AnimatedCard delay={400} className="mb-10">
@@ -711,9 +662,7 @@ export default function Progress() {
                         </td>
                         <td className="py-3 px-3">
                           <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${
-                            test.isDrill
-                              ? 'bg-indigo-100 text-indigo-700'
-                              : test.moduleFocus?.toLowerCase().includes('math')
+                            test.moduleFocus?.toLowerCase().includes('math')
                               ? 'bg-purple-100 text-purple-700'
                               : test.moduleFocus?.toLowerCase().includes('read')
                                 ? 'bg-blue-100 text-blue-700'
