@@ -79,6 +79,7 @@ export default function RootLayout({
                 </Link>
                 <div className="hidden sm:flex items-center gap-4 text-sm font-medium">
                   <Link href="/about" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">About</Link>
+                  <Link href="/practice" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Practice</Link>
                   <Link href="/how-it-works" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">How It Works</Link>
                   <Link href="/our-goal" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Our Goal</Link>
                   <Link href="/pricing" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Pricing</Link>
