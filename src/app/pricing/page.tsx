@@ -37,6 +37,10 @@ function PricingContent() {
   const [subscription, setSubscription] = useState<SubscriptionData | null>(null)
   const [loading, setLoading] = useState(false)
   const [checkoutLoading, setCheckoutLoading] = useState<string | null>(null)
+  const [promoOpen, setPromoOpen] = useState(false)
+  const [promoCode, setPromoCode] = useState('')
+  const [promoLoading, setPromoLoading] = useState(false)
+  const [promoResult, setPromoResult] = useState<{ ok: boolean; message: string } | null>(null)
 
   const success = searchParams.get('success')
   const canceled = searchParams.get('canceled')
@@ -90,6 +94,35 @@ function PricingContent() {
       // Handle error silently
     } finally {
       setLoading(false)
+    }
+  }
+
+  async function handlePromoRedeem() {
+    if (!session) {
+      window.location.href = `/auth/signin?callbackUrl=/pricing`
+      return
+    }
+    setPromoLoading(true)
+    setPromoResult(null)
+    try {
+      const res = await fetch('/api/promo/redeem', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: promoCode }),
+      })
+      const data = await res.json()
+      if (!res.ok) {
+        setPromoResult({ ok: false, message: data.error ?? 'Something went wrong.' })
+      } else {
+        setPromoResult({ ok: true, message: data.message })
+        // Refresh subscription state so UI reflects new plan
+        const sub = await fetch('/api/subscription').then(r => r.json())
+        if (!sub.error) setSubscription(sub)
+      }
+    } catch {
+      setPromoResult({ ok: false, message: 'Network error. Please try again.' })
+    } finally {
+      setPromoLoading(false)
     }
   }
 
@@ -333,6 +366,48 @@ function PricingContent() {
             </button>
           </div>
         )}
+
+        {/* Promo Code */}
+        <div className="mt-10 max-w-md mx-auto text-center">
+          {!promoOpen ? (
+            <button
+              onClick={() => setPromoOpen(true)}
+              className="text-sm text-gray-500 hover:text-indigo-600 underline underline-offset-4 transition-colors"
+            >
+              Have a promo code?
+            </button>
+          ) : (
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+              <p className="text-sm font-semibold text-gray-700 mb-3">Enter your promo code</p>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={promoCode}
+                  onChange={e => setPromoCode(e.target.value)}
+                  onKeyDown={e => e.key === 'Enter' && handlePromoRedeem()}
+                  placeholder="e.g. DUCK19"
+                  className="flex-1 border border-gray-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 uppercase"
+                  maxLength={20}
+                  disabled={promoLoading || promoResult?.ok === true}
+                />
+                <button
+                  onClick={handlePromoRedeem}
+                  disabled={promoLoading || !promoCode.trim() || promoResult?.ok === true}
+                  className="px-4 py-2 rounded-xl text-sm font-semibold bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                >
+                  {promoLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Apply'}
+                </button>
+              </div>
+              {promoResult && (
+                <p className={`mt-3 text-sm font-medium ${
+                  promoResult.ok ? 'text-green-600' : 'text-red-500'
+                }`}>
+                  {promoResult.ok ? '✓' : '✗'} {promoResult.message}
+                </p>
+              )}
+            </div>
+          )}
+        </div>
 
         {/* FAQ Section */}
         <div className="mt-20 max-w-3xl mx-auto">
