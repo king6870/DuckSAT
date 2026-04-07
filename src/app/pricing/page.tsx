@@ -234,7 +234,8 @@ function PricingContent() {
             </div>
 
             <ul className="space-y-4 mb-8 flex-grow">
-              <PricingFeature highlight>10+ free practice tests</PricingFeature>
+              <PricingFeature highlight>10 practice tests per month</PricingFeature>
+              <PricingFeature highlight>Access to all 50 practice tests</PricingFeature>
               <PricingFeature highlight>Unlimited topic drills</PricingFeature>
               <PricingFeature>AI-powered explanations</PricingFeature>
               <PricingFeature>Detailed analytics</PricingFeature>
@@ -293,7 +294,8 @@ function PricingContent() {
             </div>
 
             <ul className="space-y-4 mb-8 flex-grow">
-              <PricingFeature highlight>10+ free practice tests</PricingFeature>
+              <PricingFeature highlight>15 practice tests per month</PricingFeature>
+              <PricingFeature highlight>Access to all 50 practice tests</PricingFeature>
               <PricingFeature highlight>Unlimited topic drills</PricingFeature>
               <PricingFeature>AI-powered explanations</PricingFeature>
               <PricingFeature>Detailed analytics</PricingFeature>
@@ -385,7 +387,7 @@ function PricingContent() {
                   value={promoCode}
                   onChange={e => setPromoCode(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && handlePromoRedeem()}
-                  placeholder="e.g. DUCK19"
+                  placeholder="e.g. SATBOOST2026"
                   className="flex-1 border border-gray-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 uppercase"
                   maxLength={20}
                   disabled={promoLoading || promoResult?.ok === true}

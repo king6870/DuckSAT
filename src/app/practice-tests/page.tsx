@@ -42,6 +42,7 @@ export default function PracticeTestsPage() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [subscription, setSubscription] = useState<SubscriptionData | null>(null)
+  const [tierFilter, setTierFilter] = useState<'all' | 'foundation' | 'standard' | 'advanced'>('all')
 
   useEffect(() => {
     async function fetchTests() {
@@ -87,15 +88,53 @@ export default function PracticeTestsPage() {
   const isFree = plan === 'free'
   const testsRemaining = Math.max(0, testsLimit - testsUsed)
 
-  function isTestLocked(index: number) {
-    if (!isFree) return false
-    // Free plan: only the first test is unlocked
-    return index > 0
+  // Aggregate stats
+  const attemptedTests = tests.filter(t => (t.userAttempts ?? 0) > 0)
+  const bestOverallSat = attemptedTests.reduce((best, t) => Math.max(best, t.bestSatScore ?? 0), 0)
+
+  // Filter logic
+  const visibleTests = tierFilter === 'all'
+    ? tests
+    : tests.filter(t => t.difficulty === tierFilter)
+
+  // Tier styling
+  function tierBadgeClass(difficulty: string) {
+    if (difficulty === 'foundation') return 'bg-blue-100 text-blue-800'
+    if (difficulty === 'advanced')   return 'bg-amber-100 text-amber-800'
+    return 'bg-indigo-100 text-indigo-800' // standard
+  }
+  function tierLabel(difficulty: string) {
+    if (difficulty === 'foundation') return 'Foundation'
+    if (difficulty === 'advanced')   return 'Advanced'
+    return 'Standard'
+  }
+  function cardHeaderClass(locked: boolean, difficulty: string) {
+    if (locked) return 'bg-gradient-to-r from-gray-500 to-gray-600'
+    if (difficulty === 'foundation') return 'bg-gradient-to-r from-blue-500 to-indigo-500'
+    if (difficulty === 'advanced')   return 'bg-gradient-to-r from-amber-500 to-orange-500'
+    return 'bg-gradient-to-r from-indigo-600 to-purple-600' // standard
   }
 
-  function isTestUsageLocked() {
-    // If they've used their monthly limit
+  function isTestPlanLocked(test: PracticeTest): boolean {
+    if (!isFree) return false
+    // Free plan: only SAT Practice Test 1 is accessible (by plan)
+    return test.name !== 'SAT Practice Test 1'
+  }
+
+  function isTestUsageLocked(): boolean {
+    // If they've used their monthly limit (paid plans only — free is handled by plan lock above)
+    if (isFree) return false
     return testsRemaining <= 0
+  }
+
+  function usageResetLabel(): string {
+    const now = new Date()
+    const nextMonth = new Date(Date.UTC(
+      now.getUTCMonth() === 11 ? now.getUTCFullYear() + 1 : now.getUTCFullYear(),
+      now.getUTCMonth() === 11 ? 0 : now.getUTCMonth() + 1,
+      1,
+    ))
+    return nextMonth.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })
   }
 
   function handleStartTest(testId: string) {
@@ -145,33 +184,58 @@ export default function PracticeTestsPage() {
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Take full-length, official-style SAT practice tests. Track your progress and see improvement over time.
           </p>
+          {/* Overall progress strip */}
+          {session && attemptedTests.length > 0 && (
+            <div className="mt-4 inline-flex items-center gap-4 bg-white rounded-full px-5 py-2 shadow-sm border border-gray-200 text-sm">
+              <span className="text-gray-600">
+                <span className="font-semibold text-gray-900">{attemptedTests.length}</span> of {tests.length} tests attempted
+              </span>
+              {bestOverallSat > 0 && (
+                <span className="text-gray-600">
+                  Best SAT: <span className="font-semibold text-indigo-600">{bestOverallSat}</span>
+                </span>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Subscription Usage Banner */}
         {session && subscription && (
-          <div className={`mb-8 rounded-xl p-4 flex items-center justify-between ${
+          <div className={`mb-8 rounded-xl p-4 flex items-center justify-between gap-4 ${
             isFree 
               ? 'bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200'
-              : 'bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200'
+              : testsRemaining === 0
+                ? 'bg-gradient-to-r from-red-50 to-orange-50 border border-red-200'
+                : 'bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200'
           }`}>
             <div className="flex items-center gap-3">
               {isFree ? (
-                <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center shrink-0">
                   <Lock className="w-5 h-5 text-amber-600" />
                 </div>
               ) : (
-                <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center shrink-0">
                   <Crown className="w-5 h-5 text-indigo-600" />
                 </div>
               )}
               <div>
                 <p className="font-semibold text-gray-900">
-                  {isFree ? 'Free Plan' : `${plan.charAt(0).toUpperCase() + plan.slice(1)} Plan`}
+                  {isFree
+                    ? 'Free Plan — 1 test/month'
+                    : plan === 'monthly'
+                      ? 'Monthly Plan — 10 tests/month'
+                      : plan === 'yearly'
+                        ? 'Yearly Plan — 15 tests/month'
+                        : `${plan.charAt(0).toUpperCase() + plan.slice(1)} Plan`}
                 </p>
                 <p className="text-sm text-gray-600">
-                  {testsRemaining === Infinity 
-                    ? `${testsUsed} tests used this month`
-                    : `${testsUsed} of ${testsLimit} tests used this month · ${testsRemaining} remaining`
+                  {isFree
+                    ? 'SAT Practice Test 1 is free · Upgrade to unlock all 50 tests'
+                    : testsRemaining === Infinity || testsLimit === Infinity
+                      ? `${testsUsed} test${testsUsed !== 1 ? 's' : ''} started this month`
+                      : testsRemaining > 0
+                        ? `${testsUsed} of ${testsLimit} tests used this month · ${testsRemaining} remaining`
+                        : `${testsLimit}/${testsLimit} used · resets ${usageResetLabel()}`
                   }
                 </p>
               </div>
@@ -186,6 +250,26 @@ export default function PracticeTestsPage() {
             )}
           </div>
         )}
+
+        {/* Difficulty tier filter tabs */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          {(['all', 'foundation', 'standard', 'advanced'] as const).map(tier => (
+            <button
+              key={tier}
+              onClick={() => setTierFilter(tier)}
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
+                tierFilter === tier
+                  ? 'bg-indigo-600 text-white shadow-md'
+                  : 'bg-white text-gray-600 border border-gray-200 hover:border-indigo-300 hover:text-indigo-600'
+              }`}
+            >
+              {tier === 'all' ? `All (${tests.length})` :
+               tier === 'foundation' ? `Foundation (${tests.filter(t => t.difficulty === 'foundation').length})` :
+               tier === 'standard'   ? `Standard (${tests.filter(t => t.difficulty === 'standard').length})` :
+               `Advanced (${tests.filter(t => t.difficulty === 'advanced').length})`}
+            </button>
+          ))}
+        </div>
 
         {/* Topic Drills Integration */}
         <div className="mb-8 rounded-2xl border border-purple-200 bg-gradient-to-r from-purple-50 to-pink-50 p-6">
@@ -222,8 +306,8 @@ export default function PracticeTestsPage() {
 
         {/* Tests Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tests.map((test, index) => {
-            const locked = isTestLocked(index)
+          {visibleTests.map((test) => {
+            const locked = isTestPlanLocked(test)
             const usageLocked = !locked && isTestUsageLocked()
 
             return (
@@ -258,15 +342,13 @@ export default function PracticeTestsPage() {
                 )}
 
                 {/* Header */}
-                <div className={`px-6 py-4 ${
-                  locked 
-                    ? 'bg-gradient-to-r from-gray-500 to-gray-600'
-                    : 'bg-gradient-to-r from-blue-600 to-indigo-600'
-                }`}>
+                <div className={`px-6 py-4 ${cardHeaderClass(locked, test.difficulty)}`}>
                   <h2 className="text-2xl font-bold text-white">{test.name}</h2>
                   <div className="flex items-center gap-2 mt-2">
-                    <span className="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-white text-sm font-medium">
-                      {test.difficulty}
+                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                      locked ? 'bg-white/20 text-white' : tierBadgeClass(test.difficulty)
+                    }`}>
+                      {tierLabel(test.difficulty)}
                     </span>
                     <span className="text-white/90 text-sm">
                       {test.questionCount} questions
@@ -321,13 +403,23 @@ export default function PracticeTestsPage() {
                   {!locked && (
                     <div className="flex flex-col gap-2">
                       {usageLocked ? (
-                        <Link
-                          href="/pricing"
-                          className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
-                        >
-                          <Lock className="w-5 h-5" />
-                          Monthly Limit Reached — Upgrade
-                        </Link>
+                        <div className="flex flex-col gap-2">
+                          <div className="rounded-lg bg-amber-50 border border-amber-200 px-4 py-3 text-center">
+                            <p className="text-sm font-semibold text-amber-800">
+                              Monthly limit reached ({testsUsed}/{testsLimit})
+                            </p>
+                            <p className="text-xs text-amber-600 mt-0.5">
+                              Resets {usageResetLabel()} · or upgrade for more
+                            </p>
+                          </div>
+                          <Link
+                            href="/pricing"
+                            className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm"
+                          >
+                            <Crown className="w-4 h-4" />
+                            Upgrade for More Tests
+                          </Link>
+                        </div>
                       ) : (
                         <button
                           onClick={() => handleStartTest(test.id)}
@@ -354,9 +446,13 @@ export default function PracticeTestsPage() {
           })}
         </div>
 
-        {tests.length === 0 && !isLoading && (
+        {visibleTests.length === 0 && !isLoading && (
           <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">No practice tests available yet.</p>
+            <p className="text-gray-600 text-lg">
+              {tierFilter !== 'all'
+                ? `No ${tierFilter} tests available yet.`
+                : 'No practice tests available yet.'}
+            </p>
           </div>
         )}
 

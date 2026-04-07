@@ -293,6 +293,24 @@ export function useTestState(userId: string, practiceTestId?: string) {
       setCurrentModuleIndex(0)
       setCurrentQuestionIndex(0)
 
+      // Server-side gate: enforce plan/usage limits before loading any questions
+      if (practiceTestId) {
+        const startRes = await fetch(`/api/practice-tests/${practiceTestId}/start`, {
+          method: 'POST',
+        })
+        if (startRes.status === 403) {
+          const body = await startRes.json()
+          throw new Error(body.message || 'Upgrade your plan to access this practice test.')
+        }
+        if (startRes.status === 429) {
+          const body = await startRes.json()
+          throw new Error(body.message || 'Monthly practice test limit reached. Wait for your limit to reset or upgrade your plan.')
+        }
+        if (!startRes.ok) {
+          throw new Error('Failed to start practice test. Please try again.')
+        }
+      }
+
       const loadedQuestions = await fetchQuestions('reading-writing', 27)
       if (!loadedQuestions || loadedQuestions.length === 0) {
         throw new Error('No questions available for this practice test.')

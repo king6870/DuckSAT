@@ -32,7 +32,7 @@ export async function GET(_request: NextRequest) {
         },
       },
       orderBy: {
-        name: 'asc', // Sort Practice Test 1, 2, 3...
+        createdAt: 'asc', // insertion order matches test number
       },
     });
 

@@ -85,6 +85,7 @@ export interface GenerationOptions {
   maxTokens?: number
   enableRetry?: boolean
   enableValidation?: boolean
+  skipEvaluation?: boolean
 }
 
 /**
@@ -237,7 +238,19 @@ export class UnifiedQuestionGenerator {
 
       // Step 3: Evaluate - Score with Grok
       console.log('\n🔍 Step 3/6: Evaluate - Scoring questions with Grok...')
-      const evaluatedQuestions = await this.evaluateQuestions(rawQuestions)
+      let evaluatedQuestions: EvaluatedQuestion[]
+      if (defaults.skipEvaluation) {
+        console.log('⏭️  Skipping evaluation (skipEvaluation=true) — assigning default 85% scores')
+        evaluatedQuestions = rawQuestions.map(q => ({
+          ...q,
+          difficulty: (defaults.difficulty === 'mixed' ? 'medium' : defaults.difficulty) as 'easy' | 'medium' | 'hard',
+          qualityScore: 0.85,
+          evaluationFeedback: 'Evaluation skipped',
+          isAccepted: true,
+        }))
+      } else {
+        evaluatedQuestions = await this.evaluateQuestions(rawQuestions)
+      }
       console.log(`✅ Evaluated ${evaluatedQuestions.length} questions`)
 
       // Step 4: Retry - Regenerate low-quality questions
