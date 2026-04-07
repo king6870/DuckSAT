@@ -42,7 +42,7 @@ export default function PracticeTestsPage() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [subscription, setSubscription] = useState<SubscriptionData | null>(null)
-  const [tierFilter, setTierFilter] = useState<'all' | 'foundation' | 'standard' | 'advanced'>('all')
+
 
   useEffect(() => {
     async function fetchTests() {
@@ -92,27 +92,9 @@ export default function PracticeTestsPage() {
   const attemptedTests = tests.filter(t => (t.userAttempts ?? 0) > 0)
   const bestOverallSat = attemptedTests.reduce((best, t) => Math.max(best, t.bestSatScore ?? 0), 0)
 
-  // Filter logic
-  const visibleTests = tierFilter === 'all'
-    ? tests
-    : tests.filter(t => t.difficulty === tierFilter)
-
-  // Tier styling
-  function tierBadgeClass(difficulty: string) {
-    if (difficulty === 'foundation') return 'bg-blue-100 text-blue-800'
-    if (difficulty === 'advanced')   return 'bg-amber-100 text-amber-800'
-    return 'bg-indigo-100 text-indigo-800' // standard
-  }
-  function tierLabel(difficulty: string) {
-    if (difficulty === 'foundation') return 'Foundation'
-    if (difficulty === 'advanced')   return 'Advanced'
-    return 'Standard'
-  }
-  function cardHeaderClass(locked: boolean, difficulty: string) {
+  function cardHeaderClass(locked: boolean) {
     if (locked) return 'bg-gradient-to-r from-gray-500 to-gray-600'
-    if (difficulty === 'foundation') return 'bg-gradient-to-r from-blue-500 to-indigo-500'
-    if (difficulty === 'advanced')   return 'bg-gradient-to-r from-amber-500 to-orange-500'
-    return 'bg-gradient-to-r from-indigo-600 to-purple-600' // standard
+    return 'bg-gradient-to-r from-indigo-600 to-purple-600'
   }
 
   function isTestPlanLocked(test: PracticeTest): boolean {
@@ -251,25 +233,6 @@ export default function PracticeTestsPage() {
           </div>
         )}
 
-        {/* Difficulty tier filter tabs */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {(['all', 'foundation', 'standard', 'advanced'] as const).map(tier => (
-            <button
-              key={tier}
-              onClick={() => setTierFilter(tier)}
-              className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
-                tierFilter === tier
-                  ? 'bg-indigo-600 text-white shadow-md'
-                  : 'bg-white text-gray-600 border border-gray-200 hover:border-indigo-300 hover:text-indigo-600'
-              }`}
-            >
-              {tier === 'all' ? `All (${tests.length})` :
-               tier === 'foundation' ? `Foundation (${tests.filter(t => t.difficulty === 'foundation').length})` :
-               tier === 'standard'   ? `Standard (${tests.filter(t => t.difficulty === 'standard').length})` :
-               `Advanced (${tests.filter(t => t.difficulty === 'advanced').length})`}
-            </button>
-          ))}
-        </div>
 
         {/* Topic Drills Integration */}
         <div className="mb-8 rounded-2xl border border-purple-200 bg-gradient-to-r from-purple-50 to-pink-50 p-6">
@@ -306,7 +269,7 @@ export default function PracticeTestsPage() {
 
         {/* Tests Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {visibleTests.map((test) => {
+          {tests.map((test) => {
             const locked = isTestPlanLocked(test)
             const usageLocked = !locked && isTestUsageLocked()
 
@@ -342,16 +305,11 @@ export default function PracticeTestsPage() {
                 )}
 
                 {/* Header */}
-                <div className={`px-6 py-4 ${cardHeaderClass(locked, test.difficulty)}`}>
+                <div className={`px-6 py-4 ${cardHeaderClass(locked)}`}>
                   <h2 className="text-2xl font-bold text-white">{test.name}</h2>
                   <div className="flex items-center gap-2 mt-2">
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      locked ? 'bg-white/20 text-white' : tierBadgeClass(test.difficulty)
-                    }`}>
-                      {tierLabel(test.difficulty)}
-                    </span>
                     <span className="text-white/90 text-sm">
-                      {test.questionCount} questions
+                      {test.questionCount} questions · 44 min Reading & Writing + 70 min Math
                     </span>
                   </div>
                 </div>
@@ -446,7 +404,7 @@ export default function PracticeTestsPage() {
           })}
         </div>
 
-        {visibleTests.length === 0 && !isLoading && (
+        {tests.length === 0 && !isLoading && (
           <div className="text-center py-12">
             <p className="text-gray-600 text-lg">
               {tierFilter !== 'all'

@@ -15,10 +15,17 @@ export const PRICING = {
   },
 } as const
 
+const MONTH_NAMES = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+]
+
 export const SALE = {
-  name: 'March Sale',
+  get name() {
+    return `${MONTH_NAMES[new Date().getMonth()]} Sale`
+  },
   getEndDate: () => {
     const now = new Date()
     return new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59)
   },
-} as const
+}
