@@ -6,6 +6,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "../styles/enhanced-ui.css";
 import AuthSessionProvider from "@/components/SessionProvider";
+import FeedbackWidget from "@/components/FeedbackWidget";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -94,6 +95,7 @@ export default function RootLayout({
           <main role="main" className="pt-16">
             {children}
           </main>
+          <FeedbackWidget />
           </AnalyticsProvider>
         </AuthSessionProvider>
       </body>

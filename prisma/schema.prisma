@@ -75,11 +75,15 @@ model User {
   isTester       Boolean   @default(false)
   promoCodeUsed  String?   // e.g. 'DUCK19'
 
+  // Feedback
+  feedbackSubmittedAt DateTime? // null = never submitted a site review
+
   // Relations
   accounts    Account[]
   sessions    Session[]
   testResults TestResult[]
   questionReviews QuestionReview[]
+  feedback    UserFeedback[]
   
   @@map("users")
 }
@@ -559,4 +563,22 @@ model UserDailyActivity {
   @@unique([userId, date])
   @@index([userId, date])
   @@map("user_daily_activity")
+}
+
+// Site feedback / review widget submissions
+model UserFeedback {
+  id          String   @id @default(cuid())
+  userId      String?  // null for anonymous
+  sessionId   String?  // anonymous identifier from localStorage
+  rating      Int      // 1-5
+  review      String?  @db.Text // optional, max 500 chars
+  userAgent   String?  @db.Text
+  pageUrl     String?
+  submittedAt DateTime @default(now())
+
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([sessionId])
+  @@map("user_feedback")
 }
