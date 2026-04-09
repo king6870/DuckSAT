@@ -43,7 +43,6 @@ interface ModalContentProps {
   submitting: boolean;
   submitError: string;
   onSubmit: () => void;
-  onClose: () => void;
   onDismissPopup: () => void;
 }
 
@@ -58,7 +57,6 @@ function ModalContent({
   submitting,
   submitError,
   onSubmit,
-  onClose,
   onDismissPopup,
 }: ModalContentProps) {
   if (showSuccess) {
@@ -75,28 +73,13 @@ function ModalContent({
     );
   }
 
-  if (alreadySubmitted && openModal === 'button') {
-    return (
-      <div className="flex flex-col items-center gap-4 py-4">
-        <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center">
-          <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
-        <h2 id="feedback-modal-title" className="text-xl font-bold text-gray-900">Thanks for your feedback!</h2>
-        <p className="text-sm text-gray-500 text-center">You&apos;ve already submitted a review. We really appreciate it.</p>
-        <button
-          onClick={onClose}
-          className="mt-2 px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-semibold transition-colors"
-        >
-          Close
-        </button>
-      </div>
-    );
-  }
-
   return (
     <>
+      {alreadySubmitted && openModal === 'button' && (
+        <p className="text-xs text-indigo-600 italic mb-3">
+          ✓ You&apos;ve submitted feedback before — feel free to add another!
+        </p>
+      )}
       <h2 id="feedback-modal-title" className="text-xl font-bold text-gray-900 mb-1">
         How&apos;s your experience?
       </h2>
@@ -176,65 +159,81 @@ export default function FeedbackWidget() {
     const ls = safeLS();
     if (!ls) return; // graceful degradation: no localStorage → no popups
 
-    // Quick sync from localStorage cache
-    if (ls.getItem(LS.submitted) === 'true') {
-      setAlreadySubmitted(true);
-      return; // no popup logic needed
-    }
-
     // Ensure firstVisit is set
     if (!ls.getItem(LS.firstVisit)) {
       ls.setItem(LS.firstVisit, new Date().toISOString());
     }
 
-    // For authenticated users: also check DB (async, non-blocking)
     const sessionId = getOrCreateSessionId();
-    const url = session?.user?.id
+    const isAuthed  = !!session?.user?.id;
+    const lsSubmitted = ls.getItem(LS.submitted) === 'true';
+
+    // Optimistically reflect localStorage for immediate UI — may be corrected by DB
+    if (lsSubmitted) setAlreadySubmitted(true);
+
+    // Anonymous users: localStorage is authoritative — no need to wait for DB
+    if (!isAuthed && lsSubmitted) return;
+
+    let intervalId: ReturnType<typeof setInterval> | null = null;
+    let cancelled = false;
+
+    function startPopupInterval() {
+      const firstVisit = new Date(ls!.getItem(LS.firstVisit)!).getTime();
+      const manuallyOpened = ls!.getItem(LS.manuallyOpened) === 'true';
+      if (!ls!.getItem(LS.nextPopup)) {
+        const fiveMin = firstVisit + 5 * 60 * 1000;
+        if (manuallyOpened && Date.now() < fiveMin) {
+          ls!.setItem(LS.nextPopup, new Date(firstVisit + 25 * 60 * 1000).toISOString());
+        } else {
+          ls!.setItem(LS.nextPopup, new Date(fiveMin).toISOString());
+        }
+      }
+      intervalId = setInterval(() => {
+        if (safeLS()?.getItem(LS.submitted) === 'true') {
+          clearInterval(intervalId!);
+          return;
+        }
+        const next = ls!.getItem(LS.nextPopup);
+        if (next && Date.now() >= new Date(next).getTime()) {
+          clearInterval(intervalId!);
+          setOpenModal('popup');
+        }
+      }, 30_000);
+    }
+
+    // DB check — authoritative for auth users (bidirectional sync), secondary for anon
+    const url = isAuthed
       ? '/api/feedback/status'
       : `/api/feedback/status?sessionId=${encodeURIComponent(sessionId)}`;
 
     fetch(url)
       .then((r) => r.json())
       .then((data: { submitted: boolean }) => {
+        if (cancelled) return;
         if (data.submitted) {
           ls.setItem(LS.submitted, 'true');
           setAlreadySubmitted(true);
+          if (intervalId !== null) clearInterval(intervalId);
+        } else if (isAuthed && lsSubmitted) {
+          // DB says not submitted — localStorage was stale; correct it
+          ls.removeItem(LS.submitted);
+          setAlreadySubmitted(false);
+          startPopupInterval();
         }
       })
       .catch(() => { /* non-fatal */ });
 
-    // Popup scheduling: determine next popup time
-    const firstVisit = new Date(ls.getItem(LS.firstVisit)!).getTime();
-    const manuallyOpened = ls.getItem(LS.manuallyOpened) === 'true';
-
-    if (!ls.getItem(LS.nextPopup)) {
-      // First time scheduling
-      const fiveMin = firstVisit + 5 * 60 * 1000;
-      // If already manually opened within the 5-min window, jump to +25min
-      const now = Date.now();
-      if (manuallyOpened && now < fiveMin) {
-        ls.setItem(LS.nextPopup, new Date(firstVisit + 25 * 60 * 1000).toISOString());
-      } else {
-        ls.setItem(LS.nextPopup, new Date(fiveMin).toISOString());
-      }
+    // Start popup interval immediately unless we're waiting for DB to un-stale an auth flag
+    if (!lsSubmitted) {
+      startPopupInterval();
     }
+    // If lsSubmitted && isAuthed: startPopupInterval() fires inside .then() only if DB says false
 
-    // Poll every 30 seconds
-    const interval = setInterval(() => {
-      if (safeLS()?.getItem(LS.submitted) === 'true') {
-        clearInterval(interval);
-        return;
-      }
-      const next = ls.getItem(LS.nextPopup);
-      if (!next) return;
-      if (Date.now() >= new Date(next).getTime()) {
-        clearInterval(interval);
-        setOpenModal('popup');
-      }
-    }, 30_000);
-
-    return () => clearInterval(interval);
-  }, [session?.user?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+    return () => {
+      cancelled = true;
+      if (intervalId !== null) clearInterval(intervalId);
+    };
+  }, [session?.user?.id]); // re-run if auth state changes
 
   // ── focus trap ────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -333,26 +332,18 @@ export default function FeedbackWidget() {
         body: JSON.stringify({ rating, review: reviewText || undefined, sessionId, pageUrl }),
       });
 
-      if (res.status === 409) {
-        // Already submitted — sync state
-        safeLS()?.setItem(LS.submitted, 'true');
-        setAlreadySubmitted(true);
-        closeModal();
-        return;
-      }
-
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         throw new Error(data.error || 'server_error');
       }
 
-      // Success
+      // Success — suppress future popups, show success state, then reset form
       safeLS()?.setItem(LS.submitted, 'true');
       safeLS()?.removeItem(LS.nextPopup);
       setAlreadySubmitted(true);
       setShowSuccess(true);
 
-      // Auto-close after 2 seconds
+      // Auto-close after 2 seconds; form resets in closeModal()
       setTimeout(() => closeModal(), 2000);
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'server_error';
@@ -423,7 +414,6 @@ export default function FeedbackWidget() {
                 submitting={submitting}
                 submitError={submitError}
                 onSubmit={handleSubmit}
-                onClose={closeModal}
                 onDismissPopup={dismissPopup}
               />
             </div>

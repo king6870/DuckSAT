@@ -10,7 +10,7 @@ A persistent, globally visible **Feedback** button floats in the bottom-right co
 
 Separately, an **auto-popup** system nudges users who have never submitted a review. The popup appears automatically after 5 minutes of first arriving on the site, and then every 20 minutes thereafter until the user either submits a review or closes their browser session for good (and the cycle resets on the next visit until they submit).
 
-Once a user submits a review (through either the button or the auto-popup), **all popup logic stops permanently** for that user account (or device for anonymous users).
+A user may submit **multiple reviews** (the form is always accessible via the floating button). However, once a user submits their first review, **all auto-popup logic stops permanently** for that account (or device for anonymous users). Subsequent reviews can only be submitted by clicking the button manually.
 
 ---
 
@@ -23,7 +23,8 @@ Once a user submits a review (through either the button or the auto-popup), **al
 | Text review (0–500 chars) | ✅ |
 | Auto-popup after 5 min | ✅ |
 | Auto-popup every 20 min after dismissal | ✅ |
-| Permanent stop after submission | ✅ |
+| Popup suppressed permanently after first submission | ✅ |
+| Multiple reviews allowed (button only, no popup repeat) | ✅ |
 | Authenticated user persistence (DB) | ✅ |
 | Anonymous user persistence (localStorage) | ✅ |
 | Admin view of reviews | ❌ (future) |
@@ -49,7 +50,7 @@ Once a user submits a review (through either the button or the auto-popup), **al
 - **Behavior:**
   - Always visible, does NOT hide when auto-popup is showing
   - Clicking it marks `hasManuallyOpenedFeedback = true` (suppresses the 5-min popup only — see §5)
-  - If a review has already been submitted, the button still shows but the modal shows a "Thanks for your feedback!" message instead of the form
+  - If a review has already been submitted, the button still shows and the modal shows the **normal form** so they can submit again — but the auto-popup will never fire again
 
 ### 3.2 Feedback Modal (triggered by button click)
 
@@ -83,12 +84,15 @@ Character counter: "X / 500" right-aligned below textarea
 
 #### Content — Already reviewed state:
 
+> ⚠️ This state no longer exists. The form is always shown regardless of prior submissions.
+> The only change when a prior review exists: a **small banner** is shown above the star row:
+
 ```
-Checkmark icon (green, 48px)
-Title:    "Thanks for your feedback!"
-Subtitle: "You've already submitted a review. We really appreciate it."
-[ Close ]
+"✓ You've submitted feedback before — feel free to add another!"
+  (text-xs text-indigo-600, italic, mb-2)
 ```
+
+All other form elements (stars, textarea, submit button) are shown normally and fully functional.
 
 #### Content — Submission success state (just submitted):
 
@@ -147,11 +151,13 @@ model UserFeedback {
 Add two fields (no migration breaking changes):
 
 ```prisma
-  feedbackSubmittedAt  DateTime?  // null = never submitted; set = submitted at this time
+  feedbackSubmittedAt  DateTime?  // null = never submitted; set = time of FIRST submission only
   // (no field for popup timing — that lives in localStorage for perf reasons)
 
   feedback    UserFeedback[]
 ```
+
+> `feedbackSubmittedAt` is set only on the **first** submission and never updated again. It is used solely to determine whether to stop the auto-popup, not to block the form.
 
 **Why no `popupNextShowAt` on User?**  
 Popup scheduling is per-browser-session, not per-account. A user logged in on two devices should get the popup on both. Storing it only in localStorage is intentional and sufficient.
@@ -162,13 +168,17 @@ All localStorage keys are prefixed `ducksat_feedback_`:
 
 | Key | Type | Purpose |
 |---|---|---|
-| `ducksat_feedback_submitted` | `"true"` or absent | Anonymous: has ever submitted |
+| `ducksat_feedback_submitted` | `"true"` or absent | Has ever submitted (suppresses popup; does NOT block the form) |
 | `ducksat_feedback_session_id` | `string (cuid)` | Anonymous user identifier |
 | `ducksat_feedback_first_visit` | ISO timestamp string | When the user first arrived (set once, never updated) |
 | `ducksat_feedback_next_popup` | ISO timestamp string | When the next popup is scheduled |
 | `ducksat_feedback_manually_opened` | `"true"` or absent | Opened the button manually within first 5 min |
 
-**For authenticated users:** `ducksat_feedback_submitted` in localStorage is still used as a **cache** (so we don't have to hit the API every page load). It is verified against the DB on the first API response and synced if out of date.
+**For authenticated users:** `ducksat_feedback_submitted` in localStorage is a **write-through cache**. On every mount, authenticated users always call `/api/feedback/status` regardless of the localStorage value. The DB is authoritative in both directions:
+- If DB says `submitted: true` → set localStorage `submitted = "true"`, show banner
+- If DB says `submitted: false` but localStorage says `"true"` → **clear** the localStorage flag (it was stale), hide banner, resume popup scheduling
+
+**For anonymous users:** localStorage `submitted` is the definitive source of truth (no account to verify against). The DB check by `sessionId` supplements it but does not override it.
 
 ---
 
@@ -191,15 +201,20 @@ On **every page load** (inside the `FeedbackWidget` component's `useEffect`):
 1. Read `ducksat_feedback_first_visit` from localStorage.
    - If absent: set it to `Date.now()` (this is `T₀`).
 2. Read `ducksat_feedback_submitted`.
-   - If `"true"` → **SUBMITTED** state, stop all popup logic immediately.
-3. For authenticated users: call `GET /api/feedback/status` (see §6.1).
-   - If response `{ submitted: true }` → set localStorage `submitted = "true"`, enter **SUBMITTED** state.
+   - **Anonymous users:** If `"true"` → SUBMITTED state immediately; stop all popup logic.
+   - **Authenticated users:** If `"true"` → optimistically set `hasEverSubmitted` flag for UI (show banner), but **do not stop popup logic yet** — continue to step 3 to verify with DB.
+3. For authenticated users: **always** call `GET /api/feedback/status` (see §6.1), regardless of the localStorage value.
+   - If response `{ submitted: true }` → confirm SUBMITTED state; set localStorage `submitted = "true"`; stop popup loop.
+   - If response `{ submitted: false }` AND localStorage had `"true"` → **stale cache**: clear the localStorage flag, set `hasEverSubmitted = false`, and resume popup scheduling normally.
+   - For anonymous users: call status with `?sessionId=...`. If `{ submitted: true }` → set localStorage and enter SUBMITTED state.
 4. Read `ducksat_feedback_next_popup`.
    - If absent → schedule first popup for `T₀ + 5 minutes`.
    - If present → use that timestamp.
 5. Read `ducksat_feedback_manually_opened`.
    - If `"true"` AND the current time is still within the first 5 minutes from `T₀` → **skip** the 5-min popup (move `next_popup` to `T₀ + 25 minutes`).
    - Once past the 5-minute mark, `manually_opened` has no further effect.
+
+> **Why step 3 always runs for auth users:** The localStorage flag can become stale if it was set by a test environment, cleared by the user, or set on a different device that is no longer representative. The DB is the only reliable source of truth for whether the popup should be suppressed.
 
 ### 5.3 Popup Trigger Loop
 
@@ -235,13 +250,21 @@ hide popup
 ### 5.6 On Submission (from either button modal or auto-popup)
 
 ```
-state = SUBMITTED
 set localStorage ducksat_feedback_submitted = "true"
 remove localStorage ducksat_feedback_next_popup (no longer needed)
-hide popup
-show success state in modal (2s then auto-close)
-clearInterval (stop the 30s loop)
+clearInterval (stop the 30s loop — no more auto-popups ever)
+
+if triggered from auto-popup:
+  hide auto-popup
+if triggered from button modal:
+  show success state in modal (2s then auto-close) — form resets after close
+
+// The floating button and its modal remain fully functional.
+// The next time the button modal opens, the "prior review" banner is shown
+// above the form, but the form itself is enabled and submittable.
 ```
+
+> **Key distinction:** `SUBMITTED` state means "no more auto-popups". It does NOT mean "form is locked". Every subsequent manual open shows a fresh, submittable form.
 
 ### 5.7 Timeline Example
 
@@ -284,6 +307,8 @@ Query: ?sessionId=<cuid>   (for anonymous users)
 - If authenticated → check `User.feedbackSubmittedAt IS NOT NULL`
 - If anonymous → check `UserFeedback` table for matching `sessionId`
 
+> Note: `submitted: true` from this endpoint means "suppress auto-popup" — the client must still allow manual form submissions.
+
 ### 6.2 `POST /api/feedback`
 
 **Auth:** Optional  
@@ -303,8 +328,8 @@ Query: ?sessionId=<cuid>   (for anonymous users)
 - `rating` must be integer 1–5, if missing → 400
 - `review` if present must be string ≤ 500 chars, if longer → 400 (trim is not applied server-side — should fail loudly)
 - `sessionId` required if not authenticated → 400
-- Rate limit: 1 submission per user/sessionId (check before inserting)
-  - If already submitted → return 409 `{ error: "already_submitted" }`
+- **Multiple submissions are allowed** — no duplicate check, no 409. Every POST creates a new `UserFeedback` record.
+- For authenticated users: `User.feedbackSubmittedAt` is set on **first** submission only (if currently null). Subsequent submissions do not update it.
 - No auth required — anonymous users can submit
 
 **Response 201:**
@@ -326,7 +351,6 @@ Query: ?sessionId=<cuid>   (for anonymous users)
 | 400 | `{ error: "invalid_rating" }` | rating missing or out of range |
 | 400 | `{ error: "review_too_long" }` | review > 500 chars |
 | 400 | `{ error: "session_required" }` | anon user without sessionId |
-| 409 | `{ error: "already_submitted" }` | duplicate submission |
 | 500 | `{ error: "server_error" }` | DB failure |
 
 ---
@@ -372,12 +396,13 @@ layout.tsx
 `FeedbackWidget` manages all state:
 ```ts
 type FeedbackState = 'idle' | 'button-modal-open' | 'autopopup-open' | 'submitted'
+// Note: 'submitted' = popup suppressed, NOT form locked
 
 useState: feedbackState: FeedbackState
 useState: rating: number (0 = unset)
 useState: reviewText: string
 useState: isSubmitting: boolean
-useState: hasEverSubmitted: boolean  ← drives "already reviewed" modal content
+useState: hasEverSubmitted: boolean  ← drives the "prior review" info banner; does NOT disable the form
 ```
 
 ---
@@ -388,16 +413,17 @@ useState: hasEverSubmitted: boolean  ← drives "already reviewed" modal content
 |---|---|
 | User opens button modal, does NOT submit, closes | Popup timer is unchanged (manually_opened flag set if within 5min) |
 | User has two tabs open | Each tab runs its own timer independently; submitting in one tab will NOT suppress the other tab's popup mid-session (acceptable, they'll just dismiss it) |
-| User submits on desktop, visits on mobile (same account) | Mobile checks DB via `/api/feedback/status` → gets `submitted: true` → no popup |
-| Anonymous user submits, then signs up | The anonymous submission stays. After sign-up, `feedbackSubmittedAt` is NOT retroactively set (a new logged-in submission would be needed — or we could match by sessionId during sign-up, but this is out of scope for v1) |
+| User submits on desktop, visits on mobile (same account) | Mobile checks DB via `/api/feedback/status` → gets `submitted: true` → no popup; button still fully functional |
+| User submits a second review via the button | Allowed — new `UserFeedback` row created; `feedbackSubmittedAt` unchanged (already set); no popup consequences |
+| Anonymous user submits, then signs up | The anonymous submissions stay. After sign-up, `feedbackSubmittedAt` is NOT retroactively set. |
 | User navigates between pages | `FeedbackWidget` is mounted once in layout. Page navigation does not reset the timer. |
 | User refreshes page | `first_visit` timestamp is preserved in localStorage, timer resumes from where it left off |
 | Page load takes > 5 min (unlikely) | Popup fires immediately on mount |
-| User's browser has localStorage disabled | Popup logic gracefully degrades: no popup is ever shown (we cannot store timing state). The button still works and submission is stored in DB if authenticated. |
+| User's browser has localStorage disabled | Popup logic gracefully degrades: no popup is ever shown. The button still works and submissions are stored in DB if authenticated. |
 | Rating submitted = 0 (no star selected) | Submit button is disabled; server also rejects rating < 1 |
 | User submits empty review (no text) | Allowed — only rating is required |
 | Network error on submit | Show inline error: `"Something went wrong. Please try again."` — do not change popup timer |
-| Already submitted (409 from API) | Sync local state to `hasEverSubmitted = true`, show "already reviewed" message |
+| Prior submissions exist | Show small informational banner above stars in button modal; form is fully enabled |
 
 ---
 

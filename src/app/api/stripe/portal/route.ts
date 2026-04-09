@@ -13,17 +13,32 @@ export async function POST() {
 
     const user = await prisma.user.findUnique({
       where: { id: session.user.id },
-      select: { stripeCustomerId: true },
+      select: { stripeCustomerId: true, email: true, name: true },
     });
 
-    if (!user?.stripeCustomerId) {
-      return NextResponse.json({ error: 'No billing account found' }, { status: 400 });
+    if (!user) {
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
     const baseUrl = process.env.NEXTAUTH_URL || 'https://www.ducksat.com';
 
+    // If no Stripe customer exists (e.g. promo-code users), create one on the fly
+    let customerId = user.stripeCustomerId;
+    if (!customerId) {
+      const customer = await stripe.customers.create({
+        email: user.email ?? undefined,
+        name: user.name ?? undefined,
+        metadata: { userId: session.user.id },
+      });
+      customerId = customer.id;
+      await prisma.user.update({
+        where: { id: session.user.id },
+        data: { stripeCustomerId: customerId },
+      });
+    }
+
     const portalSession = await stripe.billingPortal.sessions.create({
-      customer: user.stripeCustomerId,
+      customer: customerId,
       return_url: `${baseUrl}/pricing`,
     });
 

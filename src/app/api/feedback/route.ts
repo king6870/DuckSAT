@@ -31,25 +31,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'session_required' }, { status: 400 })
     }
 
-    // --- Duplicate check ---
-    if (userId) {
-      const user = await prisma.user.findUnique({
-        where: { id: userId },
-        select: { feedbackSubmittedAt: true },
-      })
-      if (user?.feedbackSubmittedAt) {
-        return NextResponse.json({ error: 'already_submitted' }, { status: 409 })
-      }
-    } else {
-      const existing = await prisma.userFeedback.findFirst({
-        where: { sessionId: String(sessionId) },
-        select: { id: true },
-      })
-      if (existing) {
-        return NextResponse.json({ error: 'already_submitted' }, { status: 409 })
-      }
-    }
-
     // --- Insert ---
     const userAgent = request.headers.get('user-agent') ?? undefined
 
@@ -64,10 +45,10 @@ export async function POST(request: NextRequest) {
       },
     })
 
-    // Update user's feedbackSubmittedAt
+    // Set feedbackSubmittedAt only on first submission
     if (userId) {
-      await prisma.user.update({
-        where: { id: userId },
+      await prisma.user.updateMany({
+        where: { id: userId, feedbackSubmittedAt: null },
         data: { feedbackSubmittedAt: new Date() },
       })
     }
