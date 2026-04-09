@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import FeedbackStars from './FeedbackStars';
 
@@ -31,6 +31,126 @@ function getOrCreateSessionId(): string {
 
 type ModalKind = 'button' | 'popup';
 
+// ─── ModalContent — module-level so React never remounts it on re-renders ──────
+interface ModalContentProps {
+  showSuccess: boolean;
+  alreadySubmitted: boolean;
+  openModal: ModalKind | null;
+  rating: number;
+  setRating: (r: number) => void;
+  reviewText: string;
+  setReviewText: (t: string) => void;
+  submitting: boolean;
+  submitError: string;
+  onSubmit: () => void;
+  onClose: () => void;
+  onDismissPopup: () => void;
+}
+
+function ModalContent({
+  showSuccess,
+  alreadySubmitted,
+  openModal,
+  rating,
+  setRating,
+  reviewText,
+  setReviewText,
+  submitting,
+  submitError,
+  onSubmit,
+  onClose,
+  onDismissPopup,
+}: ModalContentProps) {
+  if (showSuccess) {
+    return (
+      <div className="flex flex-col items-center gap-4 py-4">
+        <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center">
+          <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h2 className="text-xl font-bold text-gray-900">Thank you! 🎉</h2>
+        <p className="text-sm text-gray-500 text-center">Your feedback means a lot to us.</p>
+      </div>
+    );
+  }
+
+  if (alreadySubmitted && openModal === 'button') {
+    return (
+      <div className="flex flex-col items-center gap-4 py-4">
+        <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center">
+          <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h2 id="feedback-modal-title" className="text-xl font-bold text-gray-900">Thanks for your feedback!</h2>
+        <p className="text-sm text-gray-500 text-center">You&apos;ve already submitted a review. We really appreciate it.</p>
+        <button
+          onClick={onClose}
+          className="mt-2 px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-semibold transition-colors"
+        >
+          Close
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <h2 id="feedback-modal-title" className="text-xl font-bold text-gray-900 mb-1">
+        How&apos;s your experience?
+      </h2>
+      <p className="text-sm text-gray-500 mb-6">Your feedback helps us improve.</p>
+
+      <FeedbackStars value={rating} onChange={setRating} disabled={submitting} />
+
+      <div className="mt-5">
+        <textarea
+          id="feedback-review"
+          aria-label="Write your review"
+          aria-describedby="char-counter"
+          placeholder="Tell us what you think... (optional)"
+          maxLength={500}
+          rows={4}
+          value={reviewText}
+          onChange={(e) => setReviewText(e.target.value)}
+          disabled={submitting}
+          className="w-full border border-gray-200 rounded-lg p-3 text-sm text-gray-800 resize-y focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-60"
+          style={{ maxHeight: 200 }}
+        />
+        <p
+          id="char-counter"
+          aria-live="polite"
+          className={`text-right text-xs mt-1 ${reviewText.length >= 450 ? 'text-red-500' : 'text-gray-400'}`}
+        >
+          {reviewText.length} / 500
+        </p>
+      </div>
+
+      {submitError && (
+        <p role="alert" className="text-sm text-red-500 mt-2">{submitError}</p>
+      )}
+
+      <button
+        onClick={onSubmit}
+        disabled={rating === 0 || submitting}
+        className="mt-4 w-full py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white font-semibold text-sm transition-colors"
+      >
+        {submitting ? 'Submitting…' : 'Submit Feedback'}
+      </button>
+
+      {openModal === 'popup' && (
+        <button
+          onClick={onDismissPopup}
+          className="mt-3 w-full text-sm text-gray-400 hover:text-gray-600 underline cursor-pointer"
+        >
+          Maybe later
+        </button>
+      )}
+    </>
+  );
+}
+
 // ─── component ───────────────────────────────────────────────────────────────
 export default function FeedbackWidget() {
   const { data: session } = useSession();
@@ -50,7 +170,6 @@ export default function FeedbackWidget() {
 
   // used to return focus to the button when modal closes
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const firstFocusRef = useRef<HTMLElement>(null);
 
   // ── on mount: check submission status & init popup timer ──────────────────
   useEffect(() => {
@@ -115,8 +234,7 @@ export default function FeedbackWidget() {
     }, 30_000);
 
     return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [session?.user?.id]);
+  }, [session?.user?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ── focus trap ────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -200,7 +318,7 @@ export default function FeedbackWidget() {
     closeModal();
   }
 
-  const handleSubmit = useCallback(async () => {
+  async function handleSubmit() {
     if (rating === 0 || submitting) return;
     setSubmitting(true);
     setSubmitError('');
@@ -246,98 +364,6 @@ export default function FeedbackWidget() {
     } finally {
       setSubmitting(false);
     }
-  }, [rating, reviewText, submitting]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // ── render helpers ────────────────────────────────────────────────────────
-  function ModalContent() {
-    if (showSuccess) {
-      return (
-        <div className="flex flex-col items-center gap-4 py-4">
-          <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center">
-            <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <h2 className="text-xl font-bold text-gray-900">Thank you! 🎉</h2>
-          <p className="text-sm text-gray-500 text-center">Your feedback means a lot to us.</p>
-        </div>
-      );
-    }
-
-    if (alreadySubmitted && openModal === 'button') {
-      return (
-        <div className="flex flex-col items-center gap-4 py-4">
-          <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center">
-            <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <h2 id="feedback-modal-title" className="text-xl font-bold text-gray-900">Thanks for your feedback!</h2>
-          <p className="text-sm text-gray-500 text-center">You&apos;ve already submitted a review. We really appreciate it.</p>
-          <button
-            onClick={closeModal}
-            className="mt-2 px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-semibold transition-colors"
-          >
-            Close
-          </button>
-        </div>
-      );
-    }
-
-    return (
-      <>
-        <h2 id="feedback-modal-title" className="text-xl font-bold text-gray-900 mb-1">
-          How&apos;s your experience?
-        </h2>
-        <p className="text-sm text-gray-500 mb-6">Your feedback helps us improve.</p>
-
-        <FeedbackStars value={rating} onChange={setRating} disabled={submitting} />
-
-        <div className="mt-5">
-          <textarea
-            id="feedback-review"
-            aria-label="Write your review"
-            aria-describedby="char-counter"
-            placeholder="Tell us what you think... (optional)"
-            maxLength={500}
-            rows={4}
-            value={reviewText}
-            onChange={(e) => setReviewText(e.target.value)}
-            disabled={submitting}
-            className="w-full border border-gray-200 rounded-lg p-3 text-sm text-gray-800 resize-y focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-60"
-            style={{ maxHeight: 200 }}
-          />
-          <p
-            id="char-counter"
-            aria-live="polite"
-            className={`text-right text-xs mt-1 ${reviewText.length >= 450 ? 'text-red-500' : 'text-gray-400'}`}
-          >
-            {reviewText.length} / 500
-          </p>
-        </div>
-
-        {submitError && (
-          <p role="alert" className="text-sm text-red-500 mt-2">{submitError}</p>
-        )}
-
-        <button
-          onClick={handleSubmit}
-          disabled={rating === 0 || submitting}
-          className="mt-4 w-full py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-white font-semibold text-sm transition-colors"
-        >
-          {submitting ? 'Submitting…' : 'Submit Feedback'}
-        </button>
-
-        {openModal === 'popup' && (
-          <button
-            onClick={dismissPopup}
-            className="mt-3 w-full text-sm text-gray-400 hover:text-gray-600 underline cursor-pointer"
-          >
-            Maybe later
-          </button>
-        )}
-      </>
-    );
   }
 
   const isOpen = openModal !== null;
@@ -386,7 +412,20 @@ export default function FeedbackWidget() {
                 ×
               </button>
 
-              <ModalContent />
+              <ModalContent
+                showSuccess={showSuccess}
+                alreadySubmitted={alreadySubmitted}
+                openModal={openModal}
+                rating={rating}
+                setRating={setRating}
+                reviewText={reviewText}
+                setReviewText={setReviewText}
+                submitting={submitting}
+                submitError={submitError}
+                onSubmit={handleSubmit}
+                onClose={closeModal}
+                onDismissPopup={dismissPopup}
+              />
             </div>
           </div>
         </>
