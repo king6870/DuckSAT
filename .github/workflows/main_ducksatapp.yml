@@ -30,11 +30,12 @@ jobs:
       - name: Build app (prisma generate + next build)
         run: npm run build
         env:
-          # Placeholder values allow next build to complete without a live DB.
+          # Placeholder values allow next build to complete without a live DB or Stripe.
           # Real values are set as Azure App Service application settings at runtime.
           DATABASE_URL: sqlserver://placeholder:1433;database=placeholder;user=placeholder;password=placeholder;encrypt=true
           NEXTAUTH_SECRET: placeholder-build-secret-not-used-at-runtime
           NEXTAUTH_URL: https://www.ducksat.com
+          STRIPE_SECRET_KEY: sk_test_placeholder_not_used_at_build_time
 
       - name: Prepare standalone deployment package
         run: |
