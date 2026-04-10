@@ -145,14 +145,26 @@ jobs:
           vfs_put('site/wwwroot/deploy.zip', zip_bytes, 'application/zip')
           print(f'  {len(zip_bytes) // 1024 // 1024} MB uploaded')
 
-          # Step 3: Extract zip on Azure
+          # Step 3: Extract zip on Azure.
+          # zipfile.extractall() fails with FileNotFoundError on Azure SMB when
+          # the zip lacks explicit directory entries (common with "zip -r").
+          # We manually makedirs before each file to guarantee parent dirs exist.
           print('Extracting on Azure...')
           r = run_script('_extract.py', f"""
-              import zipfile
-              z = zipfile.ZipFile('{WWWROOT}/deploy.zip')
-              z.extractall('{WWWROOT}')
-              z.close()
-              print('Extracted', len(z.namelist()), 'files')
+              import zipfile, os
+              WR = '{WWWROOT}'
+              count = 0
+              with zipfile.ZipFile(os.path.join(WR, 'deploy.zip')) as z:
+                  for member in z.namelist():
+                      target = os.path.join(WR, member)
+                      if member.endswith('/'):
+                          os.makedirs(target, exist_ok=True)
+                      else:
+                          os.makedirs(os.path.dirname(target), exist_ok=True)
+                          with z.open(member) as src, open(target, 'wb') as dst:
+                              dst.write(src.read())
+                          count += 1
+              print('Extracted', count, 'files')
           """)
           if r['ExitCode'] != 0:
               raise RuntimeError(f"Extract failed: {r['Error']}")
