@@ -71,6 +71,10 @@ model User {
   trialEnd             DateTime? // When the trial period ends
   cancelAtPeriodEnd    Boolean   @default(false) // Whether subscription will cancel at period end
 
+  // Username + password auth fields (null for Google-only accounts)
+  username     String?  // stored lowercase; @unique enforced via filtered DB index
+  passwordHash String?  // bcrypt hash (cost 12); never exposed via API or session
+
   // Tester / promo fields
   isTester       Boolean   @default(false)
   promoCodeUsed  String?   // e.g. 'DUCK19'

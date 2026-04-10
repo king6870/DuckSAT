@@ -1,12 +1,41 @@
 'use client'
 
 import { signIn } from 'next-auth/react'
-import { useSearchParams } from 'next/navigation'
-import { Suspense } from 'react'
+import { useSearchParams, useRouter } from 'next/navigation'
+import { Suspense, useState, FormEvent } from 'react'
 
 function SignInContent() {
   const searchParams = useSearchParams()
+  const router = useRouter()
   const callbackUrl = searchParams.get('callbackUrl') || '/'
+
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  async function handleCredentialsSubmit(e: FormEvent) {
+    e.preventDefault()
+    setError('')
+    setLoading(true)
+    try {
+      const result = await signIn('credentials', {
+        username,
+        password,
+        redirect: false,
+        callbackUrl,
+      })
+      if (result?.error) {
+        setError('Invalid username or password.')
+      } else if (result?.ok) {
+        router.push(callbackUrl)
+      }
+    } catch {
+      setError('Something went wrong. Please try again.')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center p-4">
@@ -20,7 +49,7 @@ function SignInContent() {
             <p className="text-gray-600">Sign in to continue your SAT prep</p>
           </div>
 
-          {/* Sign In Button */}
+          {/* Google Sign In */}
           <button
             onClick={() => signIn('google', { callbackUrl })}
             className="w-full bg-white border-2 border-gray-300 text-gray-700 py-3 px-6 rounded-xl font-semibold hover:bg-gray-50 hover:border-gray-400 transition-all duration-300 flex items-center justify-center gap-3 group"
@@ -45,6 +74,76 @@ function SignInContent() {
             </svg>
             <span>Continue with Google</span>
           </button>
+
+          {/* OR divider */}
+          <div className="flex items-center my-6">
+            <div className="flex-1 border-t border-gray-200" />
+            <span className="mx-4 text-sm text-gray-400 font-medium">OR</span>
+            <div className="flex-1 border-t border-gray-200" />
+          </div>
+
+          {/* Username/Password form */}
+          <form onSubmit={handleCredentialsSubmit} className="space-y-4">
+            <div>
+              <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
+                Username
+              </label>
+              <input
+                id="username"
+                type="text"
+                autoComplete="username"
+                value={username}
+                onChange={e => setUsername(e.target.value)}
+                required
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="your_username"
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                required
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="••••••••"
+              />
+            </div>
+
+            {error && (
+              <p className="text-sm text-red-600">{error}</p>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              {loading ? (
+                <>
+                  <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                  </svg>
+                  Signing in…
+                </>
+              ) : (
+                'Sign In'
+              )}
+            </button>
+
+            <p className="text-sm text-center text-gray-500">
+              Don&apos;t have an account?{' '}
+              <a href="/auth/signup" className="text-blue-600 hover:underline font-medium">
+                Sign up
+              </a>
+            </p>
+          </form>
 
           {/* Features */}
           <div className="mt-8 pt-6 border-t border-gray-200">

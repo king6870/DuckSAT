@@ -1,6 +1,8 @@
 import GoogleProvider from 'next-auth/providers/google'
+import CredentialsProvider from 'next-auth/providers/credentials'
 import type { NextAuthOptions, Session } from 'next-auth'
 import { PrismaAdapter } from '@auth/prisma-adapter'
+import { compare } from 'bcryptjs'
 import { prisma } from './prisma'
 
 // Check if we're running in a server environment (not in the browser)
@@ -76,6 +78,34 @@ function getProviders() {
       })
     );
   }
+
+  // Username + password provider
+  providers.push(
+    CredentialsProvider({
+      name: 'Username',
+      credentials: {
+        username: { label: 'Username', type: 'text' },
+        password: { label: 'Password', type: 'password' },
+      },
+      async authorize(credentials) {
+        if (!credentials?.username || !credentials?.password) return null;
+
+        const user = await prisma.user.findFirst({
+          where: { username: credentials.username.toLowerCase() },
+          select: { id: true, username: true, name: true, image: true, passwordHash: true },
+        });
+
+        if (!user?.passwordHash) return null;
+
+        const valid = await compare(credentials.password, user.passwordHash);
+        if (!valid) return null;
+
+        // Return only safe fields — passwordHash is never forwarded to the session
+        return { id: user.id, name: user.name ?? user.username, image: user.image };
+      },
+    })
+  );
+
   return providers;
 }
 
@@ -111,7 +141,7 @@ export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: getProviders(),
   session: {
-    strategy: 'database' as const,
+    strategy: 'jwt' as const,
   },
   pages: {
     signIn: '/auth/signin',
@@ -131,9 +161,17 @@ export const authOptions: NextAuthOptions = {
       } catch { /* invalid URL, fall through */ }
       return baseUrl
     },
-    async session({ session, user }) {
-      if (session?.user) {
-        (session.user as Session['user'] & { id?: string }).id = user.id
+    async jwt({ token, user }) {
+      // On initial sign-in, user is the object returned from authorize() or the DB user.
+      // Attach the database user id to the token so the session callback can read it.
+      if (user?.id) {
+        token.sub = user.id
+      }
+      return token
+    },
+    async session({ session, token }) {
+      if (session?.user && token.sub) {
+        (session.user as Session['user'] & { id?: string }).id = token.sub
       }
       return session
     },
