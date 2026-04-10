@@ -39,6 +39,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: true, count: 0 })
     }
 
+    // Guard: if clickEvent model is missing from deployed Prisma client (old build), swallow silently
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    if (!(prisma as any).clickEvent) {
+      return NextResponse.json({ success: true, count: 0 })
+    }
+
     await prisma.clickEvent.createMany({
       data: valid.map((e) => ({
         userId,

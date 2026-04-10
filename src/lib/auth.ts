@@ -92,7 +92,7 @@ function getProviders() {
 
         const user = await prisma.user.findFirst({
           where: { username: credentials.username.toLowerCase() },
-          select: { id: true, username: true, name: true, image: true, passwordHash: true },
+          select: { id: true, username: true, name: true, email: true, image: true, passwordHash: true },
         });
 
         if (!user?.passwordHash) return null;
@@ -100,8 +100,9 @@ function getProviders() {
         const valid = await compare(credentials.password, user.passwordHash);
         if (!valid) return null;
 
-        // Return only safe fields — passwordHash is never forwarded to the session
-        return { id: user.id, name: user.name ?? user.username, image: user.image };
+        // Return safe fields only — passwordHash never forwarded; email included so
+        // session.user.email is populated for all downstream API lookups
+        return { id: user.id, name: user.name ?? user.username, email: user.email, image: user.image };
       },
     })
   );
@@ -162,10 +163,14 @@ export const authOptions: NextAuthOptions = {
       return baseUrl
     },
     async jwt({ token, user }) {
-      // On initial sign-in, user is the object returned from authorize() or the DB user.
-      // Attach the database user id to the token so the session callback can read it.
+      // On initial sign-in, attach both id and email to the token.
+      // For Google OAuth: token.email is already set from the OAuth profile.
+      // For credentials: user.email is the @duck.local synthetic address.
       if (user?.id) {
         token.sub = user.id
+      }
+      if (user?.email && !token.email) {
+        token.email = user.email
       }
       return token
     },
