@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '22.x'
 
@@ -146,29 +146,17 @@ jobs:
           print(f'  {len(zip_bytes) // 1024 // 1024} MB uploaded')
 
           # Step 3: Extract zip on Azure.
-          # zipfile.extractall() fails with FileNotFoundError on Azure SMB when
-          # the zip lacks explicit directory entries (common with "zip -r").
-          # We manually makedirs before each file to guarantee parent dirs exist.
+          # IMPORTANT: The Python zipfile + os.makedirs approach fails on Azure
+          # SMB for paths containing hidden directories (e.g. node_modules/.prisma/)
+          # because makedirs() is not atomic on SMB — the directory appears created
+          # but open(target, 'wb') raises FileNotFoundError immediately after.
+          # Fix: use the system 'unzip' command which handles dir creation atomically.
           print('Extracting on Azure...')
-          r = run_script('_extract.py', f"""
-              import zipfile, os
-              WR = '{WWWROOT}'
-              count = 0
-              with zipfile.ZipFile(os.path.join(WR, 'deploy.zip')) as z:
-                  for member in z.namelist():
-                      target = os.path.join(WR, member)
-                      if member.endswith('/'):
-                          os.makedirs(target, exist_ok=True)
-                      else:
-                          os.makedirs(os.path.dirname(target), exist_ok=True)
-                          with z.open(member) as src, open(target, 'wb') as dst:
-                              dst.write(src.read())
-                          count += 1
-              print('Extracted', count, 'files')
-          """)
+          r = kudu_cmd(f'unzip -o {WWWROOT}/deploy.zip -d {WWWROOT}/')
           if r['ExitCode'] != 0:
               raise RuntimeError(f"Extract failed: {r['Error']}")
-          print(f"  {r['Output'].strip()}")
+          output = r['Output'].strip()
+          print(f"  {output[-300:] if len(output) > 300 else output}")
 
           # Step 4: Upload server.js directly (zipfile.extractall skips root files on Azure SMB)
           print('Uploading server.js (direct)...')
