@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "build": "prisma generate && next build",
         "start": "next start",
         "lint": "next lint",
         "db:generate": "prisma generate",
@@ -14,7 +14,7 @@
         "db:seed-topics": "tsx prisma/seed-topics.ts",
         "db:import": "tsx scripts/import-generated-questions.ts",
         "db:studio": "prisma studio",
-        "postinstall": "",
+        "postinstall": "prisma generate",
         "generate:questions": "tsx scripts/generate-bulk-questions.ts",
         "generate:images": "tsx scripts/generate-images-for-existing-questions.ts",
         "questions:organize": "tsx scripts/organize-export-questions.ts",
