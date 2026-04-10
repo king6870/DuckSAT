@@ -67,11 +67,113 @@ jobs:
         with:
           name: node-app
 
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'ducksatapp'
-          slot-name: 'Production'
-          package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8471701F58524C9A8628229C7587AA3C }}
+      - name: Create deployment zip
+        run: |
+          cd ${{ github.workspace }}
+          zip -r deploy.zip . -x "deploy.zip"
+          echo "zip size: $(du -sh deploy.zip | cut -f1)"
+
+      - name: Deploy via Kudu VFS (bypasses Oryx optimizer)
+        # azure/webapps-deploy@v3 uses /api/zipdeploy which triggers Oryx and
+        # corrupts the standalone build (zips node_modules into tar.gz).
+        # We use the VFS API instead: upload zip → extract with Python.
+        shell: python3 {0}
+        env:
+          PUBLISH_PROFILE: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8471701F58524C9A8628229C7587AA3C }}
+        run: |
+          import xml.etree.ElementTree as ET, base64, urllib.request, json, os, zipfile, time
+
+          KUDU = 'https://ducksatapp.scm.azurewebsites.net'
+          WWWROOT = '/home/site/wwwroot'
+          ZIP_PATH = os.path.join(os.environ['GITHUB_WORKSPACE'], 'deploy.zip')
+
+          # --- Parse publish profile for Kudu basic-auth credentials ---
+          root = ET.fromstring(os.environ['PUBLISH_PROFILE'])
+          prof = next(p for p in root.findall('publishProfile')
+                      if p.get('publishMethod') == 'MSDeploy')
+          user = prof.get('userName')
+          pwd  = prof.get('userPWD')
+          token = base64.b64encode(f'{user}:{pwd}'.encode()).decode()
+          auth_header = f'Basic {token}'
+
+          def kudu_cmd(cmd):
+              body = json.dumps({'command': cmd, 'dir': '/'}).encode()
+              req = urllib.request.Request(
+                  f'{KUDU}/api/command', data=body, method='POST',
+                  headers={'Authorization': auth_header, 'Content-Type': 'application/json'})
+              with urllib.request.urlopen(req, timeout=300) as r:
+                  return json.loads(r.read())
+
+          def vfs_put(remote_path, local_bytes, content_type='application/octet-stream'):
+              req = urllib.request.Request(
+                  f'{KUDU}/api/vfs/{remote_path.lstrip("/")}', data=local_bytes, method='PUT',
+                  headers={'Authorization': auth_header, 'Content-Type': content_type, 'If-Match': '*'})
+              with urllib.request.urlopen(req, timeout=120) as r:
+                  return r.status
+
+          def kudu_delete(path):
+              req = urllib.request.Request(
+                  f'{KUDU}{path}', method='DELETE',
+                  headers={'Authorization': auth_header})
+              try:
+                  with urllib.request.urlopen(req, timeout=30) as r:
+                      return r.status
+              except Exception:
+                  return None
+
+          # --- Clean wwwroot, upload zip, extract, upload server.js, restart ---
+          # (We do NOT stop the app first — the running process uses its in-memory
+          # cache. We wipe/redeploy wwwroot, then kill process 0 to trigger restart.)
+
+          print('Cleaning wwwroot...')
+          r = kudu_cmd(f'python3 -c "import shutil,os; shutil.rmtree(\'{WWWROOT}\'); os.makedirs(\'{WWWROOT}\')"')
+          if r['ExitCode'] != 0:
+              raise RuntimeError(f"Clean failed: {r['Error']}")
+
+          print('Uploading deploy.zip...')
+          with open(ZIP_PATH, 'rb') as f:
+              zip_bytes = f.read()
+          vfs_put(f'site/wwwroot/deploy.zip', zip_bytes, 'application/zip')
+          print(f'  uploaded {len(zip_bytes)//1024//1024} MB')
+
+          print('Extracting zip on Azure with Python...')
+          extract_script = (
+              "import zipfile\n"
+              f"z = zipfile.ZipFile('{WWWROOT}/deploy.zip')\n"
+              f"z.extractall('{WWWROOT}')\n"
+              "z.close()\n"
+              "print('Extracted', len(z.namelist()), 'files')\n"
+          )
+          vfs_put('site/wwwroot/extract.py', extract_script.encode(), 'text/plain')
+          r = kudu_cmd('python3 /home/site/wwwroot/extract.py')
+          if r['ExitCode'] != 0:
+              raise RuntimeError(f"Extract failed: {r['Error']}")
+          print(f"  {r['Output'].strip()}")
+
+          # server.js is in the zip but Python zipfile occasionally skips root-level
+          # files on Azure's SMB filesystem — upload it directly as a fallback.
+          print('Uploading server.js (direct fallback)...')
+          with zipfile.ZipFile(ZIP_PATH) as z:
+              server_js = z.read('server.js')
+          vfs_put('site/wwwroot/server.js', server_js, 'text/plain')
+
+          # Verify
+          r = kudu_cmd(f'python3 -c "import os; print(open(\'{WWWROOT}/.next/BUILD_ID\').read().strip())"')
+          print(f"BUILD_ID: {r['Output'].strip()}")
+          if r['ExitCode'] != 0:
+              raise RuntimeError('BUILD_ID missing — deploy failed')
+
+          r = kudu_cmd(f'python3 -c "import os; print(os.path.exists(\'{WWWROOT}/server.js\'))"')
+          print(f"server.js present: {r['Output'].strip()}")
+
+          # Cleanup temp files
+          kudu_cmd('python3 -c "import os; [os.remove(f\'/home/site/wwwroot/{f}\') for f in [\'deploy.zip\',\'extract.py\'] if os.path.exists(f\'/home/site/wwwroot/{f}\')]"')
+
+          print('Restarting app via Kudu process manager...')
+          # Kill process 0 (main w3wp/node worker) — Azure auto-restarts it with new files
+          kudu_delete('/api/processes/0')
+          time.sleep(5)
+          print('Deploy complete — app is restarting.')
+
+      # azure/cli@v2 requires service principal credentials not available here.
+      # App restart is handled via Kudu process kill above.
