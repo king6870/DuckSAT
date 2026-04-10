@@ -1,5 +1,8 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
+# Build and deploy Next.js standalone app to Azure Web App - ducksatapp
+# Single-job: build and deploy on the same runner so .next/ (hidden dir) is
+# never lost through an artifact upload/download step.
+# (actions/upload-artifact@v4 excludes hidden files by default — that's why
+#  splitting into two jobs always broke: .next/ was silently dropped.)
 
 name: Build and deploy Node.js app to Azure Web App - ducksatapp
 
@@ -10,7 +13,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -25,97 +28,84 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        # postinstall runs prisma generate here automatically
+        # postinstall script runs: prisma generate
 
-      - name: Build app (prisma generate + next build)
+      - name: Build app
         run: npm run build
         env:
-          # Placeholder values allow next build to complete without a live DB or Stripe.
-          # Real values are set as Azure App Service application settings at runtime.
+          # Placeholder values — Next.js only connects to DB/Stripe at request time,
+          # not at build time. Real values are in Azure App Service app settings.
           DATABASE_URL: sqlserver://placeholder:1433;database=placeholder;user=placeholder;password=placeholder;encrypt=true
           NEXTAUTH_SECRET: placeholder-build-secret-not-used-at-runtime
           NEXTAUTH_URL: https://www.ducksat.com
           STRIPE_SECRET_KEY: sk_test_placeholder_not_used_at_build_time
 
-      - name: Prepare standalone deployment package
+      - name: Package standalone build
         run: |
           mkdir -p deploy-package
-          # Copy the self-contained standalone server
           cp -r .next/standalone/. deploy-package/
-          # Next.js standalone doesn't include static assets — copy them in
           mkdir -p deploy-package/.next/static
           cp -r .next/static/. deploy-package/.next/static/
-          # Copy public folder (images, icons, robots.txt, etc.)
-          mkdir -p deploy-package/public
           cp -r public/. deploy-package/public/
-          # Copy Prisma schema (needed at runtime for some operations)
           mkdir -p deploy-package/prisma
           cp -r prisma/. deploy-package/prisma/
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: node-app
-          path: deploy-package
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: node-app
+          touch deploy-package/.skipOryxBuild
+          echo "Package contents:"
+          ls -la deploy-package/
+          echo ".next contents:"
+          ls deploy-package/.next/ | head -10
+          echo "BUILD_ID: $(cat deploy-package/.next/BUILD_ID)"
 
       - name: Create deployment zip
         run: |
-          cd ${{ github.workspace }}
-          zip -r deploy.zip . -x "deploy.zip"
+          cd deploy-package
+          zip -r ../deploy.zip . --include='*' --include='.*' --include='.*/*'
+          cd ..
           echo "zip size: $(du -sh deploy.zip | cut -f1)"
+          # Verify .next is in the zip
+          unzip -l deploy.zip | grep BUILD_ID
 
-      - name: Deploy via Kudu VFS (bypasses Oryx optimizer)
-        # azure/webapps-deploy@v3 uses /api/zipdeploy which triggers Oryx and
-        # corrupts the standalone build (zips node_modules into tar.gz).
-        # We use the VFS API instead: upload zip → run Python extract on Azure.
+      - name: Deploy to Azure via Kudu VFS
         shell: python3 {0}
         env:
           PUBLISH_PROFILE: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8471701F58524C9A8628229C7587AA3C }}
+          WORKSPACE: ${{ github.workspace }}
         run: |
           import xml.etree.ElementTree as ET, base64, urllib.request, json, os, zipfile, time, textwrap
 
-          KUDU = 'https://ducksatapp.scm.azurewebsites.net'
+          KUDU    = 'https://ducksatapp.scm.azurewebsites.net'
           WWWROOT = '/home/site/wwwroot'
-          ZIP_PATH = os.path.join(os.environ['GITHUB_WORKSPACE'], 'deploy.zip')
+          ZIP_PATH = os.path.join(os.environ['WORKSPACE'], 'deploy.zip')
 
-          # --- Parse publish profile for Kudu basic-auth credentials ---
+          # Parse publish profile for Kudu basic-auth credentials
           root = ET.fromstring(os.environ['PUBLISH_PROFILE'])
           prof = next(p for p in root.findall('publishProfile')
                       if p.get('publishMethod') == 'MSDeploy')
           user = prof.get('userName')
           pwd  = prof.get('userPWD')
           token = base64.b64encode(f'{user}:{pwd}'.encode()).decode()
-          auth_header = f'Basic {token}'
+          auth  = f'Basic {token}'
 
           def kudu_cmd(cmd):
               body = json.dumps({'command': cmd, 'dir': '/'}).encode()
               req = urllib.request.Request(
                   f'{KUDU}/api/command', data=body, method='POST',
-                  headers={'Authorization': auth_header, 'Content-Type': 'application/json'})
+                  headers={'Authorization': auth, 'Content-Type': 'application/json'})
               with urllib.request.urlopen(req, timeout=300) as r:
                   return json.loads(r.read())
 
-          def vfs_put(remote_path, local_bytes, content_type='application/octet-stream'):
+          def vfs_put(remote_path, data, content_type='application/octet-stream'):
               req = urllib.request.Request(
-                  f'{KUDU}/api/vfs/{remote_path.lstrip("/")}', data=local_bytes, method='PUT',
-                  headers={'Authorization': auth_header, 'Content-Type': content_type, 'If-Match': '*'})
+                  f'{KUDU}/api/vfs/{remote_path.lstrip("/")}',
+                  data=data, method='PUT',
+                  headers={'Authorization': auth, 'Content-Type': content_type, 'If-Match': '*'})
               with urllib.request.urlopen(req, timeout=300) as r:
                   return r.status
 
           def kudu_delete(path):
               req = urllib.request.Request(
                   f'{KUDU}{path}', method='DELETE',
-                  headers={'Authorization': auth_header})
+                  headers={'Authorization': auth})
               try:
                   with urllib.request.urlopen(req, timeout=30) as r:
                       return r.status
@@ -123,84 +113,59 @@ jobs:
                   return None
 
           def run_script(name, code):
-              """Upload a Python script to wwwroot and execute it via Kudu command API."""
+              """Upload a .py file to wwwroot and execute it."""
               vfs_put(f'site/wwwroot/{name}', textwrap.dedent(code).encode(), 'text/plain')
               return kudu_cmd(f'python3 {WWWROOT}/{name}')
 
-          # ---------------------------------------------------------------
-          # Step 1: Clean critical directories only.
-          #
-          # DO NOT use shutil.rmtree(wwwroot) — Azure SMB gives ENOTEMPTY on
-          # deeply-nested dirs like node_modules/.prisma/client even after
-          # files are deleted (kernel cache race). Instead:
-          #   • Delete .next/, src/, public/, prisma/ with ignore_errors=True
-          #     so the new build artifacts land in a clean state.
-          #   • Leave node_modules/ in place — extraction overwrites what it needs.
-          # ---------------------------------------------------------------
-          print('Cleaning stale build artifacts (best-effort)...')
-          clean_result = run_script('_clean.py', f"""
+          # Step 1: Clean stale build artifacts (never rmtree node_modules - ENOTEMPTY on SMB)
+          print('Cleaning stale artifacts...')
+          r = run_script('_clean.py', f"""
               import shutil, os
               WR = '{WWWROOT}'
-              # Directories that must be fresh on every deploy
               for d in ['.next', 'src', 'public', 'prisma']:
                   p = os.path.join(WR, d)
                   if os.path.isdir(p):
                       shutil.rmtree(p, ignore_errors=True)
-              # Root-level files (server.js, package.json, etc.)
               for f in os.listdir(WR):
                   fp = os.path.join(WR, f)
                   if os.path.isfile(fp) and not f.startswith('_'):
-                      try:
-                          os.remove(fp)
-                      except OSError:
-                          pass
+                      try: os.remove(fp)
+                      except OSError: pass
               os.makedirs(WR, exist_ok=True)
               print('clean ok')
           """)
-          # Log but never abort — if some stale files remain, extraction will overwrite them.
-          print(f"  clean stdout: {clean_result['Output'].strip()}")
-          if clean_result['Error']:
-              print(f"  clean stderr (non-fatal): {clean_result['Error'][:300]}")
+          print(f"  {r['Output'].strip()}")
+          if r['Error']:
+              print(f"  (non-fatal): {r['Error'][:200]}")
 
-          # ---------------------------------------------------------------
-          # Step 2: Upload deploy.zip
-          # ---------------------------------------------------------------
+          # Step 2: Upload zip
           print('Uploading deploy.zip...')
           with open(ZIP_PATH, 'rb') as f:
               zip_bytes = f.read()
           vfs_put('site/wwwroot/deploy.zip', zip_bytes, 'application/zip')
-          print(f'  uploaded {len(zip_bytes) // 1024 // 1024} MB')
+          print(f'  {len(zip_bytes) // 1024 // 1024} MB uploaded')
 
-          # ---------------------------------------------------------------
-          # Step 3: Extract the zip on Azure with Python.
-          #         zipfile.extractall overwrites existing files cleanly.
-          # ---------------------------------------------------------------
-          print('Extracting zip on Azure...')
-          extract_result = run_script('_extract.py', f"""
+          # Step 3: Extract zip on Azure
+          print('Extracting on Azure...')
+          r = run_script('_extract.py', f"""
               import zipfile
               z = zipfile.ZipFile('{WWWROOT}/deploy.zip')
               z.extractall('{WWWROOT}')
               z.close()
               print('Extracted', len(z.namelist()), 'files')
           """)
-          if extract_result['ExitCode'] != 0:
-              raise RuntimeError(f"Extract failed: {extract_result['Error']}")
-          print(f"  {extract_result['Output'].strip()}")
+          if r['ExitCode'] != 0:
+              raise RuntimeError(f"Extract failed: {r['Error']}")
+          print(f"  {r['Output'].strip()}")
 
-          # ---------------------------------------------------------------
-          # Step 4: Upload server.js directly.
-          #         Python's zipfile.extractall on Azure SMB sometimes skips
-          #         root-level files — upload it explicitly as a guarantee.
-          # ---------------------------------------------------------------
-          print('Uploading server.js (direct, guaranteed)...')
+          # Step 4: Upload server.js directly (zipfile.extractall skips root files on Azure SMB)
+          print('Uploading server.js (direct)...')
           with zipfile.ZipFile(ZIP_PATH) as z:
-              server_js = z.read('server.js')
-          vfs_put('site/wwwroot/server.js', server_js, 'text/plain')
+              vfs_put('site/wwwroot/server.js', z.read('server.js'), 'text/plain')
 
-          # ---------------------------------------------------------------
-          # Step 5: Verify the deploy landed correctly.
-          # ---------------------------------------------------------------
-          verify_result = run_script('_verify.py', f"""
+          # Step 5: Verify
+          print('Verifying...')
+          r = run_script('_verify.py', f"""
               import os
               WR = '{WWWROOT}'
               build_id = open(os.path.join(WR, '.next', 'BUILD_ID')).read().strip()
@@ -210,23 +175,20 @@ jobs:
                          if f.startswith('libquery')]
               print('prisma engines:', engines)
           """)
-          if verify_result['ExitCode'] != 0:
-              raise RuntimeError(f"Verify failed — BUILD_ID missing? {verify_result['Error']}")
-          print(f"  {verify_result['Output'].strip()}")
+          if r['ExitCode'] != 0:
+              raise RuntimeError(f"Verify failed: {r['Error']}")
+          print(f"  {r['Output'].strip()}")
 
-          # ---------------------------------------------------------------
-          # Step 6: Clean up temp scripts and restart the app process.
-          # ---------------------------------------------------------------
+          # Step 6: Cleanup temp files
           kudu_cmd(
               f'python3 -c "import os; '
               f'[os.remove(os.path.join(\'{WWWROOT}\', f)) '
-              f' for f in os.listdir(\'{WWWROOT}\') if f.startswith(\'_\') and f.endswith(\'.py\')]"'
+              f'for f in os.listdir(\'{WWWROOT}\') '
+              f'if (f.startswith(\'_\') and f.endswith(\'.py\')) or f == \'deploy.zip\']"'
           )
-          kudu_cmd(f'python3 -c "import os; os.remove(\'{WWWROOT}/deploy.zip\')"')
 
-          print('Restarting app via Kudu process manager...')
+          # Step 7: Restart app
+          print('Restarting app...')
           kudu_delete('/api/processes/0')
           time.sleep(5)
           print('Deploy complete.')
-
-      # App restart is handled via Kudu process 0 kill above (no Azure CLI needed).
