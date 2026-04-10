@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { ADMIN_EMAILS } from '@/constants/adminEmails'
@@ -758,10 +758,465 @@ function UsersTab() {
 
 // ───── Main Page ──────────────────────────────────────────────────────────────
 
+// ── new types ──
+interface PageAnalyticsRow {
+  pagePath: string
+  visits: number
+  totalDwellMs: number
+  avgDwellMs: number
+  uniqueUsers: number
+}
+
+interface EventRow {
+  eventName: string
+  eventType: string
+  count: number
+  uniqueUsers: number
+}
+
+interface LearningRow {
+  category: string
+  drills: number
+  completedDrills: number
+  totalQuestions: number
+  correctAnswers: number
+  avgScore: number
+  avgTimeMs: number
+  accuracy: number
+}
+
+interface HeatmapPoint {
+  xPct: number
+  yPct: number
+  eventType: string
+}
+
+interface HeatmapData {
+  page: string
+  days: number
+  total: number
+  points: HeatmapPoint[]
+  availablePages: { pagePath: string; count: number }[]
+}
+
+// ── Day range selector ──
+function DaySelector({ days, onChange }: { days: number; onChange: (d: number) => void }) {
+  return (
+    <div className="flex gap-1 mb-5">
+      {[7, 30, 90].map((d) => (
+        <button
+          key={d}
+          onClick={() => onChange(d)}
+          className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+            days === d
+              ? 'bg-blue-600 text-white'
+              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+          }`}
+        >
+          {d}d
+        </button>
+      ))}
+    </div>
+  )
+}
+
+function fmtMs(ms: number): string {
+  if (ms < 60000) return `${Math.round(ms / 1000)}s`
+  if (ms < 3600000) return `${Math.round(ms / 60000)}m`
+  return `${(ms / 3600000).toFixed(1)}h`
+}
+
+// ───── Pages Tab ──────────────────────────────────────────────────────────────
+
+function PagesTab() {
+  const [data, setData] = useState<PageAnalyticsRow[] | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [days, setDays] = useState(30)
+
+  useEffect(() => {
+    setLoading(true)
+    fetch(`/api/admin/data/page-analytics?days=${days}&limit=30`)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => { setData(d.rows); setError(null) })
+      .catch(() => setError('Failed to load page analytics'))
+      .finally(() => setLoading(false))
+  }, [days])
+
+  return (
+    <div>
+      <DaySelector days={days} onChange={setDays} />
+      {loading ? (
+        <div className="text-center py-12 text-gray-500">Loading…</div>
+      ) : error ? (
+        <div className="text-center py-12 text-red-500">{error}</div>
+      ) : !data || data.length === 0 ? (
+        <div className="text-center py-12 text-gray-400">No page view data yet</div>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-gray-50 text-left text-gray-600">
+                <th className="p-3 border-b font-semibold">Page</th>
+                <th className="p-3 border-b font-semibold">Visits</th>
+                <th className="p-3 border-b font-semibold">Unique Users</th>
+                <th className="p-3 border-b font-semibold">Avg Time</th>
+                <th className="p-3 border-b font-semibold">Total Time</th>
+                <th className="p-3 border-b font-semibold w-48">Time Bar</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((row) => {
+                const maxTotal = data[0]?.totalDwellMs || 1
+                const pct = Math.round((row.totalDwellMs / maxTotal) * 100)
+                return (
+                  <tr key={row.pagePath} className="border-b hover:bg-gray-50">
+                    <td className="p-3 font-mono text-xs text-indigo-700">{row.pagePath}</td>
+                    <td className="p-3 font-medium text-gray-800">{row.visits}</td>
+                    <td className="p-3 text-gray-600">{row.uniqueUsers}</td>
+                    <td className="p-3 text-gray-600">{fmtMs(row.avgDwellMs)}</td>
+                    <td className="p-3 text-gray-600">{fmtMs(row.totalDwellMs)}</td>
+                    <td className="p-3">
+                      <div className="bg-gray-100 rounded-full h-2 w-full">
+                        <div
+                          className="bg-indigo-500 h-2 rounded-full"
+                          style={{ width: `${pct}%` }}
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ───── Learning Tab ───────────────────────────────────────────────────────────
+
+const CATEGORY_LABELS: Record<string, string> = {
+  algebra: 'Algebra',
+  'advanced-math': 'Advanced Math',
+  geometry: 'Geometry',
+  'problem-solving-data-analysis': 'Data Analysis',
+  statistics: 'Statistics',
+  'reading-comprehension': 'Reading',
+  grammar: 'Grammar',
+  vocabulary: 'Vocabulary',
+  'writing-language': 'Writing',
+  mixed: 'Mixed',
+}
+
+function AccuracyCell({ pct }: { pct: number }) {
+  const color =
+    pct >= 80 ? 'text-green-700 bg-green-50' :
+    pct >= 60 ? 'text-yellow-700 bg-yellow-50' :
+    'text-red-700 bg-red-50'
+  return (
+    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${color}`}>
+      {pct}%
+    </span>
+  )
+}
+
+function LearningTab() {
+  const [data, setData] = useState<LearningRow[] | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [days, setDays] = useState(30)
+
+  useEffect(() => {
+    setLoading(true)
+    fetch(`/api/admin/data/learning?days=${days}`)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => { setData(d.rows); setError(null) })
+      .catch(() => setError('Failed to load learning data'))
+      .finally(() => setLoading(false))
+  }, [days])
+
+  const totalQuestions = data?.reduce((s, r) => s + r.totalQuestions, 0) ?? 0
+  const totalDrills = data?.reduce((s, r) => s + r.drills, 0) ?? 0
+
+  return (
+    <div>
+      <DaySelector days={days} onChange={setDays} />
+      {!loading && !error && data && (
+        <div className="flex gap-4 mb-5 flex-wrap">
+          <div className="bg-indigo-50 rounded-xl p-3 text-center min-w-[100px]">
+            <div className="text-xl font-bold text-indigo-800">{totalDrills}</div>
+            <div className="text-xs text-indigo-600">total drills</div>
+          </div>
+          <div className="bg-blue-50 rounded-xl p-3 text-center min-w-[100px]">
+            <div className="text-xl font-bold text-blue-800">{totalQuestions}</div>
+            <div className="text-xs text-blue-600">questions answered</div>
+          </div>
+        </div>
+      )}
+      {loading ? (
+        <div className="text-center py-12 text-gray-500">Loading…</div>
+      ) : error ? (
+        <div className="text-center py-12 text-red-500">{error}</div>
+      ) : !data || data.length === 0 ? (
+        <div className="text-center py-12 text-gray-400">No drill data yet</div>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-gray-50 text-left text-gray-600">
+                <th className="p-3 border-b font-semibold">Topic</th>
+                <th className="p-3 border-b font-semibold">Drills</th>
+                <th className="p-3 border-b font-semibold">Completed</th>
+                <th className="p-3 border-b font-semibold">Questions</th>
+                <th className="p-3 border-b font-semibold">Accuracy</th>
+                <th className="p-3 border-b font-semibold">Avg Score</th>
+                <th className="p-3 border-b font-semibold">Avg Time/Q</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((row) => (
+                <tr key={row.category} className="border-b hover:bg-gray-50">
+                  <td className="p-3 font-medium text-gray-800">
+                    {CATEGORY_LABELS[row.category] ?? row.category}
+                  </td>
+                  <td className="p-3 text-gray-600">{row.drills}</td>
+                  <td className="p-3 text-gray-600">{row.completedDrills}</td>
+                  <td className="p-3 font-medium text-gray-800">{row.totalQuestions}</td>
+                  <td className="p-3">
+                    <AccuracyCell pct={row.accuracy} />
+                  </td>
+                  <td className="p-3 text-gray-600">{row.avgScore}%</td>
+                  <td className="p-3 text-gray-600">{fmtMs(row.avgTimeMs)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ───── Heatmap Canvas ─────────────────────────────────────────────────────────
+
+function HeatmapCanvas({ points }: { points: HeatmapPoint[] }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    const W = canvas.width
+    const H = canvas.height
+
+    ctx.clearRect(0, 0, W, H)
+    // bg
+    ctx.fillStyle = '#f3f4f6'
+    ctx.fillRect(0, 0, W, H)
+    // border
+    ctx.strokeStyle = '#d1d5db'
+    ctx.strokeRect(0, 0, W, H)
+
+    // label
+    ctx.fillStyle = '#9ca3af'
+    ctx.font = '11px sans-serif'
+    ctx.fillText('viewport', 6, 14)
+
+    // dots
+    for (const pt of points) {
+      const x = (pt.xPct / 100) * W
+      const y = (pt.yPct / 100) * H
+      ctx.beginPath()
+      ctx.arc(x, y, pt.eventType === 'click' ? 4 : 2, 0, Math.PI * 2)
+      ctx.fillStyle = pt.eventType === 'click'
+        ? 'rgba(59,130,246,0.35)'
+        : 'rgba(245,158,11,0.25)'
+      ctx.fill()
+    }
+  }, [points])
+
+  return (
+    <div>
+      <div className="flex items-center gap-4 mb-2 text-xs text-gray-500">
+        <span><span className="inline-block w-3 h-3 rounded-full bg-blue-400 mr-1 align-middle" />click</span>
+        <span><span className="inline-block w-3 h-3 rounded-full bg-amber-400 mr-1 align-middle" />mouse move</span>
+      </div>
+      <canvas
+        ref={canvasRef}
+        width={600}
+        height={380}
+        className="border rounded-xl w-full max-w-2xl"
+        style={{ aspectRatio: '600 / 380' }}
+      />
+    </div>
+  )
+}
+
+// ───── Activity Tab ───────────────────────────────────────────────────────────
+
+function ActivityTab() {
+  const [days, setDays] = useState(30)
+
+  // Events section
+  const [events, setEvents] = useState<EventRow[] | null>(null)
+  const [eventsLoading, setEventsLoading] = useState(true)
+  const [eventsError, setEventsError] = useState<string | null>(null)
+
+  // Heatmap section
+  const [heatmap, setHeatmap] = useState<HeatmapData | null>(null)
+  const [heatmapPage, setHeatmapPage] = useState('/')
+  const [heatmapType, setHeatmapType] = useState<'all' | 'click' | 'move'>('all')
+  const [heatmapLoading, setHeatmapLoading] = useState(true)
+  const [heatmapError, setHeatmapError] = useState<string | null>(null)
+
+  // Load events
+  useEffect(() => {
+    setEventsLoading(true)
+    fetch(`/api/admin/data/events?days=${days}&limit=50`)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => { setEvents(d.rows); setEventsError(null) })
+      .catch(() => setEventsError('Failed to load events'))
+      .finally(() => setEventsLoading(false))
+  }, [days])
+
+  // Load heatmap
+  useEffect(() => {
+    setHeatmapLoading(true)
+    const params = new URLSearchParams({
+      page: heatmapPage,
+      type: heatmapType,
+      days: String(days),
+    })
+    fetch(`/api/admin/data/heatmap?${params}`)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => { setHeatmap(d); setHeatmapError(null) })
+      .catch(() => setHeatmapError('Failed to load heatmap'))
+      .finally(() => setHeatmapLoading(false))
+  }, [heatmapPage, heatmapType, days])
+
+  return (
+    <div className="space-y-10">
+      <DaySelector days={days} onChange={setDays} />
+
+      {/* Section 1: Button Clicks */}
+      <div>
+        <h3 className="text-lg font-bold text-gray-800 mb-3">🖱️ Button &amp; Link Clicks</h3>
+        {eventsLoading ? (
+          <div className="text-center py-8 text-gray-500">Loading…</div>
+        ) : eventsError ? (
+          <div className="text-center py-8 text-red-500">{eventsError}</div>
+        ) : !events || events.length === 0 ? (
+          <div className="text-center py-8 text-gray-400">No events yet</div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-gray-50 text-left text-gray-600">
+                  <th className="p-3 border-b font-semibold">Event Name</th>
+                  <th className="p-3 border-b font-semibold">Type</th>
+                  <th className="p-3 border-b font-semibold">Count</th>
+                  <th className="p-3 border-b font-semibold">Unique Users</th>
+                  <th className="p-3 border-b font-semibold w-40">Frequency Bar</th>
+                </tr>
+              </thead>
+              <tbody>
+                {events.map((e, i) => {
+                  const maxCount = events[0]?.count || 1
+                  const pct = Math.round((e.count / maxCount) * 100)
+                  return (
+                    <tr key={i} className="border-b hover:bg-gray-50">
+                      <td className="p-3 font-medium text-gray-800">{e.eventName}</td>
+                      <td className="p-3">
+                        <span className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs">
+                          {e.eventType}
+                        </span>
+                      </td>
+                      <td className="p-3 font-bold text-gray-800">{e.count}</td>
+                      <td className="p-3 text-gray-600">{e.uniqueUsers}</td>
+                      <td className="p-3">
+                        <div className="bg-gray-100 rounded-full h-2 w-full">
+                          <div
+                            className="bg-purple-500 h-2 rounded-full"
+                            style={{ width: `${pct}%` }}
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+
+      {/* Section 2: Click Heatmap */}
+      <div>
+        <h3 className="text-lg font-bold text-gray-800 mb-3">🔥 Click &amp; Mouse Heatmap</h3>
+        <div className="flex flex-wrap gap-3 mb-4">
+          {/* Page selector */}
+          <select
+            value={heatmapPage}
+            onChange={(e) => setHeatmapPage(e.target.value)}
+            className="border rounded-lg px-3 py-2 text-sm"
+          >
+            {heatmap?.availablePages.length ? (
+              heatmap.availablePages.map((p) => (
+                <option key={p.pagePath} value={p.pagePath}>
+                  {p.pagePath} ({p.count})
+                </option>
+              ))
+            ) : (
+              <option value="/">/</option>
+            )}
+          </select>
+
+          {/* Type filter */}
+          {(['all', 'click', 'move'] as const).map((t) => (
+            <button
+              key={t}
+              onClick={() => setHeatmapType(t)}
+              className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                heatmapType === t
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              }`}
+            >
+              {t}
+            </button>
+          ))}
+
+          {heatmap && (
+            <span className="text-xs text-gray-400 self-center">
+              {heatmap.total} data points
+            </span>
+          )}
+        </div>
+
+        {heatmapLoading ? (
+          <div className="text-center py-8 text-gray-400">Loading heatmap…</div>
+        ) : heatmapError ? (
+          <div className="text-center py-8 text-red-500">{heatmapError}</div>
+        ) : !heatmap || heatmap.points.length === 0 ? (
+          <div className="text-center py-8 text-gray-400">
+            No pointer data for this page yet. Data will appear after users browse the site.
+          </div>
+        ) : (
+          <HeatmapCanvas points={heatmap.points} />
+        )}
+      </div>
+    </div>
+  )
+}
+
 export default function AdminDataPage() {
   const { data: session, status } = useSession()
   const router = useRouter()
-  const [tab, setTab] = useState<'feedback' | 'users'>('feedback')
+  const [tab, setTab] = useState<'feedback' | 'users' | 'pages' | 'learning' | 'activity'>('feedback')
   const [summary, setSummary] = useState<Summary | null>(null)
   const [summaryError, setSummaryError] = useState(false)
 
@@ -833,24 +1288,34 @@ export default function AdminDataPage() {
           )}
 
           {/* Tabs */}
-          <div className="flex gap-1 border-b mb-6">
-            {(['feedback', 'users'] as const).map((t) => (
+          <div className="flex flex-wrap gap-1 border-b mb-6">
+            {([
+              { key: 'feedback', label: '💬 Feedback' },
+              { key: 'users', label: '👥 Users' },
+              { key: 'pages', label: '📄 Pages' },
+              { key: 'learning', label: '📚 Learning' },
+              { key: 'activity', label: '🖱️ Activity' },
+            ] as const).map(({ key, label }) => (
               <button
-                key={t}
-                onClick={() => setTab(t)}
-                className={`px-5 py-2.5 text-sm font-semibold capitalize rounded-t-lg transition-colors ${
-                  tab === t
+                key={key}
+                onClick={() => setTab(key)}
+                className={`px-4 py-2.5 text-sm font-semibold rounded-t-lg transition-colors ${
+                  tab === key
                     ? 'bg-white border border-b-white text-blue-700 border-gray-200 -mb-px'
                     : 'text-gray-500 hover:text-gray-700'
                 }`}
               >
-                {t === 'feedback' ? '💬 Feedback' : '👥 Users'}
+                {label}
               </button>
             ))}
           </div>
 
           {/* Tab content */}
-          {tab === 'feedback' ? <FeedbackTab /> : <UsersTab />}
+          {tab === 'feedback' && <FeedbackTab />}
+          {tab === 'users' && <UsersTab />}
+          {tab === 'pages' && <PagesTab />}
+          {tab === 'learning' && <LearningTab />}
+          {tab === 'activity' && <ActivityTab />}
         </div>
       </div>
     </div>

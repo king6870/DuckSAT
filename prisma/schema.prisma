@@ -565,6 +565,24 @@ model UserDailyActivity {
   @@map("user_daily_activity")
 }
 
+// Click and mouse-movement positions for heatmap analytics
+model ClickEvent {
+  id        String   @id @default(cuid())
+  userId    String?
+  sessionId String?
+  pagePath  String   // e.g. '/practice', '/pricing'
+  xPct      Float    // x as % of viewport width (0-100)
+  yPct      Float    // y as % of viewport height (0-100)
+  element   String?  // simplified tag: 'button', 'a', 'input', etc.
+  label     String?  // button text / aria-label (max 80 chars)
+  eventType String   @default("click") // 'click' | 'move'
+  createdAt DateTime @default(now())
+
+  @@index([pagePath, createdAt])
+  @@index([userId])
+  @@map("click_events")
+}
+
 // Site feedback / review widget submissions
 model UserFeedback {
   id          String   @id @default(cuid())

@@ -1,11 +1,12 @@
 'use client'
 
-import { usePageTracking, trackEvent } from '@/lib/tracking'
+import { usePageTracking, usePointerTracking, trackEvent } from '@/lib/tracking'
 import { useSession } from 'next-auth/react'
 import { useEffect, useRef } from 'react'
 
 export default function AnalyticsProvider({ children }: { children: React.ReactNode }) {
   usePageTracking()
+  usePointerTracking()
 
   const { data: session } = useSession()
   const tracked = useRef(false)

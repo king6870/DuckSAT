@@ -246,3 +246,141 @@ function getScrollDepth(): number {
   if (scrollHeight === 0) return 100
   return Math.min(100, Math.round((scrollTop / scrollHeight) * 100))
 }
+
+// ─────────────────────────────────────────────
+// POINTER TRACKING — queue + flush
+// ─────────────────────────────────────────────
+interface PointerEventData {
+  pagePath: string
+  xPct: number
+  yPct: number
+  element?: string
+  label?: string
+  eventType: 'click' | 'move'
+}
+
+const pointerQueue: PointerEventData[] = []
+let pointerFlushTimer: ReturnType<typeof setTimeout> | null = null
+
+function flushPointerEvents() {
+  if (pointerQueue.length === 0) return
+  const batch = pointerQueue.splice(0, 100)
+  sendTracking('/api/tracking/clicks', {
+    sessionId: getSessionId(),
+    events: batch,
+  })
+}
+
+function schedulePointerFlush() {
+  if (pointerFlushTimer) return
+  pointerFlushTimer = setTimeout(() => {
+    pointerFlushTimer = null
+    flushPointerEvents()
+  }, 5000)
+}
+
+if (typeof window !== 'undefined') {
+  window.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') flushPointerEvents()
+  })
+  window.addEventListener('pagehide', flushPointerEvents)
+}
+
+// ─────────────────────────────────────────────
+// HOOK: usePointerTracking — global click + mouse-move sampling
+// ─────────────────────────────────────────────
+export function usePointerTracking() {
+  const pathname = usePathname()
+
+  useEffect(() => {
+    // ── Click / touch handler ──────────────────
+    const handleClick = (e: MouseEvent | TouchEvent) => {
+      if (typeof window === 'undefined') return
+
+      let clientX: number
+      let clientY: number
+      if (e instanceof MouseEvent) {
+        clientX = e.clientX
+        clientY = e.clientY
+      } else {
+        const touch = e.changedTouches[0]
+        if (!touch) return
+        clientX = touch.clientX
+        clientY = touch.clientY
+      }
+
+      const target = e.target as Element | null
+      if (!target) return
+
+      // Only track clicks on interactive elements
+      const interactive = target.closest('button, a, [role="button"], select, input[type="submit"], input[type="button"]')
+      if (!interactive) return
+
+      const tag = interactive.tagName.toLowerCase()
+      const rawLabel =
+        interactive.textContent?.trim() ||
+        interactive.getAttribute('aria-label') ||
+        interactive.getAttribute('title') ||
+        ''
+      const label = rawLabel.slice(0, 80)
+
+      pointerQueue.push({
+        pagePath: window.location.pathname,
+        xPct: Math.round((clientX / window.innerWidth) * 100),
+        yPct: Math.round((clientY / window.innerHeight) * 100),
+        element: tag,
+        label,
+        eventType: 'click',
+      })
+      schedulePointerFlush()
+    }
+
+    // ── Mouse-move sampler ─────────────────────
+    let lastMoveX = -1
+    let lastMoveY = -1
+    let moveSamplesThisMinute = 0
+    const MOVE_SAMPLE_INTERVAL_MS = 5000
+    const MAX_MOVE_SAMPLES_PER_MIN = 12
+
+    const handleMouseMove = (e: MouseEvent) => {
+      lastMoveX = e.clientX
+      lastMoveY = e.clientY
+    }
+
+    const moveInterval = setInterval(() => {
+      if (lastMoveX < 0 || document.visibilityState === 'hidden') return
+      if (moveSamplesThisMinute >= MAX_MOVE_SAMPLES_PER_MIN) return
+
+      const xPct = Math.round((lastMoveX / window.innerWidth) * 100)
+      const yPct = Math.round((lastMoveY / window.innerHeight) * 100)
+
+      pointerQueue.push({
+        pagePath: window.location.pathname,
+        xPct,
+        yPct,
+        eventType: 'move',
+      })
+      moveSamplesThisMinute++
+      schedulePointerFlush()
+
+      // Reset sample counter every minute
+    }, MOVE_SAMPLE_INTERVAL_MS)
+
+    const minuteReset = setInterval(() => {
+      moveSamplesThisMinute = 0
+    }, 60000)
+
+    document.addEventListener('click', handleClick)
+    document.addEventListener('touchstart', handleClick as EventListener)
+    document.addEventListener('mousemove', handleMouseMove)
+
+    return () => {
+      document.removeEventListener('click', handleClick)
+      document.removeEventListener('touchstart', handleClick as EventListener)
+      document.removeEventListener('mousemove', handleMouseMove)
+      clearInterval(moveInterval)
+      clearInterval(minuteReset)
+    }
+  }, [pathname])
+}
+
