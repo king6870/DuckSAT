@@ -71,18 +71,18 @@ jobs:
           PUBLISH_PROFILE: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8471701F58524C9A8628229C7587AA3C }}
           WORKSPACE: ${{ github.workspace }}
         run: |
-          import xml.etree.ElementTree as ET, base64, urllib.request, json, os, zipfile, time, textwrap
+          import xml.etree.ElementTree as ET, base64, urllib.request, urllib.error, json, os, zipfile, time, textwrap
 
-          KUDU    = 'https://ducksatapp.scm.azurewebsites.net'
-          WWWROOT = '/home/site/wwwroot'
+          KUDU     = 'https://ducksatapp.scm.azurewebsites.net'
+          WWWROOT  = '/home/site/wwwroot'
           ZIP_PATH = os.path.join(os.environ['WORKSPACE'], 'deploy.zip')
 
           # Parse publish profile for Kudu basic-auth credentials
           root = ET.fromstring(os.environ['PUBLISH_PROFILE'])
           prof = next(p for p in root.findall('publishProfile')
                       if p.get('publishMethod') == 'MSDeploy')
-          user = prof.get('userName')
-          pwd  = prof.get('userPWD')
+          user  = prof.get('userName')
+          pwd   = prof.get('userPWD')
           token = base64.b64encode(f'{user}:{pwd}'.encode()).decode()
           auth  = f'Basic {token}'
 
@@ -117,53 +117,70 @@ jobs:
               vfs_put(f'site/wwwroot/{name}', textwrap.dedent(code).encode(), 'text/plain')
               return kudu_cmd(f'python3 {WWWROOT}/{name}')
 
-          # Step 1: Clean stale build artifacts (never rmtree node_modules - ENOTEMPTY on SMB)
-          print('Cleaning stale artifacts...')
-          r = run_script('_clean.py', f"""
-              import shutil, os
-              WR = '{WWWROOT}'
-              for d in ['.next', 'src', 'public', 'prisma']:
-                  p = os.path.join(WR, d)
-                  if os.path.isdir(p):
-                      shutil.rmtree(p, ignore_errors=True)
-              for f in os.listdir(WR):
-                  fp = os.path.join(WR, f)
-                  if os.path.isfile(fp) and not f.startswith('_'):
-                      try: os.remove(fp)
-                      except OSError: pass
-              os.makedirs(WR, exist_ok=True)
-              print('clean ok')
-          """)
-          print(f"  {r['Output'].strip()}")
-          if r['Error']:
-              print(f"  (non-fatal): {r['Error'][:200]}")
+          # ---------------------------------------------------------------
+          # DEPLOYMENT STRATEGY: Kudu /api/zipdeploy
+          #
+          # Previous attempts (Python zipfile extraction, system unzip) both
+          # fail with:
+          #   FileNotFoundError / "cannot create ... No such file or directory"
+          #   for /home/site/wwwroot/node_modules/.prisma/client/libquery_engine-...
+          #
+          # Root cause: Azure App Service Linux mounts /home/site/wwwroot over
+          # Azure Files SMB. Creating hidden subdirectories (names starting with
+          # '.') inside existing directories on this SMB mount is unreliable —
+          # mkdir appears to succeed but the directory is not visible to the
+          # next open() call.  Both Python os.makedirs and the system unzip go
+          # through the same SMB codepath and hit the same bug.
+          #
+          # Fix: POST the zip directly to /api/zipdeploy.  This endpoint runs
+          # inside the Kudu process on the same machine as the App Service and
+          # writes files through the native Linux VFS layer, not through the
+          # SMB client.  It is the officially supported deployment method and
+          # has no hidden-directory restrictions.
+          # ---------------------------------------------------------------
 
-          # Step 2: Upload zip
-          print('Uploading deploy.zip...')
+          print('Reading deploy.zip...')
           with open(ZIP_PATH, 'rb') as f:
               zip_bytes = f.read()
-          vfs_put('site/wwwroot/deploy.zip', zip_bytes, 'application/zip')
-          print(f'  {len(zip_bytes) // 1024 // 1024} MB uploaded')
+          print(f'  {len(zip_bytes) // 1024 // 1024} MB')
 
-          # Step 3: Extract zip on Azure.
-          # IMPORTANT: The Python zipfile + os.makedirs approach fails on Azure
-          # SMB for paths containing hidden directories (e.g. node_modules/.prisma/)
-          # because makedirs() is not atomic on SMB — the directory appears created
-          # but open(target, 'wb') raises FileNotFoundError immediately after.
-          # Fix: use the system 'unzip' command which handles dir creation atomically.
-          print('Extracting on Azure...')
-          r = kudu_cmd(f'unzip -o {WWWROOT}/deploy.zip -d {WWWROOT}/')
-          if r['ExitCode'] != 0:
-              raise RuntimeError(f"Extract failed: {r['Error']}")
-          output = r['Output'].strip()
-          print(f"  {output[-300:] if len(output) > 300 else output}")
+          # Submit zip to zipdeploy (async so the POST returns quickly after upload)
+          print('Submitting to zipdeploy...')
+          req = urllib.request.Request(
+              f'{KUDU}/api/zipdeploy?isAsync=true',
+              data=zip_bytes, method='POST',
+              headers={'Authorization': auth, 'Content-Type': 'application/zip'})
+          try:
+              with urllib.request.urlopen(req, timeout=600) as r:
+                  status_url = r.headers.get('Location', '')
+                  print(f'  accepted — polling: {status_url}')
+          except urllib.error.HTTPError as e:
+              raise RuntimeError(f"zipdeploy upload failed {e.code}: {e.read()[:300].decode()}")
 
-          # Step 4: Upload server.js directly (zipfile.extractall skips root files on Azure SMB)
+          # Poll until deployment finishes (up to 8 minutes)
+          for i in range(96):
+              time.sleep(5)
+              req = urllib.request.Request(status_url, headers={'Authorization': auth})
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  s = json.loads(r.read())
+              state    = s.get('status', 0)
+              complete = s.get('complete', False)
+              msg      = (s.get('status_text') or s.get('message', ''))[:80]
+              print(f'  [{(i+1)*5}s] state={state} complete={complete} {msg}')
+              if complete:
+                  if state == 3:
+                      raise RuntimeError(f"zipdeploy FAILED: {s.get('message', s)}")
+                  print('  zipdeploy succeeded!')
+                  break
+          else:
+              raise RuntimeError('zipdeploy timed out after 8 minutes')
+
+          # Safety net: re-upload server.js directly in case zipdeploy missed it
           print('Uploading server.js (direct)...')
           with zipfile.ZipFile(ZIP_PATH) as z:
               vfs_put('site/wwwroot/server.js', z.read('server.js'), 'text/plain')
 
-          # Step 5: Verify
+          # Verify
           print('Verifying...')
           r = run_script('_verify.py', f"""
               import os
@@ -179,15 +196,15 @@ jobs:
               raise RuntimeError(f"Verify failed: {r['Error']}")
           print(f"  {r['Output'].strip()}")
 
-          # Step 6: Cleanup temp files
+          # Cleanup temp scripts
           kudu_cmd(
               f'python3 -c "import os; '
               f'[os.remove(os.path.join(\'{WWWROOT}\', f)) '
               f'for f in os.listdir(\'{WWWROOT}\') '
-              f'if (f.startswith(\'_\') and f.endswith(\'.py\')) or f == \'deploy.zip\']"'
+              f'if f.startswith(\'_\') and f.endswith(\'.py\')]"'
           )
 
-          # Step 7: Restart app
+          # Restart app (zipdeploy already restarts, but be explicit)
           print('Restarting app...')
           kudu_delete('/api/processes/0')
           time.sleep(5)
