@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useSession, signIn } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { cn } from '@/lib/utils';
 import MathRenderer from '@/components/MathRenderer';
 import ChartRenderer from '@/components/ChartRenderer';
@@ -381,12 +381,12 @@ export default function ReviewCard({
           {!isAuthenticated ? (
             <div className="bg-yellow-50 border border-yellow-200 rounded p-4 mb-4 flex flex-col items-center">
               <p className="text-yellow-800 font-medium mb-2">You must be logged in to submit a review.</p>
-              <button
-                onClick={() => signIn()}
+              <a
+                href="/auth/signin"
                 className="px-4 py-2 bg-blue-600 text-white rounded font-semibold hover:bg-blue-700 transition"
               >
                 Log In
-              </button>
+              </a>
             </div>
           ) : null}
           <form onSubmit={handleSubmit} className="space-y-4">

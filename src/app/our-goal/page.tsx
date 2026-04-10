@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Target, Globe, Rocket, Trophy, ArrowRight } from "lucide-react"
-import { useSession, signIn } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 
 export default function OurGoalPage() {
@@ -159,13 +159,13 @@ export default function OurGoalPage() {
               <ArrowRight className="w-5 h-5" />
             </button>
           ) : (
-            <button
-              onClick={() => signIn("google")}
+            <a
+              href="/auth/signin"
               className="inline-flex items-center gap-2 bg-white text-indigo-700 px-8 py-3 rounded-xl font-bold text-lg hover:bg-indigo-50 transition-colors shadow-lg"
             >
               Get Started Now
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </a>
           )}
         </div>
       </section>

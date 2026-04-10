@@ -1,6 +1,6 @@
 "use client"
 
-import { useSession, signIn } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import HeroSection from "@/components/landing/HeroSection"
@@ -52,7 +52,7 @@ export default function Home() {
   const isAuthenticated = !!session
   const handleGetStarted = isAuthenticated
     ? () => router.push('/practice-tests')
-    : () => signIn("google")
+    : () => router.push('/auth/signin')
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">

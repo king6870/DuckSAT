@@ -1,6 +1,6 @@
 "use client";
 
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -67,13 +67,13 @@ export default function UserMenu() {
           <ThemeToggle />
           
           {/* Sign In Button */}
-          <button
-            onClick={() => signIn("google")}
+          <a
+            href="/auth/signin"
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-            aria-label="Sign in with Google"
+            aria-label="Sign in"
           >
             Sign In
-          </button>
+          </a>
         </>
       )}
     </div>
