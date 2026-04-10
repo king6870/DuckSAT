@@ -77,12 +77,12 @@ jobs:
       - name: Deploy via Kudu VFS (bypasses Oryx optimizer)
         # azure/webapps-deploy@v3 uses /api/zipdeploy which triggers Oryx and
         # corrupts the standalone build (zips node_modules into tar.gz).
-        # We use the VFS API instead: upload zip → extract with Python.
+        # We use the VFS API instead: upload zip → run Python extract on Azure.
         shell: python3 {0}
         env:
           PUBLISH_PROFILE: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8471701F58524C9A8628229C7587AA3C }}
         run: |
-          import xml.etree.ElementTree as ET, base64, urllib.request, json, os, zipfile, time
+          import xml.etree.ElementTree as ET, base64, urllib.request, json, os, zipfile, time, textwrap
 
           KUDU = 'https://ducksatapp.scm.azurewebsites.net'
           WWWROOT = '/home/site/wwwroot'
@@ -109,7 +109,7 @@ jobs:
               req = urllib.request.Request(
                   f'{KUDU}/api/vfs/{remote_path.lstrip("/")}', data=local_bytes, method='PUT',
                   headers={'Authorization': auth_header, 'Content-Type': content_type, 'If-Match': '*'})
-              with urllib.request.urlopen(req, timeout=120) as r:
+              with urllib.request.urlopen(req, timeout=300) as r:
                   return r.status
 
           def kudu_delete(path):
@@ -122,59 +122,111 @@ jobs:
               except Exception:
                   return None
 
-          # --- Clean wwwroot, upload zip, extract, upload server.js, restart ---
-          # (We do NOT stop the app first — the running process uses its in-memory
-          # cache. We wipe/redeploy wwwroot, then kill process 0 to trigger restart.)
+          def run_script(name, code):
+              """Upload a Python script to wwwroot and execute it via Kudu command API."""
+              vfs_put(f'site/wwwroot/{name}', textwrap.dedent(code).encode(), 'text/plain')
+              return kudu_cmd(f'python3 {WWWROOT}/{name}')
 
-          print('Cleaning wwwroot...')
-          r = kudu_cmd(f'python3 -c "import shutil,os; shutil.rmtree(\'{WWWROOT}\'); os.makedirs(\'{WWWROOT}\')"')
-          if r['ExitCode'] != 0:
-              raise RuntimeError(f"Clean failed: {r['Error']}")
+          # ---------------------------------------------------------------
+          # Step 1: Clean critical directories only.
+          #
+          # DO NOT use shutil.rmtree(wwwroot) — Azure SMB gives ENOTEMPTY on
+          # deeply-nested dirs like node_modules/.prisma/client even after
+          # files are deleted (kernel cache race). Instead:
+          #   • Delete .next/, src/, public/, prisma/ with ignore_errors=True
+          #     so the new build artifacts land in a clean state.
+          #   • Leave node_modules/ in place — extraction overwrites what it needs.
+          # ---------------------------------------------------------------
+          print('Cleaning stale build artifacts (best-effort)...')
+          clean_result = run_script('_clean.py', f"""
+              import shutil, os
+              WR = '{WWWROOT}'
+              # Directories that must be fresh on every deploy
+              for d in ['.next', 'src', 'public', 'prisma']:
+                  p = os.path.join(WR, d)
+                  if os.path.isdir(p):
+                      shutil.rmtree(p, ignore_errors=True)
+              # Root-level files (server.js, package.json, etc.)
+              for f in os.listdir(WR):
+                  fp = os.path.join(WR, f)
+                  if os.path.isfile(fp) and not f.startswith('_'):
+                      try:
+                          os.remove(fp)
+                      except OSError:
+                          pass
+              os.makedirs(WR, exist_ok=True)
+              print('clean ok')
+          """)
+          # Log but never abort — if some stale files remain, extraction will overwrite them.
+          print(f"  clean stdout: {clean_result['Output'].strip()}")
+          if clean_result['Error']:
+              print(f"  clean stderr (non-fatal): {clean_result['Error'][:300]}")
 
+          # ---------------------------------------------------------------
+          # Step 2: Upload deploy.zip
+          # ---------------------------------------------------------------
           print('Uploading deploy.zip...')
           with open(ZIP_PATH, 'rb') as f:
               zip_bytes = f.read()
-          vfs_put(f'site/wwwroot/deploy.zip', zip_bytes, 'application/zip')
-          print(f'  uploaded {len(zip_bytes)//1024//1024} MB')
+          vfs_put('site/wwwroot/deploy.zip', zip_bytes, 'application/zip')
+          print(f'  uploaded {len(zip_bytes) // 1024 // 1024} MB')
 
-          print('Extracting zip on Azure with Python...')
-          extract_script = (
-              "import zipfile\n"
-              f"z = zipfile.ZipFile('{WWWROOT}/deploy.zip')\n"
-              f"z.extractall('{WWWROOT}')\n"
-              "z.close()\n"
-              "print('Extracted', len(z.namelist()), 'files')\n"
-          )
-          vfs_put('site/wwwroot/extract.py', extract_script.encode(), 'text/plain')
-          r = kudu_cmd('python3 /home/site/wwwroot/extract.py')
-          if r['ExitCode'] != 0:
-              raise RuntimeError(f"Extract failed: {r['Error']}")
-          print(f"  {r['Output'].strip()}")
+          # ---------------------------------------------------------------
+          # Step 3: Extract the zip on Azure with Python.
+          #         zipfile.extractall overwrites existing files cleanly.
+          # ---------------------------------------------------------------
+          print('Extracting zip on Azure...')
+          extract_result = run_script('_extract.py', f"""
+              import zipfile
+              z = zipfile.ZipFile('{WWWROOT}/deploy.zip')
+              z.extractall('{WWWROOT}')
+              z.close()
+              print('Extracted', len(z.namelist()), 'files')
+          """)
+          if extract_result['ExitCode'] != 0:
+              raise RuntimeError(f"Extract failed: {extract_result['Error']}")
+          print(f"  {extract_result['Output'].strip()}")
 
-          # server.js is in the zip but Python zipfile occasionally skips root-level
-          # files on Azure's SMB filesystem — upload it directly as a fallback.
-          print('Uploading server.js (direct fallback)...')
+          # ---------------------------------------------------------------
+          # Step 4: Upload server.js directly.
+          #         Python's zipfile.extractall on Azure SMB sometimes skips
+          #         root-level files — upload it explicitly as a guarantee.
+          # ---------------------------------------------------------------
+          print('Uploading server.js (direct, guaranteed)...')
           with zipfile.ZipFile(ZIP_PATH) as z:
               server_js = z.read('server.js')
           vfs_put('site/wwwroot/server.js', server_js, 'text/plain')
 
-          # Verify
-          r = kudu_cmd(f'python3 -c "import os; print(open(\'{WWWROOT}/.next/BUILD_ID\').read().strip())"')
-          print(f"BUILD_ID: {r['Output'].strip()}")
-          if r['ExitCode'] != 0:
-              raise RuntimeError('BUILD_ID missing — deploy failed')
+          # ---------------------------------------------------------------
+          # Step 5: Verify the deploy landed correctly.
+          # ---------------------------------------------------------------
+          verify_result = run_script('_verify.py', f"""
+              import os
+              WR = '{WWWROOT}'
+              build_id = open(os.path.join(WR, '.next', 'BUILD_ID')).read().strip()
+              print('BUILD_ID:', build_id)
+              print('server.js:', os.path.exists(os.path.join(WR, 'server.js')))
+              engines = [f for f in os.listdir(os.path.join(WR, 'node_modules', '.prisma', 'client'))
+                         if f.startswith('libquery')]
+              print('prisma engines:', engines)
+          """)
+          if verify_result['ExitCode'] != 0:
+              raise RuntimeError(f"Verify failed — BUILD_ID missing? {verify_result['Error']}")
+          print(f"  {verify_result['Output'].strip()}")
 
-          r = kudu_cmd(f'python3 -c "import os; print(os.path.exists(\'{WWWROOT}/server.js\'))"')
-          print(f"server.js present: {r['Output'].strip()}")
-
-          # Cleanup temp files
-          kudu_cmd('python3 -c "import os; [os.remove(f\'/home/site/wwwroot/{f}\') for f in [\'deploy.zip\',\'extract.py\'] if os.path.exists(f\'/home/site/wwwroot/{f}\')]"')
+          # ---------------------------------------------------------------
+          # Step 6: Clean up temp scripts and restart the app process.
+          # ---------------------------------------------------------------
+          kudu_cmd(
+              f'python3 -c "import os; '
+              f'[os.remove(os.path.join(\'{WWWROOT}\', f)) '
+              f' for f in os.listdir(\'{WWWROOT}\') if f.startswith(\'_\') and f.endswith(\'.py\')]"'
+          )
+          kudu_cmd(f'python3 -c "import os; os.remove(\'{WWWROOT}/deploy.zip\')"')
 
           print('Restarting app via Kudu process manager...')
-          # Kill process 0 (main w3wp/node worker) — Azure auto-restarts it with new files
           kudu_delete('/api/processes/0')
           time.sleep(5)
-          print('Deploy complete — app is restarting.')
+          print('Deploy complete.')
 
-      # azure/cli@v2 requires service principal credentials not available here.
-      # App restart is handled via Kudu process kill above.
+      # App restart is handled via Kudu process 0 kill above (no Azure CLI needed).
