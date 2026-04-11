@@ -388,11 +388,21 @@ export default function DrillPage() {
   if (isComplete) {
     const correctCount = results.filter(r => r.isCorrect).length
     const percentage = Math.round((correctCount / results.length) * 100)
+    const totalTimeMs = questionTimes.current.reduce((a, b) => a + b, 0)
+    const avgTimeS = results.length > 0 ? (totalTimeMs / results.length / 1000).toFixed(1) : '0'
     const getScoreMessage = () => {
       if (percentage >= 90) return "Outstanding! 🎉"
       if (percentage >= 70) return "Great job! 💪"
       if (percentage >= 50) return "Good effort! 📈"
       return "Keep practicing! 🌱"
+    }
+
+    // Compute best streak
+    let bestStreak = 0
+    let currentStreak = 0
+    for (const r of results) {
+      if (r.isCorrect) { currentStreak++; bestStreak = Math.max(bestStreak, currentStreak) }
+      else currentStreak = 0
     }
 
     return (
@@ -410,7 +420,7 @@ export default function DrillPage() {
             <p className="text-gray-500 mb-6">{getScoreMessage()}</p>
 
             {/* Score bar */}
-            <div className="max-w-xs mx-auto mb-8">
+            <div className="max-w-xs mx-auto mb-6">
               <div className="h-4 bg-gray-100 rounded-full overflow-hidden">
                 <div
                   className={`h-full rounded-full transition-all duration-500 ${
@@ -422,20 +432,39 @@ export default function DrillPage() {
               <p className="text-sm text-gray-500 mt-1">{percentage}% correct</p>
             </div>
 
-            {/* Per-question breakdown */}
-            <div className="grid grid-cols-5 sm:grid-cols-10 gap-2 mb-8">
-              {results.map((r, i) => (
-                <div
-                  key={i}
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold ${
-                    r.isCorrect
-                      ? "bg-green-100 text-green-700"
-                      : "bg-red-100 text-red-700"
-                  }`}
-                >
-                  {i + 1}
+            {/* Stats row: streak + avg time */}
+            <div className="flex justify-center gap-6 mb-6 text-sm">
+              {bestStreak >= 2 && (
+                <div className="flex items-center gap-1 text-orange-600 font-semibold">
+                  🔥 Best streak: {bestStreak}
                 </div>
-              ))}
+              )}
+              <div className="flex items-center gap-1 text-gray-500">
+                ⏱ Avg time: {avgTimeS}s / question
+              </div>
+            </div>
+
+            {/* Per-question breakdown with time */}
+            <div className="grid grid-cols-5 sm:grid-cols-10 gap-2 mb-8">
+              {results.map((r, i) => {
+                const timeS = questionTimes.current[i] !== undefined
+                  ? (questionTimes.current[i] / 1000).toFixed(0)
+                  : null
+                return (
+                  <div
+                    key={i}
+                    className={`w-10 rounded-xl flex flex-col items-center justify-center text-xs font-bold py-1 ${
+                      r.isCorrect
+                        ? "bg-green-100 text-green-700"
+                        : "bg-red-100 text-red-700"
+                    }`}
+                    title={timeS ? `${timeS}s` : undefined}
+                  >
+                    <span className="text-sm">{i + 1}</span>
+                    {timeS && <span className="text-[10px] opacity-70">{timeS}s</span>}
+                  </div>
+                )
+              })}
             </div>
 
             {/* Actions */}
@@ -484,7 +513,25 @@ export default function DrillPage() {
         <div className="mb-6">
           <div className="flex items-center justify-between text-sm text-gray-500 mb-1">
             <span>Question {currentIndex + 1} of {questions.length}</span>
-            <span>{results.filter(r => r.isCorrect).length} correct so far</span>
+            <div className="flex items-center gap-3">
+              {/* Streak indicator */}
+              {(() => {
+                let streak = 0
+                for (let i = results.length - 1; i >= 0; i--) {
+                  if (results[i].isCorrect) streak++
+                  else break
+                }
+                if (streak >= 2) {
+                  return (
+                    <span className="flex items-center gap-1 text-orange-600 font-semibold animate-pulse">
+                      🔥 {streak} streak
+                    </span>
+                  )
+                }
+                return null
+              })()}
+              <span>{results.filter(r => r.isCorrect).length} correct so far</span>
+            </div>
           </div>
           <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
             <div
@@ -606,6 +653,12 @@ export default function DrillPage() {
                     <><CheckCircle2 className="w-5 h-5 text-green-500" /> Correct!</>
                   ) : (
                     <><XCircle className="w-5 h-5 text-red-500" /> Incorrect</>
+                  )}
+                  {/* Time spent on this question */}
+                  {questionTimes.current[currentIndex] !== undefined && (
+                    <span className="ml-auto text-xs text-indigo-500 font-normal">
+                      ⏱ {(questionTimes.current[currentIndex] / 1000).toFixed(1)}s
+                    </span>
                   )}
                 </h4>
                 <div className="text-gray-700 text-sm">
