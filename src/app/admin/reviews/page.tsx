@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { Star, User, Calendar, BookOpen, AlertCircle, Clock } from 'lucide-react'
+import { ADMIN_EMAILS } from '@/constants/adminEmails'
 
 interface Review {
     id: string
@@ -47,7 +48,7 @@ export default function AdminReviewsPage() {
     useEffect(() => {
         if (status === 'unauthenticated') {
             router.push('/')
-        } else if (session?.user?.email && session.user.email !== 'lionvihaan@gmail.com' && session.user.email !== 'kingjacobisthegoat@gmail.com') {
+        } else if (session?.user?.email && !ADMIN_EMAILS.includes(session.user.email)) {
             router.push('/')
         } else if (session?.user?.email) {
             fetchReviews(currentPage, search)
@@ -96,9 +97,7 @@ export default function AdminReviewsPage() {
         )
     }
 
-    const userEmail = session?.user?.email || '';
-    const isAdmin = userEmail === 'lionvihaan@gmail.com' || userEmail === 'kingjacobisthegoat@gmail.com';
-    if (!isAdmin) {
+    if (!ADMIN_EMAILS.includes(session?.user?.email || '')) {
         return null
     }
 

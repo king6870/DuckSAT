@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 // Use the UserMenu client component
 import UserMenu from "@/components/UserMenu";
+import MobileNav from "@/components/MobileNav";
 import AnalyticsProvider from "@/components/AnalyticsProvider";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -80,15 +81,19 @@ export default function RootLayout({
                 </Link>
                 <div className="hidden sm:flex items-center gap-4 text-sm font-medium">
                   <Link href="/about" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">About</Link>
-                  <Link href="/practice" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Practice</Link>
+                  <Link href="/practice-tests" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Tests</Link>
+                  <Link href="/practice" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Drills</Link>
                   <Link href="/how-it-works" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">How It Works</Link>
                   <Link href="/our-goal" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Our Goal</Link>
                   <Link href="/pricing" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Pricing</Link>
+                  <Link href="/dashboard" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Dashboard</Link>
                   <Link href="/progress" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Progress</Link>
                 </div>
               </div>
               {/* User menu in top right */}
               <UserMenu />
+              {/* Mobile hamburger — shown on small screens */}
+              <MobileNav />
             </nav>
           </header>
           {/* Main content area - ARIA landmark */}

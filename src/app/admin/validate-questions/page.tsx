@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { CheckCircle, XCircle, AlertCircle, ChevronLeft, ChevronRight, Clock } from 'lucide-react'
 import Image from 'next/image'
+import { ADMIN_EMAILS } from '@/constants/adminEmails'
 
 interface Question {
   id: string
@@ -49,9 +50,7 @@ export default function ValidateQuestionsPage() {
     if (status === 'unauthenticated') {
       router.push('/')
     } else if (session?.user?.email) {
-      const userEmail = session.user.email;
-      const isAdmin = userEmail === 'lionvihaan@gmail.com' || userEmail === 'kingjacobisthegoat@gmail.com';
-      if (!isAdmin) {
+      if (!ADMIN_EMAILS.includes(session.user.email)) {
         router.push('/')
       } else {
         fetchPendingQuestions(currentPage)
