@@ -1,8 +1,8 @@
 "use client"
 
 import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import { useEffect, useState, useCallback } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { useEffect, useState, useCallback, Suspense } from 'react'
 import { BookOpen, Calculator, ArrowLeft, TrendingUp, Award, Clock, ArrowRight, Zap, Target, BarChart3, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -78,6 +78,28 @@ interface ProgressData {
     drillCategory?: string | null
     drillLength?: number | null
   }>
+}
+
+// ─── Per-Practice-Test Progress Types ───────────────────────────────────────
+
+interface PracticeTestAttempt {
+  attemptNumber: number
+  score: number
+  satTotalScore: number | null
+  satReadingScore: number | null
+  satMathScore: number | null
+  totalTimeSpent: number
+  completedAt: string
+}
+
+interface PracticeTestProgress {
+  practiceTestId: string
+  practiceTestName: string
+  totalAttempts: number
+  bestScore: number | null
+  bestSatScore: number | null
+  improvement: number | null
+  attempts: PracticeTestAttempt[]
 }
 
 // ─── Animation Hooks ────────────────────────────────────────────────────────
@@ -217,6 +239,172 @@ function percentColorClass(pct: number) {
   return 'text-rose-600'
 }
 
+// ─── Per-Practice-Test Progress View ────────────────────────────────────────
+
+function PracticeTestProgressView({ progress, formatTime, onBack, onRetake }: {
+  progress: PracticeTestProgress
+  formatTime: (val: number, unit?: 'seconds' | 'minutes') => string
+  onBack: () => void
+  onRetake: () => void
+}) {
+  const maxSat = progress.attempts.reduce((m, a) => Math.max(m, a.satTotalScore ?? 0), 0) || 1600
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+      {/* Sticky header */}
+      <div className="p-4 flex justify-between items-center border-b bg-white/80 backdrop-blur-sm sticky top-0 z-20">
+        <Button onClick={onBack} variant="outline" size="md" className="min-h-[44px]">
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          All Practice Tests
+        </Button>
+        <h1 className="text-base font-bold text-gray-900 hidden sm:block">{progress.practiceTestName}</h1>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-4 py-8 space-y-8">
+        {/* Title */}
+        <AnimatedCard delay={0}>
+          <h1 className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            {progress.practiceTestName}
+          </h1>
+          <p className="text-gray-500 mt-1">Your attempt history and score improvement</p>
+        </AnimatedCard>
+
+        {/* Summary KPIs */}
+        <AnimatedCard delay={100}>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="bg-white rounded-2xl shadow-md p-5 border-t-4 border-indigo-500 text-center">
+              <div className="text-sm text-gray-500 mb-1">Attempts</div>
+              <div className="text-3xl font-extrabold text-indigo-600">{progress.totalAttempts}</div>
+            </div>
+            <div className="bg-white rounded-2xl shadow-md p-5 border-t-4 border-emerald-500 text-center">
+              <div className="text-sm text-gray-500 mb-1">Best SAT</div>
+              <div className="text-3xl font-extrabold text-emerald-600">{progress.bestSatScore ?? '—'}</div>
+            </div>
+            <div className="bg-white rounded-2xl shadow-md p-5 border-t-4 border-amber-500 text-center">
+              <div className="text-sm text-gray-500 mb-1">Best Accuracy</div>
+              <div className="text-3xl font-extrabold text-amber-600">
+                {progress.bestScore !== null ? `${progress.bestScore}%` : '—'}
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl shadow-md p-5 border-t-4 border-cyan-500 text-center">
+              <div className="text-sm text-gray-500 mb-1">Improvement</div>
+              <div className={`text-3xl font-extrabold ${(progress.improvement ?? 0) >= 0 ? 'text-cyan-600' : 'text-rose-600'}`}>
+                {progress.improvement !== null ? `${progress.improvement > 0 ? '+' : ''}${progress.improvement}%` : '—'}
+              </div>
+            </div>
+          </div>
+        </AnimatedCard>
+
+        {/* Score Progression */}
+        {progress.attempts.length > 1 && (
+          <AnimatedCard delay={200}>
+            <div className="bg-white rounded-2xl shadow-md p-6">
+              <div className="flex items-center gap-2 mb-6">
+                <TrendingUp className="w-5 h-5 text-emerald-600" />
+                <h2 className="text-lg font-bold text-gray-900">SAT Score Progression</h2>
+              </div>
+              <div className="flex items-end gap-3 h-40 px-2">
+                {progress.attempts.map((attempt, i) => {
+                  const satScore = attempt.satTotalScore ?? 0
+                  const barHeight = (satScore / maxSat) * 120
+                  const color = percentColor(attempt.score)
+                  return (
+                    <div key={i} className="flex flex-col items-center flex-1 group">
+                      <div className="text-xs font-bold mb-1 transition-colors" style={{ color }}>
+                        {satScore || '—'}
+                      </div>
+                      <div className="relative w-full">
+                        <AnimatedBar height={barHeight} color={color} delay={300 + i * 80} />
+                        <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-2 py-1 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg pointer-events-none z-10">
+                          {attempt.score}% · {formatTime(attempt.totalTimeSpent)}
+                        </div>
+                      </div>
+                      <div className="text-xs text-gray-400 mt-2">#{attempt.attemptNumber}</div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </AnimatedCard>
+        )}
+
+        {/* Attempt History Table */}
+        <AnimatedCard delay={300}>
+          <div className="bg-white rounded-2xl shadow-md p-6">
+            <div className="flex items-center gap-2 mb-5">
+              <Clock className="w-5 h-5 text-gray-600" />
+              <h2 className="text-lg font-bold text-gray-900">Attempt History</h2>
+            </div>
+            {progress.attempts.length === 0 ? (
+              <p className="text-gray-500 text-sm text-center py-4">No completed attempts yet.</p>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="min-w-full">
+                  <thead>
+                    <tr className="border-b-2 border-gray-100">
+                      <th className="text-left py-3 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Attempt</th>
+                      <th className="text-left py-3 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Date</th>
+                      <th className="text-center py-3 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Accuracy</th>
+                      <th className="text-center py-3 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">SAT Total</th>
+                      <th className="text-center py-3 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">R&W / Math</th>
+                      <th className="text-center py-3 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Time</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {progress.attempts.map((attempt) => (
+                      <tr key={attempt.attemptNumber} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                        <td className="py-3 px-3">
+                          <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-indigo-100 text-indigo-700 text-sm font-bold">
+                            {attempt.attemptNumber}
+                          </span>
+                        </td>
+                        <td className="py-3 px-3 text-sm text-gray-700">
+                          {new Date(attempt.completedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                        </td>
+                        <td className="py-3 px-3 text-center">
+                          <span className={`font-bold ${percentColorClass(attempt.score)}`}>{attempt.score}%</span>
+                        </td>
+                        <td className="py-3 px-3 text-center font-bold text-gray-900">{attempt.satTotalScore ?? '—'}</td>
+                        <td className="py-3 px-3 text-center text-sm text-gray-600">
+                          {attempt.satReadingScore ?? '—'} / {attempt.satMathScore ?? '—'}
+                        </td>
+                        <td className="py-3 px-3 text-center text-sm text-gray-600">{formatTime(attempt.totalTimeSpent)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        </AnimatedCard>
+
+        {/* CTA */}
+        <AnimatedCard delay={400}>
+          <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-center shadow-xl shadow-indigo-500/20">
+            <h2 className="text-xl font-bold text-white mb-2">
+              {progress.totalAttempts === 0 ? 'Ready for your first attempt?' : 'Keep improving!'}
+            </h2>
+            <p className="text-indigo-200 mb-6 text-sm">
+              {(progress.improvement ?? 0) > 0
+                ? `You've already improved by ${progress.improvement}%. Keep going!`
+                : 'Each attempt builds familiarity with the format and questions.'}
+            </p>
+            <Button
+              onClick={onRetake}
+              variant="outline"
+              size="lg"
+              className="min-h-[48px] bg-white text-indigo-700 border-white hover:bg-indigo-50 font-bold"
+            >
+              {progress.totalAttempts === 0 ? 'Start Test' : 'Retake Test'}
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </div>
+        </AnimatedCard>
+      </div>
+    </div>
+  )
+}
+
 // ─── Empty State ────────────────────────────────────────────────────────────
 
 function EmptyState({ onStart }: { onStart: () => void }) {
@@ -307,12 +495,19 @@ function EmptyState({ onStart }: { onStart: () => void }) {
 
 // ─── Main Page ──────────────────────────────────────────────────────────────
 
-export default function Progress() {
+function ProgressContent() {
   const { data: session } = useSession()
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const practiceTestId = searchParams.get('practiceTestId')
+
   const [progressData, setProgressData] = useState<ProgressData | null>(null)
   const [loading, setLoading] = useState(true)
   const [hasData, setHasData] = useState(false)
+  const [fetchError, setFetchError] = useState<string | null>(null)
+
+  // Per-practice-test progress state
+  const [practiceTestProgress, setPracticeTestProgress] = useState<PracticeTestProgress | null>(null)
 
   useEffect(() => {
     if (!session) {
@@ -322,21 +517,36 @@ export default function Progress() {
 
     const fetchProgressData = async () => {
       try {
-        const response = await fetch('/api/progress')
-        const result = await response.json()
-        if (result.success && result.data) {
-          setProgressData(result.data)
-          setHasData(true)
+        if (practiceTestId) {
+          // Fetch per-test analytics (#66)
+          const response = await fetch(`/api/practice-tests/${practiceTestId}/progress`)
+          if (!response.ok) throw new Error(`Failed to load progress: ${response.statusText}`)
+          const result = await response.json()
+          if (result.success && result.progress) {
+            setPracticeTestProgress(result.progress)
+          } else {
+            throw new Error(result.error || 'Invalid response from server')
+          }
+        } else {
+          // Fetch general analytics
+          const response = await fetch('/api/progress')
+          if (!response.ok) throw new Error(`Failed to load progress: ${response.statusText}`)
+          const result = await response.json()
+          if (result.success && result.data) {
+            setProgressData(result.data)
+            setHasData(true)
+          }
         }
       } catch (error) {
         console.error('Failed to fetch progress data:', error)
+        setFetchError(error instanceof Error ? error.message : 'Failed to load progress data')
       } finally {
         setLoading(false)
       }
     }
 
     fetchProgressData()
-  }, [session, router])
+  }, [session, router, practiceTestId])
 
   const formatTime = useCallback((value: number, unit: 'seconds' | 'minutes' = 'seconds') => {
     const totalMinutes = unit === 'seconds' ? Math.floor(value / 60) : value
@@ -356,6 +566,39 @@ export default function Progress() {
           <div className="w-4 h-4 bg-pink-600 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }} />
         </div>
       </div>
+    )
+  }
+
+  // ── Error State ──
+  if (fetchError) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 p-4">
+        <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
+          <div className="text-4xl mb-4">⚠️</div>
+          <h2 className="text-xl font-bold text-gray-900 mb-2">Could not load progress</h2>
+          <p className="text-gray-600 mb-6 text-sm">{fetchError}</p>
+          <div className="flex gap-3 justify-center">
+            <Button onClick={() => router.push('/practice-tests')} variant="outline" size="md">
+              Back to Tests
+            </Button>
+            <Button onClick={() => window.location.reload()} size="md">
+              Retry
+            </Button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // ── Per-Practice-Test Progress View (#66) ──
+  if (practiceTestId && practiceTestProgress) {
+    return (
+      <PracticeTestProgressView
+        progress={practiceTestProgress}
+        formatTime={formatTime}
+        onBack={() => router.push('/practice-tests')}
+        onRetake={() => router.push(`/practice-test?practiceTestId=${practiceTestId}`)}
+      />
     )
   }
 
@@ -772,5 +1015,23 @@ export default function Progress() {
         <div className="h-10" />
       </div>
     </div>
+  )
+}
+
+// ─── Default Export with Suspense (required for useSearchParams) ─────────────
+
+export default function Progress() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+        <div className="flex space-x-2">
+          <div className="w-4 h-4 bg-indigo-600 rounded-full animate-bounce" />
+          <div className="w-4 h-4 bg-purple-600 rounded-full animate-bounce" style={{ animationDelay: '0.15s' }} />
+          <div className="w-4 h-4 bg-pink-600 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }} />
+        </div>
+      </div>
+    }>
+      <ProgressContent />
+    </Suspense>
   )
 }
