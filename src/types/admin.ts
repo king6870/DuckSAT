@@ -60,6 +60,9 @@ export interface GenerationSummary {
   rejected: number
   stored: number
   needsReview: number
+  retryCount?: number
+  validationErrors?: number
+  avgQuality?: number
 }
 
 export interface QuestionResultStatus {

@@ -41,6 +41,9 @@ export function useTestState(userId: string, practiceTestId?: string) {
   // Epic #61: For fixed practice tests, cache all modules at once
   const [allPracticeTestModules, setAllPracticeTestModules] = useState<Question[][]>([])
 
+  // Epic #61: Attempt number for the current fixed practice test run (#64 Story 3.3)
+  const [attemptNumber, setAttemptNumber] = useState<number | null>(null)
+
   // Per-question time tracking (records are JSON-safe)
   const [questionStartTimes, setQuestionStartTimes] = useState<Record<number, number>>({})
   const [questionTimeSpent, setQuestionTimeSpent] = useState<Record<number, number>>({})
@@ -154,6 +157,11 @@ export function useTestState(userId: string, practiceTestId?: string) {
         const modules = data.test.modules as Array<{ questions: Question[] }>
         const allModules = modules.map(m => m.questions)
         setAllPracticeTestModules(allModules)
+
+        // Epic #61: Capture attempt number for display in test header (#64 Story 3.3)
+        if (typeof data.test.attemptNumber === 'number') {
+          setAttemptNumber(data.test.attemptNumber)
+        }
 
         // Set current module questions, or jump to first non-empty module
         let resolvedModuleIndex = effectiveModuleIndex
@@ -626,6 +634,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
     usedQuestionIdsRef.current = []
     isCompletingRef.current = false
     setAllPracticeTestModules([])
+    setAttemptNumber(null)
     setQuestionStartTimes({})
     setQuestionTimeSpent({})
     setError(null)
@@ -658,6 +667,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
     currentModule,
     currentQuestion,
     currentModuleQuestions,
+    attemptNumber,
 
     startTest,
     startModule,
