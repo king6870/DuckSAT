@@ -106,19 +106,20 @@ function StatCard({
 // ─── Quick Action Card ────────────────────────────────────────────────────────
 
 function QuickAction({
-  href, icon: Icon, label, desc, accent,
+  href, icon: Icon, label, desc, accent, iconBg,
 }: {
   href: string
   icon: React.ElementType
   label: string
   desc: string
   accent: string
+  iconBg: string
 }) {
   return (
     <Link href={href} className="group block">
       <div className={`p-5 bg-white rounded-2xl border-2 ${accent} hover:shadow-lg transition-all duration-200 group-hover:scale-[1.02]`}>
         <div className="flex items-center justify-between mb-3">
-          <div className={`w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br ${accent.replace('border-', 'from-').split(' ')[0]} to-white`}>
+          <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${iconBg}`}>
             <Icon className="w-5 h-5 text-indigo-600" />
           </div>
           <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-indigo-600 transition-colors" />
@@ -425,6 +426,7 @@ export default function DashboardPage() {
               label="Practice Tests"
               desc="Full-length SAT simulations"
               accent="border-indigo-200 hover:border-indigo-400"
+              iconBg="bg-indigo-50"
             />
             <QuickAction
               href="/practice"
@@ -432,6 +434,7 @@ export default function DashboardPage() {
               label="Drill Mode"
               desc="Target your weak areas"
               accent="border-amber-200 hover:border-amber-400"
+              iconBg="bg-amber-50"
             />
             <QuickAction
               href="/progress"
@@ -439,6 +442,7 @@ export default function DashboardPage() {
               label="Analytics"
               desc="Deep performance insights"
               accent="border-emerald-200 hover:border-emerald-400"
+              iconBg="bg-emerald-50"
             />
             <QuickAction
               href="/pricing"
@@ -446,6 +450,7 @@ export default function DashboardPage() {
               label="Upgrade Plan"
               desc="Unlock unlimited tests"
               accent="border-purple-200 hover:border-purple-400"
+              iconBg="bg-purple-50"
             />
           </div>
         </div>

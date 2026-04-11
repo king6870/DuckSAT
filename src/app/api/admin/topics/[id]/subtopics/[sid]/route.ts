@@ -33,7 +33,7 @@ export async function PATCH(req: NextRequest, context: RouteContext) {
     if (targetQuestions !== undefined) {
       const t = Number(targetQuestions)
       if (!Number.isInteger(t) || t < MIN_TARGET_QUESTIONS || t > MAX_TARGET_QUESTIONS) {
-        return NextResponse.json({ error: `targetQuestions must be ${MIN_TARGET_QUESTIONS}–${MAX_TARGET_QUESTIONS}` }, { status: 400 })
+        return NextResponse.json({ error: `targetQuestions must be between ${MIN_TARGET_QUESTIONS} and ${MAX_TARGET_QUESTIONS}` }, { status: 400 })
       }
       data.targetQuestions = t
     }

@@ -388,8 +388,9 @@ export default function DrillPage() {
   if (isComplete) {
     const correctCount = results.filter(r => r.isCorrect).length
     const percentage = Math.round((correctCount / results.length) * 100)
-    const totalTimeMs = questionTimes.current.reduce((a, b) => a + b, 0)
-    const avgTimeS = results.length > 0 ? (totalTimeMs / results.length / 1000).toFixed(1) : '0'
+    const totalTimeMs = questionTimes.current.slice(0, results.length).reduce((a, b) => a + b, 0)
+    const timingCount = Math.min(questionTimes.current.length, results.length)
+    const avgTimeS = timingCount > 0 ? (totalTimeMs / timingCount / 1000).toFixed(1) : '0'
     const getScoreMessage = () => {
       if (percentage >= 90) return "Outstanding! 🎉"
       if (percentage >= 70) return "Great job! 💪"

@@ -32,7 +32,7 @@ export async function POST(req: NextRequest, context: RouteContext) {
 
     const target = targetQuestions !== undefined ? Number(targetQuestions) : DEFAULT_TARGET_QUESTIONS
     if (!Number.isInteger(target) || target < MIN_TARGET_QUESTIONS || target > MAX_TARGET_QUESTIONS) {
-      return NextResponse.json({ error: `targetQuestions must be ${MIN_TARGET_QUESTIONS}–${MAX_TARGET_QUESTIONS}` }, { status: 400 })
+      return NextResponse.json({ error: `targetQuestions must be between ${MIN_TARGET_QUESTIONS} and ${MAX_TARGET_QUESTIONS}` }, { status: 400 })
     }
 
     const subtopic = await prisma.subtopic.create({
