@@ -49,6 +49,54 @@ jobs:
           cp -r public/. deploy-package/public/
           mkdir -p deploy-package/prisma
           cp -r prisma/. deploy-package/prisma/
+
+          # ---------------------------------------------------------------
+          # AZURE SMB FIX: rename .prisma → prisma_dot_prisma
+          #
+          # Azure Files SMB cannot create directories whose names start with
+          # '.' during zip extraction (unzip, Python zipfile, and even the
+          # official azure/webapps-deploy action all fail with the same
+          # "No such file or directory" when writing to .prisma/client/).
+          # Root cause: Azure Files SMB metadata is eventually-consistent for
+          # hidden-name directories; the mkdir appears to succeed but the dir
+          # is invisible to the next open() call.
+          #
+          # Fix: rename node_modules/.prisma to node_modules/prisma_dot_prisma
+          # so it is a visible directory with no extraction issues.
+          # Then prepend an IIFE to server.js that runs at first boot on Azure
+          # and restores .prisma/client/ using Node.js fs.mkdirSync (which
+          # uses the OS-level mkdir syscall and works fine on Azure Files).
+          # ---------------------------------------------------------------
+          if [ -d "deploy-package/node_modules/.prisma" ]; then
+            mv deploy-package/node_modules/.prisma deploy-package/node_modules/prisma_dot_prisma
+            echo "Renamed .prisma → prisma_dot_prisma"
+            ls deploy-package/node_modules/prisma_dot_prisma/client/
+          fi
+
+          # Prepend Prisma restore IIFE to server.js
+          cat > /tmp/prisma_init.js << 'PRISMAEOF'
+// [ducksat] Restore .prisma/client/ from prisma_dot_prisma/ at first boot
+(function(){
+  var fs=require('fs'),path=require('path');
+  var src=path.join(__dirname,'node_modules','prisma_dot_prisma','client');
+  var dst=path.join(__dirname,'node_modules','.prisma','client');
+  if(fs.existsSync(src)&&!fs.existsSync(dst)){
+    try{
+      fs.mkdirSync(path.join(__dirname,'node_modules','.prisma'),{recursive:true});
+      fs.mkdirSync(dst,{recursive:true});
+      fs.readdirSync(src).forEach(function(f){
+        fs.copyFileSync(path.join(src,f),path.join(dst,f));
+      });
+      console.log('[ducksat] Prisma engine installed to .prisma/client/');
+    }catch(e){console.error('[ducksat] Prisma init error:',e.message);}
+  }
+})();
+PRISMAEOF
+
+          cat /tmp/prisma_init.js deploy-package/server.js > /tmp/server_patched.js
+          cp /tmp/server_patched.js deploy-package/server.js
+          echo "Patched server.js with Prisma init"
+
           touch deploy-package/.skipOryxBuild
           echo "Package contents:"
           ls -la deploy-package/
