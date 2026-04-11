@@ -73,27 +73,8 @@ jobs:
             ls deploy-package/node_modules/prisma_dot_prisma/client/
           fi
 
-          # Prepend Prisma restore IIFE to server.js
-          cat > /tmp/prisma_init.js << 'PRISMAEOF'
-// [ducksat] Restore .prisma/client/ from prisma_dot_prisma/ at first boot
-(function(){
-  var fs=require('fs'),path=require('path');
-  var src=path.join(__dirname,'node_modules','prisma_dot_prisma','client');
-  var dst=path.join(__dirname,'node_modules','.prisma','client');
-  if(fs.existsSync(src)&&!fs.existsSync(dst)){
-    try{
-      fs.mkdirSync(path.join(__dirname,'node_modules','.prisma'),{recursive:true});
-      fs.mkdirSync(dst,{recursive:true});
-      fs.readdirSync(src).forEach(function(f){
-        fs.copyFileSync(path.join(src,f),path.join(dst,f));
-      });
-      console.log('[ducksat] Prisma engine installed to .prisma/client/');
-    }catch(e){console.error('[ducksat] Prisma init error:',e.message);}
-  }
-})();
-PRISMAEOF
-
-          cat /tmp/prisma_init.js deploy-package/server.js > /tmp/server_patched.js
+          # Prepend Prisma restore script to server.js (avoids YAML heredoc issues)
+          cat scripts/azure-prisma-init.js deploy-package/server.js > /tmp/server_patched.js
           cp /tmp/server_patched.js deploy-package/server.js
           echo "Patched server.js with Prisma init"
 
