@@ -88,11 +88,36 @@ jobs:
       - name: Create deployment zip
         run: |
           cd deploy-package
-          zip -r ../deploy.zip . --include='*' --include='.*' --include='.*/*'
+          # Use find | zip to guarantee ALL dotfiles are included.
+          # 'zip -r . --include' patterns can silently exclude dotfiles.
+          find . | zip ../deploy.zip -@
           cd ..
           echo "zip size: $(du -sh deploy.zip | cut -f1)"
-          # Verify .next is in the zip
-          unzip -l deploy.zip | grep BUILD_ID
+          echo "--- Verifying key files in zip ---"
+          unzip -l deploy.zip | grep -E "BUILD_ID|skipOryx|prisma_dot"
+
+      - name: Disable Oryx remote build
+        shell: python3 {0}
+        env:
+          PUBLISH_PROFILE: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8471701F58524C9A8628229C7587AA3C }}
+        run: |
+          import xml.etree.ElementTree as ET, base64, urllib.request, json, os
+          KUDU = 'https://ducksatapp.scm.azurewebsites.net'
+          root = ET.fromstring(os.environ['PUBLISH_PROFILE'])
+          prof = next(p for p in root.findall('publishProfile')
+                      if p.get('publishMethod') == 'MSDeploy')
+          token = base64.b64encode(f"{prof.get('userName')}:{prof.get('userPWD')}".encode()).decode()
+          auth = f'Basic {token}'
+          # POST SCM_DO_BUILD_DURING_DEPLOYMENT=false to Kudu settings.
+          # This tells Kudu/Oryx not to run a remote build for this deployment.
+          body = json.dumps({'SCM_DO_BUILD_DURING_DEPLOYMENT': 'false'}).encode()
+          req = urllib.request.Request(
+              f'{KUDU}/api/settings',
+              data=body, method='POST',
+              headers={'Authorization': auth, 'Content-Type': 'application/json'})
+          with urllib.request.urlopen(req, timeout=30) as r:
+              print(f'Kudu settings updated: HTTP {r.status}')
+              print(r.read().decode()[:200])
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
