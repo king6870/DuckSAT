@@ -67,12 +67,21 @@ export default function AdminDashboard() {
               </div>
             </Link>
 
-            {/* Back to Main */}
-            <Link href="/" className="group">
-              <div className="p-6 bg-gradient-to-br from-gray-50 to-slate-50 rounded-2xl border-2 border-gray-200 hover:border-gray-400 transition-all hover:shadow-lg">
-                <div className="text-4xl mb-4">🏠</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Main Site</h3>
-                <p className="text-gray-600">Return to main application</p>
+            {/* Reviews & Ratings */}
+            <Link href="/admin/reviews" className="group">
+              <div className="p-6 bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl border-2 border-pink-200 hover:border-pink-400 transition-all hover:shadow-lg">
+                <div className="text-4xl mb-4">⭐</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Reviews & Ratings</h3>
+                <p className="text-gray-600">Browse all submitted question ratings</p>
+              </div>
+            </Link>
+
+            {/* Topics & Subtopics */}
+            <Link href="/admin/topics" className="group">
+              <div className="p-6 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl border-2 border-teal-200 hover:border-teal-400 transition-all hover:shadow-lg">
+                <div className="text-4xl mb-4">🗂️</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Topics & Subtopics</h3>
+                <p className="text-gray-600">Manage topics, subtopics, and question targets</p>
               </div>
             </Link>
           </div>

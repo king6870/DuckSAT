@@ -97,12 +97,12 @@ export default function EnhancedQuestionGeneration() {
 
   const initializeSteps = () => {
     const steps: GenerationStep[] = [
-      { step: 1, name: 'Initializing AI', status: 'pending' },
-      { step: 2, name: 'Generating Questions', status: 'pending' },
-      { step: 3, name: 'Validating LaTeX', status: 'pending' },
-      { step: 4, name: 'Quality Check', status: 'pending' },
-      { step: 5, name: 'Storing Questions', status: 'pending' },
-      { step: 6, name: 'Complete', status: 'pending' }
+      { step: 1, name: 'Initialize — Select Subtopics', status: 'pending' },
+      { step: 2, name: 'Generate Questions (GPT-5)', status: 'pending' },
+      { step: 3, name: 'Evaluate Quality (Grok)', status: 'pending' },
+      { step: 4, name: 'Retry Low-Quality Questions', status: 'pending' },
+      { step: 5, name: 'Generate Diagrams', status: 'pending' },
+      { step: 6, name: 'Store in Database', status: 'pending' },
     ]
     setGenerationSteps(steps)
   }
@@ -128,12 +128,12 @@ export default function EnhancedQuestionGeneration() {
 
     try {
       // Step 1: Initialize
-      updateStep(1, 'in-progress', 'Connecting to AI service...')
+      updateStep(1, 'in-progress', 'Selecting subtopics and validating settings...')
       await new Promise(resolve => setTimeout(resolve, 500))
-      updateStep(1, 'completed', 'Connected successfully')
+      updateStep(1, 'completed', 'Settings validated — subtopics selected')
 
       // Step 2: Generate
-      updateStep(2, 'in-progress', `Generating ${settings.questionCount} questions...`)
+      updateStep(2, 'in-progress', `Generating ${settings.questionCount} questions with GPT-5...`)
 
       const selectedTopicName = settings.topicId
         ? topics.find(t => t.id === settings.topicId)?.name
@@ -164,25 +164,31 @@ export default function EnhancedQuestionGeneration() {
 
       const generatedCount = data.summary?.generated ?? 0
       const acceptedCount = data.summary?.accepted ?? 0
+      const rejectedCount = data.summary?.rejected ?? 0
+      const retryCount = data.summary?.retryCount ?? 0
+      const avgQuality = data.summary?.avgQuality ?? null
       updateStep(2, 'completed', `Generated ${generatedCount} questions`)
 
-      // Step 3: LaTeX Validation (simulated - happens server-side)
-      updateStep(3, 'in-progress', 'Validating mathematical expressions...')
+      // Step 3: Evaluate (quality check with Grok — happens server-side)
+      updateStep(3, 'in-progress', 'Evaluating question quality with Grok...')
       await new Promise(resolve => setTimeout(resolve, 800))
-      updateStep(3, 'completed', 'All LaTeX expressions validated')
+      const qualityLabel = avgQuality !== null ? ` (avg ${(avgQuality * 100).toFixed(0)}%)` : ''
+      updateStep(3, 'completed', `${acceptedCount} accepted, ${rejectedCount} rejected${qualityLabel}`)
 
-      // Step 4: Quality Check
-      updateStep(4, 'in-progress', 'Evaluating question quality...')
+      // Step 4: Retry
+      updateStep(4, 'in-progress', 'Retrying low-quality questions...')
       await new Promise(resolve => setTimeout(resolve, 600))
-      updateStep(4, 'completed', `${acceptedCount} questions passed quality check`)
+      updateStep(4, 'completed', retryCount > 0 ? `${retryCount} question${retryCount !== 1 ? 's' : ''} regenerated` : 'No retries needed')
 
-      // Step 5: Storing
-      updateStep(5, 'in-progress', 'Saving to database...')
+      // Step 5: Diagrams (image generation — happens server-side)
+      updateStep(5, 'in-progress', 'Generating diagrams for applicable questions...')
       await new Promise(resolve => setTimeout(resolve, 500))
-      updateStep(5, 'completed', 'Questions stored successfully')
+      updateStep(5, 'completed', 'Diagram generation complete')
 
-      // Step 6: Complete
-      updateStep(6, 'completed', 'Generation complete!')
+      // Step 6: Store
+      updateStep(6, 'in-progress', 'Saving to database...')
+      await new Promise(resolve => setTimeout(resolve, 400))
+      updateStep(6, 'completed', `${data.summary?.stored ?? acceptedCount} questions stored`)
 
       setResult(data)
       
@@ -497,16 +503,34 @@ export default function EnhancedQuestionGeneration() {
 
                 {/* Summary Stats */}
                 {result && (
-                  <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t">
-                    <div className="text-center p-4 bg-blue-50 rounded-xl">
+                  <div className="flex flex-wrap gap-4 mt-6 pt-6 border-t">
+                    <div className="flex-1 min-w-[5rem] text-center p-4 bg-blue-50 rounded-xl">
                       <div className="text-3xl font-bold text-blue-600">{result.summary?.generated ?? 0}</div>
                       <div className="text-sm text-blue-700 mt-1">Generated</div>
                     </div>
-                    <div className="text-center p-4 bg-green-50 rounded-xl">
+                    <div className="flex-1 min-w-[5rem] text-center p-4 bg-green-50 rounded-xl">
                       <div className="text-3xl font-bold text-green-600">{result.summary?.accepted ?? 0}</div>
                       <div className="text-sm text-green-700 mt-1">Accepted</div>
                     </div>
-                    <div className="text-center p-4 bg-purple-50 rounded-xl">
+                    <div className="flex-1 min-w-[5rem] text-center p-4 bg-red-50 rounded-xl">
+                      <div className="text-3xl font-bold text-red-600">{result.summary?.rejected ?? 0}</div>
+                      <div className="text-sm text-red-700 mt-1">Rejected</div>
+                    </div>
+                    {(result.summary?.retryCount ?? 0) > 0 && (
+                      <div className="flex-1 min-w-[5rem] text-center p-4 bg-yellow-50 rounded-xl">
+                        <div className="text-3xl font-bold text-yellow-600">{result.summary?.retryCount}</div>
+                        <div className="text-sm text-yellow-700 mt-1">Retries</div>
+                      </div>
+                    )}
+                    {result.summary?.avgQuality !== undefined && result.summary.avgQuality !== null && (
+                      <div className="flex-1 min-w-[5rem] text-center p-4 bg-indigo-50 rounded-xl">
+                        <div className="text-3xl font-bold text-indigo-600">
+                          {(result.summary.avgQuality * 100).toFixed(0)}%
+                        </div>
+                        <div className="text-sm text-indigo-700 mt-1">Avg Quality</div>
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-[5rem] text-center p-4 bg-purple-50 rounded-xl">
                       <div className="text-3xl font-bold text-purple-600">
                         {generationTimeMs ? (generationTimeMs / 1000).toFixed(1) : 0}s
                       </div>

@@ -64,7 +64,8 @@ function PracticeTestContent() {
     nextQuestion,
     previousQuestion,
     questionsAnswered,
-    abandonTest
+    abandonTest,
+    attemptNumber,
   } = useTestState(session?.user?.email || '', practiceTestId);
 
   const submitModule = completeModule;
@@ -348,6 +349,15 @@ function PracticeTestContent() {
                 <p className="text-gray-600">
                   Question {currentQuestionIndex + 1} of {currentModule.questionCount}
                 </p>
+                {/* #64 Story 3.3: Show attempt number when retaking a fixed practice test */}
+                {practiceTestId && attemptNumber !== null && (
+                  <p
+                    className="text-xs font-medium text-indigo-600 mt-0.5"
+                    aria-label={`Test attempt number ${attemptNumber}`}
+                  >
+                    Attempt #{attemptNumber}
+                  </p>
+                )}
                 <p className="text-xs text-gray-500 mt-1" role="complementary" aria-label="Keyboard shortcuts">
                   ⌨️ Shortcuts: A/B/C/D to answer • ← → to navigate • Enter for next
                 </p>

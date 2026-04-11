@@ -406,11 +406,7 @@ export default function PracticeTestsPage() {
 
         {tests.length === 0 && !isLoading && (
           <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">
-              {tierFilter !== 'all'
-                ? `No ${tierFilter} tests available yet.`
-                : 'No practice tests available yet.'}
-            </p>
+            <p className="text-gray-600 text-lg">No practice tests available yet.</p>
           </div>
         )}
 

@@ -326,6 +326,7 @@ export async function POST(request: NextRequest) {
     const fetchByDifficulty = async (difficulty: string, count: number) => {
       const where: Prisma.QuestionWhereInput = {
         isActive: true,
+        isReserved: false, // Epic #61: Exclude questions reserved for fixed practice tests
         moduleType: data.moduleType,
         difficulty
       };

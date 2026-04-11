@@ -1,10 +1,10 @@
 "use client";
 
 import { useSession, signOut } from "next-auth/react";
-
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "./ui/theme-toggle";
+import { ADMIN_EMAILS } from "@/constants/adminEmails";
 
 export default function UserMenu() {
   const { data: session, status } = useSession();
@@ -13,9 +13,7 @@ export default function UserMenu() {
     return null;
   }
 
-  // Check if current user is an admin - hardcoded list
-  const userEmail = session?.user?.email || '';
-  const isAdmin = userEmail === 'lionvihaan@gmail.com' || userEmail === 'kingjacobisthegoat@gmail.com';
+  const isAdmin = ADMIN_EMAILS.includes(session?.user?.email || '');
 
   return (
     <div className="flex items-center gap-4">

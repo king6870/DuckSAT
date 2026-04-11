@@ -1,89 +1,28 @@
 // API endpoint for AI question generation
 import { NextRequest, NextResponse } from 'next/server'
-import { aiQuestionService } from '@/services/aiQuestionService'
+import { unifiedQuestionGenerator } from '@/services/unifiedQuestionGenerator'
 import { prisma } from '@/lib/prisma'
 
 export async function POST(_request: NextRequest) {
   try {
     console.log('🚀 Starting AI question generation...')
     
-    // Generate questions with GPT-5
-    const generatedQuestions = await aiQuestionService.generateQuestions()
-    console.log(`✅ Generated ${generatedQuestions.length} questions`)
-    
-    // Evaluate questions with Grok
-    const evaluatedQuestions = await aiQuestionService.evaluateQuestions(generatedQuestions)
-    console.log(`🔍 Evaluated ${evaluatedQuestions.length} questions`)
-    
-    // Filter accepted questions
-    const acceptedQuestions = evaluatedQuestions.filter(q => q.isAccepted)
-    const rejectedQuestions = evaluatedQuestions.filter(q => !q.isAccepted)
-    
+    // Run the full 6-step pipeline: initialize → generate → evaluate → retry → validate → store
+    const result = await unifiedQuestionGenerator.generateQuestions({ storeInDatabase: true })
+
+    const acceptedQuestions = result.questions.filter(q => q.isAccepted)
+    const rejectedQuestions = result.questions.filter(q => !q.isAccepted)
+
     console.log(`✅ Accepted: ${acceptedQuestions.length}, ❌ Rejected: ${rejectedQuestions.length}`)
     
-    // Store accepted questions in database
-    const storedQuestions = []
-    for (const question of acceptedQuestions) {
-      try {
-        // Find the subtopic in database
-        const subtopic = await prisma.subtopic.findFirst({
-          where: {
-            name: {
-              contains: question.subtopic,
-              mode: 'insensitive'
-            }
-          }
-        })
-
-        const storedQuestion = await prisma.question.create({
-          data: {
-            subtopicId: subtopic?.id || null,
-            moduleType: question.moduleType,
-            difficulty: question.difficulty,
-            category: question.category,
-            subtopic: question.subtopic,
-            question: question.question,
-            passage: question.passage || null,
-            options: question.options,
-            correctAnswer: question.correctAnswer,
-            explanation: question.explanation,
-            wrongAnswerExplanations: undefined,
-            imageUrl: question.imageUrl || undefined,
-            imageAlt: question.chartDescription || undefined,
-            chartData: question.hasChart ? { description: question.chartDescription } : undefined,
-            timeEstimate: question.points * 30, // 30 seconds per point
-            source: 'AI Generated (GPT-5)',
-            tags: [question.difficulty, question.category, question.subtopic],
-            isActive: true
-          }
-        })
-
-        storedQuestions.push(storedQuestion)
-
-        // Update subtopic count if linked
-        if (subtopic) {
-          await prisma.subtopic.update({
-            where: { id: subtopic.id },
-            data: {
-              currentCount: {
-                increment: 1
-              }
-            }
-          })
-        }
-      } catch (error) {
-        console.error('Failed to store question:', error)
-      }
-    }
-
     return NextResponse.json({
       success: true,
       summary: {
-        generated: generatedQuestions.length,
-        evaluated: evaluatedQuestions.length,
-        accepted: acceptedQuestions.length,
-        rejected: rejectedQuestions.length,
-        stored: storedQuestions.length
+        generated: result.summary.total,
+        evaluated: result.summary.total,
+        accepted: result.summary.accepted,
+        rejected: result.summary.rejected,
+        stored: result.summary.accepted,
       },
       questions: {
         accepted: acceptedQuestions,
