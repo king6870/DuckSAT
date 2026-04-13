@@ -50,7 +50,9 @@ export default function ValidateQuestionsPage() {
     if (status === 'unauthenticated') {
       router.push('/')
     } else if (session?.user?.email) {
-      if (!ADMIN_EMAILS.includes(session.user.email)) {
+      const userEmail = session.user.email;
+      const isAdmin = ADMIN_EMAILS.includes(userEmail);
+      if (!isAdmin) {
         router.push('/')
       } else {
         fetchPendingQuestions(currentPage)

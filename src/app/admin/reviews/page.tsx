@@ -97,7 +97,9 @@ export default function AdminReviewsPage() {
         )
     }
 
-    if (!ADMIN_EMAILS.includes(session?.user?.email || '')) {
+    const userEmail = session?.user?.email || '';
+    const isAdmin = ADMIN_EMAILS.includes(userEmail);
+    if (!isAdmin) {
         return null
     }
 

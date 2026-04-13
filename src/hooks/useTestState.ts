@@ -50,6 +50,8 @@ export function useTestState(userId: string, practiceTestId?: string) {
 
   // Guard against double-calling completeModule
   const isCompletingRef = useRef(false)
+  // Forward ref to break circular dependency between completeModule and completeTest
+  const completeTestRef = useRef<((results: QuestionResult[][]) => Promise<void>) | null>(null)
 
   const currentModule = useMemo(() => {
     if (currentModuleIndex >= MODULE_CONFIGS.length) return null
@@ -100,7 +102,6 @@ export function useTestState(userId: string, practiceTestId?: string) {
         }
 
         // Fetch all modules at once for fixed practice tests
-        console.log(`🔍 Fetching fixed practice test: ${practiceTestId}`)
 
         // Fetch with timeout and retry
         const FETCH_TIMEOUT_MS = 30000
@@ -185,12 +186,10 @@ export function useTestState(userId: string, practiceTestId?: string) {
         setCurrentModuleQuestions(moduleQuestions)
         setSelectedAnswers(new Array(moduleQuestions.length).fill(-1))
 
-        console.log(`✅ Loaded ${moduleQuestions.length} questions for module ${resolvedModuleIndex}`)
         return moduleQuestions
       }
 
       // Random test mode – fetch with server-side exclusion + client shuffle
-      console.log(`🔍 Fetching ${limit} random questions for moduleType: ${moduleType}`)
 
       // Build URL with exclude param so API filters out already-used IDs
       const currentUsedIds = usedQuestionIdsRef.current
@@ -215,7 +214,6 @@ export function useTestState(userId: string, practiceTestId?: string) {
 
       const data = await response.json()
       const questions = data.questions || data
-      console.log(`📝 Received ${questions.length || 0} questions from API`)
 
       if (!questions || questions.length === 0) {
         console.warn('⚠️ No questions available from API, returning empty array')
@@ -228,7 +226,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
       const availableQuestions = questions.filter((q: Question) => !currentUsedIds.includes(q.id))
       let questionsToUse = availableQuestions
       if (availableQuestions.length < limit) {
-        console.log('⚠️ Not enough unused questions, allowing some repeats')
+        console.warn('Not enough unused questions, allowing some repeats')
         questionsToUse = questions
       }
 
@@ -249,7 +247,6 @@ export function useTestState(userId: string, practiceTestId?: string) {
       setCurrentModuleQuestions(selectedQuestions)
       setSelectedAnswers(new Array(selectedQuestions.length).fill(-1))
 
-      console.log(`✅ Set ${selectedQuestions.length} questions for current module`)
       return selectedQuestions
     } catch (fetchError) {
       console.error('[useTestState] Error fetching questions', {
@@ -264,7 +261,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
     } finally {
       setIsLoading(false)
     }
-  }, [practiceTestId, allPracticeTestModules, currentModuleIndex])
+  }, [practiceTestId, allPracticeTestModules, currentModuleIndex, logContext])
 
   useEffect(() => {
     if (moduleStarted && !isTransitioning && currentQuestion) {
@@ -339,7 +336,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
       setHasStarted(false)
       setIsLoading(false)
     }
-  }, [fetchQuestions, currentModuleIndex, logContext])
+  }, [fetchQuestions, currentModuleIndex, logContext, practiceTestId])
 
   const startModule = useCallback(() => {
     if (!currentModule) return
@@ -355,7 +352,6 @@ export function useTestState(userId: string, practiceTestId?: string) {
       return
     }
 
-    console.log('🚀 Starting module:', currentModule.title)
     setModuleStartTime(new Date())
     setModuleStarted(true)
     setIsTransitioning(false)
@@ -364,8 +360,6 @@ export function useTestState(userId: string, practiceTestId?: string) {
     setTimeRemaining(currentModule.duration * 60)
     setQuestionStartTimes({})
     setQuestionTimeSpent({})
-
-    console.log('✅ Module started successfully')
   }, [currentModule, currentModuleQuestions.length, currentModuleIndex, logContext])
 
   useEffect(() => {
@@ -451,7 +445,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
     setIsTransitioning(true)
     setIsComplete(true)
     setCurrentModuleQuestions([])
-    completeTest(newModuleResults)
+    completeTestRef.current?.(newModuleResults)
   }, [currentModule, moduleStartTime, currentModuleQuestions, selectedAnswers, moduleResults, currentModuleIndex, fetchQuestions, recordQuestionTime, questionTimeSpent])
 
   const completeTest = useCallback(async (finalModuleResults: QuestionResult[][]) => {
@@ -542,8 +536,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
       if (!response.ok) {
         console.error('Failed to save test results:', await response.text())
       } else {
-        const data = await response.json()
-        console.log('✅ Test results saved successfully:', data)
+        await response.json()
         trackEvent('test', 'practice_test_completed', {
           practiceTestId: practiceTestId || null,
           satScore: satScores.composite,
@@ -558,6 +551,11 @@ export function useTestState(userId: string, practiceTestId?: string) {
       console.error('Error saving test results:', saveError)
     }
   }, [testStartTime, userId, practiceTestId])
+
+  // Keep ref in sync so completeModule can call it without a forward-reference issue
+  useEffect(() => {
+    completeTestRef.current = completeTest
+  }, [completeTest])
 
   useEffect(() => {
     if (moduleStarted && timeRemaining > 0 && !isTransitioning && !isComplete) {

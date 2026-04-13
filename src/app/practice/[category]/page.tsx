@@ -575,6 +575,7 @@ export default function DrillPage() {
                     }}
                   />
                 ) : (
+                  // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={`data:${q.imageMimeType};base64,${q.imageData}`}
                     alt={q.imageAlt || "Question diagram"}
@@ -582,6 +583,7 @@ export default function DrillPage() {
                   />
                 )
               ) : q.imageUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={q.imageUrl}
                   alt={q.imageAlt || "Question diagram"}

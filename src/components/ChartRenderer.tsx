@@ -56,7 +56,7 @@ interface ImageDiagramData extends ChartDataCommon {
 type ChartData = ScatterChartData | BarChartData | GeometryChartData | ImageDiagramData
 
 interface ChartRendererProps {
-  chartData: ChartData
+  chartData: Record<string, unknown>
   imageUrl?: string
   imageData?: string
   imageMimeType?: string
@@ -64,7 +64,8 @@ interface ChartRendererProps {
   className?: string
 }
 
-const resolveType = (cd: ChartData): string | undefined => cd.type || cd.graphType || cd.diagramType
+const resolveType = (cd: Record<string, unknown>): string | undefined =>
+  (cd.type as string | undefined) || (cd.graphType as string | undefined) || (cd.diagramType as string | undefined)
 
 export default function ChartRenderer({ chartData, imageUrl, imageData, imageMimeType, imageAlt = "Question diagram", className = "" }: ChartRendererProps) {
   // Check if imageUrl is a Vega spec (starts with data:image/svg+xml;base64 and contains Vega schema)
@@ -134,6 +135,7 @@ export default function ChartRenderer({ chartData, imageUrl, imageData, imageMim
   if (src && !isVegaSpec) {
     return (
       <div className={`chart-container ${className}`}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={src}
           alt={imageAlt}
@@ -195,13 +197,13 @@ export default function ChartRenderer({ chartData, imageUrl, imageData, imageMim
 
   return (
     <div className={`chart-container ${className}`}>
-      <DynamicChart chartData={chartData} />
+      <DynamicChart chartData={chartData as Record<string, unknown>} />
     </div>
   );
 }
 
 
-function DynamicChart({ chartData }: { chartData: ChartData }) {
+function DynamicChart({ chartData }: { chartData: Record<string, unknown> }) {
   if (!chartData) {
     return null
   }
@@ -209,9 +211,10 @@ function DynamicChart({ chartData }: { chartData: ChartData }) {
   const type = resolveType(chartData)
 
   if (isScatter(chartData)) {
-    let normalized: ScatterChartData = { ...chartData }
+    const cd = chartData as ScatterChartData
+    let normalized: ScatterChartData = { ...cd }
     if (!normalized.points && Array.isArray(normalized.data)) {
-      const points: ScatterPoint[] = (normalized.data ?? [])
+      const points: ScatterPoint[] = ((normalized.data ?? []) as XYDatum[])
         .filter((p): p is XYDatum & { x: number; y: number } => typeof p?.x === 'number' && typeof p?.y === 'number')
         .map((p) => ({ x: p.x, y: p.y, label: p.label ?? p.point ?? '' }))
       normalized = { ...normalized, points }
@@ -220,18 +223,18 @@ function DynamicChart({ chartData }: { chartData: ChartData }) {
   }
 
   if (isBar(chartData)) {
-    return <BarChart data={chartData} />
+    return <BarChart data={chartData as BarChartData} />
   }
 
   if (isGeometry(chartData)) {
-    return <GeometryDiagram data={chartData} />
+    return <GeometryDiagram data={chartData as GeometryChartData} />
   }
 
   return (
     <div className="bg-blue-50 p-4 rounded border">
       <div className="text-sm font-semibold text-blue-700 mb-2">📊 Chart</div>
       {chartData.description && (
-        <div className="text-sm text-blue-600 mb-2">{chartData.description}</div>
+        <div className="text-sm text-blue-600 mb-2">{chartData.description as string}</div>
       )}
       <div className="text-xs text-gray-500">
         Type: {type || 'Unknown'}
@@ -240,19 +243,19 @@ function DynamicChart({ chartData }: { chartData: ChartData }) {
   )
 }
 
-function isScatter(cd: ChartData): cd is ScatterChartData {
+function isScatter(cd: Record<string, unknown>): boolean {
   const t = resolveType(cd)
-  return t === 'scatter' || t === 'coordinate-plane' || t === 'scatter-plot' || !!(cd as ScatterChartData).points
+  return t === 'scatter' || t === 'coordinate-plane' || t === 'scatter-plot' || Array.isArray(cd.points)
 }
 
-function isBar(cd: ChartData): cd is BarChartData {
+function isBar(cd: Record<string, unknown>): boolean {
   const t = resolveType(cd)
-  return t === 'bar' || t === 'bar-chart' || Array.isArray((cd as BarChartData).data)
+  return t === 'bar' || t === 'bar-chart' || (Array.isArray(cd.data) && !isScatter(cd))
 }
 
-function isGeometry(cd: ChartData): cd is GeometryChartData {
+function isGeometry(cd: Record<string, unknown>): boolean {
   const t = resolveType(cd)
-  return t === 'geometry' || t === 'geometric-diagram' || !!(cd as GeometryChartData).shape
+  return t === 'geometry' || t === 'geometric-diagram' || typeof cd.shape === 'string'
 }
 
 function ScatterPlot({ data }: { data: ScatterChartData }) {

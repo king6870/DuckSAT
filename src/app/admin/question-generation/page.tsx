@@ -609,7 +609,8 @@ export default function EnhancedQuestionGeneration() {
                         <div className="mb-6">
                           <div className="relative rounded-lg overflow-hidden border border-gray-200 bg-white">
                             {question.imageUrl.startsWith('data:') ? (
-                              // For data URLs, use regular img tag
+                              // For data URLs, use regular img tag (next/image doesn't support data URIs)
+                              // eslint-disable-next-line @next/next/no-img-element
                               <img
                                 src={question.imageUrl}
                                 alt={question.chartDescription || 'Question diagram'}

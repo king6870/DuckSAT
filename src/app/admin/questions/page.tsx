@@ -125,7 +125,9 @@ export default function EnhancedQuestionsReview() {
   }, [statusFilter, categoryFilter, subtopicFilter, diagramOnly])
 
   useEffect(() => {
-    if (status === 'authenticated' && ADMIN_EMAILS.includes(session?.user?.email || '')) {
+    const userEmail = session?.user?.email || '';
+    const isAdmin = ADMIN_EMAILS.includes(userEmail);
+    if (status === 'authenticated' && isAdmin) {
       fetchQuestions()
     }
   }, [status, session, fetchQuestions])
@@ -214,7 +216,8 @@ export default function EnhancedQuestionsReview() {
     )
   }
 
-  const isAdmin = ADMIN_EMAILS.includes(session?.user?.email || '');
+  const userEmail = session?.user?.email || '';
+  const isAdmin = ADMIN_EMAILS.includes(userEmail);
   if (!isAdmin) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50 flex items-center justify-center">
