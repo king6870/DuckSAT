@@ -8,6 +8,8 @@ import "./globals.css";
 import "../styles/enhanced-ui.css";
 import AuthSessionProvider from "@/components/SessionProvider";
 import FeedbackWidget from "@/components/FeedbackWidget";
+import { ReferralPopup } from "@/components/ReferralPopup";
+import { GoogleReferralApplicator } from "@/components/GoogleReferralApplicator";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -101,6 +103,8 @@ export default function RootLayout({
             {children}
           </main>
           <FeedbackWidget />
+          <ReferralPopup />
+          <GoogleReferralApplicator />
           </AnalyticsProvider>
         </AuthSessionProvider>
       </body>

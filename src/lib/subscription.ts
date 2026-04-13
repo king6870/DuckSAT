@@ -12,6 +12,7 @@ export async function getUserSubscription(userId: string) {
       currentPeriodEnd: true,
       trialEnd: true,
       cancelAtPeriodEnd: true,
+      bonusPracticeTests: true,
     },
   });
 
@@ -33,6 +34,11 @@ export async function getUserSubscription(userId: string) {
     }),
   ]);
 
+  const baseTestLimit = limits.practiceTestsPerMonth;
+  const testLimit = baseTestLimit === Infinity
+    ? Infinity
+    : baseTestLimit + (user.bonusPracticeTests ?? 0);
+
   return {
     plan: effectivePlan,
     status: user.subscriptionStatus,
@@ -40,10 +46,11 @@ export async function getUserSubscription(userId: string) {
     trialEnd: user.trialEnd,
     cancelAtPeriodEnd: user.cancelAtPeriodEnd,
     stripeCustomerId: user.stripeCustomerId,
+    bonusPracticeTests: user.bonusPracticeTests ?? 0,
     usage: {
       practiceTests: {
         used: testUsage?.count ?? 0,
-        limit: limits.practiceTestsPerMonth,
+        limit: testLimit,
       },
       drills: {
         used: drillUsage?.count ?? 0,
@@ -56,14 +63,17 @@ export async function getUserSubscription(userId: string) {
 export async function checkUsageLimit(userId: string, type: 'practice_test' | 'drill') {
   const user = await prisma.user.findUnique({
     where: { id: userId },
-    select: { subscriptionPlan: true, subscriptionStatus: true, currentPeriodEnd: true },
+    select: { subscriptionPlan: true, subscriptionStatus: true, currentPeriodEnd: true, bonusPracticeTests: true },
   });
 
   if (!user) return { allowed: false, used: 0, limit: 0 };
 
   const effectivePlan = getEffectivePlan(user);
   const limits = getPlanLimits(effectivePlan);
-  const limit = type === 'practice_test' ? limits.practiceTestsPerMonth : limits.drillsPerMonth;
+  const baseLimit = type === 'practice_test' ? limits.practiceTestsPerMonth : limits.drillsPerMonth;
+  const limit = (type === 'practice_test' && baseLimit !== Infinity)
+    ? baseLimit + (user.bonusPracticeTests ?? 0)
+    : baseLimit;
 
   if (limit === Infinity) return { allowed: true, used: 0, limit: Infinity };
 

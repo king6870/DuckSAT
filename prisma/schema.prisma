@@ -82,14 +82,37 @@ model User {
   // Feedback
   feedbackSubmittedAt DateTime? // null = never submitted a site review
 
+  // Referral fields
+  referralCode       String?  @unique  // user's own share code (8-char alphanumeric)
+  referredByCode     String?           // code they entered when signing up
+  bonusPracticeTests Int      @default(0) // extra practice tests earned from referrals
+
   // Relations
   accounts    Account[]
   sessions    Session[]
   testResults TestResult[]
   questionReviews QuestionReview[]
   feedback    UserFeedback[]
+  referralsSent     Referral[] @relation("ReferralReferrer")
+  referralsReceived Referral[] @relation("ReferralReferee")
   
   @@map("users")
+}
+
+// Referral tracking
+model Referral {
+  id          String   @id @default(cuid())
+  referrerId  String   // User who shared the code
+  refereeId   String   // User who used the code
+  codeUsed    String   // The actual code at time of referral
+  awardedAt   DateTime @default(now())
+
+  referrer    User     @relation("ReferralReferrer", fields: [referrerId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  referee     User     @relation("ReferralReferee", fields: [refereeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([refereeId]) // one referral per new user
+  @@index([referrerId])
+  @@map("referrals")
 }
 
 model VerificationToken {
