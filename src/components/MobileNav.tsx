@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { useSession, signOut } from "next-auth/react"
-import { Menu, X, GraduationCap, BarChart3, TrendingUp, DollarSign, Home, Info, Zap, Target } from "lucide-react"
+import { Menu, X, GraduationCap, BarChart3, TrendingUp, DollarSign, Home, Info, Zap, Target, Gift } from "lucide-react"
 import { ADMIN_EMAILS } from "@/constants/adminEmails"
 
 const NAV_LINKS = [
@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { href: "/practice-tests", label: "Practice Tests", icon: GraduationCap },
   { href: "/practice", label: "Drills", icon: Target },
   { href: "/progress", label: "Progress", icon: TrendingUp },
+  { href: "/referrals", label: "Referrals", icon: Gift },
   { href: "/pricing", label: "Pricing", icon: DollarSign },
   { href: "/about", label: "About", icon: Info },
   { href: "/how-it-works", label: "How It Works", icon: Zap },

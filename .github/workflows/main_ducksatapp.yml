@@ -128,6 +128,13 @@ jobs:
               print(f'Kudu settings updated: HTTP {r.status}')
               print(r.read().decode()[:200])
 
+      - name: Apply pending database migrations
+        if: ${{ env.DATABASE_URL != '' }}
+        run: npx prisma db execute --file prisma/migrations/20260412000000_add_referral_system/migration.sql --schema prisma/schema.prisma
+        continue-on-error: true
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:

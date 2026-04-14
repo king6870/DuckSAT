@@ -90,6 +90,7 @@ export default function RootLayout({
                   <Link href="/pricing" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Pricing</Link>
                   <Link href="/dashboard" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Dashboard</Link>
                   <Link href="/progress" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Progress</Link>
+                  <Link href="/referrals" className="text-[var(--color-text-secondary)] hover:text-indigo-600 transition-colors">Referrals</Link>
                 </div>
               </div>
               {/* User menu in top right */}
