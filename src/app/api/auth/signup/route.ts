@@ -87,25 +87,43 @@ export async function POST(req: NextRequest) {
   }
 
   // Validate referral code (if provided)
+  // Wrapped in try-catch: if referral columns don't exist yet (migration pending),
+  // we silently skip referral tracking rather than blocking signup entirely.
   let referrer: { id: string } | null = null
+  let activeReferralCode = rawReferralCode
+  let referralColumnsExist = true
+
   if (rawReferralCode) {
     if (!REFERRAL_CODE_RE.test(rawReferralCode)) {
       return NextResponse.json({ error: 'invalid_referral_code' }, { status: 400 })
     }
-    referrer = await prisma.user.findFirst({
-      where: { referralCode: rawReferralCode },
-      select: { id: true },
-    })
-    if (!referrer) {
-      return NextResponse.json({ error: 'referral_code_not_found' }, { status: 404 })
+    try {
+      referrer = await prisma.user.findFirst({
+        where: { referralCode: rawReferralCode },
+        select: { id: true },
+      })
+      if (!referrer) {
+        return NextResponse.json({ error: 'referral_code_not_found' }, { status: 404 })
+      }
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err)
+      if (msg.includes('referralCode') || msg.includes('Invalid column')) {
+        // Migration not applied yet — skip referral validation
+        referralColumnsExist = false
+        referrer = null
+        activeReferralCode = ''
+        console.warn('[signup] referral columns missing, skipping referral tracking')
+      } else {
+        throw err
+      }
     }
   }
 
   // Hash password (cost factor 12)
   const passwordHash = await hash(password, 12)
 
-  // Generate this user's own referral code
-  const myReferralCode = await generateReferralCode()
+  // Generate this user's own referral code (skip if columns don't exist)
+  const myReferralCode = referralColumnsExist ? await generateReferralCode() : null
 
   // Create user
   let newUser: { id: string }
@@ -116,21 +134,45 @@ export async function POST(req: NextRequest) {
         email: `${lowerUsername}@duck.local`, // synthetic — never emailed
         name: lowerUsername,
         passwordHash,
-        referralCode: myReferralCode,
-        referredByCode: rawReferralCode || null,
+        ...(myReferralCode !== null && {
+          referralCode: myReferralCode,
+          referredByCode: activeReferralCode || null,
+        }),
       },
       select: { id: true },
     })
   } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err)
     // Unique constraint violation (race condition on username or email)
-    if (
-      err instanceof Error &&
-      (err.message.includes('Unique constraint') || err.message.includes('unique'))
-    ) {
+    if (msg.includes('Unique constraint') || msg.includes('unique constraint') || msg.includes('UNIQUE')) {
       return NextResponse.json({ error: 'username_taken' }, { status: 409 })
     }
-    console.error('[signup] DB error:', err)
-    return NextResponse.json({ error: 'server_error' }, { status: 500 })
+    // If referral columns don't exist, retry without them
+    if (msg.includes('referralCode') || msg.includes('referredByCode') || msg.includes('Invalid column')) {
+      console.warn('[signup] referral columns missing on create, retrying without referral fields')
+      try {
+        newUser = await prisma.user.create({
+          data: {
+            username: lowerUsername,
+            email: `${lowerUsername}@duck.local`,
+            name: lowerUsername,
+            passwordHash,
+          },
+          select: { id: true },
+        })
+        referrer = null // can't award referrer without migration
+      } catch (fallbackErr) {
+        const fallbackMsg = fallbackErr instanceof Error ? fallbackErr.message : String(fallbackErr)
+        if (fallbackMsg.includes('Unique constraint') || fallbackMsg.includes('unique constraint') || fallbackMsg.includes('UNIQUE')) {
+          return NextResponse.json({ error: 'username_taken' }, { status: 409 })
+        }
+        console.error('[signup] DB error on fallback create:', fallbackErr)
+        return NextResponse.json({ error: 'server_error' }, { status: 500 })
+      }
+    } else {
+      console.error('[signup] DB error:', err)
+      return NextResponse.json({ error: 'server_error' }, { status: 500 })
+    }
   }
 
   // Award referrer a bonus practice test
@@ -141,7 +183,7 @@ export async function POST(req: NextRequest) {
           data: {
             referrerId: referrer.id,
             refereeId: newUser.id,
-            codeUsed: rawReferralCode,
+            codeUsed: activeReferralCode,
           },
         }),
         prisma.user.update({
@@ -150,7 +192,7 @@ export async function POST(req: NextRequest) {
         }),
       ])
     } catch (err) {
-      // Non-fatal: referral record creation failed (e.g. duplicate)
+      // Non-fatal: referral record creation failed (e.g. duplicate or migration pending)
       console.error('[signup] referral award error:', err)
     }
   }
