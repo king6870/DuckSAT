@@ -129,7 +129,6 @@ jobs:
               print(r.read().decode()[:200])
 
       - name: Apply pending database migrations
-        if: ${{ secrets.DATABASE_URL != '' }}
         run: npx prisma db execute --file prisma/migrations/20260412000000_add_referral_system/migration.sql --schema prisma/schema.prisma
         continue-on-error: true
         env:
