@@ -88,11 +88,11 @@ function SignUpForm() {
     }
   }
 
-  // Store ref in localStorage before Google OAuth redirect
+  // Store ref in localStorage before Google OAuth redirect, then go to welcome page
   function handleGoogleSignIn() {
     const ref = referralCode.trim()
     if (ref) localStorage.setItem('pendingReferralCode', ref)
-    signIn('google', { callbackUrl: '/' })
+    signIn('google', { callbackUrl: '/auth/welcome' })
   }
 
   return (
