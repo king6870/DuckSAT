@@ -22,9 +22,12 @@ export async function GET(req: NextRequest) {
     const sortBy = searchParams.get('sortBy') ?? 'createdAt'
     const sortDir: SortDir = searchParams.get('sortDir') === 'asc' ? 'asc' : 'desc'
 
+    const qrOnly = searchParams.get('qrOnly') === 'true'
+
     const where: Record<string, unknown> = {}
     if (planFilter) where.subscriptionPlan = planFilter
     if (statusFilter) where.subscriptionStatus = statusFilter
+    if (qrOnly) where.joinedViaQrCode = true
     if (search) {
       where.OR = [
         { name: { contains: search } },
@@ -46,6 +49,8 @@ export async function GET(req: NextRequest) {
         promoCodeUsed: true,
         isTester: true,
         feedbackSubmittedAt: true,
+        joinedViaQrCode: true,
+        qrCodeJoinedAt: true,
         _count: { select: { testResults: true } },
       },
     })
@@ -81,6 +86,8 @@ export async function GET(req: NextRequest) {
         promoCodeUsed: u.promoCodeUsed,
         isTester: u.isTester,
         feedbackSubmittedAt: u.feedbackSubmittedAt,
+        joinedViaQrCode: u.joinedViaQrCode,
+        qrCodeJoinedAt: u.qrCodeJoinedAt,
         testCount: u._count.testResults,
         totalTimeMinutes: activity?.totalTimeMinutes ?? 0,
         lastActiveDate: activity?.lastActiveDate ?? null,
@@ -128,6 +135,15 @@ export async function GET(req: NextRequest) {
     }
 
     enriched.sort(compare)
+
+    // QR users always float to the top when not filtering by another sort
+    if (sortBy === 'createdAt') {
+      enriched.sort((a, b) => {
+        if (a.joinedViaQrCode && !b.joinedViaQrCode) return -1
+        if (!a.joinedViaQrCode && b.joinedViaQrCode) return 1
+        return 0
+      })
+    }
 
     const total = enriched.length
     const paged = enriched.slice((page - 1) * limit, page * limit)

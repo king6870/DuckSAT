@@ -23,6 +23,8 @@ export async function GET() {
       usersPaid,
       usersFree,
       usersNewThisWeek,
+      usersQrTotal,
+      usersQrThisWeek,
     ] = await Promise.all([
       prisma.userFeedback.count(),
       prisma.userFeedback.aggregate({ _avg: { rating: true } }),
@@ -39,6 +41,8 @@ export async function GET() {
       }),
       prisma.user.count({ where: { subscriptionPlan: 'free' } }),
       prisma.user.count({ where: { createdAt: { gte: sevenDaysAgo } } }),
+      prisma.user.count({ where: { joinedViaQrCode: true } }),
+      prisma.user.count({ where: { joinedViaQrCode: true, qrCodeJoinedAt: { gte: sevenDaysAgo } } }),
     ])
 
     return NextResponse.json({
@@ -55,6 +59,8 @@ export async function GET() {
         paid: usersPaid,
         free: usersFree,
         newThisWeek: usersNewThisWeek,
+        qrTotal: usersQrTotal,
+        qrThisWeek: usersQrThisWeek,
       },
     })
   } catch (err) {

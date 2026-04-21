@@ -19,6 +19,8 @@ interface Summary {
     paid: number
     free: number
     newThisWeek: number
+    qrTotal: number
+    qrThisWeek: number
   }
 }
 
@@ -55,6 +57,8 @@ interface UserRow {
   promoCodeUsed: string | null
   isTester: boolean
   feedbackSubmittedAt: string | null
+  joinedViaQrCode: boolean
+  qrCodeJoinedAt: string | null
   testCount: number
   totalTimeMinutes: number
   lastActiveDate: string | null
@@ -184,6 +188,13 @@ function SummaryCards({ summary }: { summary: Summary }) {
       sub: `${summary.users.free} on free plan`,
       color: 'from-green-50 to-emerald-50 border-green-200',
       icon: '💳',
+    },
+    {
+      label: 'QR Code Signups',
+      value: summary.users.qrTotal,
+      sub: `${summary.users.qrThisWeek} this week`,
+      color: 'from-violet-50 to-purple-50 border-violet-200',
+      icon: '📲',
     },
   ]
   return (
@@ -484,6 +495,11 @@ function UserDetailPanel({
                     Tester
                   </span>
                 )}
+                {user.joinedViaQrCode && (
+                  <span className="px-2 py-0.5 bg-violet-100 text-violet-700 rounded-full">
+                    📲 QR Code Signup
+                  </span>
+                )}
               </div>
             </div>
 
@@ -586,6 +602,7 @@ function UsersTab() {
   const [page, setPage] = useState(1)
   const [search, setSearch] = useState('')
   const [planFilter, setPlanFilter] = useState('')
+  const [qrOnly, setQrOnly] = useState(false)
   const [sortBy, setSortBy] = useState('createdAt')
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc')
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null)
@@ -599,8 +616,9 @@ function UsersTab() {
         sortDir,
         ...(search ? { search } : {}),
         ...(planFilter ? { plan: planFilter } : {}),
+        ...(qrOnly ? { qrOnly: 'true' } : {}),
       }).toString(),
-    [search, planFilter, sortBy, sortDir]
+    [search, planFilter, qrOnly, sortBy, sortDir]
   )
 
   const fetchData = useCallback(
@@ -623,7 +641,7 @@ function UsersTab() {
   useEffect(() => {
     setPage(1)
     fetchData(1)
-  }, [search, planFilter, sortBy, sortDir, fetchData])
+  }, [search, planFilter, qrOnly, sortBy, sortDir, fetchData])
 
   useEffect(() => {
     fetchData(page)
@@ -677,6 +695,16 @@ function UsersTab() {
           <option value="monthly">Monthly</option>
           <option value="yearly">Yearly</option>
         </select>
+        <button
+          onClick={() => setQrOnly((v) => !v)}
+          className={`px-3 py-2 rounded-lg text-sm border font-medium transition-colors ${
+            qrOnly
+              ? 'bg-violet-600 text-white border-violet-600'
+              : 'bg-white text-gray-700 border-gray-300 hover:border-violet-400'
+          }`}
+        >
+          📲 QR Only
+        </button>
       </div>
 
       {loading ? (
@@ -720,8 +748,11 @@ function UsersTab() {
                     onClick={() => setSelectedUserId(row.id)}
                   >
                     <td className="p-3">
-                      <div className="font-medium text-gray-800">
+                      <div className="font-medium text-gray-800 flex items-center gap-1">
                         {row.name ?? '(no name)'}
+                        {row.joinedViaQrCode && (
+                          <span title="Joined via QR code" className="text-xs px-1.5 py-0.5 bg-violet-100 text-violet-700 rounded-full font-semibold">📲 QR</span>
+                        )}
                       </div>
                       <div className="text-xs text-gray-500">{row.email}</div>
                       {row.isTester && (

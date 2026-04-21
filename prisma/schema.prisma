@@ -87,6 +87,10 @@ model User {
   referredByCode     String?           // code they entered when signing up
   bonusPracticeTests Int      @default(0) // extra practice tests earned from referrals
 
+  // QR code tracking
+  joinedViaQrCode    Boolean   @default(false)
+  qrCodeJoinedAt     DateTime?
+
   // Relations
   accounts    Account[]
   sessions    Session[]

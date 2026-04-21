@@ -26,12 +26,19 @@ function WelcomeForm() {
   }, [status, router])
 
   // Pre-fill referral code from localStorage (set before Google OAuth redirect)
+  // Also record QR source if the user came via /home/qr-code
   useEffect(() => {
     if (status === 'authenticated') {
       const pending = localStorage.getItem('pendingReferralCode')
       if (pending) {
         setReferralCode(pending.toUpperCase())
         localStorage.removeItem('pendingReferralCode')
+      }
+
+      const qrSource = localStorage.getItem('qr_source')
+      if (qrSource) {
+        fetch('/api/users/mark-qr-source', { method: 'POST' }).catch(() => {})
+        localStorage.removeItem('qr_source')
       }
     }
   }, [status])

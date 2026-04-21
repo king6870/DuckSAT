@@ -28,6 +28,11 @@ function SignInContent() {
       if (result?.error) {
         setError('Invalid username or password.')
       } else if (result?.ok) {
+        // If they came via QR code, mark them after credentials login
+        if (typeof window !== 'undefined' && localStorage.getItem('qr_source')) {
+          fetch('/api/users/mark-qr-source', { method: 'POST' }).catch(() => {})
+          localStorage.removeItem('qr_source')
+        }
         router.push(callbackUrl)
       }
     } catch {
