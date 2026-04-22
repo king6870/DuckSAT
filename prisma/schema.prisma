@@ -99,6 +99,13 @@ model User {
   feedback    UserFeedback[]
   referralsSent     Referral[] @relation("ReferralReferrer")
   referralsReceived Referral[] @relation("ReferralReferee")
+  friendRequestsSent      FriendRequest[]       @relation("FriendRequestFromUser")
+  friendRequestsReceived  FriendRequest[]       @relation("FriendRequestToUser")
+  friendshipsA            Friendship[]          @relation("FriendshipUserA")
+  friendshipsB            Friendship[]          @relation("FriendshipUserB")
+  groupStudyHostedSessions GroupStudySession[]  @relation("GroupStudyHost")
+  groupStudyParticipants   GroupStudyParticipant[]
+  groupStudyAnswers        GroupStudyAnswer[]
   
   @@map("users")
 }
@@ -117,6 +124,126 @@ model Referral {
   @@unique([refereeId]) // one referral per new user
   @@index([referrerId])
   @@map("referrals")
+}
+
+// Friend requests between users
+model FriendRequest {
+  id         String   @id @default(cuid())
+  fromUserId String
+  toUserId   String
+  status     String   @default("pending") // pending | accepted | declined | canceled
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  fromUser User @relation("FriendRequestFromUser", fields: [fromUserId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  toUser   User @relation("FriendRequestToUser", fields: [toUserId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([fromUserId, toUserId])
+  @@index([toUserId, status])
+  @@index([fromUserId, status])
+  @@map("friend_requests")
+}
+
+// Canonical friendship rows (store sorted user IDs as userAId/userBId)
+model Friendship {
+  id        String   @id @default(cuid())
+  userAId   String
+  userBId   String
+  createdAt DateTime @default(now())
+
+  userA User @relation("FriendshipUserA", fields: [userAId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  userB User @relation("FriendshipUserB", fields: [userBId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([userAId, userBId])
+  @@index([userAId])
+  @@index([userBId])
+  @@map("friendships")
+}
+
+// Multiplayer group-study session state
+model GroupStudySession {
+  id                      String    @id @default(cuid())
+  hostId                  String
+  status                  String    @default("lobby") // lobby | active | completed | canceled
+  moduleType              String?   // reading-writing | math | null for mixed
+  category                String?
+  difficulty              String?
+  questionCount           Int       @default(10)
+  timeLimitSec            Int?
+  currentQuestionIndex    Int       @default(0)
+  currentQuestionStartedAt DateTime?
+  revealStartedAt         DateTime?
+  revealEndsAt            DateTime?
+  createdAt               DateTime  @default(now())
+  startedAt               DateTime?
+  endedAt                 DateTime?
+
+  host         User                    @relation("GroupStudyHost", fields: [hostId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  participants GroupStudyParticipant[]
+  questions     GroupStudyQuestion[]
+  answers       GroupStudyAnswer[]
+
+  @@index([hostId, createdAt])
+  @@index([status, createdAt])
+  @@map("group_study_sessions")
+}
+
+model GroupStudyParticipant {
+  id            String   @id @default(cuid())
+  sessionId     String
+  userId        String
+  inviteStatus  String   @default("invited") // invited | accepted | declined | left
+  isReady       Boolean  @default(false)
+  progressStatus String  @default("waiting") // waiting | thinking | answered | done
+  joinedAt      DateTime?
+  lastSeenAt    DateTime?
+  correctCount  Int      @default(0)
+  totalResponseMs Int    @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  session GroupStudySession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  user    User              @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([sessionId, userId])
+  @@index([userId, inviteStatus])
+  @@index([sessionId, inviteStatus])
+  @@map("group_study_participants")
+}
+
+model GroupStudyQuestion {
+  id         String @id @default(cuid())
+  sessionId  String
+  questionId String
+  orderIndex Int
+
+  session  GroupStudySession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  question Question          @relation(fields: [questionId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  answers  GroupStudyAnswer[]
+
+  @@unique([sessionId, orderIndex])
+  @@unique([sessionId, questionId])
+  @@index([questionId])
+  @@map("group_study_questions")
+}
+
+model GroupStudyAnswer {
+  id                 String   @id @default(cuid())
+  sessionId          String
+  groupStudyQuestionId String
+  userId             String
+  selectedAnswer     Int?
+  isCorrect          Boolean?
+  responseTimeMs     Int?
+  answeredAt         DateTime @default(now())
+
+  session            GroupStudySession  @relation(fields: [sessionId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  groupStudyQuestion GroupStudyQuestion @relation(fields: [groupStudyQuestionId], references: [id], onDelete: Cascade)
+  user               User               @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([groupStudyQuestionId, userId])
+  @@index([sessionId, userId])
+  @@map("group_study_answers")
 }
 
 model VerificationToken {
@@ -206,6 +333,7 @@ model Question {
   questionResults QuestionResult[]
   questionReviews QuestionReview[]
   practiceTestQuestions PracticeTestQuestion[] // Epic #61: Practice test assignments
+  groupStudyQuestions GroupStudyQuestion[]
 
   @@index([moduleType, difficulty, category])
   @@index([category, subtopic])
