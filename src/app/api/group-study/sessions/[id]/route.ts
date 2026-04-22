@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { safeJsonArrayParse, syncGroupStudySession } from '@/lib/groupStudy'
+import { isSchemaProvisioningError, schemaProvisioningResponse } from '@/lib/schemaProvisioning'
 
 interface RouteContext {
   params: Promise<{ id: string }>
@@ -31,10 +32,11 @@ function toBase64(value: unknown): string | null {
 
 // GET /api/group-study/sessions/[id] - session state snapshot for polling UI
 export async function GET(_request: NextRequest, context: RouteContext) {
-  const session = await getServerSession(authOptions)
-  if (!session?.user?.id) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
+  return (async () => {
+    const session = await getServerSession(authOptions)
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
 
   const { id } = await context.params
   const userId = session.user.id
@@ -235,39 +237,47 @@ export async function GET(_request: NextRequest, context: RouteContext) {
       return avgA - avgB
     })
 
-  return NextResponse.json({
-    session: {
-      id: studySession.id,
-      hostId: studySession.hostId,
-      status: studySession.status,
-      questionCount: studySession.questionCount,
-      currentQuestionIndex: studySession.currentQuestionIndex,
-      timeLimitSec: studySession.timeLimitSec,
-      moduleType: studySession.moduleType,
-      category: studySession.category,
-      difficulty: studySession.difficulty,
-      createdAt: studySession.createdAt,
-      startedAt: studySession.startedAt,
-      endedAt: studySession.endedAt,
-      revealStartedAt: studySession.revealStartedAt,
-      revealEndsAt: studySession.revealEndsAt,
-      isRevealPhase,
-      timeRemainingSec,
-      revealRemainingSec,
-      canRevealAnswers,
-      host: studySession.host,
-    },
-    me: {
-      inviteStatus: me.inviteStatus,
-      isReady: me.isReady,
-      progressStatus: me.progressStatus,
-      isHost: me.userId === studySession.hostId,
-      correctCount: me.correctCount,
-      totalResponseMs: me.totalResponseMs,
-    },
-    participants,
-    currentQuestion,
-    answersByUser,
-    leaderboard,
+    return NextResponse.json({
+      session: {
+        id: studySession.id,
+        hostId: studySession.hostId,
+        status: studySession.status,
+        questionCount: studySession.questionCount,
+        currentQuestionIndex: studySession.currentQuestionIndex,
+        timeLimitSec: studySession.timeLimitSec,
+        moduleType: studySession.moduleType,
+        category: studySession.category,
+        difficulty: studySession.difficulty,
+        createdAt: studySession.createdAt,
+        startedAt: studySession.startedAt,
+        endedAt: studySession.endedAt,
+        revealStartedAt: studySession.revealStartedAt,
+        revealEndsAt: studySession.revealEndsAt,
+        isRevealPhase,
+        timeRemainingSec,
+        revealRemainingSec,
+        canRevealAnswers,
+        host: studySession.host,
+      },
+      me: {
+        inviteStatus: me.inviteStatus,
+        isReady: me.isReady,
+        progressStatus: me.progressStatus,
+        isHost: me.userId === studySession.hostId,
+        correctCount: me.correctCount,
+        totalResponseMs: me.totalResponseMs,
+      },
+      participants,
+      currentQuestion,
+      answersByUser,
+      leaderboard,
+    })
+  })().catch((error) => {
+    if (isSchemaProvisioningError(error)) {
+      return NextResponse.json(schemaProvisioningResponse('group-study'), { status: 503 })
+    }
+
+    console.error('[GET /api/group-study/sessions/[id]] Error:', error)
+    return NextResponse.json({ error: 'server_error' }, { status: 500 })
   })
 }

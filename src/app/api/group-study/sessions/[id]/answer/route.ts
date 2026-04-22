@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { syncGroupStudySession } from '@/lib/groupStudy'
+import { isSchemaProvisioningError, schemaProvisioningResponse } from '@/lib/schemaProvisioning'
 
 interface RouteContext {
   params: Promise<{ id: string }>
@@ -10,10 +11,11 @@ interface RouteContext {
 
 // POST /api/group-study/sessions/[id]/answer body: { selectedAnswer: number }
 export async function POST(request: NextRequest, context: RouteContext) {
-  const session = await getServerSession(authOptions)
-  if (!session?.user?.id) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
+  return (async () => {
+    const session = await getServerSession(authOptions)
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
 
   const { id } = await context.params
   const userId = session.user.id
@@ -125,5 +127,13 @@ export async function POST(request: NextRequest, context: RouteContext) {
 
   await syncGroupStudySession(id)
 
-  return NextResponse.json({ success: true, isCorrect })
+    return NextResponse.json({ success: true, isCorrect })
+  })().catch((error) => {
+    if (isSchemaProvisioningError(error)) {
+      return NextResponse.json(schemaProvisioningResponse('group-study'), { status: 503 })
+    }
+
+    console.error('[POST /api/group-study/sessions/[id]/answer] Error:', error)
+    return NextResponse.json({ error: 'server_error' }, { status: 500 })
+  })
 }

@@ -83,6 +83,7 @@ export default function FriendsPage() {
   const [creatingSession, setCreatingSession] = useState(false)
 
   const [error, setError] = useState<string | null>(null)
+  const [schemaPending, setSchemaPending] = useState(false)
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -103,13 +104,18 @@ export default function FriendsPage() {
         fetch('/api/group-study/sessions'),
       ])
 
+      const [friendsJson, requestsJson, sessionsJson] = await Promise.all([
+        friendsRes.json().catch(() => ({})),
+        requestsRes.json().catch(() => ({})),
+        sessionsRes.json().catch(() => ({})),
+      ])
+
+      const pending = !!(friendsJson.schemaPending || requestsJson.schemaPending || sessionsJson.schemaPending)
+      setSchemaPending(pending)
+
       if (!friendsRes.ok || !requestsRes.ok || !sessionsRes.ok) {
         throw new Error('Failed to load friends data')
       }
-
-      const friendsJson = await friendsRes.json()
-      const requestsJson = await requestsRes.json()
-      const sessionsJson = await sessionsRes.json()
 
       setFriends(friendsJson.friends || [])
       setIncomingRequests(requestsJson.incoming || [])
@@ -132,7 +138,13 @@ export default function FriendsPage() {
     const intervalId = window.setInterval(() => {
       fetch('/api/group-study/sessions')
         .then((response) => (response.ok ? response.json() : Promise.reject()))
-        .then((json) => setStudySessions(json.sessions || []))
+        .then((json) => {
+          if (json.schemaPending) {
+            setSchemaPending(true)
+            return
+          }
+          setStudySessions(json.sessions || [])
+        })
         .catch(() => {})
     }, 4000)
 
@@ -179,7 +191,8 @@ export default function FriendsPage() {
       })
 
       if (!response.ok) {
-        throw new Error('request_failed')
+        const json = await response.json().catch(() => ({}))
+        throw new Error(typeof json.error === 'string' ? json.error : 'request_failed')
       }
 
       await fetchAllData()
@@ -190,8 +203,14 @@ export default function FriendsPage() {
           setSearchResults(json.users || [])
         }
       }
-    } catch {
-      setError('Could not send friend request')
+    } catch (requestError) {
+      const message = requestError instanceof Error ? requestError.message : 'request_failed'
+      if (message === 'friends_schema_pending') {
+        setSchemaPending(true)
+        setError('Friends feature is still provisioning. Run the group-study migration setup endpoint.')
+      } else {
+        setError('Could not send friend request')
+      }
     }
   }
 
@@ -204,11 +223,18 @@ export default function FriendsPage() {
         body: JSON.stringify({ action }),
       })
       if (!response.ok) {
-        throw new Error('response_failed')
+        const json = await response.json().catch(() => ({}))
+        throw new Error(typeof json.error === 'string' ? json.error : 'response_failed')
       }
       await fetchAllData()
-    } catch {
-      setError(`Could not ${action} request`)
+    } catch (requestError) {
+      const message = requestError instanceof Error ? requestError.message : 'response_failed'
+      if (message === 'friends_schema_pending') {
+        setSchemaPending(true)
+        setError('Friends feature is still provisioning. Run the group-study migration setup endpoint.')
+      } else {
+        setError(`Could not ${action} request`)
+      }
     }
   }
 
@@ -219,11 +245,18 @@ export default function FriendsPage() {
         method: 'DELETE',
       })
       if (!response.ok) {
-        throw new Error('cancel_failed')
+        const json = await response.json().catch(() => ({}))
+        throw new Error(typeof json.error === 'string' ? json.error : 'cancel_failed')
       }
       await fetchAllData()
-    } catch {
-      setError('Could not cancel request')
+    } catch (requestError) {
+      const message = requestError instanceof Error ? requestError.message : 'cancel_failed'
+      if (message === 'friends_schema_pending') {
+        setSchemaPending(true)
+        setError('Friends feature is still provisioning. Run the group-study migration setup endpoint.')
+      } else {
+        setError('Could not cancel request')
+      }
     }
   }
 
@@ -234,12 +267,19 @@ export default function FriendsPage() {
         method: 'DELETE',
       })
       if (!response.ok) {
-        throw new Error('remove_failed')
+        const json = await response.json().catch(() => ({}))
+        throw new Error(typeof json.error === 'string' ? json.error : 'remove_failed')
       }
       setSelectedFriendIds((prev) => prev.filter((id) => id !== friendId))
       await fetchAllData()
-    } catch {
-      setError('Could not remove friend')
+    } catch (requestError) {
+      const message = requestError instanceof Error ? requestError.message : 'remove_failed'
+      if (message === 'friends_schema_pending') {
+        setSchemaPending(true)
+        setError('Friends feature is still provisioning. Run the group-study migration setup endpoint.')
+      } else {
+        setError('Could not remove friend')
+      }
     }
   }
 
@@ -288,6 +328,9 @@ export default function FriendsPage() {
         setError('Not enough questions for those filters. Loosen filters and try again.')
       } else if (message === 'can_only_invite_friends') {
         setError('You can only invite users who are already your friends.')
+      } else if (message === 'group-study_schema_pending') {
+        setSchemaPending(true)
+        setError('Group study schema is still provisioning. Run the group-study migration setup endpoint.')
       } else {
         setError('Could not create group study session')
       }
@@ -328,6 +371,11 @@ export default function FriendsPage() {
           <p className="text-gray-600 mt-1">
             Add friends, start group sessions, and solve the same SAT questions live.
           </p>
+          {schemaPending && (
+            <p className="mt-3 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
+              Friends/group-study database migration is not applied yet in this environment.
+            </p>
+          )}
           {error && (
             <p className="mt-3 text-sm text-red-600">{error}</p>
           )}
