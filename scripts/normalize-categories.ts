@@ -32,21 +32,100 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 const CATEGORY_MAPPINGS: Array<{
-  from: { category: string; moduleType?: string };
+  from: { category: string; moduleType?: string; subtopic?: string };
   to: string;
   description: string;
 }> = [
   // Reading & Writing remappings
   { from: { category: 'reading' }, to: 'reading-comprehension', description: 'Generic "reading" → reading-comprehension' },
   { from: { category: 'Reading Comprehension' }, to: 'reading-comprehension', description: 'Case-mismatch "Reading Comprehension" → reading-comprehension' },
+  { from: { category: 'ReadingComprehension' }, to: 'reading-comprehension', description: 'Compact "ReadingComprehension" → reading-comprehension' },
   { from: { category: 'reading-writing' }, to: 'reading-comprehension', description: 'Generic "reading-writing" → reading-comprehension' },
+  { from: { category: 'Writing and Language' }, to: 'writing-language', description: 'Topic label "Writing and Language" → writing-language' },
+  { from: { category: 'Vocabulary in Context' }, to: 'vocabulary', description: 'Topic label "Vocabulary in Context" → vocabulary' },
+  { from: { category: 'Grammar and Usage' }, to: 'grammar', description: 'Topic label "Grammar and Usage" → grammar' },
+  { from: { category: 'Grammar' }, to: 'grammar', description: 'Capitalized "Grammar" → grammar' },
   { from: { category: 'rhetoric', moduleType: 'reading-writing' }, to: 'writing-language', description: 'Rhetoric (R&W) → writing-language' },
   { from: { category: 'synthesis' }, to: 'writing-language', description: 'Synthesis → writing-language' },
+
+  // Reading-specific subtopic remaps
+  {
+    from: { category: 'Reading Comprehension', moduleType: 'reading-writing', subtopic: 'Vocabulary in Context' },
+    to: 'vocabulary',
+    description: 'Reading Comprehension + Vocabulary subtopic → vocabulary'
+  },
+  {
+    from: { category: 'reading-comprehension', moduleType: 'reading-writing', subtopic: 'Vocabulary in Context' },
+    to: 'vocabulary',
+    description: 'reading-comprehension + Vocabulary subtopic → vocabulary'
+  },
+  {
+    from: { category: 'Reading Comprehension', moduleType: 'reading-writing', subtopic: 'Grammar and Usage' },
+    to: 'grammar',
+    description: 'Reading Comprehension + Grammar subtopic → grammar'
+  },
+  {
+    from: { category: 'reading-comprehension', moduleType: 'reading-writing', subtopic: 'Grammar and Usage' },
+    to: 'grammar',
+    description: 'reading-comprehension + Grammar subtopic → grammar'
+  },
+  {
+    from: { category: 'Reading Comprehension', moduleType: 'reading-writing', subtopic: 'Punctuation and Mechanics' },
+    to: 'grammar',
+    description: 'Reading Comprehension + Punctuation subtopic → grammar'
+  },
+  {
+    from: { category: 'reading-comprehension', moduleType: 'reading-writing', subtopic: 'Punctuation and Mechanics' },
+    to: 'grammar',
+    description: 'reading-comprehension + Punctuation subtopic → grammar'
+  },
+  {
+    from: { category: 'Reading Comprehension', moduleType: 'reading-writing', subtopic: 'Sentence Structure and Style' },
+    to: 'writing-language',
+    description: 'Reading Comprehension + Sentence Style subtopic → writing-language'
+  },
+  {
+    from: { category: 'reading-comprehension', moduleType: 'reading-writing', subtopic: 'Sentence Structure and Style' },
+    to: 'writing-language',
+    description: 'reading-comprehension + Sentence Style subtopic → writing-language'
+  },
+  {
+    from: { category: 'Reading Comprehension', moduleType: 'reading-writing', subtopic: 'Rhetorical Skills' },
+    to: 'writing-language',
+    description: 'Reading Comprehension + Rhetorical Skills subtopic → writing-language'
+  },
+  {
+    from: { category: 'reading-comprehension', moduleType: 'reading-writing', subtopic: 'Rhetorical Skills' },
+    to: 'writing-language',
+    description: 'reading-comprehension + Rhetorical Skills subtopic → writing-language'
+  },
+  {
+    from: { category: 'Reading Comprehension', moduleType: 'reading-writing', subtopic: 'Transitions and Logical Flow' },
+    to: 'writing-language',
+    description: 'Reading Comprehension + Transitions subtopic → writing-language'
+  },
+  {
+    from: { category: 'reading-comprehension', moduleType: 'reading-writing', subtopic: 'Transitions and Logical Flow' },
+    to: 'writing-language',
+    description: 'reading-comprehension + Transitions subtopic → writing-language'
+  },
+  {
+    from: { category: 'writing-language', moduleType: 'reading-writing', subtopic: 'Grammar and Usage' },
+    to: 'grammar',
+    description: 'writing-language + Grammar subtopic → grammar'
+  },
+  {
+    from: { category: 'writing-language', moduleType: 'reading-writing', subtopic: 'Punctuation and Mechanics' },
+    to: 'grammar',
+    description: 'writing-language + Punctuation subtopic → grammar'
+  },
   
   // Math remappings
   { from: { category: 'quadratic-equations' }, to: 'advanced-math', description: 'Quadratic equations → advanced-math' },
   { from: { category: 'linear-functions' }, to: 'algebra', description: 'Linear functions → algebra' },
   { from: { category: 'statistics' }, to: 'problem-solving-data-analysis', description: 'Statistics → problem-solving-data-analysis' },
+  { from: { category: 'data-analysis' }, to: 'problem-solving-data-analysis', description: 'data-analysis → problem-solving-data-analysis' },
+  { from: { category: 'Statistics and Probability' }, to: 'problem-solving-data-analysis', description: 'Topic label Statistics and Probability → problem-solving-data-analysis' },
   { from: { category: 'math' }, to: 'algebra', description: 'Generic "math" → algebra' },
   { from: { category: 'triangles' }, to: 'geometry', description: 'Triangles → geometry' },
   { from: { category: 'rhetoric', moduleType: 'math' }, to: 'advanced-math', description: 'Rhetoric (math module - data error) → advanced-math' },
@@ -68,6 +147,9 @@ async function main() {
     const where: Record<string, string> = { category: mapping.from.category };
     if (mapping.from.moduleType) {
       where.moduleType = mapping.from.moduleType;
+    }
+    if (mapping.from.subtopic) {
+      where.subtopic = mapping.from.subtopic;
     }
 
     const count = await prisma.question.count({ where });

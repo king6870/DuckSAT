@@ -3,7 +3,7 @@
 import { useSession } from "next-auth/react"
 import { useRouter, useParams, useSearchParams } from "next/navigation"
 import { useEffect, useState, useCallback, useRef } from "react"
-import { ArrowLeft, ArrowRight, CheckCircle2, XCircle, RotateCcw, Home, Trophy } from "lucide-react"
+import { ArrowLeft, ArrowRight, CheckCircle2, XCircle, RotateCcw, Home, Trophy, MessageCircle, Send, Sparkles, X, Mic, MicOff, Volume2, VolumeX } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { trackDrill, trackEvent } from "@/lib/tracking"
 import MathRenderer from "@/components/MathRenderer"
@@ -26,6 +26,71 @@ interface Question {
   imageData?: string
   imageMimeType?: string
   imageAlt?: string
+}
+
+interface TutorChatMessage {
+  role: 'user' | 'assistant'
+  content: string
+}
+
+interface BrowserSpeechRecognitionResult {
+  [index: number]: {
+    transcript?: string
+  } | undefined
+}
+
+interface BrowserSpeechRecognitionEvent {
+  results: ArrayLike<BrowserSpeechRecognitionResult | undefined>
+}
+
+interface BrowserSpeechRecognitionErrorEvent {
+  error?: string
+}
+
+interface BrowserSpeechRecognition {
+  continuous: boolean
+  interimResults: boolean
+  lang: string
+  onresult: ((event: BrowserSpeechRecognitionEvent) => void) | null
+  onerror: ((event: BrowserSpeechRecognitionErrorEvent) => void) | null
+  onend: (() => void) | null
+  start: () => void
+  stop: () => void
+}
+
+type BrowserSpeechRecognitionConstructor = new () => BrowserSpeechRecognition
+
+function getSpeechRecognitionConstructor(): BrowserSpeechRecognitionConstructor | null {
+  if (typeof window === 'undefined') return null
+
+  const speechWindow = window as Window & {
+    SpeechRecognition?: BrowserSpeechRecognitionConstructor
+    webkitSpeechRecognition?: BrowserSpeechRecognitionConstructor
+  }
+
+  return speechWindow.SpeechRecognition || speechWindow.webkitSpeechRecognition || null
+}
+
+function getTranscriptFromSpeechEvent(event: BrowserSpeechRecognitionEvent): string {
+  const transcriptParts: string[] = []
+
+  for (let i = 0; i < event.results.length; i += 1) {
+    const result = event.results[i]
+    const transcript = result?.[0]?.transcript
+    if (typeof transcript === 'string' && transcript.trim()) {
+      transcriptParts.push(transcript.trim())
+    }
+  }
+
+  return transcriptParts.join(' ').trim()
+}
+
+function normalizeSpeechText(value: string): string {
+  return value
+    .replace(/\$[^$]*\$/g, ' ')
+    .replace(/\*\*/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
 }
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -83,6 +148,21 @@ export default function DrillPage() {
   const [difficulty, setDifficulty] = useState<string>("") // empty = mixed
   const [drillStarted, setDrillStarted] = useState(false)
   const [drillCount, setDrillCount] = useState<number>(initialDrillCount)
+  const [tutorOpen, setTutorOpen] = useState(false)
+  const [tutorMessages, setTutorMessages] = useState<TutorChatMessage[]>([
+    {
+      role: 'assistant',
+      content: 'I am your SAT AI Tutor. Ask for hints, strategy, or a step-by-step walkthrough.',
+    },
+  ])
+  const [tutorInput, setTutorInput] = useState('')
+  const [tutorLoading, setTutorLoading] = useState(false)
+  const [tutorError, setTutorError] = useState<string | null>(null)
+  const [voiceInputSupported, setVoiceInputSupported] = useState(false)
+  const [voiceOutputSupported, setVoiceOutputSupported] = useState(false)
+  const [voiceOutputEnabled, setVoiceOutputEnabled] = useState(true)
+  const [isListening, setIsListening] = useState(false)
+  const recognitionRef = useRef<BrowserSpeechRecognition | null>(null)
 
   // Analytics timing
   const drillStartTime = useRef<string>('')
@@ -92,6 +172,28 @@ export default function DrillPage() {
   const categoryLabel = CATEGORY_LABELS[categorySlug] || categorySlug
   const moduleType = categorySlug === 'mixed' ? '' : (CATEGORY_MODULE[categorySlug] || "math")
   const isMixed = categorySlug === 'mixed'
+
+  const stopSpeaking = useCallback(() => {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      return
+    }
+    window.speechSynthesis.cancel()
+  }, [])
+
+  const speakText = useCallback((value: string) => {
+    if (!voiceOutputEnabled || !voiceOutputSupported) return
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return
+
+    const normalized = normalizeSpeechText(value)
+    if (!normalized) return
+
+    window.speechSynthesis.cancel()
+    const utterance = new SpeechSynthesisUtterance(normalized)
+    utterance.lang = 'en-US'
+    utterance.rate = 0.98
+    utterance.pitch = 1
+    window.speechSynthesis.speak(utterance)
+  }, [voiceOutputEnabled, voiceOutputSupported])
 
   const fetchQuestions = useCallback(async (diff: string, count: number) => {
     setLoading(true)
@@ -149,6 +251,24 @@ export default function DrillPage() {
     }
   }, [status, router])
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    setVoiceInputSupported(Boolean(getSpeechRecognitionConstructor()))
+    setVoiceOutputSupported('speechSynthesis' in window)
+
+    return () => {
+      recognitionRef.current?.stop()
+      stopSpeaking()
+    }
+  }, [stopSpeaking])
+
+  useEffect(() => {
+    if (!voiceOutputEnabled) {
+      stopSpeaking()
+    }
+  }, [voiceOutputEnabled, stopSpeaking])
+
   const startDrill = (diff: string) => {
     setDifficulty(diff)
     setDrillStarted(true)
@@ -160,9 +280,128 @@ export default function DrillPage() {
     drillStartTime.current = new Date().toISOString()
     questionStartTime.current = Date.now()
     questionTimes.current = []
+    recognitionRef.current?.stop()
+    setIsListening(false)
+    stopSpeaking()
+    setTutorOpen(false)
+    setTutorInput('')
+    setTutorError(null)
+    setTutorMessages([
+      {
+        role: 'assistant',
+        content: 'Drill started. Ask me for a hint or strategy on this topic whenever you need help.',
+      },
+    ])
     trackEvent('drill', 'drill_started', { category: categorySlug, difficulty: diff || 'mixed', drillLength: drillCount })
     fetchQuestions(diff, drillCount)
   }
+
+  const sendTutorMessage = useCallback(async (presetMessage?: string) => {
+    const message = (presetMessage ?? tutorInput).trim()
+    if (!message || tutorLoading) return
+
+    const activeQuestion = questions[currentIndex]
+    const nextMessages: TutorChatMessage[] = [...tutorMessages, { role: 'user', content: message }]
+    setTutorMessages(nextMessages)
+    setTutorInput('')
+    setTutorError(null)
+    setTutorLoading(true)
+
+    try {
+      const response = await fetch('/api/ai-tutor/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: nextMessages,
+          context: {
+            moduleType: activeQuestion?.moduleType || moduleType || null,
+            category: activeQuestion?.category || categorySlug,
+            difficulty: activeQuestion?.difficulty || difficulty || null,
+            subtopic: activeQuestion?.subtopic || null,
+            question: activeQuestion?.question || null,
+            passage: activeQuestion?.passage || null,
+            options: activeQuestion?.options || [],
+            selectedAnswer,
+            correctAnswer: isRevealed ? activeQuestion?.correctAnswer ?? null : null,
+            isRevealed,
+          },
+        }),
+      })
+
+      const payload = await response.json().catch(() => ({}))
+
+      if (!response.ok) {
+        if (payload?.error === 'ai_tutor_not_configured') {
+          throw new Error('AI tutor is not configured yet. Add provider keys to environment variables.')
+        }
+        throw new Error('Tutor request failed')
+      }
+
+      const reply = typeof payload?.reply === 'string' ? payload.reply : 'I could not generate a response just now.'
+      setTutorMessages((prev) => [...prev, { role: 'assistant', content: reply }])
+      speakText(reply)
+    } catch (tutorRequestError) {
+      const messageText = tutorRequestError instanceof Error ? tutorRequestError.message : 'Tutor request failed'
+      setTutorError(messageText)
+      const fallbackReply = 'I could not respond right now. Please try again in a moment.'
+      setTutorMessages((prev) => [
+        ...prev,
+        {
+          role: 'assistant',
+          content: fallbackReply,
+        },
+      ])
+      speakText(fallbackReply)
+    } finally {
+      setTutorLoading(false)
+    }
+  }, [categorySlug, currentIndex, difficulty, isRevealed, moduleType, questions, selectedAnswer, speakText, tutorInput, tutorLoading, tutorMessages])
+
+  const stopVoiceInput = useCallback(() => {
+    recognitionRef.current?.stop()
+    setIsListening(false)
+  }, [])
+
+  const startVoiceInput = useCallback(() => {
+    if (tutorLoading) return
+
+    const SpeechRecognitionCtor = getSpeechRecognitionConstructor()
+    if (!SpeechRecognitionCtor) {
+      setTutorError('Voice input is not supported in this browser.')
+      return
+    }
+
+    recognitionRef.current?.stop()
+
+    const recognition = new SpeechRecognitionCtor()
+    recognition.lang = 'en-US'
+    recognition.interimResults = false
+    recognition.continuous = false
+
+    recognition.onresult = (event) => {
+      const transcript = getTranscriptFromSpeechEvent(event)
+      if (!transcript) return
+      setTutorInput(transcript)
+      void sendTutorMessage(transcript)
+    }
+
+    recognition.onerror = (event) => {
+      const errorMessage = event?.error
+        ? `Voice input error: ${event.error}`
+        : 'Voice input failed. Please try again.'
+      setTutorError(errorMessage)
+      setIsListening(false)
+    }
+
+    recognition.onend = () => {
+      setIsListening(false)
+    }
+
+    recognitionRef.current = recognition
+    setTutorError(null)
+    setIsListening(true)
+    recognition.start()
+  }, [sendTutorMessage, tutorLoading])
 
   const handleSelectAnswer = (index: number) => {
     if (isRevealed) return
@@ -692,6 +931,148 @@ export default function DrillPage() {
             </>
           )}
         </div>
+
+        {/* AI Tutor */}
+        {!tutorOpen && (
+          <button
+            onClick={() => setTutorOpen(true)}
+            className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-full bg-indigo-600 px-4 py-3 text-sm font-semibold text-white shadow-lg hover:bg-indigo-700"
+          >
+            <MessageCircle className="h-4 w-4" />
+            Ask AI Tutor
+          </button>
+        )}
+
+        {tutorOpen && (
+          <div className="fixed bottom-4 right-4 z-50 w-[min(26rem,92vw)] rounded-2xl border border-indigo-200 bg-white shadow-2xl">
+            <div className="flex items-center justify-between border-b border-indigo-100 px-4 py-3">
+              <div className="flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-indigo-600" />
+                <div>
+                  <p className="text-sm font-semibold text-gray-900">SAT AI Tutor</p>
+                  <p className="text-[11px] text-gray-500">Topic Drill Coach</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => setVoiceOutputEnabled((prev) => !prev)}
+                  disabled={!voiceOutputSupported}
+                  className="rounded-md p-1 text-gray-500 hover:bg-gray-100 hover:text-gray-700 disabled:opacity-40"
+                  aria-label={voiceOutputEnabled ? 'Mute tutor voice output' : 'Enable tutor voice output'}
+                  title={voiceOutputEnabled ? 'Mute tutor voice output' : 'Enable tutor voice output'}
+                >
+                  {voiceOutputEnabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
+                </button>
+                <button
+                  onClick={() => {
+                    setTutorOpen(false)
+                    stopVoiceInput()
+                    stopSpeaking()
+                  }}
+                  className="rounded-md p-1 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                  aria-label="Close tutor"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
+
+            <div className="max-h-80 space-y-2 overflow-y-auto px-4 py-3">
+              {tutorMessages.map((message, index) => (
+                <div
+                  key={`${message.role}-${index}`}
+                  className={`rounded-xl px-3 py-2 text-sm ${
+                    message.role === 'user'
+                      ? 'ml-6 bg-indigo-600 text-white'
+                      : 'mr-6 bg-gray-100 text-gray-800'
+                  }`}
+                >
+                  <MathRenderer>{message.content}</MathRenderer>
+                </div>
+              ))}
+              {tutorLoading && (
+                <div className="mr-6 rounded-xl bg-gray-100 px-3 py-2 text-sm text-gray-600">
+                  Thinking...
+                </div>
+              )}
+            </div>
+
+            <div className="space-y-2 border-t border-indigo-100 px-4 py-3">
+              <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() => sendTutorMessage('Give me a hint without revealing the final answer.')}
+                  className="rounded-full border border-indigo-200 px-2.5 py-1 text-xs font-medium text-indigo-700 hover:bg-indigo-50"
+                >
+                  Hint
+                </button>
+                <button
+                  onClick={() => sendTutorMessage('What strategy should I use for this question type?')}
+                  className="rounded-full border border-indigo-200 px-2.5 py-1 text-xs font-medium text-indigo-700 hover:bg-indigo-50"
+                >
+                  Strategy
+                </button>
+                {isRevealed && (
+                  <button
+                    onClick={() => sendTutorMessage('Explain why the correct answer is correct and why mine was wrong.')}
+                    className="rounded-full border border-indigo-200 px-2.5 py-1 text-xs font-medium text-indigo-700 hover:bg-indigo-50"
+                  >
+                    Compare Answers
+                  </button>
+                )}
+              </div>
+
+              <p className="text-[11px] text-gray-500">
+                {isListening
+                  ? 'Listening... speak naturally.'
+                  : 'Use the mic to ask out loud. Toggle speaker icon for spoken replies.'}
+              </p>
+
+              {tutorError && <p className="text-xs text-red-600">{tutorError}</p>}
+
+              <div className="flex items-end gap-2">
+                <button
+                  onClick={() => {
+                    if (isListening) {
+                      stopVoiceInput()
+                      return
+                    }
+                    startVoiceInput()
+                  }}
+                  disabled={!voiceInputSupported || tutorLoading}
+                  className={`inline-flex h-11 w-11 items-center justify-center rounded-lg border ${
+                    isListening
+                      ? 'border-rose-500 bg-rose-50 text-rose-600'
+                      : 'border-indigo-200 bg-white text-indigo-700'
+                  } disabled:opacity-50`}
+                  aria-label={isListening ? 'Stop voice input' : 'Start voice input'}
+                  title={voiceInputSupported ? 'Voice input' : 'Voice input is not supported in this browser'}
+                >
+                  {isListening ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
+                </button>
+                <textarea
+                  value={tutorInput}
+                  onChange={(event) => setTutorInput(event.target.value)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' && !event.shiftKey) {
+                      event.preventDefault()
+                      void sendTutorMessage()
+                    }
+                  }}
+                  placeholder="Ask for help on this question..."
+                  className="min-h-[2.75rem] max-h-28 flex-1 resize-y rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none"
+                />
+                <button
+                  onClick={() => void sendTutorMessage()}
+                  disabled={tutorLoading || tutorInput.trim().length === 0}
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50"
+                  aria-label="Send message"
+                >
+                  <Send className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

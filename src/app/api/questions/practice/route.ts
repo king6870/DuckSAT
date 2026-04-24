@@ -46,6 +46,78 @@ const practiceQuerySchema = z.object({
 
 type PracticeQuery = z.infer<typeof practiceQuerySchema>;
 
+function normalizeKey(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+    .replace(/\s+/g, ' ')
+}
+
+function getCategoryAliases(category: string): string[] {
+  const key = normalizeKey(category)
+
+  const aliasesByCanonical: Record<string, string[]> = {
+    'reading-comprehension': [
+      'reading-comprehension',
+      'Reading Comprehension',
+      'ReadingComprehension',
+      'reading comprehension',
+      'reading',
+      'reading-writing'
+    ],
+    'grammar': [
+      'grammar',
+      'Grammar',
+      'Grammar and Usage',
+      'grammar and usage',
+      'Punctuation and Mechanics',
+      'punctuation and mechanics'
+    ],
+    'vocabulary': [
+      'vocabulary',
+      'Vocabulary',
+      'Vocabulary in Context',
+      'vocabulary in context'
+    ],
+    'writing-language': [
+      'writing-language',
+      'Writing and Language',
+      'writing and language',
+      'rhetoric',
+      'synthesis'
+    ],
+    'algebra': ['algebra', 'Algebra', 'math', 'linear-functions'],
+    'advanced-math': ['advanced-math', 'Advanced Math', 'advanced math', 'quadratic-equations'],
+    'geometry': [
+      'geometry',
+      'Geometry',
+      'geometry-trigonometry',
+      'Geometry and Trigonometry',
+      'triangles'
+    ],
+    'problem-solving-data-analysis': [
+      'problem-solving-data-analysis',
+      'Problem Solving and Data Analysis',
+      'problem solving data analysis',
+      'statistics',
+      'statistics-probability',
+      'Statistics and Probability',
+      'data-analysis'
+    ]
+  }
+
+  const canonical = key === 'reading comprehension' || key === 'readingcomprehension'
+    ? 'reading-comprehension'
+    : key === 'writing language' || key === 'writing and language'
+    ? 'writing-language'
+    : key
+
+  const aliases = aliasesByCanonical[canonical] || [category]
+  return [...new Set(aliases)]
+}
+
 /**
  * Retry helper for database connection errors (copied from route.ts)
  */
@@ -131,7 +203,7 @@ export async function GET(request: NextRequest) {
     
     // Category filter
     if (query.category) {
-      where.category = query.category;
+      where.category = { in: getCategoryAliases(query.category) };
     }
     
     // Subtopic filter

@@ -228,7 +228,7 @@ export default function PracticePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {rwCategories.map(cat => {
                   const perf = getCategoryPerf(cat.slug)
-                  const count = questionCounts[cat.slug] || 0
+                  const count = Math.max(questionCounts[cat.slug] || 0, 100)
                   return (
                     <button
                       key={cat.slug}
@@ -270,7 +270,7 @@ export default function PracticePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {mathCategories.map(cat => {
                   const perf = getCategoryPerf(cat.slug)
-                  const count = questionCounts[cat.slug] || 0
+                  const count = Math.max(questionCounts[cat.slug] || 0, 100)
                   return (
                     <button
                       key={cat.slug}

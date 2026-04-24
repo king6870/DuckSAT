@@ -408,12 +408,28 @@ export class UnifiedQuestionGenerator {
    * Select N random subtopics from pool (Fisher-Yates shuffle)
    */
   private selectRandomSubtopics(pool: EnrichedSubtopic[], count: number): EnrichedSubtopic[] {
+    if (pool.length === 0 || count <= 0) {
+      return []
+    }
+
     const shuffled = [...pool]
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
     }
-    return shuffled.slice(0, Math.min(count, shuffled.length))
+
+    if (count <= shuffled.length) {
+      return shuffled.slice(0, count)
+    }
+
+    // When a user filters to a narrow topic/subtopic set, sample with replacement
+    // so we can still generate the requested count.
+    const selected = [...shuffled]
+    while (selected.length < count) {
+      selected.push(pool[Math.floor(Math.random() * pool.length)])
+    }
+
+    return selected
   }
 
   // ==========================================================================
@@ -493,6 +509,16 @@ export class UnifiedQuestionGenerator {
         }
       ],
       max_completion_tokens: options.maxTokens || 16000  // Azure OpenAI requires max_completion_tokens for GPT-4o/newer models
+    }
+
+    const deploymentHint = (
+      process.env.AZURE_OPENAI_DEPLOYMENT ||
+      process.env.DEPLOYMENT_NAME ||
+      endpoint
+    ).toLowerCase()
+
+    if (deploymentHint.includes('gpt-5')) {
+      requestBody.reasoning_effort = 'minimal'
     }
     
     // Only add temperature if explicitly set and not default (some models only support default temperature=1)
@@ -683,6 +709,7 @@ Required JSON keys: difficulty, qualityScore, isAccepted, evaluationFeedback`
               content: evaluationPrompt
             }
           ],
+          reasoning_effort: 'minimal',
           response_format: { type: 'json_object' },
           max_completion_tokens: 500
         })
@@ -718,6 +745,7 @@ Required JSON keys: difficulty, qualityScore, isAccepted, evaluationFeedback`
                 content: `Evaluate SAT quality 0-100. q=${question.question.slice(0, 700)} opts=${question.options.join(' | ').slice(0, 500)} ans=${question.correctAnswer} exp=${question.explanation.slice(0, 800)}`
               }
             ],
+            reasoning_effort: 'minimal',
             response_format: { type: 'json_object' },
             max_completion_tokens: 250
           })
@@ -826,6 +854,111 @@ Required JSON keys: difficulty, qualityScore, isAccepted, evaluationFeedback`
       .replace(/[^a-z0-9]+/g, ' ')
       .trim()
       .replace(/\s+/g, ' ')
+  }
+
+  private mapTopicToDrillCategory(
+    topicName: string | null | undefined,
+    moduleType: 'math' | 'reading-writing'
+  ): string | null {
+    if (!topicName) return null
+
+    const topicKey = this.normalizeSubtopicKey(topicName)
+
+    if (moduleType === 'reading-writing') {
+      if (topicKey.includes('reading comprehension') || topicKey === 'reading comprehension') {
+        return 'reading-comprehension'
+      }
+      if (topicKey.includes('writing and language')) {
+        return 'writing-language'
+      }
+      if (topicKey.includes('grammar')) {
+        return 'grammar'
+      }
+      if (topicKey.includes('vocabulary')) {
+        return 'vocabulary'
+      }
+      return null
+    }
+
+    if (topicKey.includes('algebra')) return 'algebra'
+    if (topicKey.includes('advanced math')) return 'advanced-math'
+    if (topicKey.includes('geometry') || topicKey.includes('trigonometry')) return 'geometry'
+    if (topicKey.includes('statistics') || topicKey.includes('probability') || topicKey.includes('data analysis')) {
+      return 'problem-solving-data-analysis'
+    }
+
+    return null
+  }
+
+  private deriveDrillCategory(
+    moduleType: 'math' | 'reading-writing',
+    topicName: string | null | undefined,
+    subtopicName: string | null | undefined
+  ): string {
+    const subtopicKey = this.normalizeSubtopicKey(subtopicName || '')
+
+    if (moduleType === 'reading-writing') {
+      if (subtopicKey.includes('vocabulary')) {
+        return 'vocabulary'
+      }
+
+      if (subtopicKey.includes('grammar') || subtopicKey.includes('punctuation')) {
+        return 'grammar'
+      }
+
+      if (
+        subtopicKey.includes('rhetorical') ||
+        subtopicKey.includes('transition') ||
+        subtopicKey.includes('sentence structure') ||
+        subtopicKey.includes('style')
+      ) {
+        return 'writing-language'
+      }
+
+      const mappedTopic = this.mapTopicToDrillCategory(topicName, moduleType)
+      if (mappedTopic) {
+        return mappedTopic
+      }
+
+      return 'reading-comprehension'
+    }
+
+    const mappedTopic = this.mapTopicToDrillCategory(topicName, moduleType)
+    if (mappedTopic) {
+      return mappedTopic
+    }
+
+    if (
+      subtopicKey.includes('statistics') ||
+      subtopicKey.includes('probability') ||
+      subtopicKey.includes('data analysis')
+    ) {
+      return 'problem-solving-data-analysis'
+    }
+
+    if (
+      subtopicKey.includes('geometry') ||
+      subtopicKey.includes('trigonometry') ||
+      subtopicKey.includes('triangle') ||
+      subtopicKey.includes('circle')
+    ) {
+      return 'geometry'
+    }
+
+    if (
+      subtopicKey.includes('quadratic') ||
+      subtopicKey.includes('polynomial') ||
+      subtopicKey.includes('exponential') ||
+      subtopicKey.includes('logarithmic') ||
+      subtopicKey.includes('complex number') ||
+      subtopicKey.includes('sequence') ||
+      subtopicKey.includes('series') ||
+      subtopicKey.includes('rational expression')
+    ) {
+      return 'advanced-math'
+    }
+
+    return 'algebra'
   }
 
   // ==========================================================================
@@ -1094,11 +1227,14 @@ Required JSON keys: difficulty, qualityScore, isAccepted, evaluationFeedback`
         }
 
         if (!matchedSubtopic) {
-          const normalizedCategory = this.normalizeSubtopicKey(question.moduleType === 'reading-writing' ? (question.category || '') : (question.category || ''))
+          const normalizedSubtopic = this.normalizeSubtopicKey(question.subtopic || '')
           const moduleTopics = dbTopics.filter(topic => topic.moduleType === question.moduleType)
 
-          const matchedTopic = moduleTopics.find(topic => this.normalizeSubtopicKey(topic.name) === normalizedCategory)
-            || moduleTopics.find(topic => this.normalizeSubtopicKey(topic.name).includes(normalizedCategory) || normalizedCategory.includes(this.normalizeSubtopicKey(topic.name)))
+          const matchedTopic = moduleTopics.find(topic => this.normalizeSubtopicKey(topic.name) === normalizedSubtopic)
+            || moduleTopics.find(topic => {
+              const topicKey = this.normalizeSubtopicKey(topic.name)
+              return topicKey.includes(normalizedSubtopic) || normalizedSubtopic.includes(topicKey)
+            })
             || moduleTopics[0]
 
           if (matchedTopic) {
@@ -1130,6 +1266,12 @@ Required JSON keys: difficulty, qualityScore, isAccepted, evaluationFeedback`
           }
         }
 
+        const derivedCategory = this.deriveDrillCategory(
+          question.moduleType,
+          matchedSubtopic?.topic.name,
+          matchedSubtopic?.name || question.subtopic
+        )
+
         await this.prisma.question.create({
           data: {
             question: question.question,
@@ -1139,7 +1281,7 @@ Required JSON keys: difficulty, qualityScore, isAccepted, evaluationFeedback`
             moduleType: question.moduleType,
             difficulty: question.difficulty,
             subtopicId: matchedSubtopic?.id || null,
-            category: matchedSubtopic?.topic.name || question.moduleType,
+            category: derivedCategory,
             subtopic: question.subtopic,
             chartData: question.hasChart ? JSON.stringify({
               description: question.chartDescription,
