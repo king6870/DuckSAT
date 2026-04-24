@@ -73,6 +73,7 @@ export default function FriendsPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState<SearchResult[]>([])
   const [searching, setSearching] = useState(false)
+  const [searchError, setSearchError] = useState<string | null>(null)
 
   const [selectedFriendIds, setSelectedFriendIds] = useState<string[]>([])
   const [questionCount, setQuestionCount] = useState(10)
@@ -155,22 +156,30 @@ export default function FriendsPage() {
     if (status !== 'authenticated') return
 
     const trimmed = searchQuery.trim()
-    if (trimmed.length < 2) {
+    if (trimmed.length < 1) {
       setSearchResults([])
+      setSearchError(null)
+      setSearching(false)
       return
     }
 
     const timeoutId = window.setTimeout(async () => {
       try {
         setSearching(true)
+        setSearchError(null)
         const response = await fetch(`/api/users/search?query=${encodeURIComponent(trimmed)}`)
         if (!response.ok) {
           throw new Error('search_failed')
         }
         const json = await response.json()
+        if (json.schemaPending) {
+          setSchemaPending(true)
+          setSearchError('Friends search is provisioning in this environment. Run the migration setup endpoint.')
+        }
         setSearchResults(json.users || [])
       } catch {
         setSearchResults([])
+        setSearchError('Search failed. Please try again.')
       } finally {
         setSearching(false)
       }
@@ -196,10 +205,13 @@ export default function FriendsPage() {
       }
 
       await fetchAllData()
-      if (searchQuery.trim().length >= 2) {
+      if (searchQuery.trim().length >= 1) {
         const refreshSearch = await fetch(`/api/users/search?query=${encodeURIComponent(searchQuery.trim())}`)
         if (refreshSearch.ok) {
           const json = await refreshSearch.json()
+          if (json.schemaPending) {
+            setSchemaPending(true)
+          }
           setSearchResults(json.users || [])
         }
       }
@@ -385,18 +397,19 @@ export default function FriendsPage() {
           <section className="xl:col-span-2 bg-white rounded-3xl border border-indigo-100 shadow-lg p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold text-gray-900">Find People</h2>
-              <span className="text-xs text-gray-500">Search by username</span>
+              <span className="text-xs text-gray-500">Search by username, name, or email</span>
             </div>
             <input
               value={searchQuery}
               onChange={(event) => setSearchQuery(event.target.value)}
-              placeholder="Search username (at least 2 characters)"
+              placeholder="Search username, name, or email"
               className="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
 
             <div className="mt-4 space-y-3 max-h-[360px] overflow-auto pr-1">
+              {searchError && <p className="text-sm text-rose-600">{searchError}</p>}
               {searching && <p className="text-sm text-gray-500">Searching...</p>}
-              {!searching && searchQuery.trim().length >= 2 && searchResults.length === 0 && (
+              {!searching && searchQuery.trim().length >= 1 && searchResults.length === 0 && !searchError && (
                 <p className="text-sm text-gray-500">No users found.</p>
               )}
               {searchResults.map((user) => (

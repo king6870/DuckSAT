@@ -13,18 +13,39 @@ export async function GET(request: NextRequest) {
     }
 
     const userId = session.user.id
-    const query = new URL(request.url).searchParams.get('query')?.trim().toLowerCase() ?? ''
+    const rawQuery = (new URL(request.url).searchParams.get('query') || '').trim()
+    const usernameQuery = rawQuery.replace(/^@+/, '')
+    const loweredQuery = rawQuery.toLowerCase()
+    const loweredUsernameQuery = usernameQuery.toLowerCase()
 
-    if (query.length < 2) {
+    if (rawQuery.length < 1) {
       return NextResponse.json({ users: [] })
+    }
+
+    const orFilters: Array<Record<string, { contains: string }>> = []
+
+    if (rawQuery.length > 0) {
+      orFilters.push({ name: { contains: rawQuery } })
+      orFilters.push({ email: { contains: rawQuery } })
+    }
+
+    if (usernameQuery.length > 0) {
+      orFilters.push({ username: { contains: usernameQuery } })
+    }
+
+    if (loweredQuery !== rawQuery && loweredQuery.length > 0) {
+      orFilters.push({ name: { contains: loweredQuery } })
+      orFilters.push({ email: { contains: loweredQuery } })
+    }
+
+    if (loweredUsernameQuery !== usernameQuery && loweredUsernameQuery.length > 0) {
+      orFilters.push({ username: { contains: loweredUsernameQuery } })
     }
 
     const users = await prisma.user.findMany({
       where: {
         id: { not: userId },
-        username: {
-          contains: query,
-        },
+        OR: orFilters,
       },
       select: {
         id: true,
@@ -89,7 +110,7 @@ export async function GET(request: NextRequest) {
     })
   } catch (error) {
     if (isSchemaProvisioningError(error)) {
-      return NextResponse.json({ users: [] })
+      return NextResponse.json({ users: [], schemaPending: true })
     }
 
     console.error('[GET /api/users/search] Error:', error)

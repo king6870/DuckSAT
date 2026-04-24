@@ -198,6 +198,72 @@ async function main() {
   const userC = await createUserClient('fc')
   console.log('Authenticated users created:', userA.username, userB.username, userC.username)
 
+  const searchByUsername = await expectStatus<{ users: Array<{ id: string }> }>(
+    userA,
+    'GET',
+    `/api/users/search?query=${encodeURIComponent(userB.username.slice(0, 3))}`,
+    200
+  )
+  assert(
+    searchByUsername.users.some((user) => user.id === userB.userId),
+    'Search by username fragment should find User B'
+  )
+
+  const searchByName = await expectStatus<{ users: Array<{ id: string }> }>(
+    userA,
+    'GET',
+    `/api/users/search?query=${encodeURIComponent(userB.username)}`,
+    200
+  )
+  assert(
+    searchByName.users.some((user) => user.id === userB.userId),
+    'Search by name should find User B'
+  )
+
+  const searchByAtUsername = await expectStatus<{ users: Array<{ id: string }> }>(
+    userA,
+    'GET',
+    `/api/users/search?query=${encodeURIComponent(`@${userB.username.slice(0, 4)}`)}`,
+    200
+  )
+  assert(
+    searchByAtUsername.users.some((user) => user.id === userB.userId),
+    'Search by @username fragment should find User B'
+  )
+
+  const searchBySingleCharacter = await expectStatus<{ users: Array<{ id: string }> }>(
+    userA,
+    'GET',
+    `/api/users/search?query=${encodeURIComponent(userB.username.slice(0, 1))}`,
+    200
+  )
+  assert(
+    searchBySingleCharacter.users.some((user) => user.id === userB.userId),
+    'Search by one character should find User B'
+  )
+
+  const searchByUppercase = await expectStatus<{ users: Array<{ id: string }> }>(
+    userA,
+    'GET',
+    `/api/users/search?query=${encodeURIComponent(userB.username.slice(0, 3).toUpperCase())}`,
+    200
+  )
+  assert(
+    searchByUppercase.users.some((user) => user.id === userB.userId),
+    'Search by uppercase username fragment should find User B'
+  )
+
+  const searchByEmail = await expectStatus<{ users: Array<{ id: string; email?: string | null }> }>(
+    userA,
+    'GET',
+    '/api/users/search?query=duck.local',
+    200
+  )
+  assert(
+    searchByEmail.users.some((user) => user.id === userB.userId),
+    'Search by email domain should find User B'
+  )
+
   const initialFriends = await expectStatus<{ friends: Array<{ id: string }> }>(userA, 'GET', '/api/friends', 200)
   assert.equal(initialFriends.friends.length, 0, 'User A should start with zero friends')
 
