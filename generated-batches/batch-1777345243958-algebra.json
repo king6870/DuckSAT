@@ -1,0 +1,303 @@
+{
+  "batchId": "batch-1777345243958-algebra",
+  "topic": "algebra",
+  "moduleType": "math",
+  "generatedAt": "2026-04-28T03:09:22.984Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 50,
+  "totalGenerated": 10,
+  "totalValid": 10,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Solve for x: $2(x - 3) + 4 = 5x - 7$.",
+      "options": [
+        "A) $x = \\frac{5}{3}$",
+        "B) $x = -\\frac{5}{3}$",
+        "C) $x = 2$",
+        "D) $x = \\frac{7}{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Expand left side: $2(x - 3) + 4 = 2x - 6 + 4 = 2x - 2$. Step 2: Set equal to right side: $2x - 2 = 5x - 7$. Step 3: Subtract $2x$ from both sides: $-2 = 3x - 7$. Step 4: Add 7 to both sides: $5 = 3x$. Step 5: Divide by 3: $x = \\frac{5}{3}$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Sign error: reversing the sign when moving terms can lead to $-\\\\\\\\frac{5}{3}$.",
+        "C": "Distributive/expansion mistake: left side should yield $2x - 2$, not $2x$ or $2x - 6$.",
+        "D": "Arithmetic error in the final division step: $5\\\\\\\\div 3$ is not $\\\\\\\\frac{7}{3}$."
+      },
+      "_batchId": "batch-1777345243958-algebra",
+      "_generatedAt": "2026-04-28T03:09:21.944Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A plan charges a fixed monthly fee of 25 dollars and 0.15 dollars per minute of usage. If the total cost last month was 55 dollars, how many minutes were used? Solve for m.",
+      "options": [
+        "A) 200",
+        "B) 300",
+        "C) 100",
+        "D) 150"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let m be minutes. The cost equation is $25 + 0.15m = 55$. Subtract 25: $0.15m = 30$. Divide by 0.15: $m = \\frac{30}{0.15} = 200$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "They subtracted 25, then divided 30 by 0.10 instead of 0.15, giving 300.",
+        "C": "They forgot the fixed fee and solved $0.15m = 55$, which is incorrect.",
+        "D": "They divided the total by the rate and forgot the fixed monthly fee."
+      },
+      "_batchId": "batch-1777345243958-algebra",
+      "_generatedAt": "2026-04-28T03:09:21.957Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for x: $4 - 3x > 1 + 2x$.",
+      "options": [
+        "A) $x < \\frac{3}{5}$",
+        "B) $x > \\frac{3}{5}$",
+        "C) $x \\\\le -\\frac{3}{5}$",
+        "D) $x \\\\ge \\frac{3}{5}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Subtract 1 from both sides: $3 - 3x > 2x$. Subtract 2x: $3 > 5x$. Divide by 5: $x < \\frac{3}{5}$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Sign error: flipping the inequality direction when moving terms.",
+        "C": "Forgot to divide by the positive 5 and incorrectly included equality.",
+        "D": "Misinterpreted as a non-strict inequality."
+      },
+      "_batchId": "batch-1777345243958-algebra",
+      "_generatedAt": "2026-04-28T03:09:21.959Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the compound inequality $1 \\\\le 2x - 3 < 7$.",
+      "options": [
+        "A) $2 \\\\le x < 5$",
+        "B) $2 < x \\\\le 5$",
+        "C) $2 \\\\le x \\\\le 5$",
+        "D) $2 \\\\le x < 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Add 3 to all parts: $4 \\\\le 2x < 10$. Divide by 2: $2 \\\\le x < 5$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "inequalities",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Inequality direction or endpoint misinterpretation.",
+        "C": "Included the upper endpoint 5, which is not allowed since x < 5.",
+        "D": "Incorrect upper bound."
+      },
+      "_batchId": "batch-1777345243958-algebra",
+      "_generatedAt": "2026-04-28T03:09:21.961Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A chemist mixes two liquids, x liters of liquid A and y liters of liquid B. Twice the amount of A plus the amount of B equals 7 liters, and A is 1 liter more than B. Solve for x and y.",
+      "options": [
+        "A) $(x, y) = (\\frac{8}{3}, \\frac{5}{3})$",
+        "B) $(x, y) = (1, 0)$",
+        "C) $(x, y) = (0, 7)$",
+        "D) $(x, y) = (-1, 3)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From $2x + y = 7$ and $x - y = 1$, solve: from $x - y = 1$ we get $y = x - 1$. Substitute into $2x + (x - 1) = 7$: $3x - 1 = 7 \\Rightarrow 3x = 8$ so $x = \\frac{8}{3}$ and $y = x - 1 = \\frac{5}{3}$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "They guessed integers; not solving the system.",
+        "C": "Misinterpreted total liters or misapplied the equations.",
+        "D": "Picked a value that does not satisfy the equations."
+      },
+      "_batchId": "batch-1777345243958-algebra",
+      "_generatedAt": "2026-04-28T03:09:21.963Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A theater sold x premium tickets and y standard tickets. The total tickets sold were 9, and the revenue was 45 dollars. Premium tickets cost 5 dollars each and standard tickets cost 3 dollars each. Solve for x and y.",
+      "options": [
+        "A) $(x, y) = (9, 0)$",
+        "B) $(x, y) = (4, 5)$",
+        "C) $(x, y) = (3, 6)$",
+        "D) $(x, y) = (6, 3)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Equations: x + y = 9 and 5x + 3y = 45. Solve by elimination: multiply first by 3: 3x + 3y = 27. Subtract from second: (5x - 3x) + (3y - 3y) = 18 => 2x = 18 => x = 9, y = 0.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Assuming different distribution of tickets without solving the system.",
+        "C": "Incorrect substitution or arithmetic in solving the system.",
+        "D": "Incorrectly solving the linear system."
+      },
+      "_batchId": "batch-1777345243958-algebra",
+      "_generatedAt": "2026-04-28T03:09:21.966Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Multiply the polynomials $(3x - 4)(2x^2 + x - 5)$.",
+      "options": [
+        "A) $6x^3 - 5x^2 - 19x + 20$",
+        "B) $6x^3 - 5x^2 - 11x + 20$",
+        "C) $6x^3 - 12x^2 - 19x + 20$",
+        "D) $6x^3 - 5x^2 - 19x + 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distribute: $3x(2x^2 + x - 5) = 6x^3 + 3x^2 - 15x$ and $-4(2x^2 + x - 5) = -8x^2 - 4x + 20$. Combine: $6x^3 + (3x^2 - 8x^2) + (-15x - 4x) + 20 = 6x^3 - 5x^2 - 19x + 20$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Neglecting the correct combination of x^2 terms.",
+        "C": "Incorrectly combining x^2 terms; used -12 instead of -5.",
+        "D": "Incorrect constant term from distribution."
+      },
+      "_batchId": "batch-1777345243958-algebra",
+      "_generatedAt": "2026-04-28T03:09:21.967Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Factor completely: $6x^2 - 9x + 3$.",
+      "options": [
+        "A) $3(2x - 1)(x - 1)$",
+        "B) $3(2x + 1)(x - 1)$",
+        "C) $(3x - 3)(2x - 3)$",
+        "D) $3(2x + 3)(x - 1)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor out the greatest common factor 3: $3(2x^2 - 3x + 1)$. Then factor the quadratic: $2x^2 - 3x + 1 = (2x - 1)(x - 1)$. So the factorization is $3(2x - 1)(x - 1)$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "polynomials",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct factorization of the quadratic but written differently; however it is equivalent to the correct factorization. (Note: If options differ, verify equivalence.)",
+        "B": "Wrong sign structure in the linear factors.",
+        "C": "Incorrect factoring attempt that changes the factors.",
+        "D": "Incorrect combination of factors with wrong linear terms."
+      },
+      "_batchId": "batch-1777345243958-algebra",
+      "_generatedAt": "2026-04-28T03:09:21.971Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the absolute value inequality: $|2x - 3| \\\\le 7$.",
+      "options": [
+        "A) $-2 \\\\le x \\\\le 5$",
+        "B) $-7 \\\\le x \\\\le 7$",
+        "C) $-4 \\\\le x \\\\le 10$",
+        "D) $-1 \\\\le x \\\\le 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Rewrite as a double inequality: $-7 \\\\le 2x - 3 \\\\le 7$. Add 3: $-4 \\\\le 2x \\\\le 10$. Divide by 2: $-2 \\\\le x \\\\le 5$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Treats the inequality as a single-sided one or uses incorrect bounds.",
+        "C": "Divides by 2 incorrectly or uses wrong direction.",
+        "D": "Misplaced or dropped bounds."
+      },
+      "_batchId": "batch-1777345243958-algebra",
+      "_generatedAt": "2026-04-28T03:09:21.972Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the absolute value inequality: $|x - 4| > 5$.",
+      "options": [
+        "A) $x < -1$ or $x > 9$",
+        "B) $-1 \\\\le x \\\\le 9$",
+        "C) $-1 < x < 9$",
+        "D) $x \\\\le -1$ or $x \\\\ge 9$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Absolute value > 5 means two cases: $x - 4 > 5$ or $x - 4 < -5$. Solve: $x > 9$ or $x < -1$. So the solution set is $(-\\infty, -1) \\cup (9, \\infty)$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "absolute-value",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Includes the interval where equality could occur; should be strict inequality.",
+        "C": "Fails to capture the two separate regions.",
+        "D": "Endpoint inclusions incorrect for strict inequality."
+      },
+      "_batchId": "batch-1777345243958-algebra",
+      "_generatedAt": "2026-04-28T03:09:21.974Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

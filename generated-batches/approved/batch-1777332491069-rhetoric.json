@@ -1,0 +1,156 @@
+{
+  "batchId": "batch-1777332491069-rhetoric",
+  "topic": "rhetoric",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-04-27T23:31:10.868Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 5,
+  "totalGenerated": 5,
+  "totalValid": 5,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "The author includes the district report noting a 20% drop in disciplinary referrals in order to...",
+      "options": [
+        "A) to establish credibility by citing evidence from research",
+        "B) to entertain readers with an anecdote",
+        "C) to undermine opponents by showing their arguments are outdated",
+        "D) to describe how students dress in different schools"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The correct answer is A. The author uses the district report from 2019 showing a 20% drop in disciplinary referrals to support the claim that uniforms improve behavior, which establishes credibility through evidence. B is wrong because the passage is not aiming to entertain with anecdotes. C is wrong because the passage does not present opponents’ arguments as outdated. D is wrong because the focus is on policy justification, not detailing student dress.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Many districts consider uniforms a needless constraint, but a growing body of evidence suggests otherwise. The author argues that uniform policies can reduce distractions and lessen visible economic differences among students. In support, the author cites a recent district report from 2019 that notes a 20% drop in disciplinary referrals after implementing uniforms in three middle schools. Teachers report that students appear more focused during lessons, and administrators note fewer incidents of clothing-based taunting. Critics worry about self-expression, yet the author notes that uniforms do not prevent students from expressing themselves in other ways, such as through hairstyles or accessories. The report also points out that attendance improved slightly, and teachers spent less time policing dress codes. The author concludes that districts should adopt a universal uniform policy, paired with clear communication to families about the benefits and a plan to address concerns about cost and flexibility. The piece closes with a call to action: adopt a policy that prioritizes learning over fashion.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The passage is not aiming to entertain; it uses evidence to persuade.",
+        "C": "The passage does not primarily seek to undermine opponents with outdated arguments.",
+        "D": "The passage does not focus on describing dress, but on the policy's justification."
+      },
+      "_batchId": "batch-1777332491069-rhetoric",
+      "_generatedAt": "2026-04-27T23:29:34.876Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence 'If approved, the plan would reduce commute times and attract new businesses to the corridor' in order to...",
+      "options": [
+        "A) to forecast consequences of approving the plan",
+        "B) to present a counterargument",
+        "C) to acknowledge possible delays in construction",
+        "D) to describe the physical route of the corridor"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The correct answer is A. The sentence forecasts the positive outcomes (reduced commute times and attracting businesses) that would result if the plan is approved, linking the proposal to its expected consequences. B is incorrect because the sentence does not present a counterargument. C is incorrect because it does not acknowledge delays. D is incorrect because it does not describe the route; it articulates expected outcomes of approval.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "City planners propose funding for a bus rapid transit line along Main Street. The proposal argues it will shorten commutes, reduce traffic, and spur economic development along the corridor. The planning report cites projected ridership numbers, a modeled drop in emissions, and surveys showing support from local businesses. Supporters describe the line as a catalyst for revitalizing neighborhoods and widening access to jobs for residents who lack cars. Critics worry about construction disruption and the initial cost, but the author counters that long-term savings in time and maintenance will offset the upfront price. To illustrate the broader impact, the report includes testimonials from small-business owners who say the bus line would bring more customers. The conclusion urges the city to approve the plan and begin an adaptive timeline that addresses concerns while keeping the project on track. The closing sentence emphasizes that investment in public transit is, in the author’s view, a practical step toward a more vibrant, connected city. If approved, the plan would reduce commute times and attract new businesses to the corridor.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "The sentence is not presenting a counterargument; it is projecting outcomes.",
+        "C": "The sentence does not discuss construction delays or timing issues.",
+        "D": "The sentence does not describe the route; it states consequences of approval."
+      },
+      "_batchId": "batch-1777332491069-rhetoric",
+      "_generatedAt": "2026-04-27T23:29:34.882Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the fact that a teenager learned to write code after attending a free workshop in order to...",
+      "options": [
+        "A) demonstrate a tangible outcome of library access",
+        "B) appeal to parents with a personal story",
+        "C) imply that libraries should fund more tech programs",
+        "D) suggest that one anecdote proves overall success"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The correct answer is A because the detail about the teenager learning to code after a free workshop shows a concrete, observable result of library programs, strengthening the claim of impact. The other options misinterpret the function: B would rely on emotion rather than evidence, C extends beyond the specific detail, and D overgeneralizes from a single example.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Claim: Public libraries are not relics but living hubs of civic life. Evidence: after-school workshops draw families; a local librarian notes that hundreds participate in summer programs; a teenager learned to write code after attending a free workshop; a brief chart on funding shows steady attendance even as budgets tighten. Critics warn that funding libraries costs more than it saves, but the next generations gain skills and common ground from access to books, computers, and quiet study spaces. The author describes a third grader who improves reading scores after weekly library visits and a senior who discovers job resources there. The conclusion is clear: sustained investment in libraries strengthens communities, protects equal opportunity, and helps everyone grow more capable citizens. Therefore the city should increase funding and preserve library programs for years to come.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B would treat the anecdote as primarily an emotional appeal rather than a concrete outcome.",
+        "C": "C misreads the sentence as advocating broader funding beyond the stated example.",
+        "D": "D overstates the impact by implying universal success from one instance."
+      },
+      "_batchId": "batch-1777332491069-rhetoric",
+      "_generatedAt": "2026-04-27T23:31:06.045Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence 'Some critics warn that converting rooftops is expensive and logistically complex' in order to...",
+      "options": [
+        "A) introduce a counterargument the author will address later",
+        "B) present a quantifiable benefit",
+        "C) emphasize that the idea is universally accepted",
+        "D) show a negative aspect to distract readers"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The correct answer is A because the sentence functions as a counterargument that the author will address in the following text; it frames the debate. B is incorrect because the sentence does not provide a quantified benefit; C is incorrect because it does not claim universal acceptance; D is incorrect because it does not primarily aim to distract readers.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Claim: Rooftop gardens can transform dense neighborhoods by cooling streets, filtering air, and strengthening communities. Evidence: a neighbor tends a rooftop garden that grows herbs and vegetables for neighbors; a city official notes fewer complaints about heat in blocks that host gardens; a simple chart on energy use suggests cooling benefits emerging from increased shade. Critics warn that converting rooftops is expensive and logistically complex, but the program's pilot shows willing volunteers, donated soil, and shared harvests. The author describes a resident who hosts weekly neighborhood potlucks in the garden, and a teacher who uses the space to teach biology to students. The conclusion is that the city should expand rooftop gardening as a public-works strategy that enhances livability and resilience. Supporters argue the idea aligns with climate and social goals, while skeptics still call for a careful cost-benefit assessment before scaling up.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B misinterprets the sentence as presenting a measurable gain rather than acknowledging a concern.",
+        "C": "C misreads the sentence as claiming consensus rather than a warning to be addressed.",
+        "D": "D misreads the purpose as distraction rather than framing an opposing view."
+      },
+      "_batchId": "batch-1777332491069-rhetoric",
+      "_generatedAt": "2026-04-27T23:31:06.046Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes a district budget memo outlining plans to allocate funds for mentorship programs in order to...",
+      "options": [
+        "A) present a counterargument to funding",
+        "B) illustrate a current allocation of resources",
+        "C) propose a concrete plan to expand a program",
+        "D) signal a shift in policy toward prioritizing mentoring"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The correct answer is C because the budget memo is described as outlining plans to allocate funds, which functions to propose a concrete plan to expand mentorship programs. A is incorrect because the passage already notes counterarguments elsewhere; B is incorrect because the memo is about plans, not simply current allocation; D is incorrect because it does not indicate a broader policy shift, only a funded plan.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Claim: Student mentorship programs boost confidence, reduce absences, and improve academic outcomes. Evidence: a teacher notes a shy student who now raises a hand in class after months of mentoring; attendance data from all participating students rises; volunteers describe weekly check-ins that build trust. Some administrators warn that mentoring takes time away from instruction or could be misused, but the program has a structured schedule and clear objectives. The district's pitch is that mentors complement classrooms rather than replace them, and a district budget memo outlines plans to allocate funds for mentorship programs. The conclusion is that expanding mentorship initiatives will strengthen student support networks and help schools meet achievement targets. Proponents argue the program is scalable, cost-effective over time, and aligns with equity goals, while skeptics call for more evidence before broad adoption.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B treats the memo as a snapshot of existing funding rather than a plan to allocate funds for expansion.",
+        "C": "",
+        "D": "D overstates the intent as a policy shift rather than a concrete funding plan."
+      },
+      "_batchId": "batch-1777332491069-rhetoric",
+      "_generatedAt": "2026-04-27T23:31:06.047Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

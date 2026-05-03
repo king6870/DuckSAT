@@ -9,6 +9,10 @@
  */
 
 import { TopicConfig, DifficultyDistribution, AzureOpenAIConfig } from './generation-types';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env' });
+dotenv.config({ path: '.env.local' });
 
 /**
  * Difficulty Distribution (same for all topics)
@@ -157,7 +161,7 @@ export const ALL_TOPICS = [...MATH_TOPICS, ...READING_TOPICS];
  * Extract base endpoint from full URL if needed
  */
 function getBaseEndpoint(): string {
-  const fullUrl = process.env.ENDPOINT_URL || '';
+  const fullUrl = process.env.ENDPOINT_URL || process.env.AZURE_OPENAI_ENDPOINT || '';
   if (fullUrl.includes('/openai/deployments')) {
     // Extract base URL: https://ducksat.cognitiveservices.azure.com
     const match = fullUrl.match(/(https?:\/\/[^\/]+)/);
@@ -166,23 +170,28 @@ function getBaseEndpoint(): string {
   return fullUrl;
 }
 
+function intFromEnv(rawValue: string | undefined, fallback: number): number {
+  const parsed = Number.parseInt(rawValue ?? '', 10);
+  return Number.isNaN(parsed) ? fallback : parsed;
+}
+
 /**
  * Azure OpenAI Configuration
  */
 export const AZURE_OPENAI_CONFIG: AzureOpenAIConfig = {
   apiKey: process.env.AZURE_OPENAI_API_KEY || '',
   endpoint: getBaseEndpoint(),
-  deployment: process.env.DEPLOYMENT_NAME || 'gpt-5-nano',
-  apiVersion: process.env.API_VERSION || '2024-12-01-preview',
+  deployment: process.env.DEPLOYMENT_NAME || process.env.AZURE_OPENAI_DEPLOYMENT || 'gpt-5-nano',
+  apiVersion: process.env.API_VERSION || process.env.AZURE_OPENAI_API_VERSION || '2024-12-01-preview',
   temperature: 0.8,
-  maxTokens: 32000,  // Significantly increased for reasoning model (gpt-5-nano uses extensive tokens for internal reasoning + output)
+  maxTokens: Math.max(1024, intFromEnv(process.env.GENERATION_MAX_COMPLETION_TOKENS, 32000)),
   topP: 0.95,
   frequencyPenalty: 0.3,
   presencePenalty: 0.1,
   questionsPerCall: 1,        // Reduced to 1 (from 2) - reasoning model exhausts tokens even with minimal output
-  delayBetweenCalls: 1000,    // 1 second delay between calls
-  maxRetries: 3,
-  retryDelay: 5000,            // 5 seconds
+  delayBetweenCalls: Math.max(0, intFromEnv(process.env.GENERATION_DELAY_BETWEEN_CALLS_MS, 1000)),
+  maxRetries: Math.max(0, intFromEnv(process.env.GENERATION_MAX_RETRIES, 3)),
+  retryDelay: Math.max(0, intFromEnv(process.env.GENERATION_RETRY_DELAY_MS, 5000)),
 };
 
 /**

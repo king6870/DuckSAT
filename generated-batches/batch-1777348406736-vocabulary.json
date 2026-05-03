@@ -1,0 +1,723 @@
+{
+  "batchId": "batch-1777348406736-vocabulary",
+  "topic": "vocabulary",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-04-28T03:58:09.904Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 50,
+  "totalGenerated": 25,
+  "totalValid": 25,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "As used in the passage, 'address' most nearly means...",
+      "options": [
+        "A) to speak to someone directly",
+        "B) to deal with or handle",
+        "C) to write the name and address on something",
+        "D) to begin a formal speech to an audience"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The context shows address used as a verb meaning to deal with or handle concerns. The other senses would be speaking to someone directly, writing an address, or addressing an audience, which are not the intended meaning here.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During the town hall, the mayor promised to address the concerns raised by residents about traffic and pollution. She outlined a plan to address the root causes by improving public transit and enacting stricter emission standards. The audience nodded, recognizing that simply acknowledging the problem would not suffice; concrete action was needed. In a follow-up memo, staff outlined responsibilities and timelines, emphasizing accountability. When a resident asked for quick relief, the mayor replied that meaningful changes take time and careful coordination, a reminder that to address a problem is to commit resources toward a solution.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This would fit if the passage were about speaking to someone directly, but the passage centers on solving concerns, not addressing a person in conversation.",
+        "C": "This is the noun sense of address (a mailing address) and is not the sense used here.",
+        "D": "This would be the sense of addressing an audience, which is not the context of this sentence."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.942Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'grant' most nearly means...",
+      "options": [
+        "A) permission to do something",
+        "B) financial assistance provided for a purpose",
+        "C) a formal acknowledgment or grant of rights",
+        "D) a claim or assertion accepted as true without proof"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Here grant means financial assistance or funding provided for a specific purpose. The other options describe permissions, acknowledgments, or unproven assertions, none of which fit the context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "After weeks of review, the committee awarded a grant to the interdisciplinary team studying climate resilience. The grant would pay for fieldwork, lab equipment, and salary support for graduate researchers. Some members warned against overcommitting funds, but others argued the project could yield consequential insights for coastal cities. The team celebrated the decision as both validating and practical, noting that the grant would enable experiments that might inform policy decisions. With funds secured, researchers began drafting a detailed work plan and a schedule for sharing early results with municipal partners.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This would be appropriate if the text spoke of permission, not funding.",
+        "C": "This would imply some rights or formal recognition, not funds.",
+        "D": "This would be a claim accepted without proof, which is not the sense used."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.947Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'bound' most nearly means...",
+      "options": [
+        "A) tied up; physically restrained",
+        "B) headed for; destined to reach",
+        "C) certain to occur; inevitable",
+        "D) restricted by law or contract"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Bound here means headed for or destined to reach a destination. The other options describe physical restraint, inevitability, or legal restrictions, which do not fit the context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "A small probe numbered for departure hovered just off the launch pad, bound for the outer solar system. Engineers checked every seal, tracking the course with meticulous care. The mission team spoke of risks but remained confident that the vessel would complete its journey, bound toward new discoveries and a better understanding of distant worlds. In the post-launch briefing, authorities stressed that even a minor delay could jeopardize the schedule, yet the team pressed forward, determined to honor their commitment and complete the bound itinerary planned years earlier.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Bound as tied up describes physical restraint, not travel direction.",
+        "C": "Bound to happen reflects inevitability, not the travel direction used.",
+        "D": "Bound by conveys legal restriction, not travel."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.948Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'grave' most nearly means...",
+      "options": [
+        "A) tomb",
+        "B) serious or solemn",
+        "C) to carve or engrave on a surface",
+        "D) to dig up or bury"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Grave here means serious or solemn in importance. The other options refer to a tomb, engraving, or digging, which are different senses.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "In their quarterly report, the researchers noted a grave discrepancy between model predictions and observed data. The pattern suggested an error in calibration that could undermine the study's conclusions. The team convened to discuss possible sources, weighing instrument bias, sample selection, and computational methods. A senior analyst reminded colleagues that the issue was grave, not trivial, and required transparent documentation. By identifying the source of the error, they could correct the analysis and prevent misinterpretation. The tone remained measured, reflecting the seriousness of a potential setback in such a high-stakes project.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Grave as a noun refers to a tomb, not the context here.",
+        "C": "Grave as a verb means to carve or engrave, not used in this sense.",
+        "D": "Grave as digging up or burying is not the intended sense here."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.949Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'current' most nearly means...",
+      "options": [
+        "A) belonging to the present time",
+        "B) a body of water or air moving in a definite direction",
+        "C) a flow of electricity",
+        "D) a trend or movement in a particular direction"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Current here means belonging to the present time. The other senses include a flow of water/air, a flow of electricity, or a general trend, which are not used in this context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During the equipment upgrade, the lab team worked hard to improve air quality in the workspace. The supervisor emphasized that current air quality would not be acceptable during experiments that require stable atmospheres. After testing, engineers proposed replacing filters, upgrading ducts, and installing sensors to monitor airflow in real time. The plan faced budget concerns, but the team argued that maintaining current air conditions was essential for reliable results. Once approvals were secured, technicians began the changes, hopeful that improved ventilation would support consistent measurements across trials.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This describes a current as a flow, which is not the sense used for time here.",
+        "C": "Electric current is a different sense not present in this context.",
+        "D": "A trend or movement is a possible sense but not the one shown here."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.950Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'issue' most nearly means...",
+      "options": [
+        "A) a topic under discussion",
+        "B) a problem to be solved",
+        "C) a printed edition of a publication",
+        "D) to publish something formally"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Issue here refers to a topic or matter under discussion. The other senses include a problem, a publication edition, or publishing, which are not the used sense in this passage.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Historically, scholars discuss issue as more than a single problem. In today's seminar, the facilitator asked students to identify the central issue in the reading and to propose questions that would help illuminate it. As the discussion progressed, multiple issues emerged, including funding, ethical considerations, and long-term impact. The class agreed that clarity about the core issue would guide the research strategy. By the end, everyone had a well-defined issue to investigate.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "While 'issue' can mean a problem, the passage focuses on identifying a topic under discussion.",
+        "C": "An edition is a physical issue of a publication, which is not the sense used here.",
+        "D": "To publish formally is a verb sense not present in this context."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.951Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'bank' most nearly means...",
+      "options": [
+        "A) to rely on",
+        "B) to deposit money",
+        "C) to tilt or list to one side",
+        "D) to bank a plane, i.e., turn sharply"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Bank on means to rely on or count on something. The other senses involve money, tilting, or piloting a plane, which are not used here.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Forecasting models depend on historical data, and the team knows they must proceed cautiously. They bank on the assumptions proven in earlier simulations and on the integrity of the data gathered last year. If those inputs fail, results could be misleading, so every precaution is taken to verify sources. In meetings, analysts discuss potential drift and how it might affect predictions. For now, the team remains confident, counting on this reliable baseline as they run new experiments that will inform policy decisions.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Depositing money is a different sense of bank unrelated to reliance here.",
+        "C": "Tilting or list is a separate sense not used in this context.",
+        "D": "Banking a plane is a specialized sense not present in the passage."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.952Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'scale' most nearly means...",
+      "options": [
+        "A) to climb up or ascend",
+        "B) to measure or rate",
+        "C) to increase in size or scope",
+        "D) to remove scales from something"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Scale here means to increase in size or scope to accommodate more users. The other senses include climbing, measuring, or removing scales, which are not the sense used in this context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "To keep the new software accessible to users, the team planned how to scale the program from a pilot group to a nationwide rollout. Engineers discussed the steps required to scale the system, including adding servers, optimizing code, and ensuring customer support. The manager warned that rapid scaling can create bottlenecks if not managed carefully. By pacing development and measuring performance at each stage, they aimed to scale up smoothly while preserving reliability and security.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Climbing is a different sense of scale, not the sense used here.",
+        "B": "Measuring or rating is not the intended meaning in this passage.",
+        "D": "Descaling is a separate meaning not relevant to the rollout plan."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.952Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'render' most nearly means...",
+      "options": [
+        "A) to cause to become; to make",
+        "B) to provide or give; to deliver",
+        "C) to depict or represent artistically",
+        "D) to translate or interpret data"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Render in this context means to provide or give something (a verdict or recommendations). The other senses involve causing to become, depicting, or translating data, which do not fit the usage here.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "After hours of testimony, the committee released a decision that would render a verdict on the proposal. The report lines out the criteria used and the reasoning behind each conclusion. Critics argued that the process was slow, but the chair insisted that careful evaluation would render a fair outcome. In the final section, the document renders several recommendations, including increased funding, tighter oversight, and a phased implementation. The authors remind readers that to render a conclusion is to translate data into judgment.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "To render as 'to cause to become' is a possible sense in other phrases like 'render harmless,' but not the sense used here.",
+        "C": "Depicting or representing is a possible sense of render in art, not in this passage.",
+        "D": "Interpreting data is a related idea but not the sense used for the verdict and recommendations."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.953Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'bear' most nearly means...",
+      "options": [
+        "A) to tolerate or endure",
+        "B) to carry or support",
+        "C) to give birth to",
+        "D) to produce fruit"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Bear here means to carry or support the weight. The passage uses bearing weight as a physical action. The other senses include tolerating, giving birth, or producing fruit, which do not fit the context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Despite the heavy backpack, the student refused to quit the hike, choosing to bear the weight with careful steps. The guide praised the hikers who could bear the load without complaint, noting that proper technique reduced fatigue. As the trail steepened, some travelers lost stamina and needed rests, but the ones who persisted carried on. When questioned about the strain, the leader said endurance is as important as speed in challenging climbs. In the end, everyone reached the overlook, grateful that the group had borne the journey together.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Though 'bear' can mean endure, the passage emphasizes carrying the weight, not simply tolerating it.",
+        "C": "Bear as give birth is a different sense not used here.",
+        "D": "Bear fruit is a separate meaning not used in this context."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.954Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'seed' most nearly means...",
+      "options": [
+        "A) a starting point or idea",
+        "B) to plant something in soil",
+        "C) a small amount of money to start a project",
+        "D) a fruit seed or pit"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Seed here refers to a starting idea that could grow into bigger work. The other senses include planting, a small amount of money (seed money), or a fruit seed, which are not the usage in this context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "In the symposium, the moderator described seed ideas that could spark broader discussion. A small grant would seed future experiments, providing initial data to attract larger funding. Researchers discussed distributing seed questions at the breakout sessions to encourage participation. The term seed carries multiple meanings: it can mean a small initial amount of money, a starting point, or an idea that grows into something larger. Attendees noted that choosing the right seed concepts would determine how quickly the field advanced. By the end, several seed proposals emerged for further development.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Planting is a different sense not used here.",
+        "C": "Seed money is a related sense, but the passage centers on starting ideas, not money.",
+        "D": "A seed of a plant is a different meaning not used here."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.955Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'sanction' most nearly means...",
+      "options": [
+        "A) penalties or coercive measures",
+        "B) official permission or approval",
+        "C) to authorize or permit formally",
+        "D) a declaration or formal decree"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Here sanctions refer to penalties or enforceable measures. The other senses include official permission, formal authorization, or decree, which are not the usage in this context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Facing concerns about safety, the council proposed sanctions on laboratories that failed to meet review standards. The sanctions would include fines and temporary shutdowns until corrective actions were implemented. Some researchers argued that such penalties would discourage collaboration, while others argued they were essential to maintaining ethical practices. The debate highlighted how a single term can carry heavy implications: sanctions are not mere advice but enforceable measures that shape behavior. After a lengthy discussion, the council agreed to implement a phased sanctions plan.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Permission or approval would be a favorable use, not the punitive sense here.",
+        "C": "To authorize formally is related but not the sense applied in this sentence.",
+        "D": "A formal decree is a different legal concept not used here."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.956Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'object' most nearly means...",
+      "options": [
+        "A) to oppose or disagree",
+        "B) to present an argument or proposal",
+        "C) to throw something at someone",
+        "D) to stop or hinder movement"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Object here means to oppose or disagree with something. The other senses include presenting a proposal, throwing something, or hindering movement, which do not fit the context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During the debate, several participants attempted to object to the director's plan, arguing that it would marginalize small communities. The moderator reminded the group that objections should be grounded in data. In the end, the panel tabled the proposal and asked for revisions.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Although one might argue, the sentence uses object as opposing, not presenting a proposal.",
+        "C": "Object as a verb can mean to throw, but that is not the sense used.",
+        "D": "Object as a verb does not mean to stop movement in this context."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.957Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'polish' most nearly means...",
+      "options": [
+        "A) to shine or make smooth",
+        "B) to improve by refinement and correction",
+        "C) to burnish or improve a metal surface",
+        "D) to commit to memory"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Polish here means to improve by refinement and correction. The other senses involve shining, metal finishing, or memorization, which are not the intended meaning.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "After the first draft, the editor suggested several changes to polish the argument. The author revised structure, clarified claims, and tightened evidence. The goal was to polish the prose until the writing read as precise and elegant. Although the ideas remained the same, the polish made the piece more persuasive.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Shining or smoothing is a possible literal sense, but the context is about improving writing.",
+        "C": "Polishing metal is a separate sense not used here.",
+        "D": "Memorizing is a different meaning not used in this context."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.957Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'lead' most nearly means...",
+      "options": [
+        "A) to guide or direct",
+        "B) a heavy metal",
+        "C) to be in front in a race",
+        "D) to cause to go from one place to another by force"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Lead here means to guide or direct the project. The other senses include the metal element, being in front in a race, or forcing movement, which are not used in this context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The project is headed by a senior scientist who will lead the initial phase and mentor junior researchers. The role requires clear direction, timely decisions, and a willingness to adapt as new data arrives. The team expects the lead to coordinate daily tasks, manage resources, and communicate progress to stakeholders. When challenges arise, the lead's responsibility is to keep everyone focused on the objectives while balancing scientific rigor with practical constraints. A strong lead can inspire collaboration and keep the study moving forward through complex problems.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Lead as a metal is a separate noun sense, not used here.",
+        "C": "Being in front in a race is a distinct sense not present in this context.",
+        "D": "To force movement is not the intended meaning."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:55:20.958Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, '[address]' most nearly means...",
+      "options": [
+        "A) to speak to a formal audience",
+        "B) to deal with or focus on a problem",
+        "C) to direct something to a particular person or place",
+        "D) to begin a formal written or spoken message to someone"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage uses address as a verb meaning to speak to or talk to an audience. Other options reflect other dictionary senses of address (to deal with a matter, to direct toward someone/place, or to begin a message), which are plausible but not what the context shows.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "At the city council meeting, the mayor rose to speak. He paused to steady the room and then addressed the crowd about a new recycling program. The remarks were careful, not merely to vent concerns but to invite questions and ensure everyone felt heard. After the speech, a resident asked how the city would address the budget shortfall without raising taxes. Several council members nodded, recognizing that the word carried more weight than a simple topic; it implied action, accountability, and a plan. The room listened as the plan began to unfold.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is the correct sense in many contexts, but in this sentence address is used as a verb meaning to speak to. The distractors reuse other senses of address rather than the one shown.",
+        "B": "This reflects the sense of addressing a problem, which is a valid meaning, but the passage shows speaking to an audience rather than dealing with a problem directly.",
+        "C": "This is the sense of directing something to a recipient, as in mail, which is not the chosen meaning in this passage.",
+        "D": "This captures the sense of beginning a message; however, the passage uses address in a spoken address to an audience, not as the opening of a letter."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:58:08.886Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, '[bear]' most nearly means...",
+      "options": [
+        "A) to endure or withstand",
+        "B) to carry or support physically",
+        "C) to give birth to",
+        "D) to have or show a characteristic or resemblance to"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In this context, bear means to endure or withstand hardship. The other options reflect other dictionary senses of bear (carrying physically, giving birth, or bearing a resemblance), which are not the intended meaning here.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "On the ascent, the climber faced a brutal wind and a heavy pack. He could not quit; to bear the burden would mean unacceptable delay. He reminded himself that endurance was as important as technique, and that to bear the discomfort without complaint was also a form of discipline. When a rope swung free, he steadied his stance, refusing to look down. The effort sharpened his focus and taught him that to bear hardship is sometimes as essential as skill.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct sense in the passage; see why the other choices do not fit the context.",
+        "B": "B represents the physical sense of bearing weight, which could fit a literal scene but the sentence emphasizes endurance over time rather than pure carrying.",
+        "C": "C is a sense of bear meaning to give birth, which is unrelated to the climber's situation.",
+        "D": "D refers to having a characteristic or resembling; not applicable to bearing the burden in this context."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:58:08.887Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, '[issue]' most nearly means...",
+      "options": [
+        "A) a matter in dispute or concern",
+        "B) something that is published or distributed",
+        "C) to officially give or release",
+        "D) a result or outcome of something"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Issue here refers to a matter or topic for discussion or debate, not a publication, release, or outcome. The distractors are other dictionary senses of issue.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Scholars gathered to discuss the meaning of data in a long-term experiment. The central issue was not mere accuracy but interpretive scope: how much noise to exclude, how to model outliers, and whether results could be generalized. The speaker argued that understanding the issue required a careful reading of the dataset's provenance. Attendees noted that the way a question is framed often determines the issue's direction, and that an elegant solution may depend on reframing rather than solving, a subtle but powerful distinction.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct meaning in context; the passage treats issue as the central matter of discussion.",
+        "B": "Issue can mean a published edition, which is a valid sense but not the one used here.",
+        "C": "Issue can mean to release or send out, which is not the context.",
+        "D": "Issue can refer to a result, but the passage discusses a topic for discussion, not an outcome."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:58:08.888Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, '[grave]' most nearly means...",
+      "options": [
+        "A) very serious or important",
+        "B) a burial place for the dead",
+        "C) dignified or solemn in manner",
+        "D) to carve or engrave a message on a surface"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Grave here means very serious or important. The other meanings (tomb, solemn demeanor, or carving) are valid senses of grave but not the one used in this context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Scientists published a comparative study of climate signals, noting that any oversight could lead to grave consequences for coastal communities. The tone was measured, but the warning carried weight. The analysts avoided melodrama, yet the word grave conveyed the severity of potential outcomes more effectively than adjectives alone. In the end, policymakers pressed for a cautious approach and robust monitoring.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct meaning; the passage describes serious potential outcomes.",
+        "B": "Grave can mean a burial place, which is not relevant here.",
+        "C": "Grave can denote a solemn manner, which is related but not the specific nuance used.",
+        "D": "Grave as a verb meaning to engrave is unrelated to the context."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:58:08.889Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, '[sound]' most nearly means...",
+      "options": [
+        "A) reliable, well-founded",
+        "B) free from holes or defects; intact",
+        "C) a body of water or sea channel",
+        "D) to measure depth using echo; to sound"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sound here means reliable or well-founded. The other senses include a sea channel, or the verb to sound for depth measurement, which do not fit the context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "An environmental panel reviewed a new hydrology model designed to forecast flood risk. The researchers presented multiple cross-checks and replication trials; the panel looked for consistency across datasets and timeframes. When the chief statistician declared the model sound, he meant the approach was well-founded, with logic and evidence that supported predictions. Yet he urged continued testing, noting that no single study proves anything beyond doubt. The atmosphere in the room shifted to cautious confidence as plans for independent validation formed.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct meaning; the passage praises the model's reliability.",
+        "B": "Sound can mean intact or healthy, but the context emphasizes reliability of argument, not physical condition.",
+        "C": "Sound as a noun can be a sea channel, which is irrelevant here.",
+        "D": "Sound as a verb means to measure depth; not used in this context."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:58:08.889Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, '[temper]' most nearly means...",
+      "options": [
+        "A) to moderate or soften",
+        "B) to heat and then cool metal to harden",
+        "C) a person's mood or temperament",
+        "D) to become angry or lose temper"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Temper in this context means to moderate or soften expectations. The other senses include metal tempering, mood, or anger, which are not the intended sense here.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "During the seminar, a mentor cautioned the junior researcher to temper expectations about the study's outcomes. The student had drafted a sweeping claim, and the mentor urged restraint until additional data could be gathered. The guidance emphasized that tempering statements would help preserve credibility. Still, the student wondered whether tempered analysis would diminish impact.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct meaning; the mentor asks for restraint and measured claims.",
+        "B": "Temper as a process in metals is a valid sense but not used here.",
+        "C": "A person's mood is a sense of temper, but the passage uses temper as a verb action toward statements.",
+        "D": "To become angry is a separate sense that does not fit the context."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:58:08.890Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, '[field]' most nearly means...",
+      "options": [
+        "A) an area of study or activity",
+        "B) land or ground used for crops",
+        "C) a space on a sports field",
+        "D) a data field in a database"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Field here means an area of study or professional activity, not a physical field of land, a sports field, or a data field.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "During the symposium, a biologist described the field as dynamic, with rapid cross-disciplinary collaboration. She explained that much progress came from sharing methods across the field, not from isolated experiments. The attendees discussed how funding shaped the trajectory of the field, sometimes encouraging risk-taking and sometimes rewarding replication. In short, field referred not to a patch of ground but to the collective enterprise of research.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct meaning; the passage emphasizes interdisciplinary research as a field of study.",
+        "B": "A field as land is a valid sense but not the context here.",
+        "C": "A sports field is a valid sense but irrelevant to the scholarly discussion.",
+        "D": "A data field is a technical sense but not applicable to the passage's usage."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:58:08.891Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, '[grant]' most nearly means...",
+      "options": [
+        "A) to give permission or approval",
+        "B) a sum of money given for a particular purpose",
+        "C) to admit or concede as true",
+        "D) to bestow or confer a right or privilege"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage uses grant as a verb meaning to give permission or approval. The other options reflect other dictionary senses: a grant as money, conceding, or conferring a right.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "At the budget hearing, the committee granted the team permission to run a pilot study. The project would be funded by a grant, with milestones and progress reports required. The team welcomed the decision, knowing that approval plus funding would move the project forward. Minutes noted that to grant a request is to acknowledge both its feasibility and value, a distinction that helps administrators manage resources while supporting innovation.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct meaning; the sentence shows approval and permission being granted.",
+        "B": "A grant as money is a valid sense but not the one used here.",
+        "C": "To admit or concede is another sense that is not the one shown.",
+        "D": "To confer a right is a plausible sense but not the one used in this passage."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:58:08.892Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, '[craft]' most nearly means...",
+      "options": [
+        "A) skill or art in making something",
+        "B) a vehicle or ship",
+        "C) deceitful cunning",
+        "D) to create or fashion with skill"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Craft here refers to skill or art in making something; the other options reflect different senses of craft that do not fit this context (vehicle, cunning, or general act of making).",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "A gallery examined a new sculpture whose design required subtle manipulation of material. The artist spoke of the craft behind each curve and stroke, insisting that technique and taste must work in concert. The piece rewarded patient observation, revealing how the craft of shaping metal transforms raw material into form. Critics argued that such craft rewards time and discipline as much as inspiration.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct meaning; the passage emphasizes skill and artistry.",
+        "B": "A vehicle sense is a valid meaning but not applicable here.",
+        "C": "Cunning or deceit is a separate sense not intended in this context.",
+        "D": "To create with skill is related but not the noun sense the passage uses; it is present as a noun in craft."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:58:08.893Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, '[cleave]' most nearly means...",
+      "options": [
+        "A) to adhere to or cling to",
+        "B) to split apart or sever",
+        "C) to move away from something or refuse to comply",
+        "D) to cut or carve with a blade"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In this passage, cleave means to adhere to or cling to tradition. The other options reflect the opposite or a different physical action.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "During a cultural festival, an elder spoke of how the village would cleave to its ancestors and rituals. The words carried weight because the community valued continuity as much as innovation. Yet some younger members wondered if such a stance might hinder adaptation. The speaker reminded them that to cleave to tradition does not preclude new forms, only that change should be deliberate and respectful.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct meaning; the elder emphasizes staying connected to tradition.",
+        "B": "To cleave can mean to split, which would contradict the context of clinging to traditions.",
+        "C": "To move away or refuse would opposite the sense of cleaving to tradition.",
+        "D": "To cut or carve is a literal action sense not used here."
+      },
+      "_batchId": "batch-1777348406736-vocabulary",
+      "_generatedAt": "2026-04-28T03:58:08.893Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

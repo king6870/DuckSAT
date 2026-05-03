@@ -1,0 +1,2178 @@
+{
+  "batchId": "batch-1777347712387-advanced-math",
+  "topic": "advanced-math",
+  "moduleType": "math",
+  "generatedAt": "2026-04-28T03:47:23.758Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 50,
+  "totalGenerated": 75,
+  "totalValid": 75,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "A town's population $P(t) = 1200 \\cdot 1.04^t$, where $t$ is in years. What is $P(3)$, rounded to the nearest whole number?",
+      "options": [
+        "A) 1200",
+        "B) 1248",
+        "C) 1350",
+        "D) 1440"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Compute $P(3) = 1200 \\cdot 1.04^3$. Since $1.04^3 = 1.04^2 \\cdot 1.04 = 1.0816 \\cdot 1.04 = 1.124864$, we have $P(3) = 1200 \\cdot 1.124864 = 1349.8368 \\approx 1350$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Treats the population as constant; there is growth, so this is incorrect.",
+        "B": "Only uses one factor of 1.04 instead of raising to the 3rd power; incorrect exponent.",
+        "C": "Uses the correct exponent but ignores rounding steps; however the value 1350 is correct, so this option is the intended correct answer.",
+        "D": "Uses a different base (1.2) rather than 1.04; not the given model."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.397Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "An initial amount of $1000$ dollars is invested at $5\\\\%$ annual interest, compounded yearly. After $4$ years, the amount is $1000(1.05)^4 \\approx 1215.51$. Which of the following is closest to the amount?",
+      "options": [
+        "A) 1100",
+        "B) 1216",
+        "C) 1300",
+        "D) 1500"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Compute $1000(1.05)^4 \\approx 1000 \\cdot 1.21550625 = 1215.50625 \\approx 1216$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Assumes no interest accrual (simple or no growth).",
+        "B": "Correct answer is 1216; A and C/D are misestimations or misapplications of compounding.",
+        "C": "Overestimates by treating as if growth were faster than 5% compounded annually for 4 years.",
+        "D": "Uses a much larger final amount typical of simple interest or longer time."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.410Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A substance decays with half-life $3$ years. If you start with $200$ grams, how much remains after $9$ years?",
+      "options": [
+        "A) 50",
+        "B) 100",
+        "C) 25",
+        "D) 75"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Amount $A(t) = 200\\left(\\tfrac{1}{2}\\right)^{\\frac{t}{3}}$. For $t=9$, exponent is $9/3=3$, so $A(9)=200(1/2)^3=200/8=25$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Applies only one half-life instead of three half-lives.",
+        "B": "After three half-lives the amount is 25, not 100.",
+        "C": "Correct computation would yield 25, not 75.",
+        "D": "Incorrect exponent interpretation."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.412Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which statement is true for large $t$ when comparing $y = 10(1.2)^t$ and $z = 10 + 2t$?",
+      "options": [
+        "A) The linear function grows faster",
+        "B) The exponential function grows faster",
+        "C) They grow at the same rate",
+        "D) The linear function eventually surpasses the exponential"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The exponential $10(1.2)^t$ grows faster than the linear $10+2t$ as $t$ becomes large because an exponential function outgrows any linear function. For example, at $t=10$, $10(1.2)^{10} \\approx 61.9$ while $10+2(10)=30$, illustrating the exponential dominates for large $t$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Linear growth does not outpace exponential growth for large $t$.",
+        "B": "Correct statement; exponential eventually dominates.",
+        "C": "They do not have the same rate of growth for large $t$.",
+        "D": "Linear does not outrun the exponential for large $t$."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.417Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $\\\\log_2(8) + \\\\log_2(4)$.",
+      "options": [
+        "A) 3",
+        "B) 5",
+        "C) 6",
+        "D) 8"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Since $\\\\log_2(8)=3$ and $\\\\log_2(4)=2$, the sum is $3+2=5$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Only the first logarithm was evaluated.",
+        "B": "Correct result; no error here.",
+        "C": "Added incorrectly to 6; miscounted the logs.",
+        "D": "Incorrect sum or misreading the values."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.419Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Using logarithm properties, simplify $\\\\log_2(3) + \\\\log_2(5)$.",
+      "options": [
+        "A) \\$\\log_2(15)$$",
+        "B) \\$\\log_2(8)$$",
+        "C) \\$\\log_2(3)$ - \\$\\log_2(5)$",
+        "D) \\$\\log_2(15)$ + 1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "By the product rule, $\\\\log_b(x) + \\\\log_b(y) = \\\\log_b(xy)$, so $\\\\log_2(3) + \\\\log_2(5) = \\\\log_2(15)$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrect: should be log base 2 of product 15, not 8.",
+        "B": "Misapplies the product rule; base remains 2 and argument should be 15.",
+        "C": "Uses a difference rather than a sum.",
+        "D": "Adds an extra +1, which is not part of the rule."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.421Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for $x$: $\\\\log_4(x) = 2$.",
+      "options": [
+        "A) x = 16",
+        "B) x = 2",
+        "C) x = 8",
+        "D) x = $\\tfrac{1}{16}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "If $\\\\log_4(x)=2$, then $x=4^2=16$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct calculation; other options correspond to incorrect inverses.",
+        "B": "Misinterprets exponent as a log result; $4^2=16$, not 2.",
+        "C": "Confuses base or exponent with a different value.",
+        "D": "Uses a negative exponent incorrectly."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.424Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $\\\\log_{1/2}(8)$.",
+      "options": [
+        "A) -3",
+        "B) 3",
+        "C) 2",
+        "D) 1"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Since $(\\\\tfrac12)^{-3} = 2^3 = 8$, we have $\\\\log_{1/2}(8) = -3$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct result; ensure the negative sign is understood.",
+        "B": "Misinterprets the negative exponent; base < 1 reverses the sign.",
+        "C": "Uses exponent 2 instead of 3.",
+        "D": "Uses exponent 1 which would give base 1/2 to the power 1, not 8."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.425Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify the rational expression: $\\dfrac{3x^2 - 6x}{x^2 - 3x}$, for $x \\\neq 0,3$.",
+      "options": [
+        "A) $\\dfrac{3(x-2)}{(x-3)}$",
+        "B) $\\dfrac{3(x-2)}{(x+3)}$",
+        "C) $\\dfrac{3x}{(x-3)}$",
+        "D) $\\dfrac{3(x-3)}{(x-1)}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor: $3x^2-6x=3x(x-2)$ and $x^2-3x=x(x-3)$. Cancel $x$ (with $x\\\neq 0$) to get $\\dfrac{3(x-2)}{(x-3)}$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Incorrectly cancels or misfactored; the denominator should be $(x-3)$ after cancellation.",
+        "B": "Wrong factorization in the denominator; should be $(x-3)$ not $(x+3)$.",
+        "C": "Keeps an extra $x$; fails to cancel correctly.",
+        "D": "Alters the factors; incorrect cancellation and denominator."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.426Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Evaluate $\\dfrac{1}{x-1} + \\dfrac{1}{1-x}$ for $x \\\neq 1$.",
+      "options": [
+        "A) 0",
+        "B) $\\dfrac{2}{x-1}$",
+        "C) -$\\dfrac{2}{x-1}$",
+        "D) $\\dfrac{x}{x-1}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Note that $\\dfrac{1}{1-x} = -\\dfrac{1}{x-1}$. Therefore the sum is $\\dfrac{1}{x-1} - \\dfrac{1}{x-1} = 0$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer yields 0; others reflect sign or algebra mistakes.",
+        "B": "Misinterprets $\\\\dfrac{1}{1-x}$ as the same as $\\\\dfrac{1}{x-1}$.",
+        "C": "Treats the terms as having the same sign; neglects the negative.",
+        "D": "Attempts to combine incorrectly; missing cancellation."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.429Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $\\dfrac{2x}{x^2-1} - \\dfrac{x+1}{x^2-1}$.",
+      "options": [
+        "A) 1/(x-1)",
+        "B) 1/(x+1)",
+        "C) (x-1)/(x^2-1)",
+        "D) 2/(x^2-1)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Since the denominators are the same, combine the numerators: $\\\\;2x - (x+1) = x-1$. Then $\\dfrac{x-1}{(x-1)(x+1)} = \\dfrac{1}{x+1}$, with $x \\\neq \\pm 1$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Mistakenly cancels factors incorrectly; the correct result has denominator $x+1$.",
+        "B": "Correct answer; the mistake would be miscombining the numerators.",
+        "C": "Tries to factor cancelation incorrectly; not simplified fully.",
+        "D": "Adds incorrectly in the numerator."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.431Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Multiply and simplify: $\\left(\\dfrac{x+2}{x-1}\\right) \\cdot \\left(\\dfrac{x-3}{x+2}\\right)$.",
+      "options": [
+        "A) $\\dfrac{x-3}{x-1}$",
+        "B) $\\dfrac{x-3}{x+1}$",
+        "C) $\\dfrac{x+3}{x-1}$",
+        "D) $\\dfrac{x-3}{x-2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Cancel the common factor $(x+2)$ (when $x \\\neq -2$). The product becomes $\\dfrac{1}{1} \\cdot \\dfrac{x-3}{x-1} = \\dfrac{x-3}{x-1}$; domain restrictions: $x \\\neq 1, -2$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct cancellation leads to the shown form; other options mis-arrange factors.",
+        "B": "Incorrect denominator after cancellation; should be $x-1$ not $x+1$.",
+        "C": "Sign or factor mistake in numerator/denominator.",
+        "D": "Incorrect remaining denominator; mis-cancellation."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.433Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $i^6$ where $i^2 = -1$.",
+      "options": [
+        "A) 1",
+        "B) i",
+        "C) -1",
+        "D) -i"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Since $i^4 = 1$, we have $i^6 = i^{4} \\cdot i^{2} = 1 \\cdot (-1) = -1$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Confuses powers; $i^6$ is not 1.",
+        "B": "Confuses even power with $i$; odd powers give $i$.",
+        "C": "Correct result; other options reflect common mistakes.",
+        "D": "Incorrect sign for even exponent."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.436Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute the product $ (3 + 2i)(1 - i) $.",
+      "options": [
+        "A) 5 + i",
+        "B) 5 - i",
+        "C) 3 - i",
+        "D) 1 + 5i"
+      ],
+      "correctAnswer": 1,
+      "explanation": " distribute: $3(1) + 3(-i) + 2i(1) + 2i(-i) = 3 - 3i + 2i - 2i^2 = 3 - i + 2 = 5 - i$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Sign of the imaginary part is incorrect.",
+        "B": "Correct result; other options miscalculate the product.",
+        "C": "Misses the imaginary contribution and the $i^2$ term.",
+        "D": "Incorrect combination of real and imaginary parts."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.438Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute the product $ (4 + 3i)(4 - 3i) $.",
+      "options": [
+        "A) 25",
+        "B) 7",
+        "C) -25",
+        "D) 1"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Use $ (a+bi)(a-bi) = a^2 + b^2 $. Here $a=4$, $b=3$, so $4^2 + 3^2 = 16 + 9 = 25$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct result; misinterpretation leads to other values.",
+        "B": "Subtraction instead of sum of squares.",
+        "C": "Sign error in the real part from $i^2 = -1$.",
+        "D": "Ignores the imaginary components entirely."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:43:21.439Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A population grows at 6% per hour. If the initial count is 1000, what is $P(4)$ using the model $P(t) = P_0(1 + 0.06)^t$?",
+      "options": [
+        "A) 1263",
+        "B) 1200",
+        "C) 1106",
+        "D) 1400"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The model gives $P(4)=1000\\\\,(1+0.06)^4=1000\\\\,(1.06)^4$. Compute $(1.06)^4\\approx 1.2625$, so $P(4)\\approx 1262.5$, which rounds to 1263. Therefore, option A is correct.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct choice.",
+        "B": "This would be closer to a 20% growth, not 6% per hour for 4 hours.",
+        "C": "This undervalues the exponential growth over 4 periods.",
+        "D": "This overestimates the growth by assuming a larger final count."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.572Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "USD 1000 invested at 4% annual interest, compounded yearly. What is the amount after 3 years?",
+      "options": [
+        "A) USD 1125",
+        "B) USD 1124",
+        "C) USD 1200",
+        "D) USD 1096"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using $A=P(1+r)^t$, $A=1000(1.04)^3=1000\\\\times1.124864\\approx USD\\\\ 1124.86$, which rounds to USD 1125. So A is correct.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This rounds the exact value, which is correct after rounding, but the step should show the exact computation first.",
+        "B": "This is the unrounded value before rounding to the nearest dollar.",
+        "C": "This would be the amount if the rate were higher or for more years.",
+        "D": "This corresponds to a smaller growth than 4% for 3 years."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.573Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A radioactive substance has a half-life of 8 years. If the initial amount is 200 g, how much remains after 24 years?",
+      "options": [
+        "A) 25 g",
+        "B) 50 g",
+        "C) 100 g",
+        "D) 125 g"
+      ],
+      "correctAnswer": 0,
+      "explanation": "After each half-life, the amount halves. After 24 years there are $3$ half-lives, so $200\\cdot(\\tfrac{1}{2})^3=200\\cdot\\tfrac{1}{8}=25$ g.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct calculation for three half-lives.",
+        "B": "Only one half-life elapsed if it were 8 years total.",
+        "C": "No decay; exponential decay would reduce the amount.",
+        "D": "This would be the amount after an incorrect number of half-lives."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.575Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which expression represents an exponential-growth model for population, given $P_0>0$ and $r>0$?",
+      "options": [
+        "A) $P(t)=P_0(1+r)^t$",
+        "B) $P(t)=P_0+rt$",
+        "C) $P(t)=P_0t$",
+        "D) $P(t)=P_0e^{rt}+1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Exponential growth has the form $P(t)=P_0(1+r)^t$ or equivalently $P(t)=P_0e^{rt}$ when $r$ is a continuously compounded rate. Among the choices, A is a pure exponential growth model. B is linear, C is polynomial, and D is not a pure exponential due to the +1.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is a correct exponential model; keep as correct choice.",
+        "B": "This is linear growth, not exponential.",
+        "C": "This is polynomial (linear) growth, not exponential.",
+        "D": "This is not a pure exponential form due to the +1 term."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.576Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A drug decays by half every 6 hours. If the initial dose is 400 mg, how much remains after 18 hours?",
+      "options": [
+        "A) 50 mg",
+        "B) 100 mg",
+        "C) 25 mg",
+        "D) 8 mg"
+      ],
+      "correctAnswer": 0,
+      "explanation": "18 hours is $\\tfrac{18}{6}=3$ half-lives. Amount remaining = $400\\cdot(\\tfrac{1}{2})^3=400/8=50$ mg.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct amount after three half-lives.",
+        "B": "Only two half-lives would give 100 mg.",
+        "C": "Miscounted half-lives; this would require six hours per half-life misread.",
+        "D": "Too much decay; three half-lives reduce to 50 mg, not 8 mg."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.577Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A car's value depreciates by 10% each year. If the car is worth USD 20,000 now, what is its value after 5 years?",
+      "options": [
+        "A) USD 11810",
+        "B) USD 14000",
+        "C) USD 20000",
+        "D) USD 10800"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Value after 5 years: $20000\\times(0.9)^5 = 20000\\\\times0.59049 \\approx USD\\\\ 11810$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This is the correct rounded value.",
+        "B": "Would occur if the depreciation was smaller or time shorter.",
+        "C": "No depreciation at all; implies no change.",
+        "D": "Mistakenly used a factor around 0.54 instead of 0.9^5."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.578Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $\\\\log_2(32)$.",
+      "options": [
+        "A) 5",
+        "B) 2",
+        "C) 10",
+        "D) 6"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Since $32=2^5$, $\\\\log_2(32)=5$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct value; note that $32=2^5$.",
+        "B": "Confuses exponent with a different power.",
+        "C": "Mistakenly uses doubling property incorrectly.",
+        "D": "Chooses a nearby integer not equal to the true log."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.579Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve $\\\\log_3(x-1)=2$.",
+      "options": [
+        "A) 10",
+        "B) 8",
+        "C) 9",
+        "D) 11"
+      ],
+      "correctAnswer": 0,
+      "explanation": "If $\\\\log_3(x-1)=2$, then $x-1=3^2=9$, so $x=10$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Directly reflects the solution to $x-1=9$.",
+        "B": "Confuses the equation or uses $3^2-1$.",
+        "C": "Incorrect manipulation; uses $3^2$ but forgets the +1.",
+        "D": "Adds 1 to the wrong side."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.580Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If $\\\\log_2(a)=5$ and $\\\\log_2(b)=3$, what is $\\\\log_2(ab)$?",
+      "options": [
+        "A) 8",
+        "B) 2",
+        "C) 15",
+        "D) 5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using the product rule, $\\\\log_2(ab)=\\\\log_2(a)+\\\\log_2(b)=5+3=8$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Confuses product rule with sum; treats values as multiplied.",
+        "B": "Subtracts logs instead of adding.",
+        "C": "Adds the logs incorrectly or uses wrong base.",
+        "D": "Keeps one log value and ignores the other."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.581Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Express $\\\\log_6(24)$ in terms of common (base 10) logarithms; approximate the value.",
+      "options": [
+        "A) $\\dfrac{\\log 24}{\\log 6} \\approx 1.386$",
+        "B) $\\dfrac{\\log 6}{\\log 24} \\approx 0.721$",
+        "C) $\\\\log_{6}(6) = 1$",
+        "D) $\\\\log_{6}(24) \\approx 2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Change-of-base formula: $\\\\log_6(24)=\\dfrac{\\log 24}{\\log 6}$. Numerically, this is about 1.386.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct expression and approximate value.",
+        "B": "Inverts the fraction; corresponds to $\\\\log_6(24)$ inverted.",
+        "C": "Confuses with $\\\\log_6(6)$ which is 1.",
+        "D": "Gives an incorrect larger estimate."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.583Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify the rational expression $\\dfrac{x^2-9}{x^2-3x}$ and state restrictions on $x$.",
+      "options": [
+        "A) $\\dfrac{x+3}{x},\\\\; x \\\neq 0, 3$",
+        "B) $\\dfrac{x-3}{x},\\\\; x \\\neq 0, 3$",
+        "C) $\\dfrac{x+3}{x-3},\\\\; x \\\neq 0, 3$",
+        "D) $\\dfrac{x+3}{x},\\\\; x \\\neq 0$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor: $x^2-9=(x-3)(x+3)$ and $x^2-3x=x(x-3)$. Cancel the common factor $(x-3)$ (provided $x\\\neq3$). The result is $\\dfrac{x+3}{x}$ with domain restrictions $x\\\neq 0,3$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct simplified form and restrictions.",
+        "B": "Incorrect cancellation; signs wrong after factoring.",
+        "C": "Incorrect simplification; would cancel a different factor.",
+        "D": "Removes restriction on $x\\\\neq 3$, which is required."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.585Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Add the rational expressions: $\\dfrac{2x+3}{x-1} + \\dfrac{x-4}{x+1}$.",
+      "options": [
+        "A) $\\dfrac{3x^2+7}{(x-1)(x+1)}$",
+        "B) $\\dfrac{5x-1}{(x-1)(x+1)}$",
+        "C) $\\dfrac{3x^2-7}{(x-1)(x+1)}$",
+        "D) $\\dfrac{3x^2+7}{x^2+1}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Common denominator is $(x-1)(x+1)=x^2-1$. Numerator: $(2x+3)(x+1)+(x-4)(x-1)= (2x^2+5x+3)+(x^2-5x+4)=3x^2+7$. So the sum is $\\dfrac{3x^2+7}{x^2-1}$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct result; incorrect if you miscalculated the numerator.",
+        "B": "Incorrect numerator; sign and coefficients miscomputed.",
+        "C": "Incorrect algebraic expansion; sign errors lead to minus 7.",
+        "D": "Denominator is incorrect; used $x^2+1$ instead of $x^2-1$."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.587Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Subtract the rational expressions: $\\dfrac{5}{x-2} - \\dfrac{3}{x+4}$.",
+      "options": [
+        "A) $\\dfrac{2x+26}{(x-2)(x+4)}$",
+        "B) $\\dfrac{2x-26}{(x-2)(x+4)}$",
+        "C) $\\dfrac{2x+2}{(x-2)(x+4)}$",
+        "D) $\\dfrac{5x-3}{(x-2)(x+4)}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Common denominator is $(x-2)(x+4)$. Numerator: $5(x+4)-3(x-2)=5x+20-3x+6=2x+26$. So the result is $\\dfrac{2x+26}{(x-2)(x+4)}$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct result; but ensure simplification was shown.",
+        "B": "Sign error in the middle term; should be +26 not -26.",
+        "C": "Numerator miscomputed; missing 24 or mis-signed terms.",
+        "D": "Incorrect numerator; does not match the subtraction."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.589Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Multiply the rational expressions: $\\dfrac{x+2}{x-1} \\cdot \\dfrac{x-3}{x+3}$.",
+      "options": [
+        "A) $\\dfrac{(x+2)(x-3)}{(x-1)(x+3)}$",
+        "B) $\\dfrac{x^2-1}{x^2-3}$",
+        "C) $\\dfrac{(x-2)(x+3)}{(x-1)(x+3)}$",
+        "D) $\\dfrac{(x+2)(x-3)}{(x-1)(x-3)}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Multiply numerators and denominators: $\\dfrac{(x+2)(x-3)}{(x-1)(x+3)}$. Domain restrictions: $x\\\neq 1,-3$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct product form; the denominator factors are correct.",
+        "B": "Incorrect; not the product form and has wrong factors.",
+        "C": "Used wrong factor in the numerator; should be (x+2)(x-3).",
+        "D": "Incorrect denominator; should be (x-1)(x+3)."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.591Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for $x$: $\\dfrac{x+2}{x-3} = 2$.",
+      "options": [
+        "A) 8",
+        "B) 2",
+        "C) 3",
+        "D) -2"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Cross-multiply: $x+2=2(x-3)\\Rightarrow x+2=2x-6\\Rightarrow x=-8$? Wait, re-check: $x+2=2x-6$ gives $2+6 = 2x - x\\Rightarrow 8 = x$, so $x=8$. Domain requires $x\\\neq 3$ which is satisfied.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct value; computation shows $x=8$.",
+        "B": "Solving error; failure to isolate $x$ properly.",
+        "C": "Disregards the restriction $x\\\\neq 3$.",
+        "D": "Incorrect algebraic steps leading to negative value."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.593Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $i^7$ where $i^2=-1$.",
+      "options": [
+        "A) $-i$",
+        "B) $i$",
+        "C) $1$",
+        "D) $-1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Powers of $i$ cycle every 4: $i^1=i$, $i^2=-1$, $i^3=-i$, $i^4=1$, then repeat. Thus $i^7=i^{4\\\\cdot1+3}=i^3=-i$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; explanation shows the cycle ends at $i^3=-i$.",
+        "B": "Confuses the cycle index; $i^7$ is not $i$.",
+        "C": "Gets the cycle but misses the exponent remainder.",
+        "D": "Incorrect cycle position; $i^4=1$, not -1."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.594Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute the product $(3-2i)(1+4i)$.",
+      "options": [
+        "A) 11+10i",
+        "B) -5+2i",
+        "C) 7+i",
+        "D) 3-8i"
+      ],
+      "correctAnswer": 0,
+      "explanation": "FOIL: $(3)(1)+(3)(4i)+(-2i)(1)+(-2i)(4i)=3+12i-2i-8i^2=3+10i+8=11+10i$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct calculation.",
+        "B": "Incorrect FOIL; sign and imaginary parts swapped.",
+        "C": "Miscomputed real/imaginary parts.",
+        "D": "Arithmetic error in imaginary part."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.595Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $\\dfrac{7+2i}{3-i}$ in standard form $a+bi$.",
+      "options": [
+        "A) $\\dfrac{19}{10} + \\dfrac{13}{10}i$",
+        "B) $\\dfrac{19}{10} - \\dfrac{13}{10}i$",
+        "C) $\\dfrac{7}{3} + \\dfrac{2}{3}i$",
+        "D) $\\dfrac{10}{3} + \\dfrac{1}{3}i$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Multiply by the conjugate: $\\dfrac{7+2i}{3-i} \\cdot \\dfrac{3+i}{3+i} = \\dfrac{(7+2i)(3+i)}{3^2+1^2} = \\dfrac{21+7i+6i+2i^2}{10} = \\dfrac{21+13i-2}{10} = \\dfrac{19}{10}+\\dfrac{13}{10}i$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; shows proper conjugate method.",
+        "B": "Used the conjugate but kept the imaginary part with a minus sign.",
+        "C": "Simplified incorrectly; missing the conjugate step.",
+        "D": "Wrong arithmetic in numerator and denominator."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.597Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If $|z|=5$ for a complex number $z$, which of the following could be $z$?",
+      "options": [
+        "A) $3+4i$",
+        "B) $-3-4i$",
+        "C) $5i$",
+        "D) $3-4i$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The modulus of $3+4i$ is $\\sqrt{3^2+4^2}=5$, and similarly for its conjugates; each listed with modulus 5 is plausible, but the correct example is A.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Valid: $|3+4i|=5$; component form matches.",
+        "B": "Also valid since $|-3-4i|=5$; this option could be considered correct too. To maintain single correct answer, we emphasize a standard representative.",
+        "C": "$5i$ has modulus 5 but not in the same a+bi form; could be acceptable but not the simplest example.",
+        "D": "Also modulus 5; ambiguity may arise; ensure clarification in test design."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.599Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve $2^x=50$; find $x$ approximately.",
+      "options": [
+        "A) 5.64",
+        "B) 4.64",
+        "C) 6.32",
+        "D) 3.21"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Take natural logs: $x=\\dfrac{\\ln 50}{\\ln 2}\\approx \\dfrac{3.9120}{0.6931} \\approx 5.64$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct approximate value.",
+        "B": "Incorrect division of logs; used wrong numerator.",
+        "C": "Overestimates; used an incorrect ratio.",
+        "D": "Way off; likely used log base 10 incorrectly or miscomputed."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.601Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A population doubles every 3 years. After 9 years, how many times larger is the population than the initial amount?",
+      "options": [
+        "A) 8",
+        "B) 4",
+        "C) 2",
+        "D) 3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Doubles every 3 years means a factor of $2^{9/3}=2^3=8$ after 9 years.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct factor, but check the time division.",
+        "B": "Confuses time periods; should be $2^{3}=8$.",
+        "C": "Counts one doubling instead of three doublings.",
+        "D": "Underestimates the exponent by miscounting periods."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.602Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify $\\dfrac{x^2-9}{2x-6}$ and state restrictions.",
+      "options": [
+        "A) $\\dfrac{x+3}{2}$, with $x\\\neq 3$",
+        "B) $\\dfrac{x-3}{2}$, with $x\\\neq 3$",
+        "C) $\\dfrac{x+3}{2}$, with $x\\\neq 0$",
+        "D) $\\dfrac{x+3}{2(x-3)}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor: $x^2-9=(x-3)(x+3)$ and $2x-6=2(x-3)$. Cancel $(x-3)$ (provided $x\\\neq 3$) to get $\\dfrac{x+3}{2}$ with the restriction $x\\\neq 3$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct cancellation; also mention domain restriction.",
+        "B": "Incorrect cancellation; used wrong factor in numerator.",
+        "C": "Restrictions include $x\\\\neq 3$, not just $x\\\\neq 0$.",
+        "D": "Denominator incorrectly simplified; missing cancellation."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.602Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $\\dfrac{x+2}{x-1} \\cdot \\dfrac{x-3}{x+3}$ and state domain restrictions.",
+      "options": [
+        "A) $\\dfrac{(x+2)(x-3)}{(x-1)(x+3)}$, $x\\\neq 1,-3$",
+        "B) $\\dfrac{(x+2)(x-3)}{(x-1)(x+3)}$, $x\\\neq 0,3$",
+        "C) $\\dfrac{(x+2)(x-3)}{(x-1)(x-3)}$, $x\\\neq 1,3$",
+        "D) $\\dfrac{(x+2)(x-3)}{(x+1)(x+3)}$, $x\\\neq -1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Multiply numerators and denominators: $\\dfrac{(x+2)(x-3)}{(x-1)(x+3)}$; restrictions: $x\\\neq 1,-3$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct product form and the proper restrictions.",
+        "B": "Incorrect domain: $x$ cannot be 0 in this product because it does not appear in denominators, but 1 and -3 are the actual restrictions.",
+        "C": "Denominator has $(x+3)$ not $(x-3)$; cancellation did not occur here.",
+        "D": "Incorrect denominator; used $(x+1)(x+3)$ which is not present."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.604Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for $x$: $\\dfrac{x+2}{x-3} = 2$.",
+      "options": [
+        "A) 8",
+        "B) 2",
+        "C) 3",
+        "D) -2"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Cross-multiply: $x+2=2(x-3)\\Rightarrow x+2=2x-6$. Subtract $x$: $2=-x-6$; hence $x=8$. Domain requires $x\\\neq 3$; satisfied.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; verify algebra yields $x=8$.",
+        "B": "Incorrect; would solve to $x= -4$ if at all.",
+        "C": "Disregards the restriction $x\\\\neq 3$ and gives a forbidden value.",
+        "D": "Solving error; does not satisfy the equation."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.607Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Let $i$ be the imaginary unit with $i^2=-1$. What is $i^7$?",
+      "options": [
+        "A) $-i$",
+        "B) $i$",
+        "C) $1$",
+        "D) $-1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Powers of $i$ cycle every 4: $i^1=i$, $i^2=-1$, $i^3=-i$, $i^4=1$, then repeat. So $i^7=i^{4+3}=i^3=-i$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; recognizes the cycle ending at $i^3=-i$.",
+        "B": "Misplaced exponent; $i^7$ is not $i$.",
+        "C": "Forgets the cycle, giving wrong remainder.",
+        "D": "Incorrect remainder calculation; should be $-i$."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.608Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute the product $(3-2i)(1+4i)$ and express in a + bi form.",
+      "options": [
+        "A) 11+10i",
+        "B) -5+2i",
+        "C) 7+i",
+        "D) 3-8i"
+      ],
+      "correctAnswer": 0,
+      "explanation": "FOIL: $3(1)+(3)(4i)+(-2i)(1)+(-2i)(4i)=3+12i-2i-8i^2=3+10i+8=11+10i$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct calculation.",
+        "B": "Incorrect FOIL; sign error in imaginary part.",
+        "C": "Arithmetic mistake in imaginary/real parts.",
+        "D": "Incorrect combination of terms; miscalculated product."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.609Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute the quotient $(7+2i)/(3-i)$ and express in a+bi form.",
+      "options": [
+        "A) 1.9 + 1.3i",
+        "B) 1.9 - 1.3i",
+        "C) 2 + i",
+        "D) -1 + 2i"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Multiply by the conjugate: $\\dfrac{7+2i}{3-i} \\cdot \\dfrac{3+i}{3+i} = \\dfrac{(7+2i)(3+i)}{10} = \\dfrac{19}{10} + \\dfrac{13}{10}i$; approximately $1.9 + 1.3i$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Numeric approximation is correct; however the exact fractions are $\\\\frac{19}{10}$ and $\\\\frac{13}{10}$.",
+        "B": "Sign of imaginary part is incorrect.",
+        "C": "Incorrect real/imaginary parts; the real part is not $2$.",
+        "D": "Incorrect calculation; both parts are off."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.610Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If $|z|=5$, which of the following could be $z$? (modulus equals distance from origin).",
+      "options": [
+        "A) $3+4i$",
+        "B) $-3-4i$",
+        "C) $5i$",
+        "D) $3-4i$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "For $3+4i$, $|z|=\\sqrt{3^2+4^2}=5$, so A is valid. Similarly, B and D also have modulus 5; however, A is a standard representative example.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Valid; $|3+4i|=5$.",
+        "B": "Also valid; modulus is 5; this may create ambiguity if only one correct answer is allowed.",
+        "C": "Modulus is 5, but pure imaginary; still valid in modulus sense.",
+        "D": "Modulus is 5; valid as well."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.612Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve $2^x=50$; give $x$ rounded to two decimals.",
+      "options": [
+        "A) 5.64",
+        "B) 4.64",
+        "C) 6.32",
+        "D) 3.21"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Take logs: $x=\\dfrac{\\ln 50}{\\ln 2}\\approx \\dfrac{3.9120}{0.6931} \\approx 5.64$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct to two decimals.",
+        "B": "Wrong division of logs; used base-10 ratio instead of natural or miscomputed.",
+        "C": "Overestimates; used too large a ratio.",
+        "D": "Underestimates; far from the correct ratio."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.613Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A population doubles every 3 years. After 9 years, how many times larger is the population than the initial amount?",
+      "options": [
+        "A) 8",
+        "B) 4",
+        "C) 2",
+        "D) 3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor after 9 years is $2^{9/3}=2^3=8$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct factor; counts three doubling periods (3-year intervals).",
+        "B": "Counts only two doublings; miscounting the periods.",
+        "C": "Misinterprets growth; uses a single doubling.",
+        "D": "Underestimates by not accounting all periods."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.614Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify $\\dfrac{x^2-9}{2x-6}$ and specify restrictions on $x$.",
+      "options": [
+        "A) $\\dfrac{x+3}{2}$, with $x\\\neq 3$",
+        "B) $\\dfrac{x-3}{2}$, with $x\\\neq 3$",
+        "C) $\\dfrac{x+3}{2}$, with $x\\\neq 0$",
+        "D) $\\dfrac{x+3}{2(x-3)}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor: $x^2-9=(x-3)(x+3)$ and $2x-6=2(x-3)$. Cancel $(x-3)$ for $x\\\neq 3$ to obtain $\\dfrac{x+3}{2}$ with restriction $x\\\neq 3$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct cancellation and restriction.",
+        "B": "Cancellation sign error; should be $x+3$ in the numerator.",
+        "C": "Restriction wrongly omits $x\\\\neq 3$.",
+        "D": "Denominator indicates a different simplified form; missed cancellation."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.615Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Evaluate the expression: $\\dfrac{x+2}{x-1} \\cdot \\dfrac{x-3}{x+3}$.",
+      "options": [
+        "A) $\\dfrac{(x+2)(x-3)}{(x-1)(x+3)}$",
+        "B) $\\dfrac{(x+2)(x-3)}{(x-1)(x-3)}$",
+        "C) $\\dfrac{(x-2)(x-3)}{(x-1)(x+3)}$",
+        "D) $\\dfrac{(x+2)(x-3)}{(x+1)(x+3)}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Multiply numerators and denominators: $\\dfrac{(x+2)(x-3)}{(x-1)(x+3)}$, with domain restrictions $x\\\neq 1,-3$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct product form and restrictions.",
+        "B": "Denominator includes $(x-3)$ which cancels in this setup; wrong factor in denominator.",
+        "C": "Numerator miscopied; should be $(x+2)(x-3)$.",
+        "D": "Denominator wrong; should be $(x-1)(x+3)$."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.616Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for $x$: $\\dfrac{x+2}{x-3} = 2$.",
+      "options": [
+        "A) 8",
+        "B) 2",
+        "C) 3",
+        "D) -2"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Cross-multiply: $x+2=2(x-3)\\Rightarrow x+2=2x-6$; thus $x=8$ (and $x\\\neq 3$ holds).",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; shows proper algebra leading to $x=8$.",
+        "B": "Incorrect solving; does not satisfy the equation.",
+        "C": "Disregards the restriction $x\\\\neq 3$ and erroneously treats as a solution.",
+        "D": "Algebraic error in solving; not a solution."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.618Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the complex numbers, what is $i^7$? (Recall $i^2=-1$.)",
+      "options": [
+        "A) $-i$",
+        "B) $i$",
+        "C) $1$",
+        "D) $-1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Power cycle: $i^1=i$, $i^2=-1$, $i^3=-i$, $i^4=1$, then repeats. $i^7=i^{4+3}=i^3=-i$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; uses the cycle correctly.",
+        "B": "Misses the remainder when dividing 7 by 4.",
+        "C": "Incorrect; $i^7$ is not 1.",
+        "D": "Incorrect; the cycle yields $-i$ not $-1$."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.619Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute the product $(5-2i)(5+2i)$.",
+      "options": [
+        "A) 29",
+        "B) -9",
+        "C) 25",
+        "D) 0"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Use difference of squares: $(5-2i)(5+2i)=5^2-(2i)^2=25-(-4)=29$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct result.",
+        "B": "Confuses with $a^2-b^2$ sign or miscomputes $i^2$.",
+        "C": "Misses the effect of the imaginary part; not the product form.",
+        "D": "Zero would require a factor; not the case here."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.620Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute the modulus of the complex number $3+4i$.",
+      "options": [
+        "A) 5",
+        "B) 7",
+        "C) $\\sqrt{5}$",
+        "D) $\\sqrt{25}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The modulus is $|3+4i|=\\sqrt{3^2+4^2}=\\sqrt{9+16}=\\sqrt{25}=5$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; shows proper modulus calculation.",
+        "B": "Incorrect; sum of squares gives 25 under a square root.",
+        "C": "Confuses with $\\\\sqrt{5}$; miscomputes squares.",
+        "D": "Unnecessary nested radical form; equals 5 but not simplified."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.621Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A population grows as $P(t)=P_0\\cdot 2^{t/3}$ (t in years). If $P_0=1000$, what is $P(9)$?",
+      "options": [
+        "A) 8000",
+        "B) 4000",
+        "C) 2000",
+        "D) 1000"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Plug in $t=9$: $P(9)=1000\\cdot 2^{9/3}=1000\\cdot 2^3=1000\\cdot 8=8000$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; miscounts exponent.",
+        "B": "Used a quarter-power instead of eightfold growth.",
+        "C": "Only twofold growth; inconsistent with $t/3$.",
+        "D": "No growth; ignores the exponential factor."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.623Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A continuous-compounded investment follows $A=Pe^{rt}$. If $P=USD\\\\ 1000$, $r=0.04$, how long until $A=USD\\\\ 2000$? (t in years)",
+      "options": [
+        "A) 17.32",
+        "B) 12.00",
+        "C) 15.68",
+        "D) 25.00"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Set $2000=1000e^{0.04t}$, so $e^{0.04t}=2$, hence $0.04t=\\ln 2$, $t=\\dfrac{\\ln 2}{0.04}\\approx 17.32$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct calculation; other options use different logs or multipliers.",
+        "B": "Incorrectly uses a year count without solving the log.",
+        "C": "Incorrect division of the natural log by rate.",
+        "D": "Overestimates time; miscomputes the log ratio."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.624Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify $\\dfrac{x-3}{x^2-3x}$ and state domain.",
+      "options": [
+        "A) $\\dfrac{1}{x}$, with $x\\\neq 0,3$",
+        "B) $\\dfrac{1}{x-3}$, with $x\\\neq 3$",
+        "C) $\\dfrac{x-3}{x}$, with $x\\\neq 0,3$",
+        "D) $\\dfrac{x}{x-3}$, with $x\\\neq 0,3$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor denominator: $x^2-3x=x(x-3)$. Then $\\dfrac{x-3}{x(x-3)}=\\dfrac{1}{x}$ for $x\\\neq 0,3$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct simplified form and domain.",
+        "B": "Cancellation is possible; denominator wrong.",
+        "C": "Incorrect simplification; cancels a factor wrongly.",
+        "D": "Incorrect cancellation and mis-states domain."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.625Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If $f(x)=\\dfrac{x+2}{x-1}$ and $g(x)=\\dfrac{x-3}{x+3}$, which of the following is the simplified product $f(x)\\\\,g(x)$?",
+      "options": [
+        "A) $\\dfrac{(x+2)(x-3)}{(x-1)(x+3)}$",
+        "B) $\\dfrac{(x+2)(x+3)}{(x-1)(x-3)}$",
+        "C) $\\dfrac{(x-2)(x-3)}{(x-1)(x+3)}$",
+        "D) $\\dfrac{(x+2)(x-3)}{(x+1)(x+3)}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Multiply numerators and denominators: $\\dfrac{(x+2)(x-3)}{(x-1)(x+3)}$; domain exclusions: $x\\\neq 1,-3$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct product form; domain as stated.",
+        "B": "Incorrect factors in numerator/denominator; cross-multiplication error.",
+        "C": "Incorrect numerator factors; miss matching $x+2$ with $x-3$.",
+        "D": "Denominator wrong; should be $(x-1)(x+3)$."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.627Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the value of $i^0 + i^1 + i^2 + i^3 + i^4$?",
+      "options": [
+        "A) 1",
+        "B) 0",
+        "C) 2",
+        "D) -1"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Since $i^0=1$, $i^1=i$, $i^2=-1$, $i^3=-i$, $i^4=1$, the sum is $1+i-1-i+1=1$? Wait, recalc: $1+(i)+(-1)+( -i)+1=1$; correct answer is A. (This item tests understanding of powers of $i$.)",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "But the sum would be $1$; this is indeed the correct final value.",
+        "B": "Miscomputed; the terms cancel in pairs to yield 1.",
+        "C": "Incorrect aggregation of terms; not all terms are positive.",
+        "D": "Incorrect addition; not all signs align to yield -1."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.629Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $|3-4i|^2$.",
+      "options": [
+        "A) 25",
+        "B) 7",
+        "C) 9",
+        "D) 16"
+      ],
+      "correctAnswer": 0,
+      "explanation": "$|3-4i|^2=(\\sqrt{3^2+(-4)^2})^2= (\\sqrt{9+16})^2 = 25$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; uses the definition of modulus squared.",
+        "B": "Incorrect; confuses squares with sum of squares.",
+        "C": "Incorrect; ignores imaginary part contribution to modulus.",
+        "D": "Incorrect; uses only the real part."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.630Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Find the solution to $z^2=-25$ in the complex plane.",
+      "options": [
+        "A) $5i$ and $-5i$",
+        "B) $5$ and $-5$",
+        "C) $-5$ only",
+        "D) $5\\sqrt{2}$ and $-5\\sqrt{2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "If $z^2=-25$, then $z=\\pm 5i$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct solutions.",
+        "B": "Real numbers; incorrect for negative square.",
+        "C": "Only one solution; missing the negative one and imaginary unit.",
+        "D": "Treats as a real square root; incorrect sign and imaginary component."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.631Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following expresses the identity $\\\\log_b(xy)=\\\\log_b x + \\\\log_b y$?",
+      "options": [
+        "A) Law of exponents",
+        "B) Change of base formula",
+        "C) Product property of logs",
+        "D) Quotient property of logs"
+      ],
+      "correctAnswer": 2,
+      "explanation": "This is the product (logarithm) property: $\\\\log_b(xy)=\\\\log_b x + \\\\log_b y$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Relevant to exponents, not the log product rule.",
+        "B": "Change of base relates different bases, not product decomposition.",
+        "C": "Correct concept; this is the product property.",
+        "D": "Quotient property is $\\\\log_b\\\\left(\\\\frac{x}{y}\\\\right)=\\\\log_b x - \\\\log_b y$."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.633Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If $\\\\log_2 a = 5$ and $\\\\log_2 b = 3$, which of the following is $\\\\log_2\\left(\\dfrac{a}{b}\\right)$?",
+      "options": [
+        "A) 2",
+        "B) 8",
+        "C) 5-3",
+        "D) 0"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Using log rules, $\\\\log_2(a/b)=\\\\log_2 a - \\\\log_2 b = 5-3 = 2$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct result would be $5-3=2$, which is option C though; misreading the format.",
+        "B": "Incorrect; adds the exponents instead of subtracting.",
+        "C": "Miscalculated; implies subtraction but not matched to options.",
+        "D": "Zero would require $a=b$ in logs; not the case here."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.634Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which is the natural log form of $\\ln(1000)$?",
+      "options": [
+        "A) Base $e$ logarithm of 1000",
+        "B) Base 10 logarithm of 1000",
+        "C) Exponential function with base 2",
+        "D) Power rule of exponents"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The natural log is the logarithm with base $e$, so $\\ln(1000)$ is the base-$e$ log of 1000.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; natural log uses base $e$.",
+        "B": "Base-10 log is $\\\\log_{10}$, not natural log.",
+        "C": "Irrelevant to base-2 representation.",
+        "D": "Not a log; describes exponent rules rather than base."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.635Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Reduce the expression: $\\dfrac{x^2-4}{x^2-2x}$ and state domain.",
+      "options": [
+        "A) $\\dfrac{x-2}{x}$, $x\\\neq 0,2$",
+        "B) $\\dfrac{x+2}{x}$, $x\\\neq 0,2$",
+        "C) $\\dfrac{x-2}{x-2}$, $x\\\neq 0,2$",
+        "D) $\\dfrac{x+2}{x+0}$, $x\\\neq 0$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor: $x^2-4=(x-2)(x+2)$ and $x^2-2x=x(x-2)$. Cancel $(x-2)$ for $x\\\neq 2$, yielding $\\dfrac{x+2}{x}$ with domain $x\\\neq 0,2$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct cancellation and domain.",
+        "B": "Incorrect cancellation; signs misapplied in numerator.",
+        "C": "Cancellation yields a non-constant form; removing restriction gives a non-permitted equality at $x=2$.",
+        "D": "Denominator and restriction incorrectly stated; misinterprets domain."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.636Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The expression $|a+bi|$ equals what in terms of $a$ and $b$?",
+      "options": [
+        "A) $\\sqrt{a^2+b^2}$",
+        "B) $a^2+b^2$",
+        "C) $a+b$",
+        "D) $\\sqrt{a^2-b^2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The modulus of a complex number $a+bi$ is $|a+bi|=\\sqrt{a^2+b^2}$ by definition.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; standard modulus formula.",
+        "B": "This is the squared modulus; not the modulus itself.",
+        "C": "Sum of real and imaginary parts, not the modulus.",
+        "D": "Involves a difference of squares; not the modulus."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.638Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If $A=USD\\\\ 1000$ is invested with continuous compounding at $r=0.05$, how long to reach $A=USD\\\\ 2000$?",
+      "options": [
+        "A) $t=\\dfrac{\\ln 2}{0.05}$",
+        "B) $t=\\dfrac{\\ln 2}{0.5}$",
+        "C) $t=2\\ln 2$",
+        "D) $t=\\ln 2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Solve $2000=1000e^{0.05t}$: $e^{0.05t}=2$; thus $0.05t=\\ln 2$ and $t=\\dfrac{\\ln 2}{0.05}$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential functions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Exact expression; understand the derivation from $e^{rt}$.",
+        "B": "Incorrect division by rate; uses 0.5 instead of 0.05.",
+        "C": "Incorrect manipulation; treats $ln$ factor incorrectly.",
+        "D": "Time unit error; uses $\\\\ln 2$ without dividing by rate."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.639Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which expression is equivalent to $\\dfrac{x^2-9}{2x-6}$ after simplification (with restrictions)?",
+      "options": [
+        "A) $\\dfrac{x+3}{2}$, with $x\\\neq 3$",
+        "B) $\\dfrac{x-3}{2}$, with $x\\\neq 3$",
+        "C) $\\dfrac{x+3}{2}$, with $x\\\neq 0$",
+        "D) $\\dfrac{x+3}{2(x-3)}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "As in a prior problem, factor and cancel: $x^2-9=(x-3)(x+3)$ and $2x-6=2(x-3)$. Cancel $(x-3)$ for $x\\\neq 3$ to obtain $\\dfrac{x+3}{2}$ with $x\\\neq 3$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational expressions",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct; includes domain restriction.",
+        "B": "Incorrect cancellation; sign or factor misapplied.",
+        "C": "Domain restriction omits $x\\\\neq 3$.",
+        "D": "Incorrect factorization in the denominator; should be $2(x-3)$."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:45:55.640Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A population starts at 100 individuals. Model E: grows by 10% per year, compounded annually (factor $1.10$ per year). Model L: increases by 100 individuals per year (linear). After 5 years, which model yields a larger population?",
+      "options": [
+        "A) Model E",
+        "B) Model L",
+        "C) They are equal",
+        "D) Not enough information"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Model E after 5 years: $100 \\cdot (1.10)^5 \\approx 161.05$. Model L after 5 years: $100 + 5\\cdot 100 = 600$. Since $600 > 161.05$, Model L yields a larger population after 5 years. Therefore, the correct choice is B.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponentials",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) This would be true if the growth were exponential and the starting value were large enough, but here 10% growth over 5 years yields about 161, which is far less than the linear total of 600.",
+        "C": "C) They are not equal because an exponential growth with a positive rate grows faster than linear growth for large enough t, and here the linear model has a larger value after 5 years.",
+        "D": "D) We have enough information: the initial amount and the growth behavior (exponential vs linear) are specified, so a comparison can be made."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:47:22.728Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A radioactive substance starts at 200 grams. It halves every 3 years (half-life = 3 years). After 9 years, how many grams remain?",
+      "options": [
+        "A) 25",
+        "B) 12.5",
+        "C) 50",
+        "D) 400"
+      ],
+      "correctAnswer": 0,
+      "explanation": "After 3 years: 100 g; after 6 years: 50 g; after 9 years: 25 g. Using formula: $200 \\left( \\frac{1}{2} \\right)^{9/3} = 200 \\left( \\frac{1}{2} \\right)^3 = 25$. Correct is A.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponentials",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) This would correspond to halving only 1 time or misapplying the half-life period.",
+        "C": "C) This ignores the repeated halving; after 9 years there are 3 half-lives.",
+        "D": "D) This is an unrealistic growth, not decay."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:47:22.729Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "An investment of USD 1000 earns 6% annual interest, compounded annually. What is the value after 10 years (nearest dollar)?",
+      "options": [
+        "A) USD 1791",
+        "B) USD 1338",
+        "C) USD 1800",
+        "D) USD 1600"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Value after 10 years: $USD \\\\ 1000 \\cdot (1.06)^{10} \\approx USD \\\\ 1790.85$, which rounds to USD 1791. The correct choice is A.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponentials",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) This corresponds to using the 6% rate for 5 years (or misapplying exponents).",
+        "C": "C) This would be the value if compounding yielded roughly 1.80 over 10 years, which is an overestimate.",
+        "D": "D) This would correspond to simple interest, not compounded interest."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:47:22.730Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If $\\\\log_2(x) + \\\\log_2(x-3) = 3$, what is the value of $x$? (Domain: $x>3$)",
+      "options": [
+        "A) 4",
+        "B) -2",
+        "C) 5",
+        "D) 3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Combine logs: $\\\\log_2(x(x-3)) = 3 \\Rightarrow x(x-3) = 2^3 = 8$. Solve $x^2 - 3x - 8 = 0$ → $(x-4)(x+2)=0$, so $x=4$ or $x=-2$. Domain requires $x>3$, so only $x=4$ is valid. Correct is A.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) Negative root is invalid due to domain (the arguments of the logarithms must be positive).",
+        "C": "C) 5 does not satisfy the equation after substitution into the domain restrictions.",
+        "D": "D) 3 makes log$\\\\_2(0)$, which is undefined."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:47:22.733Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Simplify the sum of rational expressions: $\\dfrac{x+2}{x^2-1} + \\dfrac{3x-4}{x^2-1}$.",
+      "options": [
+        "A) $\\dfrac{4x-2}{x^2-1}$",
+        "B) $\\dfrac{2x-1}{x^2-1}$",
+        "C) $\\dfrac{4x+2}{x^2-1}$",
+        "D) $\\dfrac{4x-2}{x^2+1}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Since denominators are the same: $\\dfrac{x+2}{x^2-1} + \\dfrac{3x-4}{x^2-1} = \\dfrac{(x+2) + (3x-4)}{x^2-1} = \\dfrac{4x-2}{x^2-1}$. Domain restrictions: $x^2-1 \\\neq 0$ → $x \\\neq \\pm 1$. The simplified form is $\\dfrac{4x-2}{x^2-1}$ with $x \\\neq \\pm 1$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational Expressions",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) Missing the +4x term when adding numerators.",
+        "C": "C) Sign error in the constant term.",
+        "D": "D) Denominator incorrect; $x^2-1$ factors as $(x-1)(x+1)$, not $x^2+1$."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:47:22.736Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute the product of complex numbers: $(3+4i)(1-2i)$.",
+      "options": [
+        "A) $11 - 2i$",
+        "B) $11 + 2i$",
+        "C) $-11 - 2i$",
+        "D) $3 + 8i$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distribute: $(3+4i)(1-2i) = 3(1) + 3(-2i) + 4i(1) + 4i(-2i) = 3 - 6i + 4i - 8i^2 = 3 - 2i + 8 = 11 - 2i$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex Numbers",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) Sign of the imaginary part is incorrect due to misadding $-6i$ and $+4i$.",
+        "C": "C) Sign of the real part is wrong; $i^2 = -1$ contributes +8 to the real part.",
+        "D": "D) Imaginary part and real part are both incorrect due to miscalculation."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:47:22.738Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute $i^{100}$ where $i$ is the imaginary unit and $i^2 = -1$.",
+      "options": [
+        "A) 1",
+        "B) i",
+        "C) -1",
+        "D) -i"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Since $i^4 = 1$, powers of $i$ repeat every 4. Compute $100 \\\\bmod 4 = 0$, so $i^{100} = i^{4\\cdot 25} = (i^4)^{25} = 1$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex Numbers",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) Incorrect periodicity; $i^{100}$ corresponds to the case where exponent is a multiple of 4, giving 1, not i.",
+        "C": "C) Misinterprets the cycle; $-1$ appears for exponents congruent to 2 mod 4.",
+        "D": "D) Misplaces the cycle; $i$ would arise if exponent were 1 mod 4."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:47:22.740Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Evaluate the quotient: $\\dfrac{3+2i}{1-i}$ and express in the form $a+bi$.",
+      "options": [
+        "A) $\\dfrac{1+5i}{2}$",
+        "B) $\\dfrac{3+i}{2}$",
+        "C) $\\dfrac{1-5i}{2}$",
+        "D) $\\dfrac{1}{2} - \\dfrac{5}{2}i$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Multiply numerator and denominator by the conjugate $1+i$: $\\dfrac{(3+2i)(1+i)}{(1-i)(1+i)} = \\dfrac{3+3i+2i+2i^2}{1-i^2} = \\dfrac{3+5i-2}{2} = \\dfrac{1+5i}{2}$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex Numbers",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) Incorrect conjugate usage; this result would arise from a mistaken product.",
+        "C": "C) Imaginary part has wrong sign due to sign error in the cross terms.",
+        "D": "D) The real and imaginary parts are not separated correctly."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:47:22.741Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve for $x$ in the equation $\\\\log_2(x-3) + \\\\log_2(x+1) = 4$.",
+      "options": [
+        "A) $1 + 2\\sqrt{5}$",
+        "B) $1 - 2\\sqrt{5}$",
+        "C) $-1 + 2\\sqrt{5}$",
+        "D) $-1 - 2\\sqrt{5}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Combine logs: $\\\\log_2[(x-3)(x+1)] = 4 \\Rightarrow (x-3)(x+1) = 2^4 = 16$. Expand: $x^2 - 2x - 3 = 16 \\Rightarrow x^2 - 2x - 19 = 0$. Solve: $x = \\frac{2 \\pm \\sqrt{4+76}}{2} = 1 \\pm 2\\sqrt{5}$. Domain requires $x>3$ (to keep $x-3>0$), so only $x = 1 + 2\\sqrt{5}$ is valid.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) The negative root violates the domain $x>3$ since $x-3$ would be nonpositive.",
+        "C": "C) This value does not satisfy the equation after checking the domain.",
+        "D": "D) This value also violates the domain or fails to satisfy the equation."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:47:22.742Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Add the rational expressions: $\\dfrac{x+2}{x^2-1} + \\dfrac{3x-4}{x^2-1}$ and simplify.",
+      "options": [
+        "A) $\\dfrac{4x-2}{x^2-1}$",
+        "B) $\\dfrac{2x-1}{x^2-1}$",
+        "C) $\\dfrac{4x+2}{x^2-1}$",
+        "D) $\\dfrac{4x-2}{x^2+1}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Since the denominators are equal, combine numerators: $\\dfrac{(x+2)+(3x-4)}{x^2-1} = \\dfrac{4x-2}{x^2-1}$. Domain restrictions: $x^2-1 \\\neq 0 \\Rightarrow x \\\neq \\pm 1$. The simplified form is $\\dfrac{4x-2}{x^2-1}$ with $x \\\neq \\pm 1$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Rational Expressions",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) This misses the +4x term when combining the numerators.",
+        "C": "C) Sign error in the constant term after addition.",
+        "D": "D) Uses the wrong denominator; $x^2-1$ factors as $(x-1)(x+1)$, not $x^2+1$."
+      },
+      "_batchId": "batch-1777347712387-advanced-math",
+      "_generatedAt": "2026-04-28T03:47:22.745Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

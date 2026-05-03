@@ -1,0 +1,156 @@
+{
+  "batchId": "batch-1777332363494-vocabulary",
+  "topic": "vocabulary",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-04-27T23:28:09.291Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 5,
+  "totalGenerated": 5,
+  "totalValid": 5,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "As used in the passage, '[address]' most nearly means...",
+      "options": [
+        "A) to speak to or direct remarks to someone",
+        "B) to deal with or tackle a problem",
+        "C) to send mail to a person or place",
+        "D) to direct attention to something through a gesture"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Correct answer: B. In this context, address means to deal with or tackle concerns, as shown by phrases like 'address the concerns with concrete steps' and 'addressed the issue with a candid report.' A is incorrect because the passage is not about speaking to an audience. C is incorrect because sending mail is not relevant here. D is incorrect because the text conveys action and planning, not merely directing attention.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During the town hall, the council listened as residents explained the ongoing water problem. The moderator asked the panel to address the concerns with concrete steps, focusing on short-term fixes and long-term planning. When a student asked about delays, the engineer paused, then addressed the issue with a candid report, noting that pipe repairs and new meters would require coordination with several agencies. By the end, several worries were translated into action items, and the audience felt that the session had transformed vague complaints into a clear plan that could be followed and measured.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is incorrect because the passage uses address to indicate dealing with concerns, not simply speaking to someone.",
+        "C": "C is incorrect because mailing or sending something is not implied by the usage in this context.",
+        "D": "D is incorrect because while address can mean direct attention, the passage demonstrates taking concrete steps rather than mere attention."
+      },
+      "_batchId": "batch-1777332363494-vocabulary",
+      "_generatedAt": "2026-04-27T23:26:59.077Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, '[issue]' most nearly means...",
+      "options": [
+        "A) a subject or matter under discussion",
+        "B) to publish or release officially",
+        "C) something that comes forth from a source; a result",
+        "D) a publication or edition of a magazine or newspaper"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Correct answer: A. Here, issue means a subject or matter under discussion, as shown by the listed topics (consent practices, retention, sharing) that will influence guidelines. B is incorrect because there is no publishing action described. C is incorrect because the context does not imply something emanating from a source. D is incorrect because the text does not refer to a magazine or edition.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The panel discussion on data policy highlighted how quickly technology evolves. The committee identified several issues that require careful review: consent practices, data retention timelines, and cross-border sharing. The chair noted that these issues would shape the final guidelines for responsible use. A junior researcher asked whether the current framework sufficiently protects privacy; the chair replied that the solution would depend on how the policy addresses transparency and enforcement. The room nodded, recognizing that each issue was a distinct matter to be weighed, debated, and resolved before the next meeting.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B is incorrect because the passage does not involve publishing or releasing anything.",
+        "C": "C is incorrect because the context refers to topics or matters, not something that arises from a source.",
+        "D": "D is incorrect because the passage does not discuss publications or magazine issues."
+      },
+      "_batchId": "batch-1777332363494-vocabulary",
+      "_generatedAt": "2026-04-27T23:26:59.081Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'address' most nearly means...",
+      "options": [
+        "A) to greet or speak to a person",
+        "B) to deal with or discuss a matter",
+        "C) a formal speech",
+        "D) a place where someone lives or works"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In this passage, address is used to mean to deal with or discuss a matter systematically, not to greet someone, deliver a speech, or indicate a location.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "During the town hall, the mayor announced a plan to overhaul the public transit network. A specialist on urban design was invited to comment, and after listening to residents' concerns, she paused before speaking. 'I will address the question of funding first,' she said, outlining steps to measure costs, benefits, and long-term efficiency. The audience leaned forward as she described a schedule of audits and stakeholder meetings. The room felt a little heavier with anticipation, yet her calm tone helped many see that the goal was not speed but sustainable progress.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) Treats address as greeting; wrong because the passage uses address to mean dealing with a topic, not greeting.",
+        "B": "N/A",
+        "C": "C) Suggests a formal speech; wrong because the text uses address as addressing a topic, not giving a speech.",
+        "D": "D) Refers to a place or residence; wrong because it's about handling a topic, not location."
+      },
+      "_batchId": "batch-1777332363494-vocabulary",
+      "_generatedAt": "2026-04-27T23:28:04.594Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'issue' most nearly means...",
+      "options": [
+        "A) a point or topic for debate",
+        "B) the act of publishing or releasing something",
+        "C) a publication, such as a magazine or journal",
+        "D) the result or outcome of something"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage uses issue to denote a point or matter under discussion, i.e., the topic being considered; other senses relate to publication or results, which are not being discussed here.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Researchers gathered to review the pilot program for urban gardens in the city’s districts. A statistician presented data showing modest benefits but warned about an impending budget shortfall. 'The issue is not whether the program works, but whether we can sustain it after the grant ends,' she explained. Members debated whether to reallocate funds from other programs or seek private sponsors. After hours of discussion, a plan emerged to form a task force that would monitor outcomes, secure new partnerships, and keep the issue from becoming a missed opportunity for residents.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A",
+        "B": "B) to publish or release is a separate sense of issue (to issue); not what the panel is debating.",
+        "C": "C) a publication is another sense of issue; not the topic at hand in the debate.",
+        "D": "D) the result or outcome is a possible sense of issue; this context concerns debate topics, not outcomes."
+      },
+      "_batchId": "batch-1777332363494-vocabulary",
+      "_generatedAt": "2026-04-27T23:28:04.594Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "As used in the passage, 'bear' most nearly means...",
+      "options": [
+        "A) to carry something physically",
+        "B) to endure or tolerate something difficult",
+        "C) to support or uphold a structure or load",
+        "D) to give birth to offspring"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In this passage, bear means to endure or tolerate the difficult climb; other senses include carrying physically, supporting a load, or giving birth, which do not fit the context.",
+      "moduleType": "reading-writing",
+      "category": "vocabulary",
+      "subtopic": "context-clues",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "On the park trail, the group pressed forward as rain began to fall and the wind picked up. The path narrowed, rocks slick, and every step required careful balance. Despite the fatigue, the hikers kept moving, determined to bear the climb until they reached the overlook. The sense of camaraderie in their voices grew as they shared stories about past treks and promised to rest only after the summit. The mountain demanded patience, and they accepted the demand with steady wills rather than complaint.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) would be about physically carrying a load; the passage uses bear in the sense of enduring, not carrying.",
+        "B": "N/A",
+        "C": "C) to support or uphold is a separate sense but not implied here.",
+        "D": "D) to give birth is another dictionary sense not used in this context."
+      },
+      "_batchId": "batch-1777332363494-vocabulary",
+      "_generatedAt": "2026-04-27T23:28:04.595Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

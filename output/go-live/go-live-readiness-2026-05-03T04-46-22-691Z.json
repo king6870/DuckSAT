@@ -1,0 +1,1325 @@
+{
+  "generatedAt": "2026-05-03T04:46:22.691Z",
+  "baseUrl": "http://localhost:3000",
+  "strictMode": false,
+  "commandChecks": [
+    {
+      "name": "lint",
+      "enabled": false,
+      "ok": true,
+      "exitCode": null,
+      "durationMs": 0,
+      "stdoutTail": "",
+      "stderrTail": ""
+    },
+    {
+      "name": "typecheck",
+      "enabled": false,
+      "ok": true,
+      "exitCode": null,
+      "durationMs": 0,
+      "stdoutTail": "",
+      "stderrTail": ""
+    },
+    {
+      "name": "build",
+      "enabled": false,
+      "ok": true,
+      "exitCode": null,
+      "durationMs": 0,
+      "stdoutTail": "",
+      "stderrTail": ""
+    }
+  ],
+  "healthCheck": {
+    "name": "health",
+    "path": "/api/health",
+    "url": "http://localhost:3000/api/health",
+    "ok": true,
+    "status": 200,
+    "durationMs": 263
+  },
+  "questionAudit": {
+    "total": 10000,
+    "diagramMarkedAny": 0,
+    "invalidQuestionText": 0,
+    "invalidOptionsJson": 0,
+    "invalidOptionCount": 2,
+    "invalidCorrectAnswerIndex": 0,
+    "invalidExplanation": 0,
+    "readingMissingPassageWarning": 426,
+    "exactDuplicateQuestionTexts": 1053,
+    "exactDuplicateQuestionIdsSample": [
+      "cml5zwglp0008iukwew4ykw6h",
+      "cml5zwgr4000biukwc3i8hq7x",
+      "cml5zwgnj0009iukwki9p5shu",
+      "cml5zwgsx000ciukw6flbkkfp",
+      "cml5zwgpb000aiukwiujdcg15",
+      "cml5zwgus000diukwkno6qfn7",
+      "cml5zwhij000qiukwmwgmd323",
+      "cml5zwhxd000yiukwdxh03bb6",
+      "cml5zwhkf000riukwrr7qdvrq",
+      "cml5zwhz9000ziukwyxf7w9qz",
+      "cml5zwhpw000uiukwlplfe5yr",
+      "cml5zwi4v0012iukwuiqgtygl",
+      "cml5zwhrs000viukwtelqzz9c",
+      "cml5zwi6q0013iukw9ylblgxm",
+      "cmlqrhrhq000piuwwfn6vyysu",
+      "cmlqrhrps000uiuwwrgrn4ciy",
+      "cmlsq4jkm000aiu5oceyfzo56",
+      "cmlsq4ozn004giu5oxl90mce1",
+      "cmlsq4jn4000ciu5ov2kv91ih",
+      "cmlsq4ot7004biu5o10euu869",
+      "cmlsq4keb000xiu5of059gqf2",
+      "cmlsq4qwp005yiu5okd3ao0n1",
+      "cmlsq4kfk000yiu5oe541jd6m",
+      "cmlsq4ml6002miu5o2vuzx02i",
+      "cmlsq4kib0010iu5onepunsmm"
+    ],
+    "invalidQuestionIdsSample": [
+      "cmnoqbsci00bfehg9t1utmph2",
+      "cmnorf7f400jlehg9j0bchgot"
+    ],
+    "categoryCounts": {
+      "reading-comprehension": 3682,
+      "grammar": 1127,
+      "vocabulary": 662,
+      "algebra": 1199,
+      "writing-language": 1796,
+      "problem-solving-data-analysis": 532,
+      "advanced-math": 524,
+      "geometry": 477,
+      "circles": 1
+    },
+    "subtopicCounts": {
+      "main-idea": 76,
+      "inference": 105,
+      "transitions": 1,
+      "context-clues": 133,
+      "quadratic-functions": 3,
+      "purpose": 65,
+      "textual-support": 3,
+      "linear-equations": 190,
+      "probability": 95,
+      "exponents": 1,
+      "mean-median": 2,
+      "systems-equations": 2,
+      "none": 345,
+      "various": 1,
+      "statistics": 2,
+      "quadratic-equations": 3,
+      "linear-functions": 4,
+      "triangles": 25,
+      "systems": 141,
+      "absolute-value": 115,
+      "polynomials": 214,
+      "inequalities": 106,
+      "detail": 111,
+      "author-purpose": 123,
+      "sentence-function": 55,
+      "compare-contrast": 63,
+      "integrate-information": 58,
+      "Coordinate geometry: distance formula": 4,
+      "Coordinate geometry": 23,
+      "Triangles": 28,
+      "systems of equations": 3,
+      "word-problems": 4,
+      "polynomials-factoring": 3,
+      "absolute-value-inequalities": 3,
+      "polynomials-division": 3,
+      "coordinate-geometry": 23,
+      "area-perimeter": 23,
+      "angles": 18,
+      "transformations": 13,
+      "Coordinate geometry - distance, slope, midpoint; perpendicular bisector": 3,
+      "Area of regular polygons": 2,
+      "Triangles: Pythagorean theorem": 11,
+      "Coordinate-geometry: Distance formula": 7,
+      "Circles: Equation of a circle": 13,
+      "Area-perimeter: Area of composite shapes": 7,
+      "Circles: central angles and chords": 4,
+      "Coordinate geometry: section formula": 3,
+      "Area-perimeter: area of regular polygons": 3,
+      "Triangles: 30-60-90": 7,
+      "Circles: Arc length": 6,
+      "Coordinate geometry: Distance formula": 5,
+      "Transformations: Translations and rotations": 2,
+      "circles": 25,
+      "polynomials-multiplication": 3,
+      "Circles": 36,
+      "Coordinate-geometry": 6,
+      "Area-perimeter": 7,
+      "Angles": 11,
+      "Transformations": 23,
+      "Area-Perimeter / Regular Polygons": 3,
+      "mean-median-mode": 116,
+      "trends": 70,
+      "scatter-plots": 66,
+      "standard-deviation": 70,
+      "Triangles - 30-60-90, right triangle properties": 3,
+      "factoring": 32,
+      "quadratic-formula": 13,
+      "discriminant analysis": 4,
+      "completing-square": 23,
+      "Factoring quadratics": 3,
+      "Transformations: translations": 6,
+      "Quadratic formula / discriminant": 2,
+      "Real-world application: projectile motion": 3,
+      "Angles: Parallel lines cut by transversal": 4,
+      "Area-perimeter: Regular polygons": 3,
+      "word-problem-modeling": 4,
+      "Coordinate Geometry": 18,
+      "ratio-proportion": 15,
+      "Slope-Intercept Form": 15,
+      "Point-Slope Form to Slope-Intercept": 4,
+      "Parallel-Perpendicular Lines": 6,
+      "Intercepts": 3,
+      "Slope as Rate of Change": 5,
+      "Real-World Linear Cost": 4,
+      "Slope-Intercept": 9,
+      "Parallel-Perpendicular": 2,
+      "Graphing": 11,
+      "Real-World Applications": 3,
+      "Point-Slope": 9,
+      "Graphing & Intercepts": 1,
+      "Systems of equations - substitution": 1,
+      "Absolute value": 4,
+      "Absolute-value inequalities": 5,
+      "vertex-form": 16,
+      "area optimization": 3,
+      "Coordinate-geometry: Area via coordinates": 4,
+      "Area-perimeter: Area of regular polygons": 7,
+      "Angles: Supplementary, parallel lines": 4,
+      "Angles: Triangle angle sum": 4,
+      "Triangles: triangle angle sum": 3,
+      "Circles: equation of a circle": 5,
+      "Exponentials": 12,
+      "Rational-expressions": 3,
+      "Exponential growth: population": 4,
+      "Logarithms": 38,
+      "Half-life (exponential decay)": 3,
+      "Rational expressions": 30,
+      "Complex numbers": 31,
+      "Parallel & Perpendicular": 3,
+      "Area & Perimeter": 10,
+      "Triangles - Right triangles, altitude to hypotenuse": 4,
+      "Circles - Sector area, central angle": 3,
+      "Coordinate-geometry - Distance, midpoint, slope, line equations": 3,
+      "Inequalities": 2,
+      "Polynomials - factoring": 3,
+      "Systems of equations - elimination": 4,
+      "Word problems with systems": 3,
+      "Triangles: 30-60-90, Pythagorean theorem": 4,
+      "Coordinate-geometry: Distance formula, slope, area via coordinates": 4,
+      "Circles: Arc length, central angles": 4,
+      "exponential growth (population)": 8,
+      "rational-expressions": 6,
+      "complex numbers": 8,
+      "exponential growth vs linear growth (real-world population)": 5,
+      "logarithms: properties and solving log equations": 4,
+      "Transformations: Reflections": 3,
+      "Scatter-Plots": 2,
+      "Trends": 5,
+      "Ratio and Proportion": 4,
+      "Mean": 8,
+      "Weighted averages": 3,
+      "Standard deviation": 5,
+      "Ratio and proportion": 4,
+      "Mean vs median": 4,
+      "Probability": 6,
+      "Discriminant analysis": 4,
+      "Complex-numbers": 3,
+      "Vertex form and vertex": 2,
+      "Factoring": 30,
+      "Completing the square": 24,
+      "Exponential growth: compound interest": 1,
+      "Exponential growth": 10,
+      "Vertex form": 22,
+      "Area optimization": 3,
+      "completing-square; vertex-form": 2,
+      "Transformations - rotations, translations": 3,
+      "Slope-intercept form": 5,
+      "Point-slope: convert to slope-intercept": 5,
+      "Parallel lines": 4,
+      "Real-world linear relationships": 5,
+      "Slope as rate of change": 3,
+      "slope-intercept form": 8,
+      "point-slope form": 4,
+      "parallel lines": 4,
+      "perpendicular lines": 5,
+      "graphing": 17,
+      "real-world linear relationships": 11,
+      "slope as rate of change": 3,
+      "logarithms (properties)": 3,
+      "Point-slope: Use $y - y_1 = m(x - x_1)$, convert forms": 4,
+      "Graphing: Interpret described graphs, x/y intercepts, increasing/decreasing behavior": 3,
+      "exponential growth vs linear growth recognition": 4,
+      "Quadratic formula & discriminant": 4,
+      "Quadratic Formula": 4,
+      "Standard Deviation": 4,
+      "Scatter plots interpretation": 4,
+      "Quadratic formula": 7,
+      "Line of best fit / Scatter plots": 2,
+      "Real-world application": 3,
+      "Discriminant & real solutions (projectile)": 2,
+      "Point-Slope Form": 4,
+      "Parallel and Perpendicular Lines": 3,
+      "Graph Intercepts": 4,
+      "Real-World Linear Relationships": 3,
+      "slope-intercept": 17,
+      "point-slope": 13,
+      "parallel-perpendicular": 5,
+      "discriminant": 8,
+      "Rational Expressions": 2,
+      "exponential vs linear growth": 4,
+      "rational expressions": 4,
+      "logarithms": 5,
+      "Exponential growth and real-world applications": 2,
+      "Logarithms; Rational Expressions": 4,
+      "parallel-perpendicular: identify parallel and perpendicular lines": 3,
+      "graphing: intercepts from described graphs": 4,
+      "slope-intercept: writing equations from real-world relationships": 7,
+      "real-world: interpreting linear relationships": 4,
+      "real-world: writing equations and evaluating": 3,
+      "interpreting slope as rate of change": 2,
+      "point-slope: convert forms": 5,
+      "Slope-intercept: writing equations from data points; identify slope and y-intercept": 4,
+      "Parallel-perpendicular: Identify parallel (same slope) and perpendicular (negative reciprocal) lines": 2,
+      "Triangles (30-60-90) area": 4,
+      "Area & Perimeter: altitudes in right triangles": 3,
+      "exponentials": 10,
+      "complex-numbers": 7,
+      "Exponential growth (Population)": 3,
+      "Exponential growth/decay (Compound interest)": 2,
+      "Exponential vs linear growth": 4,
+      "Discriminant": 8,
+      "Exponential equations": 2,
+      "Applications": 3,
+      "Compound interest": 5,
+      "Exponential decay": 3,
+      "Exponential growth (investment)": 5,
+      "quadratic-formula (discriminant)": 4,
+      "Coordinate geometry: distance from a point to a line": 4,
+      "Circles: sector area": 2,
+      "Radioactive decay": 4,
+      "absolute-value-equations": 1,
+      "compound-inequalities": 1,
+      "Polynomials - multiplication": 2,
+      "Word problems with linear equations": 3,
+      "Exponential vs Linear Growth": 4,
+      "Graphing and slope interpretation": 2,
+      "Exponential growth/decay": 2,
+      "word-problem": 2,
+      "Triangles: right triangle altitude and Pythagorean theorem": 1,
+      "Coordinate geometry: Midpoint": 1,
+      "Triangles: Similar triangles": 1,
+      "Linear equations": 2,
+      "interpreting slope: rate of change": 2,
+      "tone": 18,
+      "word-meaning": 47,
+      "word problems": 3,
+      "Sentence Structure and Style": 505,
+      "Text Structure and Organization": 526,
+      "subject-verb-agreement": 25,
+      "pronoun-clarity": 22,
+      "punctuation": 29,
+      "sentence-structure": 20,
+      "verb-tense": 20,
+      "Supporting Details and Evidence": 500,
+      "Inferences and Implications": 484,
+      "Vocabulary in Context": 480,
+      "Comparing Texts and Viewpoints": 375,
+      "Main Ideas and Central Claims": 541,
+      "Author's Purpose and Point of View": 528,
+      "Grammar and Usage": 519,
+      "Transitions and Logical Flow": 456,
+      "Punctuation and Mechanics": 491,
+      "Rhetorical Skills": 508,
+      "Transitional and Logical Flow": 21,
+      "Rational Expressions and Equations": 17,
+      "Quadratic Functions and Equations": 13,
+      "Polynomial Expressions": 11,
+      "Exponential and Logarithmic Functions": 12,
+      "Linear Equations and Inequalities": 15,
+      "Systems of Equations": 10,
+      "Geometric Reasoning and Proofs": 13,
+      "Area, Volume, and Surface Area": 16,
+      "Trigonometry": 11,
+      "Triangles and Polygons": 10,
+      "Probability Basics": 15,
+      "Conditional Probability": 10,
+      "Descriptive Statistics": 15,
+      "Functions and Transformations": 9,
+      "Sequences and Series": 16,
+      "Complex Numbers": 17,
+      "Statistical Inference": 5,
+      "Data Analysis and Interpretation": 5,
+      "Linear Equations and Inequalities (Algebra)": 1,
+      "Polynomial Expressions (Algebra)": 2,
+      "Exponential and Logarithmic Functions (Algebra)": 1,
+      "Quadratic Functions and Equations (Algebra)": 2,
+      "Systems of Equations (Algebra)": 1,
+      "Rational Expressions and Equations (Algebra)": 2,
+      "Author's Purpose and Viewpoint": 4,
+      "TransITIONS and Logical Flow": 3,
+      "TransTransitions and Logical Flow": 1,
+      "Evidence and Reasoning": 1,
+      "Transition and Logical Flow": 2,
+      "Vocabulary and Style": 1,
+      "Transitional Skill": 1,
+      "Transisions and Logical Flow": 2,
+      "Evidence and Support": 2,
+      "Transitional Skills": 1,
+      "General": 1
+    }
+  },
+  "apiChecks": {
+    "total": 78,
+    "passed": 77,
+    "failed": 1,
+    "skipped": 1,
+    "serverErrorCount": 1,
+    "results": [
+      {
+        "name": "api:/api/admin/batch-adapter",
+        "path": "/api/admin/batch-adapter",
+        "url": "http://localhost:3000/api/admin/batch-adapter",
+        "ok": true,
+        "status": 200,
+        "durationMs": 991
+      },
+      {
+        "name": "api:/api/admin/data/events",
+        "path": "/api/admin/data/events",
+        "url": "http://localhost:3000/api/admin/data/events",
+        "ok": true,
+        "status": 403,
+        "durationMs": 310
+      },
+      {
+        "name": "api:/api/admin/data/feedback",
+        "path": "/api/admin/data/feedback",
+        "url": "http://localhost:3000/api/admin/data/feedback",
+        "ok": true,
+        "status": 403,
+        "durationMs": 303
+      },
+      {
+        "name": "api:/api/admin/data/feedback/[id]",
+        "path": "/api/admin/data/feedback/cml5zwg520000iukw9xdto71i",
+        "url": "http://localhost:3000/api/admin/data/feedback/cml5zwg520000iukw9xdto71i",
+        "ok": true,
+        "status": 405,
+        "durationMs": 941
+      },
+      {
+        "name": "api:/api/admin/data/heatmap",
+        "path": "/api/admin/data/heatmap",
+        "url": "http://localhost:3000/api/admin/data/heatmap",
+        "ok": true,
+        "status": 403,
+        "durationMs": 261
+      },
+      {
+        "name": "api:/api/admin/data/learning",
+        "path": "/api/admin/data/learning",
+        "url": "http://localhost:3000/api/admin/data/learning",
+        "ok": true,
+        "status": 403,
+        "durationMs": 321
+      },
+      {
+        "name": "api:/api/admin/data/page-analytics",
+        "path": "/api/admin/data/page-analytics",
+        "url": "http://localhost:3000/api/admin/data/page-analytics",
+        "ok": true,
+        "status": 403,
+        "durationMs": 311
+      },
+      {
+        "name": "api:/api/admin/data/summary",
+        "path": "/api/admin/data/summary",
+        "url": "http://localhost:3000/api/admin/data/summary",
+        "ok": true,
+        "status": 403,
+        "durationMs": 320
+      },
+      {
+        "name": "api:/api/admin/data/users",
+        "path": "/api/admin/data/users",
+        "url": "http://localhost:3000/api/admin/data/users",
+        "ok": true,
+        "status": 403,
+        "durationMs": 366
+      },
+      {
+        "name": "api:/api/admin/data/users/[id]",
+        "path": "/api/admin/data/users/cmhjsa41e0000lb04srwlb6x1",
+        "url": "http://localhost:3000/api/admin/data/users/cmhjsa41e0000lb04srwlb6x1",
+        "ok": true,
+        "status": 403,
+        "durationMs": 1028
+      },
+      {
+        "name": "api:/api/admin/enhanced-generate-questions",
+        "path": "/api/admin/enhanced-generate-questions",
+        "url": "http://localhost:3000/api/admin/enhanced-generate-questions",
+        "ok": true,
+        "status": 405,
+        "durationMs": 710
+      },
+      {
+        "name": "api:/api/admin/generate-questions",
+        "path": "/api/admin/generate-questions",
+        "url": "http://localhost:3000/api/admin/generate-questions",
+        "ok": true,
+        "status": 405,
+        "durationMs": 373
+      },
+      {
+        "name": "api:/api/admin/health-check",
+        "path": "/api/admin/health-check",
+        "url": "http://localhost:3000/api/admin/health-check",
+        "ok": true,
+        "status": 403,
+        "durationMs": 401
+      },
+      {
+        "name": "api:/api/admin/practice-tests",
+        "path": "/api/admin/practice-tests",
+        "url": "http://localhost:3000/api/admin/practice-tests",
+        "ok": true,
+        "status": 401,
+        "durationMs": 481
+      },
+      {
+        "name": "api:/api/admin/practice-tests/[id]/publish",
+        "path": "/api/admin/practice-tests/cmlubf7cy0000iu7g4ogpx1o1/publish",
+        "url": "http://localhost:3000/api/admin/practice-tests/cmlubf7cy0000iu7g4ogpx1o1/publish",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1102
+      },
+      {
+        "name": "api:/api/admin/questions",
+        "path": "/api/admin/questions",
+        "url": "http://localhost:3000/api/admin/questions",
+        "ok": true,
+        "status": 401,
+        "durationMs": 415
+      },
+      {
+        "name": "api:/api/admin/questions/[id]",
+        "path": "/api/admin/questions/cml5zwg520000iukw9xdto71i",
+        "url": "http://localhost:3000/api/admin/questions/cml5zwg520000iukw9xdto71i",
+        "ok": true,
+        "status": 401,
+        "durationMs": 1129
+      },
+      {
+        "name": "api:/api/admin/reviews",
+        "path": "/api/admin/reviews",
+        "url": "http://localhost:3000/api/admin/reviews",
+        "ok": true,
+        "status": 401,
+        "durationMs": 428
+      },
+      {
+        "name": "api:/api/admin/run-group-study-migration",
+        "path": "/api/admin/run-group-study-migration",
+        "url": "http://localhost:3000/api/admin/run-group-study-migration",
+        "ok": true,
+        "status": 405,
+        "durationMs": 425
+      },
+      {
+        "name": "api:/api/admin/run-referral-migration",
+        "path": "/api/admin/run-referral-migration",
+        "url": "http://localhost:3000/api/admin/run-referral-migration",
+        "ok": true,
+        "status": 405,
+        "durationMs": 432
+      },
+      {
+        "name": "api:/api/admin/topics",
+        "path": "/api/admin/topics",
+        "url": "http://localhost:3000/api/admin/topics",
+        "ok": true,
+        "status": 403,
+        "durationMs": 436
+      },
+      {
+        "name": "api:/api/admin/topics/[id]",
+        "path": "/api/admin/topics/1b05adaf-a0cd-4caf-850b-8b0c41b47f55",
+        "url": "http://localhost:3000/api/admin/topics/1b05adaf-a0cd-4caf-850b-8b0c41b47f55",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1179
+      },
+      {
+        "name": "api:/api/admin/topics/[id]/subtopics",
+        "path": "/api/admin/topics/1b05adaf-a0cd-4caf-850b-8b0c41b47f55/subtopics",
+        "url": "http://localhost:3000/api/admin/topics/1b05adaf-a0cd-4caf-850b-8b0c41b47f55/subtopics",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1163
+      },
+      {
+        "name": "api:/api/admin/topics/[id]/subtopics/[sid]",
+        "path": "/api/admin/topics/1b05adaf-a0cd-4caf-850b-8b0c41b47f55/subtopics/0c6aebcf-4a7a-4a56-ad6e-9949bb0b4028",
+        "url": "http://localhost:3000/api/admin/topics/1b05adaf-a0cd-4caf-850b-8b0c41b47f55/subtopics/0c6aebcf-4a7a-4a56-ad6e-9949bb0b4028",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1158
+      },
+      {
+        "name": "api:/api/admin/unified-generate",
+        "path": "/api/admin/unified-generate",
+        "url": "http://localhost:3000/api/admin/unified-generate",
+        "ok": true,
+        "status": 200,
+        "durationMs": 506
+      },
+      {
+        "name": "api:/api/admin/upload-image",
+        "path": "/api/admin/upload-image",
+        "url": "http://localhost:3000/api/admin/upload-image",
+        "ok": true,
+        "status": 405,
+        "durationMs": 463
+      },
+      {
+        "name": "api:/api/ai-questions/generate",
+        "path": "/api/ai-questions/generate",
+        "url": "http://localhost:3000/api/ai-questions/generate",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1125
+      },
+      {
+        "name": "api:/api/ai-tutor/chat",
+        "path": "/api/ai-tutor/chat",
+        "url": "http://localhost:3000/api/ai-tutor/chat",
+        "ok": true,
+        "status": 405,
+        "durationMs": 682
+      },
+      {
+        "name": "api:/api/auth/signup",
+        "path": "/api/auth/signup",
+        "url": "http://localhost:3000/api/auth/signup",
+        "ok": true,
+        "status": 405,
+        "durationMs": 530
+      },
+      {
+        "name": "api:/api/env-check",
+        "path": "/api/env-check",
+        "url": "http://localhost:3000/api/env-check",
+        "ok": true,
+        "status": 200,
+        "durationMs": 477
+      },
+      {
+        "name": "api:/api/feedback",
+        "path": "/api/feedback",
+        "url": "http://localhost:3000/api/feedback",
+        "ok": true,
+        "status": 405,
+        "durationMs": 528
+      },
+      {
+        "name": "api:/api/feedback/status",
+        "path": "/api/feedback/status",
+        "url": "http://localhost:3000/api/feedback/status",
+        "ok": true,
+        "status": 200,
+        "durationMs": 647
+      },
+      {
+        "name": "api:/api/friends",
+        "path": "/api/friends",
+        "url": "http://localhost:3000/api/friends",
+        "ok": true,
+        "status": 401,
+        "durationMs": 685
+      },
+      {
+        "name": "api:/api/friends/[friendId]",
+        "path": "/api/friends/cmhjsa41e0000lb04srwlb6x1",
+        "url": "http://localhost:3000/api/friends/cmhjsa41e0000lb04srwlb6x1",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1347
+      },
+      {
+        "name": "api:/api/friends/requests",
+        "path": "/api/friends/requests",
+        "url": "http://localhost:3000/api/friends/requests",
+        "ok": true,
+        "status": 401,
+        "durationMs": 734
+      },
+      {
+        "name": "api:/api/friends/requests/[id]",
+        "path": "/api/friends/requests/cml5zwg520000iukw9xdto71i",
+        "url": "http://localhost:3000/api/friends/requests/cml5zwg520000iukw9xdto71i",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1345
+      },
+      {
+        "name": "api:/api/generated-images/[id]",
+        "path": "/api/generated-images/cml5zwg520000iukw9xdto71i",
+        "url": "http://localhost:3000/api/generated-images/cml5zwg520000iukw9xdto71i",
+        "ok": true,
+        "status": 404,
+        "durationMs": 1177
+      },
+      {
+        "name": "api:/api/group-study/sessions",
+        "path": "/api/group-study/sessions",
+        "url": "http://localhost:3000/api/group-study/sessions",
+        "ok": true,
+        "status": 401,
+        "durationMs": 614
+      },
+      {
+        "name": "api:/api/group-study/sessions/[id]",
+        "path": "/api/group-study/sessions/cmodl1f5h001mq1flwgh1p3tx",
+        "url": "http://localhost:3000/api/group-study/sessions/cmodl1f5h001mq1flwgh1p3tx",
+        "ok": true,
+        "status": 401,
+        "durationMs": 1363
+      },
+      {
+        "name": "api:/api/group-study/sessions/[id]/answer",
+        "path": "/api/group-study/sessions/cmodl1f5h001mq1flwgh1p3tx/answer",
+        "url": "http://localhost:3000/api/group-study/sessions/cmodl1f5h001mq1flwgh1p3tx/answer",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1514
+      },
+      {
+        "name": "api:/api/group-study/sessions/[id]/join",
+        "path": "/api/group-study/sessions/cmodl1f5h001mq1flwgh1p3tx/join",
+        "url": "http://localhost:3000/api/group-study/sessions/cmodl1f5h001mq1flwgh1p3tx/join",
+        "ok": true,
+        "status": 405,
+        "durationMs": 2142
+      },
+      {
+        "name": "api:/api/group-study/sessions/[id]/leave",
+        "path": "/api/group-study/sessions/cmodl1f5h001mq1flwgh1p3tx/leave",
+        "url": "http://localhost:3000/api/group-study/sessions/cmodl1f5h001mq1flwgh1p3tx/leave",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1393
+      },
+      {
+        "name": "api:/api/group-study/sessions/[id]/ready",
+        "path": "/api/group-study/sessions/cmodl1f5h001mq1flwgh1p3tx/ready",
+        "url": "http://localhost:3000/api/group-study/sessions/cmodl1f5h001mq1flwgh1p3tx/ready",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1339
+      },
+      {
+        "name": "api:/api/group-study/sessions/[id]/start",
+        "path": "/api/group-study/sessions/cmodl1f5h001mq1flwgh1p3tx/start",
+        "url": "http://localhost:3000/api/group-study/sessions/cmodl1f5h001mq1flwgh1p3tx/start",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1359
+      },
+      {
+        "name": "api:/api/health",
+        "path": "/api/health",
+        "url": "http://localhost:3000/api/health",
+        "ok": true,
+        "status": 200,
+        "durationMs": 74
+      },
+      {
+        "name": "api:/api/onboarding",
+        "path": "/api/onboarding",
+        "url": "http://localhost:3000/api/onboarding",
+        "ok": true,
+        "status": 401,
+        "durationMs": 682
+      },
+      {
+        "name": "api:/api/practice-tests",
+        "path": "/api/practice-tests",
+        "url": "http://localhost:3000/api/practice-tests",
+        "ok": true,
+        "status": 200,
+        "durationMs": 828
+      },
+      {
+        "name": "api:/api/practice-tests/[id]",
+        "path": "/api/practice-tests/cmlubf7cy0000iu7g4ogpx1o1",
+        "url": "http://localhost:3000/api/practice-tests/cmlubf7cy0000iu7g4ogpx1o1",
+        "ok": true,
+        "status": 401,
+        "durationMs": 1398
+      },
+      {
+        "name": "api:/api/practice-tests/[id]/progress",
+        "path": "/api/practice-tests/cmlubf7cy0000iu7g4ogpx1o1/progress",
+        "url": "http://localhost:3000/api/practice-tests/cmlubf7cy0000iu7g4ogpx1o1/progress",
+        "ok": true,
+        "status": 401,
+        "durationMs": 2361
+      },
+      {
+        "name": "api:/api/practice-tests/[id]/start",
+        "path": "/api/practice-tests/cmlubf7cy0000iu7g4ogpx1o1/start",
+        "url": "http://localhost:3000/api/practice-tests/cmlubf7cy0000iu7g4ogpx1o1/start",
+        "ok": true,
+        "status": 405,
+        "durationMs": 2402
+      },
+      {
+        "name": "api:/api/practice/drill-results",
+        "path": "/api/practice/drill-results",
+        "url": "http://localhost:3000/api/practice/drill-results",
+        "ok": true,
+        "status": 405,
+        "durationMs": 785
+      },
+      {
+        "name": "api:/api/progress",
+        "path": "/api/progress",
+        "url": "http://localhost:3000/api/progress",
+        "ok": true,
+        "status": 401,
+        "durationMs": 777
+      },
+      {
+        "name": "api:/api/promo/redeem",
+        "path": "/api/promo/redeem",
+        "url": "http://localhost:3000/api/promo/redeem",
+        "ok": true,
+        "status": 405,
+        "durationMs": 769
+      },
+      {
+        "name": "api:/api/public/questions",
+        "path": "/api/public/questions",
+        "url": "http://localhost:3000/api/public/questions",
+        "ok": true,
+        "status": 200,
+        "durationMs": 743
+      },
+      {
+        "name": "api:/api/question-generation/generate",
+        "path": "/api/question-generation/generate",
+        "url": "http://localhost:3000/api/question-generation/generate",
+        "ok": true,
+        "status": 405,
+        "durationMs": 710
+      },
+      {
+        "name": "api:/api/question-generation/status",
+        "path": "/api/question-generation/status",
+        "url": "http://localhost:3000/api/question-generation/status",
+        "ok": false,
+        "status": 501,
+        "durationMs": 726
+      },
+      {
+        "name": "api:/api/questions",
+        "path": "/api/questions",
+        "url": "http://localhost:3000/api/questions",
+        "ok": true,
+        "status": 200,
+        "durationMs": 2029
+      },
+      {
+        "name": "api:/api/questions/[id]/image",
+        "path": "/api/questions/cml5zwg520000iukw9xdto71i/image",
+        "url": "http://localhost:3000/api/questions/cml5zwg520000iukw9xdto71i/image",
+        "ok": true,
+        "status": 404,
+        "durationMs": 1826
+      },
+      {
+        "name": "api:/api/questions/[id]/review",
+        "path": "/api/questions/cml5zwg520000iukw9xdto71i/review",
+        "url": "http://localhost:3000/api/questions/cml5zwg520000iukw9xdto71i/review",
+        "ok": true,
+        "status": 200,
+        "durationMs": 2442
+      },
+      {
+        "name": "api:/api/questions/category-counts",
+        "path": "/api/questions/category-counts",
+        "url": "http://localhost:3000/api/questions/category-counts",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1115
+      },
+      {
+        "name": "api:/api/questions/practice",
+        "path": "/api/questions/practice",
+        "url": "http://localhost:3000/api/questions/practice",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1121
+      },
+      {
+        "name": "api:/api/referrals",
+        "path": "/api/referrals",
+        "url": "http://localhost:3000/api/referrals",
+        "ok": true,
+        "status": 401,
+        "durationMs": 1359
+      },
+      {
+        "name": "api:/api/referrals/apply",
+        "path": "/api/referrals/apply",
+        "url": "http://localhost:3000/api/referrals/apply",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1272
+      },
+      {
+        "name": "api:/api/setup/run-group-study-migration",
+        "path": "/api/setup/run-group-study-migration",
+        "url": "http://localhost:3000/api/setup/run-group-study-migration",
+        "ok": true,
+        "status": 403,
+        "durationMs": 1750
+      },
+      {
+        "name": "api:/api/setup/run-migration",
+        "path": "/api/setup/run-migration",
+        "url": "http://localhost:3000/api/setup/run-migration",
+        "ok": true,
+        "status": 403,
+        "durationMs": 1377
+      },
+      {
+        "name": "api:/api/stripe/checkout",
+        "path": "/api/stripe/checkout",
+        "url": "http://localhost:3000/api/stripe/checkout",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1873
+      },
+      {
+        "name": "api:/api/stripe/portal",
+        "path": "/api/stripe/portal",
+        "url": "http://localhost:3000/api/stripe/portal",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1164
+      },
+      {
+        "name": "api:/api/stripe/webhook",
+        "path": "/api/stripe/webhook",
+        "url": "http://localhost:3000/api/stripe/webhook",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1115
+      },
+      {
+        "name": "api:/api/subscription",
+        "path": "/api/subscription",
+        "url": "http://localhost:3000/api/subscription",
+        "ok": true,
+        "status": 401,
+        "durationMs": 1467
+      },
+      {
+        "name": "api:/api/test-image-gen",
+        "path": "/api/test-image-gen",
+        "url": "http://localhost:3000/api/test-image-gen",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1164
+      },
+      {
+        "name": "api:/api/test-results",
+        "path": "/api/test-results",
+        "url": "http://localhost:3000/api/test-results",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1153
+      },
+      {
+        "name": "api:/api/tracking/clicks",
+        "path": "/api/tracking/clicks",
+        "url": "http://localhost:3000/api/tracking/clicks",
+        "ok": true,
+        "status": 405,
+        "durationMs": 2213
+      },
+      {
+        "name": "api:/api/tracking/drill",
+        "path": "/api/tracking/drill",
+        "url": "http://localhost:3000/api/tracking/drill",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1633
+      },
+      {
+        "name": "api:/api/tracking/events",
+        "path": "/api/tracking/events",
+        "url": "http://localhost:3000/api/tracking/events",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1503
+      },
+      {
+        "name": "api:/api/tracking/pageview",
+        "path": "/api/tracking/pageview",
+        "url": "http://localhost:3000/api/tracking/pageview",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1397
+      },
+      {
+        "name": "api:/api/tracking/survey",
+        "path": "/api/tracking/survey",
+        "url": "http://localhost:3000/api/tracking/survey",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1217
+      },
+      {
+        "name": "api:/api/users/mark-qr-source",
+        "path": "/api/users/mark-qr-source",
+        "url": "http://localhost:3000/api/users/mark-qr-source",
+        "ok": true,
+        "status": 405,
+        "durationMs": 1168
+      },
+      {
+        "name": "api:/api/users/search",
+        "path": "/api/users/search",
+        "url": "http://localhost:3000/api/users/search",
+        "ok": true,
+        "status": 401,
+        "durationMs": 1272
+      }
+    ]
+  },
+  "routeChecks": {
+    "total": 32,
+    "passed": 32,
+    "failed": 0,
+    "serverErrorCount": 0,
+    "results": [
+      {
+        "name": "route:/about",
+        "path": "/about",
+        "url": "http://localhost:3000/about",
+        "ok": true,
+        "status": 200,
+        "durationMs": 10232
+      },
+      {
+        "name": "route:/admin",
+        "path": "/admin",
+        "url": "http://localhost:3000/admin",
+        "ok": true,
+        "status": 200,
+        "durationMs": 4222
+      },
+      {
+        "name": "route:/admin/data",
+        "path": "/admin/data",
+        "url": "http://localhost:3000/admin/data",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1543
+      },
+      {
+        "name": "route:/admin/practice-tests",
+        "path": "/admin/practice-tests",
+        "url": "http://localhost:3000/admin/practice-tests",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1404
+      },
+      {
+        "name": "route:/admin/question-generation",
+        "path": "/admin/question-generation",
+        "url": "http://localhost:3000/admin/question-generation",
+        "ok": true,
+        "status": 200,
+        "durationMs": 2304
+      },
+      {
+        "name": "route:/admin/questions",
+        "path": "/admin/questions",
+        "url": "http://localhost:3000/admin/questions",
+        "ok": true,
+        "status": 200,
+        "durationMs": 2706
+      },
+      {
+        "name": "route:/admin/reviews",
+        "path": "/admin/reviews",
+        "url": "http://localhost:3000/admin/reviews",
+        "ok": true,
+        "status": 200,
+        "durationMs": 2576
+      },
+      {
+        "name": "route:/admin/test",
+        "path": "/admin/test",
+        "url": "http://localhost:3000/admin/test",
+        "ok": true,
+        "status": 200,
+        "durationMs": 7561
+      },
+      {
+        "name": "route:/admin/topics",
+        "path": "/admin/topics",
+        "url": "http://localhost:3000/admin/topics",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1377
+      },
+      {
+        "name": "route:/admin/validate-questions",
+        "path": "/admin/validate-questions",
+        "url": "http://localhost:3000/admin/validate-questions",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1138
+      },
+      {
+        "name": "route:/auth/error",
+        "path": "/auth/error",
+        "url": "http://localhost:3000/auth/error",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1603
+      },
+      {
+        "name": "route:/auth/signin",
+        "path": "/auth/signin",
+        "url": "http://localhost:3000/auth/signin",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1241
+      },
+      {
+        "name": "route:/auth/signup",
+        "path": "/auth/signup",
+        "url": "http://localhost:3000/auth/signup",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1376
+      },
+      {
+        "name": "route:/auth/welcome",
+        "path": "/auth/welcome",
+        "url": "http://localhost:3000/auth/welcome",
+        "ok": true,
+        "status": 200,
+        "durationMs": 4415
+      },
+      {
+        "name": "route:/dashboard",
+        "path": "/dashboard",
+        "url": "http://localhost:3000/dashboard",
+        "ok": true,
+        "status": 200,
+        "durationMs": 4267
+      },
+      {
+        "name": "route:/debug-auth",
+        "path": "/debug-auth",
+        "url": "http://localhost:3000/debug-auth",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1269
+      },
+      {
+        "name": "route:/friends",
+        "path": "/friends",
+        "url": "http://localhost:3000/friends",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1214
+      },
+      {
+        "name": "route:/home/qr-code",
+        "path": "/home/qr-code",
+        "url": "http://localhost:3000/home/qr-code",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1361
+      },
+      {
+        "name": "route:/how-it-works",
+        "path": "/how-it-works",
+        "url": "http://localhost:3000/how-it-works",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1305
+      },
+      {
+        "name": "route:/onboarding",
+        "path": "/onboarding",
+        "url": "http://localhost:3000/onboarding",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1331
+      },
+      {
+        "name": "route:/our-goal",
+        "path": "/our-goal",
+        "url": "http://localhost:3000/our-goal",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1320
+      },
+      {
+        "name": "route:/page.tsx",
+        "path": "/page.tsx",
+        "url": "http://localhost:3000/page.tsx",
+        "ok": true,
+        "status": 404,
+        "durationMs": 1607
+      },
+      {
+        "name": "route:/practice",
+        "path": "/practice",
+        "url": "http://localhost:3000/practice",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1142
+      },
+      {
+        "name": "route:/practice-test",
+        "path": "/practice-test",
+        "url": "http://localhost:3000/practice-test",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1467
+      },
+      {
+        "name": "route:/practice-tests",
+        "path": "/practice-tests",
+        "url": "http://localhost:3000/practice-tests",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1246
+      },
+      {
+        "name": "route:/pricing",
+        "path": "/pricing",
+        "url": "http://localhost:3000/pricing",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1274
+      },
+      {
+        "name": "route:/progress",
+        "path": "/progress",
+        "url": "http://localhost:3000/progress",
+        "ok": true,
+        "status": 200,
+        "durationMs": 1484
+      },
+      {
+        "name": "route:/question-review",
+        "path": "/question-review",
+        "url": "http://localhost:3000/question-review",
+        "ok": true,
+        "status": 200,
+        "durationMs": 3312
+      },
+      {
+        "name": "route:/questions",
+        "path": "/questions",
+        "url": "http://localhost:3000/questions",
+        "ok": true,
+        "status": 200,
+        "durationMs": 2056
+      },
+      {
+        "name": "route:/questions/review",
+        "path": "/questions/review",
+        "url": "http://localhost:3000/questions/review",
+        "ok": true,
+        "status": 200,
+        "durationMs": 3567
+      },
+      {
+        "name": "route:/referrals",
+        "path": "/referrals",
+        "url": "http://localhost:3000/referrals",
+        "ok": true,
+        "status": 200,
+        "durationMs": 2083
+      },
+      {
+        "name": "route:/review",
+        "path": "/review",
+        "url": "http://localhost:3000/review",
+        "ok": true,
+        "status": 200,
+        "durationMs": 112
+      }
+    ]
+  },
+  "gates": [
+    {
+      "id": "P0-HEALTH",
+      "title": "Health endpoint reachable",
+      "severity": "P0",
+      "ok": true,
+      "details": "status=200"
+    },
+    {
+      "id": "P0-DIAGRAMLESS",
+      "title": "Zero diagram markers in questions",
+      "severity": "P0",
+      "ok": true,
+      "details": "diagramMarkedAny=0"
+    },
+    {
+      "id": "P0-QUESTION-STRUCTURE",
+      "title": "All questions structurally passable",
+      "severity": "P0",
+      "ok": false,
+      "details": "structuralInvalidCount=2"
+    },
+    {
+      "id": "P0-API-5XX",
+      "title": "No API 5xx/network failures during smoke",
+      "severity": "P0",
+      "ok": false,
+      "details": "serverErrorCount=1 checked=78 skipped=1"
+    },
+    {
+      "id": "P0-ROUTE-5XX",
+      "title": "No app route 5xx/network failures during smoke",
+      "severity": "P0",
+      "ok": true,
+      "details": "serverErrorCount=0 checked=32"
+    },
+    {
+      "id": "P1-DUPLICATES",
+      "title": "No exact duplicate question text clusters",
+      "severity": "P1",
+      "ok": false,
+      "details": "exactDuplicateQuestionTexts=1053"
+    },
+    {
+      "id": "P1-READING-PASSAGE",
+      "title": "Reading questions include passages (warning gate)",
+      "severity": "P1",
+      "ok": false,
+      "details": "readingMissingPassageWarning=426"
+    }
+  ],
+  "launchReady": false
+}

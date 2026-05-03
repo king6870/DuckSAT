@@ -4,6 +4,75 @@ import * as path from 'path';
 
 const prisma = new PrismaClient();
 
+function escapeHtml(value: string): string {
+    return value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function normalizeMathEscapes(value: string): string {
+    // Many rows store LaTeX commands with doubled slashes (e.g. \\sqrt).
+    // KaTeX expects a single slash command (e.g. \sqrt).
+    return value.replace(/\\\\/g, '\\');
+}
+
+function hasMathDelimiters(value: string): boolean {
+    return /\$[^$]+\$|\\\([^)]*\\\)|\\\[[\s\S]*?\\\]/.test(value);
+}
+
+function containsLatexCommands(value: string): boolean {
+    return /\\[a-zA-Z]+/.test(value);
+}
+
+function formatChoiceText(value: string): string {
+    const normalized = normalizeMathEscapes(value);
+
+    const optionMatch = normalized.match(/^\s*([A-Da-d]\)\s*)([\s\S]+)$/);
+    if (optionMatch) {
+        const prefix = optionMatch[1];
+        const rest = optionMatch[2].trim();
+        if (!hasMathDelimiters(rest) && containsLatexCommands(rest)) {
+            return formatText(`${prefix}$${rest}$`);
+        }
+    }
+
+    if (!hasMathDelimiters(normalized) && containsLatexCommands(normalized)) {
+        return formatText(`$${normalized}$`);
+    }
+
+    return formatText(normalized);
+}
+
+function formatText(value: string | null | undefined): string {
+    if (!value) return '';
+    const normalized = normalizeMathEscapes(value);
+    return escapeHtml(normalized).replace(/\r?\n/g, '<br>');
+}
+
+function normalizeOptions(raw: unknown): string[] {
+    if (Array.isArray(raw)) {
+        return raw.map((item) => String(item));
+    }
+
+    if (typeof raw === 'string') {
+        try {
+            const parsed = JSON.parse(raw) as unknown;
+            if (Array.isArray(parsed)) {
+                return parsed.map((item) => String(item));
+            }
+        } catch {
+            // Fall back below.
+        }
+
+        return [raw];
+    }
+
+    return [];
+}
+
 async function exportQuestionsToHTML() {
   try {
     console.log('\n📤 Exporting questions with diagrams to HTML...\n');
@@ -28,6 +97,9 @@ async function exportQuestionsToHTML() {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DuckSAT Questions with Diagrams</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -108,6 +180,10 @@ async function exportQuestionsToHTML() {
             font-weight: bold;
             margin-bottom: 8px;
         }
+        .explanation-content {
+            white-space: normal;
+            line-height: 1.55;
+        }
         .metadata {
             font-size: 14px;
             color: #666;
@@ -177,20 +253,28 @@ async function exportQuestionsToHTML() {
 `;
 
     questions.forEach((q, index) => {
-      const choices = JSON.parse(q.options);
+            const choices = normalizeOptions(q.options);
       // Ensure imageData is properly converted to Buffer first, then to base64
       const imageBase64 = q.imageData ? Buffer.from(q.imageData).toString('base64') : '';
       const imageSrc = imageBase64 ? `data:${q.imageMimeType || 'image/png'};base64,${imageBase64}` : '';
+            const safeQuestion = formatText(q.question);
+            const safeExplanation = formatText(q.explanation);
+            const safeImageAlt = escapeHtml(q.imageAlt || 'Question diagram');
+            const safeCategory = escapeHtml(q.category || '');
+            const safeDifficulty = escapeHtml(q.difficulty || '');
+            const safeSubtopic = escapeHtml(q.subtopic || '');
+            const safeVisualType = escapeHtml(q.visualType || '');
+            const safeSource = escapeHtml(q.source || '');
 
       html += `
     <div class="question-card">
         <div class="question-number">Question ${index + 1}</div>
-        <div class="question-text">${q.question}</div>
+                <div class="question-text">${safeQuestion}</div>
         
         ${imageSrc ? `
         <div class="diagram">
-            <img src="${imageSrc}" alt="${q.imageAlt || 'Question diagram'}" />
-            ${q.imageAlt ? `<p style="margin-top: 12px; color: #666; font-size: 14px;">${q.imageAlt}</p>` : ''}
+                        <img src="${imageSrc}" alt="${safeImageAlt}" />
+                        ${q.imageAlt ? `<p style="margin-top: 12px; color: #666; font-size: 14px;">${formatText(q.imageAlt)}</p>` : ''}
         </div>
         ` : ''}
         
@@ -199,26 +283,26 @@ async function exportQuestionsToHTML() {
 
       choices.forEach((choice: string, i: number) => {
         const isCorrect = i === q.correctAnswer;
-        html += `            <div class="choice ${isCorrect ? 'correct' : ''}">${choice}</div>\n`;
+                                html += `            <div class="choice ${isCorrect ? 'correct' : ''}">${formatChoiceText(choice)}</div>\n`;
       });
 
       html += `        </div>
         
         <div class="explanation">
             <div class="explanation-title">💡 Explanation:</div>
-            <div>${q.explanation}</div>
+                        <div class="explanation-content">${safeExplanation}</div>
         </div>
         
         <div class="metadata">
             <div class="metadata-item">
-                <span class="badge badge-category">${q.category}</span>
+                                <span class="badge badge-category">${safeCategory}</span>
             </div>
             <div class="metadata-item">
-                <span class="badge badge-difficulty">${q.difficulty}</span>
+                                <span class="badge badge-difficulty">${safeDifficulty}</span>
             </div>
-            ${q.subtopic ? `<div class="metadata-item">📚 ${q.subtopic}</div>` : ''}
-            ${q.visualType ? `<div class="metadata-item">🎨 ${q.visualType}</div>` : ''}
-            ${q.source ? `<div class="metadata-item">📖 ${q.source}</div>` : ''}
+                        ${q.subtopic ? `<div class="metadata-item">📚 ${safeSubtopic}</div>` : ''}
+                        ${q.visualType ? `<div class="metadata-item">🎨 ${safeVisualType}</div>` : ''}
+                        ${q.source ? `<div class="metadata-item">📖 ${safeSource}</div>` : ''}
             <div class="metadata-item">📅 ${new Date(q.createdAt).toLocaleDateString()}</div>
             <div class="metadata-item">💾 ${q.imageData ? (q.imageData.length / 1024).toFixed(2) : '0'} KB</div>
         </div>
@@ -227,6 +311,19 @@ async function exportQuestionsToHTML() {
     });
 
     html += `
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.renderMathInElement) {
+            window.renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false }
+                ],
+                throwOnError: false
+            });
+        }
+    });
+</script>
 </body>
 </html>`;
 

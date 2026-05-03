@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review: batch-1777331939417-advanced-math</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+  <style>
+    body { font-family: Georgia, serif; max-width: 900px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
+    .header { background: #f0f4f8; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+    .header h1 { margin: 0 0 10px; color: #1a365d; }
+    .header .meta { color: #4a5568; font-size: 14px; }
+    .question { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 25px; margin-bottom: 25px; }
+    .question-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
+    .question-number { font-weight: bold; font-size: 18px; color: #2d3748; }
+    .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+    .badge.easy { background: #c6f6d5; color: #22543d; }
+    .badge.medium { background: #fed7d7; color: #742a2a; }
+    .badge.hard { background: #e2e8f0; color: #1a202c; }
+    .question-text { font-size: 16px; margin: 15px 0; }
+    .passage { background: #f7fafc; padding: 15px; border-left: 4px solid #4299e1; margin: 15px 0; font-size: 14px; }
+    .diagram { margin: 16px 0; text-align: center; background: #fafcff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; }
+    .diagram img { max-width: 100%; height: auto; border-radius: 4px; border: 1px solid #e5e7eb; }
+    .diagram-placeholder { color: #6b7280; font-size: 13px; }
+    .chart-data { margin-top: 8px; text-align: left; }
+    .chart-data summary { cursor: pointer; color: #334155; font-size: 13px; }
+    .chart-data pre { margin-top: 6px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 10px; font-size: 12px; overflow-x: auto; }
+    .options { list-style: none; padding: 0; }
+    .options li { padding: 10px; margin: 8px 0; border-radius: 4px; background: #f7fafc; }
+    .options li.correct { background: #c6f6d5; border-left: 4px solid #38a169; }
+    .explanation { background: #fffaf0; padding: 15px; border-left: 4px solid #ed8936; margin-top: 15px; }
+    .explanation-title { font-weight: bold; color: #7c2d12; margin-bottom: 8px; }
+    footer { text-align: center; padding: 40px 0; color: #718096; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>batch-1777331939417-advanced-math</h1>
+    <div class="meta">
+      Generated: 4/27/2026, 4:24:00 PM | 
+      Topic: advanced-math | 
+      Module: math | 
+      Valid: 5/5
+    </div>
+  </div>
+
+  
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 1</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">Which expression best models a town&#39;s population after t years if the population grows by 4% per year and starts at 200 people?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) $200 + 4t$</li><li class="correct">B) $200(1.04)^t$</li><li class="">C) $200(1.04)^{t+1}$</li><li class="">D) $200 + 0.04t$</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Step 1: Identify the model. Exponential growth with initial population P0 = 200 and growth rate r = 0.04 is P(t) = P0(1 + r)^t = 200(1.04)^t. Step 2: Compare options: A) linear growth, D) linear growth with additive 0.04t, C) uses t+1 in the exponent, which incorrectly shifts the starting point, so incorrect. Therefore, option B is correct.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 2</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">Using properties of logarithms, evaluate $\\log_{3}(27) + \\log_{3}(9) - \\log_{3}(3)$. What is the value?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 3</li><li class="">B) 2</li><li class="correct">C) 4</li><li class="">D) 5</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Step 1: Write each term using base-3 powers: $\\log_{3}(27)=\\log_{3}(3^3)=3$, $\\log_{3}(9)=\\log_{3}(3^2)=2$, $\\log_{3}(3)=\\log_{3}(3^1)=1$. Step 2: Combine: $3 + 2 - 1 = 4$. Therefore, the value is 4.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 3</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">An city population grows exponentially at a rate of 2.5% per year. If the initial population is $120000$, the model is $P(t) = 120000(1.025)^t$, where t is in years. About how many years will it take for the population to reach 150000? (Choose the closest integer.)</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 8 years</li><li class="correct">B) 9 years</li><li class="">C) 10 years</li><li class="">D) 12 years</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Step 1: Set up the equation using the exponential model: $120000(1.025)^t = 150000$. Step 2: Divide both sides by 120000: $(1.025)^t = \frac{150000}{120000} = 1.25$. Step 3: Take natural logs: $t\ln(1.025) = \ln(1.25)$. Step 4: Solve for t: $t = \dfrac{\ln(1.25)}{\ln(1.025)}$. Step 5: Approximate: $\ln(1.25) \approx 0.2231436$ and $\ln(1.025) \approx 0.0246926$, so $t \approx 9.04$, i.e., about 9 years. Note: if growth were linear with a fixed annual increase of 2.5% of the initial population, the model would be $P(t) \approx 120000 + 0.025 \cdot 120000 \cdot t = 120000 + 3000t$, which would reach 150000 after 10 years, illustrating the difference between exponential and linear growth.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 4</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Let $\\log_{2}$ denote the base-2 logarithm. If $\\log_{2}(2x) = \\log_{2}(5x - 3)$ with the domain constraint $x &gt; \frac{3}{5}$, solve for $x$.</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 0</li><li class="correct">B) 1</li><li class="">C) $\tfrac{3}{5}$</li><li class="">D) 2</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Since the logarithms have the same base and are equal, their arguments must be equal: $2x = 5x - 3$. Solve: $-3x = -3 \Rightarrow x = 1$. The domain requires $x &gt; \frac{3}{5}$, which is satisfied. Therefore, $x = 1$ is the solution.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 5</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Compute the quotient and express in the form $a + bi$ where $i^2 = -1$: $\dfrac{3 - 4i}{1 + i}$.</div>
+    
+    
+    <ul class="options">
+      <li class="">A) $1 - 7i$</li><li class="correct">B) $-\tfrac{1}{2} - \tfrac{7}{2}i$</li><li class="">C) $-2 + i$</li><li class="">D) $2 - 3i$</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      To divide by a complex number, multiply numerator and denominator by the conjugate of the denominator: $\dfrac{3 - 4i}{1 + i} \cdot \dfrac{1 - i}{1 - i} = \dfrac{(3 - 4i)(1 - i)}{(1 + i)(1 - i)}$. Compute the numerator: $(3 - 4i)(1 - i) = 3 - 3i - 4i + 4i^2 = 3 - 7i - 4 = -1 - 7i$. Denominator: $(1 + i)(1 - i) = 1 - i^2 = 2$. Therefore, the result is $\dfrac{-1 - 7i}{2} = -\tfrac{1}{2} - \tfrac{7}{2}i$.
+    </div>
+  </div>
+
+
+  <footer>
+    <p>Review this batch and approve or reject questions before importing to the database.</p>
+  </footer>
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "$", right: "$", display: false}
+          ],
+          throwOnError: false,
+          strict: false
+        });
+      }
+    });
+  </script>
+</body>
+</html>

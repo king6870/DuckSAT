@@ -1,0 +1,1432 @@
+{
+  "batchId": "batch-1777348691719-rhetoric",
+  "topic": "rhetoric",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-04-28T04:03:48.571Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 50,
+  "totalGenerated": 49,
+  "totalValid": 49,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "The author includes free fitness classes for the community in order to...",
+      "options": [
+        "A) A) to illustrate a concrete policy measure that improves public health",
+        "B) B) to show the author’s personal preference for gym culture",
+        "C) C) to argue that all parks should be privately funded",
+        "D) D) to distract readers with an extraneous detail"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The author’s inclusion of free fitness classes is a concrete example used to support the claim that public spaces can improve health and reduce costs. It functions as evidence, not as a personal preference or a call for privatization. The other options misinterpret the detail: the classes are not about gym culture, not about privatization, and not extraneous; they directly support the central claim about public health and cost savings.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Cities face rising health costs, but the mayor argues that public spaces can help. The central claim is that parks, when well designed, reduce strain on local services by encouraging activity. Evidence includes the introduction of free fitness classes offered at multiple parks, extended hours, and improved lighting. In one neighborhood the number of people participating in morning walks rose by 25 percent within three months, and residents report feeling more connected. The program costs are modest compared with hospital savings, the city notes. Critics worry about programming budgets, but officials argue that the social benefits—clean air, safer streets, and more civic pride—matter as much as the financial bottom line. The conclusion urges continued investment, calling parks not a luxury but an essential part of public health.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A misreads the detail as a standalone policy rather than evidence supporting a broader claim.",
+        "B": "B treats the detail as a personal preference, not as a public policy tool.",
+        "C": "C misstates the intention; no privatization is suggested.",
+        "D": "D implies distraction; the passage uses the detail to advance the argument."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.092Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s tone in this passage is best described as...",
+      "options": [
+        "A) Indignant and dismissive",
+        "B) Hopeful but practical",
+        "C) Sarcastic",
+        "D) Indifferent"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage describes a calm but urgent tone that is hopeful about improvement while acknowledging challenges and costs, i.e., hopeful but practical. The other options describe tones that do not fit the text: indignation, sarcasm, or indifference are not supported by the calm, constructive language.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "tone",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During the school board meeting, the presenter argues that student literacy must be prioritized in the upcoming budget. The claim is simple: declining reading scores threaten long-term success. To support it, the speaker cites recent data showing a drop in eighth-grade reading levels and a pilot program that raised test scores in one grade. The tone remains calm but urgent, balancing respect for committees with the need to act. The speaker notes that changes will require time and collaboration, yet stresses that delay will widen gaps. By acknowledging counterarguments about costs, the speaker reinforces credibility. The conclusion requests quick approval for a three-year plan, including teacher training and expanded library hours. The overall tone blends measured concern with a sense of responsibility to students, rather than alarm or sarcasm.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage does not show anger or hostility toward the subject.",
+        "B": "B is the correct answer and should not be explained as wrong.",
+        "C": "C implies sarcasm, which the passage does not exhibit.",
+        "D": "D suggests detachment, which contradicts the urgent but composed stance."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.098Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence 'If we do nothing, the problem will worsen' in order to...",
+      "options": [
+        "A) present a concession",
+        "B) frame the stakes and consequences",
+        "C) introduce data",
+        "D) restate the claim"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The sentence introduces the consequences of inaction, which frames the stakes of the policy decision and heightens urgency. It is not a concession, nor is it introducing data or simply restating the claim; it signals the costs of inaction.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "At the city council meeting, a planner describes a new bike lane project. The claim is that safer streets will attract more residents to walk and bike. Evidence is offered through traffic counts, a safety survey, and maps showing protected lanes. A sentence later reads, 'If we do nothing, the problem will worsen.' This sentence functions to warn about stakes. The conclusion urges the council to fund the project now, arguing that delay will raise costs and reduce quality of life. The speaker's method relies on a clear sequence: claim, supporting data, and a concrete forecast. The audience is invited to share the plan and to envision a healthier, more connected neighborhood. In this way the paragraph moves from idea to action.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "It does not concede a point or acknowledge an opposing view; it warns about outcomes.",
+        "B": "CORRECT ANSWER",
+        "C": "The sentence does not introduce data; it refers to consequences of inaction.",
+        "D": "The sentence does not restate the main claim; it intensifies the stakes."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.099Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes extended library hours in order to...",
+      "options": [
+        "A) to show how libraries can profit from private partnerships",
+        "B) to illustrate budget constraints without offering a solution",
+        "C) to demonstrate that broader access benefits the community",
+        "D) to criticize current library leadership"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The extended hours and digital lending are presented as evidence that broader access to library services benefits students, job seekers, and the community, supporting the claim about civic life. The other options misread the purpose: there is no emphasis on private profit, a critical stance toward leadership, or only budgetary constraints without a proposed solution.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Public libraries have extended evening hours and introduced a weekend push for digital lending. The claim is that broader access strengthens the community by supporting students and job seekers. Evidence includes usage statistics from the first six months, a survey showing higher satisfaction, and testimonials from local nonprofits. The author argues that these services are a public good, not a luxury. The conclusion calls for continued funding and expanding partnerships with schools and community groups. The tone is measured, foregrounding data while acknowledging concerns about cost. Overall, the passage presents a straightforward argument that access to information and programs improves civic life.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage does not frame partnership profits as the goal.",
+        "B": "The passage uses the data to argue for access, not merely to discuss constraints.",
+        "C": "CORRECT ANSWER",
+        "D": "There is no critique of leadership; the tone is constructive."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.100Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s purpose in this passage is to...",
+      "options": [
+        "A) entertain readers with a dramatic narrative",
+        "B) persuade policymakers to support the restoration plan",
+        "C) present a neutral history of coastal areas",
+        "D) criticize critics of environmental policy"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage presents a policy-oriented argument about coastal restoration, with calls for phased rollout and broad support, indicating the author’s aim to persuade policymakers to back the plan. The other options mischaracterize the piece as entertainment, neutral history, or critique without constructive policy action.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "An official report on coastal restoration argues that careful planning will protect communities. The claim is that restoration projects will reduce flood risk and boost wildlife habitats. Evidence includes successful wetland projects along the bay and cost estimates showing long-term savings from avoided flood damage. The tone is hopeful but practical, recognizing potential disruption during construction yet emphasizing community meetings and compensation for affected businesses. The conclusion calls for a phased rollout, with safety reviews at each stage and transparent reporting. The author writes to reassure residents that risk is manageable and benefits are tangible, encouraging broad support for the plan.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage is not written to entertain through drama.",
+        "B": "CORRECT ANSWER",
+        "C": "The passage is not a neutral historical account.",
+        "D": "The passage does not primarily critique opponents; it advocates for a policy."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.101Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s use of a chart showing rising rents is meant to...",
+      "options": [
+        "A) dispute the relevance of data in policy decisions",
+        "B) provide background on historical housing trends without suggesting action",
+        "C) persuade readers to support a policy by showing a trend that warrants action",
+        "D) question the credibility of the housing market data"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The chart is presented as evidence that rents are rising faster than wages, supporting the claim that deliberate policy (inclusionary zoning) is needed. Therefore, its purpose is to persuade readers to support action. The other options misread or dismiss the chart’s role in the argument.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "A policy briefing on housing reform outlines inclusionary zoning as a path to fairness. The claim is that without deliberate policy, affordable housing will remain scarce. Evidence includes a chart that shows rents rising faster than wages over a decade, and case studies from three neighborhoods where new developments included affordable units. The author writes to persuade city council members to adopt the zoning measure and to build public support among residents. The conclusion warns that without timely action, the city will face greater inequality and longer commutes. The tone is steady and practical, focusing on outcomes rather than rhetoric.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The chart is used as evidence, not to dispute data relevance.",
+        "B": "The passage uses data to argue for action, not just background.",
+        "C": "CORRECT ANSWER",
+        "D": "The data is presented to support, not to doubt, credibility."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.102Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The sentence 'Lowering permit fees will attract local vendors to set up repair shops' functions to...",
+      "options": [
+        "A) present a concession",
+        "B) suggest a concrete policy step",
+        "C) restate the main claim",
+        "D) introduce a new problem"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The sentence positions a specific policy step (lower fees) as a means to implement the broader claim of supporting local bike shops and cycling. It transitions from principle to practical policy action. The other options do not capture the sentence’s function.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During a town hall, a resident urges municipal subsidies for bicycle maintenance shops. The plan emphasizes small, local businesses as anchors of economic vitality. The claim is that affordable permits and tax credits will attract shop owners and cyclists alike. Evidence includes a pilot program in a neighboring town that increased biking trips and local commerce. The concluding note invites the council to adopt the subsidy package. The paragraph uses the sentence 'Lowering permit fees will attract local vendors to set up repair shops' to move from principle to policy. The overall argument remains concrete and actionable.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The sentence does not concede a point; it proposes a policy action.",
+        "B": "CORRECT ANSWER",
+        "C": "The sentence is not merely restating the main claim; it specifies a step.",
+        "D": "It does not introduce a problem; it presents a policy fix."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.103Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author uses a historical anecdote in order to...",
+      "options": [
+        "A) undermine the legitimacy of reform by showing past failures",
+        "B) illustrate that change is possible with patient effort",
+        "C) provide a complete history of urban planning",
+        "D) entertain readers with a story of city success"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The anecdote is used to support the claim that reform is possible when approached gradually with input from the community. It is evidence for a broader argument about gradual progress, not a critique or entertainment.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Historical anecdote about a prior city that faced similar traffic issues; The claim is that incremental changes built public trust and infrastructure. Evidence includes a timeline and early small projects that led to later broader reforms. The author writes to persuade readers that reform is possible with patient work and community input. The conclusion calls for careful planning and continued experimentation. The tone is optimistic about gradual progress.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The anecdote is not used to belittle reform; it supports it.",
+        "B": "CORRECT ANSWER",
+        "C": "The anecdote is not meant as a full history; it serves a point about possibility.",
+        "D": "The goal is persuasive, not entertainment."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.103Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s use of a concise policy sentence in this paragraph serves to...",
+      "options": [
+        "A) restate the main claim",
+        "B) propose a new, unrelated policy",
+        "C) signal a transition from discussion to action",
+        "D) introduce a counterargument"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The sentence 'Therefore, the plan moves forward' marks a shift from considering the plan to advancing it, i.e., a transition to action. It is not merely restating the claim, proposing something unrelated, or introducing a counterargument.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Municipal council's brief outlines several feasibility steps for a citywide transit upgrade. The claim is that a phased rollout will minimize disruption. Evidence includes a schedule, cost estimates, and a pilot in two districts. The sentence 'Therefore, the plan moves forward' functions to signal a transition from consideration to action. The conclusion invites public feedback on the next stage and requests formal approval to begin the first phase. Supporters anticipate improved reliability, while critics caution about upfront costs. The document uses concrete metrics and timelines to keep the process transparent and manageable. In short, the passage moves from problem framing to actionable steps, aiming to secure informed endorsement from residents and officials.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This sentence moves beyond restating the claim; it indicates action.",
+        "B": "The sentence does not introduce a new policy unrelated to the plan.",
+        "C": "CORRECT ANSWER",
+        "D": "There is no counterargument introduced by this sentence."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.104Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s purpose is to advocate for stronger privacy protections because...",
+      "options": [
+        "A) to present a balanced overview of privacy policy without taking a stance",
+        "B) to persuade readers to support privacy measures",
+        "C) to celebrate a technological achievement",
+        "D) to entertain with a hypothetical scenario"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage emphasizes a call to support proposed privacy measures, indicating a persuasive purpose. It also informs readers with examples of data breaches, but the primary aim is advocacy, not neutral balance, celebration, or entertainment.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "An op-ed argues that protecting user privacy requires proactive legislation. The claim posits that without strong protections, individuals risk data misuse. Evidence includes examples of data breaches and expert testimony. The author writes to persuade readers to support proposed privacy measures and to rally behind advocacy groups. The conclusion asserts that privacy protections are a civic duty and a practical necessity in a digital age. The author’s purpose is to inform while persuading, guiding readers toward a policy stance.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage takes a clear stance and argues for protections.",
+        "B": "CORRECT ANSWER",
+        "C": "No celebration of technology is suggested.",
+        "D": "The piece is not intended to entertain."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.105Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The sentence 'This step will save time and money' in the memo is used to...",
+      "options": [
+        "A) critique current practice",
+        "B) illustrate a concrete benefit",
+        "C) restate the problem",
+        "D) present a counterargument"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The sentence directly ties the observed data (time and cost savings) to the proposed action, illustrating a concrete practical benefit that justifies approval.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "City manager's memo argues for consolidating city services to reduce duplication. The claim: consolidation yields time savings and budget efficiency. Evidence includes a three-department pilot that trimmed redundancies, and a projection showing reduced maintenance costs over five years. The sentence 'This step will save time and money' functions to bridge evidence and conclusion, signaling practical impact. The conclusion urges the council to approve the plan and invest in coordination staff. The paragraph lays out a sequence: define the problem, present data, propose a solution, predict benefits.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "It does not critique; it supports the plan with an expected benefit.",
+        "B": "CORRECT ANSWER",
+        "C": "It does not restate the problem; it emphasizes the outcome.",
+        "D": "No counterargument is presented here."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.106Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The tone of the river restoration report is best described as...",
+      "options": [
+        "A) exuberant and reckless",
+        "B) hopeful but cautious",
+        "C) detached and clinical",
+        "D) cynical and dismissive"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage explicitly describes a hopeful yet cautious tone, balancing optimism with recognition of challenges and the need for monitoring. The other options do not capture this nuance.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "tone",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "An environmental report on a river restoration project adopts a hopeful but cautious tone. The claim asserts that restoring wetlands will improve water quality and biodiversity. Evidence includes measurements of pollutant reductions and community surveys about recreational value. The tone remains pragmatic, acknowledging the complexity of ecosystems and the need for ongoing monitoring. The conclusion argues for funded monitoring programs and transparent reporting. The author writes to reassure stakeholders that progress is measurable and legitimate.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Exuberant and reckless would imply unmanaged enthusiasm without caution.",
+        "B": "CORRECT ANSWER",
+        "C": "Detached and clinical would downplay emotions; the passage has hopeful elements.",
+        "D": "Cynical and dismissive would undermine the evidence and plan."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.106Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author uses a bus-route optimization example to illustrate...",
+      "options": [
+        "A) how data can be misinterpreted",
+        "B) a general theory about transportation",
+        "C) a concrete real-world benefit of policy change",
+        "D) a condemnation of current practice"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The example ties the data on wait times to a concrete outcome—reduced delays for students—demonstrating a tangible benefit of the policy change. The other options misrepresent the purpose of including the example.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "District policy brief on school transportation argues for reconfiguring bus routes to save time and fuel. The claim is that optimized routes reduce delays for students who depend on them. Evidence includes a time-tracking study showing average wait times decreasing by eight minutes, and parent surveys noting improved punctuality. The sentence 'Efficient bus routes reduce delays for students who depend on them' functions to connect the data to the real-world impact. The conclusion calls for adopting the new routes on a trial basis. The paragraph emphasizes clarity and accountability by naming tangible outcomes.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The example is presented as evidence for a beneficial outcome, not a misinterpretation.",
+        "B": "It is not a general theory but a specific result.",
+        "C": "CORRECT ANSWER",
+        "D": "The passage does not condemn current practice; it argues for improvement."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.107Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s purpose in this transit planning discussion is to...",
+      "options": [
+        "A) celebrate the plan without critique",
+        "B) present a fully finalized policy without public input",
+        "C) guide readers toward approval while inviting feedback",
+        "D) dismiss potential criticisms as irrelevant"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The passage describes a phased plan that invites public feedback and seeks formal approval, indicating the author’s purpose to guide readers toward approval while soliciting input. It does not celebrate without critique, present a final plan without input, or dismiss criticisms.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Municipal council's brief outlines several feasibility steps for a citywide transit upgrade. The claim is that a phased rollout will minimize disruption. Evidence includes a schedule, cost estimates, and a pilot in two districts. The plan also describes community meetings and a temporary service adjustment to ease transitions. The sentence 'Therefore, the plan moves forward' functions to indicate action. The conclusion invites public feedback on the next stage and requests formal approval to begin the first phase. Supporters anticipate improved reliability, while critics caution about upfront costs. The document uses concrete metrics and timelines to keep the process transparent and manageable. In short, the passage moves from problem framing to actionable steps, aiming to secure informed endorsement from residents and officials.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage invites feedback and concerns potential costs, not celebration.",
+        "B": "Public input is explicitly requested.",
+        "C": "CORRECT ANSWER",
+        "D": "Criticism is acknowledged and addressed, not dismissed."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.108Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the line 'Incremental changes build trust with residents' in order to...",
+      "options": [
+        "A) to threaten residents with consequences if they disagree",
+        "B) to forecast long-term costs with certainty",
+        "C) to reassure readers that the approach is careful and participatory",
+        "D) to imply that large projects are impossible"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The sentence signals that small, careful steps are intended to build trust and invite ongoing input, which reassures readers about the approach and emphasizes participation. The other options mischaracterize its function.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During a city planning workshop, a planner explains the approach to improving traffic without large, disruptive projects. The claim is that steady, incremental changes can collectively yield significant benefits. Evidence includes the insertion of protected bike lanes in two blocks and revised pedestrian crossings, each completed with minimal downtime for residents. In one district, a listening session helped identify concerns about construction noise. The sentence 'Incremental changes build trust with residents' appears to underline the strategy, showing that small steps invite feedback rather than provoke resistance. The conclusion argues that continuity and communication will sustain support through multiple phases. The author presents the method as pragmatic and inclusive, inviting ongoing participation. The passage demonstrates how a plan can be persuasive by highlighting process as much as outcome.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The sentence does not threaten; it emphasizes trust and participation.",
+        "B": "It does not forecast costs; it emphasizes process and trust.",
+        "C": "CORRECT ANSWER",
+        "D": "It does not claim large projects are impossible."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.108Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s use of a phased rollout in the transit plan is intended to convey...",
+      "options": [
+        "A) imply that disruption is inevitable",
+        "B) suggest that change must be immediate and complete",
+        "C) reassure stakeholders that progress will occur in controlled steps",
+        "D) argue against gradual implementation"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The phased rollout is presented to reassure readers that progress will occur in controlled, manageable steps, minimizing disruption while enabling monitoring and input. The other options misstate the emphasis on gradual, controlled implementation.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Municipal council's brief outlines several feasibility steps for a citywide transit upgrade. The claim is that a phased rollout will minimize disruption. Evidence includes a schedule, cost estimates, and a pilot in two districts. The plan also describes community meetings and a temporary service adjustment to ease transitions. The sentence 'Therefore, the plan moves forward' functions to indicate action. The conclusion invites public feedback on the next stage and requests formal approval to begin the first phase. Supporters anticipate improved reliability, while critics caution about upfront costs. The document uses concrete metrics and timelines to keep the process transparent and manageable. In short, the passage moves from problem framing to actionable steps, aiming to secure informed endorsement from residents and officials.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The text emphasizes reducing disruption, not accepting inevitability.",
+        "B": "It does not advocate for immediate, complete change.",
+        "C": "CORRECT ANSWER",
+        "D": "It supports gradual rollout, not arguing against it."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.109Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author’s overall aim across these passages is to...",
+      "options": [
+        "A) discourage public involvement in policy decisions",
+        "B) illustrate how to write a perfect policy document",
+        "C) persuade readers to support gradual, evidence-based reform",
+        "D) argue that large, sweeping changes are always best"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The passages collectively advocate for gradual, evidence-based reform, using a claim-evidence-conclusion structure to persuade readers. Options A and D mischaracterize the approach and value of incremental change, while B misreads the purpose as a writing guide.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "A concise set of municipal planning notes describes a series of small, testable policy changes intended to improve city services over time. The claim central to each note is that careful, incremental steps can accumulate into meaningful improvements. Evidence includes pilot programs, surveys, and timelines. The conclusion urges officials to adopt each step and to monitor results, adjusting as needed. The tone remains practical and hopeful, inviting community participation. The writing demonstrates how rhetoric supports policy by moving from problem to evidence to action, showing why readers should support gradual reform.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passages actually invite involvement rather than discourage it.",
+        "B": "They are not teaching policy-writing methods.",
+        "C": "CORRECT ANSWER",
+        "D": "They favor gradual reform, not sweeping changes."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:00:07.110Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the statistic that traffic injuries fell by 20 percent after installing protected bike lanes in order to...",
+      "options": [
+        "A) provide evidence that the policy is effective",
+        "B) appeal to readers' emotions about cyclists",
+        "C) highlight a drawback of the policy",
+        "D) introduce a new policy debate"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The statistic demonstrates the policy's effectiveness, supporting the argument for expanding bike lanes. The other options misinterpret the purpose: B would rely on emotion rather than data, C would discuss a negative without supporting the main claim, and D would shift to a different issue rather than proving effectiveness.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Cities increasingly rely on complete streets to keep people safe and moving. The central claim is that well designed bike lanes are not luxuries but essential infrastructure for urban life. Critics argue that lanes slow car traffic and confuse drivers, yet a growing body of municipal data suggests otherwise. In Riverside, after installing protected bike lanes along three major corridors, the city's own traffic reports show a 20 percent drop in bicycle-related injuries and a modest decline in peak-hour car speeds in adjacent lanes. Advocates contend the lanes change behavior by keeping cyclists separated from fast traffic, and local businesses report more foot traffic on nearby blocks. Opponents worry about funding and maintenance; officials respond that cycling infrastructure often pays for itself through reduced EMS costs and increased transit use. The conclusion is straightforward: with careful planning and ongoing evaluation, expanding bike lanes can improve safety and mobility without unduly sacrificing car access.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "This option would rely on emotion rather than data about policy effectiveness.",
+        "C": "This option would focus on a negative aspect rather than evidence of success.",
+        "D": "This option would move to another topic instead of proving effectiveness."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.330Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence that describes a foray into a district's pilot data to illustrate a counterargument exit ramp in order to...",
+      "options": [
+        "A) acknowledge a counterargument to strengthen the plan",
+        "B) present a new policy proposal",
+        "C) describe a successful outcome without caveats",
+        "D) cite a historical example of change"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence introduces a counterargument (concerns about grading fairness and scheduling) and then explains how rubrics can address it, which strengthens the overall argument for project-based learning.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "District officials argue for shift to project-based learning, linking it to deeper understanding and long-term skills. The claim is that student curiosity drives retention more than multiple-choice drills. A year-long pilot across five middle schools tracked project portfolios, peer feedback scores, and teacher observations; results show improved collaboration and problem-solving, though some tests still lag. Educators acknowledge concerns about grading fairness and schedule conflicts, yet they note that rubrics can standardize assessment and that digital portfolios document progress beyond a single exam. The district concludes that students emerge better prepared for college and work, not only to recall facts. The policy is not without risk, but the city sees a path toward more meaningful education that aligns with real-world demands.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option correctly notes addressing a counterargument but the question asks about the specific purpose of the sentence, which is broader than just acknowledging; it moderates the plan rather than proposing a new policy.",
+        "B": "The sentence is not introducing a brand-new policy; it references ongoing concerns and how they can be mitigated.",
+        "C": "The sentence does not merely show a success; it acknowledges potential drawbacks."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.331Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the example of urban forestry investments in order to...",
+      "options": [
+        "A) show a practical, scalable solution",
+        "B) cast doubt on urban planning efforts",
+        "C) highlight a group’s failure to deliver",
+        "D) compare cities with and without trees"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The example demonstrates how urban forestry can address multiple issues and serve as a scalable, long-term strategy with manageable costs.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "City planners propose urban forestry as a straightforward answer to heat islands and poor air quality. The claim is that trees reduce temperatures on hot days by shading streets and lowering surrounding surface temperatures. A cadre of environmental scientists cites studies showing particulates are filtered by leaf surfaces and that morning rainfall patterns are improved by canopy cover. The plan outlines a phased investment: plant 10,000 trees over five years, prioritize neighborhoods with few green spaces, and implement maintenance contracts. Proponents expect health benefits to follow, including fewer heat-related emergencies and better mental well-being for residents who spend time outdoors. Skeptics warn about maintenance costs and water use during droughts; officials respond that community groups can participate in stewardship while grants offset initial expenses. The conclusion argues that this is a cost-effective, long-term strategy to create cooler, healthier streets for all.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The passage presents forestry as a solution rather than doubt, so this misreads the purpose of the example.",
+        "C": "The example does not show failure; it supports potential success.",
+        "D": "The passage does not compare many cities; it focuses on the plan and potential benefits."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.332Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the line about investors and sponsors in order to...",
+      "options": [
+        "A) demonstrate broad support from the community",
+        "B) explain a funding strategy to readers",
+        "C) argue against public funding for art",
+        "D) describe potential artistic failures"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The sentence about funding sources explains how the program will be financed and emphasizes transparency, which is a key part of the argument for proceeding with the program.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Public art can catalyze neighborhood pride and civic dialogue. City hall has begun a public art program intended to reflect community diversity and spark conversation. The proposal describes murals, sculpture gardens, and artist residencies as ways to draw visitors, reduce crime, and encourage youth participation. Advocates stress that art is not a luxury but a form of public infrastructure for social resilience. The plan notes that funding will come from a mix of private sponsorships and a modest arts fund, with transparent reporting to ensure accountability. Critics worry about cultural bias and uneven distribution; the authors acknowledge these concerns and insist on inclusive review panels. The overall tone remains constructive, underscoring belief that art can shape daily experience as surely as streets and schools. The conclusion invites residents to attend workshops and contribute ideas, signaling an inclusive project rather than a top-down mandate.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The line about funding does not prove broad support; it shows the funding mechanism.",
+        "B": "",
+        "C": "The passage is pro-art funding, not arguing against it.",
+        "D": "There is no emphasis on potential failures in this line."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.332Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the concession sentence about upfront costs in order to...",
+      "options": [
+        "A) acknowledge a potential objection to strengthen the plan",
+        "B) prove the plan has no costs",
+        "C) demonstrate that the plan is perfect from the start",
+        "D) introduce a new policy"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The concession acknowledges that there are upfront costs and disruption, which serves to anticipate objections and frame the long-term savings as worth pursuing.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "City planners begin with a clear claim: a resilient urban ecosystem depends on integrating green spaces, flood barriers, and water retention. The plan then presents three concrete investments: restoring wetlands, installing permeable pavement, and expanding rain gardens. A sentence states, This project carries upfront costs and short-term disruption. The author uses this concession to acknowledge legitimate concerns while linking them to long-term savings. The evidence section cites studies showing reduced flood damage and cooler neighborhood temperatures after implementation. The conclusion argues that overall benefits outweigh the early inconveniences. The tone stays pragmatic throughout.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The sentence does not claim there are no costs; it admits costs exist.",
+        "C": "The sentence does not claim perfection; it acknowledges drawbacks.",
+        "D": "The sentence is about a concession, not a new policy."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.333Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the line acknowledging critics about long-term supply in order to...",
+      "options": [
+        "A) present a counterargument and propose a rebuttal",
+        "B) introduce a new policy",
+        "C) provide data about costs",
+        "D) describe a historical precedent"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence acknowledges a potential problem and follows with a rebuttal that incentives can offset the risk, which strengthens the argument.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "During a debate on rents, some council members propose a temporary cap to ease displacement pressure. The policy would cap rents for five years and encourage development incentives in exchange for affordable units. Critics worry that such caps could discourage new construction and reduce housing supply. The sentence Critics worry about long-term supply, but the author argues that incentives will offset this risk appears. Data from the region shows that incentives did in fact stimulate construction in similar contexts. The conclusion contends that a blended approach can preserve affordability while keeping markets vibrant.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The sentence does not introduce a new policy; it discusses a risk and response.",
+        "C": "The sentence does not primarily present data about costs.",
+        "D": "There is no historical precedent in this sentence."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.334Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the pilot result in telemedicine to...",
+      "options": [
+        "A) argue for broader experimentation with telemedicine",
+        "B) describe a failure of the pilot",
+        "C) discuss a design flaw in the program",
+        "D) compare regions with and without telemedicine"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The pilot results are used to argue for broader adoption of telemedicine as an equitable solution.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Rural health advocates push for telemedicine expansion to reach remote communities. The claim is that telemedicine reduces travel barriers and improves timely care. A pilot program in three counties shows higher appointment rates and fewer missed follow-ups after telemedicine adoption. The plan includes training, equipment grants, and privacy safeguards. Proponents argue the policy aligns with equity goals and uses existing digital infrastructure. Critics fear technological gaps and patient privacy concerns; administrators respond with encryption and consent protocols. The conclusion contends that telemedicine is a practical, scalable solution to unequal access and should be funded.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The passage presents positive pilot results, not a failure.",
+        "C": "No design flaw is emphasized in this sentence.",
+        "D": "There is no explicit comparison between regions in this sentence."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.335Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence about urban gardening as a metaphor to... (function)",
+      "options": [
+        "A) illuminate how continual effort shapes outcomes",
+        "B) provide statistical data to support the policy",
+        "C) contrast two different policy options",
+        "D) restate the main claim without example"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence uses gardening as a metaphor to show that ongoing, regular effort yields better results, clarifying the policy’s need for sustained action.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "City leaders argue that neighborhood policing cannot succeed with a single motion; it requires regular engagement, timely response, and trust-building. The plan uses an analogy that crime prevention is like tending a garden that requires regular weeding. The sentence The garden must be weeded often if it is to flourish appears to illustrate this analogy. The evidence includes crime trend data and citizen surveys showing improved trust after community events. The conclusion asserts that consistent, small-scale interventions yield more durable safety than dramatic one-off measures. The tone remains practical, using metaphor to translate policy into everyday action.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The sentence is metaphorical, not a data point.",
+        "C": "No direct contrast between two separate options is presented here.",
+        "D": "The sentence introduces the idea of ongoing effort rather than simply restating the claim."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.335Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence about a community workshop invitation in order to...",
+      "options": [
+        "A) encourage public involvement and ownership",
+        "B) critique youth programs as impractical",
+        "C) justify a budget cut for youth initiatives",
+        "D) outline a detailed plan without input from participants"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Inviting residents to participate signals an inclusive approach and aims to build engagement and buy-in.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A city’s youth councils advocate for more public space and youth-led events. The author writes with an optimistic, earnest tone, praising student initiative while acknowledging administrative challenges. The plan describes youth representatives helping design park programs, traffic safety campaigns, and environmental clubs within schools. The evidence shows rising attendance at meetings and a few pilot events with positive feedback from participants and parents. Skeptics warn that student initiatives may lack experience, but the piece notes that mentors and city staff will provide guidance. The conclusion asserts that giving young people a voice yields practical improvements and strengthens civic identity. The tone remains encouraging, never naïve, and invites broad participation in the next phase.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The tone is positive, not critical of youth initiatives.",
+        "C": "There is no argument for budget cuts here.",
+        "D": "The invitation implies ongoing input rather than a closed plan."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.336Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the line about affordable housing incentives and concerns about supply in order to...",
+      "options": [
+        "A) acknowledge a potential risk while offering mitigation",
+        "B) present data disproving the risk",
+        "C) propose another policy alternative",
+        "D) summarize the existing housing market"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence acknowledges the risk of reduced supply and proposes incentives as a mitigation, which strengthens the argument for a blended approach.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "During a debate on rents, some council members propose a temporary cap to ease displacement pressure. The policy would cap rents for five years and encourage development incentives in exchange for affordable units. Critics worry that such caps could discourage new construction and reduce housing supply. The sentence Critics worry about long-term supply, but the author argues that incentives will offset this risk appears. Data from the region shows that incentives did in fact stimulate construction in similar contexts. The conclusion contends that a blended approach can preserve affordability while keeping markets vibrant.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The sentence does not disprove the risk; it presents a mitigation.",
+        "C": "It does not introduce another policy; it discusses incentives as mitigation.",
+        "D": "It does not merely summarize the market; it addresses a specific concern and response."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.337Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence about a neighborhood vaccination drive to show...",
+      "options": [
+        "A) illustrate how accessibility affects vaccination rates",
+        "B) refute the effectiveness of outreach",
+        "C) present a detailed medical protocol",
+        "D) compare vaccination rates across districts"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence emphasizes accessibility as a key factor, framing the plan around improving access to vaccination.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Public health officials announce a plan to expand vaccination clinics into underserved neighborhoods, aiming to increase uptake and protect community immunity. The claim is that accessibility is the strongest predictor of vaccination rates. Evidence includes walk-in hours, mobile clinics, and multilingual enrollment drives. The conclusion asserts that with persistent outreach, coverage will rise and outbreaks will wane. Critics argue that funding is uncertain and that outreach may not reach skeptical residents; the response highlights monitoring dashboards and transparent budgeting. The overall tone stays steady and constructive, encouraging collaboration between clinics, schools, and faith-based groups. The plan ends with a call for volunteers to participate in information sessions, signaling broad social engagement.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The passage overall supports outreach; this sentence does not refute it.",
+        "C": "No medical protocol is described here.",
+        "D": "The sentence does not compare districts; it focuses on accessibility factors."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.338Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence about a student program succeeding in a neighboring district in order to...",
+      "options": [
+        "A) provide an empirical example supporting the claim",
+        "B) offer a counterexample to challenge the claim",
+        "C) describe a potential budget shortfall",
+        "D) list a series of unrelated programs"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence provides a concrete example from another district to lend support to the city’s plan.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "City libraries are piloting a weekend literacy program aimed at middle-school readers. The central claim is that increased access to books and structured activities improves reading confidence and long-term achievement. A second paragraph describes a neighboring district where a weekend program raised engagement by twenty percent among participants. The evidence includes attendance data and reading level gains over a semester. The conclusion argues that expansion to more branches could replicate those gains citywide. The tone remains confident, linking anecdote to data and avoiding sweeping generalizations.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "This is not a counterexample; it supports the claim through a success story.",
+        "C": "Budget details are not the focus of this sentence.",
+        "D": "It is related to the program as evidence, not an unrelated list."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.339Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence If communities commit now, the savings will compound over time to...",
+      "options": [
+        "A) project future savings to motivate action",
+        "B) present a final budget figure",
+        "C) introduce a new policy alternative",
+        "D) recount past policy failures"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence links present costs to future gains, a classic move to motivate immediate action.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "An environmental policy pushes for reduced emissions from city fleets. The claim is that switching to electric vehicles will cut pollution and create jobs. The passage notes cost considerations, including upfront investment and charging infrastructure. A sentence If communities commit now, the savings will compound over time appears to connect the upfront costs to future benefits and to motivate action. The evidence includes a projection model and examples from other cities. The conclusion urges policymakers to approve the plan this year. The author remains pragmatic, balancing fiscal concerns with environmental benefits.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "It does not present a budget figure, but a projection of savings.",
+        "C": "It does not introduce a policy alternative; it supports the plan being described.",
+        "D": "No past policy failure is discussed here."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.340Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence about the garden metaphor to illustrate that...",
+      "options": [
+        "A) ongoing, small efforts can yield durable results",
+        "B) large, dramatic changes are necessary immediately",
+        "C) anecdotes are insufficient evidence to support policy",
+        "D) funding should be cut to reduce costs"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The metaphor signals that steady, incremental action can build lasting improvement, aligning with the evidence presented.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Public libraries propose a service expansion; the second paragraph describes a success story in a neighboring district where a weekend program increased engagement. The evidence includes attendance data and reading level gains over a semester. The conclusion claims that expansion to more branches could replicate those gains citywide. The tone remains confident, linking anecdote to data and avoiding sweeping generalizations.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The metaphor advocates gradual progress, not immediate dramatic changes.",
+        "C": "The passage uses both anecdote and data; the metaphor serves a purpose beyond data.",
+        "D": "No suggestion of cutting funding is made here."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.340Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence about a demo budget workshop inviting public input to...",
+      "options": [
+        "A) encourage broad public participation in budgeting",
+        "B) minimize public input and speed up policy approval",
+        "C) present a finalized budget with no changes",
+        "D) criticize previous budgeting practices"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Inviting participation is a deliberate move to democratize the process and improve policy outcomes.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A city’s housing plan invites residents to attend a workshop on a proposed budget and policy changes. The aim is to explain the plan in plain language, answer questions, and gather feedback from residents who will be affected. The workshop is described as a collaborative step toward more transparent governance. Officials emphasize that feedback will inform the final proposal, and that diverse voices will shape decisions. The conclusion urges broad participation, arguing that shared ownership improves policy outcomes.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The passage emphasizes public input, not exclusion.",
+        "C": "It is a workshop for input, not a finalized budget.",
+        "D": "It does not criticize past budgeting; it invites engagement."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.341Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence The plan notes that funding will come from a mix of private sponsorships and a modest arts fund to...",
+      "options": [
+        "A) describe a funding strategy for the program",
+        "B) explain why funding is unnecessary",
+        "C) argue against corporate sponsorships",
+        "D) compare multiple art projects"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence explains how the program will be funded, which is essential to evaluate feasibility and accountability.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Public art can catalyze neighborhood pride and civic dialogue. City hall has begun a public art program intended to reflect community diversity and spark conversation. The proposal describes murals, sculpture gardens, and artist residencies as ways to draw visitors, reduce crime, and encourage youth participation. Advocates stress that art is not a luxury but a form of public infrastructure for social resilience. The plan notes that funding will come from a mix of private sponsorships and a modest arts fund, with transparent reporting to ensure accountability. Critics worry about cultural bias and uneven distribution; the authors acknowledge these concerns and insist on inclusive review panels. The overall tone remains constructive, underscoring belief that art can shape daily experience as surely as streets and schools. The conclusion invites residents to attend workshops and contribute ideas, signaling an inclusive project rather than a top-down mandate.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The sentence supports funding rather than arguing against it.",
+        "C": "The sentence does not argue against sponsorships; it presents them as part of the plan.",
+        "D": "The sentence does not compare multiple projects; it explains funding."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.342Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence about the pilot program in three counties to show...",
+      "options": [
+        "A) a concrete example to support a scalable plan",
+        "B) an argument against scaling the program",
+        "C) a critique of rural health infrastructure",
+        "D) an unrelated comparison to urban clinics"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The three-county pilot provides concrete evidence that scaling up could work with proper funding and oversight.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A plan for expanding vaccination clinics is piloted in three rural counties to measure uptake, wait times, and patient satisfaction before scaling up. The pilot results show improved accessibility and higher completion rates for vaccines after outreach combined with mobile clinics. The conclusion argues that the rollout could be expanded with appropriate funding and oversight. Critics caution about data gaps and privacy concerns; the plan offers encryption and consent protocols. The overall argument remains measured and focused on scalable, practical steps.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The paragraph supports expansion, not opposition to scaling.",
+        "C": "Rural health infrastructure is not the main focus here.",
+        "D": "This is not an unrelated comparison; it supports scalability."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.342Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence about the city budgeting process to...",
+      "options": [
+        "A) emphasize transparency and accountability",
+        "B) criticize legislators for delaying funds",
+        "C) propose cutting current programs",
+        "D) describe a historic budget crisis"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence highlights transparency and accountability as core values of the budgeting process.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A municipal budget outlines investments in transportation, housing, and climate resilience, with a call for transparent reporting. The author notes that community feedback influenced some line items and that the plan aims to balance cost with long-term benefits. Critics argue for prioritizing immediate needs; supporters respond that the plan avoids debt and yields future savings. The conclusion emphasizes that public accountability strengthens trust and policy effectiveness.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The sentence does not criticize delays; it emphasizes openness.",
+        "C": "There is no proposal to cut current programs in this sentence.",
+        "D": "No historical crisis is described here."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.344Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence The claim is that student curiosity drives retention more than tests to...",
+      "options": [
+        "A) compare the value of different assessment methods",
+        "B) conclude that tests should be eliminated",
+        "C) distract from the main claim with data",
+        "D) propose a new curriculum model without evidence"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence contrasts curiosity-driven learning with tests, supporting project-based learning over purely standardized assessment as the main claim.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A district emphasizes project-based learning because it fosters deeper understanding and collaboration. The claim is that student curiosity drives retention more than tests. A year-long pilot shows improved collaboration and problem-solving, though standardized scores show a small dip initially. The author notes that rubrics can standardize assessment and that portfolios document growth beyond exams. The conclusion argues for continued use of projects as a central element of instruction.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The sentence does not call for eliminating tests; it compares their roles.",
+        "C": "The sentence is central to the claim, not a distraction.",
+        "D": "The sentence supports a curriculum model with evidence; it does not propose something unsubstantiated."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.345Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the paragraph describing a public art program to illustrate...",
+      "options": [
+        "A) argue that art should be funded publicly only",
+        "B) demonstrate financial planning for a public initiative",
+        "C) downplay the role of art in community life",
+        "D) show that private sponsorship is unnecessary"
+      ],
+      "correctAnswer": 1,
+      "explanation": "By detailing funding sources and accountability measures, the passage shows how the program is financially planned and feasible.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Public art can catalyze neighborhood pride and civic dialogue. City hall has begun a public art program intended to reflect community diversity and spark conversation. The proposal describes murals, sculpture gardens, and artist residencies as ways to draw visitors, reduce crime, and encourage youth participation. Advocates stress that art is not a luxury but a form of public infrastructure for social resilience. The plan notes that funding will come from a mix of private sponsorships and a modest arts fund, with transparent reporting to ensure accountability. Critics worry about cultural bias and uneven distribution; the authors acknowledge these concerns and insist on inclusive review panels. The overall tone remains constructive, underscoring belief that art can shape daily experience as surely as streets and schools. The conclusion invites residents to attend workshops and contribute ideas, signaling an inclusive project rather than a top-down mandate.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The text supports mixed funding, not exclusively public funding.",
+        "B": "",
+        "C": "The text argues for art's social value, not downplaying it.",
+        "D": "Private sponsorship is described as part of the plan, not unnecessary."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.346Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence That district's success shows that after-school programs can raise engagement to...",
+      "options": [
+        "A) provide an empirical example supporting the claim",
+        "B) argue about funding implications",
+        "C) question the reliability of the data",
+        "D) present a counterargument to the claim"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence points to a successful example in another district to support the claim about engagement gains.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "City libraries are piloting a weekend literacy program aimed at middle-school readers. The central claim is that increased access to books and structured activities improves reading confidence and long-term achievement. A second paragraph describes a neighboring district where a weekend program raised engagement by twenty percent among participants. The evidence includes attendance data and reading level gains over a semester. The conclusion argues that expansion to more branches could replicate those gains citywide. The tone remains confident, linking anecdote to data and avoiding sweeping generalizations.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The sentence does not discuss funding implications here.",
+        "C": "No challenge to data reliability is presented in this sentence.",
+        "D": "It supports the claim rather than countering it."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.346Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes the sentence A single community composting hub can model best practices for others to...",
+      "options": [
+        "A) propose a scalable model for other communities",
+        "B) present a finalized plan with no need for replication",
+        "C) emphasize the uniqueness of this hub without broader application",
+        "D) explain why replication is unlikely"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence explicitly frames the hub as a model that could be replicated elsewhere, which is a scalable, persuasive purpose.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A city-wide composting program aims to reduce waste and greenhouse emissions. The plan outlines a model where a single community hub demonstrates best practices for others to follow, including sorting, collection, and education. The proposal argues that scaling from one hub to citywide coverage is feasible with partnerships, funding, and clear metrics. Critics urge caution about startup costs and community buy-in; the plan responds with phased rollout and stakeholder mapping. The conclusion asserts that replicable, pragmatic steps will broaden participation and sustainability.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "The sentence argues for replication beyond the one hub, not for finality.",
+        "C": "It positions the hub as a replicable model, not as unique only.",
+        "D": "The sentence supports replication, not arguing against it."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:02:31.347Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes [data showing sponsors financed 40 percent of the new buses] in order to...",
+      "options": [
+        "A) To show that private funding will fully replace government support.",
+        "B) To demonstrate that a public-private partnership can be effective with guardrails to maintain public control.",
+        "C) To argue that sponsorship should replace taxes entirely.",
+        "D) To imply that data alone proves the policy will work."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The correct option shows that the author is presenting a cautious, guarded partnership rather than a complete privatization. A overstates the claim by suggesting full replacement of government support. C misreads the content as advocating for tax replacement. D ignores the policy emphasis on guardrails and governance. The text supports a partnership with safeguards, as evidenced by guardrails and a sunset clause. The chosen option captures this nuance.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Cities have long treated transportation as a public good, but in recent years a chorus of planners has argued that private capital can accelerate progress more efficiently than government grants alone. My city’s transit office, grappling with aging buses and volatile funding, invited five local businesses to sponsor a fleet modernization program. The claim was simple: private sponsorship would reduce fare increases while keeping routes open to underserved neighborhoods. Data from the pilot program showed that sponsors financed 40 percent of the new buses and that ridership rose by 12 percent in the first year. Critics warned that sponsorship would condition service on marketing and shift decision-making away from public needs. Yet the pilot contract included guardrails: sponsors could not dictate route maps, and a transparent budgeting portal remained accessible to residents. After eighteen months, the city announced that the program would expand to three districts, with explicit caps on any sponsor influence and a sunset clause tied to measurable reliability gains. The evidence thus supports a cautious collaboration, suggesting that government stewardship plus private capital may be a prudent path forward for essential services.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This misreads the text as advocating total privatization without public oversight.",
+        "B": "Correct reasoning is provided in the explanation.",
+        "C": "The passage does not argue for tax replacement or eliminating public funding entirely.",
+        "D": "Data is used to support a policy, but the author emphasizes safeguards, not data alone proving success."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:03:47.553Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes [a quiet, corrective tone about focusing on quiet moments] in order to...",
+      "options": [
+        "A) To undermine the value of ambition.",
+        "B) To advocate a sensational style.",
+        "C) To show that restraint can liberate language.",
+        "D) To suggest that editors are always right."
+      ],
+      "correctAnswer": 2,
+      "explanation": "The correct answer identifies that the author’s tone centers on restraint and its effect on the writing’s rhythm, illustrating how modesty can enhance expression. A and B mischaracterize the tone as anti-ambition or overly sensational, while D misattributes authority to editors rather than the author’s reflective stance.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "tone",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "After a decade spent drafting novels that were praised for their energy, I watched one of my own manuscripts drift into a quiet, unremarkable shelf. The editor's notes arrived with the soft cadence of patient advice, yet their undercurrent was pointed: trust the quiet moments, but never neglect a city of people who need to hear themselves spoken aloud. I resisted, then reconsidered, and finally allowed a character's small confession to rewrite the book's rhythm. The tone shifted from brisk celebration to understated trust, and with that shift came surprising clarity about what readers may want from a story—that they be reminded of ordinary courage rather than extraordinary circumstance. This is not an apology for softness but a claim that restraint can liberate language. If a paragraph asks the reader to listen, the next must offer something worth listening to. In the end, the novel found a new cadence, not because I abandoned ambition, but because I learned that ambition must serve the people who will read it.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage does not seek to undermine ambition; it reframes its use.",
+        "B": "The tone is not sensational but reflective and restrained.",
+        "D": "The passage attributes guidance to the editor, but emphasizes the author’s growth and choice, not deference to editors alone."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:03:47.554Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes [that sentence—evidence carefully presented but limited in scope] in order to...",
+      "options": [
+        "A) To end the discussion by presenting a final judgment.",
+        "B) To acknowledge risk and pivot toward a more nuanced view.",
+        "C) To present a new counterproposal.",
+        "D) To appeal to emotion rather than evidence."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The sentence functions to acknowledge a concern (risk) while signaling that the data does not fully condemn the plan, thus pivoting toward a nuanced view rather than a final judgment or emotion-led argument. A overstates decisiveness; C and D misrepresent the sentence's purpose as introducing new proposals or appealing to emotion.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "During the town hall, residents debated the plan to convert a vacant square into a night market. Proponents argued that the market would boost local small businesses and bring vitality to the east side. Opponents feared noise, litter, and the risk of crime. When a council member noted that crime data showed a temporary spike after large events but then declined, the room quieted. That sentence—evidence carefully presented but limited in scope—functioned as a hinge: it acknowledged the risk while suggesting the data does not condemn the entire project. The next speaker, drawing a distinction between short-term disruptions and long-term benefits, reframed the issue as a question of time, not principle. The debate moved from abstract ideals to concrete outcomes, and the crowd's attention shifted from fear to evidence. Even when the room heated again, the counterexample remained a quiet presence at the edge of the discussion, reminding attendees that complexity resists simple answers. The proposal survived the evening but with revised safeguards.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The sentence does not close the debate with a final ruling; it maintains openness.",
+        "B": "Correct reasoning is provided in the explanation.",
+        "C": "It does not introduce a new counterproposal.",
+        "D": "It relies on evidence, not emotion, to frame the issue."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:03:47.554Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes [testimonials and a pilot program] in order to...",
+      "options": [
+        "A) to argue the center is only about profit.",
+        "B) to reassure donors and frame the center as a responsible public good.",
+        "C) to criticize the university for lacking innovation.",
+        "D) to illustrate that testimonials are evidence of failure."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The testimonials and pilot program are used to frame the center as beneficial and credible, addressing donors’ concerns and presenting a responsible public value. A and C misrepresent the piece as profit-focused or innovation-starved. D misreads testimonials as evidence of failure rather than support.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "A university press release argued that the campus's new interdisciplinary center would catalyze social innovation by integrating humanities with data sciences. The author pointed to testimonials from ten faculty members and a pilot program in urban studies as proof. The purpose, the release contends, is not merely to attract funding but to reframe the institution's identity. By foregrounding collaboration over competition, the text aims to persuade donors that the center will yield broad public benefit, not private profit. It also seeks to reassure students and faculty that risk-taking will be supervised by an ethic of access and accountability. The conclusion asserts that the center will own its outcomes through community partnerships, creating a model that can be replicated across campuses. The author clears a path for continued investment by combining aspiration with measurable milestones, a strategy designed to invite confidence rather than suspicion. The result is a carefully calibrated appeal that uses narrative about impact to justify a long-term commitment.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The text emphasizes public benefit, not profit as the sole aim.",
+        "B": "Correct reasoning is provided in the explanation.",
+        "C": "The passage does not criticize the university for lack of innovation; it aims to reframe identity.",
+        "D": "Testimonials are presented as evidence of impact, not failure."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:03:47.555Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes [the contrast between beauty and equity] in order to...",
+      "options": [
+        "A) celebrate architecture and ignore social issues.",
+        "B) warn against aesthetics overshadowing equity.",
+        "C) complain about clipping budgets for urban projects.",
+        "D) propose tax incentives to attract developers."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The correct option captures the author’s aim to highlight that aesthetic innovation must be weighed against equity and social impact, signaling a warning about prioritizing beauty over social outcomes. A and C misrepresent the focus, and D introduces a policy angle not central to the passage.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "tone",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "An editorial on urban design began with a tone of wary admiration for innovation and quickly shifted to a lucid critique of style over significance. The author wrote about glass towers shimmering at sunset, then asked whether such beauty serves people who cannot afford housing or transit. The hesitation in the voice suggested concern that aesthetics could become a marketable distraction from real problems. The tone remains earnest but skeptical, pressing readers to measure impact in lives changed, not in headlines. By pairing praise for ingenuity with careful questions about equity, the piece maintains a steady moral center. It does not condemn progress; it reframes it as a shared project that must preserve community before spectacle. The conclusion reiterates that design is political—an argument about who is included, who is excluded, and how the city will function for all. The tone thus blends admiration with accountability, inviting readers to demand more than clever surfaces.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The piece emphasizes equity and social impact, not unqualified celebration.",
+        "B": "Correct reasoning is provided in the explanation.",
+        "C": "Budget concerns are not the primary thrust.",
+        "D": "Tax incentives are not discussed as the main tool here."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:03:47.556Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes [that sentence—this delay reveals a gap in distribution that numbers alone cannot convey] in order to...",
+      "options": [
+        "A) to emphasize human impact and transition to readers.",
+        "B) to provide a numerical appendix.",
+        "C) to suggest that data is sufficient on its own.",
+        "D) to make a rhetorical flourish without substance."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The sentence explicitly links data to human experience, illustrating why the program’s delays matter for people, which helps bridge abstract numbers and practical consequences. B and C misrepresent the function by focusing only on data, and D incorrectly characterizes the sentence as a mere flourish.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "An NGO report described a drought relief program in two neighboring villages. The first section summarized rainfall data and relief distribution timelines. A table of supply lines followed, then a paragraph noting that some households still reported hunger weeks after aid arrived. The sentence that states, 'This delay reveals a gap in distribution that numbers alone cannot convey' functions as a bridge: it converts quantitative data into human consequence. The next paragraph discusses community-led monitoring and flexible delivery; its role is to shift the argument from efficiency to legitimacy. That transitional sentence helps readers understand why the program sometimes diverges from plan yet still advances broader goals. The evidence accumulates: faster distributions reduce mortality, while delays erode trust. The conclusion calls for adaptive protocols and ongoing evaluation. The sentence about gaps therefore signals the need to consider both data and daily experience in policy design.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct reasoning is provided in the explanation.",
+        "B": "It’s not a separate appendix; it links data to human impact.",
+        "C": "The sentence shows data alone is insufficient to judge outcomes.",
+        "D": "It has substantive purpose, not just rhetorical flair."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:03:47.557Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes [examples of classrooms connecting literature to local histories] in order to...",
+      "options": [
+        "A) to prove that reading should be taught as a purely technical skill.",
+        "B) to argue that reading should connect to students’ lives and drive reform.",
+        "C) to claim that equity concerns are irrelevant to literacy.",
+        "D) to show that standardized testing is sufficient to measure literacy."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The author uses real classroom connections to argue that literacy is tied to student lives and should drive curricular reform, not merely tested as a technical skill. A and C misrepresent the purpose by downplaying lived relevance and equity, while D overstates reliance on testing.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "author-purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "In a short essay on literacy, the author argues that reading instruction must begin with purpose, not rote technique. The claim posits that students become capable readers when they understand why a text matters to their lives. Evidence follows: classrooms that connect literature to local histories, public debates, and student voices show greater engagement. The conclusion draws an implication for schools: curriculum should start with questions students care about and end with projects that demonstrate effect. The author also warns against treating reading as a mere skill to be mastered; instead, it becomes a practice of citizenship. The purpose is to reframe reading as an active, personal inquiry rather than a passive exercise, and to push administrators to revise assessment and scheduling accordingly. The writing thus aims to spark reform by demonstrating that meaningful reading improves not only grade outcomes but social understanding.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage argues for purpose-driven reading, not a purely technical skill.",
+        "B": "Correct reasoning is provided in the explanation.",
+        "C": "Equity concerns are central to the argument, not irrelevant.",
+        "D": "Testing is not presented as sufficient; reform is urged."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:03:47.557Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes [stories of farmers alongside data] in order to...",
+      "options": [
+        "A) to sensationalize the risks.",
+        "B) to suggest that data alone is enough to guide policy.",
+        "C) to argue against genetic engineering altogether.",
+        "D) to show that empathy and data together strengthen persuasion."
+      ],
+      "correctAnswer": 3,
+      "explanation": "The combination of human stories with data is used to persuade by showing both technological potential and human impact, requiring empathy and data together. A and C mischaracterize the balanced stance; B ignores the emotional dimension that the stories introduce.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "tone",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "A scientist's op-ed on genetic engineering writes with a restrained confidence, acknowledging risks while outlining safeguards. The tone is methodical, almost clinical, yet the author weaves in stories of farmers whose livelihoods depend on crop resilience. The mixture of data and anecdote produces a sense of responsibility that surpasses alarmism. The author respects readers enough to present uncertainty, then clarifies what would constitute acceptable risk. The paragraph about independent oversight reads with a steady assurance that public trust is earned, not assumed. The final lines insist that progress must be pursued with humility and transparency. Readers are invited to judge not by potential of technology alone but by the outcomes for real people. The piece exemplifies sophisticated rhetoric: it balances optimism with precaution, invites collaboration, and patient persuasion rather than coercion.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The piece is careful and balanced, not sensationalist.",
+        "B": "It uses stories to complement data, not replace it.",
+        "C": "It does not advocate an outright rejection of genetic engineering.",
+        "D": "Correct reasoning is provided in the explanation."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:03:47.558Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes [the sentence forming the motto: 'Access to care is not a privilege but a right'] in order to...",
+      "options": [
+        "A) to present a legal requirement.",
+        "B) to anchor the ethical claim and shape the rest of the argument.",
+        "C) to provide a solely economic analysis.",
+        "D) to preemptively concede a counterargument."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The sentence serves as a guiding ethical anchor that shapes the argumentative trajectory, not a legal requirement, mere economics, or a conceded counterargument. A misreads the rhetorical function; C and D mischaracterize the impact of a moral claim as mere analysis or concession.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "During a policy briefing, a defender of universal healthcare cites a single sentence from a report: 'Access to care is not a privilege but a right.' The sentence functions as a motto, crystallizing the ethical claim and shaping the argument that follows. It anchors expectations for policy design, framing trade-offs as questions of justice rather than efficiency. Without it, the discussion could drift into cost analyses and logistics; with it, the debate centers on fairness. The remainder of the briefing expands upon the principle with data about preventive care and affordable premiums, showing how the right to care would alter incentives for providers and patients alike. This sentence is thus a strategic pivot that elevates ethical language above technical detail, guiding perceptions and decisions. The audience leaves with a clear normative frame, even if some details require further specification.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The sentence functions as an ethical claim, not a legal directive.",
+        "B": "Correct reasoning is provided in the explanation.",
+        "C": "The sentence is not a purely economic analysis.",
+        "D": "It does not preempt a counterargument; it establishes a value framework."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:03:47.559Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The author includes [the concession about maintenance in the outdoor sculpture project] in order to...",
+      "options": [
+        "A) to acknowledge risk while preserving the project’s hopeful frame.",
+        "B) to propose a specific maintenance budget.",
+        "C) to shift the focus away from aesthetics toward economics.",
+        "D) to dismiss concerns as unfounded."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The concession explicitly acknowledges risk and simultaneously guards the project’s optimistic aim, acting as a buffer to keep the initiative credible. B and C misrepresent the function by focusing on budgeting or economics rather than interpretive framing. D misreads the concession as dismissal rather than a measured acknowledgment.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "sentence-function",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "An art museum's annual report celebrates a new acquisition—the installation of a large-scale sculpture in an outdoor plaza. The report asserts that the piece will democratize access to sculpture by inviting the public to engage with it at street level. Critics argue that the piece may be vulnerable to vandalism and weathering, which could limit its life and enjoyment. In response, the curators acknowledge the risk in a single sentence: 'We recognize that exposure to the elements requires durable materials and ongoing maintenance.' This concession functions as a deliberate buffer: it validates concerns while preserving the project’s hopeful frame. The report then outlines a maintenance plan, community workshops, and a funded endowment to ensure long-term care. The strategy blends optimism with pragmatism, showing how a grand gesture can survive scrutiny if paired with responsibility. In conclusion, the installation becomes a symbol of public art that is both ambitious and accountable, illustrating how rhetoric can marshal both imagination and stewardship.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct reasoning is provided in the explanation.",
+        "B": "This sentence does not propose a budget; it acknowledges risk.",
+        "C": "The focus is not shifting to economics but balancing risk and ambition.",
+        "D": "It does not dismiss concerns; it acknowledges them."
+      },
+      "_batchId": "batch-1777348691719-rhetoric",
+      "_generatedAt": "2026-04-28T04:03:47.560Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

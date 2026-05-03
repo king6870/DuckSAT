@@ -1,0 +1,158 @@
+{
+  "batchId": "batch-1777331939417-advanced-math",
+  "topic": "advanced-math",
+  "moduleType": "math",
+  "generatedAt": "2026-04-27T23:24:00.073Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 5,
+  "totalGenerated": 5,
+  "totalValid": 5,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Which expression best models a town's population after t years if the population grows by 4% per year and starts at 200 people?",
+      "options": [
+        "A) $200 + 4t$",
+        "B) $200(1.04)^t$",
+        "C) $200(1.04)^{t+1}$",
+        "D) $200 + 0.04t$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Identify the model. Exponential growth with initial population P0 = 200 and growth rate r = 0.04 is P(t) = P0(1 + r)^t = 200(1.04)^t. Step 2: Compare options: A) linear growth, D) linear growth with additive 0.04t, C) uses t+1 in the exponent, which incorrectly shifts the starting point, so incorrect. Therefore, option B is correct.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential growth",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Linear growth form; it adds a constant amount each year and does not model compounding.",
+        "B": "N/A (correct answer)",
+        "C": "Incorrect exponent shift: using t+1 changes the starting amount by a factor of 1.04 and does not model the given scenario correctly.",
+        "D": "Adds 0.04t rather than compounding 4% per year; linear growth with a small slope."
+      },
+      "_batchId": "batch-1777331939417-advanced-math",
+      "_generatedAt": "2026-04-27T23:21:22.312Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Using properties of logarithms, evaluate $\\\\log_{3}(27) + \\\\log_{3}(9) - \\\\log_{3}(3)$. What is the value?",
+      "options": [
+        "A) 3",
+        "B) 2",
+        "C) 4",
+        "D) 5"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Step 1: Write each term using base-3 powers: $\\\\log_{3}(27)=\\\\log_{3}(3^3)=3$, $\\\\log_{3}(9)=\\\\log_{3}(3^2)=2$, $\\\\log_{3}(3)=\\\\log_{3}(3^1)=1$. Step 2: Combine: $3 + 2 - 1 = 4$. Therefore, the value is 4.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "3 would result if you only used $\\\\log_{3}(27)$ and ignored the other two terms.",
+        "B": "2 would result if you only used $\\\\log_{3}(9)$ and forgot the others.",
+        "C": "N/A (correct answer)",
+        "D": "5 would result if you incorrectly treated $\\\\log_{3}(3)$ as 0 instead of 1."
+      },
+      "_batchId": "batch-1777331939417-advanced-math",
+      "_generatedAt": "2026-04-27T23:21:22.323Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "An city population grows exponentially at a rate of 2.5% per year. If the initial population is $120000$, the model is $P(t) = 120000(1.025)^t$, where t is in years. About how many years will it take for the population to reach 150000? (Choose the closest integer.)",
+      "options": [
+        "A) 8 years",
+        "B) 9 years",
+        "C) 10 years",
+        "D) 12 years"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Set up the equation using the exponential model: $120000(1.025)^t = 150000$. Step 2: Divide both sides by 120000: $(1.025)^t = \\frac{150000}{120000} = 1.25$. Step 3: Take natural logs: $t\\ln(1.025) = \\ln(1.25)$. Step 4: Solve for t: $t = \\dfrac{\\ln(1.25)}{\\ln(1.025)}$. Step 5: Approximate: $\\ln(1.25) \\approx 0.2231436$ and $\\ln(1.025) \\approx 0.0246926$, so $t \\approx 9.04$, i.e., about 9 years. Note: if growth were linear with a fixed annual increase of 2.5% of the initial population, the model would be $P(t) \\approx 120000 + 0.025 \\cdot 120000 \\cdot t = 120000 + 3000t$, which would reach 150000 after 10 years, illustrating the difference between exponential and linear growth.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Exponential growth / Real-world population model",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "8 years would result from an rounding or a miscalculation in the logarithm step, but the correct method uses the exponential model and yields about 9 years.",
+        "B": "9 years is actually the correct answer. The explanation above shows the proper use of logs on the exponential model.",
+        "C": "10 years reflects a linear-growth mistake (treating the increase as constant in amount each year) rather than exponential growth.",
+        "D": "12 years results from an incorrect log calculation or misreading the ratio; the correct ratio is 1.25 inside the log."
+      },
+      "_batchId": "batch-1777331939417-advanced-math",
+      "_generatedAt": "2026-04-27T23:23:53.387Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Let $\\\\log_{2}$ denote the base-2 logarithm. If $\\\\log_{2}(2x) = \\\\log_{2}(5x - 3)$ with the domain constraint $x > \\frac{3}{5}$, solve for $x$.",
+      "options": [
+        "A) 0",
+        "B) 1",
+        "C) $\\tfrac{3}{5}$",
+        "D) 2"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Since the logarithms have the same base and are equal, their arguments must be equal: $2x = 5x - 3$. Solve: $-3x = -3 \\\\Rightarrow x = 1$. The domain requires $x > \\frac{3}{5}$, which is satisfied. Therefore, $x = 1$ is the solution.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Logarithms: properties and solving equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "x = 0 violates the domain because $\\\\log_{2}(2x)$ would be $\\\\log_{2}(0)$, which is undefined.",
+        "B": "x = 1 is the correct answer; this option is the result of using the logarithm property correctly.",
+        "C": "x = \\\\tfrac{3}{5}$ makes the second argument zero, which is invalid for a logarithm.",
+        "D": "x = 2 does not satisfy the equation since $\\\\log_{2}(4) \\\\neq \\\\log_{2}(7)$."
+      },
+      "_batchId": "batch-1777331939417-advanced-math",
+      "_generatedAt": "2026-04-27T23:23:53.392Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Compute the quotient and express in the form $a + bi$ where $i^2 = -1$: $\\dfrac{3 - 4i}{1 + i}$.",
+      "options": [
+        "A) $1 - 7i$",
+        "B) $-\\tfrac{1}{2} - \\tfrac{7}{2}i$",
+        "C) $-2 + i$",
+        "D) $2 - 3i$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "To divide by a complex number, multiply numerator and denominator by the conjugate of the denominator: $\\dfrac{3 - 4i}{1 + i} \\cdot \\dfrac{1 - i}{1 - i} = \\dfrac{(3 - 4i)(1 - i)}{(1 + i)(1 - i)}$. Compute the numerator: $(3 - 4i)(1 - i) = 3 - 3i - 4i + 4i^2 = 3 - 7i - 4 = -1 - 7i$. Denominator: $(1 + i)(1 - i) = 1 - i^2 = 2$. Therefore, the result is $\\dfrac{-1 - 7i}{2} = -\\tfrac{1}{2} - \\tfrac{7}{2}i$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Complex numbers: operations with i and conjugates",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This would be the result if the division was performed incorrectly without using the conjugate, or if the signs were mishandled.",
+        "B": "Correct answer; the explanation shows the proper conjugate multiplication.",
+        "C": "This arises from miscalculating both the real and imaginary parts, or forgetting to rationalize the denominator.",
+        "D": "This results from sign errors in distributing terms or in the final division by 2."
+      },
+      "_batchId": "batch-1777331939417-advanced-math",
+      "_generatedAt": "2026-04-27T23:23:53.395Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

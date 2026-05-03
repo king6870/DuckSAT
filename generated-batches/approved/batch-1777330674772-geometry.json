@@ -1,0 +1,155 @@
+{
+  "batchId": "batch-1777330674772-geometry",
+  "topic": "geometry",
+  "moduleType": "math",
+  "generatedAt": "2026-04-27T23:03:42.843Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 5,
+  "totalGenerated": 5,
+  "totalValid": 5,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In right triangle $\\triangle ABC$ with right angle at $C$, given $\\angle A = 30°$ and $AB = 10$, what is the length of $BC$?",
+      "options": [
+        "A) $5$",
+        "B) $5\\sqrt{3}$",
+        "C) $10$",
+        "D) $\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Since $\\angle A = 30°$, the triangle is a $30$-$60$-$90$ right triangle. The sides are in the ratio $1:\\sqrt{3}:2$ with the hypotenuse opposite $90°$. Here $AB$ is the hypotenuse and equals $10$, so the side opposite $\\angle A$ (which is $BC$) has length $10 \\times \\frac{1}{2} = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles: 30-60-90",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option is correct; BC = 5 in a 30-60-90 triangle when the hypotenuse is 10.",
+        "B": "Confuses the 30-60-90 ratios by assigning the longer leg $5\\\\\\\\sqrt{3}$ to BC (that length corresponds to the side opposite 60°, not 30°).",
+        "C": "Mistakenly treats BC as the hypotenuse or uses the hypotenuse value for BC.",
+        "D": "Forgets to halve the hypotenuse and instead picks the shorter non-hypotenuse length $\\\\\\\\sqrt{3}$."
+      },
+      "_batchId": "batch-1777330674772-geometry",
+      "_generatedAt": "2026-04-27T23:00:29.759Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Find the slope of the line through the points $ (1,2) $ and $ (4,8) $.",
+      "options": [
+        "A) $1$",
+        "B) $2$",
+        "C) $3$",
+        "D) $4$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The slope is $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{8 - 2}{4 - 1} = \\frac{6}{3} = 2$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate Geometry: Slope",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This option arises if the run is miscomputed (e.g., using 4-2 or another incorrect delta x) and the rise/run is confused, yielding 1 instead of 2.",
+        "B": "This option is correct.",
+        "C": "This option results from swapping or miscomputing differences (e.g., using 3 as the run instead of 3 and miswriting the ratio as 3).",
+        "D": "This option comes from treating the slope as if the run were 0 or misapplying the formula, giving an incorrect value such as 4."
+      },
+      "_batchId": "batch-1777330674772-geometry",
+      "_generatedAt": "2026-04-27T23:00:29.773Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In $\\triangle ABC$, $\\angle C = 90^{\\circ}$, $\\angle A = 30^{\\circ}$, $\\angle B = 60^{\\circ}$, and $\\overline{AB} = 6$. What is the area of $\\triangle ABC$?",
+      "options": [
+        "A) $\\frac{9\\sqrt{3}}{2}$",
+        "B) $\\frac{27}{2}$",
+        "C) $9\\sqrt{3}$",
+        "D) $\\frac{9\\sqrt{3}}{4}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: In a 30-60-90 right triangle with hypotenuse $\\overline{AB} = 6$, the side opposite the 30° angle ($\\overline{BC}$) is half the hypotenuse, so $BC = \\frac{AB}{2} = 3$. Step 2: The side opposite the 60° angle ($\\overline{AC}$) is $\\frac{\\sqrt{3}}{2}$ times the hypotenuse, so $AC = \\frac{\\sqrt{3}}{2} AB = 3\\sqrt{3}$. Step 3: The area is $\\tfrac{1}{2} \\cdot BC \\cdot AC = \\tfrac{1}{2} \\cdot 3 \\cdot 3\\sqrt{3} = \\frac{9\\sqrt{3}}{2}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) $\\\\\\\\frac{27}{2}$: This result arises from treating the triangle as if the area were $\\\\\\\\tfrac{1}{2} \\\\, AB^2$ (using the hypotenuse twice) which is not a valid area formula for this triangle.",
+        "C": "C) $9\\\\\\\\sqrt{3}$: This corresponds to omitting the factor of $\\\\\\\\tfrac{1}{2}$ in the area calculation, i.e., computing $BC \\\\cdot AC$ instead of $\\\\\\\\tfrac{1}{2} BC \\\\cdot AC$.",
+        "D": "D) $\\\\\\\\frac{9\\\\\\\\sqrt{3}}{4}$: This uses an incorrect area factor (e.g., using $\\\\\\\\tfrac{1}{4}$ of the product $BC \\\\cdot AC$)."
+      },
+      "_batchId": "batch-1777330674772-geometry",
+      "_generatedAt": "2026-04-27T23:03:35.979Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Let the circle with equation $$(x-4)^2 + (y+2)^2 = 25$$ be intersected by the line $y = 2x - 3$. The two intersection points form a chord of the circle. What is the length of this chord?",
+      "options": [
+        "A) $\\frac{4}{5}\\sqrt{95}$",
+        "B) $\\frac{4}{5}\\sqrt{19}$",
+        "C) $\\frac{8}{5}\\sqrt{19}$",
+        "D) $\\frac{4}{5}\\sqrt{95} + 1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Solve the system by substituting $y = 2x - 3$ into the circle: $(x-4)^2 + (2x-3+2)^2 = 25 \\\\,\\\\Rightarrow\\\\, (x-4)^2 + (2x-1)^2 = 25 \\\\Rightarrow 5x^2 - 12x - 8 = 0$. So $x = \\frac{12 \\pm 4\\sqrt{19}}{10} = \\frac{6 \\pm 2\\sqrt{19}}{5}$. Step 2: The two intersection points have coordinates with a difference $\\Delta x = x_1 - x_2 = \\frac{4\\sqrt{19}}{5}$ and $\\Delta y = y_1 - y_2 = 2\\Delta x = \\frac{8\\sqrt{19}}{5}$. Step 3: The chord length is $D = \\sqrt{(\\Delta x)^2 + (\\Delta y)^2} = \\sqrt{\\left(\\frac{4\\sqrt{19}}{5}\\right)^2 + \\left(\\frac{8\\sqrt{19}}{5}\\right)^2} = \\sqrt{\\frac{80 \\\\, 19}{25}} = \\frac{4}{5}\\sqrt{95}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) $\\\\\\\\frac{4}{5}\\\\\\\\sqrt{19}$: The mistake is using $\\\\\\\\sqrt{19}$ instead of $\\\\\\\\sqrt{95}$ when taking the distance; the proper radical should be $\\\\\\\\sqrt{95} = \\\\sqrt{5}\\\\sqrt{19}$.",
+        "C": "C) $\\\\\\\\frac{8}{5}\\\\\\\\sqrt{19}$: This results from incorrectly assuming $\\\\\\\\Delta y = 2\\\\\\\\Delta x$ leads to a miscalculation in the distance; the distance formula requires $\\\\\\\\sqrt{(\\\\\\\\Delta x)^2 + (\\\\\\\\Delta y)^2}$ with the correct $\\\\\\\\Delta x$ and $\\\\\\\\Delta y$.",
+        "D": "D) $\\\\\\\\frac{4}{5}\\\\\\\\sqrt{95} + 1$: This option adds an extra constant at the end, which is not part of the geometric distance calculation."
+      },
+      "_batchId": "batch-1777330674772-geometry",
+      "_generatedAt": "2026-04-27T23:03:35.984Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A rectangle with width 8 and height 5 has a right triangle with legs 3 and 4 removed from its top-left corner (the triangle's legs lie along the rectangle's top and left edges). What is the area of the remaining figure?",
+      "options": [
+        "A) 40",
+        "B) 6",
+        "C) 34",
+        "D) 36"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Step 1: Area of the full rectangle = 8 × 5 = 40. Step 2: Area of the removed right triangle = (1/2) × 3 × 4 = 6. Step 3: Remaining area = 40 − 6 = 34.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-perimeter",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) 40: This neglects subtraction of the notch; it uses the full rectangle area without removing the triangle.",
+        "B": "B) 6: This is the area of the removed triangle itself, not the remaining figure.",
+        "D": "D) 36: This comes from an incorrect subtraction, e.g., subtracting a different amount or miscomputing the rectangle area."
+      },
+      "_batchId": "batch-1777330674772-geometry",
+      "_generatedAt": "2026-04-27T23:03:35.991Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

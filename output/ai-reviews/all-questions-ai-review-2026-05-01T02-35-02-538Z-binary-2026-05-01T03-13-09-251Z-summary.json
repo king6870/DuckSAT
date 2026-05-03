@@ -1,0 +1,46 @@
+{
+  "runId": "2026-05-01T03-13-09-251Z",
+  "deployment": "gpt-5-nano",
+  "inputFile": "output\\ai-reviews\\all-questions-ai-review-2026-05-01T02-35-02-538Z.jsonl",
+  "outputFile": "output\\ai-reviews\\all-questions-ai-review-2026-05-01T02-35-02-538Z-binary-2026-05-01T03-13-09-251Z.jsonl",
+  "totalRows": 6143,
+  "recheckedRows": 3569,
+  "finalVerdicts": {
+    "pass": 3407,
+    "fail": 2736
+  },
+  "finalAnswerCheck": {
+    "correct": 3442,
+    "likelyIncorrect": 112,
+    "unclear": 2589
+  },
+  "activePassByCategory": {
+    "reading-comprehension": 961,
+    "grammar": 196,
+    "vocabulary": 216,
+    "algebra": 643,
+    "writing-language": 331,
+    "problem-solving-data-analysis": 269,
+    "advanced-math": 242,
+    "geometry": 268,
+    "circles": 0
+  },
+  "activeTotalsByCategory": {
+    "reading-comprehension": 1779,
+    "grammar": 349,
+    "vocabulary": 399,
+    "algebra": 1082,
+    "writing-language": 621,
+    "problem-solving-data-analysis": 487,
+    "advanced-math": 478,
+    "geometry": 443,
+    "circles": 1
+  },
+  "meetsTargets": {
+    "minimumTotalPass": 700,
+    "minimumPerCategoryPass": 150,
+    "totalActivePass": 3126,
+    "categoriesBelowThreshold": [],
+    "satisfied": true
+  }
+}

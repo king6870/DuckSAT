@@ -2,6 +2,27 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
+function normalizeOptions(raw: unknown): string[] {
+  if (Array.isArray(raw)) {
+    return raw.map((item) => String(item));
+  }
+
+  if (typeof raw === 'string') {
+    try {
+      const parsed = JSON.parse(raw) as unknown;
+      if (Array.isArray(parsed)) {
+        return parsed.map((item) => String(item));
+      }
+    } catch {
+      // Keep fallback below.
+    }
+
+    return [raw];
+  }
+
+  return [];
+}
+
 async function analyzeDiagramAccuracy() {
   console.log('\n╔═══════════════════════════════════════════════════════════════╗');
   console.log('║           Detailed Diagram & Question Accuracy Check          ║');
@@ -28,18 +49,20 @@ async function analyzeDiagramAccuracy() {
   console.log('─'.repeat(80));
 
   for (const [idx, q] of questionsWithDiagrams.entries()) {
+    const options = normalizeOptions(q.options);
+
     console.log(`\n[Question ${idx + 1}] Category: ${q.category}`);
     console.log(`ID: ${q.id}`);
     console.log(`\nQuestion Text:`);
     console.log(q.question);
     
     console.log(`\nOptions:`);
-    q.options.forEach((opt, i) => {
+    options.forEach((opt, i) => {
       const marker = i === q.correctAnswer ? '✓' : ' ';
       console.log(`  [${marker}] ${i}. ${opt}`);
     });
 
-    console.log(`\nCorrect Answer: ${q.correctAnswer} - ${q.options[q.correctAnswer]}`);
+    console.log(`\nCorrect Answer: ${q.correctAnswer} - ${options[q.correctAnswer] || 'N/A'}`);
     
     console.log(`\nExplanation:`);
     console.log(q.explanation);
@@ -99,7 +122,7 @@ async function analyzeDiagramAccuracy() {
     }
 
     // Check options format
-    const hasVariedOptions = new Set(q.options).size === q.options.length;
+    const hasVariedOptions = new Set(options).size === options.length;
     if (!hasVariedOptions) {
       issues.push('Duplicate options detected');
     }

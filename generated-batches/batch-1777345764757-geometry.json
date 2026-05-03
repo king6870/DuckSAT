@@ -1,0 +1,2159 @@
+{
+  "batchId": "batch-1777345764757-geometry",
+  "topic": "geometry",
+  "moduleType": "math",
+  "generatedAt": "2026-04-28T03:15:08.192Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 50,
+  "totalGenerated": 75,
+  "totalValid": 75,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In triangle $\\triangle ABC$, $\\angle A = 50°$ and $\\angle B = 60°$. What is $\\angle C$?",
+      "options": [
+        "A) $70°$",
+        "B) $110°$",
+        "C) $60°$",
+        "D) $180°$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In any triangle, $\\angle A + \\angle B + \\angle C = 180°$. Here $A = 50°$ and $B = 60°$, so $\\angle C = 180° - (50° + 60°) = 70°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles: Triangle angle sum",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B is what you get if you add A and B and forget to subtract from 180° to find the remaining angle.",
+        "C": "C incorrectly assumes equality with A; the angles in a triangle are not necessarily equal.",
+        "D": "D confuses the total sum of angles (180°) with the measure of a single angle."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.085Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In right triangle $\\triangle ABC$ with $\\angle B = 90°$, $AB = 3$, $BC = 4$. What is $AC$?",
+      "options": [
+        "A) $5$",
+        "B) $6$",
+        "C) $\\sqrt{13}$",
+        "D) 7"
+      ],
+      "correctAnswer": 0,
+      "explanation": "By the Pythagorean theorem, $AC^2 = AB^2 + BC^2 = 3^2 + 4^2 = 9 + 16 = 25$, so $AC = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles: Pythagorean theorem",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Adding the legs as if they were the hypotenuse gives 6, which is incorrect for the hypotenuse.",
+        "C": "Using $AB^2 + AC^2 = BC^2$ misplaces the relation between sides.",
+        "D": "7 would be the sum of legs plus a guess; not from the Pythagorean relation."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.097Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In triangles $\\triangle ABC$ and $\\triangle DEF$, $\\triangle ABC \\sim \\triangle DEF$ with corresponding sides in the ratio $AB:DE = 1:2$ and $AB = 4$. What is $DE$?",
+      "options": [
+        "A) 2",
+        "B) 4",
+        "C) 8",
+        "D) 16"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Since $\\triangle ABC \\sim \\triangle DEF$ and $AB$ corresponds to $DE$ with ratio $1:2$, we have $DE = 2 \\cdot AB = 2 \\cdot 4 = 8$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles: Similar triangles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "This would be the case if the ratio were $AB:DE = 1:1/2$; here the ratio is 1:2.",
+        "B": "Treating $DE$ as equal to $AB$ ignores the given ratio 1:2.",
+        "D": "Doubling again would imply ratio 1:4."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.102Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a right triangle, a 30-60-90 triangle, if the side opposite the $30°$ angle is $3$, what is the length of the hypotenuse?",
+      "options": [
+        "A) $6$",
+        "B) $3\\sqrt{3}$",
+        "C) 9",
+        "D) 3"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In a 30-60-90 triangle, the sides are in the ratio $1:\\sqrt{3}:2$ with the $1$ corresponding to the side opposite $30°$. If the short leg is 3, the hypotenuse is $2 \\cdot 3 = 6$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles: Special right triangles (30-60-90)",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "3 is the short leg; the longer leg is $3\\\\sqrt{3}$, not the hypotenuse.",
+        "C": "9 would be $3$ times the hypotenuse; misapplying the ratio.",
+        "D": "3 is the short leg, not the hypotenuse."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.104Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the circle $(x-2)^2 + (y+3)^2 = 25$, the center is at $\\left(2,-3\\right)$. Which option correctly identifies the center?",
+      "options": [
+        "A) $\\left(2,-3\\right)$",
+        "B) $\\left(-2,3\\right)$",
+        "C) $\\left(0,0\\right)$",
+        "D) $\\left(5,-3\\right)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The standard circle form is $(x-h)^2 + (y-k)^2 = r^2$ with center $ (h,k) $. Here $h=2$ and $k=-3$, so the center is $(2,-3)$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles: Equation of a circle",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This is the point with signs flipped; center would be $(-2,3)$ which would correspond to $(x+2)^2+(y-3)^2=25$.",
+        "C": "Origin; center at (0,0) would be $(x)^2+(y)^2=r^2$.",
+        "D": "This uses the wrong x-coordinate sign for the center."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.106Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the distance between points $P(1,2)$ and $Q(4,6)$ in the plane?",
+      "options": [
+        "A) 5",
+        "B) $\\sqrt{18}$",
+        "C) 8",
+        "D) $\\sqrt{10}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distance formula: $d = \\sqrt{(4-1)^2 + (6-2)^2} = \\sqrt{3^2 + 4^2} = \\sqrt{9+16} = \\sqrt{25} = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry: Distance formula",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrectly computing the square root by taking $\\\\\\\\sqrt{(4-1)^2 + (6-2)^2} = \\\\\\\\sqrt{3^2 + 4^2}$ but then mistaking the sum as 18.",
+        "C": "Confusing distance with the sum of coordinate differences.",
+        "D": "Using the wrong pair of coordinate differences."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.110Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the slope of the line through points $A(2,3)$ and $B(5,7)$?",
+      "options": [
+        "A) $\\frac{4}{3}$",
+        "B) $\\frac{3}{4}$",
+        "C) 1",
+        "D) $-\\frac{4}{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Slope $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{7-3}{5-2} = \\frac{4}{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry: Slope",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Using the reciprocal slope; not correct for the same pair of points.",
+        "C": "Assuming slope equals 1; requires equal rise and run which is not the case here.",
+        "D": "Sign mistake or wrong numerator/denominator."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.112Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In rectangle $ABCD$, given $AB = 7$ and $BC = 5$, what is the area of the rectangle?",
+      "options": [
+        "A) 35",
+        "B) 12",
+        "C) 14",
+        "D) 36"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area of a rectangle is length × width: $AB \\cdot BC = 7 \\cdot 5 = 35$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-perimeter: Area of rectangle",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Confusing area with a missing dimension or using $7+5$.",
+        "C": "Product of one side with itself; correct is 7×5.",
+        "D": "Squaring wrong dimensions or miscomputing."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.114Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a circle of radius $r = 6$, a central angle measures $60°$. What is the length of the corresponding arc?",
+      "options": [
+        "A) $2\\pi$",
+        "B) $3\\pi$",
+        "C) $\\pi$",
+        "D) 6"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Arc length $L = r\\theta$, with $\\theta$ in radians. $60° = \\pi/3$, so $L = 6 \\cdot (\\pi/3) = 2\\pi$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles: Arc length",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Using $r\\\\theta$ with an incorrect radian measure.",
+        "C": "Using a fraction that corresponds to an incorrect angle.",
+        "D": "Misinterpreting arc length as radius or another dimension."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.115Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In circle $O$, if arc $AB$ has measure $40°$, what is the measure of the inscribed angle $\\angle ACB$ subtending the same arc?",
+      "options": [
+        "A) 20°",
+        "B) 40°",
+        "C) 80°",
+        "D) 0°"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An inscribed angle subtending the same arc measures half of the central angle (or arc measure). So $\\angle ACB = 40°/2 = 20°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles: Central/Inscribed angles",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Confuses inscribed angle with the arc measure.",
+        "C": "Doubles the angle unnecessarily.",
+        "D": "Zero angle; not correct."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.117Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A point $(x,y)$ is reflected across the x-axis to $(x,-y)$. If the original point is $P(4,-2)$, what is the image $P'$?",
+      "options": [
+        "A) $(4,2)$",
+        "B) $(4,-2)$",
+        "C) $(-4,2)$",
+        "D) $(-4,-2)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reflection across the x-axis changes the sign of the y-coordinate: $P(4,-2) \\rightarrow P'(4,2)$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Transformations: Reflections",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "No change in y-coordinate after reflection.",
+        "C": "Incorrect reflection across y-axis.",
+        "D": "Both coordinates change sign; not the reflection across x-axis."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.118Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a 45-45-90 triangle, if each leg has length $6$, what is the length of the hypotenuse?",
+      "options": [
+        "A) $6\\sqrt{2}$",
+        "B) 12",
+        "C) 6",
+        "D) $3\\sqrt{2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In a 45-45-90 triangle, hypotenuse = leg × $\\sqrt{2}$, so $6\\sqrt{2}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles: Special right triangles (45-45-90)",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Confuses with double the leg length.",
+        "C": "Treats the hypotenuse as equal to a leg.",
+        "D": "Uses the wrong factor; should be $\\\\\\\\sqrt{2}$ times a leg."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.120Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The midpoint of segment with endpoints $A(1,3)$ and $B(7,-1)$ is which of the following?",
+      "options": [
+        "A) $(4,1)$",
+        "B) $(4,2)$",
+        "C) $(3,1)$",
+        "D) $(3,2)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Midpoint formula: $\\left(\\frac{1+7}{2}, \\frac{3+(-1)}{2}\\right) = (4,1)$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry: Midpoint",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Incorrect average for the y-coordinate.",
+        "C": "Wrong average for both coordinates.",
+        "D": "Both coordinates incorrectly averaged."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.121Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Line segment $AB$ passes through points $(2,-1)$ and $(4,3)$. A line perpendicular to $AB$ has slope:",
+      "options": [
+        "A) $-\\frac{1}{2}$",
+        "B) $-\\frac{2}{1}$",
+        "C) $\\frac{1}{2}$",
+        "D) $2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Slope of $AB$ is $m = (3 - (-1)) / (4 - 2) = 4/2 = 2$. A perpendicular line has slope $-1/2$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry: Perpendicular slopes",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Perpendicular slope is negative reciprocal, not the negative reciprocal of the reciprocal.",
+        "C": "Uses the negative reciprocal instead of the negative reciprocal.",
+        "D": "Gives the same slope, not perpendicular."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.124Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a regular pentagon with side length $3$, what is its perimeter?",
+      "options": [
+        "A) 15",
+        "B) 10",
+        "C) 20",
+        "D) 18"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Perimeter of a regular polygon is number of sides times the side length: $5 \\times 3 = 15$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-perimeter: Perimeter of regular polygons",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Used 5 × 2 instead of 5 × 3; incorrect side length usage.",
+        "C": "Used 4 or miscounted sides; pentagon has 5 sides.",
+        "D": "Incorrect multiplication or side length taken."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:10:50.125Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In $\\triangle ABC$, $\\angle A = 30°$, $\\angle B = 60°$. What is $\\angle C$?",
+      "options": [
+        "A) $90°$",
+        "B) $120°$",
+        "C) $60°$",
+        "D) $30°$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: The interior angles of a triangle sum to $180°$. Step 2: $\\angle C = 180° - (\\angle A + \\angle B) = 180° - (30° + 60°) = 90°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles - Triangle angle sum",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Assumes the sum would exceed $180°$; the given angles already determine $\\\\\\\\angle C$.",
+        "C": "Confuses the angle values; if two angles were $30°$ and $60°$, the third would be $90°$, not $60°$.",
+        "D": "Incorrectly assumes one angle repeats or equals another angle rather than using the sum."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.888Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In right triangle $\\triangle ABC$ with right angle at $C$, $AB = 13$ is the hypotenuse and $AC = 5$. Find $BC$.",
+      "options": [
+        "A) $12$",
+        "B) $5$",
+        "C) $13$",
+        "D) $10$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "By the Pythagorean theorem, $BC^2 = AB^2 - AC^2 = 13^2 - 5^2 = 169 - 25 = 144$, so $BC = 12$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles - Pythagorean theorem",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct setup but misidentifies a leg as the hypotenuse.",
+        "B": "Confuses the leg with the hypotenuse or uses $BC = AC$.",
+        "C": "Treats $AB$ as a leg rather than the hypotenuse."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.890Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In $\\triangle ABC$ and $\\triangle DEF$, the triangles are similar with a scale factor of $\\tfrac{1}{2}$ from $\\triangle ABC$ to $\\triangle DEF$. If $AB = 8$, what is $DE$?",
+      "options": [
+        "A) 4",
+        "B) 8",
+        "C) 16",
+        "D) 2"
+      ],
+      "correctAnswer": 0,
+      "explanation": "If the scale factor from $\\triangle ABC$ to $\\triangle DEF$ is $\\tfrac{1}{2}$, then corresponding sides satisfy $DE = \tfrac{1}{2}AB = \\tfrac{1}{2} \\cdot 8 = 4$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles - Similar triangles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Treats the scale factor as 1 (no change).",
+        "C": "Uses the inverse scale factor (doubling).",
+        "D": "Divides by 4 instead of 2."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.891Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a right triangle $\\triangle ABC$ with a $30$-$60$-$90$ configuration, the side opposite $30°$ is $5$. Find the length of the hypotenuse.",
+      "options": [
+        "A) $10$",
+        "B) $5$",
+        "C) $5\\sqrt{3}$",
+        "D) $\\sqrt{50}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In a $30$-$60$-$90$ triangle, the hypotenuse is twice the short leg. If the short leg is $5$, the hypotenuse is $5 \\times 2 = 10$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles - Special right triangles (30-60-90)",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Mistakenly treating the short leg as the hypotenuse.",
+        "C": "Confuses the hypotenuse with the longer leg.",
+        "D": "Miscomputes by taking a nonstandard radical form."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.893Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A circle with radius $r = 4$ has a central angle of $60°$ that subtends arc AB. What is the arc length of AB?",
+      "options": [
+        "A) $\\tfrac{4\\pi}{3}$",
+        "B) $\\tfrac{8\\pi}{3}$",
+        "C) $2\\pi$",
+        "D) $\\pi$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Arc length $s = r\\theta$ with $\\theta$ in radians. $60° = \\pi/3$, so $s = 4 \\cdot \\tfrac{\\pi}{3} = \\tfrac{4\\pi}{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Arc length",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Uses the wrong angle measure or misapplies the factor $\\\\pi$.",
+        "B": "Uses double the central angle.",
+        "C": "Confuses arc length with full circumference $2\\\\pi r$.",
+        "D": "Treats the angle as a fraction of a diameter."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.894Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A circle of radius $r = 5$ has a sector with central angle $40°$. What is the area of the sector?",
+      "options": [
+        "A) $\\tfrac{25\\pi}{9}$",
+        "B) $\\tfrac{25\\pi}{18}$",
+        "C) $\\tfrac{50\\pi}{9}$",
+        "D) $\\tfrac{5\\pi}{9}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area of sector is $A = (\\theta/360)\\pi r^2$. With $\\theta = 40°$ and $r=5$, $A = (40/360) \\pi (5^2) = (1/9) \\cdot 25\\pi = 25\\pi/9$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Sector area",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Used the wrong fraction of the circle (incorrect angle/360).",
+        "C": "Used double the radius in the formula.",
+        "D": "Used an incorrect fraction of the circle or radius."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.896Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The circle centered at $(h,k)$ with radius $r=5$ has equation $ (x-h)^2 + (y-k)^2 = r^2$. Which of the following is the correct standard form for the circle with center $(3,-2)$ and radius $5$?",
+      "options": [
+        "A) $(x-3)^2+(y+2)^2=25$",
+        "B) $(x+3)^2+(y-2)^2=25$",
+        "C) $(x-3)^2+(y-2)^2=25$",
+        "D) $(x-3)^2+(y+2)^2=16$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "For center $(h,k)=(3,-2)$ and radius $r=5$, the equation is $(x-h)^2+(y-k)^2=r^2$, i.e., $(x-3)^2+(y+2)^2=25$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Circle equation",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Center coordinates are swapped incorrectly.",
+        "B": "Signs of $h$ and $k$ are swapped.",
+        "C": "Used wrong center coordinates for $k$ or $h$.",
+        "D": "Used wrong radius value."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.898Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In $\\triangle ABC$, points $A(2,3)$ and $B(-4,7)$. The distance $AB$ is which of the following?",
+      "options": [
+        "A) $2\\sqrt{13}$",
+        "B) $\\sqrt{40}$",
+        "C) $\\sqrt{68}$",
+        "D) $4\\sqrt{2}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Distance formula: $AB = \\sqrt{(x_B - x_A)^2 + (y_B - y_A)^2} = \\sqrt{(-4-2)^2 + (7-3)^2} = \\sqrt{(-6)^2 + 4^2} = \\sqrt{36+16} = \\sqrt{52} = 2\\sqrt{13}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry - Distance formula",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Confuses the radical by failing to simplify $\\\\sqrt{52}$ to $2\\\\sqrt{13}$.",
+        "B": "Mistakes difference in $x$ and $y$ or miscomputes squaring terms.",
+        "C": "Uses wrong deltas (e.g., $6$ and $8$) for differences.",
+        "D": "Misapplies the distance formula entirely."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.900Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The midpoint of $A(2,-6)$ and $B(8,4)$ is what coordinate?",
+      "options": [
+        "A) $(5,-1)$",
+        "B) $(5,0)$",
+        "C) $(3,-1)$",
+        "D) $(4,-2)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Midpoint formula: $\\left(\\dfrac{x_A+x_B}{2}, \\dfrac{y_A+y_B}{2}\\right) = (\\dfrac{2+8}{2}, \\dfrac{-6+4}{2}) = (5,-1)$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry - Midpoint",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Incorrect $y$-coordinate midpoint calculation.",
+        "C": "Averaged $x$ and $y$ coordinates incorrectly; swapped values.",
+        "D": "Miscalculated both coordinates."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.902Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Line through $A(1,2)$ and $B(4,-5)$ has slope $m$ equal to which of the following?",
+      "options": [
+        "A) $-\\tfrac{7}{3}$",
+        "B) $\\tfrac{7}{3}$",
+        "C) $-\\tfrac{3}{7}$",
+        "D) $\\tfrac{3}{7}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Slope formula: $m = \\dfrac{y_2 - y_1}{x_2 - x_1} = \\dfrac{-5-2}{4-1} = \\dfrac{-7}{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry - Slope between two points",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Sign error in numerator or denominator.",
+        "B": "Sign error or reversed coordinates.",
+        "C": "Used reciprocal slope rather than negative reciprocal.",
+        "D": "Used positive values instead of negative."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.904Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the coordinate plane, the line through $A(2,3)$ and $B(2,7)$ is which of the following equations?",
+      "options": [
+        "A) $x=2$",
+        "B) $y= x$",
+        "C) $y= -x$",
+        "D) $x+y=5$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Both points have the same $x$-coordinate, so the line is vertical: $x=2$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry - Line equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Gives a diagonal line with slope 1, not vertical.",
+        "C": "Represents a line with slope -1 through origin; not correct here.",
+        "D": "Incorrect linear form; intercepts do not fit the given points."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.905Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A composite figure consists of a rectangle with length $6$ and width $4$, plus a right triangle with base $3$ and height $4$ attached along the 4-unit side. What is the total area?",
+      "options": [
+        "A) 24",
+        "B) 30",
+        "C) 28",
+        "D) 34"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Rectangle area: $6\\times 4 = 24$. Triangle area: $\\tfrac{1}{2}\\cdot 3 \\cdot 4 = 6$. Total area: $24+6 = 30$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-Perimeter - Area of composite shapes",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Only counts rectangle area; omits the triangle part.",
+        "B": "Adds triangle area twice or miscomputes base/height.",
+        "C": "Miscounts by using an incorrect height or base."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.906Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In right triangle $\\triangle ABC$ with right angle at $C$, $AB=10$ is the hypotenuse and $AC=6$. What is $BC$?",
+      "options": [
+        "A) 8",
+        "B) 6",
+        "C) 4",
+        "D) 10"
+      ],
+      "correctAnswer": 0,
+      "explanation": "By the Pythagorean theorem, $BC^2 = AB^2 - AC^2 = 10^2 - 6^2 = 100 - 36 = 64$, so $BC = 8$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry - Pythagorean theorem (applied to triangles)",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses a leg with a hypotenuse or uses the wrong pair of sides.",
+        "C": "Takes the square root incorrectly or uses the difference wrongly.",
+        "D": "Assumes hypotenuse equals a leg."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.908Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A regular hexagon with side length $s=2$ has area $A$. Which of the following equals $A$?",
+      "options": [
+        "A) $6\\sqrt{3}$",
+        "B) $3\\sqrt{3}$",
+        "C) $12\\sqrt{3}$",
+        "D) $4\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area of a regular hexagon with side $s$ is $A = \\frac{3\\sqrt{3}}{2} s^2$. For $s=2$, $A = \\frac{3\\sqrt{3}}{2} \\cdot 4 = 6\\sqrt{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-Perimeter - Area of regular polygons",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Forgetting the factor of 2 in the formula or using a wrong $s^2$.",
+        "C": "Incorrectly scaling by 4 or misusing the constant.",
+        "D": "Misapplication of the hexagon area formula."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.909Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two parallel lines are cut by a transversal. If one interior angle is $70°$, the angle on the same side inside is which of the following?",
+      "options": [
+        "A) $110°$",
+        "B) $70°$",
+        "C) $140°$",
+        "D) $90°$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Consecutive interior angles formed by a transversal on parallel lines are supplementary: their measures add to $180°$. So the other interior angle is $180° - 70° = 110°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Angles - Parallel lines cut by transversal",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses supplementary with corresponding or equal angles.",
+        "C": "Uses double the given angle.",
+        "D": "Inappropriate right angle guess."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.910Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In circle $O$, a central angle $\\angle AOB$ measures $120°$. The inscribed angle subtending the same arc $AB$ measures which of the following?",
+      "options": [
+        "A) $60°$",
+        "B) $120°$",
+        "C) $30°$",
+        "D) $90°$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An inscribed angle subtending the same arc as a central angle is half of the central angle: $\\angle ACB = \tfrac{1}{2}\\angle AOB = 60°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Central and inscribed angles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Regards inscribed angle as equal to central angle, which is incorrect.",
+        "C": "Halving again or misapplying the rule.",
+        "D": "Misinterpretation as a right angle."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.911Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In circle $O$ with radius $r = 5$, chord $AB$ subtends a central angle of $60°$. The length of chord $AB$ is which of the following?",
+      "options": [
+        "A) 5",
+        "B) 2.5",
+        "C) 10",
+        "D) 5$\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Chord length $AB = 2r\\sin(\\theta/2)$. Here $r=5$, $\\theta=60°$, so $AB = 2\\cdot 5 \\sin 30° = 10 \\cdot \\tfrac{1}{2} = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - chord length",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Used $\\\\sin(60°)$ or miscomputed half-angle.",
+        "C": "Used diameter instead of chord length.",
+        "D": "Used $\\\\sin(60°)$ instead of $\\\\sin(30°)$."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.913Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A circle with center at the origin has radius $5$ and an external point $P(13,0)$. The length of the tangent from $P$ to the circle is which of the following?",
+      "options": [
+        "A) 12",
+        "B) 13",
+        "C) $\\sqrt{119}$",
+        "D) 5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tangent length from external point: $PT^2 = PO^2 - r^2 = 13^2 - 5^2 = 169 - 25 = 144$, so $PT = 12$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Tangent lengths",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses tangent length with distance from center to point.",
+        "C": "Uses the wrong square root of $PO^2 - r^2$ or miscomputes.",
+        "D": "Confuses tangent with radius."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.914Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which equation represents the line parallel to $y = 2x + 0$ that passes through $(0,4)$?",
+      "options": [
+        "A) $y = 2x + 4$",
+        "B) $y = 2x + 2$",
+        "C) $y = -2x + 4$",
+        "D) $y = x + 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A line parallel to $y = 2x$ has the same slope $m=2$. Passing through $(0,4)$ yields $y = 2x + 4$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry - Line equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Incorrect y-intercept after shifting parallel line.",
+        "C": "Uses negative slope; not parallel to $y=2x$.",
+        "D": "Uses wrong slope; parallel requires slope 2."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.916Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A trapezoid has bases of lengths $8$ and $5$ with height $4$. What is its area?",
+      "options": [
+        "A) 26",
+        "B) 24",
+        "C) 28",
+        "D) 34"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area of a trapezoid: $A = \\tfrac{1}{2}(b_1+b_2)h = \\tfrac{1}{2}(8+5)\\cdot 4 = \\tfrac{1}{2}\\cdot 13 \\cdot 4 = 26$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-Perimeter - Area of trapezoids",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Misses half of the sum of bases.",
+        "B": "Using rectangle area formula incorrectly.",
+        "C": "Adds bases incorrectly or uses wrong height."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.917Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In right triangle $\\triangle ABC$ with $\\angle C = 90°$, if $AC=6$, $AB=10$, what is $BC$?",
+      "options": [
+        "A) 8",
+        "B) 6",
+        "C) 4",
+        "D) 10"
+      ],
+      "correctAnswer": 0,
+      "explanation": "By the Pythagorean theorem, $BC^2 = AB^2 - AC^2 = 10^2 - 6^2 = 100 - 36 = 64$, so $BC = 8$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles - Pythagorean theorem",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Takes $AC$ as the hypotenuse or uses wrong sides.",
+        "C": "Takes square root incorrectly.",
+        "D": "Assumes the hypotenuse equals a leg."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.919Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A regular hexagon with side length $s=2$ has area $A$. Which of the following is $A$?",
+      "options": [
+        "A) $6\\sqrt{3}$",
+        "B) $3\\sqrt{3}$",
+        "C) $12\\sqrt{3}$",
+        "D) $4\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area formula for a regular hexagon: $A = \\dfrac{3\\sqrt{3}}{2} s^2$. With $s=2$, $A = \\dfrac{3\\sqrt{3}}{2} \\cdot 4 = 6\\sqrt{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-Perimeter - Area of regular polygons",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Misses the factor of 2 in the formula.",
+        "C": "Incorrectly doubles or halves the area.",
+        "D": "Misapplies the hexagon area constant."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.920Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two parallel lines are cut by a transversal. If one interior angle is $70°$, which of the following is the other interior angle on the same side?",
+      "options": [
+        "A) $110°$",
+        "B) $70°$",
+        "C) $140°$",
+        "D) $90°$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Consecutive interior angles are supplementary: $70° + x = 180°$ gives $x = 110°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Angles - Parallel lines cut by transversal",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses supplementary with corresponding or alternate interior angles.",
+        "C": "Uses twice the given angle.",
+        "D": "Assumes a right angle without justification."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.921Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In circle $O$, central angle $AOB$ measures $120°$. The inscribed angle subtending the same arc $AB$ measures:",
+      "options": [
+        "A) $60°$",
+        "B) $120°$",
+        "C) $30°$",
+        "D) $90°$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An inscribed angle subtending the same arc as a central angle is half of the central angle: $\\angle ACB = \tfrac{1}{2}\\angle AOB = 60°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Inscribed vs central angles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Mistakes the inscribed angle for the central angle.",
+        "C": "Halves the angle twice or uses an incorrect half-angle.",
+        "D": "Confuses inscribed with a right angle."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.923Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Chord $AB$ in a circle with radius $r=5$ subtends a central angle of $60°$. The length of chord $AB$ is:",
+      "options": [
+        "A) 5",
+        "B) 2.5",
+        "C) 10",
+        "D) 5$\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Chord length $AB = 2r\\sin(\\theta/2) = 2\\cdot 5 \\sin(30°) = 10 \\cdot \\tfrac{1}{2} = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Chord length",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Uses $\\\\sin(60°)$ instead of $\\\\sin(30°)$.",
+        "C": "Treats chord as diameter.",
+        "D": "Uses incorrect trigonometric value for half-angle."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.924Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A circle with center at the origin and radius $5$ has an external point $P(13,0)$. The length of the tangent from $P$ to the circle is:",
+      "options": [
+        "A) 12",
+        "B) 13",
+        "C) $\\sqrt{119}$",
+        "D) 5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tangent length: $PT^2 = PO^2 - r^2 = 13^2 - 5^2 = 144$, so $PT = 12$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Tangents from external point",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses tangent length with distance from center to point.",
+        "C": "Miscomputes $PO^2 - r^2$ or takes a square root incorrectly.",
+        "D": "Confuses tangent with radius or other segment."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.925Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which equation represents the line parallel to $y = 2x$ that passes through $(0,4)$?",
+      "options": [
+        "A) $y = 2x + 4$",
+        "B) $y = 2x + 2$",
+        "C) $y = -2x + 4$",
+        "D) $y = x + 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Parallel lines have the same slope; thus $y=2x+b$ passes through $(0,4)$ giving $b=4$. So $y=2x+4$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry - Line equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Incorrect intercept; uses wrong constant term.",
+        "C": "Slope sign incorrect; should be positive.",
+        "D": "Uses wrong slope (1) instead of 2."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.926Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A trapezoid has bases lengths $8$ and $5$ with height $4$. The area is:",
+      "options": [
+        "A) 26",
+        "B) 24",
+        "C) 28",
+        "D) 34"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area = (1/2)(base1 + base2) × height = (1/2)(8+5)×4 = (1/2)·13·4 = 26.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-Perimeter - Area of trapezoids",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Only rectangle area; excludes the trapezoidal adjustment.",
+        "C": "Used wrong height or base sum.",
+        "D": "Arithmetic error with the bases."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.927Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In right triangle $\\triangle ABC$ with right angle at $C$, if $AC=6$, $AB=10$, what is $BC$?",
+      "options": [
+        "A) 8",
+        "B) 6",
+        "C) 4",
+        "D) 10"
+      ],
+      "correctAnswer": 0,
+      "explanation": "By the Pythagorean theorem, $BC^2 = AB^2 - AC^2 = 10^2 - 6^2 = 100 - 36 = 64$, so $BC = 8$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles - Pythagorean theorem",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Mistakenly uses $AC$ as $BC$ or subtracts incorrectly.",
+        "C": "Takes square root of a wrong difference.",
+        "D": "Considers $AB$ as a leg rather than the hypotenuse."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.928Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A regular hexagon with side length $s=2$ has area $A$. Which expression equals $A$?",
+      "options": [
+        "A) $6\\sqrt{3}$",
+        "B) $3\\sqrt{3}$",
+        "C) $12\\sqrt{3}$",
+        "D) $4\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area of a regular hexagon is $A = \\dfrac{3\\sqrt{3}}{2} s^2$. With $s=2$, $A = \\dfrac{3\\sqrt{3}}{2} \\cdot 4 = 6\\sqrt{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-Perimeter - Area of regular polygons",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Uses half of the correct expression or misses a factor.",
+        "C": "Uses too large a multiple of $\\\\sqrt{3}$.",
+        "D": "Incorrect application of the regular polygon area formula."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.929Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two parallel lines are cut by a transversal. If one interior angle is $70°$, the other interior angle on the same side is:",
+      "options": [
+        "A) $110°$",
+        "B) $70°$",
+        "C) $140°$",
+        "D) $90°$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Consecutive interior angles are supplementary: $70° + x = 180°$ implies $x=110°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Angles - Parallel lines cut by transversal",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses supplementary with corresponding or vertical angles.",
+        "C": "Doubling the angle erroneously.",
+        "D": "Assumes right angle property without justification."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.931Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In circle $O$, the central angle $AOB$ is $120°$. The inscribed angle subtending the same arc $AB$ is:",
+      "options": [
+        "A) $60°$",
+        "B) $120°$",
+        "C) $30°$",
+        "D) $90°$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An inscribed angle subtending the same arc as a central angle is half the central angle: $\\angle ACB = \\tfrac{1}{2}\\angle AOB = 60°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Inscribed vs central angles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses inscribed with central angle; inscribed is half.",
+        "C": "Halves again or uses incorrect half-angle.",
+        "D": "Mistakes inscribed angle for a right angle."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.932Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Chord $AB$ in a circle with radius $r=5$ subtends a central angle of $60°$. The length of chord $AB$ is:",
+      "options": [
+        "A) 5",
+        "B) 2.5",
+        "C) 10",
+        "D) 5$\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Chord length $AB = 2r\\sin(\\theta/2)$. Here $r=5$, $\\theta=60°$, so $AB = 2\\cdot 5 \\sin 30° = 10 \\cdot 1/2 = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Chord length",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Uses $\\\\sin(60°)$ instead of $\\\\sin(30°)$.",
+        "C": "Treats chord as diameter.",
+        "D": "Misapplies half-angle or uses a wrong trigonometric value."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.933Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A circle with center at the origin and radius $5$ has an external point $P(13,0)$. The length of the tangent from $P$ to the circle is:",
+      "options": [
+        "A) 12",
+        "B) 13",
+        "C) $\\sqrt{119}$",
+        "D) 5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tangent length: $PT^2 = PO^2 - r^2 = 13^2 - 5^2 = 169 - 25 = 144$, so $PT = 12$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Tangents from external point",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses tangent length with distance from center to point.",
+        "C": "Miscomputes $PO^2 - r^2$ or takes a square root incorrectly.",
+        "D": "Confuses tangent with radius or other segment."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.934Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which equation represents the line parallel to $y = 2x$ that passes through $(0,4)$?",
+      "options": [
+        "A) $y = 2x + 4$",
+        "B) $y = 2x + 2$",
+        "C) $y = -2x + 4$",
+        "D) $y = x + 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Parallel lines have the same slope; thus $y=2x+b$ passes through $(0,4)$ giving $b=4$. So $y=2x+4$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry - Line equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Incorrect intercept; uses wrong constant term.",
+        "C": "Slope sign incorrect; should be positive.",
+        "D": "Uses wrong slope (1) instead of 2."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.935Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A trapezoid has bases lengths $8$ and $5$ with height $4$. The area is:",
+      "options": [
+        "A) 26",
+        "B) 24",
+        "C) 28",
+        "D) 34"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area = (1/2)(base1 + base2) × height = (1/2)(8+5)×4 = (1/2)·13·4 = 26.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-Perimeter - Area of trapezoids",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Only rectangle area; excludes the trapezoid adjustment.",
+        "C": "Used wrong height or base sum.",
+        "D": "Arithmetic error with the bases."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.937Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In right triangle $\\triangle ABC$ with right angle at $C$, if $AC=6$, $AB=10$, what is $BC$?",
+      "options": [
+        "A) 8",
+        "B) 6",
+        "C) 4",
+        "D) 10"
+      ],
+      "correctAnswer": 0,
+      "explanation": "By the Pythagorean theorem, $BC^2 = AB^2 - AC^2 = 10^2 - 6^2 = 100 - 36 = 64$, so $BC = 8$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles - Pythagorean theorem",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses a leg with a hypotenuse or uses wrong sides.",
+        "C": "Takes square root incorrectly.",
+        "D": "Assumes the hypotenuse equals a leg."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.937Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A regular hexagon with side length $s=2$ has area $A$. Which expression equals $A$?",
+      "options": [
+        "A) $6\\sqrt{3}$",
+        "B) $3\\sqrt{3}$",
+        "C) $12\\sqrt{3}$",
+        "D) $4\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area of a regular hexagon is $A = \\dfrac{3\\sqrt{3}}{2} s^2$. With $s=2$, $A = \\dfrac{3\\sqrt{3}}{2} \\cdot 4 = 6\\sqrt{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-Perimeter - Area of regular polygons",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Misses the factor of 2 in the formula.",
+        "C": "Uses a too large multiple of $\\\\sqrt{3}$.",
+        "D": "Incorrect application of the hexagon area formula."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.938Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two parallel lines are cut by a transversal. If one interior angle is $70°$, the other interior angle on the same side is:",
+      "options": [
+        "A) $110°$",
+        "B) $70°$",
+        "C) $140°$",
+        "D) $90°$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Consecutive interior angles are supplementary: $70° + x = 180°$ implies $x = 110°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Angles - Parallel lines cut by transversal",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses supplementary with corresponding or vertical angles.",
+        "C": "Doubling the angle erroneously.",
+        "D": "Assumes a right angle without justification."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.940Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In circle $O$, central angle $AOB$ is $120°$. The inscribed angle subtending the same arc $AB$ is:",
+      "options": [
+        "A) $60°$",
+        "B) $120°$",
+        "C) $30°$",
+        "D) $90°$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An inscribed angle subtending the same arc as a central angle is half of the central angle: $\\angle ACB = \\tfrac{1}{2}\\angle AOB = 60°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Inscribed vs central angles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses inscribed with central angle; inscribed is half.",
+        "C": "Halves again or uses incorrect half-angle.",
+        "D": "Mistakes inscribed angle for a right angle."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.941Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Chord $AB$ in a circle with radius $r=5$ subtends a central angle of $60°$. The length of chord $AB$ is:",
+      "options": [
+        "A) 5",
+        "B) 2.5",
+        "C) 10",
+        "D) 5$\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Chord length $AB = 2r\\sin(\\theta/2) = 2\\cdot 5 \\sin 30° = 10 \\cdot \\tfrac{1}{2} = 5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Chord length",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Uses $\\\\\\\\sin(60°)$ instead of $\\\\\\\\sin(30°)$.",
+        "C": "Treats chord as diameter.",
+        "D": "Misapplies half-angle or uses a wrong trigonometric value."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.942Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A circle with center at the origin and radius $5$ has an external point $P(13,0)$. The length of the tangent from $P$ to the circle is:",
+      "options": [
+        "A) 12",
+        "B) 13",
+        "C) $\\sqrt{119}$",
+        "D) 5"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Tangent length: $PT^2 = PO^2 - r^2 = 13^2 - 5^2 = 169 - 25 = 144$, so $PT = 12$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Tangents from external point",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses tangent length with distance from center to point.",
+        "C": "Miscomputes $PO^2 - r^2$ or takes a square root incorrectly.",
+        "D": "Confuses tangent with radius or other segment."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.943Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which equation represents the line parallel to $y = 2x$ that passes through $(0,4)$?",
+      "options": [
+        "A) $y = 2x + 4$",
+        "B) $y = 2x + 2$",
+        "C) $y = -2x + 4$",
+        "D) $y = x + 4$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Parallel lines have the same slope; thus $y=2x+b$ passes through $(0,4)$ giving $b=4$. So $y=2x+4$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate-geometry - Line equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Incorrect intercept; uses wrong constant term.",
+        "C": "Slope sign incorrect; should be positive.",
+        "D": "Uses wrong slope (1) instead of 2."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.944Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A composite figure consists of a rectangle with length $6$ and width $4$, plus a right triangle with base $3$ and height $4$ attached along the 4-unit side. What is the total area?",
+      "options": [
+        "A) 24",
+        "B) 30",
+        "C) 28",
+        "D) 34"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Rectangle area: $6\\times 4 = 24$. Triangle area: $\\tfrac{1}{2}\\cdot 3 \\cdot 4 = 6$. Total area: $24+6 = 30$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-Perimeter - Area of composite shapes",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Only rectangle area counted; triangle area omitted.",
+        "C": "Miscounts by using incorrect height or base for triangle.",
+        "D": "Arithmetic error; added wrong components."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.946Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In triangle $\\triangle ABC$ with $AB=8$, if triangle $\\triangle DEF$ is similar to $\\triangle ABC$ with scale factor $1/2$ (DEF smaller), what is $DE$ if $DE$ corresponds to $AB$?",
+      "options": [
+        "A) 4",
+        "B) 8",
+        "C) 16",
+        "D) 2"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Since DEF is half the size of ABC, the corresponding side length satisfies $DE = (1/2) AB = 4$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles - Similar triangles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Assumes no scale change between similar triangles.",
+        "C": "Uses doubling instead of halving.",
+        "D": "Divides by 4 instead of 2."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.947Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A triangle $\\triangle ABC$ has base $AB=10$ and height to that base is $6$. Its area is:",
+      "options": [
+        "A) 30",
+        "B) 60",
+        "C) 15",
+        "D) 20"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area of a triangle is $A = \\tfrac{1}{2} \\times base \\times height = \\tfrac{1}{2} \\times 10 \\times 6 = 30$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles - Area formula",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses area with base times height (without the 1/2).",
+        "C": "Halves the perimeter analog; misapplies formula.",
+        "D": "Incorrect multiplication."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.948Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A regular polygon with 4 sides (a square) has side length $s=5$. Its area is:",
+      "options": [
+        "A) 25",
+        "B) 20",
+        "C) 30",
+        "D) 40"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area of a square with side length 5 is $s^2 = 25$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-Perimeter - Area of regular polygons",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Uses base × height with height not given for square.",
+        "C": "Adds extra sides or miscomputes.",
+        "D": "Applies a wrong formula for a square."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.949Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In $\\triangle ABC$ with $\\angle A$ and $\\angle B$ supplementary, if $\\angle A = 110°$, then $\\angle B$ equals:",
+      "options": [
+        "A) 70°",
+        "B) 110°",
+        "C) 180°",
+        "D) 90°"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Supplements satisfy $\\angle A + \\angle B = 180°$. So $\\angle B = 180° - 110° = 70°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Angles - Supplementary angles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses supplementary with equal; not equal here.",
+        "C": "Gives the straight angle, not the supplement.",
+        "D": "Unrelated right-angle guess."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.950Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "If a circle has a central angle of $60°$, what is the corresponding inscribed angle subtending the same arc?",
+      "options": [
+        "A) $30°$",
+        "B) $60°$",
+        "C) $120°$",
+        "D) $15°$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "An inscribed angle subtending the same arc is half of the central angle: $\\tfrac{1}{2} \\times 60° = 30°$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles - Inscribed angles",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Confuses inscribed angle with central angle.",
+        "C": "Doubling instead of halving.",
+        "D": "Uses quarter of the central angle."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.951Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A regular pentagon with side length $s$ has area given by $A = \\dfrac{5s^2}{4} \\cot(\\pi/5)$. If $s=3$, which is a correct statement about $A$?",
+      "options": [
+        "A) $A = \\dfrac{45}{4} \\cot(\\pi/5)$",
+        "B) $A = \\dfrac{15}{2} \\tan(\\pi/5)$",
+        "C) $A = 3^2 \\cdot \\sqrt{5}$",
+        "D) $A = 15$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Using the formula for a regular pentagon area, substitute $s=3$: $A = \\dfrac{5 \\cdot 3^2}{4} \\cot(\\pi/5) = \\dfrac{45}{4} \\cot(\\pi/5)$, which matches option A.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-Perimeter - Regular polygon area (general formula)",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Uses tangent instead of cotangent; angle substitution incorrect.",
+        "C": "Misuses a radical expression; not equivalent to formula.",
+        "D": "Gives a numeric value ignoring the cotangent factor."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:13:20.953Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In right triangle $\\triangle ABC$, $\\angle B = 90°$, the hypotenuse is $AC = 10$. If $\\angle A = 30°$, find the length of $\\overline{AB}$.",
+      "options": [
+        "A) $5\\sqrt{3}$",
+        "B) $5\\sqrt{2}$",
+        "C) $10$",
+        "D) $5$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In a 30-60-90 triangle, the sides opposite the angles 30°, 60°, and 90° are in the ratio 1 : √3 : 2. Here, the angle A is 30°, so the side opposite A is BC and the hypotenuse AC = 10 corresponds to 2x. Thus x = 5, and AB (the side opposite 60°) equals x√3 = 5√3. Therefore AB = 5√3.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Triangles",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is actually the correct length for the side opposite a 60° angle, not the side AB which is opposite 60° in this setup.",
+        "B": "5√2 would correspond to a 45-45-90 scenario, not a 30-60-90 triangle.",
+        "C": "10 is the hypotenuse, not the leg AB."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:15:07.175Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In circle with center $O$ and radius 5, chord $AB$ has length $5\\sqrt{2}$. What is the area of sector $AOB$?",
+      "options": [
+        "A) $25\\pi/4$",
+        "B) $5\\pi/2$",
+        "C) $25\\pi/8$",
+        "D) $5\\pi$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let the central angle be $\\theta = \\angle AOB$. The chord length is related by $AB = 2r\\sin(\\theta/2)$. With $r = 5$ and $AB = 5\\sqrt{2}$, we have $5\\sqrt{2} = 10\\sin(\\theta/2)$, so $\\sin(\\theta/2) =\\sqrt{2}/2$ and $\\theta/2 = \\pi/4$, hence $\\theta =\\pi/2$. The area of sector $AOB$ is $\\tfrac{1}{2}r^2\\theta = \\tfrac{1}{2} \\cdot 25 \\cdot \\frac{\\pi}{2} = 25\\pi/4$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Circles",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This uses arc length formula rather than area; arc length would be $L = r\\\\\\\\theta$.",
+        "C": "Incorrect half-angle; should be $\\\\\\\\theta = \\\\\\\\pi/2$, not $\\\\\\\\pi/4$.",
+        "D": "Incorrect area calculation; radius is 5, not 10, and angle is $\\\\\\\\pi/2$."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:15:07.178Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the coordinate plane, triangle $\\triangle ABC$ has vertices $A(1,2)$, $B(7,-4)$, and $C(1,-10)$. What is the area of triangle $ABC$?",
+      "options": [
+        "A) 36",
+        "B) 28",
+        "C) 40",
+        "D) 18"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Use the shoelace formula: area $= \\tfrac{1}{2}|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$. Let (x1,y1)=(1,2), (x2,y2)=(7,-4), (x3,y3)=(1,-10). Then: $1(-4 - (-10)) + 7((-10) - 2) + 1(2 - (-4)) = 1(6) + 7(-12) + 1(6) = 6 - 84 + 6 = -72$. Area $= \\tfrac{1}{2}|-72| = 36$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate Geometry",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Used an incorrect arrangement of terms in the shoelace sum.",
+        "C": "Calculated using a rectangle area or base*height rather than shoelace.",
+        "D": "Halved the wrong quantity or misapplied signs in the formula."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:15:07.180Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A regular hexagon is inscribed in a circle of radius 6. What is its area?",
+      "options": [
+        "A) $54\\sqrt{3}$",
+        "B) $54$",
+        "C) $18\\sqrt{3}$",
+        "D) $108\\sqrt{3}$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "For a regular hexagon with circumradius R, the side length is s = R = 6. The area of a regular hexagon is $\\frac{3\\sqrt{3}}{2} s^2$. Thus area $= \\frac{3\\sqrt{3}}{2} \\cdot 6^2 = \\frac{3\\sqrt{3}}{2} \\cdot 36 = 54\\sqrt{3}$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area & Perimeter",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Mistakenly used the circle area formula instead of polygon area.",
+        "C": "Used a smaller side length; for hexagon inscribed in circle of radius 6, side length equals 6.",
+        "D": "Overcounts by a factor of 2 or uses incorrect radical."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:15:07.183Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In right triangle $\\triangle ABC$ with $\\angle C = 90°$, the legs are $BC = 6$ and $CA = 8$, and the hypotenuse is $AB = 10$. The altitude from $C$ to $AB$ has length $h$. What is $h$?",
+      "options": [
+        "A) $24/5$",
+        "B) $12/5$",
+        "C) $6$",
+        "D) $8/5$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "In a right triangle, the altitude from the right angle to the hypotenuse satisfies $h = \\dfrac{a b}{c}$ where a and b are the legs and c is the hypotenuse. Here $a=6$, $b=8$, $c=10$, so $h = (6\\cdot 8)/10 = 48/10 = 24/5$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-Perimeter",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Used wrong product of legs; should be 48, not 24.",
+        "C": "Directly taking a leg as altitude is incorrect.",
+        "D": "Used incorrect formula for altitude to the hypotenuse."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:15:07.184Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Point $P(3,2)$ is reflected across the line $y = x$. What are the coordinates of the image $P'$?",
+      "options": [
+        "A) $(2,3)$",
+        "B) $(3,2)$",
+        "C) $(-2,-3)$",
+        "D) $(-3,-2)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Reflection across the line $y = x$ swaps coordinates: $(x,y) \\mapsto (y,x)$. Therefore, $P'(2,3)$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Transformations",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This is the original point unchanged; reflection changes coordinates.",
+        "C": "Incorrect sign change; reflection across y=x does not negate coordinates.",
+        "D": "Both coordinates are negated; this is a rotation by 180° about the origin."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:15:07.186Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The line through $A(-2,5)$ and $B(4,-1)$ has slope $-1$. A line through the origin that is perpendicular to $AB$ has slope $1$. Which of the following is the equation of that line?",
+      "options": [
+        "A) $y = x$",
+        "B) $y = -x$",
+        "C) $y = x + 2$",
+        "D) $y = -x + 2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Slope of AB is $m = (-1-5)/(4-(-2)) = -6/6 = -1$. A line perpendicular to AB has slope $+1$ (negative reciprocal). The line through the origin with slope 1 is $y = x$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Coordinate Geometry",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Line with slope $-1$ is parallel to AB, not perpendicular.",
+        "C": "Line with slope 1 but with a different intercept; the line must pass through the origin.",
+        "D": "Incorrect intercept; line must pass through origin with slope 1."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:15:07.187Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A rectangle of width 8 and height 5 has a semicircular region of radius 4 attached on top of its width, forming a composite shape. What is its total area?",
+      "options": [
+        "A) $40 + 8\\pi$",
+        "B) $40 + 16\\pi$",
+        "C) $32 + 8\\pi$",
+        "D) $48 + 4\\pi$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Area of rectangle: $8 \times 5 = 40$. The semicircle on top has radius 4, so area $= \\tfrac{1}{2}\\pi r^2 = \\tfrac{1}{2}\\pi (4^2) = 8\\pi$. Total area: $40 + 8\\pi$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Area-Perimeter",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Used full circle area instead of semicircle.",
+        "C": "Used incorrect rectangle area or radius.",
+        "D": "Added an extra term or used incorrect semicircle area."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:15:07.188Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In two similar triangles $ABC$ and $DEF$, $AB$ corresponds to $DE$, $BC$ to $EF$, and $AC$ to $DF$. If $AB = 6$, $BC = 8$, and $DE = 9$, what is $EF$?",
+      "options": [
+        "A) 9",
+        "B) 12",
+        "C) 8",
+        "D) 6"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Since the triangles are similar with $AB \\leftrightarrow DE$, the similarity ratio is $DE/AB = 9/6 = 3/2$. Therefore $EF = BC \\cdot (DE/AB) = 8 \\cdot (3/2) = 12$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Similar Triangles",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Confuses corresponding sides; DE corresponds to AB, not EF.",
+        "B": "Correct ratio applied to BC but gives EF = 12 which is option B; however option C is actually incorrect anyway.",
+        "D": "Uses the wrong side as the base for the ratio."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:15:07.189Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Point $P(3,4)$ is rotated $90°$ counterclockwise about the origin. What is the image $P'$?",
+      "options": [
+        "A) $(-4, 3)$",
+        "B) $(4, -3)$",
+        "C) $(-3, -4)$",
+        "D) $(3, 4)$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A 90° counterclockwise rotation about the origin maps $(x,y)$ to $(-y, x)$. Therefore, $P(3,4) \\mapsto P'(-4, 3)$.",
+      "moduleType": "math",
+      "category": "geometry",
+      "subtopic": "Transformations",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "This is a 90° clockwise rotation, not counterclockwise.",
+        "C": "Both coordinates negated; this is a reflection through the origin, not a rotation.",
+        "D": "No change; this would be the identity, not a rotation."
+      },
+      "_batchId": "batch-1777345764757-geometry",
+      "_generatedAt": "2026-04-28T03:15:07.191Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

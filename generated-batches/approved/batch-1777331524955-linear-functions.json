@@ -1,0 +1,156 @@
+{
+  "batchId": "batch-1777331524955-linear-functions",
+  "topic": "linear-functions",
+  "moduleType": "math",
+  "generatedAt": "2026-04-27T23:18:57.613Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 5,
+  "totalGenerated": 5,
+  "totalValid": 5,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "A car rental company charges a base fee of 25 dollars plus 30 dollars per day of rental. Let $x$ be the number of days rented. Which equation gives the total cost $C$ in dollars as a function of $x$?",
+      "options": [
+        "A) $C = 25 + 30x$",
+        "B) $C = 30x - 25$",
+        "C) $C = 25x + 30$",
+        "D) $C = x/30 + 25$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: The base fee is paid regardless of days, so when $x=0$, the cost is $C=25$. Step 2: For each additional day, cost increases by $30$, so the total cost is $C = 25 + 30x$. Step 3: This matches the slope-intercept form $C = mx + b$ with $m=30$ (rate per day) and $b=25$ (base). Step 4: The other options are incorrect: B subtracts the base fee, C multiplies days by 25 instead of 30, and D uses division by 30.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Slope-intercept form",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "B) The base fee is subtracted, which would imply the initial charge decreases with more days; this misplaces the sign and operation.",
+        "C": "C) This option multiplies the days by 25 and adds 30, effectively swapping the base and per-day amounts; incorrect formula.",
+        "D": "D) This option uses a division $x/30$ instead of a per-day charge; it understates the cost and is not the correct linear model."
+      },
+      "_batchId": "batch-1777331524955-linear-functions",
+      "_generatedAt": "2026-04-27T23:15:30.808Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which of the following equations represents a line perpendicular to the line $y = -2x + 5$?",
+      "options": [
+        "A) $y = -2x + 1$",
+        "B) $y = 0.5x - 3$",
+        "C) $y = -0.5x + 4$",
+        "D) $y = x + 5$"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: The given line has slope $m_1 = -2$. Step 2: A perpendicular line has slope $m_2 = -\\frac{1}{m_1}$. With $m_1 = -2$, we get $m_2 = -\\frac{1}{-2} = 0.5$ (or $0.5$). Step 3: Among the options, only option B has slope $0.5$, so it is perpendicular. Step 4: Check other options: A has slope $-2$ (parallel), C has slope $-0.5$; $(-2)(-0.5) = 1 \neq -1$, so not perpendicular, D has slope $1$; $(-2)(1) = -2 \neq -1$.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Parallel and Perpendicular lines",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A) The slope is -2, the same as the given line, so this would be parallel, not perpendicular.",
+        "C": "C) The slope is -0.5; $(-2)(-0.5) = 1$, not -1, so not perpendicular.",
+        "D": "D) The slope is 1; $(-2)(1) = -2$, not -1, so not perpendicular."
+      },
+      "_batchId": "batch-1777331524955-linear-functions",
+      "_generatedAt": "2026-04-27T23:15:30.820Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A car rental company charges a flat fee of 40 dollars plus 0.25 dollars per mile. Let y be the total cost in dollars and x be miles driven. Which equation in slope-intercept form correctly represents the total cost?",
+      "options": [
+        "A) y = 0.25x + 40",
+        "B) y = 40x + 0.25",
+        "C) y = 0.25x - 40",
+        "D) y = -0.25x + 40"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: The per-mile charge is the coefficient of $x$, so $m = 0.25$. Step 2: The flat fee is the y-intercept, $b = 40$. Step 3: Put together in slope-intercept form: $y = mx + b = 0.25x + 40$. Therefore option A is correct. The other options misuse the intercept or signs: (B) multiplies the fee by miles, (C) subtracts the flat fee, (D) makes the cost decrease with miles.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Slope-intercept form",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B) Treats the flat fee as a per-mile rate and adds a small fixed fee; this would create $y = 40x + 0.25$, implying the cost skyrockets with miles.",
+        "C": "C) Uses a negative intercept, $y = 0.25x - 40$, which would give a negative total cost when x is small.",
+        "D": "D) Uses a negative slope, $y = -0.25x + 40$, which would mean cost decreases as miles increase."
+      },
+      "_batchId": "batch-1777331524955-linear-functions",
+      "_generatedAt": "2026-04-27T23:18:51.825Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which equation represents a line perpendicular to the line given by $y = 4x + 1$?",
+      "options": [
+        "A) $y = -1/4 x + 2$",
+        "B) $y = 1/4 x + 2$",
+        "C) $y = -4x + 2$",
+        "D) $y = 4x - 2$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The slope of the given line is $m = 4$. A line perpendicular has slope equal to the negative reciprocal, which is $-1/4$. Among the options, only (A) has slope $-1/4$, so it is correct. The other options have incorrect slopes: (B) uses the positive reciprocal, (C) uses the reciprocal rather than negative reciprocal, (D) keeps the original slope (parallel).",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Parallel and Perpendicular lines",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B) Uses the positive reciprocal $1/4$, which would be parallel-perpendicular mistake; not perpendicular to the given line.",
+        "C": "C) Uses slope $-4$, which is not the negative reciprocal of 4.",
+        "D": "D) Keeps slope 4, which is parallel, not perpendicular."
+      },
+      "_batchId": "batch-1777331524955-linear-functions",
+      "_generatedAt": "2026-04-27T23:18:51.826Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "The line passes through (0,6) and (3,0). What is the slope m, and what does this slope represent in context?",
+      "options": [
+        "A) The slope is -2, meaning y decreases by 2 for every 1 unit increase in x.",
+        "B) The slope is -2, meaning y increases by 2 for every 1 unit increase in x.",
+        "C) The slope is 2, meaning y increases by 2 for every 1 unit increase in x.",
+        "D) The slope is 0, meaning y does not change with x."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Compute the slope: $m = \\frac{0-6}{3-0} = \\frac{-6}{3} = -2$. Step 2: The slope $-2$ means that for each 1 unit increase in $x$, $y$ changes by $-2$ units (i.e., decreases by 2). Step 3: Therefore the statement in option A is correct. Options B, C misstate the sign, the magnitude, or the concept of a zero slope.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "Graphing: slope as rate of change",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B) Incorrect interpretation: slope is negative, so y decreases as x increases, not increases.",
+        "C": "C) Incorrect slope value: uses +2 instead of -2.",
+        "D": "D) Incorrect: slope is not 0; the line changes in y as x changes."
+      },
+      "_batchId": "batch-1777331524955-linear-functions",
+      "_generatedAt": "2026-04-27T23:18:51.828Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

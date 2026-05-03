@@ -1,0 +1,158 @@
+{
+  "batchId": "batch-1777332672637-synthesis",
+  "topic": "synthesis",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-04-27T23:33:27.340Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 5,
+  "totalGenerated": 5,
+  "totalValid": 5,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Both sources overemphasize consumer behavior.",
+        "B) Both sources agree that reducing plastic waste is beneficial.",
+        "C) Source 1 claims microplastics are not harmful to organisms.",
+        "D) Source 2 suggests regulatory action is unnecessary."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Reasoning: The passage describes Source 1 advocating reductions in plastic use and better filtration, and Source 2 recommending actions to curb litter and reduce runoff. Therefore both support reducing plastic waste. A is incorrect because the passage does not indicate an overemphasis on consumer behavior. C is incorrect because Source 1 discusses potential harm from microplastics. D is incorrect because Source 2 advocates policy actions, not avoidance of regulation.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Two recent reports examine plastic pollution in freshwater streams. Source 1, a university lab assessment, documents microplastics found in river sediments and notes many fragments are less than 5 millimeters. It summarizes how ingestion by tadpoles and small fish can affect growth and stress responses. Source 2, a municipal waste-management briefing, presents urban runoff data showing that plastic litter from shopping bags and bottles correlates with higher microplastic loads during storm events. Both sources express concern about ecological effects and potential human-health risks. Source 1 emphasizes lab experiments that suggest endocrine disruption in some species and advocates a nationwide reduction in single-use plastics and improved filtration at wastewater facilities. Source 2 emphasizes practical steps: curb littering, expand recycling, and invest in green permeable pavements to minimize runoff. While Source 1 warns that controlled experiments may not capture full ecosystem complexity, Source 2 notes that field data align with those concerns and that policy action can reduce observed microplastics. Together, they present a balanced picture: reducing plastic waste will likely lower microplastic levels and benefit ecosystems.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage does not suggest the authors focus on consumer behavior; it emphasizes reducing waste and policy steps.",
+        "B": "N/A (correct answer)",
+        "C": "The passage describes potential harm from microplastics, contradicting this option.",
+        "D": "Source 2 advocates policy actions, not the belief that regulation is unnecessary."
+      },
+      "_batchId": "batch-1777332672637-synthesis",
+      "_generatedAt": "2026-04-27T23:32:25.668Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Expanding tree canopy will reduce temperatures but has no effect on stormwater or well-being.",
+        "B) Expanding tree canopy can reduce heat, reduce stormwater runoff, and improve residents' mood and safety.",
+        "C) The two sources disagree about the benefits of trees, so no policy action is advisable.",
+        "D) Maintenance costs of trees outweigh any potential benefits."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Reasoning: Integrating both sources shows multiple benefits from canopy expansion: cooling from Source 1 and reduced runoff plus improved well-being from Source 2. A is incorrect because it ignores the reported effects on stormwater and well-being. C is incorrect because the sources do not disagree; they both note benefits. D is incorrect because the passage discusses costs but does not conclude that costs always outweigh benefits.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Two reports examine the benefits of expanding urban tree canopies. Source 1, a satellite-based climate study, analyzes fifty city blocks across three climates and finds that blocks with higher canopy cover experience cooler daytime temperatures on hot days, and that evapotranspiration contributes to local cooling. Source 2, a municipal planning dossier, uses field surveys and rainfall tests to show that dense canopies reduce stormwater runoff and are associated with lower heat stress and reported improvements in mood and perceived safety among residents. Both sources acknowledge implementation challenges, such as maintenance costs and initial planting expenses, but agree on a common goal: increasing canopy cover yields multiple benefits for climate, water management, and quality of life. Source 1 emphasizes the physical cooling mechanism, while Source 2 highlights social and hydrological advantages. When combined, the evidence supports a holistic strategy that prioritizes long-term investments in urban forestry, balancing upfront costs with multiple downstream benefits for residents.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage notes benefits beyond temperature, including stormwater reduction and improved well-being from Source 2.",
+        "B": "N/A (correct answer)",
+        "C": "The sources do not contradict each other; they both describe benefits of canopy expansion.",
+        "D": "The passage mentions costs but does not assert they always negate benefits."
+      },
+      "_batchId": "batch-1777332672637-synthesis",
+      "_generatedAt": "2026-04-27T23:32:25.673Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source A and Source B agree with?",
+      "options": [
+        "A) Flexible work arrangements have some positive effects on productivity, but long-term effects on burnout are unclear.",
+        "B) Flexible hours always cause burnout.",
+        "C) Remote work eliminates the need for in-person meetings.",
+        "D) In-person meetings are essential for all efficiency gains."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Source A reports productivity gains and potential burnout concerns, while Source B reports similar output with more communication challenges but emphasizes coordination can mitigate burnout. Therefore, both sources agree that flexibility has mixed effects and long-term burnout is not settled, aligning with option A. Option B overgeneralizes burnout as inevitable. Option C introduces a claim about in-person meetings not supported by the passage. Option D asserts a universal advantage of in-person meetings not claimed by either source.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source A, a 2023 survey of 1,200 employees across five departments, found that offering flexible work hours increased perceived productivity by about 12% and raised job satisfaction, but reports of fatigue rose among workers with irregular schedules. Source B, a 2022 analysis of 40 project teams in a software firm tracked output over eight months and found that teams on flexible schedules produced similar overall output to teams with fixed hours, yet experienced more communication delays and longer cycle times when overlap with teammates was limited. Both sources measure productivity with different metrics—Source A relies on self-assessments, while Source B uses project completion times and defect rates—and both acknowledge that flexibility is not a universal remedy. Rather, the benefits depend on factors such as managerial practices, team composition, and workload type. The authors diverge on burnout: Source A warns that flexible arrangements might contribute to longer-term fatigue, while Source B emphasizes that with clear coordination and expectations, burnout does not necessarily increase. Taken together, the two sources suggest that flexibility can help or hinder depending on how it is implemented and monitored.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Mistakenly claims burnout is always caused by flexible hours; the passage notes burnout as possible but not inevitable and depends on implementation.",
+        "C": "Invents a claim about in-person meetings being necessary; not discussed in the passage.",
+        "D": "Overstates the role of in-person meetings as universally essential; the passage does not claim this."
+      },
+      "_batchId": "batch-1777332672637-synthesis",
+      "_generatedAt": "2026-04-27T23:33:22.241Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source A and Source B agree with?",
+      "options": [
+        "A) Exposure to green space is linked to lower stress and better mood across different populations.",
+        "B) Green space reduces physical activity.",
+        "C) Proximity alone guarantees improved mental health equally across all neighborhoods.",
+        "D) Exposure to green space has no measurable effect on mental health."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Source A reports lower stress with park proximity; Source B reports better mood/anxiety outcomes with access and use, though magnitude varies. Both indicate a positive link between green space and mental health, supporting option A. Option B contradicts the idea of green space reducing stress and improving mood. Option C overstates the effect by claiming equal impact regardless of context, which the passage notes is not the case. Option D is directly contradicted by the findings of both sources.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source A's city dashboard study examined residents living within 300 meters of a park and found a 14% lower likelihood of high self-rated stress scores after controlling for age, income, employment, and housing type. Source B used a 10-year neighborhood panel to analyze how access to trees and water features correlated with anxiety and mood scores; the association was stronger for residents who reported using public spaces at least twice weekly. The two methods differ—Source A draws cross-sectional associations from administrative data; Source B uses longitudinal tracking—but both converge on a central point: proximity to green space is linked to better mental health outcomes, yet the magnitude varies with usage, safety perceptions, and neighborhood density. Both sources note that confounders such as physical activity and social interaction influence results and caution that simply placing a park is not enough without safe paths and programmed activities. In short, deliberate design that encourages engagement is likely to maximize mental health benefits across diverse urban settings.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Misstates the effect, suggesting green space reduces physical activity rather than mental health benefits.",
+        "C": "Ignores the passage's nuance that effects vary by usage, safety, and density.",
+        "D": "Contradicts the reported associations found in both sources."
+      },
+      "_batchId": "batch-1777332672637-synthesis",
+      "_generatedAt": "2026-04-27T23:33:22.242Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement best describes how the two sources complement each other when considering technology adoption in schools?",
+      "options": [
+        "A) Training alone is sufficient to achieve high adoption.",
+        "B) Incentives alone drive adoption without training.",
+        "C) A combination of training and incentives is more effective than either strategy alone.",
+        "D) Technology adoption is unrelated to training or incentives."
+      ],
+      "correctAnswer": 2,
+      "explanation": "Source A shows training raises adoption; Source B shows incentives add benefits; together they yield the strongest uptake. This indicates a synergistic effect when both strategies are used. Option A ignores the additional benefit incentives provide. Option B incorrectly claims incentives work without any training. Option D falsely states that adoption is unrelated to both factors, which contradicts the findings.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source A, a 2021 randomized trial in 20 schools, found that teacher training focused on implementation strategies increased adoption of a new learning platform by 35% within the first term. Source B, a 2020 district-wide observational study, found that combining that training with financial or scheduling incentives led to higher usage rates and stronger student engagement than training alone. The two sources use different designs but point to a common conclusion: training by itself helps, incentives by themselves may help, but together they produce the most robust uptake. The studies also differ in context: Source A highlights that hands-on coaching and peer modeling were critical for early adopters, while Source B notes that incentives mattered more where baseline motivation or time constraints were greater. Overall, both sources imply that a multifaceted approach tailored to school context yields the greatest change in technology use.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Overlooks the additional benefit that incentives provide beyond training alone.",
+        "B": "Ignores the role of training and claims incentives alone suffice.",
+        "C": "",
+        "D": " ignores the demonstrated relationships between training, incentives, and adoption."
+      },
+      "_batchId": "batch-1777332672637-synthesis",
+      "_generatedAt": "2026-04-27T23:33:22.243Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

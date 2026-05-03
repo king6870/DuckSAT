@@ -1,0 +1,70 @@
+{
+  "batchId": "batch-1777261205160-algebra",
+  "topic": "algebra",
+  "moduleType": "math",
+  "generatedAt": "2026-04-27T03:41:17.948Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 2,
+  "totalGenerated": 2,
+  "totalValid": 2,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Word problem: The sum of two numbers is $13$ and their difference is $5$. Let the larger be $x$ and the smaller be $y$. Which of the following pairs $ (x, y) $ satisfies the conditions?",
+      "options": [
+        "A) (9, 4)",
+        "B) (8, 5)",
+        "C) (7, 6)",
+        "D) (10, 3)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "From the equations $x + y = 13$ and $x - y = 5$, add them to obtain $2x = 18$, hence $x = 9$. Substitute into $x + y = 13$ to get $9 + y = 13$, so $y = 4$. Thus the pair is $(x, y) = (9, 4)$, which satisfies both equations. Therefore the correct choice is A.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "Choice B gives $x=8$ and $y=5$; then $x + y = 13$ is correct, but $x - y = 3$, not 5, so it does not satisfy the second equation.",
+        "C": "Choice C gives $x=7$ and $y=6$; then $x + y = 13$ is correct, but $x - y = 1$, not 5.",
+        "D": "Choice D gives $x=10$ and $y=3$; then $x + y = 13$ is correct, but $x - y = 7$, not 5."
+      },
+      "_batchId": "batch-1777261205160-algebra",
+      "_generatedAt": "2026-04-27T03:40:45.122Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Two classmates are buying notebooks and rulers. Let $x$ be the number of notebooks and $y$ the number of rulers. They buy a total of $7$ items and spend $16.50 in total. Each notebook costs $3$ and each ruler costs $1.50$. How many notebooks did they buy?$",
+      "options": [
+        "A) 2 notebooks",
+        "B) 3 notebooks",
+        "C) 4 notebooks",
+        "D) 5 notebooks"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Let $x$ be the number of notebooks and $y$ the number of rulers. The two equations are: $x + y = 7$ and $3x + 1.5y = 16.5$. Solve by substitution: from $x + y = 7$ we get $y = 7 - x$. Substitute: $3x + 1.5(7 - x) = 16.5$. This gives $3x + 10.5 - 1.5x = 16.5$, so $1.5x = 6$ and $x = 4$. Then $y = 3$. Therefore, they bought 4 notebooks.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems of 2 equations",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "If they bought 2 notebooks, then $y = 7 - 2 = 5$, and the total cost would be $3(2) + 1.5(5) = 6 + 7.5 = 13.5$, not $16.50$.",
+        "B": "If they bought 3 notebooks, then $y = 4$, and the total cost would be $3(3) + 1.5(4) = 9 + 6 = 15$, not $16.50$.",
+        "C": "",
+        "D": "If they bought 5 notebooks, then $y = 2$, and the total cost would be $3(5) + 1.5(2) = 15 + 3 = 18$, not $16.50$."
+      },
+      "_batchId": "batch-1777261205160-algebra",
+      "_generatedAt": "2026-04-27T03:41:12.389Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

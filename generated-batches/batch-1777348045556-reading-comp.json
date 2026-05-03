@@ -1,0 +1,2007 @@
+{
+  "batchId": "batch-1777348045556-reading-comp",
+  "topic": "reading-comp",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-04-28T03:53:24.933Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 50,
+  "totalGenerated": 71,
+  "totalValid": 71,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "What is the central claim of the passage in Question 1?",
+      "options": [
+        "A) Short-term weather fluctuations are the primary driver of climate policy.",
+        "B) CO2 levels have no relationship to global temperatures when short-term events occur.",
+        "C) Long-term warming trends due to greenhouse gases persist despite natural variability, and policy should focus on long-term trajectories.",
+        "D) Volcanic eruptions completely mask climate trends for decades."
+      ],
+      "correctAnswer": 2,
+      "explanation": "The passage states that long-term warming tied to greenhouse gases remains detectable despite natural variability and cautions against focusing on short-term fluctuations. This supports a central claim that policy should be guided by long-term trajectories rather than episodic events. Option C captures this idea. Options A, B, and D misrepresent the emphasis on long-term trends and the persistent signal of human influence.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Over the past three decades, researchers have tracked atmospheric carbon dioxide and surface temperatures to understand how greenhouse gases influence climate. A common finding is that CO2 levels correlate with long-term warming, but short-term weather events create noise in the measurements. In one series of measurements, a volcanic eruption caused a temporary cooling that masked underlying warming trends for several years. A separate dataset, using tree rings and ice cores, provides a longer view and shows a persistent upward trend since the late nineteenth century. The authors emphasize that the signal of human influence remains detectable despite natural variability. The study also tests different statistical methods to separate signal from noise, noting that some approaches can overstate the certainty of results when the dataset is small. Finally, the report cautions policymakers not to mistake short blips for reversals; action should be guided by long-term trajectories rather than episodic fluctuations. Overall, the author argues that climate change is best understood as a gradual shift that rides above irregular weather patterns, not as a series of isolated events.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage argues against prioritizing short-term weather fluctuations; it emphasizes long-term trends instead.",
+        "B": "The passage asserts there is a detectable relationship between CO2 levels and warming, not no relationship.",
+        "D": "The passage describes temporary masking by volcanic activity, not decades of masking."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.127Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to the passage in Question 2, what is one predicted effect of a modest tariff on manufactured goods?",
+      "options": [
+        "A) It would lower the prices of raw materials for other industries.",
+        "B) It would raise domestic prices for manufactured goods and possibly boost overall production due to improved raw material costs.",
+        "C) It would have no effect on prices or production.",
+        "D) It would primarily increase government revenue without affecting private sector."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage states that a modest tariff would raise prices for manufactured goods and, by reducing the cost of raw materials for other industries, could create a mixed effect on overall production. This is best captured by option B. Options A, C, and D misstate the described effects.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During the debates on navigation acts in the late colonial period, merchants argued that wealth depended on accumulating gold, while reformers urged a different view: the wealth of a nation grows with the efficiency of its trades and the diversity of its markets. The pamphlets that circulated in port towns claimed that duties on import would simply raise prices and discourage innovation, whereas advocates of open exchange pointed to rising incomes in colonies that diversified their exports. In one analysis, the author estimates that a modest tariff on manufactured goods would increase domestic prices for these goods but would simultaneously reduce the cost of raw materials for other industries, creating a mixed effect on overall production. The author concedes that tariffs can shield young industries, yet warns that this protection often becomes permanent and stifles competition. The final section argues that a well-functioning economy benefits from transparent rules and predictable treaties, enabling merchants to plan investments with greater confidence. The passage ends with a note that political leaders should weigh practical outcomes against abstract theories when shaping trade policy.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage says tariffs would raise prices for manufactured goods, not lower raw material prices.",
+        "C": "The passage describes measurable effects on prices and production, not no effect.",
+        "D": "The focus is on prices and production, not on government revenue as the primary outcome."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.131Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main idea expressed about memory in Question 3's passage?",
+      "options": [
+        "A) The novel presents memory as an unchanging archive that preserves the past.",
+        "B) The author uses river imagery to show memory as a dynamic process that reshapes present understanding.",
+        "C) The critic argues the novel neglects family history in favor of plot.",
+        "D) The narrative emphasizes the literal river as the primary setting of the story."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage states memory is a living stream that recedes as new events arrive and that motifs signal shifts in interpretation, supporting the idea that memory is dynamic. Option B captures this. Options A, C, and D misstate the emphasis on memory's fluid nature and its relation to interpretation and identity.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "In The Riverhouse, the narrator's memory acts like a river, continually reshaping the landscape of the present. The critic notes that the author does not present memory as a fixed archive but as a living stream that recedes as new events arrive. The river's banks are described with repeated motifs: light at dawn, a grandmother's shawl, a closed door. Each motif recurs at critical junctures, not for nostalgia but to signal a shift in how the protagonist interprets past actions. The critic highlights a scene in which a childhood image of a father becomes transformed when the character recognizes the father's silence as a form of complicity rather than absence. By juxtaposing scenes from different years, the author suggests that identity is made not by a single moment but by a pattern of irretrievable moments that accumulate meaning. The conclusion argues that the novel's structure invites readers to revise their assumptions about memory: it is not a record to be retrieved but a process that reorganizes experience.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Memory is described as dynamic, not an unchanging archive.",
+        "C": "The focus is on memory and interpretation, not a neglect of family history.",
+        "D": "The river is a metaphor, not asserted as the primary literal setting."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.133Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In Question 4's passage, which statement best describes the main finding about bee foraging strategies?",
+      "options": [
+        "A) In a stable, dense floral landscape, route-based exploration always outperforms random searching.",
+        "B) Random searching is always better than route-based exploration in any landscape.",
+        "C) The best strategy depends on resource distribution, with route-based favored when resources are stable and random searching favored when resources are scarce or patchy.",
+        "D) Waggle dances are irrelevant to foraging efficiency."
+      ],
+      "correctAnswer": 2,
+      "explanation": "The passage states route-based exploration is better in stable landscapes, while random searching is better when flowers are scarce or patchy, indicating that the best strategy depends on resource distribution. Options A and B claim absolutes not supported by the text, and D contradicts the passage which highlights the importance of waggle dances.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Field researchers observed honeybee colonies to compare two foraging strategies: route-based exploration, where scouts map efficient paths, and random searching, where bees explore without a fixed plan. The team tracked nectar intake, pollen diversity, and colony growth over a full season. They found that route-based exploration yielded higher nectar intake per forager in stable floral landscapes, while random searching produced better pollen diversity when flowers were scarce or patchy. The researchers note that each strategy has advantages depending on resource distribution. The report emphasizes the importance of communication among bees, demonstrated by the waggle dance, which helps colonies exploit productive patches quickly. They also record that environmental stressors—such as drought—tend to reduce the benefits of structured foraging because resources become scattered. The concluding implication is that bee foraging behavior is adaptable, and colonies may shift strategies as conditions change to maintain overall fitness. The authors caution against assuming a single optimal strategy across diverse habitats.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage says route-based is better in stable landscapes, not that it always outperforms in all cases.",
+        "B": "The passage indicates both strategies have advantages depending on context.",
+        "D": "The passage emphasizes the waggle dance as important, not irrelevant."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.134Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the central claim of Question 5's historical passage about trade policy?",
+      "options": [
+        "A) The delegates decided to abandon any compromise and create a single-house legislature.",
+        "B) The constitutional design used a bicameral structure to balance proportional representation with equal state power.",
+        "C) The author criticizes the compromises as an incomplete solution.",
+        "D) The debate was solely about state sovereignty, with no concern for national unity."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage describes a bicameral legislature with one house based on population and the other on equal state representation, which balances proportion and equality. Option B captures this. Options A, C, and D misstate the described design or motives.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "During the constitutional convention, delegates debated how to balance representation between states of different sizes. Proponents of proportional representation argued that larger states deserved more seats because their populations generated more wealth. Opponents warned that a pure proportional system would marginalize smaller states and destroy national unity. The records show that several compromises were proposed, including a bicameral legislature in which one house would reflect population while the other would treat states equally. The text notes that the framers chose to create a Senate with equal representation for each state and a House based on population, arguing that this arrangement would guard against tyranny by either large or small states. The author suggests that this dual structure aimed to reconcile competing principles: rightly, it fosters both proportion and equality. Critics in later years pointed out that equity depends on how districts are drawn and how legislative power is exercised, not merely on the formal rules. The passage concludes by noting that the Constitution’s design remains a living debate about balance between liberty and collective security.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage describes compromise toward a bicameral system, not a move to a single-house legislature.",
+        "C": "The passage presents the compromise as a deliberate design, not a straightforward critique.",
+        "D": "The passage frames national unity as a concern, not a disregard for it."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.134Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author’s purpose in Question 6's literary passage about fragmentation in poetry?",
+      "options": [
+        "A) To criticize fragmentation as a failing in modern poetry.",
+        "B) To show that fragmentation is a deliberate method to mimic memory and invite reader involvement.",
+        "C) To claim that the poet intended to confuse readers on purpose.",
+        "D) To demonstrate that traditional narrative forms are superior."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage argues fragmentation is a deliberate formal strategy that mimics memory and invites readers to engage and infer meaning, meeting the author’s purpose. Options A, C, and D misstate the intended effect and purpose.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "In her analysis of modern poetry, critic Elena Kline argues that the late work of poet Mira Allenson uses fragmentation not as noise but as a formal strategy to simulate memory's fragmentary nature. The poems juxtapose brief, almost aphoristic lines against longer, lyrical stretches, creating a rhythm that mirrors how recollection breaks and resumes. Kline notes recurring images—a cracked mirror, a winter road, a grey cat—that reappear in different guises, inviting readers to assemble meaning rather than receive it fully. The critic emphasizes that the poet withholds resolution, letting readers infer connections between scenes across unrelated sections, which mimics how people recall events out of sequence. The final section of the essay argues that Allenson's technique invites empathy: readers must experience uncertainty as a cognitive state, not a flaw in the text. The analysis concludes that fragmentation becomes a mode of moral inquiry, asking how memory shapes responsibility for past actions and future choices.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage supports fragmentation as purposeful, not as a flaw to criticize.",
+        "C": "The aim is not to claim intentional reader confusion, but to engage inference.",
+        "D": "The passage treats fragmentation as a deliberate alternative to traditional form, not a claim of superiority."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.137Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In Question 7's science passage, what can be inferred about foraging strategy resilience under changing environmental conditions?",
+      "options": [
+        "A) A single strategy is always optimal in all habitats.",
+        "B) Strategy effectiveness depends on how resources are distributed and environmental conditions change.",
+        "C) Drought makes all strategies equally ineffective.",
+        "D) Waggle dances are the sole determinant of foraging success."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage emphasizes that each strategy has advantages depending on resource distribution and notes that colonies may shift strategies as conditions change, implying resilience through adaptability. Options A, C, and D claim absolutes not supported by the text.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Field researchers observed honeybee colonies to compare two foraging strategies: route-based exploration, where scouts map efficient paths, and random searching, where bees explore without a fixed plan. The team tracked nectar intake, pollen diversity, and colony growth over a full season. They found that route-based exploration yielded higher nectar intake per forager in stable floral landscapes, while random searching produced better pollen diversity when flowers were scarce or patchy. The researchers note that each strategy has advantages depending on resource distribution. The report emphasizes the importance of communication among bees, demonstrated by the waggle dance, which helps colonies exploit productive patches quickly. They also record that environmental stressors—such as drought—tend to reduce the benefits of structured foraging because resources become scattered. The concluding implication is that bee foraging behavior is adaptable, and colonies may shift strategies as conditions change to maintain overall fitness. The authors caution against assuming a single optimal strategy across diverse habitats.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage presents context-dependent effectiveness, not a single universal optimal strategy.",
+        "C": "The passage does not say all strategies become ineffective; it says benefits vary by condition.",
+        "D": "Waggle dances are described as important, not sole determinants."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.139Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main idea of Question 8's historical passage about New Deal–era reform programs?",
+      "options": [
+        "A) The program had no measurable impact on local employment.",
+        "B) Public works projects and job training correlated with local employment gains and increased demand in nearby businesses.",
+        "C) The program proved that government spending always harms markets.",
+        "D) The reform relied exclusively on tax cuts to boost employment."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage states there is a correlation between transportation projects and local employment, with benefits to nearby businesses as workers regained purchasing power, indicating a positive impact on demand and employment. Options A, C, and D contradict the described correlations and emphasis on accountability.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "New data from a 1930s labor reform program illustrate the state’s response to rising unemployment. The plan funded public works, provided job training, and offered subsidies to businesses that retained workers. Officials argued that these measures would stabilize demand and reduce long-term unemployment by increasing household incomes. Critics claimed the program would distort markets and delay necessary structural adjustments. The report emphasizes that the works program relied on careful targeting and transparent reporting to avoid waste. Evaluation notes show a correlation between projects in transportation and local employment, with longer-term benefits in nearby businesses as workers regained purchasing power. The document closes by acknowledging political constraints: the program gained support when economists framed unemployment as a demand problem rather than a supply issue. The author concludes that, even amid controversy, the experience suggested a possible template for economic policy that combined public investment with accountability.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage asserts a correlation and benefit, not no measurable impact.",
+        "C": "The passage presents a nuanced view that supports public investment under certain conditions, not a blanket harm.",
+        "D": "The passage describes public investment, not tax cuts as the sole mechanism."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.140Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author’s purpose in Question 9's literary passage about Urban Quiet?",
+      "options": [
+        "A) To argue that urban life is inherently corrupt and impossible for meaningful relationships.",
+        "B) To illustrate how city form and architectural details mirror personal isolation and suggest a broader sense of belonging.",
+        "C) To claim that dialogue should replace descriptive prose in contemporary fiction.",
+        "D) To show that architecture has little influence on character development."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage explains that urban scenes and architectural details mirror isolation and suggest belonging through attention to daily life, which is option B. Options A, C, and D misstate the purpose and key connections drawn by the critic.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "The critic argues that the novel Urban Quiet uses city scenes to reflect inner isolation. Vivid descriptions of crowded streets are offset by long, single-sentence paragraphs that linger on a solitary character listening to distant trains. The author deliberately arranges scenes so that a sense of movement accompanies an absence of progress in the protagonist's plans. The critic points to a recurring motif of storefront windows showing reflections of strangers who are not fully present. In crucial scenes, conversations occur but misunderstandings persist, deepening the sense that communication has become fragmentary. The review highlights how the narrator's observations of architecture—narrow alleys, glass towers, and overpasses—mirror the character's attempts to navigate relationships. By the end, the text suggests that belonging may be found not in shared goals but in attending to the textures of daily life. The critic concludes that the novel reframes success as a quieter, more intimate form of connection.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage presents a nuanced view of belonging, not a blanket critique of urban life.",
+        "C": "Dialogue vs. description is not the focus; the purpose is about reflection on belonging.",
+        "D": "Architectural elements are central to the argument, not irrelevant."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.141Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to Question 10's science passage, what can be inferred about species-specific responses to ocean acidification?",
+      "options": [
+        "A) All mollusk species will respond identically to acidified water.",
+        "B) Some species may cope by changing shell composition or organic layers, indicating species-specific strategies.",
+        "C) Acidification has no effect on sensory cues in larvae.",
+        "D) Laboratory results always predict field outcomes perfectly."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage states that one species increases organic layer thickness while another changes mineral composition, indicating species-specific coping strategies. Options A and D claim universal or guaranteed results, and C contradicts the text which notes sensory impairment as a factor.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Marine scientists conducted a controlled study to assess how ocean acidification influences shell formation in two species of mollusks. They cultured juvenile shells in water at current pH and in water that mimicked projected acidified conditions. Under the more acidic conditions, shell growth slowed and shells became thinner, raising concerns about survival in natural settings. The researchers tracked calcium deposition and measured the thickness of the organic layer that coats shells. Interestingly, the two species showed different coping strategies: one adjusted by increasing organic layer thickness, the other altered mineral composition of the shell. The study also notes that acidic water can impair sensory cues, making larvae more vulnerable to predators. The authors caution that laboratory results may differ from field conditions, but they argue the findings reveal plausible pathways by which acidification could influence population dynamics. The concluding sentence stresses the importance of continued monitoring of coastal ecosystems as acidification progresses.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage describes different responses between species, not identical ones.",
+        "C": "The passage explicitly states that acidic water can impair sensory cues.",
+        "D": "The passage cautions that lab results may differ from field conditions."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.141Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main idea of Question 11's history passage about civil rights litigation?",
+      "options": [
+        "A) Court decisions alone produced lasting civil rights changes.",
+        "B) Legal victories in courts combined with public mobilization and coalition-building to advance civil rights.",
+        "C) Public campaigns without legal action were sufficient to achieve reforms.",
+        "D) Precedent is irrelevant to modern civil rights cases."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage emphasizes a combination of court victories, public mobilization, and coalitions as the engine of progress. Options A, C, and D misstate the dual emphasis and the importance of precedent and public action.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "A recent synthesis of civil rights litigation shows that legal strategy combined courts and public campaigns. Advocates recognized that legal victories in federal courts would not suffice without broad public support, so they paired cases with organized demonstrations and media messaging. The synthesis highlights two landmark cases: one challenging segregated schooling, another addressing voting rights. In both, attorneys framed discrimination as a violation of equal protection under the law and leveraged technical arguments about precedent. The analysis notes that courtroom wins often followed public mobilization that created political pressure on lawmakers. The author cautions that legal progress depended on coalition-building among civic groups, labor unions, and student organizers. The conclusion emphasizes that the movement's success arose from a dual approach: securing judicial interpretations favorable to equality while cultivating a culture of inclusion beyond the courtroom.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage stresses the need for public support alongside court victories.",
+        "C": "The passage shows legal action and public campaigns together were important.",
+        "D": "Precedent is portrayed as relevant through the discussion of arguments about equal protection."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.142Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In Question 12's Shakespearean rhetoric passage, what is the author’s purpose?",
+      "options": [
+        "A) To claim that persuasion is purely logical with no emotional influence.",
+        "B) To argue that Shakespeare uses rhetorical devices to involve the reader in ethical reflection.",
+        "C) To claim that the audience is always persuaded by formal diction alone.",
+        "D) To demonstrate that chorus fragments undermine the plot."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage states that Shakespeare’s rhetoric invites readers to question their readiness to commit to an interpretation, i.e., ethical reflection. Option B captures this purpose. Options A, C, and D misstate the intended aim or downplay the ethical engagement.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "In a recent essay, critic Jonas Reed examines how Shakespeare composes persuasion in a late tragedy. The essay argues that the protagonist uses rhetorical shifts to influence an audience staged within a courtroom-like scene. The critic notes three devices: a sudden turn in diction from formal to intimate, an inversion of logical sequence, and the strategic repetition of a single line with growing variants. Each device, Reed contends, intensifies a moment where responsibility for outcome rests with the listener as much as the speaker. The analysis highlights how the chorus serves as a counter-narrative, reminding readers of wider consequences beyond the immediate plot. The final section suggests that Shakespeare's persuasion is not merely about convincing others but about inviting readers to interrogate their own readiness to commit to a particular interpretation. The essay concludes that the dramatic moment becomes a test of ethical imagination rather than a simple display of rhetoric.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The purpose is not to separate emotion from logic; it emphasizes ethical reflection.",
+        "C": "The passage emphasizes more than formal diction; it highlights rhetorical devices and reader engagement.",
+        "D": "Chorus is described as a counter-narrative, not as undermining the plot."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.143Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What can be inferred about sleep and memory from Question 13's neuroscience passage?",
+      "options": [
+        "A) Sleep has no effect on memory consolidation.",
+        "B) Slow-wave sleep specifically helps consolidate memories and reduce interference.",
+        "C) Exercise before sleep always negates the benefits of sleep.",
+        "D) Memory consolidation occurs only during waking hours."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage states that sleep, especially slow-wave sleep, improves recall and reduces interference, indicating slow-wave sleep is specifically beneficial. Options A, C, and D contradict the findings or overstate effects.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "A neuroscientist describes an experiment on how sleep affects memory consolidation in young adults. Participants learned a list of word pairs and were tested after intervals that included a night of sleep or a day of wakefulness. The study found that sleep, particularly the slow-wave stage, improved recall and reduced interference from new information learned after the initial session. The author explains that the brain replays neural patterns during sleep, which stabilizes memories. The researchers also tested a condition where participants exercised before sleep and observed modest improvements, suggesting that light physical activity may boost consolidation. The report notes that these findings align with prior work, yet also highlight individual differences in how much sleep benefits memory. In the discussion, the author emphasizes practical implications: adequate sleep enhances academic performance and helps in acquiring new skills. The conclusion cautions that neglecting sleep can impair learning across domains.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage states there is an effect of sleep on memory consolidation.",
+        "C": "The passage mentions modest improvements with exercise, not negation of sleep benefits.",
+        "D": "Memory consolidation is described as occurring during sleep, not only while awake."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.144Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main idea of Question 14's macroeconomic passage about demand management?",
+      "options": [
+        "A) To defend austerity measures during recessions.",
+        "B) To explain how demand management can stabilize an economy by government spending.",
+        "C) To reject the multiplier effect as a myth.",
+        "D) To describe how inflation is not related to unemployment."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage outlines how government spending and the multiplier effect can stabilize economies during downturns, which is the core idea of demand management. Options A, C, and D misstate the argument or omit key concepts like the multiplier and countercyclical policy.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "In a concise summary of Keynesian economics, the author explains how demand management can stabilize economies during downturns. The core idea is that government spending can compensate for reduced private demand, preventing deep recessions. The text notes that the multiplier effect means each dollar of public investment can generate more than a single dollar in national income through ripple effects. The author acknowledges concerns about debt and inflation but argues that during a serious contraction, the benefits of supporting employment and production outweigh risks. A caveat is offered: policy should be countercyclical, expanding during recessions and contracting during booms to avoid destabilizing cycles. The concluding remark emphasizes that the central aim is not to eliminate all volatility but to smooth it enough to keep households and firms confident enough to spend and invest. The piece ends with a reminder that empirical evidence supports the view that timely stimulus can shorten downturns.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage supports active fiscal stimulus, not austerity.",
+        "C": "The passage endorses the multiplier concept rather than rejecting it.",
+        "D": "Inflation and unemployment are mentioned only as part of broader concerns; the main point is stabilization via demand management."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.144Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In Question 15's literature passage, what is the inferred role of language in identity for exile?",
+      "options": [
+        "A) Language serves only to hinder connection across cultures.",
+        "B) Language hybridity signals dislocation but also enables resilience and helps preserve identity.",
+        "C) Language choices are irrelevant to identity in exile.",
+        "D) The novel presents language as a fixed, monolithic system."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage argues that language hybridity signals both dislocation and resilience, helping preserve identity across changing geography, which supports option B. Options A, C, and D misstate the nuanced role of language described in the passage.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "A literary essay analyzes how exile shapes narrative voice in a contemporary novel. The narrator speaks with a mixture of languages, mixing terms from the colonizer's tongue with terms from ancestral speech, creating a hybrid diction. The critic argues that this language hybrid signals a torn allegiance, yet also reveals modes of resilience as characters resist cultural erasure. The text points to a scene where a traveler reads letters from home and interprets them through the lens of foreign signifiers, illustrating how memory travels through linguistic translation. The author notes recurring motifs of borders—literal walls, shifting maps, and thresholds—that function as spaces of negotiation rather than barriers. The conclusion claims that the novel does not merely depict exile but asks readers to consider how language can preserve identity when geography changes. The analysis closes by linking linguistic choices to questions of belonging and the ethics of listening across cultures.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage shows hybridity can preserve identity, not merely hinder it.",
+        "C": "The text treats language as central to identity, not irrelevant.",
+        "D": "The passage presents language as hybrid and evolving, not fixed."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:48:52.145Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the central claim the author makes in this passage about enzyme X in plant cells?",
+      "options": [
+        "A) The activity of enzyme X is unaffected by pH changes",
+        "B) Enzyme X activity is highly sensitive to pH and plants regulate intracellular pH to support photosynthesis",
+        "C) Cellular buffering is unnecessary for enzyme function",
+        "D) External soil pH directly determines enzyme performance in leaves"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage describes a peak in enzyme activity at a specific pH and emphasizes the plant's buffering systems that keep cytosolic pH near that optimum, supporting photosynthesis. Option B accurately captures this central claim. Option A contradicts the reported sensitivity to pH. Option C wrongly minimizes buffering importance. Option D incorrectly links leaf enzyme performance directly to soil pH rather than intracellular pH regulation. The correct answer is B because it reflects the described mechanism and consequence.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In leaf tissue, enzyme X operates within a narrow chemical environment. An experiment exposed crude leaf extracts to buffer solutions ranging from pH 4.5 to 9.0, and reaction rates were quantified by observing oxygen production. Results showed a pronounced peak near pH 6.8, with activity falling sharply at both lower and higher pH values. The authors propose two mechanisms: first, that the enzyme’s active site changes charge as pH shifts; second, that the cell’s buffering systems stabilize cytosolic pH around 6.8 regardless of external fluctuations. The implication is that enzyme X contributes to photosynthetic efficiency only within this tight window, making intracellular pH homeostasis essential for normal metabolism. Chloroplasts and cytosolic buffers dampen external acidity or alkalinity, allowing steady enzymatic performance while soil pH varies. The conclusion stresses that appreciating a plant’s buffering capacity is key to predicting how environmental acidification or liming will affect photosynthesis and growth.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage presents clear evidence that pH affects activity, so A is false.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Buffering is described as essential, not unnecessary.",
+        "D": "The passage emphasizes intracellular buffering, not a direct soil-to-leaf pH link."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.733Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What best expresses the central claim of the passage about mercantilist policy and the colonial economy?",
+      "options": [
+        "A) The policy enriched colonial economies by expanding trade.",
+        "B) The policy achieved its goals without creating any dependence on the metropolis.",
+        "C) The policy created a paradox where colonies gained some trade but remained dependent on the metropolis.",
+        "D) The policy was primarily driven by religious concerns."
+      ],
+      "correctAnswer": 2,
+      "explanation": "The passage describes a paradox where colonies benefited from a broader trade network yet remained dependent on metropolitan capital and policy. This aligns with option C. Option A ignores the dependency aspect. Option B contradicts the described dependence created by licensing and tariffs. Option D introduces an irrelevant motive not supported by the text. The correct answer is C because it captures the nuanced outcome described.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A historian argues that the set of mercantilist policies intended to increase metropolitan wealth by restricting colonial manufacturing and by boosting export over import—yet the colonial economies grew only as far as metropolitan merchants allowed, with tight control over credit and goods. The system created a paradox: while colonies gained access to a larger, more efficient network of trade, their own manufacturing remained stunted and dependent on metropolitan capital. When colonial assemblies attempted to loosen the restrictions, metropolitan authorities responded with tariffs, coin shortages, and selective licensing that preserved metropolitan advantage. The result was uneven development across colonies and a persistent reliance on the metropolis for goods and credit. In short, the policy achieved some gains in raw trade but failed to deliver broad, self-sustaining growth to the colonies, exposing the limits of mercantilist design in a rapidly expanding Atlantic economy.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage notes dependency and uneven development, not universal enrichment for colonies.",
+        "B": "The text emphasizes dependence, not independence, of colonial economies.",
+        "C": "Correct answer explained in the explanation field.",
+        "D": "Religious motives are not discussed as a driver in the excerpt."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.734Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What main idea does the passage convey about memory and the structure of the novel being discussed?",
+      "options": [
+        "A) The novel uses memory to present an objective chronology.",
+        "B) The novel uses memory to explore how social memory shapes identity and accountability.",
+        "C) The critic believes memory is always accurate in the novel.",
+        "D) The form of the novel has no bearing on its moral concerns."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage argues that memory is unreliable and shaped by social roles, affecting identity and accountability. Option B captures this central claim. Option A incorrectly claims objectivity. Option C misstates memory as always accurate. Option D ignores the link between form and meaning. The correct answer is B because it reflects the critique’s central assertion.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A literary critic notes that the novel uses nonchronological shifts and recurring motifs to dissect memory. The narrator offers fragments of events that resist straightforward sequencing, inviting readers to reconstruct the past alongside the protagonist. The critic argues that the unreliable memory exposes how social roles influence what is remembered, what is forgotten, and how guilt is processed. Scenes described with sensory detail often lack precise dates or locations, underscoring the idea that memory serves moral interpretation rather than objective record. The author also highlights how the novel’s form mirrors the protagonist’s shifting sense of self; as the present tense changes, the past is reorganized, revealing that forgiveness and accountability are not simply parallel, but interwoven through memory’s selective power.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The critic emphasizes memory’s selectivity, not an objective chronology.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Memory is described as unreliable, not always accurate.",
+        "D": "The passage ties form to memory and moral concerns."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.735Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which statement can be reasonably inferred from the passage about antibiotic resistance observed in the study?",
+      "options": [
+        "A) Resistance arises uniformly across all cells.",
+        "B) A subpopulation with higher tolerance persists, enabling resistance.",
+        "C) The antibiotic kills all cells equally.",
+        "D) The data cannot support any claim about subpopulations."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage describes a subpopulation that maintains growth under high drug pressure, indicating nonuniform resistance. Option B captures this inference. Option A ignores the subgroup. Option C contradicts the observed survivor subpopulation. Option D misreads the provided evidence. The correct answer is B because it reflects the described heterogeneity.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A population of bacteria exposed to an antibiotic showed a broad distribution of growth rates. At higher drug concentrations, the average growth rate slowed markedly, yet a subset of cells maintained a higher growth rate than the rest. The authors conclude that resistance does not arise from every cell equally; instead, a subpopulation displays enhanced tolerance, suggesting a genetic or phenotypic basis that survives selection pressure. The report emphasizes that this heterogeneity has important implications for treatment strategies, because simply increasing drug concentration may eliminate most cells but leave a surviving subpopulation that can repopulate the culture.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage indicates heterogeneity with a resistant subpopulation.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Some cells survive, so not all are killed equally.",
+        "D": "The passage provides a clear basis for subpopulation inference."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.736Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "From the passage, what factor most plausibly contributed to unrest during the period described in the excerpt?",
+      "options": [
+        "A) Ideological fervor alone drove the unrest.",
+        "B) Economic hardship and fiscal mismanagement contributed significantly to the unrest.",
+        "C) The central government provided ample subsidies to all markets, preventing unrest.",
+        "D) External wars were the sole cause of unrest."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage links bread price rises, unemployment, and policy mismanagement to public unrest, indicating economic distress as a major driver. Option B captures this. Option A overstates ideology's role. Option C contradicts the mention of subsidies being reduced. Option D introduces an external factor not described. The correct answer is B because it aligns with the material economic causes described.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Bread prices doubled within a year, unemployment rose in urban centers, and a fiscal reform reduced subsidies to local markets. The author notes that a combination of rising living costs and a slow, uneven response from the central government created a sense of precariousness among artisans and farmers alike. Although political ideology played a role in certain demonstrations, the text emphasizes material hardship and policy mismanagement as the primary catalysts for public discontent and escalating protests.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage stresses economic conditions more than ideology.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Subsidies were reduced, not increased, according to the passage.",
+        "D": "There is no reference to external wars as the sole cause."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.737Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the passage about the modernist poet, what does the author imply about the relationship between form and meaning?",
+      "options": [
+        "A) Form is decorative and does not affect meaning.",
+        "B) The form of the poem is essential to conveying its meaning.",
+        "C) The poem’s meaning is entirely independent of its structure.",
+        "D) The poem’s form obscures meaning and should be ignored."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage argues that unconventional form is central to the poem’s meaning by shaping perception and memory. Option B accurately captures this. Options A, C, and D misstate the relationship between form and meaning. The correct answer is B because it reflects the claim about form shaping meaning.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The critic argues that the poet’s unconventional punctuation and fragmented syntax are not mere stylistic choices but integral to the poem’s meaning. By interrupting sentence flow and reordering phrases, the poem mirrors the speaker’s unsettled consciousness and sense of alienation in the modern city. The critic notes that rhythm and line breaks create pauses that force readers to engage with gaps in memory and perception, rather than simply to follow a linear narrative. In this light, form becomes the vehicle for questioning ordinary assumptions about time, identity, and social reality.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The critic treats form as integral, not decorative.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The passage links structure to meaning; they are not separable.",
+        "D": "The passage presents form as revealing meaning, not obscuring it."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.737Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the best inference about the relationship between the observed growth patterns and the antibiotic used in the study?",
+      "options": [
+        "A) The antibiotic uniformly inhibits all cells, leaving no survivors.",
+        "B) A subpopulation shows higher tolerance that can underpin resistance.",
+        "C) Growth at higher concentrations proves the antibiotic is ineffective.",
+        "D) The observed pattern cannot inform any conclusions about resistance."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage describes a surviving subpopulation that tolerates high antibiotic concentrations, implying a mechanism that can lead to resistance. Option B captures this inference. Options A and C misstate survivors as irrelevant or nonviable. Option D ignores the evidentiary link. The correct answer is B because it reflects the suggested subpopulation tolerance leading to resistance.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A two-phase experiment tracked bacterial growth with increasing antibiotic concentrations. In the first phase, growth slowed gradually in proportion to the dose. In the second phase, a small subset of cells continued to grow at high concentrations, suggesting a tolerance mechanism. The authors infer that this subpopulation’s resilience may be due to genetic mutations or adaptive phenotypic switching that preserves viability under stress. The overall implication is that overt resistance arises not from uniform adaptation, but from a minority of cells capable of withstanding treatment, complicating efforts to eradicate infection with a single drug strategy.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "There are survivors at high concentrations, so uniform inhibition is incorrect.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Survival indicates the antibiotic can still be effective in some cells; it does not prove complete ineffectiveness.",
+        "D": "The passage provides a basis for inferring subpopulation tolerance."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.738Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which statement best explains the author’s claim about economic unrest in the excerpt on the late eighteenth century?",
+      "options": [
+        "A) Ideological differences were the sole factor in unrest.",
+        "B) Economic hardship, aided by policy choices, played a major role in unrest.",
+        "C) The central government had a flawless stabilization plan.",
+        "D) Social tensions were unrelated to price fluctuations."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage emphasizes economic hardship and misaligned policy as drivers of unrest, not solely ideology or flawless policy. Option B captures the main claim. Options A, C, and D misstate the causal factors or the policy effectiveness. The correct answer is B because it aligns with the described economic and policy factors.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The excerpt describes rising bread prices, a widening gap between rural and urban wages, and a fiscal policy that reduced subsidies for grain storage. The author contends that these factors combined to erode the purchasing power of the common people and undermine faith in the government’s ability to stabilize prices. The argument is that, beyond ideological differences, material hardship created fertile ground for protest and demands for reform. The author concludes that policy misalignment between central authorities and local economies intensified social tension and accelerated the move toward collective action.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage assigns significant weight to economic factors beyond ideology.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The excerpt notes policy missteps, not perfection.",
+        "D": "Price fluctuations are explicitly linked to unrest."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.739Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What does the passage imply about the relationship between urban life and individual identity in the modernist poem discussed?",
+      "options": [
+        "A) The poem presents the city as a harmonious setting for identity formation.",
+        "B) The city acts as a dynamic force that molds, unsettles, and fragments individual identity.",
+        "C) The poem avoids any commentary on memory or perception.",
+        "D) The poet upholds traditional narrative clarity as essential to identity."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The critic argues that urban life and form interact to fragment identity, illustrating how memory and perception shape selfhood. Option B captures this inference. Options A and D misstate the portrayal of the city and narrative style. Option C ignores the emphasis on memory and perception. The correct answer is B because it reflects the described relationship.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A critic of a contemporary modernist poem argues that urban life is not merely a backdrop but a force shaping personal identity. The poem’s abrupt shifts in perspective mirror the city’s restless noise, while repeated images of doors and windows serve as thresholds between inner thought and external events. The critic notes that the poet’s choice of diction alternates between clinical precision and dreamlike ambiguity, suggesting that memory, perception, and social role intersect to form a fragmented sense of self. The conclusion is that the poem uses form to critique the alienation inherent in modern urban experience.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The poem is described as fragmentary, not harmonious.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Memory and perception are central to the argument.",
+        "D": "The poem is characterized by fragmentation, not strict clarity."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.740Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to the passage, which factor best explains the observed historic policy shift in the early republic?",
+      "options": [
+        "A) A sudden commitment to universal suffrage without regard to property.",
+        "B) A cautious approach that protected property rights while moderating democratic expansion.",
+        "C) An emphasis on religious authority in governance.",
+        "D) A shift toward direct democracy at all levels."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage argues for protecting property rights while moderating expansion of democracy to maintain order and incentives. Option B captures this. Options A, C, and D misstate the described balance. The correct answer is B because it reflects the described policy stance.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A scholarly analysis traces a policy shift to a growing recognition that property rights must be protected to sustain social order, even as debates about representation intensified. The author argues that leaders believed a cautious extension of political power was necessary to preserve economic incentives and prevent factional instability. The text emphasizes that the policy redesign balanced pragmatic economic concerns with political constraints, limiting direct democracy in favor of a stable framework for property owners. The conclusion suggests that policy decisions were less about abstract theory and more about negotiating competing interests in a developing nation.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage describes a cautious expansion, not universal suffrage without property requirements.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Religious authority is not presented as a central factor.",
+        "D": "Direct democracy is not presented as the goal."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.741Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What central claim does the literary critic convey about the role of memory in the poet’s work?",
+      "options": [
+        "A) Memory simply preserves a linear, factual past.",
+        "B) Memory actively constructs meaning and interacts with collective memory.",
+        "C) The poet rejects any connection between memory and emotion.",
+        "D) The poems lack recurring motifs or patterns."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The critic argues memory constructs meaning and interacts with collective memory, not merely preserves a factual past. Option B captures this. Options A, C, and D misstate the role of memory and motifs. The correct answer is B because it reflects the described mechanism.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A literary essay argues that memory in the poet’s oeuvre is not a passive record but an active constructor of meaning. The critic demonstrates how recalled scenes are rearranged across poems, creating new associations between past and present. The author notes recurring motifs—an old chair, a train schedule, and a harbor light—that reappear with altered contexts, signaling how memory shapes emotional truth rather than literal chronology. The essay concludes that the poet uses memory to question what counts as knowing and to reveal how individual experiences interact with collective memory to shape identity.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Memory is described as constructing meaning, not preserving a simple chronology.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Emotion is connected to memory in the analysis.",
+        "D": "Recurring motifs are central to the argument."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.741Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, what would be the most reasonable inference about the role of the tense shifts in the narrative?",
+      "options": [
+        "A) Tense shifts are used for rhythmic variety only.",
+        "B) Tense shifts reinforce the tension between memory and present experience.",
+        "C) Tense shifts eliminate any sense of time within the story.",
+        "D) Tense shifts are irrelevant to the story’s themes."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage links tense shifts to the tension between memory and present experience, making option B correct. Options A, C, and D misinterpret the effect of tense variation. The correct answer is B because the shifts are thematically meaningful.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In analyzing a short story, the narrator notes that frequent shifts in tense align with the protagonist’s changing sense of time. The author suggests that these shifts intensify the sense of immediacy while also signaling that past events often reinterpret current concerns. The narrative strategy, the critic argues, makes the reader feel as though memory and perception are competing anchors in the same moment.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The shifts serve a purpose beyond rhythm, linking memory and time.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Time is made more complex, not eliminated.",
+        "D": "The shifts appear to be central to the themes."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.742Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What specific detail does the author attribute to the moment when the character contemplates a critical choice?",
+      "options": [
+        "A) The character immediately reveals the secret.",
+        "B) The pause before the decision is highlighted as significant.",
+        "C) The scene occurs at night with thunder.",
+        "D) The choice is irrelevant to the plot."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage emphasizes the pause before the decision as a meaningful detail, making option B correct. Option A contradicts the described weight of the moment. Option C introduces weather not mentioned as a central feature. Option D misstates the importance of the moment. The correct answer is B because the pause is highlighted as significant.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "In a scene described with careful realism, the character stands at a crossroads and considers whether to reveal a family secret. The description emphasizes the creaking of the wooden floor, the scent of rain, and the pause before the decision. The author notes that the duration of the pause is as important as the content of the choice, signaling the weight of personal responsibility in the narrative.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The focus is on the weight of the pause, not immediately revealing the secret.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Weather details are not central to the described moment.",
+        "D": "The moment is described as pivotal to the plot."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.743Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to the passage, what event marks a turning point in the historical analysis of the era discussed?",
+      "options": [
+        "A) The treaty failed to alter alliances or markets.",
+        "B) The treaty catalyzed a broader realignment in alliances and trade.",
+        "C) Domestic institutions remained unchanged after the treaty.",
+        "D) The treaty had no long-term implications."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage describes the treaty as a turning point that realigned alliances and opened markets, making option B correct. Options A and D misstate the treaty’s effects, and C contradicts the claim that domestic institutions were reshaped. The correct answer is B because it captures the treaty’s broader impact.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A historical monograph identifies a diplomatic treaty as a turning point, altering long-standing alliances and shifting economic priorities. The author argues that the treaty ended a period of relative isolation and opened access to new markets, while also entailing new terms for trade, security commitments, and debt arrangements. The analysis shows how subsequent policy decisions built on this shift, reshaping both domestic institutions and regional power dynamics. The passage emphasizes that the treaty’s consequences extended beyond immediate gains, affecting the trajectory of nation-states for decades.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage claims significant realignment occurred.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Domestic changes are described as part of the policy shift.",
+        "D": "Long-term implications are asserted in the passage."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.744Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the primary function of the narrator’s voice in the analysis of the play discussed in the passage?",
+      "options": [
+        "A) The narrator provides simple, objective summaries of events.",
+        "B) The narrator acts as a counterpoint that reframes earlier events and invites reinterpretation.",
+        "C) The narrator is irrelevant to understanding the play’s themes.",
+        "D) The narrator insists on a single, definitive moral reading."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage describes the narrator as offering retrospective commentary that reframes events, inviting reinterpretation. Option B is correct. Options A, C, and D mischaracterize the narrator’s role. The correct answer is B because it captures how the narration shapes understanding.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A critical essay on a late-play tragedy argues that the narrator’s voice serves as a counterpoint to the stage action, offering retrospective commentary that reframes earlier events. The essay notes that the narrator’s tonal shifts reveal the playwright’s interest in how memory and guilt alter moral judgment after a crisis. By foregrounding interpretive narration, the essay contends, the author invites readers to re-evaluate character motives and to consider how audience sympathies might be redirected by new information revealed in the commentary.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The narrator provides interpretive commentary, not simple summaries.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The narrator is central to understanding the themes.",
+        "D": "The passage suggests multiple readings rather than a single, definitive one."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.745Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which phrase best states the author’s purpose in the second paragraph of the passage about the climate study?",
+      "options": [
+        "A) To critique an earlier model and argue for a more nuanced approach.",
+        "B) To present a broad, unconditional endorsement of all climate policies.",
+        "C) To dismiss the relevance of aerosol-cloud interactions.",
+        "D) To propose a single solution to climate forecasting."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The second paragraph critiques earlier models and argues for a nuanced approach, matching option A. B, C, and D misstate the purpose. The correct answer is A because it captures the explicit aim of the paragraph.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The second paragraph reviews the limitations of previous models and then introduces a refined approach that explicitly accounts for aerosol-cloud interactions. The author aims to persuade readers that policy decisions should depend on a nuanced, region-specific understanding of climate feedback mechanisms rather than on overly broad generalizations. The paragraph concludes by urging continued refinement of models to avoid underestimating regional risk.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer explained in the explanation field.",
+        "B": "The passage argues for nuance, not blanket policy approval.",
+        "C": "Aerosol-cloud interactions are central to the argument.",
+        "D": "No single solution is proposed; nuance is emphasized."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.745Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "From the passage, what is the central claim about the importance of memory in the protagonist’s life?",
+      "options": [
+        "A) Memory has no effect on present choices.",
+        "B) Memory guides present choices only if it is critically examined.",
+        "C) Memory is a fixed truth that dictates action.",
+        "D) Memory undermines any chance of ethical action."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage argues memory influences present choices only when critically examined, making option B correct. Options A, C, and D misstate the role of memory. The correct answer is B because it emphasizes critical examination as key to memory’s guidance.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A concise analysis argues that the protagonist’s recollections shape present choices more than external circumstance. The author notes that memory links past loyalties to current moral decisions, and that the protagonist’s sense of self evolves as memories are recalled and reevaluated. The argument is that memory serves as a guide to ethical action only to the extent the individual can critically examine it, rather than accept it as fixed truth.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Memory does influence present choices according to the passage.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Memory is not described as fixed truth dictating action.",
+        "D": "Memory is not portrayed as irredeemably undermining ethics."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.746Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which statement best captures the key detail about the experimental result described in the science passage?",
+      "options": [
+        "A) Peak activity occurred at 25°C.",
+        "B) Peak activity occurred at 37°C.",
+        "C) Activity was highest at 40°C.",
+        "D) Temperature had no effect on activity."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage explicitly states peak activity at 37°C; thus B is correct. A and C misstate the peak, and D contradicts the temperature dependence described. The correct answer is B because the exact peak is stated clearly.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "An experiment examined how a protein's activity changed with temperature. The data show peak activity at 37°C, with activity dropping sharply above 40°C and below 32°C. A control condition at 25°C produced only a modest level of activity. The authors attribute the decline at extreme temperatures to changes in protein conformation and stability, and they note the importance of maintaining physiological temperatures to preserve function.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The peak is at 37°C, not 25°C.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "40°C is beyond the peak; the activity declines there.",
+        "D": "Temperature clearly affects activity according to the data."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.747Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What specific fact does the passage state about the economic policy discussed in the historical excerpt?",
+      "options": [
+        "A) Subsidies were increased across all markets.",
+        "B) Subsidies were reduced but not eliminated, leading to a reallocation of funds.",
+        "C) The policy had no impact on local markets.",
+        "D) The policy immediately solved revenue shortfalls."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage specifies a reduction, not elimination, of subsidies and a reallocation of funds. Option B is correct. Options A and D contradict the described effects. Option C ignores the noted disruptions. The correct answer is B because it accurately reflects the stated policy change.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A brief historical note indicates that a tax reform reduced subsidies but did not eliminate them entirely, and that revenue shortfalls forced a reallocation of funds toward public works projects. The author points out that these measures intended to stabilize the budget inadvertently disrupted local markets and altered long-standing trade patterns. The note concludes by suggesting the policy shift had lasting effects on regional economic resilience.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Subsidies were reduced, not increased.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The passage notes disruptions to local markets.",
+        "D": "No claim that revenue shortfalls were immediately solved is made."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.747Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the poem analysis, which technique does the critic claim is central to constructing its mood?",
+      "options": [
+        "A) Extended metaphor and sparse diction to create restrained longing.",
+        "B) Dense diction and regular meter to convey certainty.",
+        "C) A straightforward, literal narrative with no figurative language.",
+        "D) A festive tone achieved through bright imagery."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The critic highlights extended metaphor and sparse diction as central to mood; option A matches. Options B and D mischaracterize mood and form. Option C denies figurative language present in the analysis. The correct answer is A because it reflects the described technique.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The critic contends that the poem relies on extended metaphor and sparse diction to create a mood of restrained longing. Recurrent images of night, water, and distant bells are coordinated with irregular meter to evoke vertigo and desire for escape. The analysis emphasizes how the voice negotiates between what can be spoken and what remains unsaid, arguing that mood emerges from the tension between sound, image, and silence.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Correct answer explained in the explanation field.",
+        "B": "The passage emphasizes sparse diction, not dense/regular form.",
+        "C": "Figurative language is central to mood.",
+        "D": "Mood is described as restrained, not festive."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.748Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which best explains the author’s purpose in the opening paragraph of the history-focused article?",
+      "options": [
+        "A) To present a single, definitive explanation for divergence.",
+        "B) To outline the debate and propose an integrative framework for analysis.",
+        "C) To dismiss all existing theories as invalid.",
+        "D) To advocate for immediate policy changes."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The paragraph outlines the debate and proposes an integrative framework, which aligns with option B. Options A and C misrepresent the intent to integrate rather than select a single explanation or dismiss all theories. Option D introduces policy advocacy not present in opening. The correct answer is B because it matches the described purpose.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The opening paragraph introduces a long-running debate about the causes of regional economic divergence in the nineteenth century. The author states the question clearly, summarizes competing explanations, and then signals a preference for an interpretation that integrates both structural and political dimensions. The purpose is to prepare readers to evaluate evidence across multiple sources and to anticipate the article’s analytic framework.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The opening presents multiple perspectives, not a single definitive explanation.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "No dismissal of all theories is stated; an integration is proposed.",
+        "D": "Policy advocacy is not the stated aim in the opening."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.749Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What detail from the science passage supports the claim that the system’s response is region-specific?",
+      "options": [
+        "A) All regions warmed equally in response to aerosols.",
+        "B) Some regions cooled while others warmed due to local atmospheric conditions.",
+        "C) Aerosols have no effect on regional climate.",
+        "D) The study could not determine regional differences."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage mentions cooling in some regions and warming in others due to regional atmospheric factors, supporting the claim of region-specific responses. Option B is correct. Options A and C misstate the regional variability, and D contradicts the stated finding. The correct answer is B because it reflects regional differentiation.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A study of aerosol-cloud interactions found that certain regions showed cooling effects due to increased cloud reflectivity, while other regions experienced persistent warming because clouds formed differently or were suppressed at different altitudes. The researchers stress that such regional variability arises from local humidity, temperature gradients, and prior cloud cover, which together determine the net climate response to aerosols.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Regional differences are explicitly described.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The passage asserts aerosols do have regional effects.",
+        "D": "Regional differences are explicitly determined."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.750Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the historical document, what is the primary claim about the impact of the reform on regional markets?",
+      "options": [
+        "A) All regions benefited equally from the reform.",
+        "B) The reform reorganized markets, with uneven effects across regions.",
+        "C) The reform had no impact on regional markets.",
+        "D) The reform exclusively harmed regional markets."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage states that markets were reorganized with uneven effects, making option B correct. Options A and D misstate the uneven or net effect, and C ignores the described changes. The correct answer is B because it captures regional unevenness.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The document argues that the reform altered trade routes and rebalanced exchange centers, which reorganized regional markets rather than simply improving overall efficiency. It suggests that some regions benefited from new infrastructure and standardized currency, while others experienced disruption due to the shifting flows of goods and capital. The author emphasizes that long-term effects included both resilience and vulnerability in different localities.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The text indicates uneven effects, not equal benefits.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The reform clearly affected regional markets.",
+        "D": "The passage does not claim exclusive harm."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.750Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author’s main claim about the narrative perspective in the literary criticism excerpt?",
+      "options": [
+        "A) The narrative perspective is unimportant to the novel’s themes.",
+        "B) Shifting perspectives illuminate the central theme by showing different experiences of events.",
+        "C) A single, fixed perspective would have clarified the truth.",
+        "D) Perspective changes confuse readers and obscure meaning."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage argues that varied focalizations illuminate the central theme by presenting multiple viewpoints. Option B is correct. Options A and C misstate the importance of perspective, and D misreads the effect. The correct answer is B because it reflects the described purpose of shifting perspectives.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A literary analyst argues that shifting narrative perspective is essential to understanding the central theme of the novel. The critic contends that multiple focalizations reveal how different characters experience the same events in diverse ways, thereby broadening the reader’s understanding of truth and memory. The analysis emphasizes that perspective changes are not arbitrary but correlate with character development and moral psychology.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Perspective is described as important to the themes.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The critic argues that multiple perspectives aid understanding, not a single fixed one.",
+        "D": "The shifts are portrayed as clarifying rather than confusing."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.751Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which detail from the science passage supports the claim that the buffering system influences enzyme performance?",
+      "options": [
+        "A) Chloroplasts fail to adjust intracellular pH under external acidity changes.",
+        "B) Buffers stabilize cytosolic pH and influence reaction rates.",
+        "C) The external environment solely dictates enzyme activity.",
+        "D) No buffering mechanism affects the enzyme’s performance."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage states that buffers stabilize cytosolic pH and influence reaction rates, supporting the claim. Option B is correct. Options A and D contradict the buffering role, and C ignores intracellular regulation. The correct answer is B because it directly links buffering to enzyme performance.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The study reports that chloroplasts maintain a stable pH in the cytosol despite external acidity changes, and that buffers modulate the rate of reactions by shifting the proportion of active enzyme to inactive forms. When external pH was altered, enzyme activity did not simply track the external environment; instead, buffering kept the intracellular conditions near the enzyme’s optimum, sustaining metabolic flux.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage indicates buffering and chloroplasts can stabilize intracellular pH.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The intracellular buffering shows that external environment is not the sole determinant.",
+        "D": "The passage asserts buffering does affect enzyme performance."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.752Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main purpose of the historical document’s discussion of fiscal reform?",
+      "options": [
+        "A) To praise the reform without acknowledging any drawbacks.",
+        "B) To explain the rationale for reform and acknowledge its short-term disruption.",
+        "C) To claim the reform failed to affect regional growth.",
+        "D) To argue for reverting to the old fiscal system."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage explains the rationale for reform and acknowledges short-term disruption, aligning with option B. Options A and C misstate the nuanced assessment, and D opposes the reform. The correct answer is B because it captures both intent and the trade-offs.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The document argues that fiscal reform reallocated scarce resources to infrastructure, with the intent of stimulating regional growth. It emphasizes that such reforms were designed to balance the interests of manufacturers, farmers, and urban workers, but acknowledges that some groups bore the immediate brunt of the transition. The author suggests that the reforms laid groundwork for longer-term resilience even as they caused short-term disruption in local markets.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The document acknowledges drawbacks and disruption.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The document argues that reform affected growth, albeit with complexity.",
+        "D": "The document does not argue for reverting."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.753Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to the poetry analysis, what is the effect of the poem’s use of water imagery?",
+      "options": [
+        "A) It provides a literal setting with no symbolic meaning.",
+        "B) It serves as a liminal space that connects memory and longing.",
+        "C) It distracts from the poem’s central argument.",
+        "D) It exclusively represents physical drowning as a theme."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The critic describes water imagery as a liminal space linking memory and longing, making option B correct. Options A and C misrepresent its symbolic role, and D narrows the imagery in a way not supported by the passage. The correct answer is B because it reflects the symbolic function of water.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A critic asserts that the water imagery in the poem functions as a liminal space between memory and longing. The water’s changing state—calm at one moment, stormy at another—parallels the speaker’s evolving emotional landscape. The critic argues that the water motif binds together disparate scenes, guiding readers through a transitional space where desire and memory converge.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Water imagery is described as symbolic, not merely literal.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The imagery is presented as central, not a distraction.",
+        "D": "Drowning is not stated as a central theme."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.753Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author’s main purpose in the opening of the science article about climate feedbacks?",
+      "options": [
+        "A) To insist on a single global climate model as the best predictor.",
+        "B) To argue for including regional detail in climate models.",
+        "C) To ignore regional differences in climate feedbacks.",
+        "D) To declare that climate feedbacks are unpredictable and useless to model."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The author emphasizes regional detail in predictive models, so option B is correct. Options A, C, and D misstate the purpose. The correct answer is B because it captures the described aim to improve regional modeling.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The opening outlines several known feedback mechanisms and then states that recent observations suggest these feedbacks can vary regionally and over time. The author’s aim is to underscore the importance of incorporating regional details into predictive models rather than relying on a single, global approximation. The piece then proceeds to describe methodological steps designed to capture local variability more accurately.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage argues for regional detail, not a single global model.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Regional differences are central to the argument.",
+        "D": "The intention is not to declare forecasting useless."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.754Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which detail from the literary criticism demonstrates how the narrator’s reliability is treated in the passage about the novel?",
+      "options": [
+        "A) The narrator provides a straightforward and complete account.",
+        "B) The narrator shows varying reliability, prompting readers to judge truth against implication.",
+        "C) The narrator is entirely untrustworthy and invalid as a source.",
+        "D) The critic ignores the narrator’s reliability altogether."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage emphasizes varying reliability and reader judgment, making option B correct. Options A and C misstate the narrator’s reliability, while D ignores the focus on reliability. The correct answer is B because it reflects the intended treatment of reliability.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A critic notes that the narrator shifts between reliable and unreliable testimony, often foregrounding the limits of what can be known. The critic cites two episodes where the narrator withholds information and others where hearsay colors the account, illustrating how readers must weigh what is presented against what remains implicit. The analysis argues that this unreliable narration foregrounds questions about truth, memory, and responsibility.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The critic highlights unreliability in places, not a straightforward account.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The narrator is not described as entirely untrustworthy—reliability varies.",
+        "D": "Reliability is a central focus of the passage."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.755Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What does the science passage imply about the role of experimental controls in interpreting results?",
+      "options": [
+        "A) Controls are unnecessary when treatment effects are obvious.",
+        "B) Controls are essential to demonstrate that treatment effects exceed natural variation.",
+        "C) The results would be the same without a control.",
+        "D) Controls only complicate the interpretation."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage emphasizes that controls are essential to demonstrate that observed effects exceed natural variation, making option B correct. Options A, C, and D misstate the role of controls. The correct answer is B because it reflects the necessity of a baseline comparison.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The study includes a control condition conducted at a baseline temperature with no drug exposure to establish the natural growth rate of the organism. Comparisons with treated groups show that observed effects exceed natural variation, supporting a causal link between the treatment and changes in growth. The authors stress that without rigorous controls, the interpretation would be confounded by environmental fluctuations.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Controls are necessary to attribute effects to the treatment.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Without a control, natural variation could fully explain the results.",
+        "D": "Controls aid interpretation, not complicate it."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.756Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main conclusion drawn about the role of historical context in interpreting the events described?",
+      "options": [
+        "A) Historical events can be understood without any context.",
+        "B) Historical context shapes interpretation and enhances explanatory power.",
+        "C) Context complicates analysis to the point of making it unreliable.",
+        "D) Context is irrelevant to understanding historical events."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage argues that context improves understanding, making option B correct. Options A, C, and D misstate the role of context. The correct answer is B because it reflects the described claim about context enhancing interpretation.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A historical analysis argues that context—a combination of economic structure, political power, and cultural norms—shapes how events are understood in retrospect. The author contends that without this context, readers risk attributing causes to isolated actions rather than to broader forces. The conclusion emphasizes that careful attention to context improves explanatory power and helps avoid simplistic readings of complex developments.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Context is presented as necessary, not optional.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Context is presented as helpful, not detrimental.",
+        "D": "Context is described as relevant."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.756Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice best captures the author’s purpose in the final paragraph about the environmental study?",
+      "options": [
+        "A) To advocate for a universal policy applicable everywhere.",
+        "B) To urge region-specific adaptation strategies and further research.",
+        "C) To discourage policymakers from using scientific data.",
+        "D) To focus exclusively on global trends without regional nuance."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The paragraph advocates region-specific adaptation and additional research, making option B correct. Options A, C, and D misstate the intent by advocating universality, dismissing data, or ignoring regional nuance. The correct answer is B because it reflects the stated call for place-based policy.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The final paragraph synthesizes the study’s findings and urges policymakers to consider regional variations when designing adaptation strategies. The author emphasizes that a one-size-fits-all approach neglects local ecosystems, cultural practices, and economic constraints. The paragraph closes with a call for further research into region-specific responses and for the dissemination of data that informs targeted, place-based policy.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage rejects universal policy, stressing regional variation.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The passage supports using scientific data, not discouraging it.",
+        "D": "Regional nuance is a central concern, not absent."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.757Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "From the passage on the modernist poet, what is the primary purpose of the final paragraph?",
+      "options": [
+        "A) To claim the poem offers a definitive reading.",
+        "B) To frame the poet as part of a broader project that invites reader engagement and interpretation.",
+        "C) To dismiss reader involvement as irrelevant.",
+        "D) To argue that modernist poetry lacks any coherent purpose."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage presents the poet as part of a project that invites reader engagement and interpretation, making option B correct. Options A, C, and D misstate the intended purpose. The correct answer is B because it reflects the emphasis on dialogue and interpretation.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The final paragraph situates the poet within a broader modernist project to redefine narrative authority. It argues that the poet’s language challenges conventional truths and invites readers to participate in meaning-making rather than passively consuming authorial claims. This closing asserts that the poet’s work survives through ongoing dialogue between text and reader, rather than through a fixed, authoritative interpretation.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage emphasizes ongoing interpretation, not a definitive reading.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Reader engagement is central to the argument.",
+        "D": "The passage asserts a coherent, purposeful project."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.758Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the best inference about the author’s view of the limits of quantitative models in the article on climate risk?",
+      "options": [
+        "A) Quantitative models are sufficient for all climate risk decisions.",
+        "B) Models have limits and should be complemented by qualitative insights.",
+        "C) Qualitative insights are unreliable and should be discarded.",
+        "D) Decision-making should rely solely on expert opinion without models."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage argues for combining quantitative models with qualitative insights, so option B is correct. Options A, C, and D misstate the stance by endorsing only one approach or rejecting others. The correct answer is B because it reflects the advocated integrative approach.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The article acknowledges the strength of quantitative risk models but emphasizes their limits when applied across diverse geographic and ecological contexts. The author argues that models perform well in controlled settings but can fail to capture local peculiarities in hydrology, land use, and social responses. The conclusion recommends combining model outputs with qualitative insights and stakeholder experience to improve decision-making under uncertainty.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage promotes complementing models with other insights, not sole reliance.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Qualitative insights are presented as valuable, not unreliable.",
+        "D": "The article endorses multiple sources of information, not sole expert opinion."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.759Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the primary purpose of the passage about the historical debate on taxation without representation?",
+      "options": [
+        "A) To retract the claim that consent matters in taxation.",
+        "B) To articulate and defend the idea that consent to taxation is essential for legitimacy.",
+        "C) To argue that taxation without representation is permissible during emergencies.",
+        "D) To suggest that representation is unnecessary for legitimate rule."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage centers on taxation without representation as a violation of consent and legitimacy, which corresponds to option B. Options A, C, and D misstate the stance. The correct answer is B because it accurately reflects the emphasized principle.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The passage outlines the central claim of the colonial critique: taxation without representation violates the consent of the governed and undermines the legitimacy of external authority. It examines how this claim has been framed in political philosophy and traces its impact on subsequent calls for constitutional reform. The author concludes by emphasizing that the principle of consent remains a touchstone for evaluating governmental legitimacy.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage defends consent as essential, not retracting it.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Emergencies are not presented as justification for taxation without consent.",
+        "D": "Representation is presented as essential, not unnecessary."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.759Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which detail from the science passage supports the conclusion that the new model improves regional predictions?",
+      "options": [
+        "A) The model ignores humidity and terrain in its predictions.",
+        "B) It includes region-specific parameters and shows reduced error in validation tests.",
+        "C) It performs worse than the baseline model in all tests.",
+        "D) It provides predictions that are identical to the baseline model."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage notes region-specific parameters and improved accuracy, so option B is correct. Options A, C, and D misstate the model’s features or performance. The correct answer is B because it captures the key evidence of improvement.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The model incorporates local humidity, terrain, and historical precipitation patterns to forecast flood risk more accurately. In validation tests, predictions from the new model showed a statistically significant reduction in error compared with a baseline, non-regional model. The authors conclude that including region-specific parameters enhances predictive performance and should be adopted in future risk assessments.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Humidity and terrain are included in the model.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The model improves predictions in validation tests.",
+        "D": "The model’s predictions differ from the baseline."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.760Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main conclusion of the literary criticism about the narrative technique in the excerpt from the novel?",
+      "options": [
+        "A) The narrative technique creates a transparent and straightforward truth.",
+        "B) The unreliable narrator destabilizes truth and invites critical interrogation of memory and guilt.",
+        "C) The narrator’s unreliability has no thematic significance.",
+        "D) The focalization never changes throughout the novel."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The critic argues that unreliability destabilizes truth, inviting interrogation, which matches option B. Options A and C misstate the impact, and D contradicts the claim about shifting focalization. The correct answer is B because it aligns with the analysis.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "A critic argues that the novel uses an unreliable narrator to destabilize the reader’s sense of truth. The analysis points to deliberate gaps in the narrative, inconsistent time marks, and shifting focalization as devices that force readers to interrogate what counts as evidence within a story. The conclusion asserts that this technique is central to the novel’s exploration of memory, guilt, and social performance.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The narrative is described as destabilizing truth, not transparent.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Unreliability is presented as thematically significant.",
+        "D": "Shifting focalization is described as a feature."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.761Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the science passage on genetics, what is the primary evidence for the claim about mutation rates?",
+      "options": [
+        "A) Mutation rate remains constant regardless of exposure to the chemical.",
+        "B) Mutation rate increases in response to exposure, especially in a specific gene cluster.",
+        "C) There is no link between environment and mutation rates.",
+        "D) The study does not analyze mutation rates at all."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage reports increased mutation rates linked to a chemical exposure, especially in a gene cluster, supporting option B. Options A and C contradict the stated findings, and D is false. The correct answer is B because it reflects the reported evidence.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The study reports that a set of samples exhibits a mutation rate higher than the baseline, with most mutations localized to a specific gene cluster. The data show that mutation frequencies correlate with exposure to a particular chemical, suggesting a mutagenic mechanism. The authors argue that these findings support a model in which environmental factors influence genetic variation, with potential implications for disease risk and evolution.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Mutation rate increases with exposure according to the passage.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The passage asserts a link between environment and mutation rates.",
+        "D": "Mutation rates are explicitly analyzed."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.762Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main idea in the history passage about the emergence of trade networks in the ancient world?",
+      "options": [
+        "A) Trade networks arose purely by chance with no geographic influence.",
+        "B) Geography and state-supported networks were decisive in forming trade routes.",
+        "C) Trade networks hindered the exchange of ideas and technology.",
+        "D) Private enterprise alone created stable and lasting networks."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage credits geography and state sponsorship as key factors, making option B correct. Options A and C ignore the described influence of geography and exchange of ideas/technology, and D understates the role of state support. The correct answer is B because it reflects the geography and governance factors described.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "An economic historian describes how early trade routes formed around natural chokepoints like rivers and coastal ports. The text explains that these hubs promoted the exchange of goods, ideas, and technologies, and that state sponsorship and private enterprise often worked in tandem to protect caravans and standardize weights and measures. The historian emphasizes that networks grew under the influence of geography and strategic decision-making, shaping the course of regional development for centuries.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Geography and sponsorship are presented as decisive.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Trade networks are described as enabling exchange, not hindering it.",
+        "D": "State support is part of the described mechanism."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.762Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which option best states the author’s purpose in the final section of the literary criticism about a classic play?",
+      "options": [
+        "A) To provide a final, definitive interpretation of the play.",
+        "B) To invite ongoing discussion and application of the play’s themes to modern life.",
+        "C) To dismiss the play as outdated and irrelevant.",
+        "D) To praise a single character as the sole embodiment of moral authority."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage invites ongoing discussion and application to modern life, aligning with option B. Options A, C, and D misstate the aim by proposing finality, dismissiveness, or a single focus. The correct answer is B because it captures the call for discussion and relevance.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The critic concludes by arguing that the play remains relevant because its exploration of power, guilt, and responsibility resonates with contemporary ethical concerns. The final section juxtaposes historical context with present-day examples, inviting readers to apply the play’s questions to modern situations. The author aims to motivate additional reading and discussion rather than to settle interpretation definitively.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The critic emphasizes ongoing discussion, not final interpretation.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The play is argued to remain relevant, not outdated.",
+        "D": "The criticism does not fixate on one character as sole moral authority."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.763Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the central claim of the science passage about memory encoding in neurons?",
+      "options": [
+        "A) Memory formation relies on random synaptic changes without specific timing.",
+        "B) Memory encoding involves regulated biological processes that convert short-term memory into long-term memory.",
+        "C) Long-term memory is independent of synaptic changes.",
+        "D) Calcium signaling plays no role in memory consolidation."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage describes regulated processes (synaptic tagging, capture, calcium signaling) that convert short-term to long-term memory, supporting option B. Options A, C, and D misstate the role of timing, synaptic changes, and calcium signaling. The correct answer is B because it captures the described mechanism.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Researchers describe a mechanism by which short-term memories are converted into long-term memories through synaptic tagging and capture. The study shows that certain proteins are upregulated during consolidation, strengthening specific synapses and stabilizing memory traces. The authors argue that this process depends on calcium signaling and the timing of neural activity, linking cellular events to the persistence of learned behavior.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage emphasizes specific timing and regulation, not randomness.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Long-term memory is described as dependent on synaptic changes.",
+        "D": "Calcium signaling is explicitly involved."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.764Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the history passage about ancient trade routes, what is the key evidence that geography shaped economic development?",
+      "options": [
+        "A) Geography had little to no influence on economic arrangement.",
+        "B) Geography created transportation channels that lowered costs and fostered exchange.",
+        "C) Trade routes were solely a product of random exploration, not geography.",
+        "D) Political power discouraged regional specialization."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage presents geography as the driver of economic development through transportation corridors and exchange. Option B captures this. Options A and C misstate geography’s role, and D contradicts the idea that routes facilitated specialization with institutional support. The correct answer is B because it reflects the geographic influence described.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The author cites riverine networks and coastal harbors as natural channels that concentrated commerce, enabling larger markets and more specialized production. The argument is that access to transportation corridors reduced transaction costs, encouraged standardization, and fostered cultural exchange, all of which contributed to regional specialization and durable economic patterns. The text also notes that political control often accompanied these routes, reinforcing the geographic advantages with institutional support.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Geography is presented as influential.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "The text ties routes to geography, not randomness alone.",
+        "D": "Policy and institutions often supported geography, not discouraged it."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.765Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author’s purpose in the final paragraph of the historical essay on economic policy during the early republic?",
+      "options": [
+        "A) To propose a specific policy for immediate implementation.",
+        "B) To prompt reflection on how historical trade-offs inform current debates.",
+        "C) To dismiss the relevance of history for present policy.",
+        "D) To declare that all historical outcomes were inevitable."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage invites reflection on how historical trade-offs inform present debates, making option B correct. Options A, C, and D misstate the purpose. The correct answer is B because it captures the reflective intent and relevance to current issues.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The final paragraph argues that the early republic’s policies were not accidental but the result of deliberate balancing of economic incentives and political legitimacy. The author previews potential counterfactuals, suggesting how different choices might have altered the trajectory of development. The closing remarks urge readers to consider how historical policy trade-offs can inform contemporary debates about property rights and democratic governance.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "No specific policy is proposed for immediate implementation.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "History is presented as relevant to present debate.",
+        "D": "The text presents trade-offs as contingent, not inevitable."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.765Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main claim about the interaction between science and policy in the climate risk article?",
+      "options": [
+        "A) Policy should be formed without scientific input to avoid bias.",
+        "B) Science and policy should be integrated through collaboration and local adaptation.",
+        "C) Scientific findings alone suffice for effective policy.",
+        "D) Community input is unnecessary for climate policy."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage advocates collaboration and local adaptation, making option B correct. Options A, C, and D misstate the need for integration and local context. The correct answer is B because it reflects the collaborative, localized approach described.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The article contends that scientific findings must be translated into policy tools, but cautions that misinterpretation or overgeneralization can lead to ineffective or harmful decisions. It argues for a collaborative process in which scientists, policymakers, and community stakeholders co-create locally appropriate strategies, ensuring that risk assessments reflect both empirical evidence and social realities. The author concludes that robust policy depends on clear communication and adaptive governance.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Policy should incorporate scientific input to avoid bias, not exclude it.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Policy requires more than science; it needs context and collaboration.",
+        "D": "Community input is presented as essential."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.766Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In the final science passage, what detail most strongly supports the claim that biodiversity loss is accelerating due to multiple interacting pressures?",
+      "options": [
+        "A) Losses occur independently with no interaction between pressures.",
+        "B) Concurrent declines, habitat loss, and invasions interact to accelerate loss.",
+        "C) Invasive species are the sole cause of biodiversity decline.",
+        "D) Habitat protection alone is sufficient to halt biodiversity loss."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage emphasizes the interaction of multiple pressures, making option B correct. Options A, C, and D misstate the role or sufficiency of single factors. The correct answer is B because it reflects the interaction of pressures described.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Researchers compile multi-year data showing concurrent declines in multiple taxa, reductions in habitat area, and rising invasive species presence in the same regions. The authors argue that these trends interact, with habitat loss intensifying competition and making communities more vulnerable to invasives. The study concludes that addressing biodiversity loss requires integrated strategies that consider habitat protection, species interactions, and the spread of non-native species.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage emphasizes interactions among pressures, not independence.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Invasives are one factor, not the sole cause.",
+        "D": "A single measure is not presented as sufficient."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.767Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the primary claim of the excerpt about the role of memory in shaping present moral decisions?",
+      "options": [
+        "A) Memory is an objective archive of the past.",
+        "B) Memory actively informs present moral judgments, but is selective and potentially biased.",
+        "C) Memory has no bearing on present decisions.",
+        "D) Memory always distorts moral responsibility beyond repair."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage describes memory as an active but selective and biased tool shaping present moral judgments, so option B is correct. Options A, C, and D misstate memory’s role or certainty. The correct answer is B because it captures memory’s influence and its limits.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "The author argues that memory is not a passive record but an active resource that shapes how individuals judge past actions and decide what counts as a fair response to wrongdoing. The text emphasizes that recollections are selective and colored by current values, which means ethical judgments often emerge from contemporary concerns as much as from historical facts. The author cautions that memory can both illuminate and distort moral responsibility.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Memory is described as selective and imperfect, not a flawless archive.",
+        "B": "Correct answer explained in the explanation field.",
+        "C": "Memory is said to influence present decisions.",
+        "D": "The passage does not claim memory always distorts morality; it notes both illumination and distortion."
+      },
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:51:56.768Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to the passage, what is the central claim of the study on drought tolerance?",
+      "options": [
+        "A) The study argues fertilizer reduction is the key to drought resilience.",
+        "B) The researchers found no change in water use or yields.",
+        "C) The microbial inoculation reduces water use while maintaining yields, enhancing drought resilience.",
+        "D) Chemical anti-transpirants were more effective than microbes."
+      ],
+      "correctAnswer": 2,
+      "explanation": "The passage centers on a field study showing that inoculating crops with a specific microbial consortium increases water-use efficiency and does not sacrifice yield, thereby providing drought resilience. Options A, B, and D either misstate the focus or contradict the findings presented in the passage. The central claim is the combination of reduced water use with maintained yields due to microbial inoculation.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Recent field tests conducted by researchers at Greenridge University show that inoculating wheat seedlings with a consortium of soil bacteria from drought-prone regions increases water-use efficiency by about 22 percent without sacrificing grain yield. The team compared four treatments over two growing seasons: standard fertilizer, fertilizer plus chemical anti-transpirants, fertilizer plus a microbial inoculum, and a control with no fertilizer. While all treated plots maintained similar biomass, the plots receiving microbial inoculation showed earlier root development, higher stomatal control, and lower leaf-area expansion under heat stress. The researchers argue that the microbes form a symbiotic relationship that stimulates root branching, which in turn improves water uptake during dry spells. They caution, however, that the inoculum's effectiveness depends on soil texture, microbial compatibility with native species, and baseline soil nutrient levels. The study does not claim that microbes replace irrigation but that they can reduce water demand by reshaping plant physiology to endure drought periods.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {},
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:53:23.918Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to the passage, through which channels does information travel in markets, as described by the author?",
+      "options": [
+        "A) direct bargaining, published price lists, and informal networks of reputation",
+        "B) government audits, formal registers, and official broadcasts",
+        "C) direct negotiation only, with no other channels",
+        "D) market speculation and rumors only"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage states three channels: direct bargaining, published price lists, and informal networks of reputation. The other options introduce channels not listed or contradict the stated channels, making them incorrect.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Alexander Hale's 1878 essay on market information argues that the price mechanism serves as a repository of knowledge accumulated through countless trades. Hale notes that buyers and sellers rarely possess perfect information, yet the continuous exchange of goods creates a moving average of value that parties use to make decisions. He cites three channels by which information travels: direct bargaining, published price lists, and informal networks of reputation. The essay emphasizes that even imperfect information can drive competitive responses when markets are numerous and open, as small price gaps attract new entrants and encourage efficiency. Hale warns, however, that information asymmetries can lead to moral hazard and poor allocation if not checked by institutions that promote transparency and credible enforcement. The final section outlines a policy suggestion: require standardized reporting of major transactions in key commodities to prevent manipulation and to keep prices aligned with underlying scarcity.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {},
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:53:23.919Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What can be reasonably inferred about the narrator's reliability in the discussion of memory in The Lantern at Noon?",
+      "options": [
+        "A) The narrator is fully reliable, because memory is presented as accurate.",
+        "B) The narrator is unreliable; memory is curated and gaps require readers to infer truth.",
+        "C) The narrator is unreliable due to inconsistent punctuation.",
+        "D) The narrator's reliability is irrelevant to the story."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage argues that memory is presented as selective and curated, with tonal shifts signaling distance from the past. This implies the narrator is not fully reliable and that readers must infer truth from gaps and omissions. The other options contradict the passage's emphasis on selective memory and reader inference.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "In The Lantern at Noon, the narrator recounts the summer of a family migration with a wistful, sometimes almost narratively dispassionate cadence. Yet the critical center of the book turns on a consistent habit: memory is presented less as a mirror of events than as a selective archive curated after the fact. Details are repeated or omitted to produce a desired mood, and the narrator's tonal shifts—from lamplight warmth to abrupt, almost clinical detachment—signal a cognitive distance from the past. The result is not outright unreliability but a moral ambiguity: we are asked to trust the storyteller while being reminded that memory is a reconstruction shaped by present concerns. The critic argues that these devices create a narrative tension in which the truth slides between scenes, and readers learn to read for gaps as much as for repetition. The book's final pages reinforce the idea that memory can illuminate, yet never fully disclose, the original events.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {},
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:53:23.919Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What can be inferred about the authors view on model uncertainty and policy?",
+      "options": [
+        "A) The authors claim that model uncertainty invalidates all model-based planning.",
+        "B) The authors suggest that uncertainty should be ignored in policymaking for decisiveness.",
+        "C) The authors propose that decision-making should acknowledge uncertainty and use multiple sources, focusing on regions with high model spread.",
+        "D) The authors argue that only one model should be used to avoid conflicting results."
+      ],
+      "correctAnswer": 2,
+      "explanation": "The passage emphasizes that policy decisions should account for uncertainty and use multiple sources, particularly focusing on regions where model outputs diverge. This shows cautious, evidence-based policymaking. Options A, B, and D promote extremes or exclusivity that the passage explicitly cautions against.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Over the last decade, climate researchers have relied on multi-model ensembles to forecast regional temperature and precipitation trends. In a recent synthesis, researchers compare outputs from ten climate models under a common greenhouse gas scenario. The study notes that while all models project warming, the magnitude and geographic pattern of warming diverge, especially for mid-latitude regions. The authors explain that these differences stem from how models simulate atmospheric circulation, cloud feedbacks, and land-surface responses. Importantly, the report emphasizes testable implications: regions with high model spread should be prioritized for observation and updated data assimilation, as collecting local information can narrow uncertainty. The overall finding is cautiously optimistic: despite spread, the ensemble indicates a clear trend toward higher temperatures and more intense extremes, with probability estimates improving as more observations are incorporated. The authors caution that policy decisions should account for uncertainty, avoiding overconfidence in any single model's projection.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {},
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:53:23.920Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to the passage, what is the specific purpose of the union and reform collaboration in the early 20th century city debates?",
+      "options": [
+        "A) To push tax cuts for factory owners",
+        "B) To tighten control over city hall proceedings",
+        "C) To improve fire codes and public health in tenement housing",
+        "D) To promote privatization of housing blocks"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The passage explicitly states that unions aligned with reform groups to push for safer tenement housing and cleaner streets, including stricter fire codes and public health improvements. The other options do not reflect the details provided in the passage.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "An archival study of City Hall records from 1910 to 1920 shows that labor unions repeatedly aligned with reform groups to push for safer tenement buildings and cleaner streets. The paperwork traces a clear pattern: union members lobbied for stricter fire codes, while reform committees endorsed rent controls that protected tenants against sudden displacement. In hearings, witnesses described crowded stairwells, insufficient means of egress, and the spread of infectious disease in overcrowded housing blocks. The study notes that the reforms were often justified on public health grounds, but the organizing energy came from street-level workers who saw improvements in living conditions as essential to labor stability. While factory owners resisted some measures, the records indicate that unions helped transform municipal governance from a purely managerial function into a platform for social coverage that bound workers, property owners, and residents toward common standards.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {},
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:53:23.921Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author’s purpose in the second section of the poem described in the passage?",
+      "options": [
+        "A) To present a chronological account of events",
+        "B) To argue that memory should be avoided in poetry",
+        "C) To show how timekeeping devices illuminate the process of remembrance",
+        "D) To criticize the use of domestic symbols in poetry"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The passage explains that the second section uses a clock as a symbol to illuminate memory and the act of remembrance, guiding readers to consider how timekeeping shapes emotional understanding. The other options do not align with the described purpose.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "In the second section of the poem, the speaker speaks of a clock whose hands have learned to measure not hours but the tremor of memory after a loss. The critic argues that the stanza's purpose is to shift the reader from passive observation to active sympathy, forcing attention on the inconspicuous moments that accumulate into meaning. The line breaks, with abrupt caesuras after the word bell, create pauses that invite readers to linger on the ethics of remembrance. The poet's choice of a domestic clock as a symbol suggests that time itself is a shared companion in mourning, not an impartial ticker. By aligning natural imagery with human longing, the poem locates the emotional center in ordinary objects, turning a clock into a partner in recollection. The effect is to encourage a slower reading pace, a careful reconstruction of the past through sensory detail rather than through plot events.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {},
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:53:23.922Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which result did the neuroscience study report about hippocampal replay during rest after emotional clips?",
+      "options": [
+        "A) Replay occurred more frequently after neutral clips.",
+        "B) Replay occurred more frequently after emotionally intense clips.",
+        "C) Replay was unrelated to later memory accuracy.",
+        "D) Replay depended entirely on eye movements."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage states that hippocampal replay was more frequent after emotionally intense clips, suggesting emotion enhances consolidation during offline periods. Other options contradict the described findings or introduce unrelated factors.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Researchers conducting a study on memory consolidation used a sample of adults who watched a set of neutral and emotionally charged film clips while undergoing functional MRI. The team found that during encoding, the hippocampus showed stronger activation for emotional scenes, while the prefrontal cortex regulated the encoding pace. During a following rest period, patterns of hippocampal replay were more frequent after emotionally intense clips, suggesting that emotional arousal facilitates consolidation during offline periods. Importantly, the researchers controlled for attention and found that the replay was not simply a byproduct of eye movements but correlated with later memory accuracy for the scenes. The study concludes that emotion-enhanced consolidation may be a universal mechanism, yet notes that excessive arousal could disrupt encoding in some individuals. The authors propose that future work should examine how individual differences in stress reactivity modulate these effects.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {},
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:53:23.922Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the central claim of Duarte's The Civic Complex as described in the passage?",
+      "options": [
+        "A) Democracy is best maintained by restricting civil associations.",
+        "B) A vibrant civil society built from voluntary associations strengthens democracy when connected to shared public goods.",
+        "C) Voting rights alone guarantee democratic health.",
+        "D) Government should nationalize all civic groups to prevent fragmentation."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage states that Duarte argues for a robust civil society formed by voluntary associations that connect to shared public goods, strengthening democracy. Options A, C, and D misconstrue or contradict this central claim.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "In The Civic Complex, philosopher-analyst M. Duarte argues that modern democracies succeed when civil associations—labor unions, neighborhood councils, religious groups—cohere to form a resilient civil society that supplements formal institutions. Duarte contends that the weakness of late-20th-century democracies lies in the fragmentation of public life, where individuals withdraw into private interest groups and public debates become highly specialized and technocratic. He advocates a policy framework that protects the autonomy of voluntary associations but binds them through inclusive norms and transparent funding. Duarte distinguishes between two kinds of citizen activity: lobbying for material interests and participating in deliberative forums that articulate shared goods such as safety, education, and environmental protection. The central claim is that the health of a democracy depends not only on voting rights but on the breadth and vibrancy of civic associations that translate diffuse concerns into collective action. The passage concludes with a call for constitutional design that fosters pluralism without enabling factional paralysis.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {},
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:53:23.923Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to the passage, what does the river symbolize in the novel's final chapters?",
+      "options": [
+        "A) It symbolizes straightforward moral clarity matching the hero's decision.",
+        "B) It represents the idea that truth has only superficial layers.",
+        "C) It signals that progress comes with hidden depths that cannot be fully known.",
+        "D) It has no thematic significance beyond setting."
+      ],
+      "correctAnswer": 2,
+      "explanation": "The passage explains that the river mirrors hidden depths and unspoken motives, suggesting that truth and progress involve unknown depths. The other options misinterpret or minimize the river's symbolic role.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Critics note that in the late chapters of the novel, the river reappears as a recurring image, not merely a setting but an ethical measure by which characters judge choices. The river's surface, described as both reflecting light and concealing depths, mirrors the tension between surface appearances and hidden motives. The character at the story's center chooses to seek a more truthful life, yet the river's double sign suggests that truth always has a depth limit—something the protagonist cannot fully access. The critic argues that the author uses the river to complicate the notion of progress; every forward movement is accompanied by a reminder of what lies below the surface. The effect is a critique of idealistic narratives that equate advancement with transparency. Instead, the river forces readers to weigh what remains undisclosed even as characters move toward resolution.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {},
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:53:23.924Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the author’s stated purpose in the concluding paragraph about solid-state batteries?",
+      "options": [
+        "A) To criticize the approach's fundamental unsuitability for portable devices.",
+        "B) To argue that problems are insurmountable and no further work is needed.",
+        "C) To argue that solving specific engineering challenges could enable widespread adoption of solid-state batteries.",
+        "D) To propose abandoning solid-state electrolytes in favor of traditional liquids."
+      ],
+      "correctAnswer": 2,
+      "explanation": "The concluding paragraph argues that overcoming engineering challenges could allow widespread adoption of solid-state batteries. The other options contradict the stated purpose or propose negative conclusions not supported by the passage.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "purpose",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Researchers evaluating the performance of a new class of solid-state electrolytes report on throughput, ion mobility, and long-term stability in a range of temperatures. The authors describe a series of experiments where cells were cycled repeatedly under alternating current loads while monitoring impedance growth and degradation of the electrolyte-electrode interface. They conclude that the material's utility lies not only in high ionic conductivity but also in its ability to maintain structural integrity under thermal cycling. The paper emphasizes a practical goal: to provide a safe, scalable alternative to liquid electrolytes that pose flammability hazards. The authors note several engineering challenges, including grain boundary resistance and interfacial impedance that grows as the material ages. They suggest that future work should optimize particle size distribution and coating strategies to reduce degradation and extend life by months rather than weeks. The concluding paragraph asserts that overcoming these obstacles could enable widespread adoption of solid-state batteries in portable electronics and electric vehicles.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {},
+      "_batchId": "batch-1777348045556-reading-comp",
+      "_generatedAt": "2026-04-28T03:53:23.925Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

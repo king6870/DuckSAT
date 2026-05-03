@@ -1,0 +1,172 @@
+{
+  "generatedAt": "2026-04-27T03:47:10.923Z",
+  "generator": "UnifiedQuestionGenerator",
+  "modelHint": "gpt-5-nano",
+  "attempts": 1,
+  "summary": {
+    "math": 5,
+    "readingWriting": 5,
+    "total": 10
+  },
+  "questions": {
+    "math": [
+      {
+        "moduleType": "math",
+        "question": "Polynomial Expressions: If f(x) = x^3 - 6x^2 + 11x - 6, which of the following is a factor of f(x)?",
+        "options": [
+          "A) x - 1",
+          "B) x + 2",
+          "C) x - 3",
+          "D) x + 1"
+        ],
+        "correctAnswer": 0,
+        "explanation": "We test possible rational roots of f(x) = x^3 - 6x^2 + 11x - 6. By synthetic division or factoring by grouping, f(1) = 1 - 6 + 11 - 6 = 0, so (x - 1) is a factor. Dividing yields x^2 - 5x + 6 = (x - 2)(x - 3). Thus the factor x - 1 is correct.",
+        "subtopic": "Polynomial Expressions",
+        "difficulty": "easy",
+        "qualityScore": 0.9
+      },
+      {
+        "moduleType": "math",
+        "question": "Functions and Transformations: The graph of g(x) = (x - 4)^2 is transformed to h(x) = (x - 4)^2 + k, where k > 0. Which statement describes the effect on the graph?",
+        "options": [
+          "A) The graph shifts 4 units to the left.",
+          "B) The graph shifts 4 units to the right.",
+          "C) The graph shifts upward by k units.",
+          "D) The graph shifts downward by k units"
+        ],
+        "correctAnswer": 2,
+        "explanation": "g(x) = (x - 4)^2 is a parabola with vertex at (4, 0). Adding k yields h(x) = (x - 4)^2 + k, which moves the entire graph upward by k units, preserving the x-coordinates of the vertex at (4, k).",
+        "subtopic": "Functions and Transformations",
+        "difficulty": "easy",
+        "qualityScore": 0.9
+      },
+      {
+        "moduleType": "math",
+        "question": "A dataset of 12 test scores is shown in a table. The scores are: 62, 67, 71, 75, 78, 80, 82, 85, 88, 92, 95, 98. A random variable X represents a score chosen uniformly at random from this dataset. What is P(X ≤ 80)?",
+        "options": [
+          "A) 1/6",
+          "B) 1/3",
+          "C) 1/2",
+          "D) 2/3"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Count how many scores are ≤ 80: 62, 67, 71, 75, 78, 80 → 6 values. There are 12 total values. Therefore P(X ≤ 80) = 6/12 = 1/2.",
+        "subtopic": "Statistical Inference",
+        "difficulty": "easy",
+        "qualityScore": 0.9
+      },
+      {
+        "moduleType": "math",
+        "question": "A rational expression is given: (3x^2 - 12x) / (x^2 - 4). Simplify the expression and identify the domain restrictions on x.",
+        "options": [
+          "A) Simplified form: (3x) / (x + 2); domain: x ≠ ±2",
+          "B) Simplified form: (3x(x - 4)) / [(x - 2)(x + 2)]; domain: x ≠ ±2",
+          "C) Simplified form: (3x(x - 4)) / [(x - 2)(x + 2)]; domain: x ≠ -2, 2, and x ≠ 0",
+          "D) Simplified form: (3x) / (x - 2); domain: x ≠ 2"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Factor numerator and denominator: 3x^2 - 12x = 3x(x - 4); x^2 - 4 = (x - 2)(x + 2). So the expression becomes [3x(x - 4)] / [(x - 2)(x + 2)]. There are no common factors to cancel, so this is the simplified form. Domain restrictions come from the original denominator x^2 - 4 ≠ 0, so x ≠ 2 and x ≠ -2. Additionally, since x is a factor in the numerator, there is no additional restriction from cancellation (since no cancellation occurs). Therefore, the domain is all real numbers except x = -2 and x = 2.",
+        "subtopic": "Rational Expressions and Equations",
+        "difficulty": "easy",
+        "qualityScore": 0.85
+      },
+      {
+        "moduleType": "math",
+        "question": "Systems of Equations: Solve the system and identify the point of intersection: y = 2x + 3 and y = -x + 9.",
+        "options": [
+          "A) (3, 9)",
+          "B) (2, 7)",
+          "C) (3, 9)",
+          "D) (4, 11)"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Set equations equal: 2x + 3 = -x + 9 ⇒ 3x = 6 ⇒ x = 2. Then y = 2(2) + 3 = 7. Intersection point is (2, 7). Note: Option C repeats (3, 9) which is not correct; correct pair is (2, 7).",
+        "subtopic": "Systems of Equations",
+        "difficulty": "easy",
+        "qualityScore": 0.9
+      }
+    ],
+    "readingWriting": [
+      {
+        "moduleType": "reading-writing",
+        "question": "What is the main idea of the passage as a whole?",
+        "options": [
+          "A) Urban economies relied primarily on grand public works and imperial projects.",
+          "B) Small-scale crafts and artisans were integral to daily urban life and economic resilience.",
+          "C) Guilds uniformly restricted innovation and hindered economic growth.",
+          "D) Archival records provide little insight into the functioning of medieval economies."
+        ],
+        "correctAnswer": 1,
+        "explanation": "The passage emphasizes the importance of small-scale crafts, guilds, and artisans to daily urban life and economic systems, arguing for their significant yet often underappreciated role. It contrasts them with grand projects but does not claim they were the sole drivers, and it presents nuanced views of guilds rather than universal oppression. Therefore option B best captures the main idea.",
+        "passage": "In recent years, many historians have reevaluated the role of small-scale crafts in urban economies. While grand projects and imperial symbolics often capture public attention, a growing body of archival work highlights how artisans, shopkeepers, and guild members sustained daily life, circulated capital, and supported municipal services. The author notes that guild regulations could both constrain and enable innovation: strict apprenticeship rules preserved quality, yet flexible guild assemblies occasionally spawned collaborative workshops that produced new tools and techniques. A recurring theme is mobility—craftspeople frequently traveled between towns, carrying techniques, rumors of markets, and accounting methods that tied distant communities into a recognizable economic web. The passage observes that archival records, though fragmentary, reveal patterns of credit networks, seasonal demand, and informal lending that local merchants used to weather lean periods. In sum, the author argues that the fabric of urban economies depended as much on the steady cadence of craft production as on the dramatic moments of conquest or grand public works.",
+        "subtopic": "Main Ideas and Central Claims",
+        "difficulty": "medium",
+        "qualityScore": 0.92
+      },
+      {
+        "moduleType": "reading-writing",
+        "question": "Which choice most clearly and effectively conveys the intended meaning while maintaining appropriate sentence variety and tone for the passage as a whole?",
+        "options": [
+          "A) The town’s annual harvest festival began with a sense of quiet anticipation, as residents gathered and stalls were arranged in neat rows.",
+          "B) The day’s events, though cheerful, lacked any sense of past hardship and future obligation, and the crowd stood mostly in silence.",
+          "C) The festival opened with quiet anticipation; vendors arranged stalls, bread scent rose, and neighbors exchanged greetings that felt both familiar and newly observed.",
+          "D) The mayor, accustomed to grand speeches, delivered a lengthy address about history and resilience that overshadowed the simple pleasures of the festival."
+        ],
+        "correctAnswer": 2,
+        "explanation": "Option C preserves the original descriptive flow while varying sentence structure with a balance of simple and complex constructions, enhancing rhythm and tone. Option A, while accurate, is more abrupt and less stylistically varied. Option B incorrectly suggests a lack of memory and obligation, altering tone. Option D introduces an intrusive, formal digression that disrupts the festival’s atmosphere and deviates from the passage’s restrained style.",
+        "passage": "The town’s annual harvest festival began with a sense of quiet anticipation. Vendors arranged their stalls in neat rows, the scent of baking bread drifting through the square, and children sketched the plaza with chalk on the warm stone. A chorus of town gossip, half-whispered and half-expressed with a half-smile, hovered in the air as neighbors paused to exchange greetings that felt both familiar and newly observed. By noon, the sun climbed a little higher, and the crowd thickened; the mayor, never one to seek the spotlight, stepped to the podium with a modest salute and spoke of community, resilience, and the long memory of shared effort. The words hung for a moment, then dissolved into applause that sounded like a single, steady breath. When the first drumbeat rolled across the square, the day shifted from a simple gathering to a small ceremony of memory and intention, as if the town were choosing to remember together what it had endured—and what it hoped to accomplish.",
+        "subtopic": "Sentence Structure and Style",
+        "difficulty": "medium",
+        "qualityScore": 0.85
+      },
+      {
+        "moduleType": "reading-writing",
+        "question": "Based on the passage, what can be inferred about archival records of urban economies?",
+        "options": [
+          "A) They are comprehensive and provide a complete picture of urban economies.",
+          "B) They often contain gaps but still reveal useful patterns such as credit networks and seasonal demand.",
+          "C) They primarily focus on grand public works rather than daily commerce.",
+          "D) They show that informal lending was negligible in economic resilience."
+        ],
+        "correctAnswer": 1,
+        "explanation": "The passage notes that archival records are fragmentary yet reveal patterns like credit networks and seasonal demand, supporting the inference that despite gaps they offer valuable insights.",
+        "passage": "In recent years, many historians have reevaluated the role of small-scale crafts in urban economies. While grand projects and imperial symbolics often capture public attention, a growing body of archival work highlights how artisans, shopkeepers, and guild members sustained daily life, circulated capital, and supported municipal services. The passage observes that archival records, though fragmentary, reveal patterns of credit networks, seasonal demand, and informal lending that local merchants used to weather lean periods.",
+        "subtopic": "Inferences and Implications",
+        "difficulty": "medium",
+        "qualityScore": 0.85
+      },
+      {
+        "moduleType": "reading-writing",
+        "question": "In the passage, the author discusses how small-town libraries have adapted to the digital age. Read the passage closely and identify the sentence that best demonstrates the author’s shift from nostalgia to practicality.",
+        "options": [
+          "A) Nostalgia for the library’s past is presented as an impediment to progress.",
+          "B) The library’s value has narrowed to digital resources only.",
+          "C) The author laments the loss of traditional reading rooms and print materials.",
+          "D) The shift to new services is framed as a continuation of the library’s mission."
+        ],
+        "correctAnswer": 3,
+        "explanation": "The author portrays the shift to new services as a continuation of the library’s mission to provide access to information, not as a rejection of the past. While nostalgia is acknowledged, the concluding sentences emphasize that the core promise—knowledge shared and found—is unchanged, and the format may evolve to serve that end. Therefore, option D correctly captures the author’s overall stance. Options A, B, and C misrepresent the passage: nostalgia is acknowledged but not framed as an impediment (A); digital resources are not presented as exclusive (B); and there is no lament about print materials being lost (C).",
+        "passage": "In my grandmother’s town, the public library sits atop a steep hill, its brick façade weathered by decades of rain and winter winds. I remember it as a sanctuary filled with the scent of old paper and the soft hush of readers turning pages in quiet rooms. Yet when I visited last spring, the library surprised me. Instead of only shelves of titles, there were charging stations, a makerspace with 3D printers, and a calendar full of workshops on cybersecurity and resume writing. Librarians stood behind desk dividers made of glass, guiding patrons to digital resources and remote databases. The town’s elders still spoke fondly of the marble stairway and the way it creaked under foot, but they embraced the new programs as a bridge to the future. The truth, I realized, is that the library’s value remains unchanged: it is a place where knowledge is gathered, tested, and shared. The format may evolve, yet the core promise endures. Access to information, in whatever form it comes, is still the town’s common good.",
+        "subtopic": "Grammar and Usage",
+        "difficulty": "medium",
+        "qualityScore": 0.85
+      },
+      {
+        "moduleType": "reading-writing",
+        "question": "In the context of the passage, the word 'fabric' most nearly means:",
+        "options": [
+          "A) A physical weave or textile",
+          "B) A social or organizational structure",
+          "C) A geographic region",
+          "D) A financial instrument"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Here 'fabric' is used metaphorically to mean the underlying social and economic structure or framework of urban economies.",
+        "passage": "In sum, the author argues that the fabric of urban economies depended as much on the steady cadence of craft production as on the dramatic moments of conquest or grand public works.",
+        "subtopic": "Vocabulary in Context",
+        "difficulty": "medium",
+        "qualityScore": 0.85
+      }
+    ]
+  }
+}

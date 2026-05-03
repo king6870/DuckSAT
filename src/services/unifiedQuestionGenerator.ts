@@ -796,9 +796,25 @@ Required JSON keys: difficulty, qualityScore, isAccepted, evaluationFeedback`
 
       const parsed = JSON.parse(cleaned)
 
+      const normalizedDifficulty = (() => {
+        const raw = String(parsed.difficulty || 'medium').toLowerCase()
+        if (raw.includes('easy')) return 'easy'
+        if (raw.includes('hard')) return 'hard'
+        return 'medium'
+      })()
+
+      const normalizedQualityScore = (() => {
+        const raw = Number(parsed.qualityScore)
+        if (!Number.isFinite(raw)) return 75
+
+        // Some evaluators return 0-1, others 0-100. Normalize to 0-100.
+        const asPercentage = raw <= 1 ? raw * 100 : raw
+        return Math.max(0, Math.min(100, asPercentage))
+      })()
+
       return {
-        difficulty: parsed.difficulty || 'medium',
-        qualityScore: parsed.qualityScore || 75,
+        difficulty: normalizedDifficulty,
+        qualityScore: normalizedQualityScore,
         isAccepted: parsed.isAccepted !== false,
         evaluationFeedback: parsed.evaluationFeedback || 'Evaluated by Grok'
       }

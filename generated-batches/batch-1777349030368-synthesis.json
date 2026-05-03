@@ -1,0 +1,1361 @@
+{
+  "batchId": "batch-1777349030368-synthesis",
+  "topic": "synthesis",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-04-28T04:07:28.157Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 50,
+  "totalGenerated": 47,
+  "totalValid": 47,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Remote work reduces office costs, allowing more investment in technology.",
+        "B) Communication quality affects collaboration and outcomes.",
+        "C) Productivity is consistently higher with remote work.",
+        "D) Workers prefer asynchronous tools over synchronous meetings."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources discuss how communication quality shapes collaboration and outcomes. Source 1 notes structured check-ins and clear goals that enhance productivity, while Source 2 emphasizes daily standups and documented decisions as essential for effective collaboration. A) focuses on cost, which Source 2 does not emphasize as a central outcome. C) overstates the effect, as Source 2 notes variability and dependence on communication. D) assigns a universal preference to asynchronous tools, which neither source asserts as universal.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1 and Source 2 describe two perspectives on how remote work affects team performance. Source 1, a corporate case study from a software firm, reports reduced real estate costs and lower maintenance due to a shift to remote work, along with a measurable rise in team productivity when managers used structured check-ins and clear goals. Source 2, a university survey of remote workers, notes that productivity varied across teams and appeared closely tied to communication quality and routine rituals, such as daily standups and documented decisions. Both sources acknowledge that technology and communication shape outcomes, though they differ on the overall effect. A concrete contrast appears in practice: Source 1 describes a team that maintained productivity with short daily meetings; Source 2 describes a team that performed well when asynchronous communication was complemented by brief synchronous touchpoints. Yet both sources share the view that technology helps and that remote work outcomes depend on how teams organize information and coordinate work.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A is incorrect because Source 2 centers on communication quality and rituals, not on cost savings as the driver of productivity.",
+        "C": "C is incorrect because Source 2 reports variability in productivity and emphasizes communication, not an across-the-board increase.",
+        "D": "D is incorrect because neither source claims that asynchronous tools are universally preferred; both discuss the role of both synchronous and asynchronous communication."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.027Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Plant-based diets are always superior for lowering cholesterol.",
+        "B) Diet quality and adherence influence cholesterol outcomes.",
+        "C) Cholesterol cannot be improved by dietary changes.",
+        "D) Medication is always required to lower cholesterol."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources agree that cholesterol outcomes depend on overall diet quality and adherence, and that effects vary by individual context. A) overgeneralizes the efficacy of plant-based diets. C) and D) contradict the evidence that diet can influence cholesterol and does not reflect both sources’ emphasis on dietary patterns. B) accurately captures the shared conclusion about the role of diet quality and adherence.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1 and Source 2 discuss plant-based diets and their effects on cholesterol. Source 1 describes a randomized trial where adults with elevated cholesterol followed a plant-based plan for several months and showed lower LDL cholesterol and reduced saturated fat intake. Source 2 presents a meta-analysis showing that cholesterol outcomes depend on overall diet quality, adherence, and background risk, with plant-based diets producing larger effects for some groups and smaller effects for others when other fats and sugars remain high. Both sources concur that dietary patterns influence cholesterol, but they diverge on magnitude and consistency. The practical implication is that simply labeling a diet is insufficient; success depends on consistency and food choices that reduce saturated fat. Source 1 emphasizes a concrete, controllable meal plan; Source 2 highlights individual differences and context. Together they suggest that cholesterol change is tied to the quality and adherence of overall eating patterns, not to any single diet alone.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A overstates consistency; Source 2 notes adherence and context change outcomes, so plant-based diets are not always superior.",
+        "C": "C incorrectly claims no dietary impact, which both sources dispute by focusing on diet quality and adherence.",
+        "D": "D introduces medication as required, which neither source asserts as universal."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.033Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Trees are a complete and sufficient solution to urban heat problems.",
+        "B) Investments in green spaces can benefit residents and save energy, but require planning for upkeep.",
+        "C) Green spaces have no impact on energy use or health.",
+        "D) The costs of green spaces always exceed the benefits."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources agree that greenspaces can benefit residents, though they weigh costs differently. A) overstates by claiming completeness; B) captures the shared idea that benefits exist but require upkeep and planning. C) contradicts both sources, and D) asserts a universal negative that neither source supports.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1, a city planning report, analyzes heat island effects and shows that increasing tree canopy reduces daytime temperatures and lowers energy demand for cooling. Source 2, an environmental economist, models maintenance costs and funding challenges for green spaces, noting that long-term benefits depend on community upkeep and stewardship. Both sources agree greenscapes can benefit residents but weigh costs and benefits differently. Source 1 highlights immediate temperature relief and comfort; Source 2 emphasizes financial sustainability and equity of access. The passage includes examples: a neighborhood park expansion that cut peak heat hours (Source 1) and a maintenance fund that sustained tree growth over years (Source 2). Taken together, the sources imply that city investments in green spaces can be a practical path to healthier communities, provided planning accounts for upkeep and inclusive access.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A ignores the acknowledged need for upkeep and equity considerations discussed by Source 2.",
+        "C": "C contradicts both sources that report positive effects from greenspaces.",
+        "D": "D is incorrect because Source 1 and Source 2 do not claim a universal net loss; they discuss costs but also benefits."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.036Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Tutoring is universally effective regardless of how it is delivered.",
+        "B) Tutoring can improve achievement for many students.",
+        "C) Tutoring should replace regular classroom instruction.",
+        "D) Tutoring is only effective in math, not reading."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources assert that tutoring can improve achievement for many students, though the best delivery mode may vary. A) overstates universality; C) suggests replacement of classroom instruction which neither source endorses; D) incorrectly narrows effectiveness to math, which is not stated; B) accurately reflects the shared conclusion.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1 describes a school district’s online tutoring program and reports gains in math scores for students who used adaptive online tutors. Source 2 analyzes in-person tutoring and notes significant gains for students who received regular one-on-one coaching, though cost and staffing are larger concerns. Both sources agree that tutoring can improve achievement for many students, but they disagree on delivery modality and scalability. Source 1 highlights flexibility and data-driven feedback; Source 2 emphasizes personalization and human interaction. The passage follows examples of a student improving after online sessions and another after in-person coaching. Together they suggest tutoring supports learning when it aligns with student needs and occurs with sufficient frequency, regardless of delivery mode.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A incorrectly claims universal effectiveness; the sources acknowledge variability by delivery method and context.",
+        "C": "C misstates the role of tutoring as a replacement for classroom instruction, which both sources do not claim.",
+        "D": "D wrongly restricts effectiveness to math; the sources mention math and reading in general terms."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.037Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Social media campaigns are always effective at increasing civic participation.",
+        "B) Online engagement can influence civic activity when messages are credible and locally relevant.",
+        "C) Social media has no impact on public participation.",
+        "D) Participation decreases when information is trusted and accurate."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources indicate conditions matter: credibility, trusted messengers, and local relevance influence outcomes. A) overstates universal effectiveness; C) and D) are contrary to the sources’ nuanced findings. B) correctly captures the shared idea.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1 analyzes social media campaigns and finds that engagement is higher when messages are tailored to local contexts and framed around concrete actions. Source 2 shows that the same platforms can correlate with increased participation in protests or volunteering, but only when credible information and trusted messengers are present. Both sources agree that online engagement can influence civic activity, but they differ on the strength and conditions of that effect. The passage notes examples: a local mobilization effort that used targeted posts and trusted community leaders (Source 1) and a community organizing study showing that peer networks amplify engagement (Source 2). Together, they imply that social media alone does not guarantee participation; outcomes depend on message relevance, trust, and local networks.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A overclaims universal effectiveness; the passage specifies conditions that affect impact.",
+        "C": "C falsely states there is no impact, which contradicts both sources.",
+        "D": "D incorrectly asserts that trust reduces participation; the passage suggests trust and credible information can increase participation."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.038Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) School menus alone determine student focus.",
+        "B) Diet quality and family eating patterns both influence student focus and energy.",
+        "C) Only breakfast matters for concentration.",
+        "D) Lunch programs have no impact on behavior."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources point to the influence of diet quality on focus and energy, with Source 1 focusing on school menus and Source 2 on family routines. A) and C) overstate the importance of a single factor; D) contradicts the evidence presented. B) accurately captures the shared claim.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1 compares healthier school menus with higher fruit and vegetable offerings and notes improvements in student alertness and classroom behavior. Source 2 analyzes family meal patterns and finds that overall dietary quality, including breakfast and snacks, correlates with concentration and energy. Both sources agree that students' eating quality matters for focus, but they differ on where to invest resources. Source 1 stresses school food environments; Source 2 emphasizes family routines and broader dietary habits. The passage gives examples: a school menu revision that reduced afternoon fatigue (Source 1) and a family meal program that correlated with better homework completion (Source 2). Taken together, they imply that improving nutrition requires coordination between schools and families, and that improvements in one setting may be reinforced by the other.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A wrongly suggests school menus alone determine focus; the passage shows family patterns also matter.",
+        "C": "C singles out breakfast, ignoring other dietary factors discussed.",
+        "D": "D claims no impact from lunch programs, which clashes with Source 1’s noted improvements."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.039Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Electric transit eliminates all emissions in every neighborhood.",
+        "B) Cleaner transit benefits health, but implementation requires sustainable funding and planning.",
+        "C) Emissions reductions are too costly to justify any rollout.",
+        "D) Only affluent neighborhoods benefit from electric buses."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources agree that while cleaner transit has health benefits, successful implementation depends on funding and planning. A) and D) are overstated or incorrect about equity; C) ignores potential benefits and does not reflect the cautious stance about cost. B) captures the shared position.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1 reports that replacing diesel buses with electric buses reduces neighborhood emissions and improves air quality near roadways. Source 2 cautions that upfront costs and required charging infrastructure present budgetary challenges, potentially limiting rollout in less affluent areas. Both sources agree that cleaner transit benefits residents, but weigh costs and scalability differently. Source 1 highlights health and environmental gains; Source 2 emphasizes equity, maintenance costs, and sustainable funding. The passage presents a pilot route with observed air quality improvements (Source 1) and a financing plan that kept routes active through subsidies (Source 2). Together, they suggest that sustainable transit requires careful funding strategies and targeted deployments to maximize public health benefits.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A overclaims universal elimination of emissions, which is not asserted by either source.",
+        "C": "C ignores potential benefits and the need for funding strategies discussed by Source 2.",
+        "D": "D incorrectly asserts only affluent areas benefit; the passage mentions equity considerations."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.040Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Only aerobic exercise reduces stress, not mindfulness practices.",
+        "B) Regular activity can help manage stress, though different activities work for different people.",
+        "C) Mindfulness practices are ineffective for most people.",
+        "D) Exercise is only beneficial if done at high intensity."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources concur that regular activity supports mental well-being and that different activities can be effective. A) incorrectly asserts exclusivity for aerobic exercise; C) denies effectiveness of mindfulness, which Source 2 supports; D) asserts high intensity is necessary, which is not stated. B) accurately reflects the shared conclusion.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1 finds that moderate aerobic exercise several times a week is linked to lower anxiety and improved mood. Source 2 reviews mindfulness-based practices like yoga and meditation, which also reduce stress for many. Both sources agree that regular activity can support mental well-being, though they emphasize different pathways. The passage follows a person who walks during breaks (Source 1) and another who practices a short yoga routine (Source 2). Taken together, they suggest that any regular activity can help manage stress, and the choice may depend on personal preference and access. The central claim shared by both sides is that routine movement benefits mental health.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A wrongly excludes mindfulness as effective, which Source 2 affirms is beneficial.",
+        "C": "C contradicts Source 2's claim of effectiveness for mindfulness practices.",
+        "D": "D imposes a high-intensity requirement not supported by the passage."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.040Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Teams should always work asynchronously for maximum flexibility.",
+        "B) Success depends on aligning communication rhythms with project needs.",
+        "C) Time zones are irrelevant to project success.",
+        "D) Only face-to-face meetings ensure timely delivery."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources emphasize the importance of aligning timing and communication rhythms with project needs. A) overstates the value of asynchronous work in all cases; C) and D) are not supported by the sources, which acknowledge different methods can work depending on context. B) captures the shared conclusion.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1 notes that teams with overlapping core hours tended to meet deadlines more reliably than those with fragmented schedules. Source 2 argues that asynchronous work patterns can preserve autonomy and job satisfaction but may hinder coordination for some teams. Both sources agree that work timing matters, but they differ on how to balance flexibility and coordination. The passage provides examples: a team with common hours finishing a sprint, and another team that used asynchronous updates to keep projects moving. Together, they imply that success depends on aligning communication rhythms with project needs.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A overgeneralizes to exclusive use of asynchronous work, which Source 1 does not endorse as universal.",
+        "C": "C incorrectly claims time zones have no impact, which is not supported by the discussion of coordination.",
+        "D": "D wrongly asserts face-to-face meetings are the only path to timely delivery, contrary to the mention of asynchronous updates."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.041Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Regulation alone is enough to reduce urban pollution.",
+        "B) Reducing pollution requires a combination of regulation and infrastructure changes.",
+        "C) Pollution reduction is unnecessary in cities.",
+        "D) Only green infrastructure, not policy, reduces pollutants."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources advocate for an integrated approach combining policy and infrastructure to reduce pollution. A) and C) are extreme positions not supported by either source; D) excludes policy, which Source 1 emphasizes. B) accurately reflects the shared stance.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1 argues for stricter air quality standards in urban cores, citing outcomes from pilot programs that reduced particulate matter and improved health. Source 2 shows that emissions drop where green corridors and traffic relief measures are implemented, but notes the need for community engagement and transit options. Both sources agree that reducing pollution requires a combination of regulation and infrastructure changes, though they emphasize different levers. The passage includes a downtown policy that cut emissions with low-emission zones (Source 1) and a corridor project that improves air flow and reduces congestion (Source 2). Together they suggest integrated policies yield the strongest health benefits.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A overemphasizes regulation as sole solution, ignoring infrastructure aspects highlighted by Source 2.",
+        "C": "C denies any need for pollution reduction, which contradicts both sources.",
+        "D": "D dismisses policy, whereas Source 1 centers policy as part of the solution."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.042Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Technology alone guarantees learning gains.",
+        "B) Technology aids learning best when paired with teacher guidance.",
+        "C) Teachers are unnecessary if technology is used.",
+        "D) Students should only use technology and not receive human feedback."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources agree that technology aids learning but requires teacher guidance to be most effective. A) and C) overstate the sufficiency of technology or deemphasize the teacher's role, which Source 2 emphasizes. D) dismisses human feedback, which Source 2 defends as crucial. B) correctly captures the shared conclusion.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1 evaluates interactive software that adapts to student responses and reports gains in mastery tests for math and reading. Source 2 analyzes teacher roles and notes that human guidance remains crucial; technology alone cannot ensure durable understanding. Both sources agree that technology can aid learning, but they emphasize different roles. The passage describes a student using adaptive problems (Source 1) and a mentor checking progress in person (Source 2). Taken together, they imply that the best outcomes arise when technology and teacher support are integrated.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A wrongly asserts technology alone guarantees gains, ignoring the teacher's role highlighted by Source 2.",
+        "C": "C incorrectly claims teachers are unnecessary, contradicting Source 2.",
+        "D": "D rejects human feedback, which Source 2 maintains is important."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.043Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Biodiversity has no real impact on farming outcomes.",
+        "B) Biodiversity benefits farming but requires careful management at both field and landscape scales.",
+        "C) Biodiversity is only important at the field level.",
+        "D) Biodiversity should be discouraged because it complicates farming."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources argue for the benefits of biodiversity and highlight that effective management is needed at multiple scales. A) and D) negate benefits or argue against biodiversity, which the sources do not. C) limits the concept to field-level only, which Source 2 expands to landscape scales. B) captures the shared view.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1 notes that diversified cropping reduces pest outbreaks, improves soil health, and supports pollinators on farms. Source 2 contends biodiversity increases resilience to climate shocks but requires careful management of landscape mosaics and market incentives. Both sources agree that biodiversity benefits farming, yet they stress different prerequisites. The passage mentions a field trial with cover crops (Source 1) that reduced weed pressure and moisture loss, and a landscape-scale restoration plan (Source 2) that linked habitat corridors with crop diversification. They discuss potential trade-offs: diversification may demand more knowledge and upfront planning but can reduce risk and stabilize yields. Taken together, they suggest sustainable farming relies on biodiversity at both field and landscape scales, and policy and extension services should help farmers balance short-term costs with long-term resilience.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A denies any positive impact, which both sources dispute.",
+        "C": "C limits biodiversity to the field, ignoring landscape-scale considerations discussed by Source 2.",
+        "D": "D contradicts the sources' stance that biodiversity is beneficial when managed properly."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.044Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Home-based care has no impact on hospital readmissions.",
+        "B) Scaling home-based care requires sustainable financing and coordination.",
+        "C) Only institutional care can reduce hospital costs.",
+        "D) Home-based care is inexpensive and easy to scale."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources agree that expansion of home-based care relies on financing and coordination. A) and C) deny benefits or mischaracterize care settings, which the sources do not. D) makes an unsubstantiated claim about cost and ease. B) captures the shared conclusion.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1 describes a community-based care program that reduces hospital readmissions for older adults by coordinating home visits and social support. Source 2 analyzes a cost model showing that home-based services can lower overall costs but require investment in caregiving networks and training. Both sources agree that supportive home-based care can improve outcomes, but they differ on funding models. The passage describes a neighborhood program that coordinates nurses and social workers (Source 1) and a policy analysis outlining subsidies and incentives (Source 2). Collectively, they imply that scaling home-based care depends on sustainable financing and coordination.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A denies any impact, which contradicts Source 1's findings.",
+        "C": "C asserts institutional care is necessary, contrary to Source 1's focus on home-based care.",
+        "D": "D claims cost and scalability are effortless, which Source 2 warns against without sustainable funding."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.044Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) The arts have no measurable impact on cognitive development.",
+        "B) Arts contribute to learning when integrated with other subjects, though mechanisms may differ.",
+        "C) Arts should replace core subjects in curricula.",
+        "D) Only visual arts, not music, support cognitive growth."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources affirm that the arts support learning, with Source 1 focusing on cognitive aspects and memory, Source 2 on problem-solving and motivation; both stress integration with other subjects. A) and C) misstate the role of arts, and D) incorrectly excludes one of the arts. B) correctly captures the shared claim.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1 reports that engagement with visual arts supports symbolic thinking and memory in children, while Source 2 observes that arts integration across subjects improves problem-solving and motivation. Both sources agree that the arts contribute to learning, though they emphasize different mechanisms. The passage describes a classroom project linking painting to math patterns (Source 1) and a cross-curricular unit that connects music to science (Source 2). Taken together, they suggest arts-rich curricula can reinforce cognitive growth when integrated with subject matter.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A denies any impact, which contradicts both sources.",
+        "C": "C suggests replacing core subjects, which neither source advocates.",
+        "D": "D incorrectly excludes music as contributing to cognitive growth."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.045Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Movement is unnecessary for effective learning.",
+        "B) Regular movement supports learning across the day, but requires different implementations.",
+        "C) Only structured sports improve cognition drastically.",
+        "D) Physical activity should be limited to gym class."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources agree that movement supports learning and that implementation can vary. A) denies any benefit, which is contrary to both sources. C) overstates the impact of structured sports. D) limits activity in a way not supported by either source. B) accurately reflects shared conclusion and acknowledges differing approaches.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Source 1 argues that recess time and physical education help students regulate energy and attention, while Source 2 demonstrates that structured physical activity improves on-task behavior and readiness for tests. Both sources agree that movement contributes to learning, though they differ on implementation details. The passage references a typical school day with an active break (Source 1) and a program that schedules short activity bouts between classes (Source 2). Together they imply that regular movement supports learning across the day.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A denies benefits that both sources attribute to movement.",
+        "C": "C claims a drastic effect from structured sports, which is not asserted by the passages.",
+        "D": "D restricts physical activity to gym class, not aligning with the broader discussion of movement throughout the day."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:05:18.046Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Greenspace reduces temperatures uniformly in all neighborhoods.",
+        "B) The impact of greenspace depends on location and ongoing upkeep.",
+        "C) The cost of greenspace always outweighs the benefits.",
+        "D) All residents experience the same social benefits from greenspace."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 shows variable effects of greenspace on temperature, with City A experiencing cooling and City B not always seeing it due to heat from roads. Source 2 stresses maintenance, water use, and community engagement as factors that affect long-term success. Therefore, both sources would agree that the impact depends on location and upkeep. Option B correctly captures this shared conclusion. Option A overstates uniformity, which Source 2 disputes. Option C introduces a cost argument not supported by both sources. Option D claims uniform social benefits, which neither source asserts given variations in maintenance and usage.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 presents a climate study comparing two urban areas. In City A, researchers measured a clear drop in surface temperatures after adding trees, shrubs, and permeable surfaces. In City B, the same greenspace changes did not consistently lower temperatures, because adjacent roads and concrete build-up created heat islands that diminished gains. Source 2 offers a planning report based on interviews with residents, city planners, and energy models. It acknowledges that greenspace can reduce heat in some neighborhoods but notes that maintenance costs, water use, and community engagement determine long-term success. Taken together, the sources describegreenspace as a tool with variable effects that depend on local design, upkeep, and complementary infrastructure. Both emphasize the importance of context and ongoing management rather than claiming universal outcomes across a city.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A claims uniform cooling everywhere, but Source 2 emphasizes variability due to design and upkeep.",
+        "B": "Correct.",
+        "C": "C alleges costs outweigh benefits universally, which neither source commits to.",
+        "D": "D asserts uniform social benefits, which is not supported given context differences."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.435Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Remote work universally increases productivity.",
+        "B) Work-life balance improves, but collaboration can suffer without intentional strategies.",
+        "C) Career advancement is unaffected by work location.",
+        "D) In-person work is always necessary for team cohesion."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 notes stable output but slower collaboration in hybrid setups, while Source 2 highlights improved flexibility and concerns about visibility and mentorship. Both thus agree that there is a trade-off that requires deliberate strategies to sustain collaboration and development. Option B captures this shared conclusion. Option A overclaims universal productivity gains. Option C asserts no effect on advancement, which is not supported. Option D suggests in-person is always necessary, which neither source asserts.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 analyzes two companies’ productivity data during a year of hybrid work. Company X found overall output per hour remained steady, though collaboration slowed when teams dispersed and relied on digital tools. Company Y reported higher employee satisfaction and retention but noted challenges in cross-department projects. Source 2 conducted a series of manager interviews and a national survey about remote-work policies. It concludes that workers often enjoy flexibility but worry about visibility, advancement, and informal mentorship. Both sources document a trade-off: productivity or output can stay stable or improve in some contexts, but collaboration and career development may suffer without deliberate practices.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A overstates productivity gains across the board; collaboration issues are noted by both sources.",
+        "B": "Correct.",
+        "C": "C ignores the noted concerns about visibility and mentorship.",
+        "D": "D claims in-person is always necessary, which the sources do not support."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.435Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Screen-based programs are enough to boost literacy without additional guidance.",
+        "B) Guided and interactive reading improves literacy more than passive or solitary approaches.",
+        "C) Literacy outcomes rely solely on innate ability, not on instruction.",
+        "D) Home reading time has no impact on literacy gains."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources show that active engagement and guidance improve literacy outcomes: Source 1 finds more gains with teacher-guided instruction, and Source 2 links family guidance and interactive questions to better reading engagement. Option B states this shared conclusion. Options A and D downplay the value of guidance and are contradicted by both sources. Option C ignores the instructional impact highlighted by both sources.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 compares two approaches to improving literacy in early childhood: a structured, teacher-guided program and a passive, screen-based program. The guided program shows higher gains in reading fluency and decoding skills. Source 2 adds a field study of families: reading together with adult support and interactive questions correlates with longer book engagement at home and more frequent phonics practice. Both sources acknowledge that engagement and guidance enhance outcomes, regardless of whether the medium is print or digital.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A minimizes the role of guidance which both sources show matters.",
+        "B": "Correct.",
+        "C": "C denies instructional impact which both sources support.",
+        "D": "D contradicts the observed impact of home reading support."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.436Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Technology alone ensures a successful transition to cleaner transit.",
+        "B) A combination of technology, policy, and infrastructure is necessary for clean transit adoption.",
+        "C) Diesel buses are sufficient if drivers are trained well.",
+        "D) Public opinion plays no role in transit technology choices."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 highlights the necessity of infrastructure and investment, while Source 2 emphasizes maintenance and reliability and the need for coordination. Together they argue that technology alone is not enough; policy and infrastructure integration is required. Option B reflects this synthesis. Options A and C overemphasize technology or training alone. Option D ignores the role of community and planner input noted by Source 2.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 reviews two transportation regimes: electric buses and conventional diesel buses. It reports that electric buses reduce local emissions but require upfront investment and charging infrastructure. Source 2 surveys city planners and residents, noting concerns about reliability, maintenance costs, and the need for a coordinated charging network. Both sources propose that a successful transition hinges on aligning technology with policy and urban design.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A ignores the infrastructure and policy needs highlighted by both sources.",
+        "B": "Correct.",
+        "C": "C focuses only on training, missing the broader coordination required.",
+        "D": "D incorrectly dismisses public input which the sources acknowledge as important."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.437Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) The key to heart health is simply replacing saturated fats with any fat.",
+        "B) Overall dietary patterns determine heart health more than any single nutrient.",
+        "C) Supplements are the primary way to reduce heart risk.",
+        "D) Diet has little impact on cardiovascular disease."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 notes variability based on overall pattern, not just replacing saturated fats, while Source 2 links broader dietary patterns to risk reduction. Both thus support a holistic view. Option B captures this shared point. Option A overstates the effect of replacing with any fat. Option C introduces supplements not central to the passage. Option D contradicts the evidence presented.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 synthesizes findings from several nutritional trials on fat intake and heart risk. It reports that replacing saturated fats with unsaturated fats lowers risk, but effects vary by overall dietary pattern. Source 2 presents a population study linking dietary patterns, including fiber-rich foods and whole grains, with lower cardiovascular risk, independent of single nutrient targets. Both sources emphasize a holistic approach to diet rather than focusing on a single nutrient.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A incorrectly suggests any fat replacement suffices, ignoring specifics of patterns emphasized by both sources.",
+        "B": "Correct.",
+        "C": "C introduces supplements outside the described findings.",
+        "D": "D denies diet effects that both sources affirm."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.438Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Innovative teaching methods always outperform traditional lectures.",
+        "B) Effective learning occurs when methods are well planned and supported.",
+        "C) Projects decrease student engagement unless there is uniform grading.",
+        "D) Workload never affects the success of interactive teaching."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources emphasize planning and resource support as pivotal for success. Option B captures this shared conclusion. Options A, C, and D assert extremes or unsupported claims not warranted by both sources.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 examines student performance across two teaching methods: project-based learning and traditional lectures. It finds that projects increase critical thinking but require more time and guided assessment. Source 2 surveys teachers and administrators about classroom workload and professional development. It notes that teachers support more interactive methods but cite time pressure and need for support. Both sources conclude that student outcomes improve when teaching methods are thoughtfully designed and adequately supported by resources.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A claims universal superiority of innovative methods, which is not supported.",
+        "B": "Correct.",
+        "C": "C makes an unsupported claim about grading in projects.",
+        "D": "D ignores the influence of workload discussed by Source 2."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.439Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Technology alone will secure water supply in cities.",
+        "B) Sustainable water use depends on both infrastructure and community engagement.",
+        "C) Water harvesting has no effect on demand.",
+        "D) Pricing has no impact on adoption of water programs."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources emphasize that both infrastructure (technology) and social factors (education, pricing, community support) influence water security. Option B states this synthesis. Options A, C, and D misrepresent the combined findings.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 investigates urban water use, contrasting rainwater harvesting programs with centralized municipal systems. It finds that harvesting can reduce demand in dry seasons but requires maintenance and education to be effective. Source 2 surveys residents about water reliability and local councils regarding pricing. It emphasizes that public support and affordable pricing are essential to sustained adoption. Both sources agree that technology alone does not guarantee water security; social systems matter too.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A ignores the social component highlighted by Source 2.",
+        "B": "Correct.",
+        "C": "C denies any effect of harvesting, conflicting with Source 1.",
+        "D": "D ignores pricing's role noted by Source 2."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.440Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Parks should rely solely on high-profile events to attract users.",
+        "B) Ongoing maintenance and inclusive access are essential for sustained use.",
+        "C) Park design has little impact on user experience.",
+        "D) Safety concerns disappear with more events."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources point to the need for ongoing maintenance and inclusive policies to keep parks used by various groups. Option B captures this shared point. Options A and D rely on extreme or false assumptions. Option C contradicts the emphasis on design and maintenance.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 studies crowding effects in urban parks, showing that small, well-timed events can attract new users and boost perceived safety. Source 2 evaluates park design and maintenance, finding that routine upkeep and inclusive access policies are essential to maintain usage by diverse groups. Both sources conclude that successful parks rely on a balance of programming and ongoing management.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A ignores the need for ongoing upkeep and inclusivity.",
+        "B": "Correct.",
+        "C": "C contradicts the sources’ emphasis on design and maintenance.",
+        "D": "D asserts safety is achieved by events alone, which is not supported."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.440Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Upfront costs are irrelevant to retrofits' value.",
+        "B) Long-term energy savings depend on both physical improvements and user behavior.",
+        "C) Smart thermostats alone guarantee energy savings.",
+        "D) Insulation has no impact on comfort."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 notes that both insulation and thermostat controls matter, with user engagement affecting thermostat savings. Source 2 highlights cost, setup, and long-term benefits. Together they support the idea that both physical improvements and user behavior determine savings. Option B is correct. Others either minimize or overstate one factor.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 compares two energy retrofits: insulation upgrades and smart thermostat controls. It notes insulation significantly lowers heat loss in winter, while smart thermostats optimize energy use but require user engagement. Source 2 surveys homeowners on cost and comfort trade-offs, finding that while costs can be offset over time, initial investment and proper setup are crucial for gains. Both sources emphasize balancing upfront cost with long-term benefits.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A ignores real upfront costs and the need for engagement.",
+        "B": "Correct.",
+        "C": "C overclaims by saying thermostats alone guarantee savings.",
+        "D": "D wrongly states insulation has no impact on comfort."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.441Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Training alone, without ongoing mentorship, is sufficient for long-term growth.",
+        "B) Structured practice plus ongoing support and mentorship lead to durable skills.",
+        "C) Continuous learning is unnecessary in rapidly changing industries.",
+        "D) Employee advancement occurs without intentional training programs."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 emphasizes hands-on practice with skilled instructors; Source 2 emphasizes ongoing mentorship and clear paths. Together they support the idea that both structured practice and ongoing support are needed for durable skills. Option B is correct. Other options ignore the combined requirements.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 analyzes job training programs in manufacturing, noting that hands-on practice reduces errors but requires skilled instructors and time. Source 2 compiles worker surveys highlighting the desire for continuous learning, mentorship, and clear pathways to advancement. Both sources argue that lasting skill development depends on structured opportunities and organizational support.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A minimizes the role of ongoing mentorship highlighted by Source 2.",
+        "B": "Correct.",
+        "C": "C dismisses the need for continuous learning which the sources oppose.",
+        "D": "D contradicts the need for formal training pathways."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.442Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) More screening always improves health outcomes.",
+        "B) Screening programs should balance accuracy, cost, and patient experience.",
+        "C) Privacy concerns should never limit screening.",
+        "D) Cost should be the sole determinant of screening strategy."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 favors targeted screening for efficiency; Source 2 highlights privacy and emotional impact. Both support balancing multiple factors, not maximizing a single criterion. Option B is correct. The other options rely on single-factor emphasis or ignore patient experience.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 compares two medical screening strategies: annual full-body scans and targeted risk-based screening. It finds that targeted screening reduces false positives and is more cost-effective. Source 2 examines patient perspectives, reporting concerns about privacy and the emotional toll of screening outcomes. Both sources agree that screening programs must balance accuracy, cost, and patient experience.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A assumes more screening is always better, which Source 2 disputes.",
+        "B": "Correct.",
+        "C": "C incorrectly asserts privacy concerns should not limit screening.",
+        "D": "D overemphasizes cost as the only factor."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.443Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Real-time tools are always better for all tasks.",
+        "B) A mix of tools, chosen by task complexity, yields the best outcomes.",
+        "C) Diverse expertise complicates decision making too much to be useful.",
+        "D) Communication norms are irrelevant to tool choice."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 indicates asynchronous tools work for simple tasks, while real-time can help with complex problems; Source 2 stresses diverse expertise and norms. Together they support a balanced, task-dependent approach to collaboration. Option B is correct. Others claim absolutes not supported by both sources.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 investigates the effect of remote collaboration tools on team decision speed. It finds that asynchronous tools can speed decisions in simple tasks but slow complex problem solving that benefits from real-time discussion. Source 2 surveys managers about team composition and knowledge sharing, reporting that a mix of diverse expertise and clear communication norms improves outcomes. Both sources advocate for a balanced approach to collaboration that respects task complexity.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A ignores task complexity considerations noted by Source 1.",
+        "B": "Correct.",
+        "C": "C contradicts the positive value of diverse expertise noted by Source 2.",
+        "D": "D denies the role of norms which both sources imply as important."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.443Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Social media content should be trusted as is because it reflects popular opinion.",
+        "B) Teaching critical evaluation of information strengthens civic engagement.",
+        "C) Engagement increases only when content is sensational.",
+        "D) Media literacy has no effect on students’ ability to participate in civic processes."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 identifies both positive and negative effects of social media; Source 2 shows that media literacy improves discernment. Both thus support the need for critical evaluation training. Option B is correct. The others misstate the role of media literacy or the nature of social media content.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 surveys the impact of social media on civic engagement, finding that informative content can increase participation but sensational posts may distort perceptions. Source 2 analyzes media literacy programs in schools, noting that teaching critical evaluation of sources improves students' ability to discern credible information. Both sources endorse media literacy as essential for informed participation.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A treats social media content as uncritically trustworthy, which Source 2 cautions against.",
+        "B": "Correct.",
+        "C": "C overemphasizes sensational content as the sole driver of engagement.",
+        "D": "D denies the impact of media literacy which both sources advocate."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.444Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Environmental and health benefits occur only when diet is strictly plant-based, ignoring cultural context.",
+        "B) Benefits arise when dietary choices balance health, environment, and practical cultural factors.",
+        "C) Plant-based diets have no impact on emissions.",
+        "D) Cultural factors should be ignored when promoting diet changes."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 shows benefits with planning; Source 2 emphasizes cultural and taste factors. Together they support balancing health, environment, and culture. Option B is correct. The other options ignore either the practicality or the cultural considerations highlighted by both sources.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 studies plant-based diets, showing lower greenhouse gas emissions and improvements in heart health markers when meals are well planned. Source 2 analyzes consumer behavior, noting that taste preferences and cultural factors shape adoption of plant-based options. Both sources conclude that environmental and health benefits arise when dietary choices align with practical, culturally sensitive strategies.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A ignores practical and cultural factors that the sources note as important.",
+        "B": "Correct.",
+        "C": "C contradicts the emissions findings of Source 1.",
+        "D": "D ignores consumer behavior noted by Source 2."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.445Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Access alone ensures learning increases.",
+        "B) A combination of in-person resources and guided online experiences enhances learning.",
+        "C) Digital courses should replace all physical libraries.",
+        "D) Staff guidance has no impact on learning outcomes."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources emphasize complementarity: physical access and staff guidance from libraries, plus structured online experiences with feedback. Option B is correct. Other options rely on single modalities or deny the role of guidance.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 assesses the effectiveness of public libraries in promoting lifelong learning, finding that access, quiet study spaces, and staff guidance correlate with higher usage and skill development. Source 2 analyzes digital literacy programs, noting that online courses with practical assignments and feedback yield better retention. Both sources argue that successful learning ecosystems combine physical access with guided, feedback-rich experiences.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A overlooks the need for guided experiences highlighted by both sources.",
+        "B": "Correct.",
+        "C": "C overstates digital replacement of physical resources.",
+        "D": "D denies the impact of staff guidance which both sources support."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.446Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Financial planning should favor either strict stability or aggressive growth, not both.",
+        "B) A balanced approach that ensures stability while enabling strategic investment is preferable.",
+        "C) Public forums complicate budgeting and should be avoided.",
+        "D) Essential services should be reduced during economic downturns to save costs."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 warns about volatility in growth-led budgeting, Source 2 supports predictable services and transparency. Both converge on a balanced approach. Option B is correct. The other options present extremes or dismiss public input which the sources value.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 compares two approaches to city budgeting: a revenue-stable model and a growth-led model. It finds that the growth-led model risks volatility in downturns, while the revenue-stable model can maintain essential services during tough times. Source 2 adds a public forum analysis, noting that citizens prefer predictable services and transparent budgeting processes. Both sources advocate for budgeting that balances stability with strategic investment.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A ignores the need for balance that both sources describe.",
+        "B": "Correct.",
+        "C": "C undervalues public input highlighted by Source 2.",
+        "D": "D proposes cuts which neither source endorses."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.447Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Technology adoption is inevitable once devices exist.",
+        "B) Usability, privacy, and ongoing support are key to sustained adoption.",
+        "C) Privacy concerns have no effect on adoption decisions.",
+        "D) Support is unnecessary after initial setup."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources identify usability, privacy, and ongoing support as critical to sustained adoption. Option B reflects this shared conclusion. Options A, C, and D claim extremes not supported by both sources.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 investigates the adoption of smart home devices among older adults, finding that usability and perceived privacy concerns determine uptake. Source 2 surveys caregivers and healthcare providers, noting that reliable support and straightforward interfaces improve long-term use. Both sources conclude that technology adoption hinges on usability, privacy assurances, and ongoing support.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A assumes inevitability of adoption without addressing usability or privacy.",
+        "B": "Correct.",
+        "C": "C contradicts the privacy concerns noted by Source 1.",
+        "D": "D ignores the need for ongoing support noted by Source 2."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.447Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Economic viability is achieved solely by cost reductions.",
+        "B) Long-term financial viability and equitable benefits are both necessary for success.",
+        "C) Equity concerns undermine the adoption of renewables.",
+        "D) Community input is irrelevant to project economics."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 emphasizes long-term costs, Source 2 emphasizes equity; together they argue for both viability and fair distribution. Option B is correct. Other options push single factors or dismiss community input.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 analyzes the economics of renewable energy projects, noting that upfront capital costs can be high but operating expenses are lower over time. Source 2 reports community concerns about local job creation and equity in access to benefits. Both sources agree that economic viability and fair distribution of benefits are essential to project success.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A ignores long-term factors and equity noted by both sources.",
+        "B": "Correct.",
+        "C": "C incorrectly claims equity concerns hinder adoption, which both sources see as important to address.",
+        "D": "D incorrectly dismisses community input which both sources consider important."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.448Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Noise problems are best solved by removing all traffic.",
+        "B) Integrated planning that combines design changes with policy measures reduces noise exposure.",
+        "C) Noise exposure cannot be mitigated once traffic is established.",
+        "D) Individual behavior is sufficient to offset noise impact."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 identifies traffic as a noise source; Source 2 highlights zoning and design changes; together they advocate for integrated planning. Option B is correct. Other options rely on extremes or personal action only.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 studies noise pollution in urban districts and finds that traffic-related noise disrupts sleep and concentration, particularly near major roads. Source 2 evaluates zoning and neighborhood planning, showing that design choices can reduce noise exposure for residents and schools. Both sources argue that urban noise problems require integrated planning and policy measures.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A suggests removing traffic entirely, which is unrealistic and not supported.",
+        "B": "Correct.",
+        "C": "C denies mitigations that the sources propose.",
+        "D": "D overemphasizes individual behavior instead of policy/design."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.449Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Capital alone guarantees business success.",
+        "B) Financial support plus training improves outcomes more than capital alone.",
+        "C) Mentorship has no effect without large loans.",
+        "D) Training is unnecessary if markets are favorable."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 emphasizes capital plus training; Source 2 emphasizes mentorship and coaching in addition to capital. Together they argue that both financial support and capacity-building are needed. Option B is correct. Others rely on single factors or deny mentoring effects.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 examines the impact of microfinancing on small businesses in developing regions, showing increased access to capital but noting high default risk without training. Source 2 analyzes how non-governmental organizations deliver mentorship and business training, reporting improved survival rates when financial capital is paired with coaching. Both sources contend that financial support must be coupled with capacity-building to succeed.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A ignores the training and mentorship components highlighted by both sources.",
+        "B": "Correct.",
+        "C": "C overstates the necessity of large loans and dismisses mentorship effects.",
+        "D": "D denies the role of training which both sources support."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.450Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Conservation should prioritize ecology over human livelihoods.",
+        "B) Adaptive management that balances ecological goals and human livelihoods is essential.",
+        "C) Community cooperation is unnecessary for conservation success.",
+        "D) Economic considerations should never influence conservation policy."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Both sources call for balancing ecological aims with human livelihoods and adaptive practices. Option B captures this. Other options advocate extremes or neglect community needs.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 evaluates coastal conservation strategies and finds that protected areas reduce biodiversity loss but require enforcement and community cooperation. Source 2 surveys local fisherfolk and tourism operators, noting that economically viable conservation must balance ecological goals with livelihoods. Both sources advocate for adaptive management that respects both nature and people.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A ignores livelihoods highlighted by Source 2.",
+        "B": "Correct.",
+        "C": "C denies importance of community, which both sources imply are necessary.",
+        "D": "D wrongly excludes economic factors from conservation policy."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.450Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Environmental benefits are equally distributed without targeted effort.",
+        "B) Environmental gains require equity-focused policies to reach all communities.",
+        "C) Charging infrastructure alone ensures equitable access.",
+        "D) No policy changes are needed to realize benefits."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 shows environmental gains from electrification; Source 2 emphasizes equity and targeted policies. Together they support equity-focused approaches. Option B is correct. Others assume even distribution or neglect policy needs.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 analyzes air quality improvements from electrification of municipal fleets, noting reductions in particulate matter and NOx. Source 2 discusses equity concerns, pointing out that benefits must reach low-income neighborhoods through targeted grants and flexible charging infrastructure. Both sources affirm that environmental gains must go hand in hand with equitable access.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A ignores the equity focus highlighted by Source 2.",
+        "B": "Correct.",
+        "C": "C oversimplifies by focusing only on charging infrastructure.",
+        "D": "D ignores the need for policy changes to achieve benefits."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.451Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both [Source 1] and [Source 2] agree with?",
+      "options": [
+        "A) Community gardens always succeed regardless of policy.",
+        "B) Supportive policy and community engagement are essential for urban farming to improve food security.",
+        "C) Food security is unaffected by local farming initiatives.",
+        "D) Zoning laws do not influence urban farming adoption."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Source 1 highlights benefits when gardens exist; Source 2 highlights barriers that policy can address. Both agree on the need for policy support and community involvement. Option B is correct. Others misstate the role of policy or community involvement.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Source 1 investigates the impact of urban farming on local food security, reporting increased access to fresh produce and reduced food-miles in neighborhoods with community gardens. Source 2 analyzes potential barriers such as land access, zoning, and funding, noting that favorable policy environments dramatically improve feasibility. Both sources argue that success depends on supportive policy and community involvement.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "A ignores policy and community factors that influence success.",
+        "B": "Correct.",
+        "C": "C contradicts observed benefits from urban farming.",
+        "D": "D ignores policy impact described by Source 2."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:06:20.452Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Remote work increases productivity when communication tools and clear expectations are in place.",
+        "B) Remote work reduces productivity due to fatigue from video calls.",
+        "C) Productivity changes depend only on management decisions.",
+        "D) There is no connection between communication practices and performance."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Source 1 shows productivity gains when structured processes are in place, while Source 2 notes that teams with clear communication norms maintain collaboration, supporting option A. B ignores the reported positive effects and treats fatigue as universal without evidence. C incorrectly claims only management decisions matter, ignoring the role of communication practices. D denies any link between communication and performance, contradicting both sources.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Source 1, a corporate dashboard covering 18 months of remote-work data, tracks productivity through hours logged and project throughput. After introducing structured asynchronous workflows, weekly goal reviews, and standardized project templates, productivity per hour rose modestly, while project throughput increased in cross-functional teams. Source 2, a set of interviews with 12 teams across sales, engineering, and support, reports that teams with explicit communication norms—defined channels, response times, and documented handoffs—sustain collaboration, even as meetings shift toward asynchronous updates. Yet some interviewees describe fatigue from back-to-back video calls and a plateau in creative ideation when collaboration lacks variety. Taken together, the two sources suggest that remote work itself does not guarantee higher productivity; rather, the design of communication practices and shared expectations mediates performance. The sources differ in emphasis: Source 1 foregrounds quantitative gains tied to process changes; Source 2 foregrounds qualitative experiences and potential fatigue. Still, both align on one point: robust communication structure can support productivity in distributed teams, whereas poorly managed practices can erode it.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A because A is the correct answer.",
+        "B": "Mistakes the data by assuming fatigue completely negates any productivity gains observed.",
+        "C": "Overgeneralizes to say only management decisions matter, ignoring the described communication practices.",
+        "D": "Dismisses the demonstrated connection between communication practices and performance."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:07:27.147Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Both approaches can price carbon and gradually reduce emissions without harming competitiveness.",
+        "B) Only the carbon tax can guarantee price certainty.",
+        "C) Cap-and-trade ensures no emissions leaks but taxes are cheaper to administer.",
+        "D) Pricing carbon alone is sufficient to solve climate change."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Both sources agree that pricing carbon is a necessary tool to reduce emissions and that it must be designed carefully to avoid harming competitiveness, price volatility, or stranded assets. Option B overstates certainty for only the tax, which is not claimed by both sources. Option C separates outcomes that sources indicate depend on design choices and complementary measures. Option D wrongly asserts pricing alone solves climate change, ignoring other required policies highlighted by both sources.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Source 1: an energy-economics model comparing carbon tax and cap-and-trade shows that price certainty and revenue recycling policies can drive emissions reductions while preserving competitiveness; estimated price signals guide investment in low-carbon capital. Source 2: industry roundtables and public-utility filings stress that design details matter: tax rates must be credible, auction mechanisms must avoid price spikes, and allowances must be allocated to avoid stranded assets. The two sources converge on the core idea that pricing carbon is essential to emissions reductions, but disagree on implementation specifics: Source 1 emphasizes legal certainty and revenue use; Source 2 emphasizes transitional challenges and political feasibility. Both sources also warn that without complementary measures—technology research, energy efficiency standards, and fair transition programs—pricing alone may falter. Thus, both sources agree that pricing carbon is necessary, yet emphasize that its effectiveness depends on design and policy packaging. The report also notes that neither approach fully resolves regional competitiveness concerns without accompanying measures.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A because A is the correct answer.",
+        "B": "Mistakenly asserts the tax alone provides price certainty; both sources acknowledge design differences.",
+        "C": "Overgeneralizes about relative costs and leaks; both sources stress design details matter.",
+        "D": "Dismisses the need for other measures that both sources say are necessary."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:07:27.148Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Assessment should align with stated learning goals.",
+        "B) Project-based learning always yields higher test scores.",
+        "C) Project-based learning is impractical due to time demands.",
+        "D) Students learn best when instruction emphasizes rote memorization."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Both sources stress that outcomes depend on alignment between tasks, feedback, and assessment, supporting option A. B overclaims consistent test-score gains; C and D misstate the evidence by asserting impracticality or favoring memorization, which neither source endorses.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Source 1, a district study, reports that project-based learning (PBL) improves retention and problem-solving abilities in high school students compared with traditional classrooms. Source 2, a national meta-analysis, finds that while PBL correlates with stronger inquiry skills, gains in traditional exam performance are inconsistent, and the approach requires substantial teacher planning and professional development. Both sources acknowledge that learning goals shape outcomes and that assessment design matters. They diverge on magnitude and scalability but converge on the need for alignment between tasks, feedback, and assessment. Taken together, they imply that effective PBL requires careful scaffolding, clear criteria, and time for teachers to design and reflect on tasks.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A because A is the correct answer.",
+        "B": "Incorrectly generalizes the results to all tests and contexts, ignoring inconsistent gains reported by Source 2.",
+        "C": "Overgeneralizes about practicality and ignores nuanced findings about scaffolding requirements.",
+        "D": "Misrepresents emphasis, ignoring the study's focus on inquiry and applied tasks rather than memorization."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:07:27.148Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Access to diverse civic opportunities on platforms can encourage participation.",
+        "B) Social media always polarizes users regardless of design.",
+        "C) Engagement rises only for users with high digital literacy.",
+        "D) Platform moderation has no effect on civic participation."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Both sources acknowledge that platform design can influence engagement and that surfaced opportunities can boost participation, supporting option A. B and D overstate the universality of polarization and negate moderation effects. C narrows engagement to digital literacy, which neither source asserts as exclusive.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Source 1 analyzes large-scale online civic participation data, showing increased engagement when platforms surface local initiatives. Source 2 examines the same platforms but highlights how exposure to polarized discourse can polarize views and dampen willingness to engage with opposing perspectives. Importantly, both sources note that information quality, moderator design, and clarity of calls to action influence engagement outcomes. While one emphasizes opportunities, the other warns about risks to cohesion, yet both agree that platform design can shape civic participation.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A because A is the correct answer.",
+        "B": "Overgeneralizes; polarization is not inevitable and depends on design and context.",
+        "C": "Implies digital literacy is the sole driver, which neither source claims.",
+        "D": "Ignores evidence that moderation and design influence engagement."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:07:27.149Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Regular exposure to authentic language in meaningful contexts benefits learners.",
+        "B) Immersion is superior in every way to classroom instruction.",
+        "C) Grammar instruction is sufficient for fluency without conversation.",
+        "D) Vocabulary is irrelevant without explicit grammar drills."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Both sources emphasize the value of authentic language exposure and meaningful practice, supporting option A. B and C misstate the nuanced findings by asserting dominance of immersion or sufficiency of grammar without practice. D contradicts the emphasis on vocabulary and context.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Source 1 reports that immersion programs in language learning yield rapid oral fluency but may lag in explicit grammar knowledge. Source 2 reports that explicit grammar instruction improves grammatical accuracy, yet may not fully develop communicative fluency without meaningful conversation. Both sources agree that vocabulary breadth and meaningful practice matter; they differ on emphasis and pace but converge on the idea that learners benefit from exposure to authentic language and structured opportunities to use language in real contexts.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A because A is the correct answer.",
+        "B": "Overstates immersion's superiority and ignores evidence of grammar benefits from explicit instruction.",
+        "C": "Claims grammar alone suffices for fluency, which Source 2 rejects without conversational practice.",
+        "D": "Dismisses the role of vocabulary, contrary to both sources."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:07:27.150Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Humans remain crucial for tasks requiring nuanced judgment and ethical considerations.",
+        "B) Automation eliminates the need for human oversight entirely.",
+        "C) Reskilling is unnecessary once automation is implemented.",
+        "D) The pace of adoption is identical across industries."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Both sources concur that human judgment and ethics remain important, supporting option A. B and C misrepresent the role of humans and the need for reskilling. D is false because the pace of adoption varies across industries, which the passage implies.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Source 1 highlights efficiency gains from automation in routine tasks, while Source 2 raises concerns about potential displacement and the need for reskilling. Both sources agree that human oversight remains essential for tasks requiring nuanced judgment and ethical considerations. They differ on the pace of adoption and the scale of impact, but converge on the conclusion that successful automation requires a deliberate strategy for workforce training and ongoing governance.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A because A is the correct answer.",
+        "B": "Incorrectly asserts humans are unnecessary, ignoring the need for oversight mentioned by Source 2.",
+        "C": "Suggests reskilling isn’t needed, which contradicts the stated conclusion.",
+        "D": "Incorrectly claims a uniform adoption pace across industries."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:07:27.151Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Clear, transparent communication improves public adherence to guidance.",
+        "B) Data sharing should be minimized to protect privacy.",
+        "C) Inconsistent messaging improves attention and action rates.",
+        "D) Public trust is independent of transparency."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Both sources emphasize clarity and transparency as factors that improve public response, supporting option A. B contradicts the stated benefits of transparency, C contradicts the emphasis on consistency, and D wrongly claims trust is unaffected by transparency.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Source 1 argues that transparent data sharing during a health crisis can enhance public trust, while Source 2 argues that consistent messaging reduces confusion and fatigue. Both sources suggest that clarity, consistency, and accessibility of information improve public response to health guidance. They acknowledge the challenge of balancing openness with professional responsibility, yet converge on the idea that clear communication strategies support better public health outcomes.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A because A is the correct answer.",
+        "B": "Conflicts with the emphasized value of transparency for trust and uptake.",
+        "C": "Misreads the role of consistency as a means to reduce confusion, not to increase it.",
+        "D": "Rejects the link between transparency and trust described by both sources."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:07:27.152Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) Reliable energy storage is essential for integrating intermittent renewable energy.",
+        "B) Batteries alone will solve all storage needs for the grid.",
+        "C) Hydrogen storage has no role in decarbonization strategies.",
+        "D) Policy incentives are unnecessary for storage adoption."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Both sources agree on the necessity of reliable storage to integrate renewables, supporting option A. B overstates batteries' sufficiency, C ignores hydrogen's described role, and D denies the role of policy incentives which both sources cite as important.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "integrate-information",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Source 1 describes advances in battery technology offering rapid response and high round-trip efficiency for grid storage, while Source 2 discusses hydrogen storage as a complement for long-duration storage and heavy transport. Both sources acknowledge that no single technology meets all needs; instead, a diversified energy-storage portfolio is needed to support high levels of renewable energy. They also note the importance of policy incentives and infrastructure development to realize this diversification.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A because A is the correct answer.",
+        "B": "Overclaims batteries will solve all storage needs; sources describe complementary technologies.",
+        "C": "Misstates hydrogen's role in decarbonization strategies presented by Source 2.",
+        "D": "Ignored the role of policy incentives mentioned by both sources."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:07:27.152Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement would both Source 1 and Source 2 agree with?",
+      "options": [
+        "A) A diversified energy system with multiple sources improves reliability.",
+        "B) Microgrids should completely replace the centralized grid.",
+        "C) Centralized grids alone provide all necessary resilience.",
+        "D) Diversification adds unnecessary complexity and costs."
+      ],
+      "correctAnswer": 0,
+      "explanation": "Both sources advocate for diversification and integration of multiple sources to improve resilience, supporting option A. B and C present extreme views not endorsed by both sources, while D contradicts the stated benefits of diversification.",
+      "moduleType": "reading-writing",
+      "category": "writing-language",
+      "subtopic": "compare-contrast",
+      "difficulty": "hard",
+      "difficultyScore": 75,
+      "passage": "Source 1 discusses microgrids as a means to boost resilience during outages and to integrate local generation, while Source 2 highlights central grid advantages such as economies of scale and reliability. Both sources note the importance of integrating renewables and ensuring policy incentives support transitions. They agree that a diversified approach, combining local and centralized resources with solid governance, improves overall energy system resilience and efficiency.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A because A is the correct answer.",
+        "B": "Misrepresents the role of microgrids as a full replacement rather than a complement.",
+        "C": "Overstates reliance on central grids and ignores microgrids' resilience benefits.",
+        "D": "Rejects diversification despite its benefits discussed by the sources."
+      },
+      "_batchId": "batch-1777349030368-synthesis",
+      "_generatedAt": "2026-04-28T04:07:27.153Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

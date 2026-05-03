@@ -1,0 +1,158 @@
+{
+  "batchId": "batch-1777332241840-reading-comp",
+  "topic": "reading-comp",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-04-27T23:26:01.544Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 5,
+  "totalGenerated": 5,
+  "totalValid": 5,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "What is the main idea of the passage?",
+      "options": [
+        "A) The researchers found that warming oceans reduce plankton growth, altering the food web.",
+        "B) The study found no significant change in plankton populations over the study period.",
+        "C) The report argues that coral bleaching is the main factor affecting fisheries.",
+        "D) The researchers concluded that nutrient availability no longer influences plankton in warm water."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage centers on how rising temperatures reduce plankton growth and shift community composition, leading to broader ecological consequences, which is the main idea. Option A correctly captures this central claim. Option B incorrectly states there was no significant change, contradicting the observed declines in biomass. Option C introduces coral bleaching as the main factor, which is not discussed here. Option D wrongly claims nutrients no longer influence plankton in warm water, while the passage indicates nutrient supply still matters in certain regions.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Over the past decade, marine ecologists have tracked plankton communities at five open-ocean stations to understand how rising temperatures affect base-level food supply. The team’s measurements show that surface-water warming strengthens stratification, which reduces vertical mixing and the delivery of nutrient-rich deep water into the sunlit zone. As a result, growth rates of phytoplankton decline in several regions, and the composition of plankton communities shifts toward smaller species that reproduce more quickly but provide less energy to higher trophic levels. The authors emphasize that even modest declines in plankton biomass can ripple upward, weakening larval fish survival and subtly altering predator-prey dynamics across the food web. In laboratory experiments, warmer water increased plankton respiration, meaning more energy is used for maintenance rather than growth. Taken together, the findings support a central claim: sustained ocean warming is likely to reduce the overall productivity of the base of marine ecosystems, with potential consequences for fisheries, carbon cycling, and ecosystem resilience. The study also notes that nutrient supply remains important; in regions with frequent nutrient upwelling, the adverse effects are dampened but not eliminated.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A",
+        "B": "This option asserts no significant change, but the passage describes declines in plankton biomass due to warming.",
+        "C": "This option shifts the focus to coral bleaching, which the passage does not mention as a central factor.",
+        "D": "This option denies any role for nutrients, but the passage notes nutrients can buffer effects in upwelling regions."
+      },
+      "_batchId": "batch-1777332241840-reading-comp",
+      "_generatedAt": "2026-04-27T23:24:50.766Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to the passage, which is a specific action described in the March 12, 1785 memorandum related to regulating trade?",
+      "options": [
+        "A) Establishing a temporary port dues system at three inland towns and authorizing cargo inspections.",
+        "B) Making the measure permanent after a formal treaty is signed with neighboring settlements.",
+        "C) Stating that merchants universally supported the plan without resistance.",
+        "D) Declaring that no cargo inspections would be conducted to speed trade."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The memorandum explicitly describes establishing a temporary port dues system and authorizing cargo inspections as the actions to regulate trade. This makes option A correct. Option B misstates the duration—the memo says the measure would remain until a broader treaty could be negotiated, not permanently. Option C is contradicted by the text, which mentions potential merchant resistance. Option D is directly contradicted by the text, which assigns inspections and penalties for evasion.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "In a memorandum dated March 12, 1785, a colonial administrator described efforts to regulate trade along the river frontier. The memo states that, to promote revenue and reduce smuggling, the authorities established a temporary port dues system at three inland towns and authorized local magistrates to inspect cargoes. It notes that merchants should present certified weights and measures, and that any vessel found bypassing the duty would be fined and required to post bond. The writer adds that the measure would remain in effect until a broader commercial treaty could be negotiated with neighboring settlements. The memorandum also records a separate recommendation to publish a weekly ledger of shipments to increase transparency and allow merchants to plan their routes more efficiently. Although the writer expresses cautious optimism about improved compliance, the document closes by acknowledging potential resistance from merchants and the need for enforcement patrols along the river. The tone is practical and administrative, emphasizing finance, regulation, and orderly commerce rather than political sentiment.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A",
+        "B": "The memorandum says the measure would stay until a treaty is negotiated, not permanent.",
+        "C": "The passage notes potential resistance from merchants, not universal support.",
+        "D": "The passage states that cargo inspections were authorized, not eliminated."
+      },
+      "_batchId": "batch-1777332241840-reading-comp",
+      "_generatedAt": "2026-04-27T23:24:50.772Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "What is the main idea of the passage about nocturnal pollinators and fruit production?",
+      "options": [
+        "A) Nocturnal pollinators have little or no effect on fruit production.",
+        "B) Nocturnal pollinators significantly influence fruit production and habitat fragmentation can reduce their effectiveness.",
+        "C) Daytime pollinators are more important than nocturnal ones for all species.",
+        "D) The study argues for replacing pollinators with technology."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage presents a central claim that nocturnal pollination contributes noticeably to fruit production and that habitat fragmentation reduces nocturnal pollinator effectiveness; the other options either downplay this role or propose unsupported solutions.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "main-idea",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Recent fieldwork in a lowland tropical forest tracked fruit yields for several tree species over three fruiting seasons. Researchers installed motion-activated cameras, temperature loggers, and nocturnal light traps to assess pollinator activity both inside intact forest plots and in fragments near roads. The data show a clear association between fruit set and visits by bats and certain moth species that forage after dusk. In plots where forest edges were narrow and understory light levels rose, nocturnal pollinator visits declined by as much as 40 percent, while day-active pollinators showed little compensatory increase. The main claim is that nocturnal pollination contributes to a substantial portion of observed fruit production, and that habitat fragmentation alters the timing and composition of pollinator communities. The authors conclude that protecting contiguous habitat and creating buffer zones around fragments could sustain yields in the face of climate variability that alters flowering times. The study also notes limits: weather patterns that suppress insect activity can reduce fruit set even in intact forests, reminding readers that pollinator ecology interacts with microclimate in complex ways.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Option A wrongly minimizes the role of nocturnal pollinators; the passage links their activity to fruit production and notes fragmentation reduces visits.",
+        "B": "",
+        "C": "Option C asserts daytime pollinators are universally more important, which the passage does not say; it emphasizes nocturnal pollinators' contribution.",
+        "D": "Option D suggests technological replacement for pollinators, which the passage does not advocate."
+      },
+      "_batchId": "batch-1777332241840-reading-comp",
+      "_generatedAt": "2026-04-27T23:25:56.868Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Based on the passage, which statement is a reasonable inference about guilds and wage policy in the city-states?",
+      "options": [
+        "A) The policies had no effect on wage distribution.",
+        "B) Guild power and licensing constrained labor mobility, suggesting a need for reform.",
+        "C) All workers benefited equally from the new policies.",
+        "D) External markets alone determined wage patterns."
+      ],
+      "correctAnswer": 1,
+      "explanation": "The passage argues that guilds, licensing, and tariff policies shaped income patterns and that reforms reducing these barriers would help narrow wage gaps, which supports the inference in option B. Options A, C, and D contradict the text by denying or oversimplifying the observed influence of institutional arrangements.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "inference",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Scholars analyzing the mercantile economy of the northern city-states argue that wage distributions widened after states introduced protective tariffs and guild restrictions. As trade shifted from inland markets to overseas routes, merchants gained access to new profit channels, while skilled craftsmen retained control over certain production stages through guild licensing. The resulting wage splits, though sometimes offset by rising nominal wages, persisted because guild premiums protected specialized labor and limited competition. The author notes that state subsidies to merchant fleets stimulated growth in port towns but did not automatically translate into broader prosperity for unskilled workers. The central claim is that institutional arrangements—guilds, licensing, and tariff policies—shaped income patterns more than external demand alone. The passage concludes that reforms aimed at reducing guild barriers and widening apprenticeship ladders would be necessary to narrow wage gaps and sustain long-term political stability in these urban economies.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Option A incorrectly states there was no effect; the passage emphasizes guilds and licensing as influential.",
+        "B": "",
+        "C": "Option C wrongly claims universal benefit for workers; the passage implies unequal effects and barriers for many workers.",
+        "D": "Option D wrongly attributes changes solely to external markets; the passage foregrounds institutional factors."
+      },
+      "_batchId": "batch-1777332241840-reading-comp",
+      "_generatedAt": "2026-04-27T23:25:56.868Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to the passage, which detail about the diary in the attic does the critic emphasize?",
+      "options": [
+        "A) The diary's ink had faded.",
+        "B) The diary was written in a different language.",
+        "C) The attic had a locked trunk.",
+        "D) The diary's pages were torn out."
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage explicitly mentions the diary's faded ink as a specific detail that the critic highlights, illustrating how memory and evidence interact in the narrative. The other options introduce details not present in the passage.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Critics have long debated how the unnamed narrator in The Last Quiet House negotiates guilt and memory. The essay notes that the narrative repeatedly circles the attic, where a family diary records a vanished summer. The attic is described as a threshold where the present self speaks to the past self, and the language shifts from clinical observation to aching admission. The critic argues that the novel does not resolve the tension of memory but reframes it as ongoing act of testimony. A central claim is that the author uses time shifts and a restrained diction to reveal how memory can correct or betray a memory's own reliability. The passage suggests that the protagonist's willingness to confront the diary's omissions marks a turning point in moral self-understanding. The critic acknowledges that even small details—the faded ink, the creaking stairs, the recurring mention of a light left burning—construct a mood that refuses simple moral judgments.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Option B introduces a language difference not mentioned in the passage.",
+        "C": "Option C introduces a locked trunk detail not mentioned in the passage.",
+        "D": "Option D suggests torn pages, which is not stated in the passage."
+      },
+      "_batchId": "batch-1777332241840-reading-comp",
+      "_generatedAt": "2026-04-27T23:25:56.869Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

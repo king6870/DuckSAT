@@ -1,0 +1,157 @@
+{
+  "batchId": "batch-1777331296505-quadratic",
+  "topic": "quadratic",
+  "moduleType": "math",
+  "generatedAt": "2026-04-27T23:12:02.909Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 5,
+  "totalGenerated": 5,
+  "totalValid": 5,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Factor and solve: Solve the quadratic equation $x^2 - 5x + 6 = 0$ by factoring. What are the solutions?",
+      "options": [
+        "A) $x = 2$ or $x = 3$",
+        "B) $x = -2$ or $x = -3$",
+        "C) $x = 1$ or $x = 6$",
+        "D) $x = 5$ or $x = -1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Factor the quadratic: $x^2 - 5x + 6 = (x - 2)(x - 3)$. By the zero-product property, $(x - 2)=0$ or $(x - 3)=0$, so $x = 2$ or $x = 3$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "factoring",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "This option uses negative roots; the correct factorization is $(x-2)(x-3)$, which gives roots 2 and 3, not -2 and -3.",
+        "C": "Plugging in x=1 gives $1^2 - 5(1) + 6 = 2 \\\\neq 0$; x=6 gives $36 - 30 + 6 = 12 \\\\neq 0$.",
+        "D": "Plugging in x=5 gives $25 - 25 + 6 = 6 \\\\neq 0$; x=-1 gives $1 + 5 + 6 = 12 \\\\neq 0$."
+      },
+      "_batchId": "batch-1777331296505-quadratic",
+      "_generatedAt": "2026-04-27T23:10:00.243Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A rectangle has a fixed perimeter of 20 meters. Let the width be $x$ meters and the length be $10 - x$ meters, so the area is $A(x) = x(10 - x) = -x^2 + 10x$. What value of $x$ maximizes the area?",
+      "options": [
+        "A) 2",
+        "B) 5",
+        "C) 10",
+        "D) 0"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Let $A(x) = -x^2 + 10x$. Completing the square: $A(x) = -\\bigl(x^2 - 10x\\bigr) = -\\bigl((x - 5)^2 - 25\\bigr) = -(x - 5)^2 + 25$. This is a downward-opening parabola with vertex at $(5,25)$, so the maximum area occurs when $x=5$. The maximum area is $A(5) = 25$ square meters.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "vertex-form",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "x=2 yields area $A(2)=2(8)=16$, which is less than the maximum 25.",
+        "B": "",
+        "C": "x=10 makes the length zero, so area $A(10)=0$, not maximal.",
+        "D": "x=0 yields area $A(0)=0$, not maximal."
+      },
+      "_batchId": "batch-1777331296505-quadratic",
+      "_generatedAt": "2026-04-27T23:10:00.255Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Solve the quadratic equation $x^2 - 5x + 6 = 0$ by factoring.",
+      "options": [
+        "A) $x = 2$ or $x = 3$",
+        "B) $x = -2$ or $x = -3$",
+        "C) $x = 1$ or $x = 6$",
+        "D) No real solutions"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Factor the quadratic: $x^2 - 5x + 6 = (x-2)(x-3)$.\\\nStep 2: Apply zero-product property: set each factor to zero: $x-2=0$ or $x-3=0$.\\\nStep 3: Solve: $x=2$ or $x=3$.\\\nTherefore, the solutions are $x=2$ and $x=3$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Factoring & zero product property",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Option B incorrectly places negative signs, suggesting roots at $x=-2$ and $x=-3$; this would come from using $x^2 + 5x + 6$ or mis-signing the middle term.",
+        "C": "Option C suggests roots $x=1$ and $x=6$, which would arise from factoring to $(x-1)(x-6)$ — that does not expand to $x^2 - 5x + 6$.",
+        "D": "Option D claims there are no real solutions, which would be the case if the discriminant were negative; here the discriminant is positive."
+      },
+      "_batchId": "batch-1777331296505-quadratic",
+      "_generatedAt": "2026-04-27T23:11:57.648Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Rewrite $y = 3x^2 + 12x - 7$ in vertex form $y = a(x-h)^2 + k$. Which option is the correct vertex form?",
+      "options": [
+        "A) $y = 3(x + 2)^2 - 19$",
+        "B) $y = 3(x - 2)^2 - 19$",
+        "C) $y = 3(x + 2)^2 + 19$",
+        "D) $y = -3(x + 2)^2 - 19$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Factor out 3: $y = 3(x^2 + 4x) - 7$.\\\nStep 2: Complete the square inside: $x^2 + 4x + 4 = (x+2)^2$, so add and subtract 4 inside the bracket: $y = 3[(x+2)^2 - 4] - 7$.\\\nStep 3: Distribute and simplify: $y = 3(x+2)^2 - 12 - 7 = 3(x+2)^2 - 19$.\\\nThus the vertex form is $y = 3(x+2)^2 - 19$, which corresponds to vertex $(-2,-19)$.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Completing the square / Vertex form",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Option B uses $(x-2)^2$, which would place the vertex at $(2,-19)$, incorrect for this function since completing the square yields $(x+2)^2$.",
+        "C": "Option C has the wrong sign on the constant term, giving a vertex at $(-2, 19)$, not $(-2,-19)$.",
+        "D": "Option D uses $-3$ as the leading coefficient, but the original coefficient is $+3$, so it flips the parabola and changes the vertex."
+      },
+      "_batchId": "batch-1777331296505-quadratic",
+      "_generatedAt": "2026-04-27T23:11:57.651Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A small business models profit by $P(x) = -2x^2 + 30x - 40$, where $x$ is the number of hundreds of units sold. How many real solutions does $P(x) = 0$ have (i.e., how many break-even points)?",
+      "options": [
+        "A) 0",
+        "B) 1",
+        "C) 2",
+        "D) Infinitely many"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Step 1: For $P(x)=0$, identify $a=-2$, $b=30$, $c=-40$.\\\nStep 2: Compute the discriminant: $D = b^2 - 4ac = 30^2 - 4(-2)(-40) = 900 - 320 = 580$.\\\nStep 3: Since $D > 0$, there are two distinct real solutions to $P(x) = 0$.\\\nConclusion: There are 2 real break-even points.",
+      "moduleType": "math",
+      "category": "advanced-math",
+      "subtopic": "Quadratic-formula & discriminant",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Option A states zero real solutions, which would require $D<0$; here $D=580>0$.",
+        "B": "Option B states exactly one real solution, which would require $D=0$; here $D>0$.",
+        "D": "Option D states infinitely many solutions, which is impossible for a quadratic; a quadratic has at most two real solutions."
+      },
+      "_batchId": "batch-1777331296505-quadratic",
+      "_generatedAt": "2026-04-27T23:11:57.654Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

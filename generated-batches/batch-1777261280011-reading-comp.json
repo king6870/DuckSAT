@@ -1,0 +1,70 @@
+{
+  "batchId": "batch-1777261280011-reading-comp",
+  "topic": "reading-comp",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-04-27T03:42:16.068Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 2,
+  "totalGenerated": 2,
+  "totalValid": 2,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "According to the passage, how much average daytime temperature reduction is reported in blocks that contain at least ten trees per hectare?",
+      "options": [
+        "A) 1.8 degrees Celsius",
+        "B) 1.2 degrees Celsius",
+        "C) 2.5 degrees Celsius",
+        "D) 0.9 degrees Celsius"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The passage states that mature trees reduce daytime temperatures by an average of 1.8 degrees Celsius within blocks with at least ten trees per hectare. This is the central claim. Option B describes a different figure tied to canopy-growth effects; Option C and D present figures not supported by the text. Therefore, the correct answer is A, and the other options reflect common misreadings or unrelated details.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "An early-2024 analysis in the Journal of Urban Ecology reports findings from a year-long survey of street trees in five neighborhoods to understand their effect on local temperatures. Researchers deployed sensors at pedestrian height and at two meters above ground to measure leaf area index and surface cooling effects under varying cloud cover. The central claim is that mature trees reduce daytime temperatures by an average of 1.8 degrees Celsius within blocks that contain at least ten trees per hectare. The study also notes that benefits accumulate with continued canopy growth: in neighborhoods where the tree cover expanded by 15% over two years, average afternoon temperatures fell more than 1.2 degrees beyond prior reductions. However, the authors caution that trees alone cannot fully counter heat waves in dense urban cores, because heat storage in concrete and asphalt remains substantial. The authors conclude with a practical recommendation: city planners should target both tree planting and reflective paving in equal measure, focusing on spaces where ground-level shade intersects high pedestrian activity. The article also notes that data collection faced gaps during heavy rain, but the overall pattern persisted across most sites.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "N/A since A is the correct answer; no mistake to explain here.",
+        "B": "This repeats the later finding about additional reductions due to 15% canopy growth, but it does not reflect the overall average reduction asked for in blocks with the specified tree density.",
+        "C": "2.5 degrees Celsius is not mentioned anywhere in the passage and is not supported by the data presented.",
+        "D": "0.9 degrees Celsius is not stated in the passage as any reported figure."
+      },
+      "_batchId": "batch-1777261280011-reading-comp",
+      "_generatedAt": "2026-04-27T03:41:39.139Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "According to the passage, which statement about the relationship between tree canopy and surface temperature observed in the study is supported by the data?",
+      "options": [
+        "A) The presence of tree canopy had no measurable effect on surface temperature.",
+        "B) Streets with substantial canopy were about 3.5 degrees Celsius cooler than nearby blocks with little or no tree cover.",
+        "C) The temperature difference disappeared when pavement material was accounted for.",
+        "D) Canopy presence was the only predictor of cooler surface conditions."
+      ],
+      "correctAnswer": 1,
+      "explanation": "Explanation: Step 1 — The passage states that blocks with substantial canopy were about 3.5 degrees Celsius cooler than blocks with little or no tree cover, establishing a specific measured relationship. Step 2 — It also notes that this difference persisted after controlling for concrete exposure, street width, and building height, indicating the relationship remains even when those factors are accounted for. Step 3 — Option A is contradicted by the explicit cooling effect described; Option C is incorrect because the text says the difference persisted after accounting for pavement material, not disappeared; Option D is incorrect because the text mentions other factors like pavement material and albedo. Therefore, option B accurately reflects the data given.",
+      "moduleType": "reading-writing",
+      "category": "reading-comprehension",
+      "subtopic": "detail",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Urban climate researchers recently completed a year-long analysis of temperature patterns in Riverbend City, a mid-sized urban area with wide variation in street design. The team combined satellite infrared data with ground-based sensors to map surface temperatures across 80 neighborhoods. They stratified streets by canopy cover, noting that blocks lined with mature trees formed shaded corridors, while adjacent blocks remained largely devoid of vegetation. Their central finding concerns the diurnal surface-temperature gradient: in the hottest part of the day, blocks with substantial canopy saw markedly cooler surfaces. On average, those streets were about 3.5 degrees Celsius cooler than nearby blocks with little or no tree cover. The researchers emphasize that this difference persisted after controlling for concrete exposure, street width, and building height. They acknowledge that factors such as pavement material and albedo contributed to overall warmth but concluded that canopy presence was a robust predictor of cooler surface conditions during peak sun. The implications extend beyond comfort: cooler surface temperatures correlated with modest reductions in peak interior temperatures for adjacent buildings and with lower outdoor energy use during heat waves. While the study cannot claim universal applicability, the authors argue that urban forestry policies could meaningfully temper heat-related stress in cities facing climate pressures.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "The passage clearly reports a cooling effect associated with canopy, so claiming no effect contradicts the data.",
+        "C": "The passage states the difference persisted after accounting for pavement material, so saying it disappeared is incorrect.",
+        "D": "The passage notes other contributing factors such as pavement material and albedo, so canopy is not the only predictor."
+      },
+      "_batchId": "batch-1777261280011-reading-comp",
+      "_generatedAt": "2026-04-27T03:42:12.354Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

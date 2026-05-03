@@ -1,0 +1,78 @@
+{
+  "timestamp": "2026-04-27T03:42:16.146Z",
+  "modelHint": "gpt-5-nano",
+  "candidates": [
+    {
+      "name": "UnifiedQuestionGenerator",
+      "requested": 4,
+      "generated": 4,
+      "structuralValid": 4,
+      "readingPassageValid": 4,
+      "avgQuality": 0.855,
+      "durationMs": 33005,
+      "score": 0.9691,
+      "details": [],
+      "samples": [
+        {
+          "moduleType": "math",
+          "question": "A polynomial function P(x) = ax^3 + bx^2 + cx + d is defined by P(1) = 2, P(0) = d = -1, and P'(x) = 3ax^2 + 2bx + c has a root at x = 1 whe",
+          "subtopic": "Polynomial Expressions",
+          "qualityScore": 0.8
+        },
+        {
+          "moduleType": "math",
+          "question": "A sequence is defined by a_n = 3n - 2 for n = 1, 2, 3, ... . Which of the following is the sum of the first 10 terms of this sequence?",
+          "subtopic": "Sequences and Series",
+          "qualityScore": 0.9
+        },
+        {
+          "moduleType": "reading-writing",
+          "question": "The following question asks you to identify the best way to revise the underlined portion of the sentence for clarity and style. Which choic",
+          "subtopic": "Sentence Structure and Style",
+          "qualityScore": 0.82
+        },
+        {
+          "moduleType": "reading-writing",
+          "question": "Which statement best supports the author's main claim regarding the town’s mood after the rain?",
+          "subtopic": "Supporting Details and Evidence",
+          "qualityScore": 0.9
+        }
+      ]
+    },
+    {
+      "name": "QG800BatchGenerator",
+      "requested": 4,
+      "generated": 4,
+      "structuralValid": 4,
+      "readingPassageValid": 4,
+      "avgQuality": null,
+      "durationMs": 133163,
+      "score": 0.963,
+      "details": [],
+      "samples": [
+        {
+          "moduleType": "math",
+          "question": "Word problem: The sum of two numbers is $13$ and their difference is $5$. Let the larger be $x$ and the smaller be $y$. Which of the followi",
+          "subtopic": "systems"
+        },
+        {
+          "moduleType": "math",
+          "question": "Two classmates are buying notebooks and rulers. Let $x$ be the number of notebooks and $y$ the number of rulers. They buy a total of $7$ ite",
+          "subtopic": "systems of 2 equations"
+        },
+        {
+          "moduleType": "reading-writing",
+          "question": "According to the passage, how much average daytime temperature reduction is reported in blocks that contain at least ten trees per hectare?",
+          "subtopic": "detail"
+        },
+        {
+          "moduleType": "reading-writing",
+          "question": "According to the passage, which statement about the relationship between tree canopy and surface temperature observed in the study is suppor",
+          "subtopic": "detail"
+        }
+      ]
+    }
+  ],
+  "winner": "UnifiedQuestionGenerator",
+  "tieBreakRule": "If scores tie, choose UnifiedQuestionGenerator because it is the active production pipeline."
+}

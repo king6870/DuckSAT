@@ -30,6 +30,8 @@
         "validate:practice-test-publish-guard": "tsx scripts/validate-publish-guard-readiness.ts",
         "validate:generated-json": "tsx scripts/validate-generated-json.ts",
         "test:specialized-topics": "tsx scripts/test-specialized-topic-generation.ts"
+        ,"go-live:readiness": "tsx scripts/go-live-readiness.ts"
+        ,"go-live:readiness:strict": "GO_LIVE_STRICT=true tsx scripts/go-live-readiness.ts"
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.10.0",

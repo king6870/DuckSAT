@@ -14,6 +14,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import dotenv from 'dotenv';
 import { PrismaClient } from '@prisma/client';
 import { AzureOpenAI } from 'openai';
 import katex from 'katex';
@@ -44,7 +45,18 @@ import { MATH_PROMPT_BUILDERS } from './lib/prompts/math-prompts';
 import { READING_PROMPT_BUILDERS } from './lib/prompts/reading-prompts';
 import { normalizeLatex, validateLatex } from './lib/normalize-latex';
 
+dotenv.config({ path: '.env' });
+dotenv.config({ path: '.env.local' });
+
 const prisma = new PrismaClient();
+const REQUEST_TIMEOUT_MS = Math.max(
+  30000,
+  Number.parseInt(process.env.GENERATION_REQUEST_TIMEOUT_MS || '240000', 10) || 240000
+);
+const MAX_QUESTIONS_PER_API_CALL = Math.max(
+  1,
+  Number.parseInt(process.env.GENERATION_MAX_QUESTIONS_PER_API_CALL || '10', 10) || 10
+);
 
 // Initialize Azure OpenAI client
 const openai = new AzureOpenAI({
@@ -52,6 +64,8 @@ const openai = new AzureOpenAI({
   endpoint: AZURE_OPENAI_CONFIG.endpoint,
   apiVersion: AZURE_OPENAI_CONFIG.apiVersion,
   deployment: AZURE_OPENAI_CONFIG.deployment,
+  timeout: REQUEST_TIMEOUT_MS,
+  maxRetries: 0,
 });
 
 // ============================================================================
@@ -118,6 +132,24 @@ function saveState(state: GenerationState) {
 // AZURE OPENAI API
 // ============================================================================
 
+function withTimeout<T>(promise: Promise<T>, timeoutMs: number, message: string): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => {
+      reject(new Error(message));
+    }, timeoutMs);
+
+    promise
+      .then((value) => {
+        clearTimeout(timer);
+        resolve(value);
+      })
+      .catch((error) => {
+        clearTimeout(timer);
+        reject(error);
+      });
+  });
+}
+
 /**
  * Call Azure OpenAI API
  */
@@ -127,14 +159,18 @@ async function callAzureOpenAI(
   retryCount = 0
 ): Promise<string> {
   try {
-    const response = await openai.chat.completions.create({
-      model: AZURE_OPENAI_CONFIG.deployment,
-      messages: [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: userPrompt },
-      ],
-      max_completion_tokens: AZURE_OPENAI_CONFIG.maxTokens,
-    });
+    const response = await withTimeout(
+      openai.chat.completions.create({
+        model: AZURE_OPENAI_CONFIG.deployment,
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userPrompt },
+        ],
+        max_completion_tokens: AZURE_OPENAI_CONFIG.maxTokens,
+      }),
+      REQUEST_TIMEOUT_MS,
+      `Request timed out after ${REQUEST_TIMEOUT_MS}ms`
+    );
 
     const content = response.choices[0].message.content || '';
     
@@ -145,6 +181,20 @@ async function callAzureOpenAI(
     
     return content;
   } catch (error: any) {
+    const message = String(error?.message || 'Unknown API error');
+    const isTimeout =
+      error?.name === 'AbortError' ||
+      error?.name === 'APIConnectionTimeoutError' ||
+      /timeout|timed out|aborted/i.test(message);
+
+    if (isTimeout && retryCount < AZURE_OPENAI_CONFIG.maxRetries) {
+      console.log(
+        `  API timeout after ${REQUEST_TIMEOUT_MS}ms, retrying in ${AZURE_OPENAI_CONFIG.retryDelay}ms...`
+      );
+      await sleep(AZURE_OPENAI_CONFIG.retryDelay);
+      return callAzureOpenAI(systemPrompt, userPrompt, retryCount + 1);
+    }
+
     if (error.status === 429 && retryCount < AZURE_OPENAI_CONFIG.maxRetries) {
       // Rate limit - wait and retry
       console.log(`  Rate limit hit, waiting 60s...`);
@@ -158,7 +208,7 @@ async function callAzureOpenAI(
       return callAzureOpenAI(systemPrompt, userPrompt, retryCount + 1);
     }
 
-    throw new Error(`Azure OpenAI API failed after ${retryCount} retries: ${error.message}`);
+    throw new Error(`Azure OpenAI API failed after ${retryCount} retries: ${message}`);
   }
 }
 
@@ -331,76 +381,101 @@ async function generateQuestions(
     throw new Error(`No prompt builder found for topic: ${topic.id}`);
   }
 
-  const { system, user } = promptBuilder('', difficulty, count);
-
-  // Call Azure OpenAI
-  const content = await callAzureOpenAI(system, user);
-
-  // Parse response
-  let questions: any[];
-  try {
-    questions = parseResponse(content);
-  } catch (error: any) {
-    return {
-      success: false,
-      questions: [],
-      errors: [`Failed to parse JSON: ${error.message}`],
-      retries: 0,
-    };
-  }
-
   // Process each question
   const validQuestions: GeneratedQuestion[] = [];
   const errors: string[] = [];
 
-  for (const q of questions) {
-    // Validate structure
-    const structureErrors = validateQuestionStructure(q);
-    if (structureErrors.length > 0) {
-      errors.push(`Question structure invalid: ${structureErrors.join(', ')}`);
-      continue;
-    }
+  let remaining = count;
+  while (remaining > 0) {
+    const chunkCount = Math.min(remaining, MAX_QUESTIONS_PER_API_CALL);
+    const generatedSoFar = count - remaining;
 
-    // Normalize correctAnswer
-    q.correctAnswer = normalizeCorrectAnswer(q.correctAnswer);
-
-    // Normalize LaTeX in all fields
-    q.question = normalizeLatex(q.question);
-    q.options = q.options.map((opt: string) => normalizeLatex(opt));
-    q.explanation = normalizeLatex(q.explanation);
-
-    // Build full question object
-    const generatedQuestion: GeneratedQuestion = {
-      question: q.question,
-      options: q.options,
-      correctAnswer: q.correctAnswer,
-      explanation: q.explanation,
-      moduleType: topic.moduleType,
-      category: topic.category,
-      subtopic: q.subtopic || topic.subtopics[0],
-      difficulty,
-      difficultyScore: DIFFICULTY_SCORES[difficulty],
-      passage: q.passage || null,
-      visualType: 'none',
-      wrongAnswerExplanations: q.wrongAnswerExplanations || {},
-      _batchId: batchId,
-      _generatedAt: new Date().toISOString(),
-      _promptVersion: PROMPT_VERSION,
-      _validated: false,
-      _approvalStatus: 'pending',
-    };
-
-    // Validate LaTeX
-    const latexResult = validateQuestionLatex(generatedQuestion);
-    if (!latexResult.isValid) {
-      errors.push(
-        `LaTeX validation failed: ${latexResult.invalidExpressions.map(e => `${e.location}: ${e.error}`).join('; ')}`
+    if (count > MAX_QUESTIONS_PER_API_CALL) {
+      console.log(
+        `    API chunk ${generatedSoFar + 1}-${generatedSoFar + chunkCount} of ${count} (${difficulty})`
       );
+    }
+
+    const { system, user } = promptBuilder('', difficulty, chunkCount);
+
+    let content: string;
+    try {
+      content = await callAzureOpenAI(system, user);
+    } catch (error: any) {
+      errors.push(`API call failed for ${difficulty} chunk (${chunkCount}): ${error.message}`);
+      remaining -= chunkCount;
+      if (remaining > 0) {
+        await sleep(AZURE_OPENAI_CONFIG.delayBetweenCalls);
+      }
       continue;
     }
 
-    generatedQuestion._validated = true;
-    validQuestions.push(generatedQuestion);
+    let questions: any[];
+    try {
+      questions = parseResponse(content);
+    } catch (error: any) {
+      errors.push(`Failed to parse JSON: ${error.message}`);
+      remaining -= chunkCount;
+      if (remaining > 0) {
+        await sleep(AZURE_OPENAI_CONFIG.delayBetweenCalls);
+      }
+      continue;
+    }
+
+    for (const q of questions) {
+      // Validate structure
+      const structureErrors = validateQuestionStructure(q);
+      if (structureErrors.length > 0) {
+        errors.push(`Question structure invalid: ${structureErrors.join(', ')}`);
+        continue;
+      }
+
+      // Normalize correctAnswer
+      q.correctAnswer = normalizeCorrectAnswer(q.correctAnswer);
+
+      // Normalize LaTeX in all fields
+      q.question = normalizeLatex(q.question);
+      q.options = q.options.map((opt: string) => normalizeLatex(opt));
+      q.explanation = normalizeLatex(q.explanation);
+
+      // Build full question object
+      const generatedQuestion: GeneratedQuestion = {
+        question: q.question,
+        options: q.options,
+        correctAnswer: q.correctAnswer,
+        explanation: q.explanation,
+        moduleType: topic.moduleType,
+        category: topic.category,
+        subtopic: q.subtopic || topic.subtopics[0],
+        difficulty,
+        difficultyScore: DIFFICULTY_SCORES[difficulty],
+        passage: q.passage || null,
+        visualType: 'none',
+        wrongAnswerExplanations: q.wrongAnswerExplanations || {},
+        _batchId: batchId,
+        _generatedAt: new Date().toISOString(),
+        _promptVersion: PROMPT_VERSION,
+        _validated: false,
+        _approvalStatus: 'pending',
+      };
+
+      // Validate LaTeX
+      const latexResult = validateQuestionLatex(generatedQuestion);
+      if (!latexResult.isValid) {
+        errors.push(
+          `LaTeX validation failed: ${latexResult.invalidExpressions.map(e => `${e.location}: ${e.error}`).join('; ')}`
+        );
+        continue;
+      }
+
+      generatedQuestion._validated = true;
+      validQuestions.push(generatedQuestion);
+    }
+
+    remaining -= chunkCount;
+    if (remaining > 0) {
+      await sleep(AZURE_OPENAI_CONFIG.delayBetweenCalls);
+    }
   }
 
   return {
@@ -475,6 +550,121 @@ async function generateBatch(topic: TopicConfig): Promise<BatchFile> {
 // HTML EXPORT
 // ============================================================================
 
+type RenderableQuestion = GeneratedQuestion & {
+  imageData?: Buffer | string | null;
+  imageUrl?: string | null;
+  imageMimeType?: string | null;
+  imageAlt?: string | null;
+  chartData?: unknown;
+};
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function formatForHtml(value: string | null | undefined): string {
+  if (!value) return '';
+
+  // Normalize malformed escape patterns before KaTeX render pass.
+  let normalized = normalizeLatex(value);
+  normalized = normalized
+    // Fix common malformed inline math like "$K)" or "$53.5K)" -> "$K$)" / "$53.5K$)".
+    .replace(/\$([A-Za-z0-9][A-Za-z0-9.+-]*)([)\],;:.])/g, (_m, token, punct) => `$${token}$${punct}`)
+    .replace(/\\\$/g, '$')
+    // Fix malformed inline fragments like $$\cup$$ or $$\infty)$$$.
+    .replace(/\$\$\\([A-Za-z]+)([^$]*?)\$\$\$?/g, (_m, cmd, tail) => `$\\${cmd}${tail}$`)
+    // Trim accidental excessive delimiter repeats from model output.
+    .replace(/\${3,}/g, '$$');
+
+  return escapeHtml(normalized).replace(/\r?\n/g, '<br>');
+}
+
+function renderDiagramHtml(q: RenderableQuestion): string {
+  let imageSrc = '';
+
+  if (q.imageData) {
+    const mime = q.imageMimeType || 'image/png';
+    const base64 = Buffer.isBuffer(q.imageData)
+      ? q.imageData.toString('base64')
+      : String(q.imageData);
+    imageSrc = `data:${mime};base64,${base64}`;
+  } else if (q.imageUrl) {
+    imageSrc = q.imageUrl;
+  }
+
+  const chartDataText =
+    q.chartData == null
+      ? ''
+      : typeof q.chartData === 'string'
+      ? q.chartData
+      : JSON.stringify(q.chartData, null, 2);
+
+  if (!imageSrc && !chartDataText) {
+    return '';
+  }
+
+  const safeAlt = escapeHtml(q.imageAlt || 'Question diagram');
+
+  return `
+    <div class="diagram">
+      ${imageSrc ? `<img src="${imageSrc}" alt="${safeAlt}" />` : '<div class="diagram-placeholder">Diagram metadata available</div>'}
+      ${chartDataText ? `<details class="chart-data"><summary>Chart Data</summary><pre>${escapeHtml(chartDataText)}</pre></details>` : ''}
+    </div>
+  `;
+}
+
+function renderQuestionCard(q: RenderableQuestion, i: number, includeCategory = false): string {
+  const badgeText = includeCategory
+    ? `${q.difficulty.toUpperCase()} | ${q.category}`
+    : q.difficulty.toUpperCase();
+
+  return `
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question ${i + 1}</span>
+      <span class="badge ${q.difficulty}">${badgeText}</span>
+    </div>
+    <div class="question-text">${formatForHtml(q.question)}</div>
+    ${q.passage ? `<div class="passage">${formatForHtml(q.passage)}</div>` : ''}
+    ${renderDiagramHtml(q)}
+    <ul class="options">
+      ${q.options
+        .map((opt, j) => `<li class="${j === q.correctAnswer ? 'correct' : ''}">${formatForHtml(opt)}</li>`)
+        .join('')}
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      ${formatForHtml(q.explanation)}
+    </div>
+  </div>
+`;
+}
+
+function renderMathConfigScript(): string {
+  return `
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\\\[", right: "\\\\]", display: true},
+            {left: "\\\\(", right: "\\\\)", display: false},
+            {left: "$", right: "$", display: false}
+          ],
+          throwOnError: false,
+          strict: false
+        });
+      }
+    });
+  </script>`;
+}
+
 /**
  * Export batch to standalone HTML for review
  */
@@ -504,6 +694,12 @@ async function exportBatchHTML(batch: BatchFile): Promise<void> {
     .badge.hard { background: #e2e8f0; color: #1a202c; }
     .question-text { font-size: 16px; margin: 15px 0; }
     .passage { background: #f7fafc; padding: 15px; border-left: 4px solid #4299e1; margin: 15px 0; font-size: 14px; }
+    .diagram { margin: 16px 0; text-align: center; background: #fafcff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; }
+    .diagram img { max-width: 100%; height: auto; border-radius: 4px; border: 1px solid #e5e7eb; }
+    .diagram-placeholder { color: #6b7280; font-size: 13px; }
+    .chart-data { margin-top: 8px; text-align: left; }
+    .chart-data summary { cursor: pointer; color: #334155; font-size: 13px; }
+    .chart-data pre { margin-top: 6px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 10px; font-size: 12px; overflow-x: auto; }
     .options { list-style: none; padding: 0; }
     .options li { padding: 10px; margin: 8px 0; border-radius: 4px; background: #f7fafc; }
     .options li.correct { background: #c6f6d5; border-left: 4px solid #38a169; }
@@ -514,52 +710,24 @@ async function exportBatchHTML(batch: BatchFile): Promise<void> {
 </head>
 <body>
   <div class="header">
-    <h1>${batch.batchId}</h1>
+    <h1>${escapeHtml(batch.batchId)}</h1>
     <div class="meta">
       Generated: ${new Date(batch.generatedAt).toLocaleString()} | 
-      Topic: ${batch.topic} | 
-      Module: ${batch.moduleType} | 
+      Topic: ${escapeHtml(batch.topic)} | 
+      Module: ${escapeHtml(batch.moduleType)} | 
       Valid: ${batch.totalValid}/${batch.totalGenerated}
     </div>
   </div>
 
   ${batch.questions
-    .map(
-      (q, i) => `
-  <div class="question">
-    <div class="question-header">
-      <span class="question-number">Question ${i + 1}</span>
-      <span class="badge ${q.difficulty}">${q.difficulty.toUpperCase()}</span>
-    </div>
-    <div class="question-text">${q.question}</div>
-    ${q.passage ? `<div class="passage">${q.passage}</div>` : ''}
-    <ul class="options">
-      ${q.options.map((opt, j) => `<li class="${j === q.correctAnswer ? 'correct' : ''}">${opt}</li>`).join('')}
-    </ul>
-    <div class="explanation">
-      <div class="explanation-title">Explanation:</div>
-      ${q.explanation}
-    </div>
-  </div>
-`
-    )
+    .map((q, i) => renderQuestionCard(q as RenderableQuestion, i))
     .join('')}
 
   <footer>
     <p>Review this batch and approve or reject questions before importing to the database.</p>
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        delimiters: [
-          {left: "$$", right: "$$", display: true},
-          {left: "$", right: "$", display: false}
-        ],
-        throwOnError: false
-      });
-    });
-  </script>
+  ${renderMathConfigScript()}
 </body>
 </html>`;
 
@@ -615,6 +783,12 @@ async function exportProgressHTML(): Promise<void> {
     .badge.hard { background: #e2e8f0; color: #1a202c; }
     .question-text { font-size: 16px; margin: 15px 0; }
     .passage { background: #f7fafc; padding: 15px; border-left: 4px solid #4299e1; margin: 15px 0; font-size: 14px; }
+    .diagram { margin: 16px 0; text-align: center; background: #fafcff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; }
+    .diagram img { max-width: 100%; height: auto; border-radius: 4px; border: 1px solid #e5e7eb; }
+    .diagram-placeholder { color: #6b7280; font-size: 13px; }
+    .chart-data { margin-top: 8px; text-align: left; }
+    .chart-data summary { cursor: pointer; color: #334155; font-size: 13px; }
+    .chart-data pre { margin-top: 6px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 10px; font-size: 12px; overflow-x: auto; }
     .options { list-style: none; padding: 0; }
     .options li { padding: 10px; margin: 8px 0; border-radius: 4px; background: #f7fafc; }
     .options li.correct { background: #c6f6d5; border-left: 4px solid #38a169; }
@@ -644,38 +818,10 @@ async function exportProgressHTML(): Promise<void> {
   </div>
 
   ${allQuestions
-    .map(
-      (q, i) => `
-  <div class="question">
-    <div class="question-header">
-      <span class="question-number">Question ${i + 1}</span>
-      <span class="badge ${q.difficulty}">${q.difficulty.toUpperCase()} | ${q.category}</span>
-    </div>
-    <div class="question-text">${q.question}</div>
-    ${q.passage ? `<div class="passage">${q.passage}</div>` : ''}
-    <ul class="options">
-      ${q.options.map((opt, j) => `<li class="${j === q.correctAnswer ? 'correct' : ''}">${opt}</li>`).join('')}
-    </ul>
-    <div class="explanation">
-      <div class="explanation-title">Explanation:</div>
-      ${q.explanation}
-    </div>
-  </div>
-`
-    )
+    .map((q, i) => renderQuestionCard(q as RenderableQuestion, i, true))
     .join('')}
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        delimiters: [
-          {left: "$$", right: "$$", display: true},
-          {left: "$", right: "$", display: false}
-        ],
-        throwOnError: false
-      });
-    });
-  </script>
+  ${renderMathConfigScript()}
 </body>
 </html>`;
 
@@ -798,6 +944,76 @@ async function cmdGenerateTopic(topicId: string, count?: number) {
 }
 
 /**
+ * Resolve batch JSON path from generated or approved folders
+ */
+function resolveBatchJsonPath(batchId: string): string | null {
+  const candidates = [
+    path.join(PATHS.generatedBatches, `${batchId}.json`),
+    path.join(PATHS.approved, `${batchId}.json`),
+  ];
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Command: render --batch <batchId>
+ * Rebuild batch HTML from existing JSON using the current renderer.
+ */
+async function cmdRenderBatch(batchId: string) {
+  const batchPath = resolveBatchJsonPath(batchId);
+  if (!batchPath) {
+    console.error(`❌ Batch not found: ${batchId}`);
+    process.exit(1);
+  }
+
+  const batch: BatchFile = JSON.parse(fs.readFileSync(batchPath, 'utf-8'));
+  await exportBatchHTML(batch);
+  console.log(`✅ Re-rendered batch HTML: ${batch.batchId}`);
+}
+
+/**
+ * Command: render --latest [count]
+ * Rebuild HTML for the latest generated batches.
+ */
+async function cmdRenderLatest(count = 10) {
+  if (!fs.existsSync(PATHS.generatedBatches)) {
+    console.error('❌ No generated-batches folder found');
+    process.exit(1);
+  }
+
+  const files = fs
+    .readdirSync(PATHS.generatedBatches)
+    .filter((f) => f.startsWith('batch-') && f.endsWith('.json'))
+    .map((f) => ({
+      file: f,
+      fullPath: path.join(PATHS.generatedBatches, f),
+      mtime: fs.statSync(path.join(PATHS.generatedBatches, f)).mtimeMs,
+    }))
+    .sort((a, b) => b.mtime - a.mtime)
+    .slice(0, count);
+
+  if (files.length === 0) {
+    console.error('❌ No batch JSON files found in generated-batches');
+    process.exit(1);
+  }
+
+  console.log(`\n🛠️  Re-rendering latest ${files.length} batch HTML files...`);
+
+  for (const entry of files) {
+    const batch: BatchFile = JSON.parse(fs.readFileSync(entry.fullPath, 'utf-8'));
+    await exportBatchHTML(batch);
+  }
+
+  console.log('✅ Re-render complete');
+}
+
+/**
  * Command: status
  */
 async function cmdStatus() {
@@ -896,6 +1112,23 @@ const command = args[0];
         console.error('Usage: generate --all OR generate --topic <topic> [--count <n>]');
         process.exit(1);
       }
+    } else if (command === 'render') {
+      if (args[1] === '--batch') {
+        const batchId = args[2];
+        if (!batchId) {
+          console.error('Usage: render --batch <batchId>');
+          process.exit(1);
+        }
+        await cmdRenderBatch(batchId);
+      } else if (args[1] === '--latest') {
+        const rawCount = args[2];
+        const parsed = rawCount ? parseInt(rawCount, 10) : 10;
+        const count = Number.isFinite(parsed) && parsed > 0 ? parsed : 10;
+        await cmdRenderLatest(count);
+      } else {
+        console.error('Usage: render --batch <batchId> OR render --latest [count]');
+        process.exit(1);
+      }
     } else if (command === 'status') {
       await cmdStatus();
     } else if (command === 'approve') {
@@ -910,6 +1143,8 @@ const command = args[0];
       console.log('Commands:');
       console.log('  generate --all                          Generate all 371 questions');
       console.log('  generate --topic <topic> [--count <n>]  Generate batch for topic');
+      console.log('  render --batch <batchId>                Re-render one batch HTML from JSON');
+      console.log('  render --latest [count]                 Re-render latest batch HTML files');
       console.log('  status                                  Show progress');
       console.log('  approve --batch <batchId>               Approve a batch');
       process.exit(1);

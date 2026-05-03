@@ -1,0 +1,155 @@
+{
+  "batchId": "batch-1777331024589-statistics",
+  "topic": "statistics",
+  "moduleType": "math",
+  "generatedAt": "2026-04-27T23:08:14.766Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 5,
+  "totalGenerated": 5,
+  "totalValid": 5,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "In a survey of $200$ students, $120$ prefer coffee, $60$ prefer tea, and $20$ prefer water. What is the ratio of the number of students who prefer coffee to the number who prefer tea?",
+      "options": [
+        "A) $2:1$",
+        "B) $1:2$",
+        "C) $2:3$",
+        "D) $3:1$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Count coffee = 120, tea = 60. The ratio coffee:tea is $120:60$, which simplifies to $2:1$ since $120 \\div 60 = 2$. Therefore the correct ratio is $2:1$.",
+      "moduleType": "math",
+      "category": "problem-solving-data-analysis",
+      "subtopic": "ratio/proportion",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B is incorrect because it reverses the ratio order; the ratio should be coffee:tea, not tea:coffee.",
+        "C": "C is incorrect because $2:3$ would imply tea is 1.5 times coffee, which does not match the given counts.",
+        "D": "D is incorrect because $3:1$ would imply coffee is three times tea, which is not true for 120 vs 60."
+      },
+      "_batchId": "batch-1777331024589-statistics",
+      "_generatedAt": "2026-04-27T23:05:41.753Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a poll of $80$ voters, $30$ support candidate A, $25$ support candidate B, and $25$ are undecided. What is the probability that a randomly selected voter supports A or B?",
+      "options": [
+        "A) $11/16$",
+        "B) $0.70$",
+        "C) $0.625$",
+        "D) $0.50$"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Let $P(A \\\\cup B) = \\frac{30+25}{80} = \\frac{55}{80} = \\frac{11}{16} = 0.6875$.",
+      "moduleType": "math",
+      "category": "problem-solving-data-analysis",
+      "subtopic": "probability",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B is incorrect because it rounds the exact value 0.6875 to one decimal place; the exact probability is 11/16 ≈ 0.6875.",
+        "C": "C is incorrect because 0.625 corresponds to 50 favorable out of 80; it ignores the 55 voters who support A or B.",
+        "D": "D is incorrect because 0.50 would require 40 favorable voters out of 80."
+      },
+      "_batchId": "batch-1777331024589-statistics",
+      "_generatedAt": "2026-04-27T23:05:41.765Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A dataset of eight quiz scores: 62, 75, 80, 85, 90, 92, 95, 100. If another student scores 70, what is the mean of the nine scores?",
+      "options": [
+        "A) 83.22",
+        "B) 84.88",
+        "C) 85.50",
+        "D) 83.00"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Sum of original eight scores is $62 + 75 + 80 + 85 + 90 + 92 + 95 + 100 = 679$. Step 2: Original mean is $\\frac{679}{8} = 84.875$. Step 3: After adding 70, new total is $679 + 70 = 749$ and new count is $9$, so the new mean is $\\frac{749}{9} \\approx 83.222\\\\!\\overline{2}$. Therefore the nine-score mean is approximately $83.22$.",
+      "moduleType": "math",
+      "category": "problem-solving-data-analysis",
+      "subtopic": "mean-median-mode",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "84.88 is the original mean, not the mean after adding the new score; recompute using the nine scores to see the correct result.",
+        "C": "85.50 is greater than the original mean; adding a score below the original mean should decrease the overall mean.",
+        "D": "83.00 rounds down to 2 decimals and is not the correct rounded value for the nine-score mean."
+      },
+      "_batchId": "batch-1777331024589-statistics",
+      "_generatedAt": "2026-04-27T23:08:10.029Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "In a class of 200 students, 120 prefer coffee. Suppose two students are selected at random with replacement. What is the probability that both prefer coffee?",
+      "options": [
+        "A) 0.36 (36%)",
+        "B) 0.18 (18%)",
+        "C) 0.12 (12%)",
+        "D) 0.64 (64%)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Step 1: Probability a randomly chosen student prefers coffee is $\\frac{120}{200} = 0.60$. Step 2: Since selection is with replacement, the two draws are independent, so $P(\"both\\\\ coffee\") = 0.60 \\times 0.60 = 0.36$. Step 3: Expressed as a percent, that's 36%.",
+      "moduleType": "math",
+      "category": "problem-solving-data-analysis",
+      "subtopic": "probability",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "0.18 would result if you multiplied 0.60 by 0.30, i.e., using the probability of drinking not coffee for the second draw by mistake.",
+        "C": "0.12 would come from multiplying 0.60 by 0.20 or confusing the complement in two steps.",
+        "D": "0.64 would come from taking the complement of 0.36, i.e., thinking the event is 'not both coffee' rather than 'both coffee'."
+      },
+      "_batchId": "batch-1777331024589-statistics",
+      "_generatedAt": "2026-04-27T23:08:10.031Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A scatter plot of study hours (x) versus exam score (y) has a line of best fit approximated by $y = 3x + 40$. A student studied 7 hours and scored 70. What is the residual (actual minus predicted) for this student?",
+      "options": [
+        "A) -9",
+        "B) 9",
+        "C) 49",
+        "D) 61"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Step 1: Predicted score for x = 7 is $\\hat{y} = 3(7) + 40 = 21 + 40 = 61$. Step 2: Residual = actual - predicted = $70 - 61 = 9$. Answer is 9, a positive residual indicating the actual score is higher than predicted by the line of best fit.",
+      "moduleType": "math",
+      "category": "problem-solving-data-analysis",
+      "subtopic": "scatter-plots",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Residual is not -9; that would happen if you computed predicted minus actual.",
+        "C": "49 would result if you used predicted value 21 (ignoring the intercept) and computed $70 - 21 = 49$.",
+        "D": "61 would be the predicted value itself, not the residual (actual minus predicted)."
+      },
+      "_batchId": "batch-1777331024589-statistics",
+      "_generatedAt": "2026-04-27T23:08:10.033Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

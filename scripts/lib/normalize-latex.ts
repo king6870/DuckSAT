@@ -45,6 +45,13 @@ const LATEX_COMMANDS = [
   
   // Relations
   'leq', 'geq', 'neq', 'approx', 'equiv', 'propto',
+
+  // Logic and set relations
+  'Rightarrow', 'Leftarrow', 'Leftrightarrow',
+  'rightarrow', 'leftarrow', 'leftrightarrow', 'to',
+  'implies', 'iff', 'cup', 'cap', 'setminus',
+  'subset', 'subseteq', 'supset', 'supseteq', 'in', 'notin',
+  'forall', 'exists',
   
   // Calculus
   'infty', 'sum', 'prod', 'int', 'lim', 'partial',
@@ -484,7 +491,7 @@ export function validateLatex(text: string): ValidationResult {
       });
     }
     
-    // Check 2: No double backslashes before commands
+    // Check 2: No double backslashes before known LaTeX commands
     for (const cmd of LATEX_COMMANDS) {
       const doubleBackslashRegex = new RegExp(`\\\\{2,}${cmd}\\b`);
       if (doubleBackslashRegex.test(text)) {

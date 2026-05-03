@@ -1,0 +1,156 @@
+{
+  "batchId": "batch-1777332809155-grammar",
+  "topic": "grammar",
+  "moduleType": "reading-writing",
+  "generatedAt": "2026-04-27T23:35:33.537Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 5,
+  "totalGenerated": 5,
+  "totalValid": 5,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) include",
+        "B) includes",
+        "C) including",
+        "D) included"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The sentence has a singular subject: 'A team of researchers' is treated as a single unit. Therefore the verb must be singular: 'includes.' The option 'include' would mismatch the subject, 'including' is a participial form not a finite verb, and 'included' is past tense/passive in this context.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "subject-verb-agreement",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Longitudinal studies in regional climate science have produced a wealth of data that researchers use to model patterns over time. A team of researchers [include] data from multiple sites, including coastal stations and inland observatories. The lead analyst notes that the dataset demonstrates greater variation in spring temperatures than in winter, a finding that has implications for agricultural planning. Because the samples come from diverse environments, the methods section emphasizes standardized procedures and transparent documentation so that other scientists can replicate results. The report also highlights the importance of cross-checking measurements with independent sensors, a step that helps ensure reliability even when one source yields anomalous readings. In all, the study aims to present a clear, cautious assessment of climate signals that could inform policy without overstating certainty. Scholars note that the design of the sampling strategy reduces bias and increases comparability across sites. By publishing data in an open format, the team invites independent validation and discussion within the scientific community.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "include is plural in form, which mismatches the singular subject 'A team of researchers'.",
+        "C": "including is a participle, not the finite verb needed after the singular subject.",
+        "D": "included is past participle; it does not provide the present tense singular verb required here."
+      },
+      "_batchId": "batch-1777332809155-grammar",
+      "_generatedAt": "2026-04-27T23:34:31.681Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) :",
+        "B) ;",
+        "C) ,",
+        "D) -"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Colon is used to introduce a list or elaboration that follows. In this sentence, the colon properly introduces the list of priorities. A semicolon would incorrectly link unrelated clauses, a comma would not adequately introduce the list, and a dash would create an abrupt, informal break rather than a standard introduction.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "punctuation",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": "Within the annual budget report, the committee lists three priorities [:] to expand access, to improve data quality, and to train staff. The plan is concise and easy to follow, and board members appreciate the clear structure. However, some attendees argue that the list would benefit from additional bullets describing timelines and responsibilities; others caution against overloading the document with too many details in a single page. The minutes record that the chair affirms this approach, promising to publish monthly updates as milestones are achieved. In sum, the report aims to guide action while avoiding clutter, and the formatting is designed to remain legible for a broad audience. These choices in wording emphasize accessibility, so stakeholders without technical backgrounds can interpret the goals. A brief glossary follows the main text, defining terms such as equity, efficiency, and transparency. The closing paragraph reiterates that regular review will ensure accountability and timely adjustments.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "B": "A semicolon would incorrectly join two independent parts of the sentence without a proper preceding independent clause.",
+        "C": "A comma does not correctly introduce the list that follows; it creates a weaker separation.",
+        "D": "A dash is too informal for this formatted, formal document and does not properly introduce the list."
+      },
+      "_batchId": "batch-1777332809155-grammar",
+      "_generatedAt": "2026-04-27T23:34:31.686Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) are",
+        "B) is",
+        "C) was",
+        "D) am"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Subject-verb agreement requires a plural subject 'The committee members' to take a plural verb. 'Are' matches in number, so it correctly completes the sentence. 'Is', 'was', and 'am' do not agree with the plural subject, creating a mismatch.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "subject-verb-agreement",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "During the annual review, the committee publishes a concise summary of findings. The committee members [_____] expected to present their recommendations at the council meeting, and the chair emphasized that every point would be supported by data. The staff, meanwhile, prepared slides and compiled a list of stakeholder questions to anticipate. The plan aims to ensure a clear understanding among city officials and residents alike, and the room's acoustics urged speakers to pace their remarks. The timeline remains tight but feasible.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "Incorrect because 'is' is singular and does not agree with the plural subject 'members'.",
+        "C": "Incorrect because 'was' is past tense and singular, not aligning with the present tense context and plural subject.",
+        "D": "Incorrect because 'am' is first-person singular; it does not agree with the third-person plural subject."
+      },
+      "_batchId": "batch-1777332809155-grammar",
+      "_generatedAt": "2026-04-27T23:35:29.868Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) his or her",
+        "B) their",
+        "C) its",
+        "D) him or her"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Each participant is a singular antecedent, so a singular gender-specific pronoun is required; 'his or her' is the conventional pair to match singular 'participant'. 'Their' is plural and would mismatch; 'its' would refer to an object; 'him or her' is awkward and less formal.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "pronoun-clarity",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "Researchers conducted a long-term study on urban mobility. After collecting surveys from participants in several districts, the team prepared a brief report. Each participant completed [_____] questionnaire on travel attitudes before the deadline, and the data were coded for privacy. Although the researchers stressed the importance of accuracy, some readers questioned the wording in the report, arguing that pronouns and antecedents should be stated clearly. The editors suggested a few revisions to avoid ambiguity in future editions.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B uses a plural pronoun for a singular antecedent ('participant'), causing pronoun-antecedent disagreement.",
+        "C": "C uses 'its' which would misattribute the pronoun to an object or inanimate antecedent; not appropriate for a person.",
+        "D": "D uses an awkward alternative with 'him or her' and gendered form; while not incorrect, it is less formal and not the standard matching singular antecedent here."
+      },
+      "_batchId": "batch-1777332809155-grammar",
+      "_generatedAt": "2026-04-27T23:35:29.869Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+      "options": [
+        "A) :",
+        "B) ;",
+        "C) ,",
+        "D) —"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A colon correctly introduces the list following the phrase 'three key goals,' making the sentence grammatically and stylistically sound; the other marks (semicolon, comma, dash) would not properly introduce the list in this context.",
+      "moduleType": "reading-writing",
+      "category": "grammar",
+      "subtopic": "punctuation",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": "During the quarterly briefing, analysts highlighted three primary goals. The sentence reads: The committee identified three key goals [_____ ] reduce emissions, increase efficiency, and expand access. Stakeholders listened as the presenter explained how progress would be tracked, and the team noted that clear punctuation would help readers follow the plan.",
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "",
+        "B": "B is a semicolon, which cannot correctly join the preceding clause to the list that follows—it's not the standard choice for listing.",
+        "C": "C is a comma; a comma by itself cannot precede a multi-item list after an introductory phrase.",
+        "D": "D is an em dash; while it can set off a break, it is not the conventional choice to introduce a list after this lead-in."
+      },
+      "_batchId": "batch-1777332809155-grammar",
+      "_generatedAt": "2026-04-27T23:35:29.871Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

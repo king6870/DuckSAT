@@ -2,7 +2,9 @@
  * Export ALL questions from the database into a single interactive HTML file.
  * Includes diagrams (imageData), chart data, and all question metadata.
  * 
- * Usage: npx tsx scripts/export-generated-questions-html.ts
+ * Usage:
+ *   npx tsx scripts/export-generated-questions-html.ts
+ *   npx tsx scripts/export-generated-questions-html.ts --source "SAT Generator QG800" --limit 55 --output public/review/latest-qg800-55.html
  * Output: all-generated-questions.html (project root)
  */
 
@@ -12,9 +14,24 @@ dotenv.config({ path: '.env.local' });
 import fs from 'fs';
 import path from 'path';
 import { PrismaClient } from '@prisma/client';
+import { normalizeLatex } from './lib/normalize-latex';
 
 const prisma = new PrismaClient();
-const OUTPUT_FILE = path.join(__dirname, '..', 'all-generated-questions.html');
+const DEFAULT_OUTPUT_FILE = path.join(__dirname, '..', 'all-generated-questions.html');
+
+function getArgValue(flag: string): string | undefined {
+  const args = process.argv.slice(2);
+  const idx = args.indexOf(flag);
+  if (idx < 0 || idx + 1 >= args.length) return undefined;
+  return args[idx + 1];
+}
+
+function parsePositiveInt(value: string | undefined): number | undefined {
+  if (!value) return undefined;
+  const parsed = Number.parseInt(value, 10);
+  if (!Number.isFinite(parsed) || parsed <= 0) return undefined;
+  return parsed;
+}
 
 interface QRow {
   id: string;
@@ -40,11 +57,52 @@ function esc(str: string): string {
   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+function normalizeForRender(value: string): string {
+  let normalized = normalizeLatex(value);
+
+  normalized = normalized
+    // Fix common malformed inline math like "$K)" or "$53.5K)" -> "$K$)" / "$53.5K$)".
+    .replace(/\$([A-Za-z0-9][A-Za-z0-9.+-]*)([)\],;:.])/g, (_m, token, punct) => `$${token}$${punct}`)
+    .replace(/\\\$/g, '$')
+    .replace(/\$\$\\([A-Za-z]+)([^$]*?)\$\$\$?/g, (_m, cmd, tail) => `$\\${cmd}${tail}$`)
+    .replace(/\${3,}/g, '$$')
+    .replace(/(\$[^$]+)\$\$(?=[^$]|$)/g, '$1$')
+    .replace(/\\\\([A-Za-z]+)/g, '\\$1');
+
+  return normalized;
+}
+
+function formatText(value: string | null | undefined): string {
+  if (!value) return '';
+  return esc(normalizeForRender(value)).replace(/\r?\n/g, '<br>');
+}
+
 async function main() {
+  const sourceFilter = getArgValue('--source');
+  const limit = parsePositiveInt(getArgValue('--limit'));
+  const outputArg = getArgValue('--output');
+  const outputFile = outputArg ? path.resolve(process.cwd(), outputArg) : DEFAULT_OUTPUT_FILE;
+
   console.log('📤 Querying all questions from database...');
+  if (sourceFilter) {
+    console.log(`   Filter source: ${sourceFilter}`);
+  }
+  if (limit) {
+    console.log(`   Limit: ${limit}`);
+  }
+
+  const whereClause = sourceFilter
+    ? { isActive: true, source: sourceFilter }
+    : { isActive: true };
+
+  const orderByClause = limit
+    ? [{ createdAt: 'desc' as const }]
+    : [{ category: 'asc' as const }, { difficulty: 'asc' as const }];
+
   const rows = await prisma.question.findMany({
-    where: { isActive: true },
-    orderBy: [{ category: 'asc' }, { difficulty: 'asc' }],
+    where: whereClause,
+    orderBy: orderByClause,
+    take: limit,
     select: {
       id: true, question: true, passage: true, options: true,
       correctAnswer: true, explanation: true, wrongAnswerExplanations: true,
@@ -112,14 +170,14 @@ async function main() {
     return byCategory[cat].map((q, i) => {
       const options = getOptions(q);
       const opts = options.map((o, oi) =>
-        `<li class="${oi === q.correctAnswer ? 'correct' : ''}">${esc(String(o))}${oi === q.correctAnswer ? ' ✓' : ''}</li>`
+        `<li class="${oi === q.correctAnswer ? 'correct' : ''}">${formatText(String(o))}${oi === q.correctAnswer ? ' ✓' : ''}</li>`
       ).join('\n');
 
       const we = getWrongExpl(q);
       const wrongHtml = we
         ? Object.entries(we)
             .filter(([, v]) => v?.trim())
-            .map(([k, v]) => `<div class="wrong-expl"><strong>${esc(k)})</strong> ${esc(v)}</div>`)
+            .map(([k, v]) => `<div class="wrong-expl"><strong>${esc(k)})</strong> ${formatText(v)}</div>`)
             .join('\n')
         : '';
 
@@ -144,14 +202,14 @@ async function main() {
     ${hasDiagram ? '<span class="pill diagram-pill">📐 Diagram</span>' : ''}
     ${q.source ? `<span class="pill batch">${esc(q.source)}</span>` : ''}
   </div>
-  ${q.passage ? `<div class="passage">${esc(q.passage)}</div>` : ''}
+  ${q.passage ? `<div class="passage">${formatText(q.passage)}</div>` : ''}
   ${imgHtml}
   ${chartHtml}
-  <div class="q-text">${esc(q.question)}</div>
+  <div class="q-text">${formatText(q.question)}</div>
   <ul class="options">${opts}</ul>
   <button class="explain-toggle" onclick="toggleExpl(this)">Show Explanation</button>
   <div class="explanation">
-    <strong>Explanation:</strong> ${esc(q.explanation || 'No explanation available.')}
+    <strong>Explanation:</strong> ${formatText(q.explanation || 'No explanation available.')}
     ${wrongHtml}
   </div>
 </div>`;
@@ -298,9 +356,10 @@ document.addEventListener("DOMContentLoaded",function(){if(typeof renderMathInEl
 </body>
 </html>`;
 
-  fs.writeFileSync(OUTPUT_FILE, html, 'utf-8');
+  fs.mkdirSync(path.dirname(outputFile), { recursive: true });
+  fs.writeFileSync(outputFile, html, 'utf-8');
   console.log(`✅ Exported ${allQ.length} questions (${diagramN} with diagrams)`);
-  console.log(`   File: ${OUTPUT_FILE}`);
+  console.log(`   File: ${outputFile}`);
   console.log(`\n📊 By Category:`);
   for (const cat of sortedCats) {
     const diagInCat = byCategory[cat].filter(q => q.imageData || q.chartData).length;

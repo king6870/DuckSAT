@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review: batch-1777346109989-statistics</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+  <style>
+    body { font-family: Georgia, serif; max-width: 900px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
+    .header { background: #f0f4f8; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+    .header h1 { margin: 0 0 10px; color: #1a365d; }
+    .header .meta { color: #4a5568; font-size: 14px; }
+    .question { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 25px; margin-bottom: 25px; }
+    .question-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
+    .question-number { font-weight: bold; font-size: 18px; color: #2d3748; }
+    .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+    .badge.easy { background: #c6f6d5; color: #22543d; }
+    .badge.medium { background: #fed7d7; color: #742a2a; }
+    .badge.hard { background: #e2e8f0; color: #1a202c; }
+    .question-text { font-size: 16px; margin: 15px 0; }
+    .passage { background: #f7fafc; padding: 15px; border-left: 4px solid #4299e1; margin: 15px 0; font-size: 14px; }
+    .diagram { margin: 16px 0; text-align: center; background: #fafcff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; }
+    .diagram img { max-width: 100%; height: auto; border-radius: 4px; border: 1px solid #e5e7eb; }
+    .diagram-placeholder { color: #6b7280; font-size: 13px; }
+    .chart-data { margin-top: 8px; text-align: left; }
+    .chart-data summary { cursor: pointer; color: #334155; font-size: 13px; }
+    .chart-data pre { margin-top: 6px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 10px; font-size: 12px; overflow-x: auto; }
+    .options { list-style: none; padding: 0; }
+    .options li { padding: 10px; margin: 8px 0; border-radius: 4px; background: #f7fafc; }
+    .options li.correct { background: #c6f6d5; border-left: 4px solid #38a169; }
+    .explanation { background: #fffaf0; padding: 15px; border-left: 4px solid #ed8936; margin-top: 15px; }
+    .explanation-title { font-weight: bold; color: #7c2d12; margin-bottom: 8px; }
+    footer { text-align: center; padding: 40px 0; color: #718096; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>batch-1777346109989-statistics</h1>
+    <div class="meta">
+      Generated: 4/27/2026, 8:20:18 PM | 
+      Topic: statistics | 
+      Module: math | 
+      Valid: 50/50
+    </div>
+  </div>
+
+  
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 1</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">A survey of 8 students reported the numbers of hours they studied last week: 2, 3, 4, 2, 5, 3, 4, 3. What is the mean study hours?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 3</li><li class="correct">B) 3.25</li><li class="">C) 3.5</li><li class="">D) 4</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Compute the sum: $2+3+4+2+5+3+4+3 = 26$. The mean is the sum divided by the count: $26/8 = 3.25$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 2</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">A data set has values 1, 2, 2, 3, 4, 100. What is the median?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 2</li><li class="correct">B) 2.5</li><li class="">C) 3</li><li class="">D) 4</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Sort the data: 1, 2, 2, 3, 4, 100. With 6 values (even n), the median is the average of the 3rd and 4th values: $(2+3)/2 = 2.5$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 3</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">A class has sections with 20 students scoring 85, 15 students scoring 80, and 25 students scoring 90. What is the class average score?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 85.0</li><li class="correct">B) 85.83</li><li class="">C) 86.5</li><li class="">D) 87.0</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Total score = $20\times 85 + 15\times 80 + 25\times 90 = 5150$. Total students = 60. Weighted mean = $5150/60 = 85.83$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 4</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">A bag contains 3 red, 2 blue, and 5 green balls. One ball drawn at random. What is the probability of drawing a red or blue ball?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 1/5</li><li class="correct">B) 1/2</li><li class="">C) 3/5</li><li class="">D) 2/5</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Number of favorable outcomes = red or blue = $3+2 = 5$. Total outcomes = 10. Probability = $5/10 = 1/2$. 
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 5</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">Two fair coins are flipped. What is the probability of getting at least one head?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 1/4</li><li class="">B) 1/2</li><li class="correct">C) 3/4</li><li class="">D) 1</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Probability of no heads (both tails) is $(1/2)^2 = 1/4$. Therefore, at least one head is $1 - 1/4 = 3/4$. 
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 6</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">A scatter plot described by points (1,2), (2,3), (3,5), (4,7) shows a pattern. Which statement best describes the correlation?</div>
+    
+    
+    <ul class="options">
+      <li class="correct">A) Strong positive correlation</li><li class="">B) Weak positive correlation</li><li class="">C) Negative correlation</li><li class="">D) No correlation</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      As x increases from 1 to 4, y increases from 2 to 7; the points lie along a rising pattern, indicating a positive correlation. The trend appears fairly strong given the consistent upward pattern.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 7</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">A town recorded the number of residents for three years: 12,000 in 2018, 13,000 in 2019, and 14,000 in 2020. What is the percent increase from 2018 to 2020?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 8.33%</li><li class="correct">B) 16.7%</li><li class="">C) 20%</li><li class="">D) 25%</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Percent increase from 2018 to 2020 = $(14{,}000 - 12{,}000)/12{,}000 = 2{,}000/12{,}000 = 1/6 \approx 16.7\\%$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 8</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">Two data sets have the following values: A) 2, 2, 3, 3, 4 and B) 2, 2, 2, 2, 8. Which data set has the larger standard deviation?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) A</li><li class="correct">B) B</li><li class="">C) Both have the same</li><li class="">D) Cannot determine</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Set A is tightly clustered around the mean, while set B has an outlier 8 that increases spread; thus, set B has the larger standard deviation.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 9</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">In a class, the ratio of boys to girls is 3:2. If there are 20 students total, how many are boys?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 8</li><li class="correct">B) 12</li><li class="">C) 14</li><li class="">D) 16</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Total parts = 3 + 2 = 5. Boys correspond to 3/5 of the students: $20 \times \frac{3}{5} = 12$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 10</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">The data set is 10, 12, 14. If you add 100 to every value, which statement about the mean is true?</div>
+    
+    
+    <ul class="options">
+      <li class="correct">A) The mean increases by 2, SD unchanged</li><li class="">B) The mean unchanged, SD increases</li><li class="">C) Both increase</li><li class="">D) The mean increases by 2 and SD increases</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Adding a constant to every value shifts the mean by that constant, but it does not affect the spread, so the standard deviation remains the same.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 11</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">During a 7-day week, daily customers were: 50, 60, 55, 70, 90, 65, 80. What is the median daily customers?</div>
+    
+    
+    <ul class="options">
+      <li class="correct">A) 65</li><li class="">B) 60</li><li class="">C) 70</li><li class="">D) 75</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Sort the data: 50, 55, 60, 65, 70, 80, 90. The middle value (4th) is 65, so the median is 65.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 12</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">A fair six-sided die is rolled twice. What is the probability of getting at least one 6?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 1/6</li><li class="">B) 5/36</li><li class="correct">C) 11/36</li><li class="">D) 1/2</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Probability of no 6 in two rolls is $(5/6)^2 = 25/36$. Therefore, probability of at least one 6 is $1 - 25/36 = 11/36$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 13</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">In the data set 1, 2, 2, 3, 4, 4, 4, 5, which value occurs most often?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 2</li><li class="correct">B) 4</li><li class="">C) 3</li><li class="">D) 5</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      The number 4 appears three times, more than any other value, so it is the mode.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 14</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">Data set 3, 5, 7, 9. If you add 2 to every value, which statement about the mean and standard deviation is true?</div>
+    
+    
+    <ul class="options">
+      <li class="correct">A) Mean increases by 2 and SD unchanged</li><li class="">B) Mean unchanged, SD increases</li><li class="">C) Both increase</li><li class="">D) Mean increases by 2 and SD increases</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Adding a constant to every value increases the mean by that constant (2), and the spread (SD) remains unchanged since all values shift equally.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 15</span>
+      <span class="badge easy">EASY</span>
+    </div>
+    <div class="question-text">The quarterly revenue (in thousands) for a company over four quarters is 20, 22, 25, 30. What is the percent increase from Q1 to Q4?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 25%</li><li class="correct">B) 50%</li><li class="">C) 60%</li><li class="">D) 100%</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Percent increase from Q1 to Q4 = $(30-20)/20 = 10/20 = 0.5 = 50\\%$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 16</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">A quiz scores: 72, 85, 90, 85, 72, 60. The mean score is closest to which value?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 70</li><li class="correct">B) 77.33</li><li class="">C) 80</li><li class="">D) 85</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Compute the sum: $72 + 85 + 90 + 85 + 72 + 60 = 464$. The mean is $\frac{464}{6} = 77.333\\ldots \approx 77.33$. Therefore the closest value is 77.33.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 17</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">In the data set {3, 7, 8, 5, 12, 7, 9}, what is the median?</div>
+    
+    
+    <ul class="options">
+      <li class="correct">A) 7</li><li class="">B) 7.5</li><li class="">C) 8</li><li class="">D) 9</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Sort the data: 3, 5, 7, 7, 8, 9, 12. The middle value (4th of 7 numbers) is 7, so the median is 7.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 18</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Two sections of a class: section A has 60 students with an average score of 80; section B has 40 students with an average score of 72. What is the overall class average?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 76.0</li><li class="correct">B) 76.8</li><li class="">C) 77.5</li><li class="">D) 78.4</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Total students = 60 + 40 = 100. Overall mean = $\frac{60\cdot 80 + 40\cdot 72}{100} = \frac{4800 + 2880}{100} = \frac{7680}{100} = 76.8$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 19</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">A data set {5, 7, 7, 8, 10} has a mean of 7.4. If we remove the value 10, what is the new mean?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 6.5</li><li class="correct">B) 6.75</li><li class="">C) 7.0</li><li class="">D) 7.25</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Original sum = 5 + 7 + 7 + 8 + 10 = 37; mean = 37/5 = 7.4. After removing 10, new sum = 27 and new n = 4, so new mean = 27/4 = 6.75.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 20</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Consider the data set {4, 4, 6, 6, 6, 9}. Which value is the mode?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 4</li><li class="correct">B) 6</li><li class="">C) 9</li><li class="">D) There is no mode</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Frequencies: 4 occurs 2 times, 6 occurs 3 times, 9 occurs 1 time. The most frequent value is 6, so the mode is 6.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 21</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">A fair six-sided die is rolled. The probability of rolling a 2 or a 5 is which of the following?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 1/6</li><li class="correct">B) 1/3</li><li class="">C) 1/2</li><li class="">D) 2/3</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Favorable outcomes: {2, 5} = 2 outcomes out of 6. Probability = $\frac{2}{6} = \frac{1}{3}$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 22</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Two fair coins are flipped. What is the probability that at least one head appears?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 1/2</li><li class="correct">B) 3/4</li><li class="">C) 1/3</li><li class="">D) 1</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Possible outcomes: HH, HT, TH, TT. At least one head occurs in HH, HT, TH = 3 outcomes out of 4, so probability = $\frac{3}{4}$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 23</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">A bag contains 3 red, 2 blue, and 5 green marbles. If one marble is drawn at random, what is the probability that the marble is not blue?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 1/2</li><li class="correct">B) 4/5</li><li class="">C) 3/5</li><li class="">D) 2/5</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Not blue means red or green: 3 + 5 = 8 favorable outcomes out of 10 total, so probability = $\frac{8}{10} = \frac{4}{5}$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 24</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">From a class, events A and B occur with P(A)=0.7, P(B)=0.5, and P(A and B)=0.35. What is P(A or B)?</div>
+    
+    
+    <ul class="options">
+      <li class="correct">A) 0.85</li><li class="">B) 0.75</li><li class="">C) 0.95</li><li class="">D) 1.00</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Use inclusion-exclusion: $P(A\cup B) = P(A) + P(B) - P(A\cap B) = 0.7 + 0.5 - 0.35 = 0.85$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 25</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">A fair spinner divides into 6 equal sectors: 3 red, 1 blue, 2 green. What is the probability of landing on red or blue?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 1/3</li><li class="correct">B) 2/3</li><li class="">C) 1/2</li><li class="">D) 5/6</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Red or blue sectors total = 3 + 1 = 4 out of 6 sectors. Probability = $\frac{4}{6} = \frac{2}{3}$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 26</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">The scatter plot described shows a positive, roughly linear pattern with points close to a straight line. Which statement best describes the relationship?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) Negative correlation</li><li class="correct">B) Positive correlation</li><li class="">C) No correlation</li><li class="">D) Perfect correlation</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      A positive, roughly linear pattern indicates a positive correlation (values tend to rise together). The closer the points are to a line, the stronger the correlation.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 27</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">If a line of best fit has a positive slope, what does a 1-unit increase in x imply about y?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) Predicted y decreases by the slope value</li><li class="correct">B) Predicted y increases by the slope value</li><li class="">C) The slope equals the correlation coefficient</li><li class="">D) The intercept equals the correlation</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      A positive slope m means that for each 1-unit increase in x, the predicted y increases by m units. The slope is not the correlation coefficient, and the intercept is not the correlation.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 28</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">An outlier far above the trend line in a scatter plot typically affects which of the following most directly?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) The sign of the correlation</li><li class="correct">B) The magnitude of the correlation</li><li class="">C) The intercept only</li><li class="">D) The slope only</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      An outlier can distort the linear relationship and typically reduces the magnitude of the correlation coefficient, especially if it is far from the main cluster.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 29</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Which statement about the line of best fit and residuals is true?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) The line minimizes the sum of absolute residuals</li><li class="correct">B) The line minimizes the sum of squared residuals</li><li class="">C) The line maximizes residuals</li><li class="">D) The line passes through all data points</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      The least-squares line minimizes the sum of squared residuals. It does not generally pass through all points, and it does not minimize absolute residuals in general.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 30</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Which statement is true about correlation and causation?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) High correlation implies causation</li><li class="">B) Correlation proves causation</li><li class="correct">C) Correlation does not imply causation</li><li class="">D) Causation is always accompanied by correlation</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Correlation describes a relationship between two variables, but it does not prove that one causes the other. Other factors could explain the association.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 31</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">A town’s population grows from 12,000 to 14,400 in one year. What is the percent increase?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 10%</li><li class="correct">B) 20%</li><li class="">C) 15%</li><li class="">D) 25%</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Percent increase = $\frac{14{,}400 - 12{,}000}{12{,}000} = \frac{2{,}400}{12{,}000} = 0.20 = 20\\%$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 32</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">From January to April, a store’s sales go 100, 120, 144, 126 units respectively. What is the percent change from January to April?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 10%</li><li class="">B) 20%</li><li class="correct">C) 26%</li><li class="">D) 28%</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Percent change = $\frac{126 - 100}{100} = \frac{26}{100} = 0.26 = 26\\%$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 33</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">A city’s population grows by 10% each year. This growth pattern is best described as which type of growth?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) Linear growth</li><li class="correct">B) Exponential (geometric) growth</li><li class="">C) Polynomial growth</li><li class="">D) Arithmetic growth</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      A constant percent increase per period yields geometric (exponential) growth.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 34</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">A dataset of five values has mean 8 and median 7. Which statement is most likely true about its distribution?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) The data are left-skewed</li><li class="correct">B) The data are right-skewed</li><li class="">C) The data are symmetric</li><li class="">D) The data are bimodal</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      When the mean exceeds the median, the distribution is typically right-skewed (higher values pull the mean to the right).
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 35</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">The sequence 2, 4, 8, 16, 32 represents which type of growth?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) Arithmetic progression</li><li class="correct">B) Geometric progression</li><li class="">C) Quadratic sequence</li><li class="">D) Exponential growth</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Each term is multiplied by 2 to get the next term, so this is a geometric progression with common ratio 2.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 36</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Which statement about adding a constant to every data point versus multiplying by a constant is true for standard deviation?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) Adding a constant changes SD, multiplying by a constant does not</li><li class="correct">B) Adding a constant does not change SD, multiplying by a constant scales SD by the absolute value</li><li class="">C) Both operations leave SD unchanged</li><li class="">D) Both operations double SD</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Adding a constant shifts the data without changing spread; SD remains the same. Multiplying by k scales spread by |k|, so SD becomes |k| times the original SD.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 37</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Which of the following statements describes standard deviation correctly when all data points are increased by a constant c?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) SD increases by c</li><li class="">B) SD decreases by c</li><li class="correct">C) SD remains unchanged</li><li class="">D) SD becomes undefined</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Adding a constant shifts all data by the same amount and does not affect the spread; hence $\text{SD}$ stays the same.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 38</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">For the dataset {1, 3, 5, 7, 9}, what is the population standard deviation?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 1</li><li class="">B) 2</li><li class="correct">C) 2$\u22122$</li><li class="">D) 2$\u221a2$</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Mean is 5. Deviations: -4, -2, 0, 2, 4. Squared deviations: 16, 4, 0, 4, 16. Population variance = (16+4+0+4+16)/5 = 40/5 = 8. SD = $\sqrt{8} = 2\sqrt{2}$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 39</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Which of the following statements is true about standard deviation when data are centered by subtracting the mean from each value?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) SD increases</li><li class="">B) SD decreases</li><li class="correct">C) SD remains unchanged</li><li class="">D) SD becomes zero</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Subtracting the mean centers the data around zero but does not change the spread; thus SD remains the same.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 40</span>
+      <span class="badge medium">MEDIUM</span>
+    </div>
+    <div class="question-text">Which dataset has the largest standard deviation?</div>
+    
+    
+    <ul class="options">
+      <li class="correct">A) {2, 4, 4, 4, 9}</li><li class="">B) {2, 3, 4, 5, 6}</li><li class="">C) {1, 1, 2, 2, 3}</li><li class="">D) {0, 0, 0, 0, 0}</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Dataset A contains an outlier (9) relative to others around 4, increasing the spread and thus the standard deviation the most.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 41</span>
+      <span class="badge hard">HARD</span>
+    </div>
+    <div class="question-text">In the data set {2, 4, 4, 7, 7, 9, 11, 15}, which statement is true?</div>
+    
+    
+    <ul class="options">
+      <li class="correct">A) The mean is $\frac{59}{8}$, the median is 7, and the mode is 4 and 7.</li><li class="">B) The mean is 7, the median is 7, and the mode is 7.</li><li class="">C) The mean is 7.0, the median is 7.5, and the mode is 4.</li><li class="">D) The mean is 6.5, the median is 6.5, and the mode is none.</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Compute the sum: 2+4+4+7+7+9+11+15 = 59. The mean is $\frac{59}{8}$ = 7.375. For the median, order data: [2,4,4,7,7,9,11,15], the middle two are the 4th and 5th values, both 7, so median = 7. The mode is the value that appears most often: 4 appears twice and 7 appears twice, so the data are bimodal with modes 4 and 7. Therefore the statement in option A is true.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 42</span>
+      <span class="badge hard">HARD</span>
+    </div>
+    <div class="question-text">A school has two sections, A and B. Section A has 6 students with scores 80, 82, 85, 88, 90, 92. Section B has 4 students with scores 70, 72, 76, 80. If the lowest score 70 is removed from Section B, what is the new overall mean score for all remaining students?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 81.5</li><li class="correct">B) 82.78</li><li class="">C) 84.0</li><li class="">D) 86.0</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Compute totals: sum A = 80+82+85+88+90+92 = 517. Sum B = 70+72+76+80 = 298. Total initially = 815 with 10 students, mean = 815/10 = 81.5. Remove the lowest score 70 from B: new B sum = 228, new total = 517+228 = 745, new n = 9. New mean = 745/9 ≈ 82.78.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 43</span>
+      <span class="badge hard">HARD</span>
+    </div>
+    <div class="question-text">A fair die is rolled twice. What is the probability that the sum is at least 9?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) $\frac{1}{3}$</li><li class="correct">B) $\frac{5}{18}$</li><li class="">C) $\frac{7}{18}$</li><li class="">D) $\frac{2}{9}$</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Favorable outcomes for sums 9–12: sum 9 has 4 combos, 10 has 3, 11 has 2, 12 has 1, total 10 favorable outcomes. There are 36 equally likely outcomes. Probability = $\frac{10}{36} = \frac{5}{18}$.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 44</span>
+      <span class="badge hard">HARD</span>
+    </div>
+    <div class="question-text">A scatter plot is described by the following eight points: (1,2), (2,3), (3,5), (4,6), (5,7), (6,8), (7,9), (8,11). Which statement best describes the correlation between x and y?</div>
+    
+    
+    <ul class="options">
+      <li class="correct">A) Strong positive correlation</li><li class="">B) Negative correlation</li><li class="">C) No correlation</li><li class="">D) Perfect positive linear relationship</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      As x increases from 1 to 8, y generally increases from 2 to 11. The points show a clear upward trend, though they are not perfectly on a single straight line, so the correlation is positive but not perfect.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 45</span>
+      <span class="badge hard">HARD</span>
+    </div>
+    <div class="question-text">From 2016 to 2020, a town&#39;s population (in thousands) rose as follows: 2016: 100, 2017: 105, 2018: 110, 2019: 120, 2020: 125. What is the compound annual growth rate (CAGR) over this period?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 4.5%</li><li class="correct">B) 5.7%</li><li class="">C) 6.0%</li><li class="">D) 7.2%</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      CAGR = (Ending/Beginning)^(1/n) - 1 with Ending = 125, Beginning = 100, n = 4 years. CAGR = (1.25)^(1/4) - 1 ≈ 0.057 ≈ 5.7%.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 46</span>
+      <span class="badge hard">HARD</span>
+    </div>
+    <div class="question-text">Dataset A consists of five values: 5, 5, 5, 5, 5. Dataset B consists of five values: 0, 5, 5, 5, 10. Both have the same mean. Which dataset has the larger standard deviation?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) Dataset A</li><li class="correct">B) Dataset B</li><li class="">C) They have the same standard deviation</li><li class="">D) Not enough information</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Dataset A has all identical values, so its standard deviation is 0. Dataset B has values spread around the mean 5 (deviations: -5,0,0,0,5), so its standard deviation is positive, larger than 0. Therefore Dataset B has the larger standard deviation.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 47</span>
+      <span class="badge hard">HARD</span>
+    </div>
+    <div class="question-text">During a sale, the ratio of red to blue shirts sold is 3:5. If 320 shirts were sold in total, how many red shirts were sold?</div>
+    
+    
+    <ul class="options">
+      <li class="correct">A) 120</li><li class="">B) 128</li><li class="">C) 200</li><li class="">D) 240</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Red:Blue = 3:5, so red fraction = 3/(3+5) = 3/8. Red shirts = 3/8 of 320 = 120.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 48</span>
+      <span class="badge hard">HARD</span>
+    </div>
+    <div class="question-text">In a survey of 200 students, 120 prefer coffee. Among the coffee-preferring group, 60 also prefer sugar. What fraction of the total students prefer both coffee and sugar?</div>
+    
+    
+    <ul class="options">
+      <li class="correct">A) 0.30</li><li class="">B) 0.60</li><li class="">C) 0.15</li><li class="">D) 0.50</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Total students who prefer both coffee and sugar = 60. Fraction of total = 60/200 = 0.30.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 49</span>
+      <span class="badge hard">HARD</span>
+    </div>
+    <div class="question-text">Hours studied per week vs. average score (in points): 1→60, 2→65, 3→70, 4→80, 5→90. What is the overall percent increase in the average score from 1 hour to 5 hours?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) 40%</li><li class="correct">B) 50%</li><li class="">C) 60%</li><li class="">D) 70%</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Initial score at 1 hour = 60. Final score at 5 hours = 90. Increase = 90−60 = 30. Percent increase = 30/60 = 0.50 = 50%.
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="question-header">
+      <span class="question-number">Question 50</span>
+      <span class="badge hard">HARD</span>
+    </div>
+    <div class="question-text">A data set is {2, 4, 6, 8}. If each value is multiplied by 3, what happens to the standard deviation?</div>
+    
+    
+    <ul class="options">
+      <li class="">A) It becomes one-third of the original</li><li class="">B) It remains the same</li><li class="correct">C) It becomes three times the original</li><li class="">D) It becomes nine times the original</li>
+    </ul>
+    <div class="explanation">
+      <div class="explanation-title">Explanation:</div>
+      Multiplying every data value by a constant k multiplies the standard deviation by |k|. Here k = 3, so new SD = 3 × (original SD). That means the SD is three times the original, not equal to the original. Wait: The correct answer should be 3 times the original. However, among the options, the correct phrasing is option C. There is a mismatch here; to fix, the correct option should be C. But as written, the intended correct choice is C. We adjust: The correctAnswer should be 2? Actually, the correct is 3 times the original, which corresponds to option C. We set the correctAnswer to 2 to reflect the listed options; but the actual correct is option C. To preserve consistency, the correctAnswer must point to option C (index 2).
+    </div>
+  </div>
+
+
+  <footer>
+    <p>Review this batch and approve or reject questions before importing to the database.</p>
+  </footer>
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false},
+            {left: "$", right: "$", display: false}
+          ],
+          throwOnError: false,
+          strict: false
+        });
+      }
+    });
+  </script>
+</body>
+</html>
