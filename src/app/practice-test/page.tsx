@@ -70,6 +70,10 @@ function PracticeTestContent() {
 
   const submitModule = completeModule;
   const currentSelectedAnswer = selectedAnswer;
+  const effectiveQuestionCount = currentModuleQuestions.length > 0
+    ? currentModuleQuestions.length
+    : (currentModule?.questionCount || 0)
+  const isLastQuestion = effectiveQuestionCount > 0 && currentQuestionIndex === effectiveQuestionCount - 1
 
   // Abandon dialog state
   const [showAbandonDialog, setShowAbandonDialog] = useState(false);
@@ -103,13 +107,13 @@ function PracticeTestContent() {
       }
 
       // Arrow Right or Enter: Next question
-      if ((e.key === 'ArrowRight' || e.key === 'Enter') && currentQuestionIndex < (currentModule?.questionCount || 0) - 1) {
+      if ((e.key === 'ArrowRight' || e.key === 'Enter') && currentQuestionIndex < effectiveQuestionCount - 1) {
         nextQuestion();
         return;
       }
 
       // Enter on last question: Show review
-      if (e.key === 'Enter' && currentQuestionIndex === (currentModule?.questionCount || 0) - 1) {
+      if (e.key === 'Enter' && isLastQuestion) {
         setShowReview(true);
         return;
       }
@@ -138,6 +142,8 @@ function PracticeTestContent() {
     currentQuestionIndex,
     currentModule,
     currentQuestion,
+    effectiveQuestionCount,
+    isLastQuestion,
     previousQuestion,
     nextQuestion,
     selectAnswer,
@@ -331,7 +337,7 @@ function PracticeTestContent() {
         </div>
         {/* Question Navigator */}
         <QuestionNavigator
-          totalQuestions={currentModule.questionCount}
+          totalQuestions={effectiveQuestionCount}
           currentQuestion={currentQuestionIndex}
           answeredQuestions={answeredQuestions}
           onQuestionClick={goToQuestion}
@@ -347,7 +353,7 @@ function PracticeTestContent() {
                   {currentModule.title}
                 </h1>
                 <p className="text-gray-600">
-                  Question {currentQuestionIndex + 1} of {currentModule.questionCount}
+                  Question {currentQuestionIndex + 1} of {effectiveQuestionCount}
                 </p>
                 {/* #64 Story 3.3: Show attempt number when retaking a fixed practice test */}
                 {practiceTestId && attemptNumber !== null && (
@@ -383,7 +389,7 @@ function PracticeTestContent() {
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <div
                   className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300"
-                  style={{ width: `${((currentQuestionIndex + 1) / currentModule.questionCount) * 100}%` }}
+                  style={{ width: `${(effectiveQuestionCount > 0 ? ((currentQuestionIndex + 1) / effectiveQuestionCount) : 0) * 100}%` }}
                 ></div>
               </div>
             </div>
@@ -473,13 +479,13 @@ function PracticeTestContent() {
               </button>
 
               <div className="text-sm text-gray-500 text-center">
-                <div>{currentQuestionIndex + 1} / {currentModule.questionCount}</div>
+                <div>{currentQuestionIndex + 1} / {effectiveQuestionCount}</div>
                 <div className="text-xs mt-1">
                   {questionsAnswered} answered
                 </div>
               </div>
 
-              {currentQuestionIndex === currentModule.questionCount - 1 ? (
+              {isLastQuestion ? (
                 <button
                   onClick={() => setShowReview(true)}
                   className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl hover:shadow-lg transition-all font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"

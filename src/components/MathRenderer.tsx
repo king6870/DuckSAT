@@ -3,7 +3,7 @@
 import React from 'react'
 import 'katex/dist/katex.min.css'
 import { InlineMath, BlockMath } from 'react-katex'
-import { normalizeQuestionText } from '@/lib/math/textNormalization'
+import { isLikelyMathDelimitedContent, normalizeQuestionText } from '@/lib/math/textNormalization'
 
 interface MathRendererProps {
   children: string
@@ -44,7 +44,7 @@ const LATEX_COMMANDS = [
 ]
 
 const INLINE_LATEX_FRAGMENT_REGEX = new RegExp(
-  String.raw`-?\d*(?:\.\d+)?\s*\\(?:${LATEX_COMMANDS.join('|')})(?:\{[^{}]*\}){0,2}(?:\s+[A-Za-z0-9]+)*(?:\s*[_^]\{[^{}]*\})*`,
+  String.raw`-?\d*(?:\.\d+)?\s*\\(?:${LATEX_COMMANDS.join('|')})(?:\{[^{}]*\}){0,3}(?:\s*[_^]\{[^{}]*\})*`,
   'g'
 )
 
@@ -149,13 +149,24 @@ const parseDelimitedSegments = (input: string): Segment[] => {
     const closingIndex = findClosingDelimiter(input, contentStart, delimiter)
 
     if (closingIndex === -1) {
-      // Ignore orphan delimiters; normalization already strips most of these.
+      if (!isDouble && /\d/.test(input[contentStart] ?? '')) {
+        // Preserve literal currency dollar.
+        textBuffer += '$'
+      }
+      cursor += delimiterLength
+      continue
+    }
+
+    const rawMathContent = input.slice(contentStart, closingIndex)
+    if (!isLikelyMathDelimitedContent(rawMathContent)) {
+      // Treat this as literal text (for example currency), not math delimiter.
+      textBuffer += delimiter
       cursor += delimiterLength
       continue
     }
 
     flushText()
-    const mathContent = input.slice(contentStart, closingIndex).trim()
+    const mathContent = rawMathContent.trim()
     if (mathContent) {
       segments.push({
         type: delimiter === '$$' ? 'blockMath' : 'inlineMath',

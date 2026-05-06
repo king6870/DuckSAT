@@ -24,6 +24,8 @@ This causes inconsistent user output such as:
 - `2\\sqrt{2}` shown literally instead of rendered math
 - Some fields require `$...$` while others rely on ad-hoc parsing
 - Inconsistent behavior between practice test, topic drills, admin review, and exported HTML
+- Currency text (`$50 dollars plus $40`) incorrectly parsed as math, collapsing spacing
+- Fixed practice tests with shorter modules (for example 15/17 questions) can get stuck before review/submit due to static module counts
 
 ## 3. In Scope
 - Question text, passage, options, explanation, wrong-answer explanations, chart descriptions, and image alt text
@@ -67,6 +69,7 @@ Adopt one canonical rendering pipeline for all question content.
   2. Remove/repair orphan delimiters
   3. Apply heuristic detection only to non-delimited text segments
 - Mixed expressions like `x = -$\\frac{4}{3}$` MUST render as `text("x = -") + math("\\frac{4}{3}")`.
+- Delimiter disambiguation is required: `$` used as currency symbol must remain literal text and must not start/end math segments.
 
 5.3 Static/Export Surface Contract
 - Export scripts must use the same normalization rules as APIs
@@ -120,6 +123,10 @@ Input examples and expected canonical output:
 - Input: `If $x + 2 is positive`
 - Canonical: `If x + 2 is positive` (or escaped literal dollar when semantically intended)
 
+2d. Currency-dollar preservation
+- Input: `A fee of $50 plus $40 per day`
+- Canonical: unchanged as literal text, preserving both dollar signs and spaces
+
 3. Non-delimited LaTeX token in option
 - Input: `B) 2\\sqrt{2}`
 - Canonical for rendering: `B) $2\\sqrt{2}$`
@@ -144,6 +151,8 @@ These must hold in all environments:
 - Invariant 4: Same source text renders identically in drill/test/admin/export
 - Invariant 5: Screen reader label generation does not strip semantic meaning
 - Invariant 6: Known fixture corpus produces zero KaTeX/MathJax error-state rendering
+- Invariant 7: Currency text does not trigger math rendering or whitespace collapse
+- Invariant 8: Practice-test navigation and review controls are based on loaded module question count
 
 ## 9. Testing Strategy
 9.1 Unit tests
@@ -169,6 +178,7 @@ These must hold in all environments:
 - Question library rendering parity
 - Admin review rendering parity
 - Exported HTML visual smoke test
+- Practice test progression with short modules (15/17 questions) reaches review/submit without dead-end
 
 ## 10. Rollout Plan
 Phase 1: Shared normalization utility
@@ -202,6 +212,8 @@ Phase 6: Verification and guardrails
 - AC4: Legacy MathJax/dangerouslySetInnerHTML render paths for question fields are removed or isolated behind shared renderer output
 - AC5: CI includes normalization and rendering regression tests for representative SAT question corpus
 - AC6: Fixtures with malformed delimiters are auto-repaired/sanitized and do not leak raw `$` tokens
+- AC7: Currency fixtures preserve literal dollars and spacing (no `50dollarsplus40` collapse)
+- AC8: Fixed practice tests with non-default module sizes do not stall before module submission
 
 ## 13. Open Questions
 - Should math rendering standardize on KaTeX only, or keep MathJax on specific legacy pages?

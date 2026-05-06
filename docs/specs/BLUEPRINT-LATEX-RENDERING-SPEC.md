@@ -68,6 +68,7 @@ Required rules:
 - Slash normalization
 - Delimiter preservation
 - Orphan delimiter repair
+- Currency-dollar disambiguation (`$50` is text, not math delimiter)
 - Conditional auto-wrap
 - Non-math backslash preservation
 - Entity decode ordering
@@ -88,8 +89,14 @@ Define non-negotiable invariants (must be testable).
 Required invariants:
 - No raw LaTeX commands visible
 - No orphan `$`
+- No collapsed words caused by math parsing (spacing in prose/options remains intact)
+- Currency strings (for example `$40 per day`) must render as literal text with `$`
 - Identical rendering across listed surfaces for same fixture
 - No red/error-state math rendering for known valid fixture corpus
+
+Progression invariants:
+- Navigation, review button state, and progress bar must use loaded question count for the active module
+- Fixed tests with fewer-than-default module counts must still allow reaching review/submit without lockup
 
 ## 9. Test Plan
 9.1 Unit tests (normalization helpers)
@@ -100,8 +107,10 @@ Required invariants:
 
 Required regression gates:
 - Fixture set includes malformed delimiters and mixed segments (`x = -$\\frac{4}{3}$`)
+- Fixture set includes currency text with literal dollars (`$50 dollars plus $40 dollars per day`)
 - Snapshot/assertion fails if rendered output contains raw `$` delimiters
 - Snapshot/assertion fails if rendered output contains raw `\\sqrt`/`\\frac` tokens outside intentional code literals
+- E2E assertion: modules with 15/17 loaded questions can still navigate to review/submit
 
 Include a fixture pack section with at least 10 representative strings.
 

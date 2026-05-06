@@ -44,6 +44,60 @@ const DOUBLE_SLASH_LATEX_COMMAND_REGEX = new RegExp(
   'g'
 );
 
+const CURRENCY_WORD_REGEX = /\b(dollar|dollars|usd|fee|fees|cost|company|service|month|months|day|days|hour|hours|per)\b/i;
+const SHORT_VARIABLE_REGEX = /^[A-Za-z]{1,3}(?:_[A-Za-z0-9]+)?$/;
+const COORDINATE_REGEX = /^\(?\s*-?\d+(?:\.\d+)?\s*,\s*-?\d+(?:\.\d+)?\s*\)?$/;
+
+function shouldPreserveLiteralDollar(input: string, cursor: number, isDouble: boolean): boolean {
+  if (isDouble) {
+    return false;
+  }
+
+  const nextChar = input[cursor + 1] ?? '';
+  return /\d/.test(nextChar);
+}
+
+export function isLikelyMathDelimitedContent(content: string): boolean {
+  const trimmed = content.trim();
+  if (!trimmed) {
+    return false;
+  }
+
+  if (CURRENCY_WORD_REGEX.test(trimmed) && !/[=<>^_{}+\-*/]|\\[a-zA-Z]+/.test(trimmed)) {
+    return false;
+  }
+
+  if (/\\[a-zA-Z]+/.test(trimmed)) {
+    return true;
+  }
+
+  if (/[=<>^_{}]/.test(trimmed)) {
+    return true;
+  }
+
+  if (/\d+\s*\/\s*\d+/.test(trimmed)) {
+    return true;
+  }
+
+  if (/[+\-*/]/.test(trimmed) && /[A-Za-z0-9]/.test(trimmed)) {
+    return true;
+  }
+
+  if (COORDINATE_REGEX.test(trimmed)) {
+    return true;
+  }
+
+  if (SHORT_VARIABLE_REGEX.test(trimmed)) {
+    return true;
+  }
+
+  if (/^[A-Za-z]\([^)]+\)$/.test(trimmed)) {
+    return true;
+  }
+
+  return false;
+}
+
 export function decodeHtmlEntities(value: string): string {
   return value
     .replace(/&nbsp;|&lt;|&gt;|&quot;|&apos;|&#39;|&amp;/g, (entity) => {
@@ -116,13 +170,23 @@ export function removeOrphanDollarDelimiters(value: string): string {
     const closingIndex = findClosingDelimiter(value, contentStart, delimiter);
 
     if (closingIndex === -1) {
-      // Skip orphan delimiter so no raw dollar signs leak to users.
+      if (shouldPreserveLiteralDollar(value, cursor, isDouble)) {
+        output += delimiter;
+      }
+      cursor += delimiterLength;
+      continue;
+    }
+
+    const delimitedContent = value.slice(contentStart, closingIndex);
+    if (!isLikelyMathDelimitedContent(delimitedContent)) {
+      // Keep literal dollars for currency/plain text and continue scanning.
+      output += delimiter;
       cursor += delimiterLength;
       continue;
     }
 
     output += delimiter;
-    output += value.slice(contentStart, closingIndex);
+    output += delimitedContent;
     output += delimiter;
 
     cursor = closingIndex + delimiterLength;
