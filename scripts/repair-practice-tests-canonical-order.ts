@@ -11,6 +11,16 @@ const TARGETS = {
   module3: 22,
 } as const
 
+const SQLSERVER_SAFE_IN_CLAUSE_CHUNK = 1000
+
+function chunkArray<T>(items: T[], chunkSize: number): T[][] {
+  const chunks: T[][] = []
+  for (let i = 0; i < items.length; i += chunkSize) {
+    chunks.push(items.slice(i, i + chunkSize))
+  }
+  return chunks
+}
+
 async function pickAdditionalQuestionIds(
   moduleType: 'reading-writing' | 'math',
   needed: number,
@@ -127,24 +137,37 @@ async function syncReservedFlagsToPublishedTests() {
   })
 
   const publishedQuestionIds = [...new Set(publishedRows.map((row) => row.questionId))]
+  const publishedQuestionIdSet = new Set(publishedQuestionIds)
+
+  const currentlyReservedRows = await prisma.question.findMany({
+    where: { isReserved: true },
+    select: { id: true },
+  })
+  const currentlyReservedIds = currentlyReservedRows.map((row) => row.id)
+  const toUnsetIds = currentlyReservedIds.filter((id) => !publishedQuestionIdSet.has(id))
+
+  const publishedIdChunks = chunkArray(publishedQuestionIds, SQLSERVER_SAFE_IN_CLAUSE_CHUNK)
+  const unsetIdChunks = chunkArray(toUnsetIds, SQLSERVER_SAFE_IN_CLAUSE_CHUNK)
 
   await prisma.$transaction(async (tx) => {
-    if (publishedQuestionIds.length > 0) {
-      await tx.question.updateMany({
-        where: { id: { in: publishedQuestionIds } },
-        data: { isReserved: true },
-      })
+    if (publishedIdChunks.length > 0) {
+      for (const chunk of publishedIdChunks) {
+        await tx.question.updateMany({
+          where: { id: { in: chunk } },
+          data: { isReserved: true },
+        })
+      }
     }
 
-    await tx.question.updateMany({
-      where: {
-        isReserved: true,
-        id: {
-          notIn: publishedQuestionIds,
+    for (const chunk of unsetIdChunks) {
+      await tx.question.updateMany({
+        where: {
+          id: { in: chunk },
+          isReserved: true,
         },
-      },
-      data: { isReserved: false },
-    })
+        data: { isReserved: false },
+      })
+    }
   })
 
   console.log(`[repair-canonical] Reserved flag sync complete. publishedReservedCount=${publishedQuestionIds.length}`)
