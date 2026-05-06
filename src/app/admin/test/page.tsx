@@ -308,11 +308,6 @@ export default function AdminTest() {
           </button>
         </div>
       )}
-      {submitError && (
-        <div className="bg-red-100 border border-red-300 text-red-700 px-6 py-4 rounded-xl text-center max-w-md w-full mb-2" role="alert">
-          {submitError}
-        </div>
-      )}
     </div>
   )
 }

@@ -241,8 +241,7 @@ export async function DELETE(request: NextRequest) {
     const result = await prisma.question.deleteMany({
       where: {
         question: {
-          contains: 'auto-generated',
-          mode: 'insensitive'
+          contains: 'auto-generated'
         }
       }
     })

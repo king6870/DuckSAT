@@ -12,6 +12,7 @@ Primary outcomes:
 - No raw LaTeX artifacts shown to users (for example `\\sqrt`, stray `$`, mixed escaped slashes)
 - All question fields render consistently across test, drill, admin, review, and exported web surfaces
 - One shared canonical normalization + rendering contract used by all clients
+- Hard guarantee: user-facing surfaces must never show orphan or formatting-only dollar delimiters
 
 ## 2. Problem Statement
 Current behavior is fragmented:
@@ -61,6 +62,11 @@ Adopt one canonical rendering pipeline for all question content.
   - Display LaTeX (`$$...$$`, `\\[...\\]`)
   - Mixed plain text + LaTeX
   - LaTeX-like text lacking delimiters (auto-wrap heuristic for safe inline rendering)
+- Deterministic parse order is required:
+  1. Parse valid delimiters first (`$...$`, `$$...$$`)
+  2. Remove/repair orphan delimiters
+  3. Apply heuristic detection only to non-delimited text segments
+- Mixed expressions like `x = -$\\frac{4}{3}$` MUST render as `text("x = -") + math("\\frac{4}{3}")`.
 
 5.3 Static/Export Surface Contract
 - Export scripts must use the same normalization rules as APIs
@@ -106,6 +112,14 @@ Input examples and expected canonical output:
 - Input: `A) $2\\sqrt{2}$`
 - Canonical: unchanged
 
+2b. Mixed text + delimited math
+- Input: `x = -$\\frac{4}{3}$`
+- Canonical for rendering: text segment `x = -` + math segment `\\frac{4}{3}`
+
+2c. Orphan delimiter repair
+- Input: `If $x + 2 is positive`
+- Canonical: `If x + 2 is positive` (or escaped literal dollar when semantically intended)
+
 3. Non-delimited LaTeX token in option
 - Input: `B) 2\\sqrt{2}`
 - Canonical for rendering: `B) $2\\sqrt{2}$`
@@ -129,6 +143,7 @@ These must hold in all environments:
 - Invariant 3: Option labels (A/B/C/D) remain outside math expression where possible
 - Invariant 4: Same source text renders identically in drill/test/admin/export
 - Invariant 5: Screen reader label generation does not strip semantic meaning
+- Invariant 6: Known fixture corpus produces zero KaTeX/MathJax error-state rendering
 
 ## 9. Testing Strategy
 9.1 Unit tests
@@ -137,10 +152,13 @@ These must hold in all environments:
   - mixed text + latex
   - malformed delimiters
   - windows paths and non-math backslashes
+  - delimiter edge cases with odd counts of `$`
 
 9.2 Component tests (renderer)
 - Snapshot tests for mixed content rendering
 - Golden cases for options like `B) 2\\sqrt{2}`
+- Golden cases for `If $P=(1,2)$ and $Q=(4,-2)$, what is the distance $PQ$?`
+- Golden cases for `x = -$\\frac{4}{3}$`
 
 9.3 API tests
 - Contract tests ensuring normalized payload from each question API
@@ -183,6 +201,7 @@ Phase 6: Verification and guardrails
 - AC3: No user-facing stray dollar signs from math delimiters
 - AC4: Legacy MathJax/dangerouslySetInnerHTML render paths for question fields are removed or isolated behind shared renderer output
 - AC5: CI includes normalization and rendering regression tests for representative SAT question corpus
+- AC6: Fixtures with malformed delimiters are auto-repaired/sanitized and do not leak raw `$` tokens
 
 ## 13. Open Questions
 - Should math rendering standardize on KaTeX only, or keep MathJax on specific legacy pages?

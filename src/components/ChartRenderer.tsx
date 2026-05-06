@@ -53,10 +53,8 @@ interface ImageDiagramData extends ChartDataCommon {
   type?: 'image'
 }
 
-type ChartData = ScatterChartData | BarChartData | GeometryChartData | ImageDiagramData
-
 interface ChartRendererProps {
-  chartData: Record<string, unknown>
+  chartData?: Record<string, unknown> | null
   imageUrl?: string
   imageData?: string
   imageMimeType?: string
@@ -124,7 +122,7 @@ export default function ChartRenderer({ chartData, imageUrl, imageData, imageMim
   } else if (chartData && typeof chartData === 'object' && 'imageUrl' in chartData && (chartData as Record<string, unknown>).imageUrl) {
     // Check chartData for imageUrl
     src = (chartData as Record<string, unknown>).imageUrl as string;
-  } else if (!chartData || (typeof chartData === 'object' && !resolveType(chartData as ChartData))) {
+  } else if (!chartData || (typeof chartData === 'object' && !resolveType(chartData as Record<string, unknown>))) {
     // Fallback to placeholder ONLY if there's no chartData with a renderable type
     src = '/assets/diagram-placeholder.svg';
   }
@@ -209,6 +207,7 @@ function DynamicChart({ chartData }: { chartData: Record<string, unknown> }) {
   }
 
   const type = resolveType(chartData)
+  const description = typeof chartData.description === 'string' ? chartData.description : null
 
   if (isScatter(chartData)) {
     const cd = chartData as ScatterChartData
@@ -233,8 +232,8 @@ function DynamicChart({ chartData }: { chartData: Record<string, unknown> }) {
   return (
     <div className="bg-blue-50 p-4 rounded border">
       <div className="text-sm font-semibold text-blue-700 mb-2">📊 Chart</div>
-      {chartData.description && (
-        <div className="text-sm text-blue-600 mb-2">{chartData.description as string}</div>
+      {description && (
+        <div className="text-sm text-blue-600 mb-2">{description}</div>
       )}
       <div className="text-xs text-gray-500">
         Type: {type || 'Unknown'}

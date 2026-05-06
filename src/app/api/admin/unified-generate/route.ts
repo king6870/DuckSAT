@@ -23,7 +23,11 @@ import { ADMIN_EMAILS } from '@/constants/adminEmails'
 import { unifiedQuestionGenerator, GenerationOptions } from '@/services/unifiedQuestionGenerator'
 import { prisma } from '@/lib/prisma'
 
-type RequestBody = GenerationOptions
+type RequestBody = GenerationOptions & {
+  includeCharts?: boolean
+  topicId?: string
+  subtopicId?: string
+}
 
 /**
  * POST handler for question generation
@@ -42,20 +46,53 @@ export async function POST(request: NextRequest) {
     // Parse request body
     const body: RequestBody = await request.json()
 
+    const specificTopicsFromBody = Array.isArray(body.specificTopics)
+      ? body.specificTopics.filter((topic): topic is string => typeof topic === 'string')
+      : undefined
+    const specificSubtopicsFromBody = Array.isArray(body.specificSubtopics)
+      ? body.specificSubtopics.filter((subtopic): subtopic is string => typeof subtopic === 'string')
+      : undefined
+
+    let specificTopics = specificTopicsFromBody
+    let specificSubtopics = specificSubtopicsFromBody
+
+    // Validate topic/subtopic IDs (legacy compatibility) and convert to name-based filters.
+    if (body.topicId) {
+      const topic = await prisma.topic.findUnique({ where: { id: body.topicId } })
+      if (!topic) {
+        return NextResponse.json(
+          { error: 'Invalid topic ID' },
+          { status: 400 }
+        )
+      }
+      specificTopics = [topic.name]
+    }
+
+    if (body.subtopicId) {
+      const subtopic = await prisma.subtopic.findUnique({ where: { id: body.subtopicId } })
+      if (!subtopic) {
+        return NextResponse.json(
+          { error: 'Invalid subtopic ID' },
+          { status: 400 }
+        )
+      }
+      specificSubtopics = [subtopic.name]
+    }
+
     // Validate and set defaults
     const options: GenerationOptions = {
       mathCount: body.mathCount ?? 5,
       readingCount: body.readingCount ?? 5,
       temperature: body.temperature ?? 0.7,
       maxTokens: body.maxTokens ?? 4000,
-      includeCharts: body.includeCharts ?? true,
+      includeImages: body.includeImages ?? body.includeCharts ?? true,
       includePassages: body.includePassages ?? true,
       storeInDatabase: body.storeInDatabase ?? false,
       skipEvaluation: body.skipEvaluation ?? false,
       moduleType: body.moduleType,
       difficulty: body.difficulty,
-      topicId: body.topicId,
-      subtopicId: body.subtopicId,
+      specificTopics,
+      specificSubtopics,
     }
 
     // Validate ranges
@@ -80,27 +117,6 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Validate topic/subtopic if provided
-    if (options.topicId) {
-      const topic = await prisma.topic.findUnique({ where: { id: options.topicId } })
-      if (!topic) {
-        return NextResponse.json(
-          { error: 'Invalid topic ID' },
-          { status: 400 }
-        )
-      }
-    }
-
-    if (options.subtopicId) {
-      const subtopic = await prisma.subtopic.findUnique({ where: { id: options.subtopicId } })
-      if (!subtopic) {
-        return NextResponse.json(
-          { error: 'Invalid subtopic ID' },
-          { status: 400 }
-        )
-      }
-    }
-
     console.log('🚀 Starting unified question generation...')
     console.log('Options:', JSON.stringify(options, null, 2))
 
@@ -110,35 +126,34 @@ export async function POST(request: NextRequest) {
     console.log('✅ Generation complete:', result.summary)
 
     // Format response
+    const acceptedQuestions = result.questions.filter((question) => question.isAccepted)
+    const rejectedQuestions = result.questions.filter((question) => !question.isAccepted)
+
     return NextResponse.json({
       success: true,
       summary: result.summary,
       questions: {
-        accepted: result.questions.accepted.map((q, index) => ({
+        accepted: acceptedQuestions.map((q) => ({
           question: q.question,
           moduleType: q.moduleType,
           difficulty: q.difficulty,
-          category: q.category,
           subtopic: q.subtopic,
           qualityScore: q.qualityScore,
           explanation: q.explanation,
           options: q.options,
           correctAnswer: q.correctAnswer,
-          points: q.points,
           passage: q.passage,
           chartDescription: q.chartDescription,
           evaluationFeedback: q.evaluationFeedback,
           needsReview: q.evaluationFeedback?.includes('Fallback evaluation'),
-          storedId: result.storedQuestionIds?.[index] || null,
         })),
-        rejected: result.questions.rejected.map(q => ({
+        rejected: rejectedQuestions.map((q) => ({
           question: q.question,
           moduleType: q.moduleType,
           subtopic: q.subtopic,
           evaluationFeedback: q.evaluationFeedback,
         })),
       },
-      storedQuestionIds: result.storedQuestionIds,
     })
   } catch (error) {
     console.error('❌ Unified question generation failed:', error)
@@ -173,30 +188,33 @@ export async function GET() {
       readingCount: 'number (default: 5) - Number of reading questions to generate',
       temperature: 'number (0-2, default: 0.7) - AI creativity level',
       maxTokens: 'number (1000-8000, default: 4000) - Maximum response length',
-      includeCharts: 'boolean (default: true) - Include charts for math questions',
+      includeImages: 'boolean (default: true) - Include diagrams/images for math questions',
       includePassages: 'boolean (default: true) - Include passages for reading questions',
       storeInDatabase: 'boolean (default: false) - Store accepted questions in database',
       skipEvaluation: 'boolean (default: false) - Skip quality evaluation step',
       moduleType: 'string ("math" | "reading-writing") - Filter by module type',
       difficulty: 'string ("easy" | "medium" | "hard") - Filter by difficulty',
-      topicId: 'string (UUID) - Filter by specific topic',
-      subtopicId: 'string (UUID) - Filter by specific subtopic',
+      specificTopics: 'string[] - Filter by topic names',
+      specificSubtopics: 'string[] - Filter by subtopic names',
+      topicId: 'string (UUID, optional compatibility) - Converted to specificTopics',
+      subtopicId: 'string (UUID, optional compatibility) - Converted to specificSubtopics',
     },
     response: {
       success: 'boolean',
       summary: {
-        generated: 'number - Total questions generated',
-        evaluated: 'number - Total questions evaluated',
+        total: 'number - Total questions generated',
         accepted: 'number - Questions accepted after evaluation',
         rejected: 'number - Questions rejected after evaluation',
-        stored: 'number - Questions stored in database',
-        needsReview: 'number - Questions flagged for manual review',
+        mathCount: 'number - Math questions generated',
+        readingCount: 'number - Reading questions generated',
+        avgQuality: 'number - Average quality score',
+        retryCount: 'number - Questions regenerated during retry step',
+        validationErrors: 'number - Questions flagged by validation',
       },
       questions: {
         accepted: 'array - Accepted question details',
         rejected: 'array - Rejected question details',
       },
-      storedQuestionIds: 'array - IDs of stored questions (if storeInDatabase=true)',
     },
     examples: [
       {

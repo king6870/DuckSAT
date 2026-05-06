@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { Prisma } from '@prisma/client';
+import { normalizeQuestionOptions, normalizeQuestionText } from '@/lib/math/textNormalization';
 
 /**
  * Helper function to detect if an error is a retryable database connection error
@@ -153,18 +154,18 @@ export async function GET(request: NextRequest) {
     if (search) {
       const s = search;
       where.OR = [
-        { question: { contains: s, mode: 'insensitive' } },
-        { category: { contains: s, mode: 'insensitive' } },
+        { question: { contains: s } },
+        { category: { contains: s } },
         { 
           AND: [
             { passage: { not: null } },
-            { passage: { contains: s, mode: 'insensitive' } }
+            { passage: { contains: s } }
           ]
         },
         { 
           AND: [
             { subtopic: { not: null } },
-            { subtopic: { contains: s, mode: 'insensitive' } }
+            { subtopic: { contains: s } }
           ]
         }
       ];
@@ -313,43 +314,8 @@ export async function GET(request: NextRequest) {
       sources = [];
     }
 
-    // Normalize result to ensure consistent types and clearer text
-    const decodeHTMLEntities = (text: string): string => {
-      if (typeof text !== 'string') return '';
-      try {
-        return text
-          // Decode common HTML entities
-          .replace(/&nbsp;/g, ' ')
-          .replace(/&lt;/g, '<')
-          .replace(/&gt;/g, '>')
-          .replace(/&quot;/g, '"')
-          .replace(/&apos;/g, "'")
-          // Numeric entities (decimal and hex)
-          .replace(/&#(\d+);/g, (_m, code) => String.fromCharCode(Number(code)))
-          .replace(/&#x([0-9a-fA-F]+);/g, (_m, hex) => String.fromCharCode(parseInt(hex, 16)))
-          // Decode ampersand last to avoid double-decoding
-          .replace(/&amp;/g, '&');
-      } catch (err) {
-        console.error('Error in decodeHTMLEntities:', err, 'Input:', text);
-        return text;
-      }
-    };
-
-    const cleanText = (text: unknown): string => {
-      if (typeof text !== 'string') return '';
-      try {
-        const stripped = text.replace(/^\s*["']|["']\s*$/g, '');
-        const decoded = decodeHTMLEntities(stripped);
-        return decoded
-          .split(/\r?\n/)
-          .map((line) => line.replace(/[ \t]+/g, ' ').trim())
-          .join('\n')
-          .trim();
-      } catch (err) {
-        console.error('Error in cleanText:', err, 'Input:', text);
-        return String(text);
-      }
-    };
+    // Normalize result to ensure consistent types and deterministic math delimiter handling.
+    const cleanText = (text: unknown): string => normalizeQuestionText(text);
     
     const cleanOptionalText = (text: unknown): string | undefined => {
       if (text == null) return undefined;
@@ -361,43 +327,7 @@ export async function GET(request: NextRequest) {
       return date ? date.toISOString() : null;
     };
 
-    const parseArrayString = (input: unknown): string[] | null => {
-      if (typeof input === 'string') {
-        try {
-          const parsed = JSON.parse(input);
-          if (Array.isArray(parsed)) return parsed.map((x) => String(x));
-        } catch {}
-      }
-      return null;
-    };
-
-    const normalizeOptions = (options: unknown): string[] => {
-      const normalizeOne = (o: unknown) => {
-        try {
-          const s = typeof o === 'string' ? o : String(o);
-          const stripped = s.replace(/^\s*["']|["']\s*$/g, '');
-          const decoded = decodeHTMLEntities(stripped);
-          return decoded;
-        } catch (err) {
-          console.error('Error in normalizeOne:', err, 'Input:', o);
-          return String(o);
-        }
-      };
-
-      try {
-        if (Array.isArray(options)) {
-          return (options as unknown[]).map(normalizeOne);
-        }
-        const parsed = parseArrayString(options);
-        if (parsed) {
-          return parsed.map(normalizeOne);
-        }
-        return [];
-      } catch (err) {
-        console.error('Error in normalizeOptions:', err, 'Input:', options);
-        return [];
-      }
-    };
+    const normalizeOptions = (options: unknown): string[] => normalizeQuestionOptions(options);
 
     // Helper function to ensure JSON fields are properly serializable
     // Moved outside the map to avoid recreation on every iteration

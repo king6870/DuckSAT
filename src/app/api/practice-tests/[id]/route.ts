@@ -9,6 +9,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
+import { normalizeDeepText, normalizeQuestionOptions, normalizeQuestionText } from '@/lib/math/textNormalization';
 
 interface RouteContext {
   params: Promise<{ id: string }>;
@@ -149,19 +150,11 @@ export async function GET(
       let parsedChartData: unknown = null
       let parsedTags: string[] = []
 
-      try {
-        parsedOptions = JSON.parse(q.options)
-      } catch (error) {
-        console.error('[practice-tests] Failed to parse question options', {
-          practiceTestId: id,
-          questionId: q.id,
-          error,
-        })
-      }
+      parsedOptions = normalizeQuestionOptions(q.options)
 
       if (q.wrongAnswerExplanations) {
         try {
-          parsedWrongAnswerExplanations = JSON.parse(q.wrongAnswerExplanations)
+          parsedWrongAnswerExplanations = normalizeDeepText(JSON.parse(q.wrongAnswerExplanations))
         } catch (error) {
           console.error('[practice-tests] Failed to parse wrongAnswerExplanations', {
             practiceTestId: id,
@@ -202,11 +195,11 @@ export async function GET(
 
       return {
         id: q.id,
-        question: q.question,
-        passage: q.passage,
+        question: normalizeQuestionText(q.question),
+        passage: q.passage ? normalizeQuestionText(q.passage) : null,
         options: parsedOptions,
         correctAnswer: q.correctAnswer,
-        explanation: q.explanation,
+        explanation: normalizeQuestionText(q.explanation),
         wrongAnswerExplanations: parsedWrongAnswerExplanations,
         moduleType: q.moduleType,
         category: q.category,
@@ -215,7 +208,7 @@ export async function GET(
         imageUrl: resolvedImageUrl,
         imageData: null,
         imageMimeType: q.imageMimeType,
-        imageAlt: q.imageAlt,
+        imageAlt: q.imageAlt ? normalizeQuestionText(q.imageAlt) : null,
         chartData: parsedChartData,
         timeEstimate: q.timeEstimate,
         tags: parsedTags,

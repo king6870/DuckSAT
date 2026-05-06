@@ -1,8 +1,8 @@
 "use client"
 
 import { useState, useEffect, useCallback } from 'react'
-import Script from 'next/script'
 import { Check, X, ChevronRight, Info, RefreshCw, ChevronUp, ChevronDown, Star } from 'lucide-react'
+import MathRenderer from '@/components/MathRenderer'
 
 interface Question {
     id: string
@@ -27,7 +27,6 @@ export default function ReviewPage() {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [loading, setLoading] = useState(true)
     const [submitting, setSubmitting] = useState(false)
-    const [mathJaxLoaded, setMathJaxLoaded] = useState(false)
     const [showExplanation, setShowExplanation] = useState(false)
     const [reviewRating, setReviewRating] = useState(0)
     const [hoverRating, setHoverRating] = useState(0)
@@ -59,13 +58,6 @@ export default function ReviewPage() {
         fetchQuestions()
     }, [fetchQuestions])
 
-    // MathJax Trigger
-    useEffect(() => {
-        if (typeof window !== 'undefined' && (window as { MathJax?: { typesetPromise?: () => Promise<void> } }).MathJax && mathJaxLoaded && questions.length > 0) {
-            ; (window as { MathJax?: { typesetPromise?: () => Promise<void> } }).MathJax?.typesetPromise?.().catch((err: Error) => console.error('MathJax error:', err))
-        }
-    }, [questions, currentIndex, mathJaxLoaded, showExplanation])
-
     const currentQuestion = questions[currentIndex]
 
     // Image Helper
@@ -80,8 +72,21 @@ export default function ReviewPage() {
         return question.imageUrl
     }
 
+    const handleNext = useCallback(() => {
+        if (currentIndex < questions.length - 1) {
+            setCurrentIndex(prev => prev + 1)
+        } else {
+            // Fetch more if we ran out
+            fetchQuestions()
+        }
+    }, [currentIndex, questions.length, fetchQuestions])
+
+    const handleSkip = useCallback(() => {
+        handleNext()
+    }, [handleNext])
+
     // Handle Review Submission
-    const handleReview = async (status: 'approved' | 'rejected') => {
+    const handleReview = useCallback(async (status: 'approved' | 'rejected') => {
         if (!currentQuestion) return
 
         setSubmitting(true)
@@ -113,20 +118,7 @@ export default function ReviewPage() {
             setReviewComments('')
             setIsPanelExpanded(false)
         }
-    }
-
-    const handleNext = () => {
-        if (currentIndex < questions.length - 1) {
-            setCurrentIndex(prev => prev + 1)
-        } else {
-            // Fetch more if we ran out
-            fetchQuestions()
-        }
-    }
-
-    const handleSkip = () => {
-        handleNext()
-    }
+    }, [currentQuestion, reviewRating, diagramAccurate, reviewComments, handleNext])
 
     // Keyboard Shortcuts
     useEffect(() => {
@@ -158,7 +150,7 @@ export default function ReviewPage() {
 
         window.addEventListener('keydown', handleKeyDown)
         return () => window.removeEventListener('keydown', handleKeyDown)
-    }, [currentIndex, questions, reviewRating, reviewComments, diagramAccurate]) // Dependencies for closure
+    }, [handleNext, handleReview, handleSkip])
 
     if (loading && questions.length === 0) {
         return (
@@ -207,43 +199,8 @@ export default function ReviewPage() {
         )
     }
 
-    // Show error if review submission fails
-    const _renderSubmitError = () => submitError ? (
-        <div className="bg-red-100 border border-red-300 text-red-700 px-6 py-4 rounded-xl text-center max-w-md w-full mb-4" role="alert">
-            {submitError}
-        </div>
-    ) : null
-
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col">
-            <Script
-                id="mathjax-config"
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{
-                    __html: `
-            window.MathJax = {
-              tex: {
-                inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-                displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
-                processEscapes: true
-              },
-              startup: {
-                pageReady: () => {
-                  return window.MathJax.startup.defaultPageReady().then(() => {
-                    console.log('MathJax initial typesetting complete');
-                  });
-                }
-              }
-            };
-          `
-                }}
-            />
-            <Script
-                src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-                strategy="afterInteractive"
-                onLoad={() => setMathJaxLoaded(true)}
-            />
-
             {/* Navigation Bar */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-2 px-4 sm:px-6 py-4 border-b bg-white/80 backdrop-blur sticky top-0 z-10 w-full">
                 <button
@@ -288,7 +245,7 @@ export default function ReviewPage() {
                             <div className="prose max-w-none bg-gray-50 p-6 rounded-2xl border border-gray-200">
                                 <h3 className="text-sm font-bold text-gray-500 uppercase mb-2">Passage</h3>
                                 <div className="text-gray-800 leading-relaxed whitespace-pre-wrap">
-                                    {currentQuestion.passage}
+                                    <MathRenderer className="whitespace-pre-wrap">{currentQuestion.passage}</MathRenderer>
                                 </div>
                             </div>
                         )}
@@ -296,10 +253,9 @@ export default function ReviewPage() {
                         {/* Question */}
                         <div>
                             <h3 className="text-sm font-bold text-gray-500 uppercase mb-3">Question</h3>
-                            <div
-                                className="text-xl md:text-2xl font-medium text-gray-900 leading-relaxed"
-                                dangerouslySetInnerHTML={{ __html: currentQuestion.question }}
-                            />
+                            <div className="text-xl md:text-2xl font-medium text-gray-900 leading-relaxed">
+                                <MathRenderer>{currentQuestion.question}</MathRenderer>
+                            </div>
                         </div>
 
                         {/* Diagram */}
@@ -332,8 +288,9 @@ export default function ReviewPage() {
                                         </span>
                                         <div
                                             className="text-lg text-gray-800 pt-0.5"
-                                            dangerouslySetInnerHTML={{ __html: option }}
-                                        />
+                                        >
+                                            <MathRenderer>{option}</MathRenderer>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
@@ -352,10 +309,9 @@ export default function ReviewPage() {
                         {showExplanation && (
                             <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 animate-in fade-in slide-in-from-top-4 duration-300">
                                 <h3 className="text-sm font-bold text-indigo-800 uppercase mb-2">Explanation</h3>
-                                <div
-                                    className="text-indigo-900 leading-relaxed"
-                                    dangerouslySetInnerHTML={{ __html: currentQuestion.explanation }}
-                                />
+                                <div className="text-indigo-900 leading-relaxed">
+                                    <MathRenderer>{currentQuestion.explanation}</MathRenderer>
+                                </div>
                             </div>
                         )}
                     </div>
@@ -431,6 +387,12 @@ export default function ReviewPage() {
                                     aria-label="Review Comments"
                                 />
                             </div>
+                        </div>
+                    )}
+
+                    {submitError && (
+                        <div className="bg-red-100 border border-red-300 text-red-700 px-4 py-3 rounded-xl text-sm" role="alert">
+                            {submitError}
                         </div>
                     )}
 

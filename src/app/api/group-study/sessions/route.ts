@@ -96,13 +96,14 @@ export async function POST(request: NextRequest) {
     }
 
     const userId = session.user.id
-    const body = await request.json().catch(() => ({}))
+    const body = (await request.json().catch(() => ({}))) as Record<string, unknown>
 
-    const invitedUserIds = Array.isArray(body.invitedUserIds)
-      ? body.invitedUserIds.filter((id: unknown): id is string => typeof id === 'string')
+    const rawInvitedUserIds = body.invitedUserIds
+    const invitedUserIds = Array.isArray(rawInvitedUserIds)
+      ? rawInvitedUserIds.filter((id): id is string => typeof id === 'string')
       : []
 
-    const uniqueInvitedUserIds = Array.from(new Set(invitedUserIds.filter((id) => id !== userId)))
+    const uniqueInvitedUserIds: string[] = Array.from(new Set(invitedUserIds.filter((id) => id !== userId)))
 
     const questionCount = Number(body.questionCount)
     const timeLimitSec = body.timeLimitSec == null ? null : Number(body.timeLimitSec)

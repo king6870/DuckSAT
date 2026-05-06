@@ -561,8 +561,17 @@ export class UnifiedQuestionGenerator {
   private extractTextFromModelResponse(data: unknown): string | null {
     if (!data || typeof data !== 'object') return null
     const payload = data as Record<string, unknown>
+    const choices = Array.isArray(payload.choices) ? payload.choices : []
+    const firstChoice = choices[0]
+    const firstChoiceObject = firstChoice && typeof firstChoice === 'object'
+      ? (firstChoice as Record<string, unknown>)
+      : null
+    const message = firstChoiceObject?.message
+    const messageObject = message && typeof message === 'object'
+      ? (message as Record<string, unknown>)
+      : null
 
-    const messageContent = payload.choices?.[0]?.message?.content
+    const messageContent = messageObject?.content
     if (typeof messageContent === 'string' && messageContent.trim()) {
       return messageContent
     }
@@ -572,14 +581,16 @@ export class UnifiedQuestionGenerator {
         .map((item) => {
           if (typeof item === 'string') return item
           if (!item || typeof item !== 'object') return ''
-          return item.text || item.output_text || item.content || ''
+          const obj = item as Record<string, unknown>
+          const candidate = obj.text ?? obj.output_text ?? obj.content
+          return typeof candidate === 'string' ? candidate : ''
         })
         .join('')
         .trim()
       if (combined) return combined
     }
 
-    const completionText = payload.choices?.[0]?.text
+    const completionText = firstChoiceObject?.text
     if (typeof completionText === 'string' && completionText.trim()) {
       return completionText
     }
@@ -590,12 +601,17 @@ export class UnifiedQuestionGenerator {
 
     if (Array.isArray(payload.output)) {
       const outputText = payload.output
-        .flatMap((item: Record<string, unknown>) => Array.isArray(item?.content) ? item.content : [])
+        .flatMap((item) => {
+          if (!item || typeof item !== 'object') return []
+          const obj = item as Record<string, unknown>
+          return Array.isArray(obj.content) ? obj.content : []
+        })
         .map((item: unknown) => {
           if (typeof item === 'string') return item
           if (!item || typeof item !== 'object') return ''
           const obj = item as Record<string, unknown>
-          return obj.text || obj.output_text || obj.content || ''
+          const candidate = obj.text ?? obj.output_text ?? obj.content
+          return typeof candidate === 'string' ? candidate : ''
         })
         .join('')
         .trim()

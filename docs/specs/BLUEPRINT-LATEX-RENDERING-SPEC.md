@@ -45,11 +45,14 @@ Minimum required surfaces:
 - Define normalized text payload expectations
 - Define slash normalization behavior
 - Define entity decoding behavior
+- Define orphan delimiter policy: any unmatched `$`/`$$` MUST be removed or escaped before payload leaves API
 
 5.2 Client renderer contract
 - Define approved delimiters
 - Define non-delimited command handling policy
 - Forbid direct field-level `dangerouslySetInnerHTML` bypasses
+- Require parser order: delimiter parsing first, heuristic math detection second
+- Require mixed-content behavior: strings like `x = -$\\frac{4}{3}$` split into text + math tokens (never a single invalid math blob)
 
 5.3 Export contract
 - Define static render runtime and delimiter policy
@@ -64,6 +67,7 @@ For each rule provide:
 Required rules:
 - Slash normalization
 - Delimiter preservation
+- Orphan delimiter repair
 - Conditional auto-wrap
 - Non-math backslash preservation
 - Entity decode ordering
@@ -85,6 +89,7 @@ Required invariants:
 - No raw LaTeX commands visible
 - No orphan `$`
 - Identical rendering across listed surfaces for same fixture
+- No red/error-state math rendering for known valid fixture corpus
 
 ## 9. Test Plan
 9.1 Unit tests (normalization helpers)
@@ -92,6 +97,11 @@ Required invariants:
 9.3 API contract tests
 9.4 End-to-end tests for each surface
 9.5 Exported HTML smoke tests
+
+Required regression gates:
+- Fixture set includes malformed delimiters and mixed segments (`x = -$\\frac{4}{3}$`)
+- Snapshot/assertion fails if rendered output contains raw `$` delimiters
+- Snapshot/assertion fails if rendered output contains raw `\\sqrt`/`\\frac` tokens outside intentional code literals
 
 Include a fixture pack section with at least 10 representative strings.
 
@@ -144,6 +154,9 @@ List unresolved architectural choices and decision owners.
 - `A) 2\\\\sqrt{2}`
 - `B) 2\\sqrt{2}`
 - `C) $2\\sqrt{2}$`
+- `If $P=(1,2)$ and $Q=(4,-2)$, what is the distance $PQ$?`
+- `x = -$\\frac{4}{3}$`
+- `This malformed item has a stray dollar: $x + 2`
 - `x &lt; y &amp; y &gt; 0`
 - `Path C:\\Users\\name`
 - `\\frac{3}{4}`

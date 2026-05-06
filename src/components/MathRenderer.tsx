@@ -3,12 +3,50 @@
 import React from 'react'
 import 'katex/dist/katex.min.css'
 import { InlineMath, BlockMath } from 'react-katex'
+import { normalizeQuestionText } from '@/lib/math/textNormalization'
 
 interface MathRendererProps {
   children: string
   block?: boolean
   className?: string
 }
+
+type Segment = {
+  type: 'text' | 'inlineMath' | 'blockMath'
+  value: string
+}
+
+const LATEX_COMMANDS = [
+  'alpha',
+  'beta',
+  'gamma',
+  'delta',
+  'theta',
+  'pi',
+  'sqrt',
+  'frac',
+  'triangle',
+  'leq',
+  'geq',
+  'neq',
+  'sin',
+  'cos',
+  'tan',
+  'log',
+  'ln',
+  'pm',
+  'infty',
+  'cdot',
+  'times',
+  'left',
+  'right',
+  'angle',
+]
+
+const INLINE_LATEX_FRAGMENT_REGEX = new RegExp(
+  String.raw`-?\d*(?:\.\d+)?\s*\\(?:${LATEX_COMMANDS.join('|')})(?:\{[^{}]*\}){0,2}(?:\s+[A-Za-z0-9]+)*(?:\s*[_^]\{[^{}]*\})*`,
+  'g'
+)
 
 /**
  * Convert LaTeX to screen reader friendly text
@@ -56,165 +94,225 @@ const latexToText = (latex: string): string => {
     .trim()
 }
 
+const findClosingDelimiter = (input: string, start: number, delimiter: '$' | '$$'): number => {
+  for (let i = start; i < input.length; i++) {
+    if (input[i] === '\\') {
+      i += 1
+      continue
+    }
+
+    if (delimiter === '$$') {
+      if (input[i] === '$' && input[i + 1] === '$') {
+        return i
+      }
+      continue
+    }
+
+    if (input[i] === '$' && input[i + 1] !== '$') {
+      return i
+    }
+  }
+
+  return -1
+}
+
+const parseDelimitedSegments = (input: string): Segment[] => {
+  const segments: Segment[] = []
+  let textBuffer = ''
+  let cursor = 0
+
+  const flushText = () => {
+    if (!textBuffer) return
+    segments.push({ type: 'text', value: textBuffer })
+    textBuffer = ''
+  }
+
+  while (cursor < input.length) {
+    const char = input[cursor]
+
+    if (char === '\\' && cursor + 1 < input.length) {
+      textBuffer += input.slice(cursor, cursor + 2)
+      cursor += 2
+      continue
+    }
+
+    if (char !== '$') {
+      textBuffer += char
+      cursor += 1
+      continue
+    }
+
+    const isDouble = input[cursor + 1] === '$'
+    const delimiter: '$' | '$$' = isDouble ? '$$' : '$'
+    const delimiterLength = delimiter.length
+    const contentStart = cursor + delimiterLength
+    const closingIndex = findClosingDelimiter(input, contentStart, delimiter)
+
+    if (closingIndex === -1) {
+      // Ignore orphan delimiters; normalization already strips most of these.
+      cursor += delimiterLength
+      continue
+    }
+
+    flushText()
+    const mathContent = input.slice(contentStart, closingIndex).trim()
+    if (mathContent) {
+      segments.push({
+        type: delimiter === '$$' ? 'blockMath' : 'inlineMath',
+        value: mathContent,
+      })
+    }
+
+    cursor = closingIndex + delimiterLength
+  }
+
+  flushText()
+  return segments
+}
+
+const splitInlineLatexFragments = (value: string): Segment[] => {
+  if (!value.includes('\\')) {
+    return value ? [{ type: 'text', value }] : []
+  }
+
+  const fragments: Segment[] = []
+  let lastIndex = 0
+
+  for (const match of value.matchAll(INLINE_LATEX_FRAGMENT_REGEX)) {
+    if (typeof match.index !== 'number') continue
+
+    const start = match.index
+    const end = start + match[0].length
+
+    if (start > lastIndex) {
+      fragments.push({
+        type: 'text',
+        value: value.slice(lastIndex, start),
+      })
+    }
+
+    const mathCandidate = match[0].trim()
+    if (mathCandidate) {
+      fragments.push({ type: 'inlineMath', value: mathCandidate })
+    }
+
+    lastIndex = end
+  }
+
+  if (lastIndex < value.length) {
+    fragments.push({
+      type: 'text',
+      value: value.slice(lastIndex),
+    })
+  }
+
+  if (fragments.length === 0) {
+    return [{ type: 'text', value }]
+  }
+
+  return fragments
+}
+
+const expandPlainTextSegments = (segments: Segment[]): Segment[] => {
+  const expanded: Segment[] = []
+
+  segments.forEach((segment) => {
+    if (segment.type !== 'text') {
+      expanded.push(segment)
+      return
+    }
+
+    expanded.push(...splitInlineLatexFragments(segment.value))
+  })
+
+  return expanded
+}
+
+const buildSegments = (input: string): Segment[] => {
+  const delimiterSegments = parseDelimitedSegments(input)
+  return expandPlainTextSegments(delimiterSegments)
+}
+
 /**
  * MathRenderer component for displaying mathematical equations
  * Automatically detects and renders LaTeX math expressions
  * Includes screen reader support via aria-label
  */
 export default function MathRenderer({ children, block = false, className = '' }: MathRendererProps) {
-  // Convert common math notation to LaTeX
-  const convertToLatex = (text: string): string => {
-    return text
-      // Fractions: 1/2 -> \frac{1}{2}
-      .replace(/(\d+)\/(\d+)/g, '\\frac{$1}{$2}')
-      // Exponents: x^2 -> x^{2}, x^(2+3) -> x^{(2+3)}
-      .replace(/\^(\d+)/g, '^{$1}')
-      .replace(/\^(\([^)]+\))/g, '^{$1}')
-      // Square roots: sqrt(x) -> \sqrt{x}
-      .replace(/sqrt\(([^)]+)\)/g, '\\sqrt{$1}')
-      // Subscripts: x_1 -> x_{1}
-      .replace(/_(\d+)/g, '_{$1}')
-      // Greek letters
-      .replace(/\bpi\b/g, '\\pi')
-      .replace(/\btheta\b/g, '\\theta')
-      .replace(/\balpha\b/g, '\\alpha')
-      .replace(/\bbeta\b/g, '\\beta')
-      .replace(/\bgamma\b/g, '\\gamma')
-      .replace(/\bdelta\b/g, '\\delta')
-      // Infinity
-      .replace(/infinity/g, '\\infty')
-      // Plus/minus
-      .replace(/\+\/-/g, '\\pm')
-      // Degree symbol
-      .replace(/degrees?/g, '^\\circ')
-      // Inequalities
-      .replace(/<=/g, '\\leq')
-      .replace(/>=/g, '\\geq')
-      .replace(/!=/g, '\\neq')
-      // Functions
-      .replace(/\bsin\b/g, '\\sin')
-      .replace(/\bcos\b/g, '\\cos')
-      .replace(/\btan\b/g, '\\tan')
-      .replace(/\blog\b/g, '\\log')
-      .replace(/\bln\b/g, '\\ln')
-  }
+  const normalized = normalizeQuestionText(children)
+  const segments = buildSegments(normalized)
 
-  // Check if the text contains math expressions
-  const containsMath = (text: string): boolean => {
-    const mathPatterns = [
-      /\^[\d\{\(]/,  // Exponents
-      /_[\d\{]/,     // Subscripts
-      /\\[a-zA-Z]+/, // LaTeX commands
-      /\\\{|\\\}/,   // LaTeX braces
-      /\bsqrt\(/,    // Square root
-      /\d+\/\d+/,    // Fractions
-      /[xy]\s*[=<>]/,// Equations
-      /\([^)]*[xy][^)]*\)/, // Expressions with variables
-    ]
-    return mathPatterns.some(pattern => pattern.test(text))
-  }
-
-  // Split text into math and non-math parts
-  const renderMixedContent = (text: string) => {
-    // Look for inline math expressions in $...$ or between common math patterns
-    const parts = []
-    let currentIndex = 0
-    
-    // Find math expressions
-    const mathRegex = /(\$[^$]+\$|[xy]\s*=\s*[^,\s.!?]+|f\([^)]+\)\s*=\s*[^,\s.!?]+|\d+\/\d+|[a-zA-Z]\^[\d\{]|\\[a-zA-Z]+\{[^}]*\})/g
-    let match
-    
-    while ((match = mathRegex.exec(text)) !== null) {
-      // Add text before math
-      if (match.index > currentIndex) {
-        parts.push(
-          <span key={`text-${currentIndex}`}>
-            {text.slice(currentIndex, match.index)}
-          </span>
-        )
-      }
-      
-      // Add math expression
-      let mathExpression = match[1]
-      if (mathExpression.startsWith('$') && mathExpression.endsWith('$')) {
-        mathExpression = mathExpression.slice(1, -1)
-      }
-      
-      try {
-        const latexExpression = convertToLatex(mathExpression)
-        const screenReaderText = latexToText(latexExpression)
-        
-        parts.push(
-          <span key={`math-${match.index}`} role="img" aria-label={screenReaderText}>
-            <InlineMath>
-              {latexExpression}
-            </InlineMath>
-          </span>
-        )
-      } catch {
-        // If LaTeX parsing fails, show as regular text
-        parts.push(
-          <span key={`fallback-${match.index}`} className="font-mono bg-gray-100 px-1 rounded">
-            {mathExpression}
-          </span>
-        )
-      }
-      
-      currentIndex = match.index + match[0].length
+  const renderInlineSegment = (segment: Segment, key: string) => {
+    if (segment.type === 'text') {
+      return <span key={key}>{segment.value}</span>
     }
-    
-    // Add remaining text
-    if (currentIndex < text.length) {
-      parts.push(
-        <span key={`text-${currentIndex}`}>
-          {text.slice(currentIndex)}
-        </span>
-      )
-    }
-    
-    return parts.length > 0 ? parts : [text]
-  }
 
-  // If it's a block math expression or contains only math
-  if (block || (containsMath(children) && children.trim().match(/^[\s\$]*[xy]\s*=|^[\s\$]*f\([^)]+\)\s*=|^[\s\$]*\\[a-zA-Z]/))) {
+    const screenReaderText = latexToText(segment.value)
+
     try {
-      let mathExpression = children
-      if (mathExpression.startsWith('$') && mathExpression.endsWith('$')) {
-        mathExpression = mathExpression.slice(1, -1)
+      if (segment.type === 'blockMath') {
+        return (
+          <div key={key} role="img" aria-label={screenReaderText} className="my-2">
+            <BlockMath>{segment.value}</BlockMath>
+          </div>
+        )
       }
-      
-      const latexExpression = convertToLatex(mathExpression)
-      const screenReaderText = latexToText(latexExpression)
-      
+
       return (
-        <div 
-          className={`math-block ${className}`}
-          role="img"
-          aria-label={screenReaderText}
-        >
-          <BlockMath>{latexExpression}</BlockMath>
-        </div>
+        <span key={key} role="img" aria-label={screenReaderText}>
+          <InlineMath>{segment.value}</InlineMath>
+        </span>
       )
     } catch {
       return (
-        <div className={`font-mono bg-gray-100 p-2 rounded ${className}`}>
-          {children}
-        </div>
+        <span key={key} className="font-mono bg-gray-100 px-1 rounded">
+          {segment.value}
+        </span>
       )
     }
   }
 
-  // For mixed content (text with inline math)
-  if (containsMath(children)) {
+  if (block) {
+    const nonEmptySegments = segments.filter((segment) => segment.value.trim().length > 0)
+    const singleMathSegment =
+      nonEmptySegments.length === 1 &&
+      (nonEmptySegments[0].type === 'inlineMath' || nonEmptySegments[0].type === 'blockMath')
+
+    if (singleMathSegment) {
+      const math = nonEmptySegments[0].value
+      const screenReaderText = latexToText(math)
+
+      try {
+        return (
+          <div className={`math-block ${className}`} role="img" aria-label={screenReaderText}>
+            <BlockMath>{math}</BlockMath>
+          </div>
+        )
+      } catch {
+        return (
+          <div className={`font-mono bg-gray-100 p-2 rounded ${className}`}>
+            {math}
+          </div>
+        )
+      }
+    }
+
     return (
-      <span className={className}>
-        {renderMixedContent(children)}
-      </span>
+      <div className={className}>
+        {segments.map((segment, index) => renderInlineSegment(segment, `segment-${index}`))}
+      </div>
     )
   }
 
-  // Regular text
-  return <span className={className}>{children}</span>
+  if (segments.length === 0) {
+    return <span className={className}>{normalized}</span>
+  }
+
+  return (
+    <span className={className}>
+      {segments.map((segment, index) => renderInlineSegment(segment, `segment-${index}`))}
+    </span>
+  )
 }
 
 // Helper component for specifically rendering equations

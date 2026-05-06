@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { Prisma } from '@prisma/client';
 import { z } from 'zod';
+import { normalizeDeepText, normalizeQuestionOptions, normalizeQuestionText } from '@/lib/math/textNormalization';
 
 /**
  * GET /api/questions/practice
@@ -276,10 +277,16 @@ export async function GET(request: NextRequest) {
     // Transform response (parse JSON strings)
     const transformedQuestions = questions.map(q => ({
       ...q,
-      options: JSON.parse(q.options),
+      question: normalizeQuestionText(q.question),
+      passage: q.passage ? normalizeQuestionText(q.passage) : null,
+      options: normalizeQuestionOptions(q.options),
+      explanation: q.explanation ? normalizeQuestionText(q.explanation) : q.explanation,
       tags: JSON.parse(q.tags),
       chartData: q.chartData ? JSON.parse(q.chartData) : null,
-      wrongAnswerExplanations: q.wrongAnswerExplanations ? JSON.parse(q.wrongAnswerExplanations) : null,
+      wrongAnswerExplanations: q.wrongAnswerExplanations
+        ? normalizeDeepText(JSON.parse(q.wrongAnswerExplanations))
+        : null,
+      imageAlt: q.imageAlt ? normalizeQuestionText(q.imageAlt) : null,
       // Convert imageData (Bytes) to base64 string if present
       imageData: q.imageData ? Buffer.from(q.imageData).toString('base64') : null
     }));

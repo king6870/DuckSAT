@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { normalizeQuestionOptions, normalizeQuestionText } from '@/lib/math/textNormalization'
 
 export async function GET(request: NextRequest) {
     try {
@@ -46,9 +47,13 @@ export async function GET(request: NextRequest) {
             }
         })
 
-        // Convert binary imageData to base64 strings
+        // Convert binary imageData to base64 strings and normalize renderable text fields.
         const processedQuestions = questions.map(q => ({
             ...q,
+            question: normalizeQuestionText(q.question),
+            passage: q.passage ? normalizeQuestionText(q.passage) : null,
+            options: normalizeQuestionOptions(q.options),
+            explanation: normalizeQuestionText(q.explanation),
             imageData: q.imageData ? Buffer.from(q.imageData).toString('base64') : null
         }))
 

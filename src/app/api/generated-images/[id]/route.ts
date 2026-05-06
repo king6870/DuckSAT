@@ -39,8 +39,10 @@ export async function GET(
       })
     }
 
+    const imageBytes = new Uint8Array(question.imageData)
+
     // Return the image with appropriate content type
-    return new NextResponse(question.imageData, {
+    return new NextResponse(imageBytes, {
       status: 200,
       headers: {
         'Content-Type': question.imageMimeType || 'image/svg+xml',
