@@ -1,8 +1,12 @@
 "use client"
 
 import React from 'react'
+import dynamic from 'next/dynamic'
 
-import { VegaEmbed } from 'react-vega';
+const VegaChart = dynamic(
+  () => import('@/components/VegaChart'),
+  { ssr: false }
+)
 
 // Types
 
@@ -84,11 +88,7 @@ export default function ChartRenderer({ chartData, imageUrl, imageData, imageMim
             <div className="text-xs text-gray-600 mb-2">
               Vega-Lite diagram (interactive visualization)
             </div>
-            {/* Render Vega-Lite diagram */}
-            <VegaEmbed
-              spec={vegaSpec as Record<string, unknown>}
-              options={{ actions: false }}
-            />
+            <VegaChart spec={vegaSpec as Record<string, unknown>} />
           </div>
         </div>
       );
@@ -160,10 +160,7 @@ export default function ChartRenderer({ chartData, imageUrl, imageData, imageMim
       return (
         <div className={`chart-container ${className}`}>
           <div className="bg-white p-4 rounded border shadow-sm">
-            <VegaEmbed
-              spec={vegaSpec as Record<string, unknown>}
-              options={{ actions: false }}
-            />
+            <VegaChart spec={vegaSpec as Record<string, unknown>} />
           </div>
         </div>
       );
@@ -183,10 +180,7 @@ export default function ChartRenderer({ chartData, imageUrl, imageData, imageMim
       return (
         <div className={`chart-container ${className}`}>
           <div className="bg-white p-4 rounded border shadow-sm">
-            <VegaEmbed
-              spec={completeSpec as Record<string, unknown>}
-              options={{ actions: false }}
-            />
+            <VegaChart spec={completeSpec as Record<string, unknown>} />
           </div>
         </div>
       );

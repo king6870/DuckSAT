@@ -6,8 +6,8 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -17,13 +17,10 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
-    "target": "ES2018",
-    "downlevelIteration": true,
-    "ignoreDeprecations": "5.0"
+    "target": "ES2018"
   },
   "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules", "scripts/**", "delete/**", "deploy-temp/**", "deploy-standalone/**", "azuredev-038d-main/**", "tests/**", "prisma/**"]

@@ -4,6 +4,7 @@ interface QuestionNavigatorProps {
   totalQuestions: number
   currentQuestion: number
   answeredQuestions: number[];
+  flaggedQuestions?: number[];
   onQuestionClick: (index: number) => void
   onReviewClick: () => void
 }
@@ -12,6 +13,7 @@ export default function QuestionNavigator({
   totalQuestions,
   currentQuestion,
   answeredQuestions,
+  flaggedQuestions = [],
   onQuestionClick,
   onReviewClick
 }: QuestionNavigatorProps) {
@@ -26,6 +28,7 @@ export default function QuestionNavigator({
             {Array.from({ length: totalQuestions }, (_, i) => {
               const isAnswered = answeredQuestions.includes(i)
               const isCurrent = i === currentQuestion
+              const isFlagged = flaggedQuestions.includes(i)
               
               return (
                 <button
@@ -36,14 +39,27 @@ export default function QuestionNavigator({
                     transition-all duration-200 border-2
                     ${isCurrent
                       ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white border-transparent shadow-md scale-110'
+                      : isFlagged
+                      ? 'bg-amber-50 text-amber-700 border-amber-300 hover:bg-amber-100'
                       : isAnswered
                       ? 'bg-green-100 text-green-700 border-green-300 hover:bg-green-200'
                       : 'bg-gray-100 text-gray-600 border-gray-300 hover:bg-gray-200'
                     }
                   `}
-                  title={isAnswered ? `Question ${i + 1} (Answered)` : `Question ${i + 1} (Unanswered)`}
+                  title={isFlagged
+                    ? `Question ${i + 1} (Flagged)`
+                    : isAnswered
+                    ? `Question ${i + 1} (Answered)`
+                    : `Question ${i + 1} (Unanswered)`}
                 >
-                  {i + 1}
+                  <span className="relative inline-flex items-center justify-center">
+                    {i + 1}
+                    {isFlagged && (
+                      <span className="absolute -top-2 -right-2 text-[10px] leading-none" aria-hidden="true">
+                        ⚑
+                      </span>
+                    )}
+                  </span>
                 </button>
               )
             })}
@@ -71,6 +87,10 @@ export default function QuestionNavigator({
           <div className="flex items-center gap-1.5">
             <div className="w-6 h-6 rounded bg-gray-100 border-2 border-gray-300"></div>
             <span>Unanswered</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <div className="w-6 h-6 rounded bg-amber-50 border-2 border-amber-300"></div>
+            <span>Flagged</span>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { safeJsonArrayParse, syncGroupStudySession } from '@/lib/groupStudy'
+import { normalizeOptionTexts } from '@/lib/optionText'
 import { isSchemaProvisioningError, schemaProvisioningResponse } from '@/lib/schemaProvisioning'
 
 interface RouteContext {
@@ -183,7 +184,7 @@ export async function GET(_request: NextRequest, context: RouteContext) {
       orderIndex: currentQuestionRef.orderIndex,
       question: currentQuestionRef.question.question,
       passage: currentQuestionRef.question.passage,
-      options: safeJsonArrayParse(currentQuestionRef.question.options),
+      options: normalizeOptionTexts(safeJsonArrayParse(currentQuestionRef.question.options)),
       correctAnswer: canRevealAnswers ? currentQuestionRef.question.correctAnswer : null,
       explanation: canRevealAnswers ? currentQuestionRef.question.explanation : null,
       wrongAnswerExplanations: canRevealAnswers

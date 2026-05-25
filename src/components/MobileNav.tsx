@@ -21,8 +21,23 @@ const NAV_LINKS = [
 
 export default function MobileNav() {
   const [open, setOpen] = useState(false)
+  const [isSigningOut, setIsSigningOut] = useState(false)
   const { data: session } = useSession()
   const isAdmin = ADMIN_EMAILS.includes(session?.user?.email || '')
+
+  async function handleSignOut() {
+    if (isSigningOut) return
+
+    setIsSigningOut(true)
+    setOpen(false)
+
+    try {
+      const result = await signOut({ redirect: false, callbackUrl: '/' })
+      window.location.replace(result?.url || '/')
+    } catch {
+      setIsSigningOut(false)
+    }
+  }
 
   return (
     <>
@@ -99,10 +114,11 @@ export default function MobileNav() {
                     {session.user.name ?? session.user.email}
                   </div>
                   <button
-                    onClick={() => { setOpen(false); signOut() }}
-                    className="w-full py-2 rounded-xl bg-red-500 hover:bg-red-600 text-white font-semibold text-sm transition-colors"
+                    onClick={handleSignOut}
+                    disabled={isSigningOut}
+                    className="w-full py-2 rounded-xl bg-red-500 hover:bg-red-600 disabled:bg-red-300 text-white font-semibold text-sm transition-colors"
                   >
-                    Sign Out
+                    {isSigningOut ? 'Signing Out…' : 'Sign Out'}
                   </button>
                 </>
               ) : (

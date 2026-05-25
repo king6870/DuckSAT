@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useSession } from 'next-auth/react';
+import { usePathname } from 'next/navigation';
 import FeedbackStars from './FeedbackStars';
 
 // ─── localStorage keys ───────────────────────────────────────────────────────
@@ -137,6 +138,7 @@ function ModalContent({
 // ─── component ───────────────────────────────────────────────────────────────
 export default function FeedbackWidget() {
   const { data: session } = useSession();
+  const pathname = usePathname();
 
   // form state
   const [rating, setRating]         = useState(0);
@@ -153,9 +155,14 @@ export default function FeedbackWidget() {
 
   // used to return focus to the button when modal closes
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const isFeedbackSuppressed = pathname === '/practice-test'
+    || pathname.startsWith('/practice/')
+    || pathname.startsWith('/group-study/');
 
   // ── on mount: check submission status & init popup timer ──────────────────
   useEffect(() => {
+    if (isFeedbackSuppressed) return;
+
     const ls = safeLS();
     if (!ls) return; // graceful degradation: no localStorage → no popups
 
@@ -233,7 +240,15 @@ export default function FeedbackWidget() {
       cancelled = true;
       if (intervalId !== null) clearInterval(intervalId);
     };
-  }, [session?.user?.id]); // re-run if auth state changes
+  }, [session?.user?.id, isFeedbackSuppressed]); // re-run if auth state changes
+
+  useEffect(() => {
+    if (!isFeedbackSuppressed) return;
+
+    setOpenModal(null);
+    setShowSuccess(false);
+    setSubmitError('');
+  }, [isFeedbackSuppressed]);
 
   // ── focus trap ────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -358,6 +373,10 @@ export default function FeedbackWidget() {
   }
 
   const isOpen = openModal !== null;
+
+  if (isFeedbackSuppressed) {
+    return null;
+  }
 
   return (
     <>

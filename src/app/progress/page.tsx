@@ -496,7 +496,7 @@ function EmptyState({ onStart }: { onStart: () => void }) {
 // ─── Main Page ──────────────────────────────────────────────────────────────
 
 function ProgressContent() {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
   const searchParams = useSearchParams()
   const practiceTestId = searchParams.get('practiceTestId')
@@ -510,8 +510,12 @@ function ProgressContent() {
   const [practiceTestProgress, setPracticeTestProgress] = useState<PracticeTestProgress | null>(null)
 
   useEffect(() => {
-    if (!session) {
+    if (status === 'unauthenticated') {
       router.push('/')
+      return
+    }
+
+    if (status !== 'authenticated' || !session) {
       return
     }
 
@@ -546,7 +550,7 @@ function ProgressContent() {
     }
 
     fetchProgressData()
-  }, [session, router, practiceTestId])
+  }, [session, status, router, practiceTestId])
 
   const formatTime = useCallback((value: number, unit: 'seconds' | 'minutes' = 'seconds') => {
     const totalMinutes = unit === 'seconds' ? Math.floor(value / 60) : value
@@ -557,7 +561,7 @@ function ProgressContent() {
   }, [])
 
   // ── Loading State ──
-  if (!session || loading) {
+  if (status === 'loading' || (status === 'authenticated' && loading)) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
         <div className="flex space-x-2">
@@ -567,6 +571,10 @@ function ProgressContent() {
         </div>
       </div>
     )
+  }
+
+  if (status === 'unauthenticated' || !session) {
+    return null
   }
 
   // ── Error State ──

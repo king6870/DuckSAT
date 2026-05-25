@@ -6,6 +6,7 @@ import { useEffect, useState, useCallback, useRef } from "react"
 import { ArrowLeft, ArrowRight, CheckCircle2, XCircle, RotateCcw, Home, Trophy, MessageCircle, Send, Sparkles, X, Mic, MicOff, Volume2, VolumeX } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { trackDrill, trackEvent } from "@/lib/tracking"
+import { normalizeOptionText } from "@/lib/optionText"
 import MathRenderer from "@/components/MathRenderer"
 import ChartRenderer from "@/components/ChartRenderer"
 
@@ -163,6 +164,7 @@ export default function DrillPage() {
   const [voiceOutputEnabled, setVoiceOutputEnabled] = useState(true)
   const [isListening, setIsListening] = useState(false)
   const recognitionRef = useRef<BrowserSpeechRecognition | null>(null)
+  const tutorSessionIdRef = useRef<string | null>(null)
 
   // Analytics timing
   const drillStartTime = useRef<string>('')
@@ -228,7 +230,7 @@ export default function DrillPage() {
           }
           return {
             ...q,
-            options: indices.map((i: number) => q.options[i]),
+            options: indices.map((i: number) => normalizeOptionText(q.options[i] || '')),
             correctAnswer: indices.indexOf(q.correctAnswer),
             wrongAnswerExplanations: q.wrongAnswerExplanations
               ? indices.map((i: number) => q.wrongAnswerExplanations![i])
@@ -292,9 +294,45 @@ export default function DrillPage() {
         content: 'Drill started. Ask me for a hint or strategy on this topic whenever you need help.',
       },
     ])
+    tutorSessionIdRef.current = null
     trackEvent('drill', 'drill_started', { category: categorySlug, difficulty: diff || 'mixed', drillLength: drillCount })
     fetchQuestions(diff, drillCount)
   }
+
+  const ensureTutorSession = useCallback(async (activeQuestion?: Question): Promise<string | null> => {
+    if (tutorSessionIdRef.current) {
+      return tutorSessionIdRef.current
+    }
+
+    const response = await fetch('/api/ai-agent/session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        source: 'topic-drill',
+        moduleType: activeQuestion?.moduleType || moduleType || null,
+        category: activeQuestion?.category || categorySlug,
+        difficulty: activeQuestion?.difficulty || difficulty || null,
+        metadata: {
+          drillCount,
+        },
+      }),
+    })
+
+    const payload = await response.json().catch(() => ({}))
+
+    if (!response.ok) {
+      if (payload?.error === 'ai_agent_schema_not_ready') {
+        return null
+      }
+      throw new Error(typeof payload?.message === 'string' ? payload.message : 'Unable to create tutor session')
+    }
+
+    const sessionId = typeof payload?.session?.id === 'string' ? payload.session.id : null
+    if (!sessionId) return null
+
+    tutorSessionIdRef.current = sessionId
+    return sessionId
+  }, [categorySlug, difficulty, drillCount, moduleType])
 
   const sendTutorMessage = useCallback(async (presetMessage?: string) => {
     const message = (presetMessage ?? tutorInput).trim()
@@ -308,33 +346,77 @@ export default function DrillPage() {
     setTutorLoading(true)
 
     try {
-      const response = await fetch('/api/ai-tutor/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          messages: nextMessages,
-          context: {
-            moduleType: activeQuestion?.moduleType || moduleType || null,
-            category: activeQuestion?.category || categorySlug,
-            difficulty: activeQuestion?.difficulty || difficulty || null,
-            subtopic: activeQuestion?.subtopic || null,
-            question: activeQuestion?.question || null,
-            passage: activeQuestion?.passage || null,
-            options: activeQuestion?.options || [],
-            selectedAnswer,
-            correctAnswer: isRevealed ? activeQuestion?.correctAnswer ?? null : null,
-            isRevealed,
-          },
-        }),
-      })
+      const requestContext = {
+        moduleType: activeQuestion?.moduleType || moduleType || null,
+        category: activeQuestion?.category || categorySlug,
+        difficulty: activeQuestion?.difficulty || difficulty || null,
+        subtopic: activeQuestion?.subtopic || null,
+        question: activeQuestion?.question || null,
+        passage: activeQuestion?.passage || null,
+        options: activeQuestion?.options || [],
+        selectedAnswer,
+        correctAnswer: isRevealed ? activeQuestion?.correctAnswer ?? null : null,
+        isRevealed,
+      }
 
-      const payload = await response.json().catch(() => ({}))
+      const fetchLegacyTutorReply = async () => {
+        const response = await fetch('/api/ai-tutor/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: nextMessages,
+            context: requestContext,
+          }),
+        })
 
-      if (!response.ok) {
-        if (payload?.error === 'ai_tutor_not_configured') {
-          throw new Error('AI tutor is not configured yet. Add provider keys to environment variables.')
+        const payload = await response.json().catch(() => ({}))
+        if (!response.ok) {
+          if (payload?.error === 'ai_tutor_not_configured') {
+            throw new Error('AI tutor is not configured yet. Add provider keys to environment variables.')
+          }
+          throw new Error('Tutor request failed')
         }
-        throw new Error('Tutor request failed')
+
+        return payload
+      }
+
+      let payload: Record<string, unknown> | null = null
+      const sessionId = await ensureTutorSession(activeQuestion)
+
+      if (sessionId) {
+        const agentResponse = await fetch('/api/ai-agent/message', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sessionId,
+            content: message,
+            context: requestContext,
+          }),
+        })
+
+        const agentPayload = await agentResponse.json().catch(() => ({}))
+        if (agentResponse.ok) {
+          payload = agentPayload as Record<string, unknown>
+        } else {
+          const errorCode = typeof agentPayload?.error === 'string' ? agentPayload.error : ''
+          const shouldFallbackToLegacy =
+            errorCode === 'ai_agent_schema_not_ready' ||
+            errorCode === 'session_not_found' ||
+            errorCode === 'session_not_active'
+
+          if (!shouldFallbackToLegacy) {
+            if (errorCode === 'ai_tutor_not_configured') {
+              throw new Error('AI tutor is not configured yet. Add provider keys to environment variables.')
+            }
+            throw new Error('Tutor request failed')
+          }
+
+          tutorSessionIdRef.current = null
+        }
+      }
+
+      if (!payload) {
+        payload = await fetchLegacyTutorReply() as Record<string, unknown>
       }
 
       const reply = typeof payload?.reply === 'string' ? payload.reply : 'I could not generate a response just now.'
@@ -355,7 +437,7 @@ export default function DrillPage() {
     } finally {
       setTutorLoading(false)
     }
-  }, [categorySlug, currentIndex, difficulty, isRevealed, moduleType, questions, selectedAnswer, speakText, tutorInput, tutorLoading, tutorMessages])
+  }, [categorySlug, currentIndex, difficulty, ensureTutorSession, isRevealed, moduleType, questions, selectedAnswer, speakText, tutorInput, tutorLoading, tutorMessages])
 
   const stopVoiceInput = useCallback(() => {
     recognitionRef.current?.stop()

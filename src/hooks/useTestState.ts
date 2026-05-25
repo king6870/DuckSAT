@@ -2,7 +2,15 @@ import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { TestState, TestResult, QuestionResult, Question } from '@/types/test'
 import { MODULE_CONFIGS } from '@/data/moduleConfigs'
 import { computeSATScores } from '@/lib/satScoring'
+import { normalizeOptionTexts } from '@/lib/optionText'
 import { trackEvent } from '@/lib/tracking'
+
+function normalizeQuestionOptions(question: Question): Question {
+  return {
+    ...question,
+    options: normalizeOptionTexts(question.options || []),
+  }
+}
 
 export function useTestState(userId: string, practiceTestId?: string) {
   const logContext = useMemo(() => ({
@@ -156,7 +164,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
 
         // Cache all modules
         const modules = data.test.modules as Array<{ questions: Question[] }>
-        const allModules = modules.map(m => m.questions)
+        const allModules = modules.map((module) => module.questions.map(normalizeQuestionOptions))
         setAllPracticeTestModules(allModules)
 
         // Epic #61: Capture attempt number for display in test header (#64 Story 3.3)
@@ -236,7 +244,7 @@ export function useTestState(userId: string, practiceTestId?: string) {
         [questionsToUse[i], questionsToUse[j]] = [questionsToUse[j], questionsToUse[i]]
       }
 
-      const selectedQuestions = questionsToUse.slice(0, limit)
+      const selectedQuestions = questionsToUse.slice(0, limit).map(normalizeQuestionOptions)
       const newUsedIds = [...currentUsedIds]
       selectedQuestions.forEach((q: Question) => {
         if (!newUsedIds.includes(q.id)) newUsedIds.push(q.id)

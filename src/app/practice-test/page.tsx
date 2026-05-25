@@ -2,7 +2,7 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { Coffee, BookOpen } from 'lucide-react';
+import { Calculator as CalculatorIcon, Coffee, BookOpen, Eye, EyeOff, Flag, FlagOff, X } from 'lucide-react';
 import { useTestState } from '../../hooks/useTestState';
 import TestLauncher from '../../components/test/TestLauncher';
 import ModuleStart from '../../components/test/ModuleStart';
@@ -12,6 +12,125 @@ import QuestionNavigator from '../../components/test/QuestionNavigator';
 import AbandonTestDialog from '../../components/test/AbandonTestDialog';
 import MathRenderer from '../../components/MathRenderer';
 import ChartRenderer from '../../components/ChartRenderer';
+
+function evaluateCalculatorExpression(expression: string): string {
+  const normalized = expression.replace(/×/g, '*').replace(/÷/g, '/').replace(/\s+/g, '');
+
+  if (!normalized) return '';
+  if (!/^[0-9+\-*/().]+$/.test(normalized)) {
+    throw new Error('Unsupported expression');
+  }
+
+  const result = Function(`"use strict"; return (${normalized})`)();
+  if (typeof result !== 'number' || !Number.isFinite(result)) {
+    throw new Error('Invalid result');
+  }
+
+  return Number.isInteger(result) ? String(result) : String(Number(result.toFixed(8)));
+}
+
+function DigitalCalculator({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const [expression, setExpression] = useState('');
+  const [message, setMessage] = useState<string | null>(null);
+
+  if (!isOpen) {
+    return null;
+  }
+
+  const buttons = [
+    ['7', '8', '9', '÷'],
+    ['4', '5', '6', '×'],
+    ['1', '2', '3', '-'],
+    ['0', '.', '(', ')'],
+  ];
+
+  const append = (value: string) => {
+    setExpression((prev) => `${prev}${value}`);
+    setMessage(null);
+  };
+
+  const clear = () => {
+    setExpression('');
+    setMessage(null);
+  };
+
+  const backspace = () => {
+    setExpression((prev) => prev.slice(0, -1));
+    setMessage(null);
+  };
+
+  const calculate = () => {
+    try {
+      const nextValue = evaluateCalculatorExpression(expression);
+      setExpression(nextValue);
+      setMessage(nextValue ? `= ${nextValue}` : null);
+    } catch {
+      setMessage('Invalid expression');
+    }
+  };
+
+  return (
+    <div className="fixed bottom-4 right-4 z-50 w-[min(22rem,calc(100vw-2rem))] rounded-3xl border border-indigo-200 bg-white shadow-2xl">
+      <div className="flex items-center justify-between border-b border-indigo-100 px-4 py-3">
+        <div>
+          <p className="text-sm font-semibold text-gray-900">Digital Calculator</p>
+          <p className="text-[11px] text-gray-500">Math module helper</p>
+        </div>
+        <button
+          onClick={onClose}
+          className="rounded-md p-1 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+          aria-label="Close calculator"
+        >
+          <X className="h-4 w-4" />
+        </button>
+      </div>
+
+      <div className="p-4">
+        <div className="rounded-2xl bg-slate-950 px-4 py-3 text-right text-white shadow-inner">
+          <div className="min-h-[1.5rem] text-xs text-slate-400">{message || 'Ready'}</div>
+          <div className="min-h-[2.5rem] break-all text-2xl font-semibold">{expression || '0'}</div>
+        </div>
+
+        <div className="mt-4 grid grid-cols-4 gap-2">
+          <button
+            onClick={clear}
+            className="rounded-xl bg-rose-100 px-3 py-3 text-sm font-semibold text-rose-700 hover:bg-rose-200"
+          >
+            AC
+          </button>
+          <button
+            onClick={backspace}
+            className="rounded-xl bg-amber-100 px-3 py-3 text-sm font-semibold text-amber-700 hover:bg-amber-200"
+          >
+            DEL
+          </button>
+          <button
+            onClick={() => append('+')}
+            className="rounded-xl bg-indigo-100 px-3 py-3 text-sm font-semibold text-indigo-700 hover:bg-indigo-200"
+          >
+            +
+          </button>
+          <button
+            onClick={calculate}
+            className="rounded-xl bg-indigo-600 px-3 py-3 text-sm font-semibold text-white hover:bg-indigo-700"
+          >
+            =
+          </button>
+
+          {buttons.flat().map((button) => (
+            <button
+              key={button}
+              onClick={() => append(button)}
+              className="rounded-xl bg-slate-100 px-3 py-3 text-base font-semibold text-slate-800 hover:bg-slate-200"
+            >
+              {button}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function PracticeTestPage() {
   return (
@@ -30,7 +149,7 @@ export default function PracticeTestPage() {
 
 function PracticeTestContent() {
   const router = useRouter();
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const searchParams = useSearchParams();
   
   // Epic #61: Get practiceTestId from URL params for fixed practice tests
@@ -42,6 +161,7 @@ function PracticeTestContent() {
     hasStarted,
     moduleStarted,
     currentModule,
+    currentModuleIndex,
     currentQuestion,
     currentQuestionIndex,
     currentModuleQuestions,
@@ -77,14 +197,76 @@ function PracticeTestContent() {
 
   // Abandon dialog state
   const [showAbandonDialog, setShowAbandonDialog] = useState(false);
+  const [hiddenTimer, setHiddenTimer] = useState(false);
+  const [strikeoutMode, setStrikeoutMode] = useState(false);
+  const [calculatorOpen, setCalculatorOpen] = useState(false);
+  const [flaggedQuestionsByModule, setFlaggedQuestionsByModule] = useState<Record<number, number[]>>({});
+  const [struckOptionsByQuestion, setStruckOptionsByQuestion] = useState<Record<string, number[]>>({});
 
   // Track answered questions for navigator
   const answeredQuestions = selectedAnswers
     .map((answer, index) => answer !== -1 ? index : -1)
     .filter(index => index !== -1);
+  const currentQuestionKey = `${currentModuleIndex}:${currentQuestionIndex}`;
+  const flaggedQuestions = flaggedQuestionsByModule[currentModuleIndex] || [];
+  const isCurrentQuestionFlagged = flaggedQuestions.includes(currentQuestionIndex);
+  const currentStruckOptions = struckOptionsByQuestion[currentQuestionKey] || [];
 
   // Error state for submission
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  function toggleFlaggedQuestion() {
+    setFlaggedQuestionsByModule((prev) => {
+      const currentFlags = prev[currentModuleIndex] || [];
+      const nextFlags = currentFlags.includes(currentQuestionIndex)
+        ? currentFlags.filter((index) => index !== currentQuestionIndex)
+        : [...currentFlags, currentQuestionIndex].sort((left, right) => left - right);
+
+      return {
+        ...prev,
+        [currentModuleIndex]: nextFlags,
+      };
+    });
+  }
+
+  function setStruckOptions(questionKey: string, nextOptions: number[]) {
+    setStruckOptionsByQuestion((prev) => {
+      if (nextOptions.length === 0) {
+        const nextState = { ...prev };
+        delete nextState[questionKey];
+        return nextState;
+      }
+
+      return {
+        ...prev,
+        [questionKey]: nextOptions,
+      };
+    });
+  }
+
+  function toggleStrikeoutOption(optionIndex: number) {
+    const nextOptions = currentStruckOptions.includes(optionIndex)
+      ? currentStruckOptions.filter((index) => index !== optionIndex)
+      : [...currentStruckOptions, optionIndex].sort((left, right) => left - right);
+
+    setStruckOptions(currentQuestionKey, nextOptions);
+  }
+
+  function handleOptionClick(optionIndex: number) {
+    if (strikeoutMode) {
+      toggleStrikeoutOption(optionIndex);
+      return;
+    }
+
+    if (currentStruckOptions.includes(optionIndex)) {
+      setStruckOptions(
+        currentQuestionKey,
+        currentStruckOptions.filter((index) => index !== optionIndex)
+      );
+    }
+
+    selectAnswer(optionIndex);
+  }
 
   // Keyboard navigation event handler
   useEffect(() => {
@@ -151,10 +333,20 @@ function PracticeTestContent() {
   ]);
 
   useEffect(() => {
-    if (!session) {
+    if (status === 'unauthenticated') {
       router.push('/');
     }
-  }, [session, router]);
+  }, [status, router]);
+
+  useEffect(() => {
+    if (currentModule?.type !== 'math') {
+      setCalculatorOpen(false);
+    }
+  }, [currentModule?.type]);
+
+  useEffect(() => {
+    setStrikeoutMode(false);
+  }, [currentModuleIndex, currentQuestionIndex]);
 
   // Lockdown: warn on browser navigation while test is active
   useEffect(() => {
@@ -180,7 +372,7 @@ function PracticeTestContent() {
     });
   }, [hasStarted, moduleStarted, currentModule, currentQuestion, isTransitioning, isComplete]);
 
-  if (!session) {
+  if (status === 'loading' || !session) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="flex space-x-2">
@@ -340,6 +532,7 @@ function PracticeTestContent() {
           totalQuestions={effectiveQuestionCount}
           currentQuestion={currentQuestionIndex}
           answeredQuestions={answeredQuestions}
+          flaggedQuestions={flaggedQuestions}
           onQuestionClick={goToQuestion}
           onReviewClick={() => setShowReview(true)}
         />
@@ -367,6 +560,9 @@ function PracticeTestContent() {
                 <p className="text-xs text-gray-500 mt-1" role="complementary" aria-label="Keyboard shortcuts">
                   ⌨️ Shortcuts: A/B/C/D to answer • ← → to navigate • Enter for next
                 </p>
+                {isCurrentQuestionFlagged && (
+                  <p className="text-xs font-medium text-amber-600 mt-1">Flagged for review</p>
+                )}
               </div>
               <div className="text-right">
                 <div className={`text-2xl font-bold transition-colors ${
@@ -376,12 +572,62 @@ function PracticeTestContent() {
                     ? 'text-orange-500'
                     : 'text-purple-600'
                 }`}>
-                  {Math.floor(timeRemaining / 60)}:{(timeRemaining % 60).toString().padStart(2, '0')}
+                  {hiddenTimer
+                    ? '••:••'
+                    : `${Math.floor(timeRemaining / 60)}:${(timeRemaining % 60).toString().padStart(2, '0')}`}
                 </div>
                 <div className="text-sm text-gray-500">
-                  {timeRemaining <= 300 ? '⚠️ Time Running Out!' : 'Time Remaining'}
+                  {hiddenTimer ? 'Timer Hidden' : timeRemaining <= 300 ? '⚠️ Time Running Out!' : 'Time Remaining'}
                 </div>
               </div>
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center gap-2">
+              <button
+                onClick={toggleFlaggedQuestion}
+                className="inline-flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-sm font-medium text-amber-700 hover:bg-amber-100"
+                aria-pressed={isCurrentQuestionFlagged}
+              >
+                {isCurrentQuestionFlagged ? <FlagOff className="w-4 h-4" /> : <Flag className="w-4 h-4" />}
+                {isCurrentQuestionFlagged ? 'Unflag Question' : 'Flag Question'}
+              </button>
+
+              <button
+                onClick={() => setHiddenTimer((prev) => !prev)}
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                aria-pressed={hiddenTimer}
+              >
+                {hiddenTimer ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                {hiddenTimer ? 'Show Timer' : 'Hide Timer'}
+              </button>
+
+              <button
+                onClick={() => setStrikeoutMode((prev) => !prev)}
+                className={`inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-sm font-medium transition-colors ${
+                  strikeoutMode
+                    ? 'border-rose-300 bg-rose-50 text-rose-700 hover:bg-rose-100'
+                    : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
+                }`}
+                aria-pressed={strikeoutMode}
+              >
+                <span className="text-xs font-semibold">A̶a̶</span>
+                {strikeoutMode ? 'Cross-out On' : 'Cross-out Mode'}
+              </button>
+
+              {currentModule.type === 'math' && (
+                <button
+                  onClick={() => setCalculatorOpen((prev) => !prev)}
+                  className="inline-flex items-center gap-2 rounded-xl border border-indigo-200 bg-indigo-50 px-3 py-2 text-sm font-medium text-indigo-700 hover:bg-indigo-100"
+                  aria-pressed={calculatorOpen}
+                >
+                  <CalculatorIcon className="w-4 h-4" />
+                  {calculatorOpen ? 'Hide Calculator' : 'Calculator'}
+                </button>
+              )}
+
+              {strikeoutMode && (
+                <span className="text-xs text-rose-600 font-medium">Tap answer choices to cross them out.</span>
+              )}
             </div>
 
             {/* Progress Bar */}
@@ -439,13 +685,16 @@ function PracticeTestContent() {
               <div className="space-y-3">
                 {currentQuestion.options.map((option, index) => {
                   const isSelected = currentSelectedAnswer === index;
+                  const isStruckOut = currentStruckOptions.includes(index);
                   return (
                     <button
                       key={index}
-                      onClick={() => selectAnswer(index)}
+                      onClick={() => handleOptionClick(index)}
                       className={`w-full text-left p-4 rounded-2xl border-2 transition-all duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
                         isSelected
                           ? 'border-purple-500 bg-purple-100 shadow-md'
+                          : isStruckOut
+                          ? 'border-slate-300 bg-slate-50 opacity-60'
                           : 'border-gray-200 hover:border-purple-300 hover:bg-purple-50'
                       }`}
                       aria-pressed={isSelected}
@@ -454,11 +703,13 @@ function PracticeTestContent() {
                         <span className={`font-semibold mr-3 w-8 h-8 rounded-full flex items-center justify-center text-sm ${
                           isSelected
                             ? 'bg-purple-500 text-white'
+                            : isStruckOut
+                            ? 'bg-slate-300 text-slate-600'
                             : 'bg-gray-200 text-gray-600 group-hover:bg-purple-200 group-hover:text-purple-700'
                         }`}>
                           {String.fromCharCode(65 + index)}
                         </span>
-                        <span className={`${isSelected ? 'text-purple-900 font-medium' : 'text-gray-700'}`}>
+                        <span className={`${isSelected ? 'text-purple-900 font-medium' : 'text-gray-700'} ${isStruckOut ? 'line-through decoration-2 text-slate-500' : ''}`}>
                           <MathRenderer>{option}</MathRenderer>
                         </span>
                       </div>
@@ -505,6 +756,11 @@ function PracticeTestContent() {
             </div>
           </div>
         </div>
+
+        <DigitalCalculator
+          isOpen={currentModule.type === 'math' && calculatorOpen}
+          onClose={() => setCalculatorOpen(false)}
+        />
       </div>
     );
   }

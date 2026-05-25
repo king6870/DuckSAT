@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,12 +9,26 @@ import { ADMIN_EMAILS } from "@/constants/adminEmails";
 
 export default function UserMenu() {
   const { data: session, status } = useSession();
+  const [isSigningOut, setIsSigningOut] = useState(false);
   
   if (status === "loading") {
     return null;
   }
 
   const isAdmin = ADMIN_EMAILS.includes(session?.user?.email || '');
+
+  async function handleSignOut() {
+    if (isSigningOut) return;
+
+    setIsSigningOut(true);
+
+    try {
+      const result = await signOut({ redirect: false, callbackUrl: '/' });
+      window.location.replace(result?.url || '/');
+    } catch {
+      setIsSigningOut(false);
+    }
+  }
 
   return (
     <div className="flex items-center gap-4">
@@ -52,11 +67,12 @@ export default function UserMenu() {
           
           {/* Sign Out Button */}
           <button
-            onClick={() => signOut()}
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+            onClick={handleSignOut}
+            disabled={isSigningOut}
+            className="bg-red-500 hover:bg-red-600 disabled:bg-red-300 text-white px-4 py-2 rounded font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
             aria-label="Sign out of your account"
           >
-            Sign Out
+            {isSigningOut ? 'Signing Out…' : 'Sign Out'}
           </button>
         </>
       ) : (
