@@ -3,10 +3,16 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
 import { stripe } from '@/lib/stripe';
 import { STRIPE_PLANS } from '@/lib/stripe-config';
+import { assertStripeRuntimeConfig } from '@/lib/stripe-env';
 import { prisma } from '@/lib/prisma';
 
 export async function POST(request: Request) {
   try {
+    assertStripeRuntimeConfig('Stripe Checkout', {
+      requirePriceIds: true,
+      requirePublishableKey: true,
+    })
+
     const session = await getServerSession(authOptions);
     if (!session?.user?.id) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

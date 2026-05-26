@@ -18,6 +18,8 @@
 import { NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
 
+import { getStripeEnvReport } from '@/lib/stripe-env'
+
 const REQUIRED_ENV_VARS = [
   'NEXTAUTH_SECRET',
   'NEXTAUTH_URL',
@@ -52,6 +54,7 @@ export async function GET(request: NextRequest) {
     timestamp: new Date().toISOString(),
     diagnosticsEnabled: enableDiagnostics,
     variables: envCheck,
+    stripe: getStripeEnvReport(),
   }
   
   // Add warning if diagnostics were requested in production but not allowed

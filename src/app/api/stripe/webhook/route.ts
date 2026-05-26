@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe';
+import { assertStripeRuntimeConfig } from '@/lib/stripe-env';
 import { prisma } from '@/lib/prisma';
 import Stripe from 'stripe';
 
@@ -26,6 +27,8 @@ function getInvoiceSubscriptionId(invoice: Stripe.Invoice): string | null {
 }
 
 export async function POST(request: Request) {
+  assertStripeRuntimeConfig('Stripe Webhook', { requireWebhookSecret: true })
+
   const body = await request.text();
   const sig = request.headers.get('stripe-signature');
 

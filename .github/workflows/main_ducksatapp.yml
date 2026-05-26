@@ -47,7 +47,11 @@ jobs:
           DATABASE_URL: sqlserver://placeholder:1433;database=placeholder;user=placeholder;password=placeholder;encrypt=true
           NEXTAUTH_SECRET: placeholder-build-secret-not-used-at-runtime
           NEXTAUTH_URL: https://www.ducksat.com
-          STRIPE_SECRET_KEY: sk_test_placeholder_not_used_at_build_time
+          STRIPE_SECRET_KEY: sk_live_build_placeholder_not_used_at_runtime
+          NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: pk_live_build_placeholder_not_used_at_runtime
+          STRIPE_MONTHLY_PRICE_ID: price_build_placeholder_monthly
+          STRIPE_YEARLY_PRICE_ID: price_build_placeholder_yearly
+          STRIPE_WEBHOOK_SECRET: whsec_build_placeholder_not_used_at_runtime
 
       - name: Package standalone build
         run: |

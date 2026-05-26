@@ -28,6 +28,7 @@
         "validate:practice-test-ordering": "tsx scripts/verify-practice-test-ordering.ts",
         "repair:practice-test-canonical-order": "tsx scripts/repair-practice-tests-canonical-order.ts",
         "validate:practice-test-publish-guard": "tsx scripts/validate-publish-guard-readiness.ts",
+        "validate:stripe-live": "dotenv -e .env.local -- tsx scripts/validate-stripe-live-config.ts",
         "validate:generated-json": "tsx scripts/validate-generated-json.ts",
         "test:specialized-topics": "tsx scripts/test-specialized-topic-generation.ts"
         ,"go-live:readiness": "tsx scripts/go-live-readiness.ts"
