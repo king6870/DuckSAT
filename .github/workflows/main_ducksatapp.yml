@@ -160,6 +160,38 @@ jobs:
             fi
           done
 
+          case "${STRIPE_SECRET_KEY_LIVE}" in
+            sk_live_*) ;;
+            *)
+              echo "STRIPE_SECRET_KEY_LIVE is missing a valid live secret-key format" >&2
+              exit 1
+              ;;
+          esac
+
+          case "${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_LIVE}" in
+            pk_live_*) ;;
+            *)
+              echo "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_LIVE is missing a valid live publishable-key format" >&2
+              exit 1
+              ;;
+          esac
+
+          case "${STRIPE_MONTHLY_PRICE_ID_LIVE}" in
+            price_*) ;;
+            *)
+              echo "STRIPE_MONTHLY_PRICE_ID_LIVE is missing a valid Stripe price ID format" >&2
+              exit 1
+              ;;
+          esac
+
+          case "${STRIPE_YEARLY_PRICE_ID_LIVE}" in
+            price_*) ;;
+            *)
+              echo "STRIPE_YEARLY_PRICE_ID_LIVE is missing a valid Stripe price ID format" >&2
+              exit 1
+              ;;
+          esac
+
           az webapp config appsettings set \
             --name ducksatapp \
             --resource-group DuckSAT \
