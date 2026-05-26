@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
 import { stripe } from '@/lib/stripe';
 import { assertStripeRuntimeConfig } from '@/lib/stripe-env';
+import { resolveStripeCustomerId } from '@/lib/stripe-customer';
 import { prisma } from '@/lib/prisma';
 
 export async function POST() {
@@ -25,20 +26,13 @@ export async function POST() {
 
     const baseUrl = process.env.NEXTAUTH_URL || 'https://www.ducksat.com';
 
-    // If no Stripe customer exists (e.g. promo-code users), create one on the fly
-    let customerId = user.stripeCustomerId;
-    if (!customerId) {
-      const customer = await stripe.customers.create({
-        email: user.email ?? undefined,
-        name: user.name ?? undefined,
-        metadata: { userId: session.user.id },
-      });
-      customerId = customer.id;
-      await prisma.user.update({
-        where: { id: session.user.id },
-        data: { stripeCustomerId: customerId },
-      });
-    }
+    const customerId = await resolveStripeCustomerId({
+      context: 'Stripe Portal',
+      userId: session.user.id,
+      email: user.email,
+      name: user.name,
+      stripeCustomerId: user.stripeCustomerId,
+    });
 
     const portalSession = await stripe.billingPortal.sessions.create({
       customer: customerId,

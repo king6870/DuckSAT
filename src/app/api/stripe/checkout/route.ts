@@ -4,6 +4,7 @@ import { authOptions } from '@/lib/auth';
 import { stripe } from '@/lib/stripe';
 import { STRIPE_PLANS } from '@/lib/stripe-config';
 import { assertStripeRuntimeConfig } from '@/lib/stripe-env';
+import { resolveStripeCustomerId } from '@/lib/stripe-customer';
 import { prisma } from '@/lib/prisma';
 
 export async function POST(request: Request) {
@@ -28,26 +29,20 @@ export async function POST(request: Request) {
     const planConfig = STRIPE_PLANS[plan];
     const user = await prisma.user.findUnique({
       where: { id: session.user.id },
-      select: { email: true, stripeCustomerId: true },
+      select: { email: true, name: true, stripeCustomerId: true },
     });
 
     if (!user) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    // Get or create Stripe customer
-    let customerId = user.stripeCustomerId;
-    if (!customerId) {
-      const customer = await stripe.customers.create({
-        email: user.email,
-        metadata: { userId: session.user.id },
-      });
-      customerId = customer.id;
-      await prisma.user.update({
-        where: { id: session.user.id },
-        data: { stripeCustomerId: customerId },
-      });
-    }
+    const customerId = await resolveStripeCustomerId({
+      context: 'Stripe Checkout',
+      userId: session.user.id,
+      email: user.email,
+      name: user.name,
+      stripeCustomerId: user.stripeCustomerId,
+    });
 
     const baseUrl = process.env.NEXTAUTH_URL || 'https://www.ducksat.com';
 
