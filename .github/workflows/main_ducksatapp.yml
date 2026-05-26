@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      id-token: write
 
     steps:
       - uses: actions/checkout@v4
@@ -131,6 +132,43 @@ jobs:
           with urllib.request.urlopen(req, timeout=30) as r:
               print(f'Kudu settings updated: HTTP {r.status}')
               print(r.read().decode()[:200])
+
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_039F9C9C0C564771A2ACCA3AF759E665 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_6C31A209E5C4498AB9E225DDF06B55C5 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_BE9F8AF358FA4905A22AAA1F2329A887 }}
+
+      - name: Sync live Stripe app settings
+        shell: bash
+        env:
+          STRIPE_SECRET_KEY_LIVE: ${{ secrets.STRIPE_SECRET_KEY_LIVE }}
+          NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_LIVE: ${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_LIVE }}
+          STRIPE_MONTHLY_PRICE_ID_LIVE: ${{ secrets.STRIPE_MONTHLY_PRICE_ID_LIVE }}
+          STRIPE_YEARLY_PRICE_ID_LIVE: ${{ secrets.STRIPE_YEARLY_PRICE_ID_LIVE }}
+        run: |
+          for name in \
+            STRIPE_SECRET_KEY_LIVE \
+            NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_LIVE \
+            STRIPE_MONTHLY_PRICE_ID_LIVE \
+            STRIPE_YEARLY_PRICE_ID_LIVE
+          do
+            if [ -z "${!name}" ]; then
+              echo "Missing required GitHub secret: $name" >&2
+              exit 1
+            fi
+          done
+
+          az webapp config appsettings set \
+            --name ducksatapp \
+            --resource-group DuckSAT \
+            --output none \
+            --settings \
+              STRIPE_SECRET_KEY="${STRIPE_SECRET_KEY_LIVE}" \
+              NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_LIVE}" \
+              STRIPE_MONTHLY_PRICE_ID="${STRIPE_MONTHLY_PRICE_ID_LIVE}" \
+              STRIPE_YEARLY_PRICE_ID="${STRIPE_YEARLY_PRICE_ID_LIVE}"
 
       - name: Apply pending database migrations
         run: npx prisma db execute --file prisma/migrations/20260412000000_add_referral_system/migration.sql --schema prisma/schema.prisma
