@@ -1,6 +1,11 @@
 import { NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe';
 import { assertStripeRuntimeConfig } from '@/lib/stripe-env';
+import {
+  formatLifecycleDate,
+  LIFECYCLE_EVENT_NAMES,
+  recordLifecycleAutomationEvent,
+} from '@/lib/lifecycle-email-events';
 import { prisma } from '@/lib/prisma';
 import Stripe from 'stripe';
 
@@ -66,6 +71,7 @@ export async function POST(request: Request) {
       case 'customer.subscription.updated': {
         const subscription = event.data.object as Stripe.Subscription;
         const plan = subscription.metadata?.plan || 'monthly';
+        const currentPeriodEnd = getSubscriptionPeriodEnd(subscription);
         const customerId = typeof subscription.customer === 'string'
           ? subscription.customer
           : subscription.customer.id;
@@ -81,13 +87,50 @@ export async function POST(request: Request) {
               stripeSubscriptionId: subscription.id,
               subscriptionPlan: plan as string,
               subscriptionStatus: subscription.status,
-              currentPeriodEnd: getSubscriptionPeriodEnd(subscription),
+              currentPeriodEnd,
               trialEnd: subscription.trial_end
                 ? new Date(subscription.trial_end * 1000)
                 : null,
               cancelAtPeriodEnd: subscription.cancel_at_period_end,
             },
           });
+
+          if (event.type === 'customer.subscription.created') {
+            try {
+              await recordLifecycleAutomationEvent({
+                userId: user.id,
+                eventName: LIFECYCLE_EVENT_NAMES.premiumSubscriptionPurchased,
+                triggerKey: `${LIFECYCLE_EVENT_NAMES.premiumSubscriptionPurchased}:${subscription.id}`,
+                metadata: {
+                  billingPlan: plan,
+                  subscriptionPlan: plan,
+                  subscriptionStatus: subscription.status,
+                  currentPeriodEnd: formatLifecycleDate(currentPeriodEnd),
+                },
+                pagePath: '/pricing',
+              });
+            } catch (automationError) {
+              console.error('[Stripe Webhook] purchase lifecycle automation error:', automationError);
+            }
+          }
+
+          if (event.type === 'customer.subscription.updated' && subscription.cancel_at_period_end && !user.cancelAtPeriodEnd) {
+            try {
+              await recordLifecycleAutomationEvent({
+                userId: user.id,
+                eventName: LIFECYCLE_EVENT_NAMES.subscriptionCancellationRequested,
+                triggerKey: `${LIFECYCLE_EVENT_NAMES.subscriptionCancellationRequested}:${subscription.id}`,
+                metadata: {
+                  billingPlan: plan,
+                  subscriptionPlan: plan,
+                  accessEndsOn: formatLifecycleDate(currentPeriodEnd),
+                },
+                pagePath: '/pricing',
+              });
+            } catch (automationError) {
+              console.error('[Stripe Webhook] cancellation lifecycle automation error:', automationError);
+            }
+          }
         }
         break;
       }

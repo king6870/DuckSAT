@@ -205,13 +205,16 @@ Requirements for each question:
 - Points value (1-3 points based on complexity)
 - Appropriate for SAT Reading section
 - Vary passage types and complexity
+- Every passage must be complete and self-contained
+- Do not use ellipses, excerpt markers, or omitted middle sections in the passage text
+- Do not return placeholder passage text; return the full original passage that the question depends on
 
 ${JSON_OUTPUT_INSTRUCTIONS.PREFIX} Use this exact format:
 
 [
   {
     "question": "Question text here",
-    "passage": "Reading passage text here (${PASSAGE_LIMITS.MIN_WORDS}-${PASSAGE_LIMITS.MAX_WORDS} words)...",
+    "passage": "A complete original passage of ${PASSAGE_LIMITS.MIN_WORDS}-${PASSAGE_LIMITS.MAX_WORDS} words goes here. Include the full text with no ellipses and no omitted middle section.",
     "options": ["A) Option 1", "B) Option 2", "C) Option 3", "D) Option 4"],
     "correctAnswer": 0,
     "points": 2,
@@ -221,7 +224,7 @@ ${JSON_OUTPUT_INSTRUCTIONS.PREFIX} Use this exact format:
   },
   {
     "question": "Second question text here",
-    "passage": "Second reading passage text here (${PASSAGE_LIMITS.MIN_WORDS}-${PASSAGE_LIMITS.MAX_WORDS} words)...",
+    "passage": "A second complete original passage of ${PASSAGE_LIMITS.MIN_WORDS}-${PASSAGE_LIMITS.MAX_WORDS} words goes here. Include the full text with no ellipses and no omitted middle section.",
     "options": ["A) Option 1", "B) Option 2", "C) Option 3", "D) Option 4"],
     "correctAnswer": 1,
     "points": 2,
@@ -230,6 +233,8 @@ ${JSON_OUTPUT_INSTRUCTIONS.PREFIX} Use this exact format:
     "category": "${exampleCategory2}"
   }
 ]
+
+Before returning your JSON, verify that every reading passage is complete and self-contained. If a passage contains "...", "…", or any omitted-text marker, rewrite it as a full passage before submitting.
 
 Generate all ${count} questions following this pattern. ${JSON_OUTPUT_INSTRUCTIONS.REMINDER}
 `
@@ -324,18 +329,21 @@ Requirements:
 3. Cover diverse topics: literature, science, history, social studies
 4. Provide detailed explanations for correct answers
 5. Use realistic SAT point values (1-3 points based on difficulty)
+6. Every passage must be complete and self-contained with no ellipses, omitted middle text, or placeholder wording
 
 Return ONLY a valid JSON array with this exact format:
 [
   {
     "question": "Question text here",
-    "passage": "Reading passage text (if applicable)",
+    "passage": "Complete reading passage text (if applicable) with no ellipses or omitted text",
     "options": ["A) Option 1", "B) Option 2", "C) Option 3", "D) Option 4"],
     "correctAnswer": 1,
     "points": 2,
     "explanation": "Detailed explanation of correct answer"
   }
-]`
+]
+
+Before returning, check that any passage you include is the full passage the question relies on, not an excerpt with omitted middle content.`
 }
 
 /**

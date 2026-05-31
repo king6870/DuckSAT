@@ -1,0 +1,164 @@
+{
+  "rows": 10078,
+  "fails": 3278,
+  "topFailCodes": [
+    {
+      "name": "short-full-passage",
+      "count": 2946
+    },
+    {
+      "name": "missing-required-passage",
+      "count": 299
+    },
+    {
+      "name": "duplicate-question-text",
+      "count": 294
+    },
+    {
+      "name": "question-too-short",
+      "count": 23
+    },
+    {
+      "name": "short-explanation",
+      "count": 17
+    },
+    {
+      "name": "missing-explanation",
+      "count": 7
+    },
+    {
+      "name": "placeholder-content",
+      "count": 3
+    }
+  ],
+  "topFailedPasses": [
+    {
+      "name": "content",
+      "count": 2949
+    },
+    {
+      "name": "structure",
+      "count": 329
+    }
+  ],
+  "failSeverities": [
+    {
+      "name": "fail",
+      "count": 3278
+    },
+    {
+      "name": "warning",
+      "count": 311
+    }
+  ],
+  "topCategories": [
+    {
+      "name": "reading-comprehension",
+      "count": 3463
+    },
+    {
+      "name": "writing-language",
+      "count": 1672
+    },
+    {
+      "name": "algebra",
+      "count": 1448
+    },
+    {
+      "name": "grammar",
+      "count": 1042
+    },
+    {
+      "name": "problem-solving-data-analysis",
+      "count": 649
+    },
+    {
+      "name": "advanced-math",
+      "count": 619
+    },
+    {
+      "name": "geometry",
+      "count": 595
+    },
+    {
+      "name": "vocabulary",
+      "count": 589
+    },
+    {
+      "name": "circles",
+      "count": 1
+    }
+  ],
+  "topSubtopics": [
+    {
+      "name": "Text Structure and Organization",
+      "count": 522
+    },
+    {
+      "name": "Grammar and Usage",
+      "count": 519
+    },
+    {
+      "name": "Main Ideas and Central Claims",
+      "count": 518
+    },
+    {
+      "name": "Rhetorical Skills",
+      "count": 508
+    },
+    {
+      "name": "Sentence Structure and Style",
+      "count": 505
+    },
+    {
+      "name": "Supporting Details and Evidence",
+      "count": 501
+    },
+    {
+      "name": "Author's Purpose and Point of View",
+      "count": 498
+    },
+    {
+      "name": "Punctuation and Mechanics",
+      "count": 490
+    },
+    {
+      "name": "Inferences and Implications",
+      "count": 484
+    },
+    {
+      "name": "Vocabulary in Context",
+      "count": 473
+    },
+    {
+      "name": "Transitions and Logical Flow",
+      "count": 456
+    },
+    {
+      "name": "Comparing Texts and Viewpoints",
+      "count": 372
+    },
+    {
+      "name": "unknown",
+      "count": 312
+    },
+    {
+      "name": "polynomials",
+      "count": 214
+    },
+    {
+      "name": "linear-equations",
+      "count": 190
+    }
+  ],
+  "topModules": [
+    {
+      "name": "reading-writing",
+      "count": 6766
+    },
+    {
+      "name": "math",
+      "count": 3312
+    }
+  ]
+}

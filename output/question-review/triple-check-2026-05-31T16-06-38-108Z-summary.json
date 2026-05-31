@@ -1,0 +1,25 @@
+{
+  "runId": "2026-05-31T16-06-38-108Z",
+  "reviewedAt": "2026-05-31T16:06:38.741Z",
+  "onlyActive": true,
+  "totalQuestions": 10,
+  "batchSize": 10,
+  "totalBatches": 1,
+  "verdicts": {
+    "pass": 3,
+    "warning": 2,
+    "fail": 5
+  },
+  "outputJsonlPath": "output\\question-review\\triple-check-2026-05-31T16-06-38-108Z.jsonl",
+  "batches": [
+    {
+      "batchNumber": 1,
+      "startIndex": 1,
+      "endIndex": 10,
+      "size": 10,
+      "pass": 3,
+      "warning": 2,
+      "fail": 5
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import { useRouter, useParams, useSearchParams } from "next/navigation"
 import { useEffect, useState, useCallback, useRef } from "react"
 import { ArrowLeft, ArrowRight, CheckCircle2, XCircle, RotateCcw, Home, Trophy, MessageCircle, Send, Sparkles, X, Mic, MicOff, Volume2, VolumeX } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { trackDrill, trackEvent } from "@/lib/tracking"
+import { trackDrill, trackDrillStart, trackEvent } from "@/lib/tracking"
 import { normalizeOptionText } from "@/lib/optionText"
 import MathRenderer from "@/components/MathRenderer"
 import ChartRenderer from "@/components/ChartRenderer"
@@ -203,6 +203,7 @@ export default function DrillPage() {
     const params = new URLSearchParams({
       count: String(count),
       includeExplanations: "true",
+      noRepeat: "true",
     })
     if (!isMixed) {
       params.set("moduleType", moduleType)
@@ -295,7 +296,14 @@ export default function DrillPage() {
       },
     ])
     tutorSessionIdRef.current = null
-    trackEvent('drill', 'drill_started', { category: categorySlug, difficulty: diff || 'mixed', drillLength: drillCount })
+    const startedAt = new Date().toISOString()
+    trackDrillStart({
+      category: categorySlug,
+      moduleType: moduleType || undefined,
+      difficulty: diff || undefined,
+      drillLength: drillCount,
+      startedAt,
+    })
     fetchQuestions(diff, drillCount)
   }
 

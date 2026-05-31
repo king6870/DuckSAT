@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+  <rect width="400" height="200" fill="#f3f4f6" />
+  <text x="200" y="100" text-anchor="middle" alignment-baseline="middle" font-size="24" fill="#888">
+    Diagram Unavailable
+  </text>
+  <text x="200" y="140" text-anchor="middle" alignment-baseline="middle" font-size="16" fill="#bbb">
+    (Placeholder)
+  </text>
+</svg>
