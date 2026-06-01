@@ -51,6 +51,26 @@ const practiceQuerySchema = z.object({
 
 type PracticeQuery = z.infer<typeof practiceQuerySchema>;
 
+function isNoRepeatInfrastructureError(error: unknown): boolean {
+  if (error instanceof Prisma.PrismaClientKnownRequestError) {
+    if (error.code === 'P2021' || error.code === 'P2022') {
+      return true
+    }
+  }
+
+  if (!(error instanceof Error)) {
+    return false
+  }
+
+  const message = error.message.toLowerCase()
+  return (
+    message.includes('drill_scope_states') ||
+    message.includes('drill_question_exposures') ||
+    message.includes('drillscopestate') ||
+    message.includes('drillquestionexposure')
+  )
+}
+
 const PASSAGE_OMISSION_MARKER = /\.\.\.|…|\[omitted\]|\(omitted\)|\[excerpt\]|abridged|truncated/i;
 
 const FULL_PASSAGE_CATEGORIES = new Set(['reading comprehension', 'vocabulary']);
@@ -284,7 +304,7 @@ export async function GET(request: NextRequest) {
       ? await getServerSession(authOptions)
       : null;
     const noRepeatUserId = session?.user?.id || null;
-    const shouldUseNoRepeat = query.noRepeat === 'true' && !!noRepeatUserId;
+    let shouldUseNoRepeat = query.noRepeat === 'true' && !!noRepeatUserId;
     
     // Build Prisma where clause
     const where: Prisma.QuestionWhereInput = {
@@ -360,7 +380,7 @@ export async function GET(request: NextRequest) {
       createdAt: true
     } as const;
 
-    let noRepeatMeta: { scopeKey: string; cycleNumber: number; rolledCycle: boolean } | null = null;
+    let noRepeatMeta: { scopeKey: string; cycleNumber: number; rolledCycle: boolean; degraded?: boolean; reason?: string } | null = null;
 
     const questions = await retryWithBackoff(async () => {
       if (!shouldUseNoRepeat || !noRepeatUserId) {
@@ -374,41 +394,78 @@ export async function GET(request: NextRequest) {
         });
       }
 
-      const scopeKey = buildDrillScopeKey({
-        moduleType: query.moduleType || 'mixed',
-        category: query.category || 'mixed',
-        difficulty: query.difficulty || 'mixed',
-      });
+      try {
+        const scopeKey = buildDrillScopeKey({
+          moduleType: query.moduleType || 'mixed',
+          category: query.category || 'mixed',
+          difficulty: query.difficulty || 'mixed',
+        });
 
-      const selection = await selectNoRepeatDrillQuestions({
-        userId: noRepeatUserId,
-        scopeKey,
-        where,
-        count: query.count,
-        orderBy: { createdAt: 'desc' },
-      });
+        const selection = await selectNoRepeatDrillQuestions({
+          userId: noRepeatUserId,
+          scopeKey,
+          where,
+          count: query.count,
+          orderBy: { createdAt: 'desc' },
+        });
 
-      noRepeatMeta = {
-        scopeKey: selection.scopeKey,
-        cycleNumber: selection.cycleNumber,
-        rolledCycle: selection.rolledCycle,
-      };
+        noRepeatMeta = {
+          scopeKey: selection.scopeKey,
+          cycleNumber: selection.cycleNumber,
+          rolledCycle: selection.rolledCycle,
+        };
 
-      if (selection.questionIds.length === 0) {
-        return [];
+        if (selection.questionIds.length === 0) {
+          return [];
+        }
+
+        const selectedQuestions = await prisma.question.findMany({
+          where: {
+            id: { in: selection.questionIds },
+          },
+          select: baseSelect,
+        });
+
+        const byId = new Map(selectedQuestions.map((question) => [question.id, question]));
+        return selection.questionIds
+          .map((id) => byId.get(id))
+          .filter((question): question is NonNullable<typeof question> => !!question);
+      } catch (error) {
+        if (!isNoRepeatInfrastructureError(error)) {
+          throw error
+        }
+
+        shouldUseNoRepeat = false
+        noRepeatMeta = {
+          scopeKey: buildDrillScopeKey({
+            moduleType: query.moduleType || 'mixed',
+            category: query.category || 'mixed',
+            difficulty: query.difficulty || 'mixed',
+          }),
+          cycleNumber: 0,
+          rolledCycle: false,
+          degraded: true,
+          reason: 'norepeat_infrastructure_unavailable',
+        }
+
+        console.warn('[/api/questions/practice] No-repeat unavailable, falling back to standard selection', {
+          userId: noRepeatUserId,
+          moduleType: query.moduleType || 'mixed',
+          category: query.category || 'mixed',
+          difficulty: query.difficulty || 'mixed',
+          reason: noRepeatMeta.reason,
+          error: error instanceof Error ? error.message : String(error),
+        })
+
+        return await prisma.question.findMany({
+          where,
+          take: fetchTake,
+          orderBy: {
+            createdAt: 'desc'
+          },
+          select: baseSelect
+        })
       }
-
-      const selectedQuestions = await prisma.question.findMany({
-        where: {
-          id: { in: selection.questionIds },
-        },
-        select: baseSelect,
-      });
-
-      const byId = new Map(selectedQuestions.map((question) => [question.id, question]));
-      return selection.questionIds
-        .map((id) => byId.get(id))
-        .filter((question): question is NonNullable<typeof question> => !!question);
     });
     let filteredQuestions = filterInvalidPracticeQuestions(questions, query.count);
 
