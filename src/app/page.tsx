@@ -10,7 +10,6 @@ import HomepageQuestionDemo from "@/components/landing/HomepageQuestionDemo"
 import FeatureGrid from "@/components/landing/FeatureGrid"
 import WhyDuckSAT from "@/components/landing/WhyDuckSAT"
 import ValueStack from "@/components/landing/ValueStack"
-import GuaranteeSection from "@/components/landing/GuaranteeSection"
 import UserSegmentation from "@/components/landing/UserSegmentation"
 import UrgencyCTA from "@/components/landing/UrgencyCTA"
 import LandingFooter from "@/components/landing/LandingFooter"
@@ -65,7 +64,6 @@ export default function Home() {
       <WhyDuckSAT />
       <TestimonialCarousel variant="full" />
       <ValueStack />
-      <GuaranteeSection />
       <UserSegmentation />
       <UrgencyCTA onGetStarted={handleGetStarted} isAuthenticated={isAuthenticated} />
       <LandingFooter />

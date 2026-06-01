@@ -1,0 +1,70 @@
+{
+  "batchId": "batch-1780247031826-algebra",
+  "topic": "algebra",
+  "moduleType": "math",
+  "generatedAt": "2026-05-31T17:06:01.465Z",
+  "promptVersion": "v1.0",
+  "totalRequested": 1,
+  "totalGenerated": 2,
+  "totalValid": 2,
+  "totalInvalid": 0,
+  "questions": [
+    {
+      "question": "A rectangle has width $w$ and length $l$, where $l = 3w$. The perimeter is $14$ cm. Find the width.",
+      "options": [
+        "A) w = 7/2 cm",
+        "B) w = 2 cm",
+        "C) w = 7/8 cm",
+        "D) w = 7/4 cm"
+      ],
+      "correctAnswer": 3,
+      "explanation": "Let width be $w$ and length be $l = 3w$. The perimeter is $2(l + w) = 14$. Substituting gives $2(3w + w) = 14$, so $2(4w) = 14$, hence $8w = 14$ and $w = 14/8 = 7/4$. Then $l = 3w = 3(7/4) = 21/4$. Check: $2(l + w) = 2(21/4 + 7/4) = 2(28/4) = 14$, which matches. Therefore the width is $7/4$ cm.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "linear-equations",
+      "difficulty": "easy",
+      "difficultyScore": 25,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Dividing 8w = 14 by 4 instead of by 8 yields w = 7/2 cm, which is incorrect.",
+        "B": "Using the wrong perimeter formula P = 2l + w instead of P = 2(l + w) leads to 7w = 14 and w = 2 cm.",
+        "C": "Dividing 8w = 14 by 16 instead of by 8 yields w = 7/8 cm."
+      },
+      "_batchId": "batch-1780247031826-algebra",
+      "_generatedAt": "2026-05-31T17:05:10.648Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    },
+    {
+      "question": "A concert sells adult tickets at $12 and student tickets at $8. If a total of 14 tickets were sold for $144, how many adult tickets were sold? Let $a$ denote the number of adult tickets and $s$ denote the number of student tickets. Set up and solve the system of equations: $a + s = 14$, $12a + 8s = 144$.$",
+      "options": [
+        "A) 6",
+        "B) 8",
+        "C) 4",
+        "D) 10"
+      ],
+      "correctAnswer": 1,
+      "explanation": "From the system, $a + s = 14$ implies $s = 14 - a$. Substitute into $12a + 8s = 144$: $12a + 8(14 - a) = 144$. Simplify: $12a + 112 - 8a = 144$ which gives $4a = 32$ and thus $a = 8$. Then $s = 14 - 8 = 6$. Therefore, the number of adult tickets is 8.",
+      "moduleType": "math",
+      "category": "algebra",
+      "subtopic": "systems",
+      "difficulty": "medium",
+      "difficultyScore": 50,
+      "passage": null,
+      "visualType": "none",
+      "wrongAnswerExplanations": {
+        "A": "Choosing 6 adult tickets would force the student tickets to be $s = 14 - 6 = 8$, giving revenue $12\\\\cdot 6 + 8\\\\cdot 8 = 72 + 64 = 136$, not 144.",
+        "B": "This option is the correct answer; it satisfies both equations, giving $a = 8$ and $s = 6$.",
+        "C": "Choosing 4 adult tickets yields $s = 10$, and revenue is $12\\\\cdot 4 + 8\\\\cdot 10 = 48 + 80 = 128$, not 144.",
+        "D": "Choosing 10 adult tickets yields $s = 4$, and revenue is $12\\\\cdot 10 + 8\\\\cdot 4 = 120 + 32 = 152$, not 144."
+      },
+      "_batchId": "batch-1780247031826-algebra",
+      "_generatedAt": "2026-05-31T17:05:59.442Z",
+      "_promptVersion": "v1.0",
+      "_validated": true,
+      "_approvalStatus": "pending"
+    }
+  ]
+}

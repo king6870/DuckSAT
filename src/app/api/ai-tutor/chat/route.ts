@@ -49,6 +49,7 @@ export async function POST(request: NextRequest) {
       selectedAnswer: typeof body.context?.selectedAnswer === 'number' ? body.context.selectedAnswer : null,
       correctAnswer: typeof body.context?.correctAnswer === 'number' ? body.context.correctAnswer : null,
       isRevealed: !!body.context?.isRevealed,
+      allowAnswerReveal: !!body.context?.allowAnswerReveal,
     }
 
     const reply = await generateTutorReply(context, messages)

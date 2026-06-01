@@ -60,6 +60,7 @@ model User {
   strongCategories    String?  @db.Text // JSON array of categories user is good at
   weakCategories      String?  @db.Text // JSON array of categories user struggles with
   targetScore         Int?
+  satTestDate         DateTime?
   gradeLevel          String?  // e.g., "freshman", "sophomore", "junior", "senior"
 
   // Stripe subscription fields
@@ -81,6 +82,9 @@ model User {
 
   // Feedback
   feedbackSubmittedAt DateTime? // null = never submitted a site review
+
+  // Email preferences
+  emailUnsubscribedAt DateTime? // global unsubscribe for campaign and automation emails
 
   // Referral fields
   referralCode       String?  @unique  // user's own share code (8-char alphanumeric)
@@ -106,6 +110,16 @@ model User {
   groupStudyHostedSessions GroupStudySession[]  @relation("GroupStudyHost")
   groupStudyParticipants   GroupStudyParticipant[]
   groupStudyAnswers        GroupStudyAnswer[]
+  aiAgentSessions          AIAgentSession[]
+  aiAgentMessages          AIAgentMessage[]
+  aiAgentToolCalls         AIAgentToolCall[]
+  aiAgentUsageMetrics      AIAgentUsageMetric[]
+  aiAgentPolicySnapshots   AIAgentPolicySnapshot[]
+  aiAgentEscalationEvents  AIAgentEscalationEvent[]
+  aiAgentPoliciesUpdated   AIAgentPolicy[] @relation("AIAgentPolicyUpdatedBy")
+  drillQuestionExposures   DrillQuestionExposure[]
+  drillScopeStates         DrillScopeState[]
+  outboundEmailMessages    OutboundEmailMessage[]
   
   @@map("users")
 }
@@ -334,6 +348,7 @@ model Question {
   questionReviews QuestionReview[]
   practiceTestQuestions PracticeTestQuestion[] // Epic #61: Practice test assignments
   groupStudyQuestions GroupStudyQuestion[]
+  drillQuestionExposures DrillQuestionExposure[]
 
   @@index([moduleType, difficulty, category])
   @@index([category, subtopic])
@@ -724,6 +739,197 @@ model UserDailyActivity {
   @@map("user_daily_activity")
 }
 
+model PromoCode {
+  id                 String   @id @default(cuid())
+  code               String   @unique
+  label              String
+  description        String   @db.Text
+  effectType         String
+  bonusPracticeTests Int?
+  successMessage     String   @db.Text
+  emailSelectable    Boolean  @default(false)
+  isActive           Boolean  @default(true)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@index([isActive, emailSelectable])
+  @@map("promo_codes")
+}
+
+model EmailTemplate {
+  id                   String   @id @default(cuid())
+  name                 String
+  description          String?  @db.Text
+  aiPrompt             String?  @db.Text
+  promoCode            String?
+  subjectTemplate      String
+  previewText          String?
+  eyebrow              String?
+  headline             String?
+  bodyTemplate         String   @db.Text
+  primaryButtonLabel   String?
+  primaryButtonUrl     String?
+  secondaryButtonLabel String?
+  secondaryButtonUrl   String?
+  footer               String?  @db.Text
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  automations          EmailAutomation[]
+  outboundEmailMessages OutboundEmailMessage[]
+
+  @@index([updatedAt])
+  @@map("email_templates")
+}
+
+model EmailAutomation {
+  id                   String   @id @default(cuid())
+  name                 String
+  description          String?  @db.Text
+  isActive             Boolean  @default(true)
+  triggerType          String
+  triggerFilters       String?  @db.Text // JSON payload with trigger-specific filters
+  templateId           String?
+  aiPrompt             String?  @db.Text
+  promoCode            String?
+  subjectTemplate      String
+  previewText          String?
+  eyebrow              String?
+  headline             String?
+  bodyTemplate         String   @db.Text
+  primaryButtonLabel   String?
+  primaryButtonUrl     String?
+  secondaryButtonLabel String?
+  secondaryButtonUrl   String?
+  footer               String?  @db.Text
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  template             EmailTemplate? @relation(fields: [templateId], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  outboundEmailMessages OutboundEmailMessage[]
+
+  @@index([templateId])
+  @@index([isActive, triggerType])
+  @@map("email_automations")
+}
+
+model EmailAutomationDelivery {
+  id            String   @id @default(cuid())
+  automationId  String
+  userId        String
+  email         String
+  triggerType   String
+  triggerKey    String
+  status        String   @default("sent")
+  resendId      String?
+  error         String?  @db.Text
+  sentAt        DateTime?
+  createdAt     DateTime @default(now())
+
+  @@unique([automationId, userId, triggerKey])
+  @@index([userId, createdAt])
+  @@index([automationId, createdAt])
+  @@map("email_automation_deliveries")
+}
+
+model DrillScopeState {
+  id                   String   @id @default(cuid())
+  userId               String
+  scopeKey             String
+  cycleNumber          Int      @default(1)
+  lastCompletedCycleAt DateTime?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, scopeKey])
+  @@index([userId, scopeKey, cycleNumber])
+  @@map("drill_scope_states")
+}
+
+model DrillQuestionExposure {
+  id             String   @id @default(cuid())
+  userId         String
+  questionId     String
+  scopeKey       String
+  cycleNumber    Int
+  source         String   @default("drill")
+  drillAttemptId String?
+  seenAt         DateTime @default(now())
+  createdAt      DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, questionId, scopeKey, cycleNumber])
+  @@index([userId, scopeKey, cycleNumber])
+  @@index([questionId])
+  @@map("drill_question_exposures")
+}
+
+model OutboundEmailMessage {
+  id                String   @id @default(cuid())
+  userId            String?
+  toEmail           String
+  fromEmail         String?
+  replyToEmail      String?
+  channel           String
+  templateId        String?
+  automationId      String?
+  triggerType       String?
+  triggerKey        String?
+  subject           String
+  htmlBody          String   @db.Text
+  textBody          String   @db.Text
+  provider          String   @default("resend")
+  providerMessageId String?
+  status            String   @default("queued")
+  error             String?  @db.Text
+  metadata          String?  @db.Text
+  sentAt            DateTime?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  user       User?           @relation(fields: [userId], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  template   EmailTemplate?  @relation(fields: [templateId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  automation EmailAutomation? @relation(fields: [automationId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([userId, createdAt])
+  @@index([status, createdAt])
+  @@index([automationId, createdAt])
+  @@map("outbound_email_messages")
+}
+
+model InboundEmail {
+  id                String   @id @default(cuid())
+  resendEmailId     String   @unique
+  messageId         String?
+  fromEmail         String
+  toEmails          String   @db.Text
+  ccEmails          String?  @db.Text
+  bccEmails         String?  @db.Text
+  replyToEmails     String?  @db.Text
+  subject           String?
+  textBody          String?  @db.Text
+  htmlBody          String?  @db.Text
+  headersJson       String?  @db.Text
+  attachmentsJson   String?  @db.Text
+  attachmentCount   Int      @default(0)
+  receivedAt        DateTime
+  forwardStatus     String   @default("pending")
+  forwardTarget     String?
+  forwardedResendId String?
+  forwardedAt       DateTime?
+  forwardError      String?  @db.Text
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([receivedAt])
+  @@index([forwardStatus, receivedAt])
+  @@map("inbound_emails")
+}
+
 // Click and mouse-movement positions for heatmap analytics
 model ClickEvent {
   id        String   @id @default(cuid())
@@ -740,6 +946,166 @@ model ClickEvent {
   @@index([pagePath, createdAt])
   @@index([userId])
   @@map("click_events")
+}
+
+// AI tutor session state for Topic Drills conversations
+model AIAgentSession {
+  id               String   @id @default(cuid())
+  userId           String
+  status           String   @default("active") // active | closed
+  source           String?  // topic-drill | practice-test | review
+  moduleType       String?
+  category         String?
+  difficulty       String?
+  policyName       String?  // e.g. default
+  policyVersion    String?  // e.g. 1.0.0
+  metadata         String?  @db.Text // JSON metadata for context/experiments
+  startedAt        DateTime @default(now())
+  endedAt          DateTime?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  user             User                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  messages         AIAgentMessage[]
+  toolCalls        AIAgentToolCall[]
+  usageMetrics     AIAgentUsageMetric[]
+  policySnapshots  AIAgentPolicySnapshot[]
+  escalationEvents AIAgentEscalationEvent[]
+
+  @@index([userId, createdAt])
+  @@index([status, createdAt])
+  @@map("ai_agent_sessions")
+}
+
+// AI tutor message transcript for replay and analytics
+model AIAgentMessage {
+  id                 String   @id @default(cuid())
+  sessionId          String
+  userId             String
+  role               String   // user | assistant | system
+  content            String   @db.Text
+  questionContext    String?  @db.Text // JSON snapshot of question context
+  modelTier          String?  // quality | budget
+  modelUsed          String?
+  latencyMs          Int?
+  promptTokens       Int?
+  completionTokens   Int?
+  totalTokens        Int?
+  estimatedCostUsd   Float?
+  refusalDetected    Boolean  @default(false)
+  answerBlocked      Boolean  @default(false)
+  feedbackValue      Int?     // -1=thumbs-down, +1=thumbs-up
+  createdAt          DateTime @default(now())
+
+  session            AIAgentSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  user               User           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([sessionId, createdAt])
+  @@index([userId, createdAt])
+  @@index([modelTier, createdAt])
+  @@map("ai_agent_messages")
+}
+
+// Tool call execution trace for assistant tooling evolution
+model AIAgentToolCall {
+  id               String   @id @default(cuid())
+  sessionId        String
+  userId           String
+  toolName         String
+  toolInput        String?  @db.Text
+  toolOutput       String?  @db.Text
+  success          Boolean  @default(true)
+  latencyMs        Int?
+  createdAt        DateTime @default(now())
+
+  session          AIAgentSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  user             User           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([sessionId, createdAt])
+  @@index([toolName, createdAt])
+  @@map("ai_agent_tool_calls")
+}
+
+// Per-response usage and cost telemetry for routing policy decisions
+model AIAgentUsageMetric {
+  id               String   @id @default(cuid())
+  sessionId        String
+  userId           String
+  modelTier        String
+  modelUsed        String
+  latencyMs        Int
+  promptTokens     Int?
+  completionTokens Int?
+  totalTokens      Int?
+  estimatedCostUsd Float?
+  requestSucceeded Boolean  @default(true)
+  errorCode        String?
+  createdAt        DateTime @default(now())
+
+  session          AIAgentSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  user             User           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([sessionId, createdAt])
+  @@index([userId, createdAt])
+  @@index([modelTier, createdAt])
+  @@map("ai_agent_usage_metrics")
+}
+
+// Admin-defined policy controls for AI agent routing behavior
+model AIAgentPolicy {
+  id                    String   @id @default(cuid())
+  policyName            String
+  policyVersion         String
+  longMessageThreshold  Int      @default(280)
+  qualitySignals        String   @db.Text // JSON string[]
+  isActive              Boolean  @default(true)
+  notes                 String?  @db.Text
+  updatedByUserId       String?
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  updatedByUser         User?    @relation("AIAgentPolicyUpdatedBy", fields: [updatedByUserId], references: [id], onDelete: SetNull, onUpdate: NoAction)
+
+  @@index([isActive, updatedAt])
+  @@index([policyName, policyVersion])
+  @@map("ai_agent_policies")
+}
+
+// Captures policy config used for a session for replay/audit
+model AIAgentPolicySnapshot {
+  id             String   @id @default(cuid())
+  sessionId      String
+  userId         String
+  policyName     String
+  policyVersion  String
+  configJson     String   @db.Text
+  createdAt      DateTime @default(now())
+
+  session        AIAgentSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  user           User           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([sessionId, createdAt])
+  @@index([policyName, policyVersion])
+  @@map("ai_agent_policy_snapshots")
+}
+
+// Records automatic budget->quality escalations for audits and tuning
+model AIAgentEscalationEvent {
+  id             String   @id @default(cuid())
+  sessionId      String
+  userId         String
+  fromTier       String
+  toTier         String
+  reason         String
+  details        String?  @db.Text
+  createdAt      DateTime @default(now())
+
+  session        AIAgentSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  user           User           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([sessionId, createdAt])
+  @@index([fromTier, toTier, createdAt])
+  @@map("ai_agent_escalation_events")
 }
 
 // Site feedback / review widget submissions

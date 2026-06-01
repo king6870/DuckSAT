@@ -30,9 +30,9 @@
         "validate:practice-test-publish-guard": "tsx scripts/validate-publish-guard-readiness.ts",
         "validate:stripe-live": "dotenv -e .env.local -- tsx scripts/validate-stripe-live-config.ts",
         "validate:generated-json": "tsx scripts/validate-generated-json.ts",
-        "test:specialized-topics": "tsx scripts/test-specialized-topic-generation.ts"
-        ,"go-live:readiness": "tsx scripts/go-live-readiness.ts"
-        ,"go-live:readiness:strict": "GO_LIVE_STRICT=true tsx scripts/go-live-readiness.ts"
+        "test:specialized-topics": "tsx scripts/test-specialized-topic-generation.ts",
+        "go-live:readiness": "tsx scripts/go-live-readiness.ts",
+        "go-live:readiness:strict": "GO_LIVE_STRICT=true tsx scripts/go-live-readiness.ts"
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.10.0",
@@ -59,6 +59,7 @@
         "react-dom": "^18.3.1",
         "react-katex": "^3.1.0",
         "react-vega": "^8.0.0",
+        "resend": "^6.12.4",
         "stripe": "^20.4.1",
         "tailwind-merge": "^2.0.0",
         "ts-node": "^10.9.2",

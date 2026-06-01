@@ -1,0 +1,85 @@
+import { NextRequest, NextResponse } from 'next/server'
+import { getServerSession } from 'next-auth/next'
+
+import { ADMIN_EMAILS } from '@/constants/adminEmails'
+import { authOptions } from '@/lib/auth'
+import {
+  createPromoCode,
+  listPromoCodes,
+  type PromoCodeInput,
+} from '@/lib/promo-code-store'
+
+function isAdminEmail(email: string | null | undefined): email is string {
+  return !!email && ADMIN_EMAILS.includes(email)
+}
+
+function validateInput(body: Partial<PromoCodeInput>): string | null {
+  if (!body.code?.trim()) {
+    return 'code is required'
+  }
+
+  if (!body.label?.trim()) {
+    return 'label is required'
+  }
+
+  if (!body.description?.trim()) {
+    return 'description is required'
+  }
+
+  if (body.effectType !== 'tester_access' && body.effectType !== 'bonus_practice_tests') {
+    return 'effectType is required'
+  }
+
+  if (!body.successMessage?.trim()) {
+    return 'successMessage is required'
+  }
+
+  if (body.effectType === 'bonus_practice_tests' && (!body.bonusPracticeTests || body.bonusPracticeTests < 1)) {
+    return 'bonusPracticeTests must be at least 1 for bonus_practice_tests'
+  }
+
+  return null
+}
+
+export async function GET() {
+  try {
+    const session = await getServerSession(authOptions)
+
+    if (!isAdminEmail(session?.user?.email)) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
+    }
+
+    const promoCodes = await listPromoCodes({ includeInactive: true })
+
+    return NextResponse.json({ promoCodes })
+  } catch (error) {
+    console.error('[GET /api/admin/promo-codes]', error)
+    return NextResponse.json({ error: 'server_error' }, { status: 500 })
+  }
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    const session = await getServerSession(authOptions)
+
+    if (!isAdminEmail(session?.user?.email)) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
+    }
+
+    const body = (await request.json()) as Partial<PromoCodeInput>
+    const validationError = validateInput(body)
+    if (validationError) {
+      return NextResponse.json({ error: validationError }, { status: 400 })
+    }
+
+    const promoCode = await createPromoCode(body as PromoCodeInput)
+
+    return NextResponse.json({ success: true, promoCode })
+  } catch (error) {
+    console.error('[POST /api/admin/promo-codes]', error)
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : 'server_error' },
+      { status: 500 },
+    )
+  }
+}

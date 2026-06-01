@@ -1,6 +1,6 @@
 {
   "startedAt": "2026-02-19T02:20:56.703Z",
-  "lastUpdatedAt": "2026-04-29T02:02:53.369Z",
+  "lastUpdatedAt": "2026-05-31T17:06:01.493Z",
   "target": {
     "reading": 400,
     "math": 400
@@ -11,7 +11,7 @@
   },
   "generated": {
     "reading": 371,
-    "math": 845
+    "math": 847
   },
   "approved": {
     "reading": 170,
@@ -919,6 +919,16 @@
       "generatedAt": "2026-04-29T02:02:53.349Z",
       "totalGenerated": 0,
       "totalValid": 0,
+      "totalInvalid": 0,
+      "status": "pending"
+    },
+    {
+      "batchId": "batch-1780247031826-algebra",
+      "topic": "algebra",
+      "moduleType": "math",
+      "generatedAt": "2026-05-31T17:06:01.465Z",
+      "totalGenerated": 2,
+      "totalValid": 2,
       "totalInvalid": 0,
       "status": "pending"
     }

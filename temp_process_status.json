@@ -1,0 +1,98 @@
+[
+  {
+    "ProcessId": 22956,
+    "ParentProcessId": 11612,
+    "CreationDate": "2026-05-31T10:28:28.504945-07:00",
+    "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" \"C:\\Program Files\\nodejs/node_modules/npm/bin/npx-cli.js\" dotenv -e .env.local -- npx tsx scripts/balance-math-questions.ts"
+  },
+  {
+    "ProcessId": 61944,
+    "ParentProcessId": 22956,
+    "CreationDate": "2026-05-31T10:28:29.17855-07:00",
+    "CommandLine": "C:\\WINDOWS\\system32\\cmd.exe /d /s /c dotenv -e .env.local -- npx tsx scripts/balance-math-questions.ts"
+  },
+  {
+    "ProcessId": 64116,
+    "ParentProcessId": 61944,
+    "CreationDate": "2026-05-31T10:28:29.213798-07:00",
+    "CommandLine": "\"node\"   \"D:\\DuckSAT\\node_modules\\.bin\\\\..\\dotenv-cli\\cli.js\" -e .env.local -- npx tsx scripts/balance-math-questions.ts"
+  },
+  {
+    "ProcessId": 21876,
+    "ParentProcessId": 64116,
+    "CreationDate": "2026-05-31T10:28:29.384998-07:00",
+    "CommandLine": "C:\\WINDOWS\\system32\\cmd.exe /d /s /c \"npx ^\"tsx^\" ^\"scripts/balance-math-questions.ts^\"\""
+  },
+  {
+    "ProcessId": 64772,
+    "ParentProcessId": 21876,
+    "CreationDate": "2026-05-31T10:28:29.550312-07:00",
+    "CommandLine": "\"C:\\Program Files\\nodejs\\\\node.exe\"  \"C:\\Program Files\\nodejs\\\\node_modules\\npm\\bin\\npx-cli.js\" \"tsx\" \"scripts/balance-math-questions.ts\""
+  },
+  {
+    "ProcessId": 35464,
+    "ParentProcessId": 64772,
+    "CreationDate": "2026-05-31T10:28:30.215603-07:00",
+    "CommandLine": "C:\\WINDOWS\\system32\\cmd.exe /d /s /c tsx scripts/balance-math-questions.ts"
+  },
+  {
+    "ProcessId": 48896,
+    "ParentProcessId": 35464,
+    "CreationDate": "2026-05-31T10:28:30.251214-07:00",
+    "CommandLine": "\"node\"   \"D:\\DuckSAT\\node_modules\\.bin\\\\..\\tsx\\dist\\cli.mjs\" scripts/balance-math-questions.ts"
+  },
+  {
+    "ProcessId": 65100,
+    "ParentProcessId": 48896,
+    "CreationDate": "2026-05-31T10:28:30.340384-07:00",
+    "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" --require D:\\DuckSAT\\node_modules\\tsx\\dist\\preflight.cjs --import file:///D:/DuckSAT/node_modules/tsx/dist/loader.mjs scripts/balance-math-questions.ts"
+  },
+  {
+    "ProcessId": 65956,
+    "ParentProcessId": 66244,
+    "CreationDate": "2026-05-31T10:51:18.104668-07:00",
+    "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" \"C:\\Program Files\\nodejs/node_modules/npm/bin/npx-cli.js\" dotenv -e .env.local -- npx tsx scripts/balance-math-questions.ts"
+  },
+  {
+    "ProcessId": 61396,
+    "ParentProcessId": 65956,
+    "CreationDate": "2026-05-31T10:51:18.763163-07:00",
+    "CommandLine": "C:\\WINDOWS\\system32\\cmd.exe /d /s /c dotenv -e .env.local -- npx tsx scripts/balance-math-questions.ts"
+  },
+  {
+    "ProcessId": 33396,
+    "ParentProcessId": 61396,
+    "CreationDate": "2026-05-31T10:51:18.797706-07:00",
+    "CommandLine": "\"node\"   \"D:\\DuckSAT\\node_modules\\.bin\\\\..\\dotenv-cli\\cli.js\" -e .env.local -- npx tsx scripts/balance-math-questions.ts"
+  },
+  {
+    "ProcessId": 48764,
+    "ParentProcessId": 33396,
+    "CreationDate": "2026-05-31T10:51:18.958913-07:00",
+    "CommandLine": "C:\\WINDOWS\\system32\\cmd.exe /d /s /c \"npx ^\"tsx^\" ^\"scripts/balance-math-questions.ts^\"\""
+  },
+  {
+    "ProcessId": 62856,
+    "ParentProcessId": 48764,
+    "CreationDate": "2026-05-31T10:51:19.126603-07:00",
+    "CommandLine": "\"C:\\Program Files\\nodejs\\\\node.exe\"  \"C:\\Program Files\\nodejs\\\\node_modules\\npm\\bin\\npx-cli.js\" \"tsx\" \"scripts/balance-math-questions.ts\""
+  },
+  {
+    "ProcessId": 65112,
+    "ParentProcessId": 62856,
+    "CreationDate": "2026-05-31T10:51:19.773182-07:00",
+    "CommandLine": "C:\\WINDOWS\\system32\\cmd.exe /d /s /c tsx scripts/balance-math-questions.ts"
+  },
+  {
+    "ProcessId": 64784,
+    "ParentProcessId": 65112,
+    "CreationDate": "2026-05-31T10:51:19.808573-07:00",
+    "CommandLine": "\"node\"   \"D:\\DuckSAT\\node_modules\\.bin\\\\..\\tsx\\dist\\cli.mjs\" scripts/balance-math-questions.ts"
+  },
+  {
+    "ProcessId": 20284,
+    "ParentProcessId": 64784,
+    "CreationDate": "2026-05-31T10:51:19.895456-07:00",
+    "CommandLine": "\"C:\\Program Files\\nodejs\\node.exe\" --require D:\\DuckSAT\\node_modules\\tsx\\dist\\preflight.cjs --import file:///D:/DuckSAT/node_modules/tsx/dist/loader.mjs scripts/balance-math-questions.ts"
+  }
+]

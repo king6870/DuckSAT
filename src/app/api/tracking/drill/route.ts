@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
+import { processEmailAutomationEvent } from '@/lib/email-automations'
+import {
+  LIFECYCLE_EVENT_NAMES,
+  maybeEmitStudyStreakMilestone,
+  recordLifecycleAutomationEvent,
+} from '@/lib/lifecycle-email-events'
 import { prisma } from '@/lib/prisma'
 
 interface DrillQuestionInput {
@@ -126,6 +132,51 @@ export async function POST(request: NextRequest) {
         totalTimeMs: totalTimeMs || times.reduce((a: number, b: number) => a + b, 0),
       },
     })
+
+    try {
+      await processEmailAutomationEvent({
+        userId: session.user.id,
+        triggerType: 'drill_completed',
+        triggerKey: `drill_completed:${drillAttempt.id}`,
+        category,
+        moduleType: moduleType || undefined,
+        difficulty: difficulty || undefined,
+        score: score ?? Math.round((questionResults.filter((q: DrillQuestionInput) => q.isCorrect).length / questionResults.length) * 100),
+        metadata: {
+          category,
+          moduleType: moduleType || '',
+          difficulty: difficulty || '',
+          score: score ?? Math.round((questionResults.filter((q: DrillQuestionInput) => q.isCorrect).length / questionResults.length) * 100),
+          totalQuestions: totalQuestions || questionResults.length,
+          correctAnswers: correctAnswers ?? questionResults.filter((q: DrillQuestionInput) => q.isCorrect).length,
+          streakCorrect,
+          streakWrong,
+        },
+      })
+
+      const computedScore = score ?? Math.round((questionResults.filter((q: DrillQuestionInput) => q.isCorrect).length / questionResults.length) * 100)
+
+      if (questionResults.length >= 6 && computedScore <= 60) {
+        await recordLifecycleAutomationEvent({
+          userId: session.user.id,
+          eventName: LIFECYCLE_EVENT_NAMES.weakSpotDetected,
+          triggerKey: `${LIFECYCLE_EVENT_NAMES.weakSpotDetected}:drill:${drillAttempt.id}`,
+          metadata: {
+            weakArea: category,
+            weakTopic: category,
+            weakAreaAccuracyRate: computedScore,
+            moduleType: moduleType || '',
+            difficulty: difficulty || '',
+            totalQuestions: questionResults.length,
+          },
+          pagePath: `/practice/${category}`,
+        })
+      }
+
+      await maybeEmitStudyStreakMilestone(session.user.id)
+    } catch (automationError) {
+      console.error('[/api/tracking/drill] Automation error:', automationError)
+    }
 
     return NextResponse.json({
       success: true,

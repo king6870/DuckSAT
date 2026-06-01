@@ -61,6 +61,7 @@ export default function OnboardingPage() {
   const [strongCategories, setStrongCategories] = useState<string[]>([])
   const [weakCategories, setWeakCategories] = useState<string[]>([])
   const [targetScore, setTargetScore] = useState('')
+  const [satTestDate, setSatTestDate] = useState('')
 
   // Track step timing
   const STEP_NAMES = ['grade_and_score', 'test_experience', 'strengths', 'weaknesses', 'target_score']
@@ -79,7 +80,7 @@ export default function OnboardingPage() {
         2: { bluebookTestsTaken, otherPrepApps },
         3: { strongCategories },
         4: { weakCategories },
-        5: { targetScore },
+        5: { targetScore, satTestDate },
       }
       recordStep(s, answers[s])
       prevStep.current = step
@@ -87,7 +88,13 @@ export default function OnboardingPage() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step])
 
-  if (status === 'loading') {
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.replace('/auth/signin')
+    }
+  }, [status, router])
+
+  if (status === 'loading' || status === 'unauthenticated') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600" />
@@ -95,14 +102,11 @@ export default function OnboardingPage() {
     )
   }
 
-  if (!session) {
-    router.push('/auth/signin')
-    return null
-  }
-
   const toggleCategory = (cat: string, list: string[], setList: (v: string[]) => void) => {
     setList(list.includes(cat) ? list.filter(c => c !== cat) : [...list, cat])
   }
+
+  const firstName = session?.user?.name?.split(' ')[0] ?? 'there'
 
   const toggleApp = (app: string) => {
     setOtherPrepApps(prev => prev.includes(app) ? prev.filter(a => a !== app) : [...prev, app])
@@ -119,7 +123,7 @@ export default function OnboardingPage() {
   const handleSubmit = async () => {
     setSubmitting(true)
     // Record final step + flush survey tracking
-    recordStep(step, { targetScore })
+    recordStep(step, { targetScore, satTestDate })
     flushSurvey()
     trackEvent('survey', 'onboarding_completed', { steps: TOTAL_STEPS })
     try {
@@ -134,6 +138,7 @@ export default function OnboardingPage() {
           strongCategories,
           weakCategories,
           targetScore: targetScore || null,
+          satTestDate: satTestDate || null,
         }),
       })
       if (res.ok) {
@@ -162,6 +167,7 @@ export default function OnboardingPage() {
           strongCategories: [],
           weakCategories: [],
           targetScore: null,
+          satTestDate: null,
         }),
       })
       if (res.ok) {
@@ -185,7 +191,7 @@ export default function OnboardingPage() {
             Let&apos;s personalize your experience
           </h1>
           <p className="text-gray-600">
-            Hi {session.user?.name?.split(' ')[0]}! Tell us a bit about yourself so we can help you reach your goals.
+            Hi {firstName}! Tell us a bit about yourself so we can help you reach your goals.
           </p>
         </div>
 
@@ -484,6 +490,17 @@ export default function OnboardingPage() {
                   <p className="text-xs text-gray-500 mt-2">SAT scores range from 400 to 1600</p>
                 </div>
 
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Official SAT Test Date</label>
+                  <input
+                    type="date"
+                    value={satTestDate}
+                    onChange={e => setSatTestDate(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-indigo-500 focus:ring-0 outline-none transition-colors text-gray-900"
+                  />
+                  <p className="text-xs text-gray-500 mt-2">Optional, but adding it lets DuckSAT send countdown and planning reminders.</p>
+                </div>
+
                 {/* Summary */}
                 <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-5 border border-indigo-100">
                   <h3 className="font-semibold text-gray-900 mb-3">Your Profile Summary</h3>
@@ -504,6 +521,12 @@ export default function OnboardingPage() {
                       <div className="flex justify-between">
                         <span className="text-gray-500">Target Score</span>
                         <span className="font-medium text-indigo-600">{targetScore}</span>
+                      </div>
+                    )}
+                    {satTestDate && (
+                      <div className="flex justify-between">
+                        <span className="text-gray-500">Official Test Date</span>
+                        <span className="font-medium text-indigo-600">{satTestDate}</span>
                       </div>
                     )}
                     {strongCategories.length > 0 && (

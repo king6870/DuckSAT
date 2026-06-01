@@ -151,6 +151,20 @@ export function trackDrill(data: {
   }).then(r => r.json()).catch(() => null)
 }
 
+export function trackDrillStart(data: {
+  category: string
+  moduleType?: string
+  difficulty?: string
+  drillLength: number
+  startedAt: string
+}) {
+  return fetch('/api/tracking/drill/start', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  }).then(r => r.json()).catch(() => null)
+}
+
 // ─────────────────────────────────────────────
 // HOOK: usePageTracking — auto-tracks page views + dwell time
 // ─────────────────────────────────────────────

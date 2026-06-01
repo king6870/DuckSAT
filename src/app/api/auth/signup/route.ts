@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { hash } from 'bcryptjs'
+import {
+  LIFECYCLE_EVENT_NAMES,
+  recordLifecycleAutomationEvent,
+} from '@/lib/lifecycle-email-events'
 import { prisma } from '@/lib/prisma'
 
 // Simple in-memory rate limiter: max 5 signup attempts per IP per 10 minutes
@@ -195,6 +199,20 @@ export async function POST(req: NextRequest) {
       // Non-fatal: referral record creation failed (e.g. duplicate or migration pending)
       console.error('[signup] referral award error:', err)
     }
+  }
+
+  try {
+    await recordLifecycleAutomationEvent({
+      userId: newUser.id,
+      eventName: LIFECYCLE_EVENT_NAMES.accountCreated,
+      triggerKey: LIFECYCLE_EVENT_NAMES.accountCreated,
+      metadata: {
+        signupSource: 'credentials',
+        referralSignup: Boolean(referrer),
+      },
+    })
+  } catch (error) {
+    console.error('[signup] lifecycle automation error:', error)
   }
 
   return NextResponse.json({ success: true }, { status: 201 })

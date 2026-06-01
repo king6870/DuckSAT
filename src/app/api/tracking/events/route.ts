@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
+import { processEmailAutomationEvent } from '@/lib/email-automations'
 import { prisma } from '@/lib/prisma'
 
 // POST /api/tracking/events — batch log user events
@@ -27,6 +28,21 @@ export async function POST(request: NextRequest) {
         pagePath: e.pagePath || null,
       })),
     })
+
+    if (userId) {
+      await Promise.allSettled(
+        events.map((event: { eventType: string; eventName: string; metadata?: Record<string, unknown>; pagePath?: string }) =>
+          processEmailAutomationEvent({
+            userId,
+            triggerType: 'user_event',
+            eventType: event.eventType,
+            eventName: event.eventName,
+            pagePath: event.pagePath || undefined,
+            metadata: event.metadata,
+          }),
+        ),
+      )
+    }
 
     return NextResponse.json({ success: true, count: events.length })
   } catch (error) {

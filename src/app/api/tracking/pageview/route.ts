@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
+import { processEmailAutomationEvent } from '@/lib/email-automations'
 import { prisma } from '@/lib/prisma'
 import { Prisma } from '@prisma/client'
 
@@ -134,6 +135,17 @@ export async function POST(request: NextRequest) {
             throw error
           }
         }
+      }
+
+      try {
+        await processEmailAutomationEvent({
+          userId,
+          triggerType: 'page_dwell',
+          pagePath,
+          dwellTimeMs: cappedDwell,
+        })
+      } catch (automationError) {
+        console.error('[/api/tracking/pageview] Automation error:', automationError)
       }
     }
 

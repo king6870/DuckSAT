@@ -3,6 +3,10 @@ import CredentialsProvider from 'next-auth/providers/credentials'
 import type { NextAuthOptions, Session } from 'next-auth'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 import { compare } from 'bcryptjs'
+import {
+  LIFECYCLE_EVENT_NAMES,
+  recordLifecycleAutomationEvent,
+} from './lifecycle-email-events'
 import { prisma } from './prisma'
 
 // Check if we're running in a server environment (not in the browser)
@@ -141,6 +145,26 @@ Generate a secure secret with: openssl rand -base64 32`);
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: getProviders(),
+  events: {
+    async createUser({ user }) {
+      if (!user.id) {
+        return
+      }
+
+      try {
+        await recordLifecycleAutomationEvent({
+          userId: user.id,
+          eventName: LIFECYCLE_EVENT_NAMES.accountCreated,
+          triggerKey: LIFECYCLE_EVENT_NAMES.accountCreated,
+          metadata: {
+            signupSource: 'oauth',
+          },
+        })
+      } catch (error) {
+        console.error('[NextAuth][createUser] lifecycle automation error:', error)
+      }
+    },
+  },
   session: {
     strategy: 'jwt' as const,
   },

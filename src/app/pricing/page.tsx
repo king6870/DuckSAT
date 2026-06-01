@@ -3,7 +3,7 @@
 import { Suspense, useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { useSearchParams } from 'next/navigation'
-import { Check, Sparkles, Crown, Zap, Loader2, Shield } from 'lucide-react'
+import { Check, Sparkles, Crown, Zap, Loader2 } from 'lucide-react'
 import { PRICING, SALE } from '@/constants/pricing'
 import CountdownTimer from '@/components/landing/CountdownTimer'
 import SocialProofBar from '@/components/landing/SocialProofBar'
@@ -45,6 +45,17 @@ function PricingContent() {
   const success = searchParams.get('success')
   const canceled = searchParams.get('canceled')
   const saleName = SALE.name
+
+  useEffect(() => {
+    const promoFromQuery = searchParams.get('promo')?.trim().toUpperCase() || ''
+
+    if (!promoFromQuery) {
+      return
+    }
+
+    setPromoOpen(true)
+    setPromoCode(promoFromQuery)
+  }, [searchParams])
 
   useEffect(() => {
     if (authStatus === 'authenticated') {
@@ -344,15 +355,6 @@ function PricingContent() {
               <div className="text-lg font-bold text-indigo-600">${PRICING.monthly.price}/mo</div>
               <Check className="w-5 h-5 text-green-500 mx-auto mt-1" />
             </div>
-          </div>
-        </div>
-
-        {/* Guarantee Badge */}
-        <div className="mt-12 max-w-md mx-auto text-center">
-          <div className="bg-gradient-to-br from-emerald-50 to-green-50 border-2 border-green-200 rounded-2xl p-6">
-            <Shield className="w-10 h-10 text-green-600 mx-auto mb-3" />
-            <p className="font-bold text-gray-900 mb-1">Score Improvement Guarantee</p>
-            <p className="text-sm text-gray-600">Improve your score or get a full refund. No questions asked.</p>
           </div>
         </div>
 

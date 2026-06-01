@@ -1,0 +1,39 @@
+{
+  "lines": 10078,
+  "parseErrors": 0,
+  "verdicts": {
+    "pass": 4161,
+    "fail": 3278,
+    "warning": 2639
+  },
+  "topFails": [
+    {
+      "bucket": "reading-writing",
+      "count": 3247
+    },
+    {
+      "bucket": "reading-comprehension",
+      "count": 2728
+    },
+    {
+      "bucket": "vocabulary",
+      "count": 517
+    },
+    {
+      "bucket": "math",
+      "count": 31
+    },
+    {
+      "bucket": "algebra",
+      "count": 17
+    },
+    {
+      "bucket": "advanced-math",
+      "count": 14
+    },
+    {
+      "bucket": "grammar",
+      "count": 2
+    }
+  ]
+}

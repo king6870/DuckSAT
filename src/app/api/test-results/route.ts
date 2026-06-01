@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
+import { processEmailAutomationEvent } from '@/lib/email-automations'
+import {
+  LIFECYCLE_EVENT_NAMES,
+  maybeEmitStudyStreakMilestone,
+  recordLifecycleAutomationEvent,
+} from '@/lib/lifecycle-email-events'
 import { prisma } from '@/lib/prisma'
 import { calculateSATScore } from '@/utils/satScoring'
 
@@ -13,6 +19,34 @@ interface ModuleResult {
   difficulty?: string
   category?: string
   subtopic?: string
+}
+
+interface PerformanceEntry {
+  correct: number
+  total: number
+}
+
+function getWeakestPerformanceEntry(
+  performance: Record<string, PerformanceEntry> | undefined,
+): { label: string; accuracyRate: number } | null {
+  if (!performance) {
+    return null
+  }
+
+  let weakest: { label: string; accuracyRate: number } | null = null
+
+  for (const [label, value] of Object.entries(performance)) {
+    if (!label.trim() || !value || value.total < 2) {
+      continue
+    }
+
+    const accuracyRate = Math.round((value.correct / value.total) * 100)
+    if (!weakest || accuracyRate < weakest.accuracyRate) {
+      weakest = { label, accuracyRate }
+    }
+  }
+
+  return weakest
 }
 
 export async function POST(request: NextRequest) {
@@ -33,6 +67,19 @@ export async function POST(request: NextRequest) {
     }
 
     const { testResults, practiceTestId } = await request.json()
+
+    const previousTestResult = await prisma.testResult.findFirst({
+      where: { userId: user.id },
+      orderBy: { completedAt: 'desc' },
+      select: { satTotalScore: true },
+    })
+
+    const practiceTest = practiceTestId
+      ? await prisma.practiceTest.findUnique({
+          where: { id: practiceTestId },
+          select: { name: true },
+        })
+      : null
 
     // Extract data from testResults
     const flatResults: ModuleResult[] = testResults.moduleResults.flat()
@@ -117,6 +164,69 @@ export async function POST(request: NextRequest) {
       })
     } catch {
       // Non-critical — don't fail the request
+    }
+
+    try {
+      await processEmailAutomationEvent({
+        userId: user.id,
+        triggerType: 'practice_test_completed',
+        triggerKey: `practice_test_completed:${testResult.id}`,
+        practiceTestId: practiceTestId || null,
+        score: testResult.score,
+        metadata: {
+          scaledScore: satScore.totalScore,
+          mathScore: satScore.mathScore,
+          readingWritingScore: satScore.readingWritingScore,
+          correctAnswers: testResults.correctAnswers,
+          totalQuestions: testResults.totalQuestions,
+          practiceTestName: practiceTest?.name || 'Full practice test',
+        },
+      })
+
+      const scoreImprovement = previousTestResult?.satTotalScore
+        ? satScore.totalScore - previousTestResult.satTotalScore
+        : 0
+
+      if (scoreImprovement >= 70) {
+        await recordLifecycleAutomationEvent({
+          userId: user.id,
+          eventName: LIFECYCLE_EVENT_NAMES.significantScoreImprovement,
+          triggerKey: `${LIFECYCLE_EVENT_NAMES.significantScoreImprovement}:${testResult.id}`,
+          metadata: {
+            scaledScore: satScore.totalScore,
+            previousScore: previousTestResult?.satTotalScore ?? '',
+            improvementAmount: scoreImprovement,
+            mathScore: satScore.mathScore,
+            readingWritingScore: satScore.readingWritingScore,
+            practiceTestName: practiceTest?.name || 'Full practice test',
+          },
+          pagePath: '/progress',
+        })
+      }
+
+      const weakestSubtopic = getWeakestPerformanceEntry(testResults.subtopicPerformance)
+      const weakestCategory = getWeakestPerformanceEntry(testResults.categoryPerformance)
+      const weakestArea = weakestSubtopic || weakestCategory
+
+      if (weakestArea && weakestArea.accuracyRate <= 60) {
+        await recordLifecycleAutomationEvent({
+          userId: user.id,
+          eventName: LIFECYCLE_EVENT_NAMES.weakSpotDetected,
+          triggerKey: `${LIFECYCLE_EVENT_NAMES.weakSpotDetected}:test:${testResult.id}`,
+          metadata: {
+            weakArea: weakestArea.label,
+            weakTopic: weakestArea.label,
+            weakAreaAccuracyRate: weakestArea.accuracyRate,
+            scaledScore: satScore.totalScore,
+            practiceTestName: practiceTest?.name || 'Full practice test',
+          },
+          pagePath: '/progress',
+        })
+      }
+
+      await maybeEmitStudyStreakMilestone(user.id)
+    } catch (automationError) {
+      console.error('Test Results automation error:', automationError)
     }
 
     return NextResponse.json({
