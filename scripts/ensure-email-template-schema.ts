@@ -197,6 +197,148 @@ END
 `,
     },
     {
+      name: 'outbound_email_messages table',
+      sql: `
+IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = N'outbound_email_messages' AND type = 'U')
+BEGIN
+  CREATE TABLE [dbo].[outbound_email_messages] (
+    [id] NVARCHAR(1000) NOT NULL,
+    [userId] NVARCHAR(1000) NULL,
+    [toEmail] NVARCHAR(1000) NOT NULL,
+    [fromEmail] NVARCHAR(1000) NULL,
+    [replyToEmail] NVARCHAR(1000) NULL,
+    [channel] NVARCHAR(1000) NOT NULL,
+    [templateId] NVARCHAR(1000) NULL,
+    [automationId] NVARCHAR(1000) NULL,
+    [triggerType] NVARCHAR(1000) NULL,
+    [triggerKey] NVARCHAR(1000) NULL,
+    [subject] NVARCHAR(1000) NOT NULL,
+    [htmlBody] NVARCHAR(MAX) NOT NULL,
+    [textBody] NVARCHAR(MAX) NOT NULL,
+    [provider] NVARCHAR(1000) NOT NULL CONSTRAINT [outbound_email_messages_provider_df] DEFAULT N'resend',
+    [providerMessageId] NVARCHAR(1000) NULL,
+    [status] NVARCHAR(1000) NOT NULL CONSTRAINT [outbound_email_messages_status_df] DEFAULT N'queued',
+    [error] NVARCHAR(MAX) NULL,
+    [metadata] NVARCHAR(MAX) NULL,
+    [sentAt] DATETIME2 NULL,
+    [createdAt] DATETIME2 NOT NULL CONSTRAINT [outbound_email_messages_createdAt_df] DEFAULT GETDATE(),
+    [updatedAt] DATETIME2 NOT NULL,
+    CONSTRAINT [outbound_email_messages_pkey] PRIMARY KEY ([id])
+  );
+END
+`,
+    },
+    {
+      name: 'outbound_email_messages userId foreign key',
+      sql: `
+IF OBJECT_ID(N'[dbo].[outbound_email_messages]', N'U') IS NOT NULL
+  AND OBJECT_ID(N'[dbo].[users]', N'U') IS NOT NULL
+  AND NOT EXISTS (
+    SELECT 1 FROM sys.foreign_keys
+    WHERE name = N'outbound_email_messages_userId_fkey'
+      AND parent_object_id = OBJECT_ID(N'[dbo].[outbound_email_messages]')
+  )
+BEGIN
+  ALTER TABLE [dbo].[outbound_email_messages]
+    ADD CONSTRAINT [outbound_email_messages_userId_fkey]
+    FOREIGN KEY ([userId]) REFERENCES [dbo].[users]([id]) ON DELETE SET NULL;
+END
+`,
+    },
+    {
+      name: 'outbound_email_messages templateId foreign key',
+      sql: `
+IF OBJECT_ID(N'[dbo].[outbound_email_messages]', N'U') IS NOT NULL
+  AND OBJECT_ID(N'[dbo].[email_templates]', N'U') IS NOT NULL
+  AND EXISTS (
+    SELECT 1
+    FROM sys.columns child_col
+    INNER JOIN sys.columns parent_col
+      ON parent_col.object_id = OBJECT_ID(N'[dbo].[email_templates]')
+     AND parent_col.name = N'id'
+    WHERE child_col.object_id = OBJECT_ID(N'[dbo].[outbound_email_messages]')
+      AND child_col.name = N'templateId'
+      AND child_col.max_length = parent_col.max_length
+  )
+  AND NOT EXISTS (
+    SELECT 1 FROM sys.foreign_keys
+    WHERE name = N'outbound_email_messages_templateId_fkey'
+      AND parent_object_id = OBJECT_ID(N'[dbo].[outbound_email_messages]')
+  )
+BEGIN
+  ALTER TABLE [dbo].[outbound_email_messages]
+    ADD CONSTRAINT [outbound_email_messages_templateId_fkey]
+    FOREIGN KEY ([templateId]) REFERENCES [dbo].[email_templates]([id]) ON DELETE NO ACTION;
+END
+`,
+    },
+    {
+      name: 'outbound_email_messages automationId foreign key',
+      sql: `
+IF OBJECT_ID(N'[dbo].[outbound_email_messages]', N'U') IS NOT NULL
+  AND OBJECT_ID(N'[dbo].[email_automations]', N'U') IS NOT NULL
+  AND EXISTS (
+    SELECT 1
+    FROM sys.columns child_col
+    INNER JOIN sys.columns parent_col
+      ON parent_col.object_id = OBJECT_ID(N'[dbo].[email_automations]')
+     AND parent_col.name = N'id'
+    WHERE child_col.object_id = OBJECT_ID(N'[dbo].[outbound_email_messages]')
+      AND child_col.name = N'automationId'
+      AND child_col.max_length = parent_col.max_length
+  )
+  AND NOT EXISTS (
+    SELECT 1 FROM sys.foreign_keys
+    WHERE name = N'outbound_email_messages_automationId_fkey'
+      AND parent_object_id = OBJECT_ID(N'[dbo].[outbound_email_messages]')
+  )
+BEGIN
+  ALTER TABLE [dbo].[outbound_email_messages]
+    ADD CONSTRAINT [outbound_email_messages_automationId_fkey]
+    FOREIGN KEY ([automationId]) REFERENCES [dbo].[email_automations]([id]) ON DELETE NO ACTION;
+END
+`,
+    },
+    {
+      name: 'outbound_email_messages userId/createdAt index',
+      sql: `
+IF NOT EXISTS (
+  SELECT 1 FROM sys.indexes
+  WHERE object_id = OBJECT_ID(N'[dbo].[outbound_email_messages]')
+    AND name = N'outbound_email_messages_userId_createdAt_idx'
+)
+BEGIN
+  CREATE INDEX [outbound_email_messages_userId_createdAt_idx] ON [dbo].[outbound_email_messages] ([userId], [createdAt]);
+END
+`,
+    },
+    {
+      name: 'outbound_email_messages status/createdAt index',
+      sql: `
+IF NOT EXISTS (
+  SELECT 1 FROM sys.indexes
+  WHERE object_id = OBJECT_ID(N'[dbo].[outbound_email_messages]')
+    AND name = N'outbound_email_messages_status_createdAt_idx'
+)
+BEGIN
+  CREATE INDEX [outbound_email_messages_status_createdAt_idx] ON [dbo].[outbound_email_messages] ([status], [createdAt]);
+END
+`,
+    },
+    {
+      name: 'outbound_email_messages automationId/createdAt index',
+      sql: `
+IF NOT EXISTS (
+  SELECT 1 FROM sys.indexes
+  WHERE object_id = OBJECT_ID(N'[dbo].[outbound_email_messages]')
+    AND name = N'outbound_email_messages_automationId_createdAt_idx'
+)
+BEGIN
+  CREATE INDEX [outbound_email_messages_automationId_createdAt_idx] ON [dbo].[outbound_email_messages] ([automationId], [createdAt]);
+END
+`,
+    },
+    {
       name: 'users.satTestDate column',
       sql: `
 IF COL_LENGTH('users', 'satTestDate') IS NULL
