@@ -188,12 +188,12 @@ export default function HomepageQuestionDemo() {
               <p className="font-semibold text-gray-900 text-sm">Like what you see?</p>
               <p className="text-gray-600 text-sm">Get access to 2,000+ SAT questions with AI explanations.</p>
             </div>
-            <Link href="/auth/signin">
-              <Button variant="primary" size="sm" className="shrink-0 group">
+            <Button asChild variant="primary" size="sm" className="shrink-0 group">
+              <Link href="/auth/signin">
                 Try more questions — it&apos;s free
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </ScrollReveal>
