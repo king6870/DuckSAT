@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import HeroSection from "@/components/landing/HeroSection"
 import TestimonialCarousel from "@/components/landing/TestimonialCarousel"
 import HowItWorks from "@/components/landing/HowItWorks"
+import HomepageQuestionDemo from "@/components/landing/HomepageQuestionDemo"
 import FeatureGrid from "@/components/landing/FeatureGrid"
 import WhyDuckSAT from "@/components/landing/WhyDuckSAT"
 import ValueStack from "@/components/landing/ValueStack"
@@ -58,6 +59,7 @@ export default function Home() {
       <HeroSection onGetStarted={handleGetStarted} isAuthenticated={isAuthenticated} />
       <TestimonialCarousel variant="compact" />
       <HowItWorks />
+      <HomepageQuestionDemo />
       <FeatureGrid />
       <WhyDuckSAT />
       <TestimonialCarousel variant="full" />
