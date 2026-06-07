@@ -214,3 +214,32 @@ jobs:
           app-name: 'ducksatapp'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8471701F58524C9A8628229C7587AA3C }}
           package: deploy.zip
+
+      - name: Restart app process (Kudu)
+        shell: python3 {0}
+        env:
+          PUBLISH_PROFILE: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8471701F58524C9A8628229C7587AA3C }}
+        run: |
+          import base64
+          import os
+          import urllib.request
+          import xml.etree.ElementTree as ET
+
+          KUDU = 'https://ducksatapp.scm.azurewebsites.net'
+          root = ET.fromstring(os.environ['PUBLISH_PROFILE'])
+          prof = next(p for p in root.findall('publishProfile') if p.get('publishMethod') == 'MSDeploy')
+          token = base64.b64encode(f"{prof.get('userName')}:{prof.get('userPWD')}".encode()).decode()
+          auth = f'Basic {token}'
+
+          req = urllib.request.Request(
+              f'{KUDU}/api/processes/0',
+              method='DELETE',
+              headers={'Authorization': auth}
+          )
+
+          try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+              print(f'Restart request completed: HTTP {r.status}')
+          except Exception as exc:
+            # Process may already be restarting; don't fail deployment on restart race.
+            print(f'Restart request returned non-fatal error: {exc}')
