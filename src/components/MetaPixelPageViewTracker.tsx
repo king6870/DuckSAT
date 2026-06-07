@@ -1,12 +1,11 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { trackMetaPageView } from '@/lib/metaPixel'
 
 export default function MetaPixelPageViewTracker() {
   const pathname = usePathname()
-  const searchParams = useSearchParams()
   const firstRender = useRef(true)
 
   useEffect(() => {
@@ -17,7 +16,7 @@ export default function MetaPixelPageViewTracker() {
     }
 
     trackMetaPageView()
-  }, [pathname, searchParams])
+  }, [pathname])
 
   return null
 }
