@@ -68,6 +68,11 @@ export default function RootLayout({
             `,
           }}
         />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
+      >
         <noscript>
           <img
             height="1"
@@ -77,11 +82,6 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
-      >
         <MetaPixelPageViewTracker />
         <AppShell>{children}</AppShell>
       </body>
