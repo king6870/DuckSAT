@@ -13,6 +13,7 @@ import ValueStack from "@/components/landing/ValueStack"
 import UserSegmentation from "@/components/landing/UserSegmentation"
 import UrgencyCTA from "@/components/landing/UrgencyCTA"
 import LandingFooter from "@/components/landing/LandingFooter"
+import { trackMetaClickthrough } from '@/lib/metaPixel'
 
 export default function Home() {
   const { data: session, status } = useSession()
@@ -50,9 +51,17 @@ export default function Home() {
   }
 
   const isAuthenticated = !!session
-  const handleGetStarted = isAuthenticated
-    ? () => router.push('/practice-tests')
-    : () => router.push('/auth/signin')
+  const handleGetStarted = () => {
+    const destination = isAuthenticated ? '/practice-tests' : '/auth/signin'
+
+    trackMetaClickthrough({
+      location: 'landing_home',
+      destination,
+      isAuthenticated,
+    })
+
+    router.push(destination)
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
