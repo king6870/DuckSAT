@@ -108,8 +108,8 @@ function getEffectivePlan(user: {
 }) {
   const { subscriptionPlan, subscriptionStatus, currentPeriodEnd } = user;
 
-  // Active, trialing, or past_due all get their paid plan
-  if (['active', 'trialing', 'past_due'].includes(subscriptionStatus)) {
+  // Paid subscriptions keep premium access.
+  if (['active', 'past_due'].includes(subscriptionStatus)) {
     return subscriptionPlan;
   }
 

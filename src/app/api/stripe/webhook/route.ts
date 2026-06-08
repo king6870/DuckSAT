@@ -59,10 +59,26 @@ export async function POST(request: Request) {
         const session = event.data.object as Stripe.Checkout.Session;
         const userId = session.metadata?.userId;
         if (userId && session.customer) {
-          await prisma.user.update({
-            where: { id: userId },
-            data: { stripeCustomerId: session.customer as string },
-          });
+          const customerId = typeof session.customer === 'string' ? session.customer : session.customer.id;
+          const updateData: Parameters<typeof prisma.user.update>[0]['data'] = { stripeCustomerId: customerId };
+
+          // Immediately persist subscription details so the user is activated
+          // without waiting for the customer.subscription.created webhook, which
+          // may arrive before or after this event (Stripe delivers them concurrently).
+          const subRef = session.subscription;
+          if (subRef) {
+            const subId = typeof subRef === 'string' ? subRef : subRef.id;
+            const sub = await stripe.subscriptions.retrieve(subId);
+            const plan = (sub.metadata?.plan || session.metadata?.plan || 'monthly') as string;
+            updateData.stripeSubscriptionId = sub.id;
+            updateData.subscriptionPlan = plan;
+            updateData.subscriptionStatus = sub.status;
+            updateData.currentPeriodEnd = getSubscriptionPeriodEnd(sub);
+            updateData.trialEnd = sub.trial_end ? new Date(sub.trial_end * 1000) : null;
+            updateData.cancelAtPeriodEnd = sub.cancel_at_period_end;
+          }
+
+          await prisma.user.update({ where: { id: userId }, data: updateData });
         }
         break;
       }
@@ -76,14 +92,21 @@ export async function POST(request: Request) {
           ? subscription.customer
           : subscription.customer.id;
 
-        const user = await prisma.user.findFirst({
+        let user = await prisma.user.findFirst({
           where: { stripeCustomerId: customerId },
         });
+
+        // Fallback: checkout.session.completed may not have run yet, so look up
+        // by userId from subscription metadata instead.
+        if (!user && subscription.metadata?.userId) {
+          user = await prisma.user.findUnique({ where: { id: subscription.metadata.userId } });
+        }
 
         if (user) {
           await prisma.user.update({
             where: { id: user.id },
             data: {
+              stripeCustomerId: customerId,
               stripeSubscriptionId: subscription.id,
               subscriptionPlan: plan as string,
               subscriptionStatus: subscription.status,
@@ -168,16 +191,31 @@ export async function POST(request: Request) {
           : invoice.customer?.id;
 
         const subId = getInvoiceSubscriptionId(invoice);
+        const amountPaid = typeof invoice.amount_paid === 'number' ? invoice.amount_paid : 0;
+
+        // Avoid granting paid access on zero-dollar trial invoices.
+        if (invoice.status !== 'paid' || amountPaid <= 0) {
+          break;
+        }
 
         if (customerId && subId) {
-          const user = await prisma.user.findFirst({
+          const sub = await stripe.subscriptions.retrieve(subId);
+
+          let user = await prisma.user.findFirst({
             where: { stripeCustomerId: customerId },
           });
+
+          // Fallback: use userId from subscription metadata in case customer ID
+          // hasn't been written to the DB yet by checkout.session.completed.
+          if (!user && sub.metadata?.userId) {
+            user = await prisma.user.findUnique({ where: { id: sub.metadata.userId } });
+          }
+
           if (user) {
-            const sub = await stripe.subscriptions.retrieve(subId);
             await prisma.user.update({
               where: { id: user.id },
               data: {
+                stripeCustomerId: customerId,
                 subscriptionStatus: 'active',
                 currentPeriodEnd: getSubscriptionPeriodEnd(sub),
               },

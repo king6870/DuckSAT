@@ -10,7 +10,7 @@ export const STRIPE_PLANS = {
     practiceTestsPerMonth: 10,
     drillsPerMonth: Infinity,
     priceId: process.env.STRIPE_MONTHLY_PRICE_ID!,
-    trialDays: 30,
+    trialDays: 0,
   },
   yearly: {
     name: 'Yearly',

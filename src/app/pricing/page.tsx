@@ -138,7 +138,7 @@ function PricingContent() {
   }
 
   const currentPlan = subscription?.plan || 'free'
-  const isActive = subscription?.status === 'active' || subscription?.status === 'trialing'
+  const isActive = subscription?.status === 'active'
 
   // Track checkout outcomes
   useEffect(() => {
@@ -236,7 +236,7 @@ function PricingContent() {
                 <span className="text-gray-500">/month</span>
               </div>
               <div className="flex flex-wrap items-center gap-2 mt-2">
-                <span className="text-sm text-gray-500">1 month free trial</span>
+                <span className="text-sm text-gray-500">Billed monthly</span>
               </div>
             </div>
 
