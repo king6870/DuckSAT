@@ -1,0 +1,172 @@
+# Build and deploy Next.js standalone app to Azure Web App - ducksatapp-staging
+# Mirrors main_ducksatapp.yml with these differences:
+#   - Triggers on staging branch
+#   - Deploys to ducksatapp-staging (dev.ducksat.com)
+#   - No OIDC login / Stripe-sync step (test keys set directly in Azure App Settings)
+#   - Migration uses DATABASE_URL_STAGING secret
+
+name: Build and deploy Node.js app to Azure Web App - ducksatapp-staging
+
+on:
+  push:
+    branches:
+      - staging
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+
+      - name: Cache Next.js build output
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-staging-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-staging-${{ hashFiles('**/package-lock.json') }}-
+
+      - name: Install dependencies
+        run: npm ci
+        # postinstall script runs: prisma generate
+
+      - name: Build app
+        run: npm run build
+        env:
+          # Placeholder values — Next.js only connects to DB/Stripe at request time,
+          # not at build time. Real values are in Azure App Service app settings.
+          DATABASE_URL: sqlserver://placeholder:1433;database=placeholder;user=placeholder;password=placeholder;encrypt=true
+          NEXTAUTH_SECRET: placeholder-build-secret-not-used-at-runtime
+          NEXTAUTH_URL: https://dev.ducksat.com
+          STRIPE_SECRET_KEY: sk_test_build_placeholder_not_used_at_runtime
+          NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: pk_test_build_placeholder_not_used_at_runtime
+          STRIPE_MONTHLY_PRICE_ID: price_build_placeholder_monthly
+          STRIPE_YEARLY_PRICE_ID: price_build_placeholder_yearly
+          STRIPE_WEBHOOK_SECRET: whsec_build_placeholder_not_used_at_runtime
+
+      - name: Package standalone build
+        run: |
+          mkdir -p deploy-package
+          cp -r .next/standalone/. deploy-package/
+          mkdir -p deploy-package/.next/static
+          cp -r .next/static/. deploy-package/.next/static/
+          cp -r public/. deploy-package/public/
+          mkdir -p deploy-package/prisma
+          cp -r prisma/. deploy-package/prisma/
+
+          # ---------------------------------------------------------------
+          # AZURE SMB FIX: rename .prisma → prisma_dot_prisma
+          #
+          # Azure Files SMB cannot create directories whose names start with
+          # '.' during zip extraction (unzip, Python zipfile, and even the
+          # official azure/webapps-deploy action all fail with the same
+          # "No such file or directory" when writing to .prisma/client/).
+          # Root cause: Azure Files SMB metadata is eventually-consistent for
+          # hidden-name directories; the mkdir appears to succeed but the dir
+          # is invisible to the next open() call.
+          #
+          # Fix: rename node_modules/.prisma to node_modules/prisma_dot_prisma
+          # so it is a visible directory with no extraction issues.
+          # Then prepend an IIFE to server.js that runs at first boot on Azure
+          # and restores .prisma/client/ using Node.js fs.mkdirSync (which
+          # uses the OS-level mkdir syscall and works fine on Azure Files).
+          # ---------------------------------------------------------------
+          if [ -d "deploy-package/node_modules/.prisma" ]; then
+            mv deploy-package/node_modules/.prisma deploy-package/node_modules/prisma_dot_prisma
+            echo "Renamed .prisma → prisma_dot_prisma"
+            ls deploy-package/node_modules/prisma_dot_prisma/client/
+          fi
+
+          # Prepend Prisma restore script to server.js (avoids YAML heredoc issues)
+          cat scripts/azure-prisma-init.js deploy-package/server.js > /tmp/server_patched.js
+          cp /tmp/server_patched.js deploy-package/server.js
+          echo "Patched server.js with Prisma init"
+
+          touch deploy-package/.skipOryxBuild
+          echo "Package contents:"
+          ls -la deploy-package/
+          echo ".next contents:"
+          ls deploy-package/.next/ | head -10
+          echo "BUILD_ID: $(cat deploy-package/.next/BUILD_ID)"
+
+      - name: Create deployment zip
+        run: |
+          cd deploy-package
+          # Use find | zip to guarantee ALL dotfiles are included.
+          find . | zip ../deploy.zip -@
+          cd ..
+          echo "zip size: $(du -sh deploy.zip | cut -f1)"
+          echo "--- Verifying key files in zip ---"
+          unzip -l deploy.zip | grep -E "BUILD_ID|skipOryx|prisma_dot"
+
+      - name: Disable Oryx remote build
+        shell: python3 {0}
+        env:
+          PUBLISH_PROFILE: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_STAGING }}
+        run: |
+          import xml.etree.ElementTree as ET, base64, urllib.request, json, os
+          KUDU = 'https://ducksatapp-staging.scm.azurewebsites.net'
+          root = ET.fromstring(os.environ['PUBLISH_PROFILE'])
+          prof = next(p for p in root.findall('publishProfile')
+                      if p.get('publishMethod') == 'MSDeploy')
+          token = base64.b64encode(f"{prof.get('userName')}:{prof.get('userPWD')}".encode()).decode()
+          auth = f'Basic {token}'
+          body = json.dumps({'SCM_DO_BUILD_DURING_DEPLOYMENT': 'false'}).encode()
+          req = urllib.request.Request(
+              f'{KUDU}/api/settings',
+              data=body, method='POST',
+              headers={'Authorization': auth, 'Content-Type': 'application/json'})
+          with urllib.request.urlopen(req, timeout=30) as r:
+              print(f'Kudu settings updated: HTTP {r.status}')
+              print(r.read().decode()[:200])
+
+      - name: Apply pending database migrations
+        run: npx prisma db execute --file prisma/migrations/20260412000000_add_referral_system/migration.sql --schema prisma/schema.prisma
+        continue-on-error: true
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL_STAGING }}
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'ducksatapp-staging'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_STAGING }}
+          package: deploy.zip
+
+      - name: Restart app process (Kudu)
+        shell: python3 {0}
+        env:
+          PUBLISH_PROFILE: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_STAGING }}
+        run: |
+          import base64
+          import os
+          import urllib.request
+          import xml.etree.ElementTree as ET
+
+          KUDU = 'https://ducksatapp-staging.scm.azurewebsites.net'
+          root = ET.fromstring(os.environ['PUBLISH_PROFILE'])
+          prof = next(p for p in root.findall('publishProfile') if p.get('publishMethod') == 'MSDeploy')
+          token = base64.b64encode(f"{prof.get('userName')}:{prof.get('userPWD')}".encode()).decode()
+          auth = f'Basic {token}'
+
+          req = urllib.request.Request(
+              f'{KUDU}/api/processes/0',
+              method='DELETE',
+              headers={'Authorization': auth}
+          )
+
+          try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+              print(f'Restart request completed: HTTP {r.status}')
+          except Exception as exc:
+            print(f'Restart request returned non-fatal error: {exc}')

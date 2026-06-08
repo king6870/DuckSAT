@@ -59,9 +59,12 @@ function buildFromHeader(config: ResendConfig): string {
 }
 
 function buildEmailRequest(message: ResendEmailPayload, config: ResendConfig) {
+  // In staging, redirect all outbound email to a single catch-all address so
+  // real users never receive mail from a non-production environment.
+  const stagingOverride = process.env.STAGING_EMAIL_OVERRIDE?.trim()
   return {
     from: buildFromHeader(config),
-    to: [message.to],
+    to: stagingOverride ? [stagingOverride] : [message.to],
     subject: message.subject,
     html: message.html,
     text: message.text,
