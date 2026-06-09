@@ -9,13 +9,18 @@ export default function MetaPixelPageViewTracker() {
   const firstRender = useRef(true)
 
   useEffect(() => {
-    // Initial full page load already fires PageView from base pixel script.
     if (firstRender.current) {
       firstRender.current = false
       return
     }
 
-    trackMetaPageView()
+    // Only track on route changes when user has accepted analytics cookies
+    const consent = typeof localStorage !== 'undefined'
+      ? localStorage.getItem('ducksat-cookie-consent')
+      : null
+    if (consent === 'accepted') {
+      trackMetaPageView()
+    }
   }, [pathname])
 
   return null

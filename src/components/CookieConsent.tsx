@@ -4,8 +4,57 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 const STORAGE_KEY = 'ducksat-cookie-consent'
+const FB_PIXEL_ID = '1939262350066294'
 
 type ConsentState = 'accepted' | 'declined' | null
+
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void
+    _fbq?: (...args: unknown[]) => void
+  }
+}
+
+function loadMetaPixel() {
+  if (typeof window === 'undefined') return
+
+  // If fbq is already loaded (from head script on returning visitors), just track
+  if (typeof window.fbq === 'function') {
+    window.fbq('track', 'PageView')
+    return
+  }
+
+  // First-time acceptance: dynamically load the pixel and initialize
+  const f = window as typeof window & { fbq: typeof window.fbq; _fbq?: typeof window.fbq }
+  const n: ((...args: unknown[]) => void) & {
+    callMethod?: (...args: unknown[]) => void
+    queue: unknown[][]
+    loaded: boolean
+    version: string
+    push: (...args: unknown[]) => void
+  } = function (...args: unknown[]) {
+    if (n.callMethod) {
+      n.callMethod(...args)
+    } else {
+      n.queue.push(args)
+    }
+  } as typeof n
+  n.queue = []
+  n.loaded = true
+  n.version = '2.0'
+  n.push = n
+
+  f.fbq = n
+  if (!f._fbq) f._fbq = n
+
+  const script = document.createElement('script')
+  script.async = true
+  script.src = 'https://connect.facebook.net/en_US/fbevents.js'
+  document.head.appendChild(script)
+
+  window.fbq?.('init', FB_PIXEL_ID)
+  window.fbq?.('track', 'PageView')
+}
 
 export default function CookieConsent() {
   const [consent, setConsent] = useState<ConsentState>(null)
@@ -14,28 +63,18 @@ export default function CookieConsent() {
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as ConsentState | null
     if (!stored) {
-      // Small delay so the banner doesn't flash before hydration
       const t = setTimeout(() => setVisible(true), 800)
       return () => clearTimeout(t)
     }
     setConsent(stored)
-    if (stored === 'accepted') loadAnalytics()
+    if (stored === 'accepted') loadMetaPixel()
   }, [])
-
-  function loadAnalytics() {
-    // Only initialise Meta Pixel after consent is given.
-    // The base fbq('init') in layout.tsx already ran — we just need to
-    // allow future events. If the pixel was blocked, fire a PageView now.
-    if (typeof window !== 'undefined' && typeof (window as Window & { fbq?: Function }).fbq === 'function') {
-      ;(window as Window & { fbq: Function }).fbq('track', 'PageView')
-    }
-  }
 
   function accept() {
     localStorage.setItem(STORAGE_KEY, 'accepted')
     setConsent('accepted')
     setVisible(false)
-    loadAnalytics()
+    loadMetaPixel()
   }
 
   function decline() {
