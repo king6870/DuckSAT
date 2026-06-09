@@ -7,6 +7,7 @@ import MobileNav from '@/components/MobileNav'
 import FeedbackWidget from '@/components/FeedbackWidget'
 import KlaviyoEmbed from '@/components/KlaviyoEmbed'
 import { ReferralPopup } from '@/components/ReferralPopup'
+import SiteFooter from '@/components/SiteFooter'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -49,6 +50,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           {children}
         </main>
 
+        <SiteFooter />
         <FeedbackWidget />
         <ReferralPopup />
         <KlaviyoEmbed />
