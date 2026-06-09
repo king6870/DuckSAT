@@ -11,14 +11,18 @@ export default function LandingFooter() {
           <SocialProofBar variant="light" />
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-6 text-sm text-gray-500">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
             <Link href="/about" className="hover:text-indigo-600 transition-colors">About</Link>
             <Link href="/how-it-works" className="hover:text-indigo-600 transition-colors">How It Works</Link>
             <Link href="/our-goal" className="hover:text-indigo-600 transition-colors">Our Goal</Link>
             <Link href="/pricing" className="hover:text-indigo-600 transition-colors">Pricing</Link>
             <Link href="/progress" className="hover:text-indigo-600 transition-colors">Progress</Link>
+            <span className="text-gray-200 hidden sm:inline">|</span>
+            <Link href="/terms" className="hover:text-indigo-600 transition-colors">Terms</Link>
+            <Link href="/privacy" className="hover:text-indigo-600 transition-colors">Privacy</Link>
+            <Link href="/cookies" className="hover:text-indigo-600 transition-colors">Cookies</Link>
           </div>
-          <p className="text-sm text-gray-400">&copy; {new Date().getFullYear()} DuckSAT. Affordable SAT prep for everyone.</p>
+          <p className="text-sm text-gray-400">&copy; {new Date().getFullYear()} DuckSAT. SAT&reg; is a trademark of the College Board.</p>
         </div>
       </div>
     </footer>
