@@ -8,6 +8,7 @@ import FeedbackWidget from '@/components/FeedbackWidget'
 import KlaviyoEmbed from '@/components/KlaviyoEmbed'
 import { ReferralPopup } from '@/components/ReferralPopup'
 import SiteFooter from '@/components/SiteFooter'
+import CookieConsent from '@/components/CookieConsent'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -51,6 +52,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         </main>
 
         <SiteFooter />
+        <CookieConsent />
         <FeedbackWidget />
         <ReferralPopup />
         <KlaviyoEmbed />
