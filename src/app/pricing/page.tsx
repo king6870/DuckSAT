@@ -68,10 +68,27 @@ function PricingContent() {
     }
   }, [authStatus])
 
+  // Auto-trigger checkout when returning from sign-in with intent in URL
+  useEffect(() => {
+    const autoCheckout = searchParams.get('autoCheckout') as 'monthly' | 'yearly' | null
+    if (!autoCheckout || authStatus !== 'authenticated') return
+    // Only auto-trigger when subscription is loaded (not still fetching)
+    if (subscription === null && authStatus === 'authenticated') return
+    const currentPlanValue = subscription?.plan ?? 'free'
+    const isActiveSub = subscription?.status === 'active'
+    if ((currentPlanValue === 'monthly' || currentPlanValue === 'yearly') && isActiveSub) return
+    // Remove autoCheckout from URL silently, then trigger checkout
+    const url = new URL(window.location.href)
+    url.searchParams.delete('autoCheckout')
+    window.history.replaceState({}, '', url.pathname + (url.search || ''))
+    handleCheckout(autoCheckout)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [authStatus, subscription, searchParams])
+
   async function handleCheckout(plan: 'monthly' | 'yearly') {
     if (!session) {
       trackEvent('conversion', 'pricing_signin_redirect', { plan })
-      window.location.href = '/auth/signin?callbackUrl=/pricing'
+      window.location.href = `/auth/signin?callbackUrl=${encodeURIComponent(`/pricing?autoCheckout=${plan}`)}`
       return
     }
     trackEvent('conversion', 'checkout_started', { plan })

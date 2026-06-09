@@ -1,8 +1,10 @@
 'use client'
 
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Zap } from 'lucide-react'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import SocialProofBar from './SocialProofBar'
+import { PRICING } from '@/constants/pricing'
 
 interface HeroSectionProps {
   onGetStarted: () => void
@@ -50,16 +52,25 @@ export default function HeroSection({ onGetStarted, isAuthenticated }: HeroSecti
             {isAuthenticated ? 'Start Practicing' : 'Start Free'}
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="min-h-[56px] px-8"
-            onClick={() => {
-              document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })
-            }}
-          >
-            See How It Works
-          </Button>
+
+          {!isAuthenticated ? (
+            <Link
+              href="/pricing?autoCheckout=monthly"
+              className="inline-flex items-center gap-2 min-h-[56px] px-8 rounded-xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl"
+            >
+              <Zap className="w-4 h-4" />
+              Go Premium – ${PRICING.monthly.price}/mo
+            </Link>
+          ) : (
+            <Button
+              variant="outline"
+              size="lg"
+              className="min-h-[56px] px-8"
+              onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              See How It Works
+            </Button>
+          )}
         </div>
 
         {/* Trust strip */}
