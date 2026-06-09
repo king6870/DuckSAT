@@ -27,7 +27,7 @@ function classifyStripeKey(value: string | undefined): StripeKeyMode {
 }
 
 export function getStripeEnvReport(): StripeEnvReport {
-  const isProduction = process.env.NODE_ENV === 'production'
+  const isProduction = process.env.NODE_ENV === 'production' && process.env.STAGING !== 'true'
   const secretKeyMode = classifyStripeKey(process.env.STRIPE_SECRET_KEY)
   const publishableKeyMode = classifyStripeKey(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
   const webhookSecretPresent = Boolean(process.env.STRIPE_WEBHOOK_SECRET)
@@ -59,7 +59,7 @@ export function assertStripeRuntimeConfig(
   requirements: StripeRuntimeRequirements = {}
 ): StripeEnvReport {
   const report = getStripeEnvReport()
-  const isProduction = process.env.NODE_ENV === 'production'
+  const isProduction = process.env.NODE_ENV === 'production' && process.env.STAGING !== 'true'
 
   if (report.secretKeyMode === 'missing') {
     throw new Error(`[Stripe Config] STRIPE_SECRET_KEY is not set for ${context}.`)
