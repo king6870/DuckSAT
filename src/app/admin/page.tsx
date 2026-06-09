@@ -167,6 +167,15 @@ export default function AdminDashboard() {
               </div>
             </Link>
 
+            {/* Site Feedback */}
+            <Link href="/admin/feedback" className="group">
+              <div className="p-6 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl border-2 border-amber-200 hover:border-amber-400 transition-all hover:shadow-lg">
+                <div className="text-4xl mb-4">💬</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Site Feedback</h3>
+                <p className="text-gray-600">View user star ratings and written reviews from the feedback widget</p>
+              </div>
+            </Link>
+
             {/* Topics & Subtopics */}
             <Link href="/admin/topics" className="group">
               <div className="p-6 bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl border-2 border-teal-200 hover:border-teal-400 transition-all hover:shadow-lg">
