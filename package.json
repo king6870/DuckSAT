@@ -32,7 +32,13 @@
         "validate:generated-json": "tsx scripts/validate-generated-json.ts",
         "test:specialized-topics": "tsx scripts/test-specialized-topic-generation.ts",
         "go-live:readiness": "tsx scripts/go-live-readiness.ts",
-        "go-live:readiness:strict": "GO_LIVE_STRICT=true tsx scripts/go-live-readiness.ts"
+        "go-live:readiness:strict": "GO_LIVE_STRICT=true tsx scripts/go-live-readiness.ts",
+        "test": "playwright test",
+        "test:localhost": "BASE_URL=http://localhost:3000 playwright test",
+        "test:staging": "BASE_URL=https://dev.ducksat.com playwright test",
+        "test:prod": "BASE_URL=https://www.ducksat.com playwright test",
+        "test:ui": "playwright test --ui",
+        "test:report": "playwright show-report tests/report"
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.10.0",
@@ -70,6 +76,7 @@
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3",
+        "@playwright/test": "^1.60.0",
         "@tailwindcss/postcss": "^4",
         "@types/node": "^20",
         "@types/react": "^18",
