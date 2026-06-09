@@ -6,7 +6,8 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import {
   GraduationCap, Target, BarChart3, TrendingUp, TrendingDown,
-  Clock, Award, BookOpen, Calculator, Zap, ChevronRight
+  Clock, Award, BookOpen, Calculator, Zap, ChevronRight,
+  CreditCard, AlertTriangle, CheckCircle, Loader2, Crown,
 } from 'lucide-react'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -159,6 +160,115 @@ function EmptyDashboard() {
   )
 }
 
+// ─── Subscription Card ────────────────────────────────────────────────────────
+
+interface SubData {
+  plan: string
+  status: string
+  currentPeriodEnd: string | null
+  cancelAtPeriodEnd: boolean
+  stripeCustomerId: string | null
+}
+
+function SubscriptionCard({ sub, onManage, manageLoading }: {
+  sub: SubData
+  onManage: () => void
+  manageLoading: boolean
+}) {
+  const isPremium = sub.plan !== 'free' && ['active', 'past_due'].includes(sub.status)
+  const isCanceledButActive = sub.plan !== 'free' && sub.status === 'canceled' && sub.currentPeriodEnd && new Date(sub.currentPeriodEnd) > new Date()
+  const hasStripe = Boolean(sub.stripeCustomerId)
+
+  const planLabel = sub.plan === 'monthly' ? 'Monthly' : sub.plan === 'yearly' ? 'Yearly' : 'Free'
+  const endDate = sub.currentPeriodEnd
+    ? new Date(sub.currentPeriodEnd).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+    : null
+
+  if (!isPremium && !isCanceledButActive) {
+    return (
+      <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl border-2 border-indigo-100 p-5 mb-8">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center">
+              <CreditCard className="w-5 h-5 text-indigo-500" />
+            </div>
+            <div>
+              <p className="font-bold text-gray-900">Free Plan</p>
+              <p className="text-xs text-gray-500">Limited tests & drills per month</p>
+            </div>
+          </div>
+          <Link
+            href="/pricing"
+            className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-sm font-semibold rounded-xl hover:opacity-90 transition-opacity"
+          >
+            Upgrade to Premium
+          </Link>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className={`rounded-2xl border-2 p-5 mb-8 ${sub.cancelAtPeriodEnd || isCanceledButActive ? 'bg-amber-50 border-amber-200' : 'bg-gradient-to-br from-green-50 to-emerald-50 border-emerald-200'}`}>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${sub.cancelAtPeriodEnd || isCanceledButActive ? 'bg-amber-100' : 'bg-emerald-100'}`}>
+            {sub.cancelAtPeriodEnd || isCanceledButActive
+              ? <AlertTriangle className="w-5 h-5 text-amber-600" />
+              : <Crown className="w-5 h-5 text-emerald-600" />}
+          </div>
+          <div>
+            <p className="font-bold text-gray-900">
+              {planLabel} Premium
+              {isPremium && !sub.cancelAtPeriodEnd && (
+                <span className="ml-2 text-xs font-semibold px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-full">Active</span>
+              )}
+              {(sub.cancelAtPeriodEnd || isCanceledButActive) && (
+                <span className="ml-2 text-xs font-semibold px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full">Canceling</span>
+              )}
+            </p>
+            <p className="text-xs text-gray-500">
+              {sub.cancelAtPeriodEnd || isCanceledButActive
+                ? `Access ends ${endDate ?? '—'}`
+                : endDate
+                  ? `Renews ${endDate}`
+                  : 'Active subscription'}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex gap-2 shrink-0">
+          {hasStripe && (
+            <button
+              onClick={onManage}
+              disabled={manageLoading}
+              className="px-4 py-2 text-sm font-semibold text-gray-600 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center gap-2"
+            >
+              {manageLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
+              {sub.cancelAtPeriodEnd ? 'Reactivate / Manage' : 'Manage Billing'}
+            </button>
+          )}
+          {!sub.cancelAtPeriodEnd && !isCanceledButActive && hasStripe && (
+            <button
+              onClick={onManage}
+              disabled={manageLoading}
+              className="px-4 py-2 text-sm font-semibold text-red-600 bg-white border border-red-200 rounded-xl hover:bg-red-50 transition-colors"
+            >
+              Cancel Plan
+            </button>
+          )}
+        </div>
+      </div>
+
+      {sub.cancelAtPeriodEnd && (
+        <p className="mt-3 text-xs text-amber-700 bg-amber-100 rounded-lg px-3 py-2">
+          Your subscription will not renew. You&apos;ll keep Premium access until {endDate}. Click &ldquo;Reactivate / Manage&rdquo; to resume.
+        </p>
+      )}
+    </div>
+  )
+}
+
 // ─── Main Page ────────────────────────────────────────────────────────────────
 
 export default function DashboardPage() {
@@ -167,6 +277,8 @@ export default function DashboardPage() {
   const [progress, setProgress] = useState<ProgressData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [sub, setSub] = useState<SubData | null>(null)
+  const [manageLoading, setManageLoading] = useState(false)
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -186,6 +298,27 @@ export default function DashboardPage() {
       .catch(() => setError('Failed to load progress'))
       .finally(() => setLoading(false))
   }, [status])
+
+  useEffect(() => {
+    if (status !== 'authenticated') return
+    fetch('/api/subscription')
+      .then((r) => r.json())
+      .then((d) => { if (!d.error) setSub(d) })
+      .catch(() => {})
+  }, [status])
+
+  async function handleManageBilling() {
+    setManageLoading(true)
+    try {
+      const res = await fetch('/api/stripe/portal', { method: 'POST' })
+      const data = await res.json()
+      if (data.url) window.location.href = data.url
+    } catch {
+      // silent
+    } finally {
+      setManageLoading(false)
+    }
+  }
 
   if (status === 'loading' || (status === 'authenticated' && loading)) {
     return (
@@ -207,12 +340,17 @@ export default function DashboardPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-16">
 
         {/* Welcome header */}
-        <div className="mb-8">
+        <div className="mb-6">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
             Welcome back, {name}! 👋
           </h1>
           <p className="text-gray-500 mt-1">Here&apos;s your SAT prep overview</p>
         </div>
+
+        {/* Subscription status */}
+        {sub && (
+          <SubscriptionCard sub={sub} onManage={handleManageBilling} manageLoading={manageLoading} />
+        )}
 
         {!progress || !o ? (
           <EmptyDashboard />
