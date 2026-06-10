@@ -88,7 +88,7 @@ function PricingContent() {
   async function handleCheckout(plan: 'monthly' | 'yearly') {
     if (!session) {
       trackEvent('conversion', 'pricing_signin_redirect', { plan })
-      window.location.href = `/auth/signin?callbackUrl=${encodeURIComponent(`/pricing?autoCheckout=${plan}`)}`
+      window.location.href = `/signup?plan=${plan}`
       return
     }
     trackEvent('conversion', 'checkout_started', { plan })
