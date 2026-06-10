@@ -54,7 +54,7 @@ export async function POST(request: Request) {
       subscription_data: planConfig.trialDays > 0
         ? { trial_period_days: planConfig.trialDays, metadata: { userId: session.user.id, plan } }
         : { metadata: { userId: session.user.id, plan } },
-      success_url: `${baseUrl}/pricing?success=true`,
+      success_url: `${baseUrl}/dashboard?subscribed=true`,
       cancel_url: `${baseUrl}/pricing?canceled=true`,
       metadata: { userId: session.user.id, plan },
     });

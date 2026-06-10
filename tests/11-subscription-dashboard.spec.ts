@@ -1,5 +1,6 @@
 /**
  * Subscription dashboard tests (unauthenticated).
+ * After payment, Stripe redirects to /dashboard?subscribed=true (not /pricing).
  */
 import { test, expect } from '@playwright/test'
 
@@ -7,6 +8,19 @@ test.describe('Dashboard (unauthenticated)', () => {
   test('redirects to signin page (middleware guard)', async ({ page }) => {
     const response = await page.goto('/dashboard', { waitUntil: 'domcontentloaded' })
     const finalUrl = page.url()
+    expect(
+      finalUrl.includes('/auth/') || finalUrl.includes('signin'),
+      `Expected auth redirect, got ${finalUrl}`,
+    ).toBe(true)
+    expect(response?.status()).not.toBe(500)
+  })
+
+  test('/dashboard?subscribed=true redirects unauthenticated user to signin (not pricing)', async ({ page }) => {
+    await page.context().clearCookies()
+    const response = await page.goto('/dashboard?subscribed=true', { waitUntil: 'domcontentloaded' })
+    await page.waitForTimeout(500)
+    const finalUrl = page.url()
+    // Must be redirected to auth, not back to /pricing
     expect(
       finalUrl.includes('/auth/') || finalUrl.includes('signin'),
       `Expected auth redirect, got ${finalUrl}`,
