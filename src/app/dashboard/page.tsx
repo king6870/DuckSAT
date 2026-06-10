@@ -1,13 +1,13 @@
 "use client"
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import {
   GraduationCap, Target, BarChart3, TrendingUp, TrendingDown,
   Clock, Award, BookOpen, Calculator, Zap, ChevronRight,
-  CreditCard, AlertTriangle, CheckCircle, Loader2, Crown,
+  CreditCard, AlertTriangle, CheckCircle, Loader2, Crown, X,
 } from 'lucide-react'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -269,16 +269,62 @@ function SubscriptionCard({ sub, onManage, manageLoading }: {
   )
 }
 
+// ─── Subscribed Modal ─────────────────────────────────────────────────────────
+
+function SubscribedModal({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+      <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-md p-8 text-center">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+          aria-label="Close"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-emerald-400 to-green-500 mx-auto mb-4 shadow-lg">
+          <CheckCircle className="w-9 h-9 text-white" />
+        </div>
+
+        <h2 className="text-2xl font-extrabold text-gray-900 mb-2">You&apos;re Subscribed!</h2>
+        <p className="text-gray-500 mb-8 text-sm">
+          Welcome to DuckSAT Premium. You now have unlimited access to practice tests and topic drills.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-3">
+          <Link
+            href="/practice-tests"
+            onClick={onClose}
+            className="flex-1 px-5 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl shadow hover:opacity-90 transition-opacity text-sm"
+          >
+            Take a Test
+          </Link>
+          <Link
+            href="/practice"
+            onClick={onClose}
+            className="flex-1 px-5 py-3 bg-white border-2 border-indigo-200 text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-colors text-sm"
+          >
+            Take a Topic Drill
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // ─── Main Page ────────────────────────────────────────────────────────────────
 
-export default function DashboardPage() {
+function DashboardPageInner() {
   const { data: session, status } = useSession()
   const router = useRouter()
+  const searchParams = useSearchParams()
   const [progress, setProgress] = useState<ProgressData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [sub, setSub] = useState<SubData | null>(null)
   const [manageLoading, setManageLoading] = useState(false)
+  const [showSubscribedModal, setShowSubscribedModal] = useState(false)
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -307,6 +353,48 @@ export default function DashboardPage() {
       .catch(() => {})
   }, [status])
 
+  // After Stripe checkout, poll for active subscription then show success modal
+  useEffect(() => {
+    if (status !== 'authenticated') return
+    if (searchParams.get('subscribed') !== 'true') return
+
+    // Clean the URL immediately so refresh won't re-show the modal
+    router.replace('/dashboard')
+
+    let attempts = 0
+    const maxAttempts = 12
+
+    async function pollSubscription() {
+      try {
+        const res = await fetch('/api/subscription')
+        const data = await res.json()
+        const isActive =
+          !data.error &&
+          data.plan !== 'free' &&
+          ['active', 'trialing'].includes(data.status)
+
+        if (isActive) {
+          setSub(data)
+          setShowSubscribedModal(true)
+          return
+        }
+      } catch {
+        // ignore transient errors, keep polling
+      }
+
+      attempts++
+      if (attempts < maxAttempts) {
+        setTimeout(pollSubscription, 1000)
+      } else {
+        // Webhook may still be processing — show modal anyway
+        setShowSubscribedModal(true)
+      }
+    }
+
+    pollSubscription()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status])
+
   async function handleManageBilling() {
     setManageLoading(true)
     try {
@@ -330,12 +418,16 @@ export default function DashboardPage() {
 
   if (!session) return null
 
+  const handleModalClose = () => setShowSubscribedModal(false)
+
   const name = session.user?.name?.split(' ')[0] ?? 'Student'
   const o = progress?.overview
   const recentTests = progress?.testHistory.slice(0, 5) ?? []
   const drillOverview = progress?.drillOverview
 
   return (
+    <>
+    {showSubscribedModal && <SubscribedModal onClose={handleModalClose} />}
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-blue-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-16">
 
@@ -598,5 +690,18 @@ export default function DashboardPage() {
         )}
       </div>
     </div>
+    </>
+  )
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-blue-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600" />
+      </div>
+    }>
+      <DashboardPageInner />
+    </Suspense>
   )
 }

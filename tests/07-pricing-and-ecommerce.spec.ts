@@ -3,6 +3,7 @@
  * Tests the streamlined checkout path:
  *   Homepage → /pricing?autoCheckout=monthly → /auth/signin (unauthenticated)
  *
+ * After payment Stripe redirects to /dashboard?subscribed=true (not /pricing).
  * NOTE: We do NOT complete real Stripe checkouts in any environment.
  * We verify initiation (redirect to Stripe) but stop before payment.
  */
