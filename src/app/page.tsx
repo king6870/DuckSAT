@@ -13,7 +13,7 @@ import ValueStack from "@/components/landing/ValueStack"
 import UserSegmentation from "@/components/landing/UserSegmentation"
 import UrgencyCTA from "@/components/landing/UrgencyCTA"
 import LandingFooter from "@/components/landing/LandingFooter"
-import { trackMetaClickthrough } from '@/lib/metaPixel'
+import { trackMetaClickthrough, trackMetaLead } from '@/lib/metaPixel'
 
 export default function Home() {
   const { data: session, status } = useSession()
@@ -59,6 +59,7 @@ export default function Home() {
       destination,
       isAuthenticated,
     })
+    trackMetaLead({ location: 'landing_home', destination })
 
     router.push(destination)
   }

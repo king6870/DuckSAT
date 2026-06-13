@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useState, FormEvent, useEffect, Suspense } from 'react'
 import { Zap, Check, Loader2 } from 'lucide-react'
 import { PRICING } from '@/constants/pricing'
+import { trackMetaCompleteRegistration } from '@/lib/metaPixel'
 
 const USERNAME_RE = /^[a-zA-Z0-9_]+$/
 
@@ -77,6 +78,7 @@ function SignupSubscribeForm() {
         return
       }
 
+      trackMetaCompleteRegistration({ status: true, method: 'credentials', plan })
       // Use the existing, battle-tested autoCheckout flow on the pricing page
       // so we don't race against the session cookie becoming visible to /api/stripe/checkout
       setLoadingStep('checkout')

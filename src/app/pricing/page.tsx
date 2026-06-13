@@ -8,6 +8,7 @@ import { PRICING, SALE } from '@/constants/pricing'
 import CountdownTimer from '@/components/landing/CountdownTimer'
 import SocialProofBar from '@/components/landing/SocialProofBar'
 import { trackEvent } from '@/lib/tracking'
+import { trackMetaViewContent, trackMetaInitiateCheckout } from '@/lib/metaPixel'
 
 interface SubscriptionData {
   plan: string
@@ -86,6 +87,15 @@ function PricingContent() {
   }, [authStatus, subscription, searchParams])
 
   async function handleCheckout(plan: 'monthly' | 'yearly') {
+    // Fire InitiateCheckout on every checkout-button click, regardless of auth state
+    trackMetaInitiateCheckout({
+      value: PRICING[plan].price,
+      currency: 'USD',
+      content_ids: [plan],
+      content_name: `DuckSAT ${plan === 'yearly' ? 'Yearly' : 'Monthly'} Subscription`,
+      content_type: 'product',
+      num_items: 1,
+    })
     if (!session) {
       trackEvent('conversion', 'pricing_signin_redirect', { plan })
       window.location.href = `/signup?plan=${plan}`
@@ -156,6 +166,16 @@ function PricingContent() {
 
   const currentPlan = subscription?.plan || 'free'
   const isActive = subscription?.status === 'active'
+
+  // Track pricing page view (standard ViewContent parameters per Meta docs)
+  useEffect(() => {
+    trackMetaViewContent({
+      content_name: 'DuckSAT Pricing',
+      content_category: 'Subscription',
+      content_ids: ['monthly', 'yearly'],
+      content_type: 'product',
+    })
+  }, [])
 
   // Track checkout outcomes
   useEffect(() => {

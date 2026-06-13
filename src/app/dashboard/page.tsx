@@ -9,6 +9,8 @@ import {
   Clock, Award, BookOpen, Calculator, Zap, ChevronRight,
   CreditCard, AlertTriangle, CheckCircle, Loader2, Crown, X,
 } from 'lucide-react'
+import { trackMetaPurchase } from '@/lib/metaPixel'
+import { PRICING } from '@/constants/pricing'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -375,6 +377,15 @@ function DashboardPageInner() {
 
         if (isActive) {
           setSub(data)
+          const planPrice = data.plan === 'yearly' ? PRICING.yearly.price : PRICING.monthly.price
+          trackMetaPurchase({
+            value: planPrice,
+            currency: 'USD',
+            content_ids: [data.plan],
+            content_name: `DuckSAT ${data.plan === 'yearly' ? 'Yearly' : 'Monthly'} Subscription`,
+            content_type: 'product',
+            num_items: 1,
+          })
           setShowSubscribedModal(true)
           return
         }
