@@ -2,8 +2,9 @@
 
 import { useSession } from 'next-auth/react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useEffect, useState, FormEvent, Suspense } from 'react'
+import { useEffect, useState, useRef, FormEvent, Suspense } from 'react'
 import Image from 'next/image'
+import { trackMetaCompleteRegistration } from '@/lib/metaPixel'
 
 function WelcomeForm() {
   const { data: session, status } = useSession()
@@ -24,6 +25,16 @@ function WelcomeForm() {
       router.push('/auth/signin')
     }
   }, [status, router])
+
+  const registrationTracked = useRef(false)
+
+  // Fire CompleteRegistration once on landing here — this page is only reached via Google OAuth signup
+  useEffect(() => {
+    if (status === 'authenticated' && !registrationTracked.current) {
+      registrationTracked.current = true
+      trackMetaCompleteRegistration({ status: true, method: 'google', plan: 'free' })
+    }
+  }, [status])
 
   // Pre-fill referral code from localStorage (set before Google OAuth redirect)
   // Also record QR source if the user came via /home/qr-code

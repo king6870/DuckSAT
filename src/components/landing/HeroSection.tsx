@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import SocialProofBar from './SocialProofBar'
 import { PRICING } from '@/constants/pricing'
+import { trackMetaLead } from '@/lib/metaPixel'
 
 interface HeroSectionProps {
   onGetStarted: () => void
@@ -56,6 +57,7 @@ export default function HeroSection({ onGetStarted, isAuthenticated }: HeroSecti
           {!isAuthenticated ? (
             <Link
               href="/signup?plan=monthly"
+              onClick={() => trackMetaLead({ location: 'hero_go_premium', plan: 'monthly' })}
               className="inline-flex items-center gap-2 min-h-[56px] px-8 rounded-xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl"
             >
               <Zap className="w-4 h-4" />

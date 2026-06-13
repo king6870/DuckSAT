@@ -3,6 +3,7 @@
 import { signIn } from 'next-auth/react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useState, FormEvent, useEffect, Suspense } from 'react'
+import { trackMetaCompleteRegistration } from '@/lib/metaPixel'
 
 const USERNAME_RE = /^[a-zA-Z0-9_]+$/
 
@@ -54,6 +55,7 @@ function SignUpForm() {
       })
 
       if (res.status === 201) {
+        trackMetaCompleteRegistration({ status: true, method: 'credentials', plan: 'free' })
         // Auto sign-in after successful registration
         const result = await signIn('credentials', {
           username,
